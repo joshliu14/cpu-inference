@@ -1,0 +1,450 @@
+{
+  "source": "2026-10-05_microbench",
+  "tsc_ghz": 2.1,
+  "plateau_windows_bytes": {
+    "L1": [
+      4096,
+      32768
+    ],
+    "L2": [
+      262144,
+      1048576
+    ],
+    "L3": [
+      8388608,
+      25165824
+    ],
+    "DRAM": [
+      536870912,
+      4294967296
+    ]
+  },
+  "compute": {
+    "latency_cycles_K1": {
+      "fp32_avx2_fma": 4.01,
+      "fp32_avx512_add": 3.43,
+      "fp32_avx512_fma": 4.01,
+      "fp32_avx512_mul": 4.01,
+      "fp32_scalar_add": 2.0,
+      "fp32_scalar_fma": 4.01,
+      "fp32_scalar_mul": 4.01,
+      "fp32_sse_fma": 4.01,
+      "int_add": 1.0,
+      "int_imul": 3.01
+    },
+    "max_ops_per_cycle": {
+      "fp32_avx2_fma": 2.0,
+      "fp32_avx512_add": 2.0,
+      "fp32_avx512_fma": 2.0,
+      "fp32_avx512_mul": 2.0,
+      "fp32_scalar_add": 2.0,
+      "fp32_scalar_fma": 2.0,
+      "fp32_scalar_mul": 2.0,
+      "fp32_sse_fma": 2.0,
+      "int_add": 4.89,
+      "int_imul": 1.0
+    },
+    "peak_fp32_flops_per_cycle": {
+      "fp32_avx2_fma": 31.94,
+      "fp32_avx512_add": 31.93,
+      "fp32_avx512_fma": 63.86,
+      "fp32_avx512_mul": 31.93,
+      "fp32_scalar_add": 2.0,
+      "fp32_scalar_fma": 3.99,
+      "fp32_scalar_mul": 2.0,
+      "fp32_sse_fma": 15.97,
+      "int_add": 0.0,
+      "int_imul": 0.0
+    },
+    "freq_ghz_during_avx512": 2.095,
+    "peak_fp32_gflops_avx512": 134.1
+  },
+  "latency": {
+    "random_4k": {
+      "L1": {
+        "cycles": 5.0,
+        "ns": 2.4
+      },
+      "L2": {
+        "cycles": 17.8,
+        "ns": 8.5
+      },
+      "L3": {
+        "cycles": 78.7,
+        "ns": 37.6
+      },
+      "DRAM": {
+        "cycles": 258.6,
+        "ns": 123.4
+      },
+      "apparent_transitions": [
+        {
+          "ws_bytes": 55104,
+          "from_cycles": 5.0,
+          "to_cycles": 15.9
+        },
+        {
+          "ws_bytes": 1763456,
+          "from_cycles": 15.9,
+          "to_cycles": 26.8
+        },
+        {
+          "ws_bytes": 2493888,
+          "from_cycles": 26.8,
+          "to_cycles": 47.6
+        },
+        {
+          "ws_bytes": 8388608,
+          "from_cycles": 47.6,
+          "to_cycles": 72.2
+        },
+        {
+          "ws_bytes": 56431552,
+          "from_cycles": 72.2,
+          "to_cycles": 124.4
+        },
+        {
+          "ws_bytes": 94906240,
+          "from_cycles": 124.4,
+          "to_cycles": 217.9
+        }
+      ]
+    },
+    "random_thp": {
+      "L1": {
+        "cycles": 5.0,
+        "ns": 2.4
+      },
+      "L2": {
+        "cycles": 16.0,
+        "ns": 7.7
+      },
+      "L3": {
+        "cycles": 62.7,
+        "ns": 29.9
+      },
+      "DRAM": {
+        "cycles": 207.9,
+        "ns": 99.2
+      },
+      "apparent_transitions": [
+        {
+          "ws_bytes": 55104,
+          "from_cycles": 5.0,
+          "to_cycles": 15.9
+        },
+        {
+          "ws_bytes": 2493888,
+          "from_cycles": 15.9,
+          "to_cycles": 40.9
+        },
+        {
+          "ws_bytes": 3526912,
+          "from_cycles": 40.9,
+          "to_cycles": 62.0
+        },
+        {
+          "ws_bytes": 47453120,
+          "from_cycles": 62.0,
+          "to_cycles": 112.0
+        },
+        {
+          "ws_bytes": 134217728,
+          "from_cycles": 112.0,
+          "to_cycles": 198.4
+        }
+      ]
+    },
+    "sequential_4k": {
+      "L1": {
+        "cycles": 5.0,
+        "ns": 2.4
+      },
+      "L2": {
+        "cycles": 6.1,
+        "ns": 2.9
+      },
+      "L3": {
+        "cycles": 7.1,
+        "ns": 3.4
+      },
+      "DRAM": {
+        "cycles": 11.1,
+        "ns": 5.3
+      },
+      "apparent_transitions": [
+        {
+          "ws_bytes": 55104,
+          "from_cycles": 5.0,
+          "to_cycles": 8.1
+        }
+      ]
+    }
+  },
+  "bandwidth": {
+    "copy_4k": {
+      "L1": {
+        "GBps": 267.6,
+        "bytes_per_cycle": 127.61
+      },
+      "L2": {
+        "GBps": 54.9,
+        "bytes_per_cycle": 26.21
+      },
+      "L3": {
+        "GBps": 21.7,
+        "bytes_per_cycle": 10.36
+      },
+      "DRAM": {
+        "GBps": 17.6,
+        "bytes_per_cycle": 8.4
+      }
+    },
+    "rand_read_4k": {
+      "L1": {
+        "GBps": 181.1,
+        "bytes_per_cycle": 86.13
+      },
+      "L2": {
+        "GBps": 91.1,
+        "bytes_per_cycle": 43.47
+      },
+      "L3": {
+        "GBps": 20.9,
+        "bytes_per_cycle": 9.97
+      },
+      "DRAM": {
+        "GBps": 5.4,
+        "bytes_per_cycle": 2.6
+      }
+    },
+    "read_4k": {
+      "L1": {
+        "GBps": 252.2,
+        "bytes_per_cycle": 120.29
+      },
+      "L2": {
+        "GBps": 104.6,
+        "bytes_per_cycle": 49.92
+      },
+      "L3": {
+        "GBps": 23.0,
+        "bytes_per_cycle": 10.98
+      },
+      "DRAM": {
+        "GBps": 18.5,
+        "bytes_per_cycle": 8.81
+      }
+    },
+    "read_thp": {
+      "L1": {
+        "GBps": 252.1,
+        "bytes_per_cycle": 120.24
+      },
+      "L2": {
+        "GBps": 105.4,
+        "bytes_per_cycle": 50.3
+      },
+      "L3": {
+        "GBps": 23.1,
+        "bytes_per_cycle": 11.04
+      },
+      "DRAM": {
+        "GBps": 18.5,
+        "bytes_per_cycle": 8.82
+      }
+    },
+    "triad_4k": {
+      "L1": {
+        "GBps": 380.3,
+        "bytes_per_cycle": 181.3
+      },
+      "L2": {
+        "GBps": 73.8,
+        "bytes_per_cycle": 35.22
+      },
+      "L3": {
+        "GBps": 22.2,
+        "bytes_per_cycle": 10.57
+      },
+      "DRAM": {
+        "GBps": 17.8,
+        "bytes_per_cycle": 8.5
+      }
+    },
+    "write_4k": {
+      "L1": {
+        "GBps": 133.8,
+        "bytes_per_cycle": 63.85
+      },
+      "L2": {
+        "GBps": 33.3,
+        "bytes_per_cycle": 15.88
+      },
+      "L3": {
+        "GBps": 20.2,
+        "bytes_per_cycle": 9.67
+      },
+      "DRAM": {
+        "GBps": 15.0,
+        "bytes_per_cycle": 7.18
+      }
+    },
+    "write_nt_4k": {
+      "L1": {
+        "GBps": 19.7,
+        "bytes_per_cycle": 9.4
+      },
+      "L2": {
+        "GBps": 23.0,
+        "bytes_per_cycle": 10.98
+      },
+      "L3": {
+        "GBps": 23.1,
+        "bytes_per_cycle": 11.02
+      },
+      "DRAM": {
+        "GBps": 23.1,
+        "bytes_per_cycle": 11.0
+      }
+    }
+  },
+  "intensity_peak_flops_per_cycle": 63.16,
+  "compiler_flags": [
+    {
+      "flagset": "O2",
+      "kernel": "dot",
+      "cyc_per_elem_median": 1.948,
+      "zmm": 0,
+      "ymm": 0,
+      "scalar_ss": 2,
+      "packed_ps": 0
+    },
+    {
+      "flagset": "O2",
+      "kernel": "relu",
+      "cyc_per_elem_median": 2.622,
+      "zmm": 0,
+      "ymm": 0,
+      "scalar_ss": 1,
+      "packed_ps": 0
+    },
+    {
+      "flagset": "O2",
+      "kernel": "saxpy",
+      "cyc_per_elem_median": 1.347,
+      "zmm": 0,
+      "ymm": 0,
+      "scalar_ss": 2,
+      "packed_ps": 0
+    },
+    {
+      "flagset": "O3",
+      "kernel": "dot",
+      "cyc_per_elem_median": 1.93,
+      "zmm": 0,
+      "ymm": 0,
+      "scalar_ss": 10,
+      "packed_ps": 1
+    },
+    {
+      "flagset": "O3",
+      "kernel": "relu",
+      "cyc_per_elem_median": 0.308,
+      "zmm": 0,
+      "ymm": 0,
+      "scalar_ss": 1,
+      "packed_ps": 0
+    },
+    {
+      "flagset": "O3",
+      "kernel": "saxpy",
+      "cyc_per_elem_median": 0.31,
+      "zmm": 0,
+      "ymm": 0,
+      "scalar_ss": 2,
+      "packed_ps": 4
+    },
+    {
+      "flagset": "O3_native",
+      "kernel": "dot",
+      "cyc_per_elem_median": 1.933,
+      "zmm": 0,
+      "ymm": 13,
+      "scalar_ss": 18,
+      "packed_ps": 2
+    },
+    {
+      "flagset": "O3_native",
+      "kernel": "relu",
+      "cyc_per_elem_median": 0.177,
+      "zmm": 0,
+      "ymm": 8,
+      "scalar_ss": 0,
+      "packed_ps": 0
+    },
+    {
+      "flagset": "O3_native",
+      "kernel": "saxpy",
+      "cyc_per_elem_median": 0.207,
+      "zmm": 0,
+      "ymm": 6,
+      "scalar_ss": 6,
+      "packed_ps": 4
+    },
+    {
+      "flagset": "O3_native_fast",
+      "kernel": "dot",
+      "cyc_per_elem_median": 0.177,
+      "zmm": 7,
+      "ymm": 12,
+      "scalar_ss": 7,
+      "packed_ps": 18
+    },
+    {
+      "flagset": "O3_native_fast",
+      "kernel": "relu",
+      "cyc_per_elem_median": 0.092,
+      "zmm": 3,
+      "ymm": 3,
+      "scalar_ss": 7,
+      "packed_ps": 2
+    },
+    {
+      "flagset": "O3_native_fast",
+      "kernel": "saxpy",
+      "cyc_per_elem_median": 0.075,
+      "zmm": 5,
+      "ymm": 5,
+      "scalar_ss": 0,
+      "packed_ps": 9
+    },
+    {
+      "flagset": "O3_native_zmm",
+      "kernel": "dot",
+      "cyc_per_elem_median": 3.218,
+      "zmm": 4,
+      "ymm": 34,
+      "scalar_ss": 38,
+      "packed_ps": 2
+    },
+    {
+      "flagset": "O3_native_zmm",
+      "kernel": "relu",
+      "cyc_per_elem_median": 0.105,
+      "zmm": 6,
+      "ymm": 8,
+      "scalar_ss": 0,
+      "packed_ps": 0
+    },
+    {
+      "flagset": "O3_native_zmm",
+      "kernel": "saxpy",
+      "cyc_per_elem_median": 0.086,
+      "zmm": 6,
+      "ymm": 6,
+      "scalar_ss": 14,
+      "packed_ps": 4
+    }
+  ]
+}
