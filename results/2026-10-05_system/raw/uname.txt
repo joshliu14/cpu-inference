@@ -1,0 +1,2 @@
+$ uname -a
+Linux node0.infer.nexdp-pg0.utah.cloudlab.us 6.8.0-138-generic #138-Ubuntu SMP PREEMPT_DYNAMIC Fri Jul 31 22:41:49 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux

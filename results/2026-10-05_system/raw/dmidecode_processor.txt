@@ -1,0 +1,87 @@
+# dmidecode 3.5
+Getting SMBIOS data from sysfs.
+SMBIOS 3.3.0 present.
+
+Handle 0x0400, DMI type 4, 48 bytes
+Processor Information
+	Socket Designation: CPU1
+	Type: Central Processor
+	Family: Xeon
+	Manufacturer: Intel
+	ID: <redacted>
+	Signature: Type 0, Family 6, Model 207, Stepping 2
+	Flags:
+		FPU (Floating-point unit on-chip)
+		VME (Virtual mode extension)
+		DE (Debugging extension)
+		PSE (Page size extension)
+		TSC (Time stamp counter)
+		MSR (Model specific registers)
+		PAE (Physical address extension)
+		MCE (Machine check exception)
+		CX8 (CMPXCHG8 instruction supported)
+		APIC (On-chip APIC hardware supported)
+		SEP (Fast system call)
+		MTRR (Memory type range registers)
+		PGE (Page global enable)
+		MCA (Machine check architecture)
+		CMOV (Conditional move instruction supported)
+		PAT (Page attribute table)
+		PSE-36 (36-bit page size extension)
+		CLFSH (CLFLUSH instruction supported)
+		DS (Debug store)
+		ACPI (ACPI supported)
+		MMX (MMX technology supported)
+		FXSR (FXSAVE and FXSTOR instructions supported)
+		SSE (Streaming SIMD extensions)
+		SSE2 (Streaming SIMD extensions 2)
+		SS (Self-snoop)
+		HTT (Multi-threading)
+		TM (Thermal monitor supported)
+		PBE (Pending break enabled)
+	Version: INTEL(R) XEON(R) GOLD 5512U
+	Voltage: 1.6 V
+	External Clock: Unknown
+	Max Speed: 4000 MHz
+	Current Speed: 2100 MHz
+	Status: Populated, Enabled
+	Upgrade: Socket LGA4677
+	L1 Cache Handle: 0x0700
+	L2 Cache Handle: 0x0701
+	L3 Cache Handle: 0x0702
+	Serial Number: <redacted>
+	Asset Tag: <redacted>
+	Part Number: Not Specified
+	Core Count: 28
+	Core Enabled: 28
+	Thread Count: 56
+	Characteristics:
+		64-bit capable
+		Multi-Core
+		Hardware Thread
+		Execute Protection
+		Enhanced Virtualization
+		Power/Performance Control
+
+Handle 0x0401, DMI type 4, 48 bytes
+Processor Information
+	Socket Designation: CPU2
+	Type: Central Processor
+	Family: Unknown
+	Manufacturer: Not Specified
+	ID: <redacted>
+	Version: Not Specified
+	Voltage: Unknown
+	External Clock: Unknown
+	Max Speed: 4000 MHz
+	Current Speed: Unknown
+	Status: Unpopulated
+	Upgrade: Socket LGA4677
+	L1 Cache Handle: Not Provided
+	L2 Cache Handle: Not Provided
+	L3 Cache Handle: Not Provided
+	Serial Number: <redacted>
+	Asset Tag: <redacted>
+	Part Number: Not Specified
+	Characteristics: None
+

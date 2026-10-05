@@ -1,0 +1,21 @@
+perf_version=perf version 6.8.12
+kernel.perf_event_paranoid=-1
+kernel.perf_event_max_sample_rate=1000
+kernel.perf_event_mlock_kb=516
+kernel.kptr_restrict=1
+kernel.nmi_watchdog=1
+pmu_devices=breakpoint cpu cstate_core cstate_pkg dsa0 intel_bts intel_pt kprobe msr power software tracepoint uncore_cha_0 uncore_cha_1 uncore_cha_10 uncore_cha_11 uncore_cha_12 uncore_cha_13 uncore_cha_14 uncore_cha_15 uncore_cha_16 uncore_cha_17 uncore_cha_18 uncore_cha_19 uncore_cha_2 uncore_cha_20 uncore_cha_21 uncore_cha_22 uncore_cha_23 uncore_cha_24 uncore_cha_25 uncore_cha_26 uncore_cha_27 uncore_cha_3 uncore_cha_4 uncore_cha_5 uncore_cha_6 uncore_cha_7 uncore_cha_8 uncore_cha_9 uncore_iio_0 uncore_iio_1 uncore_iio_2 uncore_iio_3 uncore_iio_6 uncore_iio_7 uncore_iio_8 uncore_iio_free_running_0 uncore_iio_free_running_1 uncore_iio_free_running_2 uncore_iio_free_running_3 uncore_iio_free_running_4 uncore_iio_free_running_5 uncore_iio_free_running_6 uncore_iio_free_running_7 uncore_iio_free_running_8 uncore_imc_0 uncore_imc_1 uncore_imc_2 uncore_imc_3 uncore_imc_4 uncore_imc_5 uncore_imc_6 uncore_imc_7 uncore_imc_free_running_0 uncore_imc_free_running_1 uncore_imc_free_running_2 uncore_imc_free_running_3 uncore_irp_0 uncore_irp_1 uncore_irp_2 uncore_irp_3 uncore_irp_6 uncore_irp_7 uncore_irp_8 uncore_m2m_0 uncore_m2m_1 uncore_m2m_2 uncore_m2m_3 uncore_m2pcie_0 uncore_m2pcie_1 uncore_m2pcie_2 uncore_m2pcie_3 uncore_m2pcie_6 uncore_m2pcie_7 uncore_m2pcie_8 uncore_m3upi_0 uncore_m3upi_1 uncore_m3upi_2 uncore_pcu uprobe 
+cpu/caps/branches=32
+cpu/caps/max_precise=3
+cpu/caps/pmu_name=sapphire_rapids
+cpu/events: branch-instructions branch-misses bus-cycles cache-misses cache-references cpu-cycles instructions mem-loads mem-loads-aux mem-stores ref-cycles slots topdown-bad-spec topdown-be-bound topdown-br-mispredict topdown-fe-bound topdown-fetch-lat topdown-heavy-ops topdown-mem-bound topdown-retiring 
+cpu/format:
+  cmask=config:24-31
+  edge=config:18
+  event=config:0-7
+  frontend=config1:0-23
+  inv=config:23
+  ldlat=config1:0-15
+  offcore_rsp=config1:0-63
+  pc=config:19
+  umask=config:8-15

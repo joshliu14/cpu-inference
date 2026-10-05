@@ -1,0 +1,157 @@
+{
+  "kernel": "Linux node0.infer.nexdp-pg0.utah.cloudlab.us 6.8.0-138-generic #138-Ubuntu SMP PREEMPT_DYNAMIC Fri Jul 31 22:41:49 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux",
+  "os": "Ubuntu 24.04.4 LTS",
+  "cpu_model": "INTEL(R) XEON(R) GOLD 5512U",
+  "cpu_family_model_stepping": [
+    "6",
+    "207",
+    "2"
+  ],
+  "sockets": "1",
+  "cores_per_socket": "28",
+  "threads_per_core": "1",
+  "online_cpus": "0-27",
+  "offline_cpus": "28-55",
+  "numa_nodes": "1",
+  "caches_cpu0": [
+    {
+      "level": "1",
+      "type": "Data",
+      "size": "48K",
+      "ways": "12",
+      "line": "64",
+      "sets": "64",
+      "shared_cpu_list": "0"
+    },
+    {
+      "level": "1",
+      "type": "Instruction",
+      "size": "32K",
+      "ways": "8",
+      "line": "64",
+      "sets": "64",
+      "shared_cpu_list": "0"
+    },
+    {
+      "level": "2",
+      "type": "Unified",
+      "size": "2048K",
+      "ways": "16",
+      "line": "64",
+      "sets": "2048",
+      "shared_cpu_list": "0"
+    },
+    {
+      "level": "3",
+      "type": "Unified",
+      "size": "53760K",
+      "ways": "15",
+      "line": "64",
+      "sets": "57344",
+      "shared_cpu_list": "0-27"
+    }
+  ],
+  "isa_flags_of_interest": [
+    "amx_bf16",
+    "amx_int8",
+    "amx_tile",
+    "avx",
+    "avx2",
+    "avx512_bf16",
+    "avx512_bitalg",
+    "avx512_fp16",
+    "avx512_vbmi2",
+    "avx512_vnni",
+    "avx512_vpopcntdq",
+    "avx512bw",
+    "avx512cd",
+    "avx512dq",
+    "avx512f",
+    "avx512ifma",
+    "avx512vbmi",
+    "avx512vl",
+    "avx_vnni",
+    "bmi1",
+    "bmi2",
+    "f16c",
+    "fma",
+    "sse",
+    "sse2",
+    "sse4_1",
+    "sse4_2"
+  ],
+  "frequency": {
+    "driver": "intel_pstate",
+    "governor_cpu0": "performance",
+    "epp_cpu0": "performance",
+    "no_turbo": "1",
+    "scaling_max_khz": "2100000",
+    "base_khz": "2100000",
+    "hw_max_khz": "3700000",
+    "turbostat_busy_cpu": {
+      "cpu_avg_mhz": 2095,
+      "busy_pct": 99.77,
+      "bzy_mhz": 2100,
+      "tsc_mhz": 2100
+    }
+  },
+  "thp": "always [madvise] never",
+  "memory": {
+    "total_bytes": "134545895424",
+    "dimm_type": "DDR5",
+    "dimm_count": 8,
+    "dimm_size_gb": "16",
+    "configured_mts": 4800,
+    "rated_mts": "5600",
+    "theoretical_peak_gbs_socket": 307.2
+  },
+  "background_dram_traffic_idle": {
+    "read_MiB": "123.54",
+    "write_MiB": "85.41",
+    "seconds": "2.001120244",
+    "note": "socket-wide uncore IMC counters with our workload idle; includes other users' activity"
+  },
+  "perf": {
+    "version": "perf version 6.8.12",
+    "perf_event_paranoid": "-1",
+    "kptr_restrict": "1",
+    "nmi_watchdog": "1",
+    "core_pmu_name": "sapphire_rapids",
+    "max_precise": "3",
+    "pmu_devices": {
+      "breakpoint": 1,
+      "cpu": 1,
+      "cstate_core": 1,
+      "cstate_pkg": 1,
+      "dsa0": 1,
+      "intel_bts": 1,
+      "intel_pt": 1,
+      "kprobe": 1,
+      "msr": 1,
+      "power": 1,
+      "software": 1,
+      "tracepoint": 1,
+      "uncore_cha_N": 28,
+      "uncore_iio_N": 7,
+      "uncore_iio_free_running_N": 9,
+      "uncore_imc_N": 8,
+      "uncore_imc_free_running_N": 4,
+      "uncore_irp_N": 7,
+      "uncore_m2m_N": 4,
+      "uncore_m2pcie_N": 7,
+      "uncore_m3upi_N": 3,
+      "uncore_pcu": 1,
+      "uprobe": 1
+    }
+  },
+  "software": {
+    "gcc": "gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+    "python": "Python 3.12.3",
+    "torch": "2.14.1+cpu",
+    "torchvision": "0.29.1+cpu",
+    "numpy": "2.5.2",
+    "torch_cpu_capability": "AVX512",
+    "mkl": "2024.2-Product",
+    "onednn": "v3.12.0"
+  }
+}

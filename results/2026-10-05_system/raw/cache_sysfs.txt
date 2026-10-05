@@ -1,0 +1,4 @@
+level=1 type=Data size=48K ways=12 line=64 sets=64 shared_cpu_list=0
+level=1 type=Instruction size=32K ways=8 line=64 sets=64 shared_cpu_list=0
+level=2 type=Unified size=2048K ways=16 line=64 sets=2048 shared_cpu_list=0
+level=3 type=Unified size=53760K ways=15 line=64 sets=57344 shared_cpu_list=0-27

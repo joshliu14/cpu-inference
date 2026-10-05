@@ -1,0 +1,45 @@
+online=0-27 offline=28-55
+scaling_driver=intel_pstate
+intel_pstate/hwp_dynamic_boost=1
+intel_pstate/max_perf_pct=100
+intel_pstate/min_perf_pct=21
+intel_pstate/no_turbo=1
+intel_pstate/num_pstates=30
+intel_pstate/status=active
+intel_pstate/turbo_pct=54
+cpu0 governor=performance epp=performance min=800000 max=2100000 base=2100000 hw_max=3700000 cur=2075541
+cpu1 governor=performance epp=performance min=800000 max=2100000 base=2100000 hw_max=3700000 cur=2093895
+cpu2 governor=performance epp=performance min=800000 max=2100000 base=2100000 hw_max=3700000 cur=1730423
+cpu3 governor=performance epp=performance min=800000 max=2100000 base=2100000 hw_max=3700000 cur=1761916
+cpu4 governor=performance epp=performance min=800000 max=2100000 base=2100000 hw_max=3700000 cur=1813929
+cpu5 governor=performance epp=performance min=800000 max=2100000 base=2100000 hw_max=3700000 cur=2081522
+cpu6 governor=performance epp=performance min=800000 max=2100000 base=2100000 hw_max=3700000 cur=1775870
+cpu7 governor=performance epp=performance min=800000 max=2100000 base=2100000 hw_max=3700000 cur=1744611
+cpu8 governor=performance epp=performance min=800000 max=2100000 base=2100000 hw_max=3700000 cur=1731688
+cpu9 governor=performance epp=performance min=800000 max=2100000 base=2100000 hw_max=3700000 cur=1760722
+cpu10 governor=performance epp=performance min=800000 max=2100000 base=2100000 hw_max=3700000 cur=2100200
+cpu11 governor=performance epp=performance min=800000 max=2100000 base=2100000 hw_max=3700000 cur=2058984
+cpu12 governor=performance epp=performance min=800000 max=2100000 base=2100000 hw_max=3700000 cur=1791479
+cpu13 governor=performance epp=performance min=800000 max=2100000 base=2100000 hw_max=3700000 cur=1794978
+cpu14 governor=performance epp=performance min=800000 max=2100000 base=2100000 hw_max=3700000 cur=2036945
+cpu15 governor=performance epp=performance min=800000 max=2100000 base=2100000 hw_max=3700000 cur=1788169
+cpu16 governor=performance epp=performance min=800000 max=2100000 base=2100000 hw_max=3700000 cur=1780000
+cpu17 governor=performance epp=performance min=800000 max=2100000 base=2100000 hw_max=3700000 cur=1766899
+cpu18 governor=performance epp=performance min=800000 max=2100000 base=2100000 hw_max=3700000 cur=1769739
+cpu19 governor=performance epp=performance min=800000 max=2100000 base=2100000 hw_max=3700000 cur=800000
+cpu20 governor=performance epp=performance min=800000 max=2100000 base=2100000 hw_max=3700000 cur=1817206
+cpu21 governor=performance epp=performance min=800000 max=2100000 base=2100000 hw_max=3700000 cur=1837406
+cpu22 governor=performance epp=performance min=800000 max=2100000 base=2100000 hw_max=3700000 cur=2006492
+cpu23 governor=performance epp=performance min=800000 max=2100000 base=2100000 hw_max=3700000 cur=1856890
+cpu24 governor=performance epp=performance min=800000 max=2100000 base=2100000 hw_max=3700000 cur=1769739
+cpu25 governor=performance epp=performance min=800000 max=2100000 base=2100000 hw_max=3700000 cur=1737142
+cpu26 governor=performance epp=performance min=800000 max=2100000 base=2100000 hw_max=3700000 cur=1726842
+cpu27 governor=performance epp=performance min=800000 max=2100000 base=2100000 hw_max=3700000 cur=2093841
+--- cpuidle states (cpu0) ---
+POLL latency_us=0 disable=0
+C1 latency_us=1 disable=0
+C1E latency_us=2 disable=0
+C6 latency_us=290 disable=0
+--- THP ---
+enabled: always [madvise] never
+defrag:  always defer defer+madvise [madvise] never

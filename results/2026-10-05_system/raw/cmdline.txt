@@ -1,0 +1,2 @@
+$ cat /proc/cmdline
+BOOT_IMAGE=/boot/vmlinuz-6.8.0-138-generic root=UUID=ccb0832d-c80e-430f-b248-d117889f1992 ro console=ttyS0,115200 emulabcnet=<redacted-mac>

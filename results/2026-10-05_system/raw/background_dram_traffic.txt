@@ -1,0 +1,8 @@
+
+ Performance counter stats for 'system wide':
+
+            123.54 MiB  uncore_imc/cas_count_read/                                            
+             85.41 MiB  uncore_imc/cas_count_write/                                           
+
+       2.001120244 seconds time elapsed
+

@@ -1,0 +1,1682 @@
+{
+  "generated_by": "scripts/discover_perf_events.py",
+  "perf_builtin_tma_metrics": "UNAVAILABLE (Cannot find metric or group `TopdownL1')",
+  "tma_strategy": "perf has no metric definitions for this CPU model, but the kernel exports the hardware top-down events (slots + topdown-*). Level-1 and Level-2 fractions are computed by cpuinf/metrics.py as event/slots.",
+  "passes": {
+    "core": [
+      "cycles",
+      "instructions",
+      "ref_cycles",
+      "branches",
+      "branch_misses",
+      "cache_references",
+      "cache_misses"
+    ],
+    "sw": [
+      "task_clock",
+      "page_faults",
+      "context_switches",
+      "cpu_migrations"
+    ],
+    "topdown": [
+      "slots",
+      "td_retiring",
+      "td_bad_spec",
+      "td_fe_bound",
+      "td_be_bound",
+      "td_heavy_ops",
+      "td_br_mispredict",
+      "td_fetch_lat",
+      "td_mem_bound"
+    ],
+    "flops": [
+      "cycles",
+      "instructions",
+      "fp_scalar_single",
+      "fp_128_single",
+      "fp_256_single",
+      "fp_512_single",
+      "fp_scalar_double",
+      "fp_512_double",
+      "amx_busy"
+    ],
+    "loads": [
+      "cycles",
+      "loads",
+      "stores",
+      "load_l1_hit",
+      "load_l1_miss",
+      "load_fb_hit",
+      "load_l2_hit",
+      "load_l3_hit",
+      "load_l3_miss"
+    ],
+    "traffic": [
+      "cycles",
+      "l1d_replacement",
+      "l2_lines_in",
+      "l2_lines_out_nonsilent",
+      "l2_hwpf",
+      "offcore_demand_rd",
+      "ocr_dram_rd",
+      "ocr_reads_dram"
+    ],
+    "stalls": [
+      "cycles",
+      "stalls_total",
+      "stalls_l1d_miss",
+      "stalls_l2_miss",
+      "stalls_l3_miss",
+      "bound_on_loads",
+      "bound_on_stores",
+      "l1d_pend_miss_pending",
+      "l1d_pend_miss_cycles"
+    ],
+    "ports": [
+      "cycles",
+      "port0",
+      "port1",
+      "port5",
+      "port6",
+      "port_load",
+      "port_sta",
+      "port_std",
+      "uops_executed"
+    ],
+    "frontend": [
+      "cycles",
+      "uops_issued",
+      "dsb_uops",
+      "mite_uops",
+      "ms_uops",
+      "lsd_uops",
+      "icache_stalls",
+      "dtlb_load_walks",
+      "fb_full"
+    ]
+  },
+  "events": [
+    {
+      "key": "cycles",
+      "event": "cycles",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "cycles",
+          "encoding": "type=0 config=0x0 config1=0x0",
+          "source": "generic hardware event",
+          "perf_stat_ok": true,
+          "perf_stat_value": "541484653",
+          "inprocess_ok": true,
+          "inprocess_value": "28055456"
+        }
+      ],
+      "source": "generic hardware event",
+      "encoding": "type=0 config=0x0 config1=0x0",
+      "category": "generic",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Core clock cycles while the thread was running (unhalted).",
+      "interpretation": "Time in core clocks. At a fixed 2.1 GHz, cycles / 2.1e9 = seconds on CPU."
+    },
+    {
+      "key": "instructions",
+      "event": "instructions",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "instructions",
+          "encoding": "type=0 config=0x1 config1=0x0",
+          "source": "generic hardware event",
+          "perf_stat_ok": true,
+          "perf_stat_value": "3183987013",
+          "inprocess_ok": true,
+          "inprocess_value": "156346857"
+        }
+      ],
+      "source": "generic hardware event",
+      "encoding": "type=0 config=0x1 config1=0x0",
+      "category": "generic",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Retired (architecturally completed) instructions.",
+      "interpretation": "Work done in instructions. IPC = instructions / cycles."
+    },
+    {
+      "key": "ref_cycles",
+      "event": "ref-cycles",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "ref-cycles",
+          "encoding": "type=0 config=0x9 config1=0x0",
+          "source": "generic hardware event",
+          "perf_stat_ok": true,
+          "perf_stat_value": "532859712",
+          "inprocess_ok": true,
+          "inprocess_value": "25674096"
+        }
+      ],
+      "source": "generic hardware event",
+      "encoding": "type=0 config=0x9 config1=0x0",
+      "category": "generic",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Cycles at the fixed reference (TSC) rate while unhalted.",
+      "interpretation": "cycles / ref_cycles x TSC frequency = actual average core frequency."
+    },
+    {
+      "key": "branches",
+      "event": "branches",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "branches",
+          "encoding": "type=0 config=0x4 config1=0x0",
+          "source": "generic hardware event",
+          "perf_stat_ok": true,
+          "perf_stat_value": "600414722",
+          "inprocess_ok": true,
+          "inprocess_value": "27550212"
+        }
+      ],
+      "source": "generic hardware event",
+      "encoding": "type=0 config=0x4 config1=0x0",
+      "category": "generic",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Retired branch instructions.",
+      "interpretation": "Control-flow density; high in scalar/Python code."
+    },
+    {
+      "key": "branch_misses",
+      "event": "branch-misses",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "branch-misses",
+          "encoding": "type=0 config=0x5 config1=0x0",
+          "source": "generic hardware event",
+          "perf_stat_ok": true,
+          "perf_stat_value": "496741",
+          "inprocess_ok": true,
+          "inprocess_value": "540"
+        }
+      ],
+      "source": "generic hardware event",
+      "encoding": "type=0 config=0x5 config1=0x0",
+      "category": "generic",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Retired mispredicted branches.",
+      "interpretation": "Each costs roughly 15-20 cycles of wasted pipeline work; check Bad Speculation."
+    },
+    {
+      "key": "cache_references",
+      "event": "cache-references",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "cache-references",
+          "encoding": "type=0 config=0x2 config1=0x0",
+          "source": "generic hardware event",
+          "perf_stat_ok": true,
+          "perf_stat_value": "343724",
+          "inprocess_ok": true,
+          "inprocess_value": "1825"
+        }
+      ],
+      "source": "generic hardware event",
+      "encoding": "type=0 config=0x2 config1=0x0",
+      "category": "generic",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Generic 'cache references'. On Intel this maps to LONGEST_LAT_CACHE.REFERENCE (core requests that look up the LLC).",
+      "interpretation": "Requests that missed the private L1+L2 and went to the shared L3. Not 'all cache accesses'."
+    },
+    {
+      "key": "cache_misses",
+      "event": "cache-misses",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "cache-misses",
+          "encoding": "type=0 config=0x3 config1=0x0",
+          "source": "generic hardware event",
+          "perf_stat_ok": true,
+          "perf_stat_value": "40233",
+          "inprocess_ok": true,
+          "inprocess_value": "92"
+        }
+      ],
+      "source": "generic hardware event",
+      "encoding": "type=0 config=0x3 config1=0x0",
+      "category": "generic",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Generic 'cache misses'. On Intel: LONGEST_LAT_CACHE.MISS (L3 misses, incl. prefetches).",
+      "interpretation": "Requests that missed L3 and were served by memory (or another socket). An LLC miss is not proof of a demand DRAM stall: prefetches are included."
+    },
+    {
+      "key": "context_switches",
+      "event": "context-switches",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "context-switches",
+          "encoding": "type=1 config=0x3 config1=0x0",
+          "source": "generic software event",
+          "perf_stat_ok": true,
+          "perf_stat_value": "2",
+          "inprocess_ok": true,
+          "inprocess_value": "0"
+        }
+      ],
+      "source": "generic software event",
+      "encoding": "type=1 config=0x3 config1=0x0",
+      "category": "generic",
+      "scope": "per-thread (kernel software counter)",
+      "description": "Context switches of the measured thread.",
+      "interpretation": "Noise indicator: should be ~0 in a timed region."
+    },
+    {
+      "key": "cpu_migrations",
+      "event": "cpu-migrations",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "cpu-migrations",
+          "encoding": "type=1 config=0x4 config1=0x0",
+          "source": "generic software event",
+          "perf_stat_ok": true,
+          "perf_stat_value": "0",
+          "inprocess_ok": true,
+          "inprocess_value": "0"
+        }
+      ],
+      "source": "generic software event",
+      "encoding": "type=1 config=0x4 config1=0x0",
+      "category": "generic",
+      "scope": "per-thread (kernel software counter)",
+      "description": "Migrations of the thread between CPUs.",
+      "interpretation": "Must be 0 when pinned with taskset."
+    },
+    {
+      "key": "page_faults",
+      "event": "page-faults",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "page-faults",
+          "encoding": "type=1 config=0x2 config1=0x0",
+          "source": "generic software event",
+          "perf_stat_ok": true,
+          "perf_stat_value": "1090",
+          "inprocess_ok": true,
+          "inprocess_value": "0"
+        }
+      ],
+      "source": "generic software event",
+      "encoding": "type=1 config=0x2 config1=0x0",
+      "category": "generic",
+      "scope": "per-thread (kernel software counter)",
+      "description": "Page faults (minor + major).",
+      "interpretation": "Fresh allocations being touched for the first time; costs kernel time."
+    },
+    {
+      "key": "task_clock",
+      "event": "task-clock",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "task-clock",
+          "encoding": "type=1 config=0x1 config1=0x0",
+          "source": "generic software event",
+          "perf_stat_ok": true,
+          "perf_stat_value": "268.58",
+          "inprocess_ok": true,
+          "inprocess_value": "12379235"
+        }
+      ],
+      "source": "generic software event",
+      "encoding": "type=1 config=0x1 config1=0x0",
+      "category": "generic",
+      "scope": "per-thread (kernel software counter)",
+      "description": "CPU time of the thread in nanoseconds.",
+      "interpretation": "Cross-check against wall-clock time."
+    },
+    {
+      "key": "slots",
+      "event": "slots",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "slots",
+          "encoding": "type=4 config=0x400 config1=0x0",
+          "source": "kernel sysfs cpu/events",
+          "perf_stat_ok": true,
+          "perf_stat_value": "3186414228",
+          "inprocess_ok": true,
+          "inprocess_value": "155546292"
+        }
+      ],
+      "source": "kernel sysfs cpu/events",
+      "encoding": "type=4 config=0x400 config1=0x0",
+      "category": "topdown",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Pipeline issue slots (machine width x cycles; 6 slots/cycle on Golden Cove).",
+      "interpretation": "Denominator for every top-down fraction."
+    },
+    {
+      "key": "td_retiring",
+      "event": "topdown-retiring",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "topdown-retiring",
+          "encoding": "type=4 config=0x8000 config1=0x0",
+          "source": "kernel sysfs cpu/events",
+          "perf_stat_ok": true,
+          "perf_stat_value": "2940996730",
+          "inprocess_ok": true,
+          "inprocess_value": "140935873"
+        }
+      ],
+      "source": "kernel sysfs cpu/events",
+      "encoding": "type=4 config=0x8000 config1=0x0",
+      "category": "topdown",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Slots that issued uops which eventually retired.",
+      "interpretation": "Useful work. High Retiring + low IPC can still mean wasteful (e.g. scalar) code."
+    },
+    {
+      "key": "td_bad_spec",
+      "event": "topdown-bad-spec",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "topdown-bad-spec",
+          "encoding": "type=4 config=0x8100 config1=0x0",
+          "source": "kernel sysfs cpu/events",
+          "perf_stat_ok": true,
+          "perf_stat_value": "101671978",
+          "inprocess_ok": true,
+          "inprocess_value": "0"
+        }
+      ],
+      "source": "kernel sysfs cpu/events",
+      "encoding": "type=4 config=0x8100 config1=0x0",
+      "category": "topdown",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Slots wasted on uops that were cancelled (mispredicts, machine clears).",
+      "interpretation": "Speculation waste."
+    },
+    {
+      "key": "td_fe_bound",
+      "event": "topdown-fe-bound",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "topdown-fe-bound",
+          "encoding": "type=4 config=0x8200 config1=0x0",
+          "source": "kernel sysfs cpu/events",
+          "perf_stat_ok": true,
+          "perf_stat_value": "111781782",
+          "inprocess_ok": true,
+          "inprocess_value": "12673213"
+        }
+      ],
+      "source": "kernel sysfs cpu/events",
+      "encoding": "type=4 config=0x8200 config1=0x0",
+      "category": "topdown",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Slots where the frontend delivered no uop while the backend could accept one.",
+      "interpretation": "Instruction fetch/decode limits (i-cache, ITLB, decoders, DSB)."
+    },
+    {
+      "key": "td_be_bound",
+      "event": "topdown-be-bound",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "topdown-be-bound",
+          "encoding": "type=4 config=0x8300 config1=0x0",
+          "source": "kernel sysfs cpu/events",
+          "perf_stat_ok": true,
+          "perf_stat_value": "157720591",
+          "inprocess_ok": true,
+          "inprocess_value": "606528"
+        }
+      ],
+      "source": "kernel sysfs cpu/events",
+      "encoding": "type=4 config=0x8300 config1=0x0",
+      "category": "topdown",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Slots where no uop issued because the backend lacked resources.",
+      "interpretation": "Either waiting on memory (Memory Bound) or on execution units (Core Bound)."
+    },
+    {
+      "key": "td_heavy_ops",
+      "event": "topdown-heavy-ops",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "topdown-heavy-ops",
+          "encoding": "type=4 config=0x8400 config1=0x0",
+          "source": "kernel sysfs cpu/events",
+          "perf_stat_ok": true,
+          "perf_stat_value": "102800483",
+          "inprocess_ok": true,
+          "inprocess_value": "4285877"
+        }
+      ],
+      "source": "kernel sysfs cpu/events",
+      "encoding": "type=4 config=0x8400 config1=0x0",
+      "category": "topdown",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Retiring slots from instructions decoding to >= 2 uops or microcode.",
+      "interpretation": "Level-2 split of Retiring: Heavy vs Light operations."
+    },
+    {
+      "key": "td_br_mispredict",
+      "event": "topdown-br-mispredict",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "topdown-br-mispredict",
+          "encoding": "type=4 config=0x8500 config1=0x0",
+          "source": "kernel sysfs cpu/events",
+          "perf_stat_ok": true,
+          "perf_stat_value": "72243495",
+          "inprocess_ok": true,
+          "inprocess_value": "0"
+        }
+      ],
+      "source": "kernel sysfs cpu/events",
+      "encoding": "type=4 config=0x8500 config1=0x0",
+      "category": "topdown",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Bad-speculation slots due to branch mispredicts.",
+      "interpretation": "Level-2 split of Bad Speculation: Branch Mispredict vs Machine Clears."
+    },
+    {
+      "key": "td_fetch_lat",
+      "event": "topdown-fetch-lat",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "topdown-fetch-lat",
+          "encoding": "type=4 config=0x8600 config1=0x0",
+          "source": "kernel sysfs cpu/events",
+          "perf_stat_ok": true,
+          "perf_stat_value": "62251345",
+          "inprocess_ok": true,
+          "inprocess_value": "3035465"
+        }
+      ],
+      "source": "kernel sysfs cpu/events",
+      "encoding": "type=4 config=0x8600 config1=0x0",
+      "category": "topdown",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Frontend-bound slots due to fetch latency (i-cache/ITLB misses, resteers).",
+      "interpretation": "Level-2 split of Frontend Bound: Fetch Latency vs Fetch Bandwidth."
+    },
+    {
+      "key": "td_mem_bound",
+      "event": "topdown-mem-bound",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "topdown-mem-bound",
+          "encoding": "type=4 config=0x8700 config1=0x0",
+          "source": "kernel sysfs cpu/events",
+          "perf_stat_ok": true,
+          "perf_stat_value": "12877976",
+          "inprocess_ok": true,
+          "inprocess_value": "0"
+        }
+      ],
+      "source": "kernel sysfs cpu/events",
+      "encoding": "type=4 config=0x8700 config1=0x0",
+      "category": "topdown",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Backend-bound slots attributed to the memory subsystem.",
+      "interpretation": "Level-2 split of Backend Bound: Memory Bound vs Core Bound."
+    },
+    {
+      "key": "fp_scalar_single",
+      "event": "fp_arith_inst_retired.scalar_single",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "fp_arith_inst_retired.scalar_single",
+          "encoding": "type=4 config=0x2c7 config1=0x0",
+          "source": "perf JSON event table",
+          "perf_stat_ok": true,
+          "perf_stat_value": "2123",
+          "inprocess_ok": true,
+          "inprocess_value": "0"
+        }
+      ],
+      "source": "perf JSON event table",
+      "encoding": "type=4 config=0x2c7 config1=0x0",
+      "category": "flops",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Retired scalar FP32 arithmetic instructions (FMA counts twice).",
+      "interpretation": "1 FLOP each."
+    },
+    {
+      "key": "fp_128_single",
+      "event": "fp_arith_inst_retired.128b_packed_single",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "fp_arith_inst_retired.128b_packed_single",
+          "encoding": "type=4 config=0x8c7 config1=0x0",
+          "source": "perf JSON event table",
+          "perf_stat_ok": true,
+          "perf_stat_value": "0",
+          "inprocess_ok": true,
+          "inprocess_value": "0"
+        }
+      ],
+      "source": "perf JSON event table",
+      "encoding": "type=4 config=0x8c7 config1=0x0",
+      "category": "flops",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Retired 128-bit (SSE/AVX xmm) packed FP32 instructions (FMA counts twice).",
+      "interpretation": "4 FLOPs each."
+    },
+    {
+      "key": "fp_256_single",
+      "event": "fp_arith_inst_retired.256b_packed_single",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "fp_arith_inst_retired.256b_packed_single",
+          "encoding": "type=4 config=0x20c7 config1=0x0",
+          "source": "perf JSON event table",
+          "perf_stat_ok": true,
+          "perf_stat_value": "0",
+          "inprocess_ok": true,
+          "inprocess_value": "0"
+        }
+      ],
+      "source": "perf JSON event table",
+      "encoding": "type=4 config=0x20c7 config1=0x0",
+      "category": "flops",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Retired 256-bit (AVX/AVX2 ymm) packed FP32 instructions (FMA counts twice).",
+      "interpretation": "8 FLOPs each."
+    },
+    {
+      "key": "fp_512_single",
+      "event": "fp_arith_inst_retired.512b_packed_single",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "fp_arith_inst_retired.512b_packed_single",
+          "encoding": "type=4 config=0x80c7 config1=0x0",
+          "source": "perf JSON event table",
+          "perf_stat_ok": true,
+          "perf_stat_value": "0",
+          "inprocess_ok": true,
+          "inprocess_value": "0"
+        }
+      ],
+      "source": "perf JSON event table",
+      "encoding": "type=4 config=0x80c7 config1=0x0",
+      "category": "flops",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Retired 512-bit (AVX-512 zmm) packed FP32 instructions (FMA counts twice).",
+      "interpretation": "16 FLOPs each."
+    },
+    {
+      "key": "fp_scalar_double",
+      "event": "fp_arith_inst_retired.scalar_double",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "fp_arith_inst_retired.scalar_double",
+          "encoding": "type=4 config=0x1c7 config1=0x0",
+          "source": "perf JSON event table",
+          "perf_stat_ok": true,
+          "perf_stat_value": "502",
+          "inprocess_ok": true,
+          "inprocess_value": "0"
+        }
+      ],
+      "source": "perf JSON event table",
+      "encoding": "type=4 config=0x1c7 config1=0x0",
+      "category": "flops",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Retired scalar FP64 arithmetic instructions.",
+      "interpretation": "Should be ~0 in FP32 inference."
+    },
+    {
+      "key": "fp_512_double",
+      "event": "fp_arith_inst_retired.512b_packed_double",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "fp_arith_inst_retired.512b_packed_double",
+          "encoding": "type=4 config=0x40c7 config1=0x0",
+          "source": "perf JSON event table",
+          "perf_stat_ok": true,
+          "perf_stat_value": "0",
+          "inprocess_ok": true,
+          "inprocess_value": "0"
+        }
+      ],
+      "source": "perf JSON event table",
+      "encoding": "type=4 config=0x40c7 config1=0x0",
+      "category": "flops",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Retired 512-bit packed FP64 instructions.",
+      "interpretation": "Should be ~0 in FP32 inference."
+    },
+    {
+      "key": "amx_busy",
+      "event": "exe.amx_busy",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "exe.amx_busy",
+          "encoding": "type=4 config=0x2b7 config1=0x0",
+          "source": "perf JSON event table",
+          "perf_stat_ok": true,
+          "perf_stat_value": "0",
+          "inprocess_ok": true,
+          "inprocess_value": "0"
+        }
+      ],
+      "source": "perf JSON event table",
+      "encoding": "type=4 config=0x2b7 config1=0x0",
+      "category": "flops",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Cycles the AMX unit is busy.",
+      "interpretation": "Non-zero only if a kernel uses AMX tiles (bf16/int8)."
+    },
+    {
+      "key": "loads",
+      "event": "mem_inst_retired.all_loads",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "mem_inst_retired.all_loads",
+          "encoding": "type=4 config=0x81d0 config1=0x0",
+          "source": "perf JSON event table",
+          "perf_stat_ok": true,
+          "perf_stat_value": "915393954",
+          "inprocess_ok": true,
+          "inprocess_value": "41624878"
+        }
+      ],
+      "source": "perf JSON event table",
+      "encoding": "type=4 config=0x81d0 config1=0x0",
+      "category": "memory",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Retired load instructions.",
+      "interpretation": "Denominator for hit/miss ratios by level."
+    },
+    {
+      "key": "stores",
+      "event": "mem_inst_retired.all_stores",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "mem_inst_retired.all_stores",
+          "encoding": "type=4 config=0x82d0 config1=0x0",
+          "source": "perf JSON event table",
+          "perf_stat_ok": true,
+          "perf_stat_value": "475045419",
+          "inprocess_ok": true,
+          "inprocess_value": "26218309"
+        }
+      ],
+      "source": "perf JSON event table",
+      "encoding": "type=4 config=0x82d0 config1=0x0",
+      "category": "memory",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Retired store instructions.",
+      "interpretation": ""
+    },
+    {
+      "key": "load_l1_hit",
+      "event": "mem_load_retired.l1_hit",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "mem_load_retired.l1_hit",
+          "encoding": "type=4 config=0x1d1 config1=0x0",
+          "source": "perf JSON event table",
+          "perf_stat_ok": true,
+          "perf_stat_value": "952419177",
+          "inprocess_ok": true,
+          "inprocess_value": "41625326"
+        }
+      ],
+      "source": "perf JSON event table",
+      "encoding": "type=4 config=0x1d1 config1=0x0",
+      "category": "memory",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Retired loads whose data came from L1D.",
+      "interpretation": "Data source attribution for *retired demand loads*."
+    },
+    {
+      "key": "load_l1_miss",
+      "event": "mem_load_retired.l1_miss",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "mem_load_retired.l1_miss",
+          "encoding": "type=4 config=0x8d1 config1=0x0",
+          "source": "perf JSON event table",
+          "perf_stat_ok": true,
+          "perf_stat_value": "543595",
+          "inprocess_ok": true,
+          "inprocess_value": "926"
+        }
+      ],
+      "source": "perf JSON event table",
+      "encoding": "type=4 config=0x8d1 config1=0x0",
+      "category": "memory",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Retired loads that missed L1D.",
+      "interpretation": ""
+    },
+    {
+      "key": "load_fb_hit",
+      "event": "mem_load_retired.fb_hit",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "mem_load_retired.fb_hit",
+          "encoding": "type=4 config=0x40d1 config1=0x0",
+          "source": "perf JSON event table",
+          "perf_stat_ok": true,
+          "perf_stat_value": "467741",
+          "inprocess_ok": true,
+          "inprocess_value": "1111"
+        }
+      ],
+      "source": "perf JSON event table",
+      "encoding": "type=4 config=0x40d1 config1=0x0",
+      "category": "memory",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Retired loads that missed L1D but hit a fill buffer already fetching the line.",
+      "interpretation": "Line was already in flight (often thanks to a prefetch or a neighbouring load)."
+    },
+    {
+      "key": "load_l2_hit",
+      "event": "mem_load_retired.l2_hit",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "mem_load_retired.l2_hit",
+          "encoding": "type=4 config=0x2d1 config1=0x0",
+          "source": "perf JSON event table",
+          "perf_stat_ok": true,
+          "perf_stat_value": "508110",
+          "inprocess_ok": true,
+          "inprocess_value": "498"
+        }
+      ],
+      "source": "perf JSON event table",
+      "encoding": "type=4 config=0x2d1 config1=0x0",
+      "category": "memory",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Retired loads served by L2.",
+      "interpretation": ""
+    },
+    {
+      "key": "load_l2_miss",
+      "event": "mem_load_retired.l2_miss",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "mem_load_retired.l2_miss",
+          "encoding": "type=4 config=0x10d1 config1=0x0",
+          "source": "perf JSON event table",
+          "perf_stat_ok": true,
+          "perf_stat_value": "37370",
+          "inprocess_ok": true,
+          "inprocess_value": "430"
+        }
+      ],
+      "source": "perf JSON event table",
+      "encoding": "type=4 config=0x10d1 config1=0x0",
+      "category": "memory",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Retired loads that missed L2.",
+      "interpretation": ""
+    },
+    {
+      "key": "load_l3_hit",
+      "event": "mem_load_retired.l3_hit",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "mem_load_retired.l3_hit",
+          "encoding": "type=4 config=0x4d1 config1=0x0",
+          "source": "perf JSON event table",
+          "perf_stat_ok": true,
+          "perf_stat_value": "26549",
+          "inprocess_ok": true,
+          "inprocess_value": "71"
+        }
+      ],
+      "source": "perf JSON event table",
+      "encoding": "type=4 config=0x4d1 config1=0x0",
+      "category": "memory",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Retired loads served by L3.",
+      "interpretation": ""
+    },
+    {
+      "key": "load_l3_miss",
+      "event": "mem_load_retired.l3_miss",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "mem_load_retired.l3_miss",
+          "encoding": "type=4 config=0x20d1 config1=0x0",
+          "source": "perf JSON event table",
+          "perf_stat_ok": true,
+          "perf_stat_value": "8917",
+          "inprocess_ok": true,
+          "inprocess_value": "96"
+        }
+      ],
+      "source": "perf JSON event table",
+      "encoding": "type=4 config=0x20d1 config1=0x0",
+      "category": "memory",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Retired loads that missed L3 (served by DRAM or remote).",
+      "interpretation": "Strongest per-thread evidence that a *demand load* went beyond the LLC."
+    },
+    {
+      "key": "l1d_replacement",
+      "event": "l1d.replacement",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "l1d.replacement",
+          "encoding": "type=4 config=0x151 config1=0x0",
+          "source": "perf JSON event table",
+          "perf_stat_ok": true,
+          "perf_stat_value": "1126849",
+          "inprocess_ok": true,
+          "inprocess_value": "1599"
+        }
+      ],
+      "source": "perf JSON event table",
+      "encoding": "type=4 config=0x151 config1=0x0",
+      "category": "memory",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Cache lines brought into L1D (demand + prefetch).",
+      "interpretation": "x 64 B = bytes filled into L1D: an estimate of L2->L1 traffic."
+    },
+    {
+      "key": "l2_lines_in",
+      "event": "l2_lines_in.all",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "l2_lines_in.all",
+          "encoding": "type=4 config=0x1f25 config1=0x0",
+          "source": "perf JSON event table",
+          "perf_stat_ok": true,
+          "perf_stat_value": "347170",
+          "inprocess_ok": true,
+          "inprocess_value": "2140"
+        }
+      ],
+      "source": "perf JSON event table",
+      "encoding": "type=4 config=0x1f25 config1=0x0",
+      "category": "memory",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Cache lines filled into L2 (demand + prefetch).",
+      "interpretation": "x 64 B = bytes filled into L2: an estimate of L3/DRAM->L2 traffic."
+    },
+    {
+      "key": "l2_lines_out_nonsilent",
+      "event": "l2_lines_out.non_silent",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "l2_lines_out.non_silent",
+          "encoding": "type=4 config=0x226 config1=0x0",
+          "source": "perf JSON event table",
+          "perf_stat_ok": true,
+          "perf_stat_value": "295800",
+          "inprocess_ok": true,
+          "inprocess_value": "1418"
+        }
+      ],
+      "source": "perf JSON event table",
+      "encoding": "type=4 config=0x226 config1=0x0",
+      "category": "memory",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Modified/forwarded lines evicted from L2 (write-backs toward L3).",
+      "interpretation": "x 64 B ~ L2->L3 write-back traffic."
+    },
+    {
+      "key": "l2_rqsts_miss",
+      "event": "l2_rqsts.miss",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "l2_rqsts.miss",
+          "encoding": "type=4 config=0x3f24 config1=0x0",
+          "source": "perf JSON event table",
+          "perf_stat_ok": true,
+          "perf_stat_value": "350138",
+          "inprocess_ok": true,
+          "inprocess_value": "2573"
+        }
+      ],
+      "source": "perf JSON event table",
+      "encoding": "type=4 config=0x3f24 config1=0x0",
+      "category": "memory",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "L2 requests that missed (demand + prefetch).",
+      "interpretation": ""
+    },
+    {
+      "key": "l2_hwpf",
+      "event": "l2_rqsts.all_hwpf",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "l2_rqsts.all_hwpf",
+          "encoding": "type=4 config=0xf024 config1=0x0",
+          "source": "perf JSON event table",
+          "perf_stat_ok": true,
+          "perf_stat_value": "639466",
+          "inprocess_ok": true,
+          "inprocess_value": "529"
+        }
+      ],
+      "source": "perf JSON event table",
+      "encoding": "type=4 config=0xf024 config1=0x0",
+      "category": "memory",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "L2 hardware prefetch requests.",
+      "interpretation": "How much of the traffic is prefetcher-driven."
+    },
+    {
+      "key": "offcore_demand_rd",
+      "event": "offcore_requests.demand_data_rd",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "offcore_requests.demand_data_rd",
+          "encoding": "type=4 config=0x121 config1=0x0",
+          "source": "perf JSON event table",
+          "perf_stat_ok": true,
+          "perf_stat_value": "62798",
+          "inprocess_ok": true,
+          "inprocess_value": "554"
+        }
+      ],
+      "source": "perf JSON event table",
+      "encoding": "type=4 config=0x121 config1=0x0",
+      "category": "memory",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Demand data reads sent beyond L2 (to the uncore).",
+      "interpretation": ""
+    },
+    {
+      "key": "ocr_dram_rd",
+      "event": "ocr.demand_data_rd.dram",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "ocr.demand_data_rd.dram",
+          "encoding": "type=4 config=0x12a config1=0x73c000001",
+          "source": "perf JSON event table",
+          "perf_stat_ok": true,
+          "perf_stat_value": "15055",
+          "inprocess_ok": true,
+          "inprocess_value": "97"
+        }
+      ],
+      "source": "perf JSON event table",
+      "encoding": "type=4 config=0x12a config1=0x73c000001",
+      "category": "memory",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Demand data reads that were served by DRAM (offcore response).",
+      "interpretation": "Per-thread DRAM attribution for demand reads (prefetches excluded)."
+    },
+    {
+      "key": "ocr_reads_dram",
+      "event": "ocr.reads_to_core.dram",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "ocr.reads_to_core.dram",
+          "encoding": "type=4 config=0x12a config1=0x73c004477",
+          "source": "perf JSON event table",
+          "perf_stat_ok": true,
+          "perf_stat_value": "41425",
+          "inprocess_ok": true,
+          "inprocess_value": "147"
+        }
+      ],
+      "source": "perf JSON event table",
+      "encoding": "type=4 config=0x12a config1=0x73c004477",
+      "category": "memory",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "All reads to core (demand + prefetch) served by DRAM.",
+      "interpretation": ""
+    },
+    {
+      "key": "dtlb_load_walks",
+      "event": "dtlb_load_misses.walk_completed",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "dtlb_load_misses.walk_completed",
+          "encoding": "type=4 config=0xe12 config1=0x0",
+          "source": "perf JSON event table",
+          "perf_stat_ok": true,
+          "perf_stat_value": "6024",
+          "inprocess_ok": true,
+          "inprocess_value": "110"
+        }
+      ],
+      "source": "perf JSON event table",
+      "encoding": "type=4 config=0xe12 config1=0x0",
+      "category": "memory",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Completed page walks caused by loads.",
+      "interpretation": "TLB reach problems."
+    },
+    {
+      "key": "stalls_total",
+      "event": "cycle_activity.stalls_total",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "cycle_activity.stalls_total",
+          "encoding": "type=4 config=0x40004a3 config1=0x0",
+          "source": "perf JSON event table",
+          "perf_stat_ok": true,
+          "perf_stat_value": "21508891",
+          "inprocess_ok": true,
+          "inprocess_value": "263391"
+        }
+      ],
+      "source": "perf JSON event table",
+      "encoding": "type=4 config=0x40004a3 config1=0x0",
+      "category": "stalls",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Cycles with no uop executed on any port.",
+      "interpretation": "Total execution stalls."
+    },
+    {
+      "key": "stalls_l1d_miss",
+      "event": "memory_activity.stalls_l1d_miss",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "memory_activity.stalls_l1d_miss",
+          "encoding": "type=4 config=0x3000347 config1=0x0",
+          "source": "perf JSON event table",
+          "perf_stat_ok": true,
+          "perf_stat_value": "2695410",
+          "inprocess_ok": true,
+          "inprocess_value": "12560"
+        }
+      ],
+      "source": "perf JSON event table",
+      "encoding": "type=4 config=0x3000347 config1=0x0",
+      "category": "stalls",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Execution stalls while an L1D-miss demand load is outstanding.",
+      "interpretation": ""
+    },
+    {
+      "key": "stalls_l2_miss",
+      "event": "memory_activity.stalls_l2_miss",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "memory_activity.stalls_l2_miss",
+          "encoding": "type=4 config=0x5000547 config1=0x0",
+          "source": "perf JSON event table",
+          "perf_stat_ok": true,
+          "perf_stat_value": "1322192",
+          "inprocess_ok": true,
+          "inprocess_value": "18782"
+        }
+      ],
+      "source": "perf JSON event table",
+      "encoding": "type=4 config=0x5000547 config1=0x0",
+      "category": "stalls",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Execution stalls while an L2-miss demand load is outstanding.",
+      "interpretation": ""
+    },
+    {
+      "key": "stalls_l3_miss",
+      "event": "memory_activity.stalls_l3_miss",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "memory_activity.stalls_l3_miss",
+          "encoding": "type=4 config=0x9000947 config1=0x0",
+          "source": "perf JSON event table",
+          "perf_stat_ok": true,
+          "perf_stat_value": "882862",
+          "inprocess_ok": true,
+          "inprocess_value": "17880"
+        }
+      ],
+      "source": "perf JSON event table",
+      "encoding": "type=4 config=0x9000947 config1=0x0",
+      "category": "stalls",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Execution stalls while an L3-miss demand load is outstanding.",
+      "interpretation": "Upper bound on cycles lost waiting for DRAM by demand loads."
+    },
+    {
+      "key": "bound_on_loads",
+      "event": "exe_activity.bound_on_loads",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "exe_activity.bound_on_loads",
+          "encoding": "type=4 config=0x50021a6 config1=0x0",
+          "source": "perf JSON event table",
+          "perf_stat_ok": true,
+          "perf_stat_value": "9928680",
+          "inprocess_ok": true,
+          "inprocess_value": "207171"
+        }
+      ],
+      "source": "perf JSON event table",
+      "encoding": "type=4 config=0x50021a6 config1=0x0",
+      "category": "stalls",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Stall cycles where a load was outstanding (any level).",
+      "interpretation": ""
+    },
+    {
+      "key": "bound_on_stores",
+      "event": "exe_activity.bound_on_stores",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "exe_activity.bound_on_stores",
+          "encoding": "type=4 config=0x20040a6 config1=0x0",
+          "source": "perf JSON event table",
+          "perf_stat_ok": true,
+          "perf_stat_value": "288523",
+          "inprocess_ok": true,
+          "inprocess_value": "1032"
+        }
+      ],
+      "source": "perf JSON event table",
+      "encoding": "type=4 config=0x20040a6 config1=0x0",
+      "category": "stalls",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Cycles where the store buffer was full and no load was outstanding.",
+      "interpretation": "Store-bandwidth pressure."
+    },
+    {
+      "key": "l1d_pend_miss_cycles",
+      "event": "l1d_pend_miss.pending_cycles",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "l1d_pend_miss.pending_cycles",
+          "encoding": "type=4 config=0x1000148 config1=0x0",
+          "source": "perf JSON event table",
+          "perf_stat_ok": true,
+          "perf_stat_value": "6577970",
+          "inprocess_ok": true,
+          "inprocess_value": "47241"
+        }
+      ],
+      "source": "perf JSON event table",
+      "encoding": "type=4 config=0x1000148 config1=0x0",
+      "category": "stalls",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Cycles with at least one L1D miss outstanding.",
+      "interpretation": ""
+    },
+    {
+      "key": "l1d_pend_miss_pending",
+      "event": "l1d_pend_miss.pending",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "l1d_pend_miss.pending",
+          "encoding": "type=4 config=0x148 config1=0x0",
+          "source": "perf JSON event table",
+          "perf_stat_ok": true,
+          "perf_stat_value": "11080627",
+          "inprocess_ok": true,
+          "inprocess_value": "51807"
+        }
+      ],
+      "source": "perf JSON event table",
+      "encoding": "type=4 config=0x148 config1=0x0",
+      "category": "stalls",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Sum over cycles of outstanding L1D misses.",
+      "interpretation": "pending / pending_cycles = memory-level parallelism (avg. misses in flight)."
+    },
+    {
+      "key": "fb_full",
+      "event": "l1d_pend_miss.fb_full",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "l1d_pend_miss.fb_full",
+          "encoding": "type=4 config=0x248 config1=0x0",
+          "source": "perf JSON event table",
+          "perf_stat_ok": true,
+          "perf_stat_value": "289551",
+          "inprocess_ok": true,
+          "inprocess_value": "135"
+        }
+      ],
+      "source": "perf JSON event table",
+      "encoding": "type=4 config=0x248 config1=0x0",
+      "category": "stalls",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Cycles a demand request was blocked because the fill buffers were full.",
+      "interpretation": "Too many misses in flight: per-core bandwidth limit."
+    },
+    {
+      "key": "port0",
+      "event": "uops_dispatched.port_0",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "uops_dispatched.port_0",
+          "encoding": "type=4 config=0x1b2 config1=0x0",
+          "source": "perf JSON event table",
+          "perf_stat_ok": true,
+          "perf_stat_value": "339942488",
+          "inprocess_ok": true,
+          "inprocess_value": "13610053"
+        }
+      ],
+      "source": "perf JSON event table",
+      "encoding": "type=4 config=0x1b2 config1=0x0",
+      "category": "ports",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Uops dispatched on port 0 (ALU, FMA/vector on 512-bit fused p0+p1).",
+      "interpretation": ""
+    },
+    {
+      "key": "port1",
+      "event": "uops_dispatched.port_1",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "uops_dispatched.port_1",
+          "encoding": "type=4 config=0x2b2 config1=0x0",
+          "source": "perf JSON event table",
+          "perf_stat_ok": true,
+          "perf_stat_value": "126160187",
+          "inprocess_ok": true,
+          "inprocess_value": "5996719"
+        }
+      ],
+      "source": "perf JSON event table",
+      "encoding": "type=4 config=0x2b2 config1=0x0",
+      "category": "ports",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Uops dispatched on port 1 (ALU; vector port fused with p0 for 512-bit).",
+      "interpretation": ""
+    },
+    {
+      "key": "port5",
+      "event": "uops_dispatched.port_5_11",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "uops_dispatched.port_5_11",
+          "encoding": "type=4 config=0x20b2 config1=0x0",
+          "source": "perf JSON event table",
+          "perf_stat_ok": true,
+          "perf_stat_value": "281405855",
+          "inprocess_ok": true,
+          "inprocess_value": "13012025"
+        }
+      ],
+      "source": "perf JSON event table",
+      "encoding": "type=4 config=0x20b2 config1=0x0",
+      "category": "ports",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Uops dispatched on ports 5 and 11 (ALU, shuffle, 2nd 512-bit FMA on server parts).",
+      "interpretation": ""
+    },
+    {
+      "key": "port6",
+      "event": "uops_dispatched.port_6",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "uops_dispatched.port_6",
+          "encoding": "type=4 config=0x40b2 config1=0x0",
+          "source": "perf JSON event table",
+          "perf_stat_ok": true,
+          "perf_stat_value": "370857612",
+          "inprocess_ok": true,
+          "inprocess_value": "15602094"
+        }
+      ],
+      "source": "perf JSON event table",
+      "encoding": "type=4 config=0x40b2 config1=0x0",
+      "category": "ports",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Uops dispatched on port 6 (ALU, branch).",
+      "interpretation": ""
+    },
+    {
+      "key": "port_load",
+      "event": "uops_dispatched.port_2_3_10",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "uops_dispatched.port_2_3_10",
+          "encoding": "type=4 config=0x4b2 config1=0x0",
+          "source": "perf JSON event table",
+          "perf_stat_ok": true,
+          "perf_stat_value": "936946927",
+          "inprocess_ok": true,
+          "inprocess_value": "41768182"
+        }
+      ],
+      "source": "perf JSON event table",
+      "encoding": "type=4 config=0x4b2 config1=0x0",
+      "category": "ports",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Uops dispatched on load ports 2, 3 and 10.",
+      "interpretation": "Up to 3 loads/cycle (2 for 512-bit)."
+    },
+    {
+      "key": "port_sta",
+      "event": "uops_dispatched.port_7_8",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "uops_dispatched.port_7_8",
+          "encoding": "type=4 config=0x80b2 config1=0x0",
+          "source": "perf JSON event table",
+          "perf_stat_ok": true,
+          "perf_stat_value": "496223253",
+          "inprocess_ok": true,
+          "inprocess_value": "26280650"
+        }
+      ],
+      "source": "perf JSON event table",
+      "encoding": "type=4 config=0x80b2 config1=0x0",
+      "category": "ports",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Store-address uops (ports 7, 8).",
+      "interpretation": ""
+    },
+    {
+      "key": "port_std",
+      "event": "uops_dispatched.port_4_9",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "uops_dispatched.port_4_9",
+          "encoding": "type=4 config=0x10b2 config1=0x0",
+          "source": "perf JSON event table",
+          "perf_stat_ok": true,
+          "perf_stat_value": "501218292",
+          "inprocess_ok": true,
+          "inprocess_value": "26360334"
+        }
+      ],
+      "source": "perf JSON event table",
+      "encoding": "type=4 config=0x10b2 config1=0x0",
+      "category": "ports",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Store-data uops (ports 4, 9).",
+      "interpretation": ""
+    },
+    {
+      "key": "uops_executed",
+      "event": "uops_executed.thread",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "uops_executed.thread",
+          "encoding": "type=4 config=0x1b1 config1=0x0",
+          "source": "perf JSON event table",
+          "perf_stat_ok": true,
+          "perf_stat_value": "3197588075",
+          "inprocess_ok": true,
+          "inprocess_value": "142054172"
+        }
+      ],
+      "source": "perf JSON event table",
+      "encoding": "type=4 config=0x1b1 config1=0x0",
+      "category": "ports",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Uops executed by the thread.",
+      "interpretation": ""
+    },
+    {
+      "key": "uops_issued",
+      "event": "uops_issued.any",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "uops_issued.any",
+          "encoding": "type=4 config=0x1ae config1=0x0",
+          "source": "perf JSON event table",
+          "perf_stat_ok": true,
+          "perf_stat_value": "3474569177",
+          "inprocess_ok": true,
+          "inprocess_value": "141195755"
+        }
+      ],
+      "source": "perf JSON event table",
+      "encoding": "type=4 config=0x1ae config1=0x0",
+      "category": "ports",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Uops issued by the RAT to the RS.",
+      "interpretation": ""
+    },
+    {
+      "key": "ports_util_1",
+      "event": "exe_activity.1_ports_util",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "exe_activity.1_ports_util",
+          "encoding": "type=4 config=0x2a6 config1=0x0",
+          "source": "perf JSON event table",
+          "perf_stat_ok": true,
+          "perf_stat_value": "11034734",
+          "inprocess_ok": true,
+          "inprocess_value": "539988"
+        }
+      ],
+      "source": "perf JSON event table",
+      "encoding": "type=4 config=0x2a6 config1=0x0",
+      "category": "ports",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Cycles with exactly 1 uop executed across all ports (non-stall).",
+      "interpretation": "Low execution parallelism."
+    },
+    {
+      "key": "ports_util_2",
+      "event": "exe_activity.2_ports_util",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "exe_activity.2_ports_util",
+          "encoding": "type=4 config=0x4a6 config1=0x0",
+          "source": "perf JSON event table",
+          "perf_stat_ok": true,
+          "perf_stat_value": "24596093",
+          "inprocess_ok": true,
+          "inprocess_value": "1383714"
+        }
+      ],
+      "source": "perf JSON event table",
+      "encoding": "type=4 config=0x4a6 config1=0x0",
+      "category": "ports",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Cycles with exactly 2 uops executed.",
+      "interpretation": ""
+    },
+    {
+      "key": "dsb_uops",
+      "event": "idq.dsb_uops",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "idq.dsb_uops",
+          "encoding": "type=4 config=0x879 config1=0x0",
+          "source": "perf JSON event table",
+          "perf_stat_ok": true,
+          "perf_stat_value": "3108272680",
+          "inprocess_ok": true,
+          "inprocess_value": "141224286"
+        }
+      ],
+      "source": "perf JSON event table",
+      "encoding": "type=4 config=0x879 config1=0x0",
+      "category": "frontend",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Uops delivered from the decoded-uop cache (DSB).",
+      "interpretation": ""
+    },
+    {
+      "key": "mite_uops",
+      "event": "idq.mite_uops",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "idq.mite_uops",
+          "encoding": "type=4 config=0x479 config1=0x0",
+          "source": "perf JSON event table",
+          "perf_stat_ok": true,
+          "perf_stat_value": "34828784",
+          "inprocess_ok": true,
+          "inprocess_value": "692685"
+        }
+      ],
+      "source": "perf JSON event table",
+      "encoding": "type=4 config=0x479 config1=0x0",
+      "category": "frontend",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Uops delivered from legacy decoders (MITE).",
+      "interpretation": ""
+    },
+    {
+      "key": "ms_uops",
+      "event": "idq.ms_uops",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "idq.ms_uops",
+          "encoding": "type=4 config=0x2079 config1=0x0",
+          "source": "perf JSON event table",
+          "perf_stat_ok": true,
+          "perf_stat_value": "2688366",
+          "inprocess_ok": true,
+          "inprocess_value": "17923"
+        }
+      ],
+      "source": "perf JSON event table",
+      "encoding": "type=4 config=0x2079 config1=0x0",
+      "category": "frontend",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Uops delivered by the microcode sequencer.",
+      "interpretation": ""
+    },
+    {
+      "key": "lsd_uops",
+      "event": "lsd.uops",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "lsd.uops",
+          "encoding": "type=4 config=0x1a8 config1=0x0",
+          "source": "perf JSON event table",
+          "perf_stat_ok": true,
+          "perf_stat_value": "0",
+          "inprocess_ok": true,
+          "inprocess_value": "0"
+        }
+      ],
+      "source": "perf JSON event table",
+      "encoding": "type=4 config=0x1a8 config1=0x0",
+      "category": "frontend",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Uops delivered by the loop stream detector.",
+      "interpretation": ""
+    },
+    {
+      "key": "icache_stalls",
+      "event": "icache_data.stalls",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "icache_data.stalls",
+          "encoding": "type=4 config=0x480 config1=0x0",
+          "source": "perf JSON event table",
+          "perf_stat_ok": true,
+          "perf_stat_value": "2050076",
+          "inprocess_ok": true,
+          "inprocess_value": "10902"
+        }
+      ],
+      "source": "perf JSON event table",
+      "encoding": "type=4 config=0x480 config1=0x0",
+      "category": "frontend",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Cycles stalled on instruction-cache misses.",
+      "interpretation": ""
+    },
+    {
+      "key": "imc_cas_read",
+      "event": "uncore_imc/cas_count_read/",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "uncore_imc/cas_count_read/",
+          "source": "kernel sysfs uncore PMU events",
+          "perf_stat_ok": true,
+          "perf_stat_value": "61.12",
+          "inprocess_ok": true,
+          "inprocess_value": "8 instances, raw=4480"
+        }
+      ],
+      "source": "kernel sysfs uncore PMU events",
+      "encoding": null,
+      "category": "dram",
+      "scope": "socket-wide (uncore PMU; includes every process on the socket)",
+      "description": "DRAM read CAS commands summed over all memory channels (perf scales to MiB).",
+      "interpretation": "Actual bytes read from DRAM by the whole socket (64 B per CAS)."
+    },
+    {
+      "key": "imc_cas_write",
+      "event": "uncore_imc/cas_count_write/",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "uncore_imc/cas_count_write/",
+          "source": "kernel sysfs uncore PMU events",
+          "perf_stat_ok": true,
+          "perf_stat_value": "15.22",
+          "inprocess_ok": true,
+          "inprocess_value": "8 instances, raw=1186"
+        }
+      ],
+      "source": "kernel sysfs uncore PMU events",
+      "encoding": null,
+      "category": "dram",
+      "scope": "socket-wide (uncore PMU; includes every process on the socket)",
+      "description": "DRAM write CAS commands summed over all memory channels.",
+      "interpretation": "Actual bytes written to DRAM by the whole socket."
+    }
+  ]
+}
