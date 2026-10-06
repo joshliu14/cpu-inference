@@ -1,0 +1,42 @@
+{
+  "ATEN_CPU_CAPABILITY": "avx512",
+  "cpu_capability": "AVX512",
+  "ops": {
+    "relu_ (1x256x56x56)": {
+      "instructions": 783730,
+      "fp_scalar": 0,
+      "fp_256b": 100352,
+      "fp_512b": 0
+    },
+    "add_ (1x256x56x56)": {
+      "instructions": 935470,
+      "fp_scalar": 0,
+      "fp_256b": 200704,
+      "fp_512b": 0
+    },
+    "batchnorm (1x256x56x56)": {
+      "instructions": 1298266,
+      "fp_scalar": 1536,
+      "fp_256b": 200704,
+      "fp_512b": 0
+    },
+    "maxpool NCHW (1x64x112x112)": {
+      "instructions": 42837594,
+      "fp_scalar": 0,
+      "fp_256b": 0,
+      "fp_512b": 0
+    },
+    "avgpool (1x256x56x56)": {
+      "instructions": 278835,
+      "fp_scalar": 2304,
+      "fp_256b": 110368,
+      "fp_512b": 0
+    },
+    "exp (1x256x56x56)": {
+      "instructions": 1329726,
+      "fp_scalar": 0,
+      "fp_256b": 0,
+      "fp_512b": 752640
+    }
+  }
+}

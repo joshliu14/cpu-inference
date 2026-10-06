@@ -1,0 +1,152 @@
+{
+  "library": "/users/joshliu/cpu-inference/.venv/lib/python3.12/site-packages/torch/lib/libtorch_cpu.so",
+  "resnet_kernels_symbol_lines_by_isa": {
+    "add_kernel": {
+      "DEFAULT": 37,
+      "AVX2": 28,
+      "AVX512": 0,
+      "total_symbols": 79
+    },
+    "clamp_min_scalar": {
+      "DEFAULT": 10,
+      "AVX2": 9,
+      "AVX512": 0,
+      "total_symbols": 33
+    },
+    "mul_kernel": {
+      "DEFAULT": 58,
+      "AVX2": 44,
+      "AVX512": 0,
+      "total_symbols": 162
+    },
+    "batch_norm_cpu": {
+      "DEFAULT": 5,
+      "AVX2": 0,
+      "AVX512": 0,
+      "total_symbols": 619
+    },
+    "cpu_max_pool<float": {
+      "DEFAULT": 0,
+      "AVX2": 0,
+      "AVX512": 0,
+      "total_symbols": 16
+    },
+    "vectorized_inner_sum": {
+      "DEFAULT": 7,
+      "AVX2": 10,
+      "AVX512": 0,
+      "total_symbols": 17
+    },
+    "exp_kernel": {
+      "DEFAULT": 84,
+      "AVX2": 80,
+      "AVX512": 32,
+      "total_symbols": 206
+    },
+    "copy_kernel": {
+      "DEFAULT": 2039,
+      "AVX2": 2035,
+      "AVX512": 2035,
+      "total_symbols": 6342
+    },
+    "tanh_kernel": {
+      "DEFAULT": 40,
+      "AVX2": 33,
+      "AVX512": 28,
+      "total_symbols": 105
+    }
+  },
+  "dispatch_kernels_with_avx512_build": [
+    "acos_kernel",
+    "asin_kernel",
+    "atan_kernel",
+    "atanh_kernel",
+    "conj_kernel",
+    "copy_kernel",
+    "cosh_kernel",
+    "cpu_kernel",
+    "cpu_kernel_vec",
+    "direct_copy_kernel",
+    "erf_kernel",
+    "erfc_kernel",
+    "erfinv_kernel",
+    "exp2_kernel",
+    "exp_kernel",
+    "expm1_kernel",
+    "lgamma_kernel",
+    "log10_kernel",
+    "log1p_kernel",
+    "log2_kernel",
+    "log_kernel",
+    "logit_kernel",
+    "neg_conj_kernel",
+    "neg_kernel",
+    "pow_tensor_scalar_kernel",
+    "pow_tensor_scalar_optimized_kernel",
+    "pow_tensor_tensor_kernel",
+    "reciprocal_kernel",
+    "reduced_float_copy_kernel",
+    "rsqrt_kernel",
+    "sgn_kernel",
+    "sigmoid_kernel",
+    "sign_kernel",
+    "sinh_kernel",
+    "sqrt_kernel",
+    "tanh_kernel"
+  ],
+  "dispatch_kernels_avx2_but_no_avx512_build": [
+    "abs_kernel",
+    "acosh_kernel",
+    "airy_ai_kernel",
+    "angle_kernel",
+    "asinh_kernel",
+    "bessel_j0_kernel",
+    "bessel_j1_kernel",
+    "bessel_y0_kernel",
+    "bessel_y1_kernel",
+    "binary_kernel_reduce",
+    "binary_kernel_reduce_lastdim",
+    "binary_kernel_reduce_vec",
+    "bitwise_not_kernel",
+    "ceil_kernel",
+    "cos_kernel",
+    "cpu_kernel_multiple_outputs",
+    "cpu_serial_kernel",
+    "digamma_kernel",
+    "entr_kernel",
+    "erfcx_kernel",
+    "floor_kernel",
+    "frac_kernel",
+    "frexp_kernel",
+    "i0_kernel",
+    "i0e_kernel",
+    "i1_kernel",
+    "i1e_kernel",
+    "kaiser_window_kernel",
+    "log_ndtr_kernel",
+    "logical_not_kernel",
+    "modified_bessel_i0_kernel",
+    "modified_bessel_i1_kernel",
+    "modified_bessel_k0_kernel",
+    "modified_bessel_k1_kernel",
+    "nan_to_num_kernel",
+    "ndtri_kernel",
+    "polygamma_kernel",
+    "round_decimals_kernel",
+    "round_kernel",
+    "scaled_modified_bessel_k0_kernel",
+    "scaled_modified_bessel_k1_kernel",
+    "signbit_kernel",
+    "sin_kernel",
+    "sinc_kernel",
+    "spherical_bessel_j0_kernel",
+    "tan_kernel",
+    "trigamma_kernel",
+    "trunc_kernel"
+  ],
+  "symbols_in_namespace": {
+    "DEFAULT": 16574,
+    "AVX2": 15544,
+    "AVX512": 9601
+  }
+}

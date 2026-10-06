@@ -10,7 +10,10 @@ Python -> PyTorch nn.Module -> dispatcher -> ATen -> oneDNN / MKL / ATen native 
 ```
 
 Batch 1, 3x224x224, FP32, inference only, one thread pinned to one core, no
-torch.compile / quantization / fusion in the baseline.
+torch.compile / quantization / fusion in the baseline. Optimizations
+(BN folding, channels-last, oneDNN layouts, TorchScript, torch.compile) and
+multi-core runs are separate experiments that always keep the unmodified
+baseline as the reference.
 
 **Start here:** [docs/RESULTS.md](docs/RESULTS.md) (findings) and
 [docs/EXPERIMENT_GUIDE.md](docs/EXPERIMENT_GUIDE.md) (how to run and read
@@ -43,6 +46,8 @@ Or step by step:
 | Backend path | `scripts/run_backend_probe.sh` | `results/<date>_backend/` |
 | Instructions (Level 4) | `scripts/run_instruction_profile.sh` | `results/<date>_instruction_profile/` |
 | Dispatch overhead | `scripts/run_dispatch_overhead.sh` | `results/<date>_dispatch_overhead/` |
+| Optimizations (single core) | `scripts/run_optimizations.sh` | `results/<date>_optimizations/` |
+| Multi-core scaling | `scripts/run_multicore.sh` | `results/<date>_multicore/` |
 
 ## Layout
 
@@ -53,8 +58,10 @@ cpuinf/        model + measurement library
   perfcounters.py in-process perf_event_open (ctypes), group planning, uncore
   events.py      event catalog (candidates + interpretation); metrics.py derived metrics
   runtime.py     single-thread / pinning setup, statistics
+  variants.py    optimization variants (baseline + one change each)
 experiments/   e2e_latency, op_profile, backend_probe, dispatch_overhead,
-               infer_loop (perf target), validate_counters, opt_* (optimizations)
+               infer_loop (perf target), validate_counters, opt_* (optimizations),
+               multicore (thread scaling, N instances)
 microbench/    C/C++ baselines: compute, memlat, membw, intensity, flags_kernels
 analysis/      analysis + plotting for each experiment
 scripts/       runners (one per experiment) and perf wrapper

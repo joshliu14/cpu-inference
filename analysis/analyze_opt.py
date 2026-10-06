@@ -15,6 +15,76 @@ from matplotlib import pyplot as plt  # noqa: E402
 ORDER = ["conv1x1", "conv3x3", "conv7x7", "batchnorm", "relu", "add", "maxpool", "other"]
 
 
+def onednn_split(path):
+    """oneDNN verbose exec lines -> {class: [calls, ms, MB]}; reorders are split
+    into weights (shape OxIxKxK, first dim > 1) and activations (1xCxHxW)."""
+    agg = {}
+    for line in path.read_text(errors="replace").splitlines():
+        p = line.strip().split(",")
+        if len(p) < 6 or p[3] != "exec":
+            continue
+        kind, shape, ms = p[5], p[-2], float(p[-1])
+        mb = 0.0
+        if kind == "reorder":
+            dims = [int(d) for d in shape.split("x") if d.isdigit()]
+            kind = "reorder_activation" if dims and dims[0] == 1 else "reorder_weight"
+            mb = float(np.prod(dims)) * 4 / 1e6 if dims else 0.0
+        a = agg.setdefault(kind, [0, 0.0, 0.0])
+        a[0] += 1
+        a[1] += ms
+        a[2] += mb
+    return agg
+
+
+def mechanisms_md(out):
+    """Tables from opt_mechanisms.py output (maxpool counters, oneDNN census)."""
+    md = []
+    mj = out / "processed" / "mechanisms.json"
+    if mj.exists():
+        m = json.loads(mj.read_text())
+        mp = pd.DataFrame(m["maxpool"]["per_callable"]).T
+        cols = ["us_per_call", "cycles_per_output", "instructions_per_output", "ipc", "branches_per_output",
+                "branch_misses_per_output", "loads_per_output", "stores_per_output", "fp_256b_per_output",
+                "fp_512b_per_output"]
+        mp[cols].round(3).to_csv(out / "processed" / "maxpool_mechanism.csv")
+        md += ["## Mechanism check A: max-pool kernel counters", "",
+               f"Input {m['maxpool']['input_shape']} -> {m['maxpool']['outputs']} outputs; per-call medians of "
+               "in-process counters, normalised per pooled output. Results identical to NCHW: "
+               f"{m.get('maxpool_equal')}.", "", mp[cols].round(3).to_markdown(), ""]
+    rows = []
+    for f in sorted((out / "raw").glob("onednn_verbose_*.txt")):
+        v = f.stem.replace("onednn_verbose_", "")
+        a = onednn_split(f)
+        r = {"variant": v}
+        for k in ("convolution", "reorder_weight", "reorder_activation"):
+            n, ms, mb = a.get(k, [0, 0.0, 0.0])
+            r[f"{k}_calls"] = n
+            r[f"{k}_ms"] = ms
+            if k.startswith("reorder"):
+                r[f"{k}_MB"] = mb
+        r["other_onednn_ms"] = sum(x[1] for k, x in a.items()
+                                   if k not in ("convolution", "reorder_weight", "reorder_activation"))
+        rows.append(r)
+    if rows:
+        od = pd.DataFrame(rows)
+        od.round(3).to_csv(out / "processed" / "onednn_reorder_split.csv", index=False)
+        md += ["## Mechanism check B: oneDNN primitives per inference", "",
+               "From ONEDNN verbose of one inference (exec times as reported by oneDNN). Weight reorders = "
+               "conv weights converted to oneDNN's blocked layout on every call; activation reorders = "
+               "NCHW <-> blocked conversions of activations. MKL SGEMM (unstrided 1x1 convs in eager NCHW) "
+               "does not appear here.", "", od.round(2).to_markdown(index=False), ""]
+    ac = out / "processed" / "aten_census.csv"
+    if ac.exists():
+        a = pd.read_csv(ac)
+        keep = ["aten::mkldnn_convolution", "aten::_slow_conv2d_forward", "aten::native_batch_norm",
+                "aten::max_pool2d_with_indices", "aten::add_", "aten::clamp_min_", "aten::relu_",
+                "aten::copy_", "aten::addmm", "mkldnn::_convolution_pointwise", "mkldnn::_convolution_pointwise_"]
+        t = a[a.op.isin(keep)].pivot_table(index="variant", columns="op", values="calls", aggfunc="sum").fillna(0)
+        md += ["## Mechanism check C: ATen operators dispatched per inference (calls)", "",
+               t.astype(int).to_markdown(), ""]
+    return md
+
+
 def main(out_dir):
     out = Path(out_dir)
     (out / "plots").mkdir(exist_ok=True)
@@ -76,6 +146,7 @@ def main(out_dir):
           tab.round(3).assign(max_abs_diff=tab.max_abs_diff.map(lambda v: f"{v:.1e}")).to_markdown(index=False),
           "", "## Per-operator-type time (ms, in-model hooks)", "", bdf.round(2).to_markdown(), ""]
 
+    md += mechanisms_md(out)
     th = sorted(out.glob("processed/e2e_summary_threads_*.json"), key=lambda p: int(p.stem.split("_")[-1]))
     if th:
         trows = []

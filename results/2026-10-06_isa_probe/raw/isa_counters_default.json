@@ -1,0 +1,42 @@
+{
+  "ATEN_CPU_CAPABILITY": "default",
+  "cpu_capability": "DEFAULT",
+  "ops": {
+    "relu_ (1x256x56x56)": {
+      "instructions": 4954780,
+      "fp_scalar": 802816,
+      "fp_256b": 0,
+      "fp_512b": 0
+    },
+    "add_ (1x256x56x56)": {
+      "instructions": 4253505,
+      "fp_scalar": 0,
+      "fp_256b": 0,
+      "fp_512b": 0
+    },
+    "batchnorm (1x256x56x56)": {
+      "instructions": 2805791,
+      "fp_scalar": 1536,
+      "fp_256b": 0,
+      "fp_512b": 0
+    },
+    "maxpool NCHW (1x64x112x112)": {
+      "instructions": 42802787,
+      "fp_scalar": 0,
+      "fp_256b": 0,
+      "fp_512b": 0
+    },
+    "avgpool (1x256x56x56)": {
+      "instructions": 1738482,
+      "fp_scalar": 11520,
+      "fp_256b": 0,
+      "fp_512b": 0
+    },
+    "exp (1x256x56x56)": {
+      "instructions": 1329769,
+      "fp_scalar": 0,
+      "fp_256b": 0,
+      "fp_512b": 752640
+    }
+  }
+}

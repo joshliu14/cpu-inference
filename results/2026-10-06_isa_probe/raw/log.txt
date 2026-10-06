@@ -1,0 +1,34 @@
+[unset  ] relu_ (1x256x56x56)            instructions 783256  fp_scalar 0  fp_256b 100352  fp_512b 0
+[unset  ] add_ (1x256x56x56)             instructions 935830  fp_scalar 0  fp_256b 200704  fp_512b 0
+[unset  ] batchnorm (1x256x56x56)        instructions 1297565  fp_scalar 1536  fp_256b 200704  fp_512b 0
+[unset  ] maxpool NCHW (1x64x112x112)    instructions 42831814  fp_scalar 0  fp_256b 0  fp_512b 0
+[unset  ] avgpool (1x256x56x56)          instructions 278889  fp_scalar 2304  fp_256b 110368  fp_512b 0
+[unset  ] exp (1x256x56x56)              instructions 1329616  fp_scalar 0  fp_256b 0  fp_512b 752640
+add_kernel             DEFAULT=37  AVX2=28  AVX512=0  total_symbols=79
+clamp_min_scalar       DEFAULT=10  AVX2=9  AVX512=0  total_symbols=33
+mul_kernel             DEFAULT=58  AVX2=44  AVX512=0  total_symbols=162
+batch_norm_cpu         DEFAULT=5  AVX2=0  AVX512=0  total_symbols=619
+cpu_max_pool<float     DEFAULT=0  AVX2=0  AVX512=0  total_symbols=16
+vectorized_inner_sum   DEFAULT=7  AVX2=10  AVX512=0  total_symbols=17
+exp_kernel             DEFAULT=84  AVX2=80  AVX512=32  total_symbols=206
+copy_kernel            DEFAULT=2039  AVX2=2035  AVX512=2035  total_symbols=6342
+tanh_kernel            DEFAULT=40  AVX2=33  AVX512=28  total_symbols=105
+dispatch kernels with an AVX512 build: 36; AVX2-only: 48
+[avx512 ] relu_ (1x256x56x56)            instructions 783730  fp_scalar 0  fp_256b 100352  fp_512b 0
+[avx512 ] add_ (1x256x56x56)             instructions 935470  fp_scalar 0  fp_256b 200704  fp_512b 0
+[avx512 ] batchnorm (1x256x56x56)        instructions 1298266  fp_scalar 1536  fp_256b 200704  fp_512b 0
+[avx512 ] maxpool NCHW (1x64x112x112)    instructions 42837594  fp_scalar 0  fp_256b 0  fp_512b 0
+[avx512 ] avgpool (1x256x56x56)          instructions 278835  fp_scalar 2304  fp_256b 110368  fp_512b 0
+[avx512 ] exp (1x256x56x56)              instructions 1329726  fp_scalar 0  fp_256b 0  fp_512b 752640
+[avx2   ] relu_ (1x256x56x56)            instructions 783514  fp_scalar 0  fp_256b 100352  fp_512b 0
+[avx2   ] add_ (1x256x56x56)             instructions 935635  fp_scalar 0  fp_256b 200704  fp_512b 0
+[avx2   ] batchnorm (1x256x56x56)        instructions 1299060  fp_scalar 1536  fp_256b 200704  fp_512b 0
+[avx2   ] maxpool NCHW (1x64x112x112)    instructions 42838967  fp_scalar 0  fp_256b 0  fp_512b 0
+[avx2   ] avgpool (1x256x56x56)          instructions 278994  fp_scalar 2304  fp_256b 110368  fp_512b 0
+[avx2   ] exp (1x256x56x56)              instructions 1329922  fp_scalar 0  fp_256b 0  fp_512b 752640
+[default] relu_ (1x256x56x56)            instructions 4954780  fp_scalar 802816  fp_256b 0  fp_512b 0
+[default] add_ (1x256x56x56)             instructions 4253505  fp_scalar 0  fp_256b 0  fp_512b 0
+[default] batchnorm (1x256x56x56)        instructions 2805791  fp_scalar 1536  fp_256b 0  fp_512b 0
+[default] maxpool NCHW (1x64x112x112)    instructions 42802787  fp_scalar 0  fp_256b 0  fp_512b 0
+[default] avgpool (1x256x56x56)          instructions 1738482  fp_scalar 11520  fp_256b 0  fp_512b 0
+[default] exp (1x256x56x56)              instructions 1329769  fp_scalar 0  fp_256b 0  fp_512b 752640
