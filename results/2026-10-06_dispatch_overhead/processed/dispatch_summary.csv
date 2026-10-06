@@ -1,0 +1,10 @@
+callable,fixed_cycles,fixed_us,cycles_per_element,fixed_instructions,fit_valid
+F.max_pool2d chlast,5220.229,2.486,1.455,16096.168,True
+add_ inplace,2067.556,0.985,0.294,6906.012,True
+conv1x1 64->64,17321.777,8.248,2.073,52794.825,True
+conv3x3 64->64,81367.653,38.747,20.9,464059.84,True
+nn.BatchNorm2d(64),20483.471,9.754,0.449,66999.178,True
+"nn.MaxPool2d(3,2,1)",-22731.306,-10.824,27.403,35101.936,False
+nn.ReLU module,6172.984,2.94,0.305,20142.27,True
+torch.add,2977.253,1.418,0.369,9168.38,True
+torch.relu,2636.642,1.256,0.303,8328.603,True

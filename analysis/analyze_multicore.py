@@ -36,6 +36,17 @@ def main(out_dir):
           "core (CPUs 1..N), started together and measured over the same window. DRAM traffic is socket-wide "
           "(uncore IMC CAS counts).", ""]
 
+    # contention flags: last attempt of each configuration
+    clean = {}
+    cf = out / "raw" / "contention_summary.csv"
+    if cf.exists():
+        c = pd.read_csv(cf)
+        for r in c.itertuples():
+            clean[r.config] = (int(r.clean), int(r.max_other_cpu_pct), int(r.attempt))
+        md += [f"Contention check: {sum(v[0] for v in clean.values())}/{len(clean)} configurations ran with other "
+               "users below 1 core of CPU (`raw/contention_summary.csv`); unclean ones are marked "
+               "`clean = 0` and excluded from plots.", ""]
+
     # ---------------------------------------------------------------- threads
     th = [json.loads(p.read_text()) for p in sorted((out / "raw").glob("threads_*.json"))]
     tt = pd.DataFrame([{"variant": r["variant"], "cores": r["threads"], "median_ms": r["latency_ms"]["median"],
@@ -51,6 +62,7 @@ def main(out_dir):
         if base1:
             tt["speedup_vs_baseline_1core"] = base1 / tt.median_ms
         tt["inferences_per_s"] = 1000 / tt.median_ms
+        tt["clean"] = [clean.get(f"threads_{r.variant}_{r.cores}", (1, 0, 0))[0] for r in tt.itertuples()]
         tt.round(3).to_csv(out / "processed" / "thread_scaling.csv", index=False)
         md += ["## Intra-op thread scaling (latency of one inference)", "", tt.round(3).to_markdown(index=False), ""]
 
@@ -75,12 +87,17 @@ def main(out_dir):
         ti = pd.DataFrame(rows).sort_values(["variant", "cores"])
         ti["slowdown_vs_1_instance"] = ti.groupby("variant").per_instance_median_ms.transform(lambda s: s / s.iloc[0])
         ti["throughput_vs_1_instance"] = ti.groupby("variant").throughput_inf_per_s.transform(lambda s: s / s.iloc[0])
+        ti["clean"] = [clean.get(f"instances_{r.variant}_{r.cores}", (1, 0, 0))[0] for r in ti.itertuples()]
         ti.round(3).to_csv(out / "processed" / "instance_scaling.csv", index=False)
         md += ["## N independent single-thread instances (throughput)", "", ti.round(3).to_markdown(index=False), ""]
         # per-instance detail
         df.sort_values(["variant", "N", "cpu"]).round(3).to_csv(out / "processed" / "instance_detail.csv", index=False)
 
     # ------------------------------------------------------------------ plots
+    if len(tt):
+        tt = tt[tt.clean == 1]
+    if len(ti):
+        ti = ti[ti.clean == 1]
     variants = sorted(set(tt.variant if len(tt) else []) | set(ti.variant if len(ti) else []),
                       key=lambda v: (v != "baseline", v))
     color = {v: ps.CAT[i] for i, v in enumerate(variants)}

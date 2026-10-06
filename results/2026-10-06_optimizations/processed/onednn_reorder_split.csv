@@ -1,0 +1,9 @@
+variant,convolution_calls,convolution_ms,reorder_weight_calls,reorder_weight_ms,reorder_weight_MB,reorder_activation_calls,reorder_activation_ms,reorder_activation_MB,other_onednn_ms
+baseline,20,35.095,20,6.48,56.317,39,2.018,24.787,0.0
+channels_last,20,34.928,20,7.934,56.317,0,0.0,0.0,0.0
+fold_bn+channels_last,20,34.664,20,7.887,56.317,0,0.0,0.0,0.0
+fold_bn,20,36.022,20,6.731,56.317,39,2.085,24.787,0.0
+inductor,53,66.254,0,0.0,0.0,0,0.0,0.0,0.0
+jit_freeze,53,64.261,53,11.792,93.82,2,0.068,0.61,4.422
+maxpool_chlast,20,35.045,20,6.45,56.317,39,2.065,24.787,0.0
+mkldnn_layout,53,64.746,53,12.06,93.82,0,0.0,0.0,10.324

@@ -1,0 +1,6 @@
+,us_per_call,cycles_per_output,instructions_per_output,ipc,branches_per_output,branch_misses_per_output,loads_per_output,stores_per_output,fp_256b_per_output,fp_512b_per_output
+nchw,10141.178,105.827,213.559,2.018,39.181,1.851,62.121,14.253,0.0,0.0
+channels_last,610.398,6.373,23.577,3.7,2.114,0.0,9.077,3.492,0.0,0.0
+mkldnn,476.656,4.976,9.497,1.909,0.448,0.0,2.876,1.657,0.0,0.0
+to_cl,804.447,8.371,28.654,3.423,4.081,0.0,4.026,4.015,0.0,0.0
+to_nchw,324.164,3.37,7.073,2.099,1.015,0.0,1.02,1.011,0.0,0.0

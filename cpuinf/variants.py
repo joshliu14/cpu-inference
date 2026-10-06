@@ -13,6 +13,9 @@ multicore.py so that every experiment builds exactly the same models.
   fold_bn+channels_last fold_bn, then the whole model in channels-last
   mkldnn_layout         torch.utils.mkldnn.to_mkldnn: oneDNN blocked tensors
                         between operators
+  jit_trace             torch.jit.trace only (same ATen ops as baseline, but
+                        executed by the TorchScript interpreter: no Python
+                        nn.Module calls) -- isolates Python overhead
   jit_freeze            torch.jit.trace -> freeze -> optimize_for_inference
   inductor              torch.compile(backend="inductor"), inductor freezing on
 """
@@ -75,6 +78,10 @@ def make_variant(name, base, x):
     if name == "fold_bn+channels_last":
         m = fold_bn(base).to(memory_format=torch.channels_last)
         return m, x.contiguous(memory_format=torch.channels_last), dense
+    if name == "jit_trace":
+        with torch.inference_mode(False), torch.no_grad():
+            tm = torch.jit.trace(copy.deepcopy(base).eval(), x)
+        return tm, x, dense
     if name == "jit_freeze":
         with torch.inference_mode(False), torch.no_grad():
             tm = torch.jit.trace(copy.deepcopy(base).eval(), x)

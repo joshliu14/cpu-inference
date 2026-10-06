@@ -103,6 +103,31 @@ def main(out_dir):
     tab = pd.DataFrame(rows)
     tab.round(4).to_csv(out / "processed" / "opt_comparison.csv", index=False)
 
+    # Headline chart: end-to-end latency of every variant vs the compute floor.
+    FLOOR_MS = 8.2174e9 / 63.86 / 2.1e9 * 1e3      # CALCULATED: FLOPs / measured peak FLOP/cycle / 2.1 GHz
+    t2 = tab.sort_values("median_ms", ascending=True)
+    fig, ax = plt.subplots(figsize=(9, 0.5 * len(t2) + 1.8))
+    y = np.arange(len(t2))[::-1]
+    cols = [ps.NEUTRAL if v == "baseline" else ps.CAT[0] for v in t2.variant]
+    ax.barh(y, t2.median_ms, color=cols, height=0.62)
+    ax.errorbar(t2.median_ms, y, xerr=[t2.median_ms - t2.p5_ms, t2.p95_ms - t2.median_ms], fmt="none",
+                ecolor=ps.TEXT2, elinewidth=0.8, capsize=2)
+    for yi, r in zip(y, t2.itertuples()):
+        ax.text(r.p95_ms + 1, yi, f"{r.median_ms:.1f} ms  ({r.speedup_vs_baseline:.2f}x)", va="center",
+                fontsize=8.5, color=ps.TEXT2)
+    ax.axvline(FLOOR_MS, color=ps.CAT[7], linestyle="--", linewidth=1)
+    ax.set_ylim(-0.6, len(t2) + 0.5)
+    ax.text(FLOOR_MS - 1, len(t2) - 0.1, f"compute floor {FLOOR_MS:.1f} ms (8.22 GFLOP at measured FMA peak)",
+            fontsize=8, color=ps.CAT[7], va="center", ha="right")
+    ax.set_yticks(y)
+    ax.set_yticklabels(t2.variant)
+    ax.set_xlim(0, t2.p95_ms.max() * 1.3)
+    ax.set_xlabel("ms per inference (median; whiskers p5-p95), one core")
+    ps.titled(ax, "Single-core latency of each optimization",
+              "same process, variants timed in interleaved blocks; grey = unmodified baseline")
+    fig.savefig(out / "plots" / "opt_latency.png")
+    plt.close(fig)
+
     # Per-op-type breakdown table
     bd = {}
     for name, v in s.items():
@@ -135,7 +160,8 @@ def main(out_dir):
     ax.set_xlabel("milliseconds (sum of per-operator medians)")
     ax.set_xlim(0, left.max() * 1.25)
     ps.titled(ax, "What each optimization removes",
-              "Per-operator-type time inside the model; label = measured end-to-end median")
+              "Per-operator-type time inside the model (eager variants only; compiled graphs have no "
+              "module hooks); label = end-to-end median")
     ax.legend(ncol=4, loc="upper center", bbox_to_anchor=(0.5, -0.15))
     fig.savefig(out / "plots" / "opt_breakdown.png")
     plt.close(fig)

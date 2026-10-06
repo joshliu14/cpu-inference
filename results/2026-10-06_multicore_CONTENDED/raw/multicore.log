@@ -1,0 +1,11 @@
+== intra-op thread scaling
+threads baseline               N= 1 median  104.69 ms  DRAM rd  235.9 MB/inf  ( 2.26 GB/s)
+threads baseline               N= 2 median   65.60 ms  DRAM rd  137.8 MB/inf  ( 2.09 GB/s)
+threads baseline               N= 4 median   72.41 ms  DRAM rd  167.6 MB/inf  ( 2.34 GB/s)
+threads baseline               N= 8 median   84.50 ms  DRAM rd  202.8 MB/inf  ( 2.00 GB/s)
+threads baseline               N=16 median   15.46 ms  DRAM rd  215.6 MB/inf  ( 1.61 GB/s)
+threads baseline               N=26 median   15.23 ms  DRAM rd  117.2 MB/inf  ( 7.67 GB/s)
+threads fold_bn+channels_last  N= 1 median   85.35 ms  DRAM rd  150.2 MB/inf  ( 1.76 GB/s)
+threads fold_bn+channels_last  N= 2 median   47.20 ms  DRAM rd  138.9 MB/inf  ( 2.94 GB/s)
+threads fold_bn+channels_last  N= 4 median   26.27 ms  DRAM rd  116.8 MB/inf  ( 4.44 GB/s)
+threads fold_bn+channels_last  N= 8 median   15.20 ms  DRAM rd  109.6 MB/inf  ( 7.19 GB/s)

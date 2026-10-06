@@ -1,0 +1,18 @@
+baseline               built + 15 warmup in 1.5 s, max|diff| 0.00e+00
+maxpool_chlast         built + 15 warmup in 1.4 s, max|diff| 0.00e+00
+fold_bn                built + 15 warmup in 1.6 s, max|diff| 2.32e-05
+channels_last          built + 15 warmup in 1.4 s, max|diff| 3.15e-05
+mkldnn_layout          built + 15 warmup in 1.8 s, max|diff| 4.01e-05
+fold_bn+chlast_pool    built + 15 warmup in 1.4 s, max|diff| 2.32e-05
+fold_bn+channels_last  built + 15 warmup in 1.4 s, max|diff| 3.05e-05
+jit_freeze             built + 15 warmup in 2.7 s, max|diff| 8.39e-05
+inductor               built + 15 warmup in 10.5 s, max|diff| 9.16e-05
+baseline               median  100.50 ms  p5  100.17  p95  101.55  IPC 2.26  max|diff| 0.00e+00  conv1x1=41.36 conv3x3=36.96 maxpool=10.19 batchnorm=5.02 conv7x7=2.19 add=2.06 relu=1.83 linear=0.50 avgpool=0.09 flatten=0.01
+maxpool_chlast         median   92.09 ms  p5   91.88  p95   92.49  IPC 2.30  max|diff| 0.00e+00  conv1x1=41.41 conv3x3=37.07 batchnorm=5.02 conv7x7=2.20 add=2.07 relu=1.83 maxpool=1.81 linear=0.50 avgpool=0.09 flatten=0.01
+fold_bn                median   98.54 ms  p5   98.25  p95   99.14  IPC 2.22  max|diff| 2.32e-05  conv1x1=44.17 conv3x3=37.10 maxpool=10.18 conv7x7=2.21 add=2.05 relu=1.87 linear=0.50 identity=0.12 avgpool=0.08 flatten=0.01
+channels_last          median   89.73 ms  p5   89.42  p95   90.38  IPC 2.66  max|diff| 3.15e-05  conv1x1=42.61 conv3x3=34.15 batchnorm=5.59 add=2.05 conv7x7=2.00 relu=1.82 maxpool=0.61 linear=0.51 avgpool=0.08 flatten=0.01
+mkldnn_layout          median   93.85 ms  p5   93.56  p95   94.76  IPC 2.05  max|diff| 4.01e-05  conv1x1=41.77 conv3x3=35.74 batchnorm=5.99 add=4.11 relu=2.72 conv7x7=1.86 linear=0.56 maxpool=0.24 avgpool=0.06 flatten=0.01
+fold_bn+chlast_pool    median   90.00 ms  p5   89.64  p95   91.00  IPC 2.27  max|diff| 2.32e-05  conv1x1=43.98 conv3x3=37.03 conv7x7=2.21 add=2.04 relu=1.87 maxpool=1.82 linear=0.51 identity=0.12 avgpool=0.08 flatten=0.01
+fold_bn+channels_last  median   86.37 ms  p5   86.10  p95   87.19  IPC 2.64  max|diff| 3.05e-05  conv1x1=44.69 conv3x3=33.88 add=2.08 conv7x7=2.00 relu=1.90 maxpool=0.62 linear=0.50 identity=0.12 avgpool=0.07 flatten=0.01
+jit_freeze             median   84.19 ms  p5   83.95  p95   85.14  IPC 2.20  max|diff| 8.39e-05  
+inductor               median   70.41 ms  p5   70.24  p95   71.19  IPC 2.94  max|diff| 9.16e-05  

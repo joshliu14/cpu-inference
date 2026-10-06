@@ -1,0 +1,17 @@
+maxpool counters: pass core done
+maxpool counters: pass fp done
+               us_per_call  cycles_per_call  instructions_per_call    ipc  cycles_per_output  instructions_per_output  branches_per_output  branch_misses_per_output  loads_per_output  stores_per_output  fp_scalar_per_output  fp_128b_per_output  fp_256b_per_output  fp_512b_per_output
+nchw             10141.178     2.123997e+07           4.286223e+07  2.018            105.827                  213.559               39.181                     1.851            62.121             14.253                   0.0                 0.0                 0.0                 0.0
+channels_last      610.398     1.279050e+06           4.732075e+06  3.700              6.373                   23.577                2.114                     0.000             9.077              3.492                   0.0                 0.0                 0.0                 0.0
+mkldnn             476.656     9.986987e+05           1.906017e+06  1.909              4.976                    9.497                0.448                     0.000             2.876              1.657                   0.0                 0.0                 0.0                 0.0
+to_cl              804.447     1.680189e+06           5.750964e+06  3.423              8.371                   28.654                4.081                     0.000             4.026              4.015                   0.0                 0.0                 0.0                 0.0
+to_nchw            324.164     6.763972e+05           1.419553e+06  2.099              3.370                    7.073                1.015                     0.000             1.020              1.011                   0.0                 0.0                 0.0                 0.0
+baseline               oneDNN: convolution 20x 35.09 ms, reorder 59x 8.50 ms
+maxpool_chlast         oneDNN: convolution 20x 35.05 ms, reorder 59x 8.51 ms
+fold_bn                oneDNN: convolution 20x 36.02 ms, reorder 59x 8.82 ms
+channels_last          oneDNN: convolution 20x 34.93 ms, reorder 20x 7.93 ms
+mkldnn_layout          oneDNN: batch_normalization 53x 3.66 ms, convolution 53x 64.75 ms, eltwise 49x 2.08 ms, inner_product 1x 0.51 ms, pooling 2x 0.22 ms, reorder 53x 12.06 ms, sum 16x 3.86 ms
+fold_bn+channels_last  oneDNN: convolution 20x 34.66 ms, reorder 20x 7.89 ms
+jit_freeze             oneDNN: convolution 53x 64.26 ms, eltwise 49x 1.66 ms, pooling 2x 0.19 ms, reorder 55x 11.86 ms, sum 16x 2.57 ms
+inductor               oneDNN: convolution 53x 66.25 ms
+done

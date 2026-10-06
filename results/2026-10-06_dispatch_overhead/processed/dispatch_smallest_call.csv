@@ -1,0 +1,12 @@
+callable,N,us,cycles_per_call,instructions_per_call
+F.max_pool2d chlast,256,2.61,5461.02,17983.57
+add_ inplace,1,1.04,2168.34,6917.55
+conv1x1 64->64,64,8.01,16775.81,49814.5
+conv3x3 64->64,64,17.64,36965.52,111504.06
+module_identity,1,1.01,2110.42,9587.59
+nn.BatchNorm2d(64),64,9.66,20237.5,65511.44
+"nn.MaxPool2d(3,2,1)",256,5.76,12060.63,49453.05
+nn.ReLU module,1,2.94,6165.83,19930.52
+python_noop,0,0.04,80.31,511.15
+torch.add,1,1.44,3018.8,8974.17
+torch.relu,1,1.28,2692.44,8133.38

@@ -1,0 +1,963 @@
+{
+  "environment": {
+    "time": "2026-10-06T15:36:09+0000",
+    "host": "node0.infer.nexdp-pg0.utah.cloudlab.us",
+    "affinity": [
+      6
+    ],
+    "requested_cpu": 6,
+    "torch": "2.14.1+cpu",
+    "torchvision": "0.29.1+cpu",
+    "torch_num_threads": 1,
+    "torch_num_interop_threads": 1,
+    "cpu_capability": "AVX512",
+    "mkldnn_enabled": true,
+    "env": {
+      "OMP_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "ONEDNN_VERBOSE": null,
+      "DNNL_VERBOSE": null,
+      "MKL_VERBOSE": null,
+      "ONEDNN_JIT_PROFILE": null
+    },
+    "process_threads": 1,
+    "loadavg": "1.20 9.73 15.74 1/1117 1423661",
+    "git_commit": "c836940"
+  },
+  "maxpool_equal": {
+    "channels_last": true,
+    "mkldnn": true
+  },
+  "maxpool": {
+    "input_shape": [
+      1,
+      64,
+      112,
+      112
+    ],
+    "outputs": 200704,
+    "per_callable": {
+      "nchw": {
+        "us_per_call": 10141.178300000001,
+        "cycles_per_call": 21239967.05,
+        "instructions_per_call": 42862231.85,
+        "ipc": 2.017998980370358,
+        "cycles_per_output": 105.8273230727838,
+        "instructions_per_output": 213.5594300562022,
+        "branches_per_output": 39.18103799625319,
+        "branch_misses_per_output": 1.8511350047831634,
+        "loads_per_output": 62.120993353396045,
+        "stores_per_output": 14.252865413743622,
+        "fp_scalar_per_output": 0.0,
+        "fp_128b_per_output": 0.0,
+        "fp_256b_per_output": 0.0,
+        "fp_512b_per_output": 0.0
+      },
+      "channels_last": {
+        "us_per_call": 610.3981920731707,
+        "cycles_per_call": 1279049.5,
+        "instructions_per_call": 4732074.817073171,
+        "ipc": 3.699680752834954,
+        "cycles_per_output": 6.372815190529336,
+        "instructions_per_output": 23.577381701775604,
+        "branches_per_output": 2.113965123253951,
+        "branch_misses_per_output": 0.00032025988034314337,
+        "loads_per_output": 9.077087159296836,
+        "stores_per_output": 3.4920897799501853,
+        "fp_scalar_per_output": 0.0,
+        "fp_128b_per_output": 0.0,
+        "fp_256b_per_output": 0.0,
+        "fp_512b_per_output": 0.0
+      },
+      "mkldnn": {
+        "us_per_call": 476.6556738095238,
+        "cycles_per_call": 998698.7404761905,
+        "instructions_per_call": 1906016.7904761904,
+        "ipc": 1.9085002445956634,
+        "cycles_per_output": 4.97597825890959,
+        "instructions_per_output": 9.496655724231656,
+        "branches_per_output": 0.44770735582179305,
+        "branch_misses_per_output": 0.0002760639691144315,
+        "loads_per_output": 2.875524202426506,
+        "stores_per_output": 1.6568642307648505,
+        "fp_scalar_per_output": 0.0,
+        "fp_128b_per_output": 0.0,
+        "fp_256b_per_output": 0.0,
+        "fp_512b_per_output": 0.0
+      },
+      "to_cl": {
+        "us_per_call": 804.4466587301587,
+        "cycles_per_call": 1680189.3373015872,
+        "instructions_per_call": 5750964.218253968,
+        "ipc": 3.422807234028824,
+        "cycles_per_output": 8.371479080145823,
+        "instructions_per_output": 28.653959155044085,
+        "branches_per_output": 4.080537302346534,
+        "branch_misses_per_output": 4.4209462058632976e-05,
+        "loads_per_output": 4.02593270497373,
+        "stores_per_output": 4.014912725460348,
+        "fp_scalar_per_output": 0.0,
+        "fp_128b_per_output": 0.0,
+        "fp_256b_per_output": 0.0,
+        "fp_512b_per_output": 0.0
+      },
+      "to_nchw": {
+        "us_per_call": 324.1640762987013,
+        "cycles_per_call": 676397.189935065,
+        "instructions_per_call": 1419552.530844156,
+        "ipc": 2.098696671079362,
+        "cycles_per_output": 3.370123116305928,
+        "instructions_per_output": 7.072866165318858,
+        "branches_per_output": 1.0147297826585484,
+        "branch_misses_per_output": 0.0003520723934866154,
+        "loads_per_output": 1.0204061896928007,
+        "stores_per_output": 1.011455035418185,
+        "fp_scalar_per_output": 0.0,
+        "fp_128b_per_output": 0.0,
+        "fp_256b_per_output": 0.0,
+        "fp_512b_per_output": 0.0
+      }
+    }
+  },
+  "census": {
+    "baseline": {
+      "onednn": {
+        "reorder": {
+          "calls": 59,
+          "total_ms": 8.498538400000001
+        },
+        "convolution": {
+          "calls": 20,
+          "total_ms": 35.09495
+        }
+      },
+      "onednn_impls": {
+        "reorder|jit:uni": 17,
+        "convolution|jit:avx512_core": 17,
+        "reorder|jit:blk": 42,
+        "convolution|jit_1x1:avx512_core": 3
+      },
+      "aten_top": {
+        "aten::mkldnn_convolution": [
+          20,
+          45.34672399999999
+        ],
+        "aten::_slow_conv2d_forward": [
+          33,
+          33.175413999999904
+        ],
+        "aten::max_pool2d_with_indices": [
+          1,
+          10.173099
+        ],
+        "aten::native_batch_norm": [
+          53,
+          4.164699000000069
+        ],
+        "aten::add_": [
+          16,
+          1.9734739999999837
+        ],
+        "aten::clamp_min_": [
+          49,
+          1.6244680000000131
+        ],
+        "aten::addmm": [
+          1,
+          0.4805929999999935
+        ],
+        "aten::empty": [
+          391,
+          0.27945099999997136
+        ],
+        "aten::_convolution": [
+          53,
+          0.1761840000000284
+        ],
+        "aten::_batch_norm_impl_index": [
+          53,
+          0.13143399999995564
+        ],
+        "aten::view": [
+          67,
+          0.0711320000000269
+        ],
+        "aten::batch_norm": [
+          53,
+          0.0641650000000377
+        ],
+        "aten::conv2d": [
+          53,
+          0.06077300000002742
+        ],
+        "aten::convolution": [
+          53,
+          0.059178999999992814
+        ],
+        "aten::relu_": [
+          49,
+          0.04807200000000284
+        ],
+        "aten::resize_": [
+          53,
+          0.03785300000001325
+        ],
+        "aten::thnn_conv2d": [
+          33,
+          0.03682800000005045
+        ],
+        "aten::empty_like": [
+          53,
+          0.03333500000003051
+        ],
+        "aten::sum": [
+          1,
+          0.030739999999990688
+        ],
+        "aten::as_strided_": [
+          20,
+          0.029881000000007134
+        ],
+        "aten::detach": [
+          33,
+          0.016348999999985608
+        ],
+        "aten::div_": [
+          1,
+          0.012755999999993946
+        ],
+        "aten::mean": [
+          1,
+          0.012408000000024913
+        ],
+        "aten::adaptive_avg_pool2d": [
+          1,
+          0.011071999999985564
+        ],
+        "aten::copy_": [
+          2,
+          0.007350999999995111
+        ]
+      }
+    },
+    "maxpool_chlast": {
+      "onednn": {
+        "reorder": {
+          "calls": 59,
+          "total_ms": 8.5144084
+        },
+        "convolution": {
+          "calls": 20,
+          "total_ms": 35.04541999999999
+        }
+      },
+      "onednn_impls": {
+        "reorder|jit:uni": 17,
+        "convolution|jit:avx512_core": 17,
+        "reorder|jit:blk": 42,
+        "convolution|jit_1x1:avx512_core": 3
+      },
+      "aten_top": {
+        "aten::mkldnn_convolution": [
+          20,
+          50.096846
+        ],
+        "aten::_slow_conv2d_forward": [
+          33,
+          34.217285999999966
+        ],
+        "aten::native_batch_norm": [
+          53,
+          4.977369999999964
+        ],
+        "aten::add_": [
+          16,
+          1.9559059999999755
+        ],
+        "aten::clamp_min_": [
+          49,
+          1.6033950000000003
+        ],
+        "aten::max_pool2d_with_indices": [
+          1,
+          1.4555140000000002
+        ],
+        "aten::copy_": [
+          4,
+          1.1662180000000026
+        ],
+        "aten::addmm": [
+          1,
+          0.4817220000000234
+        ],
+        "aten::empty": [
+          393,
+          0.30161700000002284
+        ],
+        "aten::_convolution": [
+          53,
+          0.15814899999993667
+        ],
+        "aten::_batch_norm_impl_index": [
+          53,
+          0.11973300000000563
+        ],
+        "aten::view": [
+          67,
+          0.07050700000005145
+        ],
+        "aten::convolution": [
+          53,
+          0.06184499999996024
+        ],
+        "aten::batch_norm": [
+          53,
+          0.059910000000050784
+        ],
+        "aten::conv2d": [
+          53,
+          0.05916500000004362
+        ],
+        "aten::resize_": [
+          53,
+          0.045822999999998504
+        ],
+        "aten::relu_": [
+          49,
+          0.04378199999999652
+        ],
+        "aten::thnn_conv2d": [
+          33,
+          0.034237000000031
+        ],
+        "aten::empty_like": [
+          55,
+          0.032500000000034564
+        ],
+        "aten::as_strided_": [
+          20,
+          0.03146599999999853
+        ],
+        "aten::sum": [
+          1,
+          0.02996500000001106
+        ],
+        "aten::detach": [
+          33,
+          0.0166049999999841
+        ],
+        "aten::div_": [
+          1,
+          0.013020999999978812
+        ],
+        "aten::mean": [
+          1,
+          0.008017000000021653
+        ],
+        "aten::_nnpack_available": [
+          33,
+          0.005156999999983782
+        ]
+      }
+    },
+    "fold_bn": {
+      "onednn": {
+        "reorder": {
+          "calls": 59,
+          "total_ms": 8.815666540000002
+        },
+        "convolution": {
+          "calls": 20,
+          "total_ms": 36.02196
+        }
+      },
+      "onednn_impls": {
+        "reorder|jit:uni": 17,
+        "convolution|jit:avx512_core": 17,
+        "reorder|jit:blk": 42,
+        "convolution|jit_1x1:avx512_core": 3
+      },
+      "aten_top": {
+        "aten::mkldnn_convolution": [
+          20,
+          47.13552199999999
+        ],
+        "aten::_slow_conv2d_forward": [
+          33,
+          33.930882000000025
+        ],
+        "aten::max_pool2d_with_indices": [
+          1,
+          10.147587000000001
+        ],
+        "aten::add_": [
+          16,
+          1.9544959999999956
+        ],
+        "aten::copy_": [
+          35,
+          1.7284039999999987
+        ],
+        "aten::clamp_min_": [
+          49,
+          1.6288079999999823
+        ],
+        "aten::addmm": [
+          1,
+          0.4816719999999914
+        ],
+        "aten::_convolution": [
+          53,
+          0.20898199999997497
+        ],
+        "aten::empty": [
+          73,
+          0.12729800000002892
+        ],
+        "aten::view": [
+          100,
+          0.08611899999994421
+        ],
+        "aten::convolution": [
+          53,
+          0.05857799999999907
+        ],
+        "aten::conv2d": [
+          53,
+          0.05825099999999839
+        ],
+        "aten::resize_": [
+          53,
+          0.05403200000002789
+        ],
+        "aten::relu_": [
+          49,
+          0.042550000000014736
+        ],
+        "aten::thnn_conv2d": [
+          33,
+          0.03217599999999584
+        ],
+        "aten::as_strided_": [
+          20,
+          0.02982600000001639
+        ],
+        "aten::sum": [
+          1,
+          0.029244999999995344
+        ],
+        "aten::reshape": [
+          33,
+          0.019250000000009097
+        ],
+        "aten::detach": [
+          33,
+          0.016156999999986512
+        ],
+        "aten::div_": [
+          1,
+          0.013429000000003726
+        ],
+        "aten::mean": [
+          1,
+          0.010398000000001047
+        ],
+        "aten::_nnpack_available": [
+          33,
+          0.006375000000009095
+        ],
+        "aten::_to_copy": [
+          1,
+          0.004818000000013854
+        ],
+        "aten::linear": [
+          1,
+          0.004682000000000699
+        ],
+        "aten::max_pool2d": [
+          1,
+          0.004655999999999039
+        ]
+      }
+    },
+    "channels_last": {
+      "onednn": {
+        "reorder": {
+          "calls": 20,
+          "total_ms": 7.93408278
+        },
+        "convolution": {
+          "calls": 20,
+          "total_ms": 34.928470000000004
+        }
+      },
+      "onednn_impls": {
+        "reorder|jit:uni": 20,
+        "convolution|brg_conv_fwd:avx512_core": 17,
+        "convolution|brgconv_1x1:avx512_core": 3
+      },
+      "aten_top": {
+        "aten::mkldnn_convolution": [
+          20,
+          44.26641399999998
+        ],
+        "aten::_slow_conv2d_forward": [
+          33,
+          33.97603600000001
+        ],
+        "aten::native_batch_norm": [
+          53,
+          4.6852049999999705
+        ],
+        "aten::add_": [
+          16,
+          1.9595010000000148
+        ],
+        "aten::clamp_min_": [
+          49,
+          1.6101089999999985
+        ],
+        "aten::resize_": [
+          53,
+          0.9123719999999749
+        ],
+        "aten::max_pool2d_with_indices": [
+          1,
+          0.6021259999999997
+        ],
+        "aten::addmm": [
+          1,
+          0.47832900000001244
+        ],
+        "aten::empty": [
+          371,
+          0.3079460000000177
+        ],
+        "aten::_convolution": [
+          53,
+          0.1715150000000108
+        ],
+        "aten::_batch_norm_impl_index": [
+          53,
+          0.12611099999998668
+        ],
+        "aten::relu_": [
+          49,
+          0.07093499999996403
+        ],
+        "aten::as_strided": [
+          68,
+          0.06828199999999288
+        ],
+        "aten::convolution": [
+          53,
+          0.06822600000004013
+        ],
+        "aten::batch_norm": [
+          53,
+          0.06317899999994961
+        ],
+        "aten::conv2d": [
+          53,
+          0.05570899999995208
+        ],
+        "aten::thnn_conv2d": [
+          33,
+          0.035147999999988314
+        ],
+        "aten::empty_like": [
+          53,
+          0.03296600000002172
+        ],
+        "aten::sum": [
+          1,
+          0.019920999999987542
+        ],
+        "aten::detach": [
+          33,
+          0.017178999999999178
+        ],
+        "aten::div_": [
+          1,
+          0.014246999999988475
+        ],
+        "aten::copy_": [
+          2,
+          0.0076269999999931315
+        ],
+        "aten::mean": [
+          1,
+          0.006941000000020722
+        ],
+        "aten::_to_copy": [
+          1,
+          0.0066109999999898715
+        ],
+        "aten::adaptive_avg_pool2d": [
+          1,
+          0.004794999999998254
+        ]
+      }
+    },
+    "mkldnn_layout": {
+      "onednn": {
+        "reorder": {
+          "calls": 53,
+          "total_ms": 12.05981703
+        },
+        "convolution": {
+          "calls": 53,
+          "total_ms": 64.74583700000001
+        },
+        "batch_normalization": {
+          "calls": 53,
+          "total_ms": 3.6560064000000003
+        },
+        "eltwise": {
+          "calls": 49,
+          "total_ms": 2.0783686200000013
+        },
+        "pooling": {
+          "calls": 2,
+          "total_ms": 0.2180179
+        },
+        "sum": {
+          "calls": 16,
+          "total_ms": 3.857422
+        },
+        "inner_product": {
+          "calls": 1,
+          "total_ms": 0.513916
+        }
+      },
+      "onednn_impls": {
+        "reorder|jit:uni": 53,
+        "convolution|jit:avx512_core": 17,
+        "batch_normalization|bnorm_jit:avx512_core": 53,
+        "eltwise|jit:avx10_1_512_amx": 49,
+        "pooling|jit:avx512_core": 2,
+        "convolution|jit_1x1:avx512_core": 36,
+        "sum|simple:any": 16,
+        "inner_product|brg_matmul:avx2": 1
+      },
+      "aten_top": {
+        "aten::mkldnn_convolution": [
+          53,
+          79.57607799999997
+        ],
+        "aten::native_batch_norm": [
+          53,
+          4.8569799999999885
+        ],
+        "aten::add_": [
+          16,
+          4.078937999999997
+        ],
+        "aten::relu_": [
+          49,
+          2.5599050000000156
+        ],
+        "aten::mkldnn_linear": [
+          1,
+          0.5499100000000035
+        ],
+        "aten::empty": [
+          106,
+          0.2618579999999923
+        ],
+        "aten::mkldnn_max_pool2d": [
+          1,
+          0.23155799999999999
+        ],
+        "aten::_batch_norm_impl_index": [
+          53,
+          0.15221300000001384
+        ],
+        "aten::batch_norm": [
+          53,
+          0.12530200000000333
+        ],
+        "aten::mkldnn_adaptive_avg_pool2d": [
+          1,
+          0.038695999999996275
+        ],
+        "aten::flatten": [
+          1,
+          0.005703000000008614
+        ],
+        "aten::_mkldnn_reshape": [
+          1,
+          0.0041319999999977885
+        ],
+        "aten::max_pool2d": [
+          1,
+          0.0033769999999999525
+        ],
+        "aten::adaptive_avg_pool2d": [
+          1,
+          0.003264999999999418
+        ]
+      }
+    },
+    "fold_bn+channels_last": {
+      "onednn": {
+        "reorder": {
+          "calls": 20,
+          "total_ms": 7.88745494
+        },
+        "convolution": {
+          "calls": 20,
+          "total_ms": 34.66359
+        }
+      },
+      "onednn_impls": {
+        "reorder|jit:uni": 20,
+        "convolution|brg_conv_fwd:avx512_core": 17,
+        "convolution|brgconv_1x1:avx512_core": 3
+      },
+      "aten_top": {
+        "aten::mkldnn_convolution": [
+          20,
+          43.885141000000004
+        ],
+        "aten::_slow_conv2d_forward": [
+          33,
+          34.183957999999926
+        ],
+        "aten::add_": [
+          16,
+          1.987125999999992
+        ],
+        "aten::copy_": [
+          35,
+          1.6777369999999814
+        ],
+        "aten::clamp_min_": [
+          49,
+          1.6653229999999881
+        ],
+        "aten::max_pool2d_with_indices": [
+          1,
+          0.611221
+        ],
+        "aten::addmm": [
+          1,
+          0.483553000000029
+        ],
+        "aten::_convolution": [
+          53,
+          0.19739500000005933
+        ],
+        "aten::resize_": [
+          53,
+          0.18942800000000712
+        ],
+        "aten::conv2d": [
+          53,
+          0.07310799999995721
+        ],
+        "aten::as_strided": [
+          68,
+          0.05859900000001426
+        ],
+        "aten::convolution": [
+          53,
+          0.056744999999983746
+        ],
+        "aten::relu_": [
+          49,
+          0.04607800000003681
+        ],
+        "aten::view": [
+          34,
+          0.037867999999994024
+        ],
+        "aten::empty": [
+          53,
+          0.034408999999983564
+        ],
+        "aten::thnn_conv2d": [
+          33,
+          0.031856000000045244
+        ],
+        "aten::reshape": [
+          33,
+          0.020802000000020145
+        ],
+        "aten::sum": [
+          1,
+          0.017512999999991733
+        ],
+        "aten::detach": [
+          33,
+          0.01661700000001747
+        ],
+        "aten::div_": [
+          1,
+          0.01314100000000326
+        ],
+        "aten::mean": [
+          1,
+          0.011417999999990571
+        ],
+        "aten::_to_copy": [
+          1,
+          0.005683000000019092
+        ],
+        "aten::adaptive_avg_pool2d": [
+          1,
+          0.005496999999988475
+        ],
+        "aten::_nnpack_available": [
+          33,
+          0.004973999999975604
+        ],
+        "aten::as_strided_": [
+          1,
+          0.004938000000009197
+        ]
+      }
+    },
+    "jit_freeze": {
+      "onednn": {
+        "reorder": {
+          "calls": 55,
+          "total_ms": 11.859857951999999
+        },
+        "convolution": {
+          "calls": 53,
+          "total_ms": 64.260969
+        },
+        "eltwise": {
+          "calls": 49,
+          "total_ms": 1.6579585699999995
+        },
+        "pooling": {
+          "calls": 2,
+          "total_ms": 0.1931149
+        },
+        "sum": {
+          "calls": 16,
+          "total_ms": 2.5708007
+        }
+      },
+      "onednn_impls": {
+        "reorder|jit_direct_copy:uni": 1,
+        "reorder|jit:uni": 54,
+        "convolution|jit:avx512_core": 17,
+        "eltwise|jit:avx10_1_512_amx": 49,
+        "pooling|jit:avx512_core": 2,
+        "convolution|jit_1x1:avx512_core": 36,
+        "sum|simple:any": 16
+      },
+      "aten_top": {
+        "aten::add_": [
+          16,
+          2.788537000000001
+        ],
+        "aten::relu_": [
+          49,
+          2.203038999999997
+        ],
+        "aten::mm": [
+          1,
+          0.49958099999999106
+        ],
+        "aten::mkldnn_max_pool2d": [
+          1,
+          0.2084749999999999
+        ],
+        "aten::to_mkldnn": [
+          1,
+          0.10713900000000001
+        ],
+        "aten::empty": [
+          54,
+          0.10548299999997363
+        ],
+        "aten::mkldnn_adaptive_avg_pool2d": [
+          1,
+          0.03327999999999884
+        ],
+        "aten::_to_dense": [
+          1,
+          0.024146000000007915
+        ],
+        "aten::add": [
+          1,
+          0.014283999999999651
+        ],
+        "aten::max_pool2d": [
+          1,
+          0.006025000000000091
+        ],
+        "aten::adaptive_avg_pool2d": [
+          1,
+          0.005879000000000815
+        ],
+        "aten::as_strided_": [
+          1,
+          0.005652999999991152
+        ],
+        "aten::matmul": [
+          1,
+          0.004216999999989639
+        ],
+        "aten::to_dense": [
+          1,
+          0.0040050000000192085
+        ],
+        "aten::flatten": [
+          1,
+          0.0035899999999965074
+        ],
+        "aten::view": [
+          1,
+          0.002599000000001979
+        ],
+        "aten::resize_": [
+          1,
+          0.0018129999999946449
+        ],
+        "aten::resolve_conj": [
+          3,
+          0.0006850000000122236
+        ]
+      }
+    },
+    "inductor": {
+      "onednn": {
+        "convolution": {
+          "calls": 53,
+          "total_ms": 66.25441599999998
+        }
+      },
+      "onednn_impls": {
+        "convolution|brg_conv_fwd:avx512_core": 17,
+        "convolution|brgconv_1x1:avx512_core": 36
+      },
+      "aten_top": {
+        "mkldnn::_convolution_pointwise": [
+          37,
+          50.991028000000036
+        ],
+        "mkldnn::_convolution_pointwise_": [
+          16,
+          17.603910000000003
+        ],
+        "Torch-Compiled Region: 0/0": [
+          1,
+          0.07032899999999791
+        ],
+        "aten::resize_": [
+          37,
+          0.05026899999995635
+        ],
+        "aten::empty": [
+          38,
+          0.03213399999999046
+        ]
+      }
+    }
+  }
+}
