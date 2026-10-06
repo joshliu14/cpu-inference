@@ -1,0 +1,24 @@
+{
+ "mode": "eager",
+ "intra": 2,
+ "inter": 2,
+ "affinity": [
+  1
+ ],
+ "omp_proc_bind": "close",
+ "thread_cpus": {
+  "1725640 python": "1",
+  "1725643 python": "1",
+  "1725653 python": "2"
+ },
+ "torch_threads": 2,
+ "interop_threads": 2,
+ "latency_ms": 56.422348,
+ "latency_p5": 56.128407,
+ "latency_p95": 56.70255,
+ "max_abs_diff": 0.0,
+ "traced_graph_contains_fork": null,
+ "eager_total_ms": 56.378351,
+ "downsample_branches_ms": 5.1114648,
+ "dependency_bound_speedup": 1.0997030476955318
+}

@@ -109,14 +109,14 @@ def main(out_dir):
             continue
         wa0, wa1 = c["windows"]["A"]
         w_end = c["windows"]["prof"][1]
-        lat, imgs = [], 0
+        # Throughput = sum over streams of batch / mean batch latency within the counter windows. Counting
+        # images completed in the window instead is quantized by whole batches (a batch-64 run on one core
+        # finishes only ~6 batches in the window).
+        lat, thr = [], 0.0
         for s in streams:
-            for L, e in zip(s["latency_ms"], s["end_times"]):
-                if wa0 <= e <= w_end:
-                    lat.append(L)
-                    imgs += s["batch"]
-        dur = w_end - wa0
-        thr = imgs / dur if dur > 0 else np.nan
+            ls = [L for L, e in zip(s["latency_ms"], s["end_times"]) if wa0 <= e <= w_end]
+            lat += ls
+            thr += s["batch"] / (np.mean(ls) / 1e3) if ls else np.nan
         A, Aper, runA = read_stat(raw / f"statA_{name}.csv")
         B, _, runB = read_stat(raw / f"statB_{name}.csv")
         wA = wa1 - wa0

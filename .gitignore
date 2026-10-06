@@ -18,3 +18,6 @@ results/**/raw_large/
 .idea/
 *.swp
 .DS_Store
+
+# Worker sync/log directories of the multi-core study (recreated per run)
+results/**/raw/sync_*/

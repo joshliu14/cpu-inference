@@ -1,0 +1,102 @@
+{
+ "name": "xcore_baseline_K28_S1",
+ "variant": "baseline",
+ "K": 28,
+ "S": 1,
+ "cores": [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15,
+  16,
+  17,
+  18,
+  19,
+  20,
+  21,
+  22,
+  23,
+  24,
+  25,
+  26,
+  27
+ ],
+ "attempt": 1,
+ "max_other_cpu_pct": 7,
+ "clean": true,
+ "warm_latency_ms": 15.929521,
+ "passes": {
+  "X1": {
+   "window": [
+    1791308448.280613,
+    1791308453.280613
+   ],
+   "counts": {
+    "cycles": 282062400882.0,
+    "instructions": 153730990820.0,
+    "mem_load_retired.l3_hit": 210449706.0,
+    "mem_load_retired.l3_miss": 44669748.0,
+    "mem_load_l3_hit_retired.xsnp_fwd": 391458516.0,
+    "mem_load_l3_hit_retired.xsnp_no_fwd": 119709693.0
+   },
+   "min_running_pct": 100.0,
+   "images": 299,
+   "per_image": {
+    "cycles": 943352511.3110368,
+    "instructions": 514150470.96989965,
+    "mem_load_retired.l3_hit": 703845.1705685619,
+    "mem_load_retired.l3_miss": 149397.15050167224,
+    "mem_load_l3_hit_retired.xsnp_fwd": 1309225.8060200668,
+    "mem_load_l3_hit_retired.xsnp_no_fwd": 400366.86622073577
+   }
+  },
+  "X2": {
+   "window": [
+    1791308453.3235102,
+    1791308458.3235102
+   ],
+   "counts": {
+    "cycles": 280992611529.0,
+    "instructions": 151806032046.0,
+    "mem_load_l3_hit_retired.xsnp_miss": 42905.0,
+    "ocr.demand_data_rd.l3_hit.snoop_hitm": 404892235.0,
+    "ocr.demand_data_rd.l3_hit": 752707112.0,
+    "l2_lines_in.all": 5320050307.0
+   },
+   "min_running_pct": 100.0,
+   "images": 294,
+   "per_image": {
+    "cycles": 955757182.0714285,
+    "instructions": 516347047.7755102,
+    "mem_load_l3_hit_retired.xsnp_miss": 145.93537414965985,
+    "ocr.demand_data_rd.l3_hit.snoop_hitm": 1377184.4727891157,
+    "ocr.demand_data_rd.l3_hit": 2560228.2721088436,
+    "l2_lines_in.all": 18095409.207482994
+   }
+  }
+ },
+ "summary_per_image": {
+  "l3_hit_loads_K": 703.8451705685619,
+  "l3_miss_loads_K": 149.39715050167223,
+  "hitm_loads_K": 1309.2258060200668,
+  "snoop_clean_hit_loads_K": 400.36686622073574,
+  "snoop_miss_loads_K": 0.14593537414965985,
+  "demand_rd_hitm_K": 1377.1844727891157,
+  "demand_rd_l3_hit_K": 2560.2282721088436,
+  "l2_fill_MB": 1158.1061892789116,
+  "hitm_share_of_l3_hit_loads": 1.8601048366396862,
+  "cycles_M_X1": 943.3525113110368
+ }
+}

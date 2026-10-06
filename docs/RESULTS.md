@@ -54,7 +54,9 @@ directory (section 21), `DSP` = the dispatch-overhead directory (section 22).
    code, small BN/ReLU/add ops). Conv math itself scales 17x. PyTorch also
    switches the 1x1 convs from MKL to oneDNN once more than one thread is
    used. Memory bandwidth is not the limit there (3.6% of the measured
-   244 GB/s ceiling). 28 independent copies scale 22.9x (baseline) and 26.3x
+   244 GB/s ceiling); instead activations move between cores' caches (about
+   half of on-chip reads are cross-core HitM transfers from 8 threads on).
+   28 independent copies scale 22.9x (baseline) and 26.2x
    (inductor): their loss is on the memory side. Copies compete for the
    shared L3, so DRAM traffic per image grows 4.3x, DRAM reaches 56% of the
    ceiling, and L2-miss latency doubles (67 -> 132 ns). Operator-level
@@ -773,6 +775,12 @@ window: **all 53 configurations ran clean** (one was contaminated and re-run
 automatically). The unmodified baseline is in every comparison; `inductor`
 (torch.compile) is the optimized reference. FLOPs per image measured by the
 FP counters stay at 8.0-8.2 G in every configuration (sanity check).
+Throughput = sum over streams of batch / mean batch latency within the
+counter windows (counting images completed in the window is quantized by
+whole batches: a batch-64 run on one core finishes only ~6 batches). The
+"Speedup T1/TN" column of 24.2 is the ratio of median latencies; at 28
+threads the mean latency is 9% above the median (16.8 vs 15.4 ms), so the
+throughput speedup there is 5.89x.
 
 **Topology / SMT (OBSERVED):** 1 socket, 28 physical cores, 1 NUMA node,
 SMT disabled (`/sys/devices/system/cpu/smt/control = off`, CPUs 28-55
@@ -839,10 +847,12 @@ WHERE / WHAT / HOW / WHY of each transition:
 * **Memory latency does rise: 67 -> 110 ns per L2 miss (Little's law on
   offcore occupancy) at 16-28 cores, although DRAM bandwidth stays tiny.**
   HOW: L2 fills per image double (543 -> 1172 MB) while DRAM bytes per image
-  stay flat. INFERRED: with intra-op threading, each core reads activations
-  written by other cores in the previous operator, so data moves core-to-core
-  across the mesh (slower than a local L3 hit); this is on-chip data
-  movement, not DRAM.
+  stay flat. OBSERVED (24.8): from 8 threads on, about half of the demand
+  reads served on chip come from a line another core has just modified
+  (HitM), 1.38 M per image at 28 threads vs ~0 on one thread. INFERRED: each
+  core reads activations written by other cores in the previous operator, so
+  data moves core-to-core across the mesh (slower than a local L3 hit); this
+  is on-chip data movement, not DRAM.
 
 ### 24.3 Inter-op parallelism inside one inference (OBSERVED, `MCS/interop_rerun/raw/`)
 
@@ -877,15 +887,15 @@ N single-threaded copies, one per core (baseline / inductor):
 
 | streams (cores) | 1 | 4 | 8 | 16 | 28 |
 |---|---|---|---|---|---|
-| baseline img/s | 10.1 | 39.7 | 77.0 | 146.9 | **230.9** (22.9x, 82%) |
+| baseline img/s | 10.1 | 39.5 | 77.2 | 147.1 | **231.6** (22.9x, 82%) |
 | baseline per-stream latency ms | 98.8 | 101.2 | 103.7 | 108.8 | 120.4 (+22%) |
 | baseline DRAM GB/s (% of ceiling) | 1.4 (8%) | 11.9 (16%) | 31.6 (22%) | 77.6 (33%) | **135.8 (56%)** |
-| baseline DRAM MB / image | 137 | 299 | 410 | 529 | 588 |
-| baseline LLC misses / image | 1.46 M | 3.34 M | 4.42 M | 5.61 M | 6.30 M |
+| baseline DRAM MB / image | 137 | 300 | 409 | 528 | 586 |
+| baseline LLC misses / image | 1.46 M | 3.35 M | 4.41 M | 5.60 M | 6.28 M |
 | baseline L2-miss latency | 67 ns | 78 | 85 | 99 | **132 ns** |
 | baseline cycles stalled on L3 miss | 2.5% | 5.2% | 7.2% | 10.5% | 15.4% |
-| inductor img/s | 14.2 | 56.2 | 111.4 | 221.7 | **373.1** (26.3x, 94%) |
-| inductor DRAM MB / image | 106 | 130 | 154 | 165 | 178 |
+| inductor img/s | 14.3 | 56.4 | 111.6 | 221.3 | **373.2** (26.2x, 93%) |
+| inductor DRAM MB / image | 106 | 129 | 154 | 165 | 178 |
 | inductor L2-miss latency | 66 ns | 78 | 82 | 85 | 96 ns |
 
 * **Here memory is the bottleneck, and it migrates with core count.** At
@@ -907,8 +917,8 @@ N single-threaded copies, one per core (baseline / inductor):
 
 | intra-op x streams | 1 x 28 | 2 x 14 | 4 x 7 | 7 x 4 | 14 x 2 | 28 x 1 |
 |---|---|---|---|---|---|---|
-| baseline | 120 / **231** | 64.5 / 215 | 34.3 / 201 | 24.1 / 162 | 17.5 / 109 | **15.4** / 60 |
-| inductor | 74.5 / **373** | 39.2 / 354 | 21.3 / 323 | 14.2 / 274 | 9.7 / 196 | **7.6** / 120 |
+| baseline | 120 / **232** | 64.5 / 215 | 34.3 / 201 | 24.1 / 162 | 17.5 / 109 | **15.4** / 60 |
+| inductor | 74.5 / **373** | 39.2 / 354 | 21.3 / 324 | 14.2 / 274 | 9.7 / 196 | **7.6** / 120 |
 
 * Throughput always prefers more streams; latency always prefers more
   intra-op threads. The trade is not symmetric: going from 1x28 to 4x7 costs
@@ -918,22 +928,22 @@ N single-threaded copies, one per core (baseline / inductor):
 * Rule of thumb from these measurements: for throughput, 1-2 threads per
   stream; for latency, at most ~8-14 threads per inference (beyond 16 adds
   nothing); a balanced point is 4 threads x 7 streams (inductor: 21 ms,
-  323 img/s).
+  324 img/s).
 
 ### 24.6 Batch size x cores (OBSERVED; baseline, one process, intra-op = cores)
 
 | | B=1 | B=4 | B=16 | B=64 |
 |---|---|---|---|---|
-| 1 core: img/s (batch latency) | 10.1 (99 ms) | 10.1 (0.40 s) | 8.4 (2.0 s) | 5.8 (10.2 s) |
-| 8 cores | 48.8 (20 ms) | 55.6 (72 ms) | 44.0 (0.37 s) | 34.2 (2.0 s) |
-| 28 cores | 59.6 (15 ms) | **104.5** (34 ms) | 65.7 (0.24 s) | 43.7 (1.5 s) |
-| 1 core: DRAM MB / image | 137 | 151 | 461 | 769 |
+| 1 core: img/s (batch latency) | 10.1 (99 ms) | 10.0 (0.40 s) | 7.9 (2.0 s) | 6.3 (10.2 s) |
+| 8 cores | 48.8 (20 ms) | 55.6 (72 ms) | 43.7 (0.37 s) | 32.6 (2.0 s) |
+| 28 cores | 59.5 (15 ms) | **104.3** (34 ms) | 65.6 (0.24 s) | 43.7 (1.5 s) |
+| 1 core: DRAM MB / image | 137 | 153 | 492 | 712 |
 | 1 core: FLOP rate (% of peak per busy cycle) | 62% | 61% | 47% | 38% |
 
 * Small batches help multi-core (28 cores: B=4 gives 1.75x the throughput of
   B=1: more work per parallel region, OpenMP spin 61% -> 46%).
 * Large batches hurt on this CPU in eager mode: per-image throughput falls
-  at every core count for B >= 16. HOW: DRAM bytes per image grow 5.6x at
+  at every core count for B >= 16. HOW: DRAM bytes per image grow 5.2x at
   B=64 on one core and the FLOP rate falls to 38% of peak. INFERRED: a
   B=64 activation tensor is up to 205 MB, so eager layer-by-layer execution
   streams every activation through DRAM; and the weights saved (read once per
@@ -949,7 +959,7 @@ N single-threaded copies, one per core (baseline / inductor):
 |---|---|---|
 | one inference, 28 threads | 77% lost (6.4x) | **synchronisation / insufficient parallel work + serial overhead** (61% of busy cycles spinning in OpenMP; re-layout, framework and small ops do not scale; IPC 0.55) -- not bandwidth (3.6% of ceiling) |
 | 28 independent copies | 18% lost (22.9x) | **shared L3 capacity + loaded DRAM latency** (LLC misses/image 4.3x, DRAM 56% of ceiling, L2-miss latency 2x) |
-| 28 inductor copies | 6% lost (26.3x) | same mechanism, much smaller because fusion avoids intermediates |
+| 28 inductor copies | 7% lost (26.2x) | same mechanism, much smaller because fusion avoids intermediates |
 | operator-level inter-op | capped at 1.10x | **dependencies** (only 4 branches can overlap) |
 
 Bottleneck migration (baseline, one inference): compute-bound convs at 1
@@ -957,6 +967,42 @@ core -> backend switch + serial re-layout/framework at 2-4 cores ->
 synchronisation (threads idle-spinning) from 8 cores on. For independent
 streams it migrates the other way, toward memory: compute at 1-4 copies ->
 shared-L3/DRAM contention at 16-28 copies.
+
+### 24.8 Cross-core cache traffic (OBSERVED, `MCS/xcore/raw/xcore_*.json`)
+
+`experiments/xcore_traffic.py` runs the same workers and binding as the
+study and counts, per image on the cores used, two passes of 6 events each
+(100% counting): demand data reads that hit L3 or were snooped from another
+core (`ocr.demand_data_rd.l3_hit`), those served by a MODIFIED line in
+another core's cache (`ocr.demand_data_rd.l3_hit.snoop_hitm`, HitM), retired
+loads by source (`mem_load_l3_hit_retired.xsnp_*`, `mem_load_retired.l3_*`)
+and L2 fills. Other users' CPU <= 9% throughout.
+
+| configuration | demand reads served on chip / image | of which HitM | share | L2 fills / image |
+|---|---|---|---|---|
+| baseline, 1 thread | 635 K | 0.2 K | 0.0% | 547 MB |
+| baseline, 2 threads | 647 K | 60 K | 9% | 629 MB |
+| baseline, 4 threads | 625 K | 175 K | 28% | 591 MB |
+| baseline, 8 threads | 856 K | 424 K | 50% | 642 MB |
+| baseline, 16 threads | 1,449 K | 796 K | 55% | 771 MB |
+| baseline, 28 threads | 2,560 K | 1,377 K | 54% | 1,158 MB |
+| baseline, 28 copies | 217 K | 1.5 K | 0.7% | 538 MB |
+| inductor, 28 threads | 476 K | 77 K | 16% | 624 MB |
+
+* With intra-op threads, activations move between cores' private caches:
+  from 8 threads on, about half of the on-chip demand reads are HitM
+  transfers. This is the extra L2 traffic of 24.2 (fills per image 2.1x) and
+  the likely cause of the higher L2-miss latency (67 -> 110 ns) with flat
+  DRAM traffic. INFERRED mechanism: each operator partitions its output
+  across cores differently from how the next operator reads it.
+* Independent copies share nothing (0.7%); their extra misses go to DRAM
+  instead (retired loads missing L3: 187 K -> 905 K per image).
+* Inductor makes 18x fewer HitM transfers than the baseline at 28 threads
+  (77 K vs 1,377 K). INFERRED: fused operators do not write intermediates
+  that other cores must read.
+* Not measured: the latency of one HitM transfer, so its share of the
+  threaded slowdown is not isolated. Barrier spin (61% of busy cycles at 28
+  threads) remains the larger loss.
 
 ---
 
@@ -978,5 +1024,6 @@ shared-L3/DRAM contention at 16-28 copies.
 | per-calculation cost (core vs operator) | `scripts/run_per_calc.sh` | `results/2026-10-06_per_calc/` |
 | multi-core study with counters | `taskset -c 27 .venv/bin/python scripts/mc_study.py --out DIR` | `results/2026-10-06_mc_study/` |
 | inter-op re-run (with/without binding) | `scripts/run_interop_rerun.sh DIR` | `results/2026-10-06_mc_study/interop_rerun/` |
+| cross-core cache traffic | `experiments/xcore_traffic.py --out DIR --configs baseline:1:1,baseline:28:1,...` | `results/2026-10-06_mc_study/xcore/` |
 
 Prefix each measurement with `scripts/wait_quiet.sh` on a shared machine.

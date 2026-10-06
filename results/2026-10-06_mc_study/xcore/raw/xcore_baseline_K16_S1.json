@@ -1,0 +1,90 @@
+{
+ "name": "xcore_baseline_K16_S1",
+ "variant": "baseline",
+ "K": 16,
+ "S": 1,
+ "cores": [
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15,
+  16
+ ],
+ "attempt": 1,
+ "max_other_cpu_pct": 1,
+ "clean": true,
+ "warm_latency_ms": 15.57249,
+ "passes": {
+  "X1": {
+   "window": [
+    1791308428.0905616,
+    1791308433.0905616
+   ],
+   "counts": {
+    "cycles": 167755651474.0,
+    "instructions": 144457574250.0,
+    "mem_load_retired.l3_hit": 134531614.0,
+    "mem_load_retired.l3_miss": 42342455.0,
+    "mem_load_l3_hit_retired.xsnp_fwd": 240474365.0,
+    "mem_load_l3_hit_retired.xsnp_no_fwd": 61478906.0
+   },
+   "min_running_pct": 100.0,
+   "images": 320,
+   "per_image": {
+    "cycles": 524236410.85625,
+    "instructions": 451429919.53125,
+    "mem_load_retired.l3_hit": 420411.29375,
+    "mem_load_retired.l3_miss": 132320.171875,
+    "mem_load_l3_hit_retired.xsnp_fwd": 751482.390625,
+    "mem_load_l3_hit_retired.xsnp_no_fwd": 192121.58125
+   }
+  },
+  "X2": {
+   "window": [
+    1791308433.1255522,
+    1791308438.1255522
+   ],
+   "counts": {
+    "cycles": 167747062310.0,
+    "instructions": 143663376919.0,
+    "mem_load_l3_hit_retired.xsnp_miss": 13997.0,
+    "ocr.demand_data_rd.l3_hit.snoop_hitm": 253105603.0,
+    "ocr.demand_data_rd.l3_hit": 460659116.0,
+    "l2_lines_in.all": 3829704341.0
+   },
+   "min_running_pct": 100.0,
+   "images": 318,
+   "per_image": {
+    "cycles": 527506485.2515723,
+    "instructions": 451771625.5314465,
+    "mem_load_l3_hit_retired.xsnp_miss": 44.015723270440255,
+    "ocr.demand_data_rd.l3_hit.snoop_hitm": 795929.5691823899,
+    "ocr.demand_data_rd.l3_hit": 1448613.572327044,
+    "l2_lines_in.all": 12043095.411949685
+   }
+  }
+ },
+ "summary_per_image": {
+  "l3_hit_loads_K": 420.41129375,
+  "l3_miss_loads_K": 132.320171875,
+  "hitm_loads_K": 751.482390625,
+  "snoop_clean_hit_loads_K": 192.12158125,
+  "snoop_miss_loads_K": 0.04401572327044025,
+  "demand_rd_hitm_K": 795.9295691823899,
+  "demand_rd_l3_hit_K": 1448.613572327044,
+  "l2_fill_MB": 770.7581063647798,
+  "hitm_share_of_l3_hit_loads": 1.7874933471027858,
+  "cycles_M_X1": 524.23641085625
+ }
+}

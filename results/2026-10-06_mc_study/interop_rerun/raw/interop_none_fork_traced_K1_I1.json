@@ -1,0 +1,23 @@
+{
+ "mode": "fork_traced",
+ "intra": 1,
+ "inter": 1,
+ "affinity": [
+  1
+ ],
+ "omp_proc_bind": "",
+ "thread_cpus": {
+  "1725950 python": "1",
+  "1725962 PTThreadPool": "1"
+ },
+ "torch_threads": 1,
+ "interop_threads": 1,
+ "latency_ms": 98.233082,
+ "latency_p5": 98.040318,
+ "latency_p95": 98.462124,
+ "max_abs_diff": 0.0,
+ "traced_graph_contains_fork": true,
+ "eager_total_ms": 99.205682,
+ "downsample_branches_ms": 8.9887698,
+ "dependency_bound_speedup": 1.099635085936803
+}

@@ -1,0 +1,29 @@
+{
+ "mode": "fork_traced",
+ "intra": 1,
+ "inter": 4,
+ "affinity": [
+  1,
+  2,
+  3,
+  4
+ ],
+ "omp_proc_bind": "",
+ "thread_cpus": {
+  "1726177 python": "1-4",
+  "1726213 PTThreadPool": "1-4",
+  "1726214 PTThreadPool": "1-4",
+  "1726215 PTThreadPool": "1-4",
+  "1726216 PTThreadPool": "1-4"
+ },
+ "torch_threads": 1,
+ "interop_threads": 4,
+ "latency_ms": 88.652104,
+ "latency_p5": 88.45108,
+ "latency_p95": 88.866743,
+ "max_abs_diff": 0.0,
+ "traced_graph_contains_fork": true,
+ "eager_total_ms": 98.710926,
+ "downsample_branches_ms": 8.952258,
+ "dependency_bound_speedup": 1.099736974706443
+}

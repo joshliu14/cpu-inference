@@ -275,3 +275,29 @@ Measurement CPU: 6. The machine is shared with other users.
   operators; layer4 7x7-map 3x3 convs scale only 4.6-4.9x.
 * **Interpretation (INFERRED):** batch-1 thread scaling is limited by
   per-call fixed costs and small work items, not by bandwidth.
+
+## 2026-10-06 -- E12: multi-core study with counters; inter-op re-run; cross-core traffic
+
+* **Commands:** `taskset -c 27 .venv/bin/python scripts/mc_study.py --out results/2026-10-06_mc_study --plan membw,intra,split,interop,matrix,batch --variants baseline,inductor`;
+  `scripts/run_interop_rerun.sh results/2026-10-06_mc_study/interop_rerun`;
+  `experiments/xcore_traffic.py --out results/2026-10-06_mc_study/xcore --configs ...`
+  (other users' CPU <= 14% in every window; all counter passes 100% counted)
+* **Results:** `results/2026-10-06_mc_study/` (`processed/MC_STUDY.md`,
+  `mc_configs.csv`, `split_by_threads.csv`, `interop_rerun/`, `xcore/`);
+  `docs/RESULTS.md` section 24.
+* **Key metrics (OBSERVED):** DRAM ceiling 18 -> 244 GB/s (1 -> 28 cores).
+  One image on 28 threads: 15.4 ms, 61% of busy cycles in the OpenMP
+  runtime, DRAM 3% of ceiling; conv kernels scale 17x, re-layout and
+  framework do not; all convs move to oneDNN at >= 2 threads. Cross-core
+  HitM reads 0 -> 1.38 M per image (54% of on-chip demand reads at 28
+  threads). 28 copies: 22.9x (baseline) / 26.2x (inductor); LLC misses and
+  DRAM bytes per image 4.3x, L2-miss latency 67 -> 132 ns, 56% of ceiling.
+  Operator inter-op: 1.10x dependency bound, reached only without
+  `OMP_PROC_BIND` (bound inter-op threads inherit a one-core mask).
+  Batch 4 helps 28 threads (1.75x); batch >= 16 hurts everywhere.
+* **Interpretation (INFERRED):** threading loses to synchronisation and
+  non-scaling work around the convs, plus core-to-core activation transfers;
+  copies lose to shared-L3 capacity, which turns into DRAM traffic and loaded
+  latency. Neither is limited by DRAM bandwidth.
+* **Harness fixes:** inter-op runs no longer bind threads; throughput =
+  batch / mean batch latency (window counts were quantized for large batches).

@@ -1,0 +1,9 @@
+/users/joshliu/cpu-inference/.venv/lib/python3.12/site-packages/torch/jit/_trace.py:1006: FutureWarning: `torch.jit.trace` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/users/joshliu/cpu-inference/.venv/lib/python3.12/site-packages/torch/jit/_trace.py:1145: FutureWarning: `torch.jit.trace_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/users/joshliu/cpu-inference/.venv/lib/python3.12/site-packages/torch/jit/_async.py:104: FutureWarning: `torch.jit.fork` is deprecated. Please use `torch.compile` instead.
+  warnings.warn(
+/users/joshliu/cpu-inference/.venv/lib/python3.12/site-packages/torch/jit/_async.py:124: FutureWarning: `torch.jit.wait` is deprecated. Please use `torch.compile` instead.
+  warnings.warn(
+{"mode": "fork_traced", "intra": 1, "inter": 1, "affinity": [1], "omp_proc_bind": "", "thread_cpus": {"1725950 python": "1", "1725962 PTThreadPool": "1"}, "torch_threads": 1, "interop_threads": 1, "latency_ms": 98.233082, "latency_p5": 98.040318, "latency_p95": 98.462124, "max_abs_diff": 0.0, "traced_graph_contains_fork": true, "eager_total_ms": 99.205682, "downsample_branches_ms": 8.9887698, "dependency_bound_speedup": 1.099635085936803}

@@ -1,8 +1,49 @@
 # Session summary and resume point (2026-10-06 ~00:50 UTC)
 
 This file records what is done, what was found, the exact state of the
-repository, and the next steps in order. **To resume, start at "Next steps,
-in order" below.**
+repository, and the next steps in order. **To resume, start at "Update
+2026-10-06 ~18:00 UTC" directly below.**
+
+## Update 2026-10-06 ~18:00 UTC
+
+**Read the user's briefs first:** `docs/briefs/BRIEF_2026-10-05_single_core.md`
+(original brief: ROLE, LEVELS 0-7, the 20 RESULTS questions) and
+`docs/briefs/BRIEF_2026-10-06_multi_core.md` (multi-core brief + 21-item
+PRIORITY list). Priority items 8-10 (actual vs reference, causal explanation)
+are specified by the single-core brief's LEVEL 6 CONTROLLED BASELINES and
+BASELINE-FIRST METHODOLOGY. `docs/briefs/` is local only (not committed) until
+the user says whether their notes may go to GitHub.
+
+Two Claude sessions worked in parallel this afternoon: the "closed" session
+(64e3af0f) kept running in the background daemon and committed the
+multi-core study (ee2e4af, RESULTS.md section 24); a second session
+(d5d4797f) added the inter-op re-run, the cross-core traffic measurement, and
+a throughput fix. Check `ListAgents` / `ps` before launching experiments, so
+two sessions never measure at once.
+
+Done (all FP32, batch 1 unless stated; RESULTS.md sections 1-24):
+* Multi-core study with counters: `results/2026-10-06_mc_study/`
+  (`processed/MC_STUDY.md`, `mc_configs.csv`, `split_by_threads.csv`).
+* Inter-op re-run with and without `OMP_PROC_BIND` (the bound run inherited a
+  one-core mask): `MCS/interop_rerun/`; `scripts/mc_study.py` no longer binds
+  the inter-op runs.
+* Cross-core HitM traffic per image vs threads: `MCS/xcore/` (RESULTS 24.8).
+* Throughput = sum over streams of batch / mean batch latency (fixes batch
+  quantization: batch 64 on 1 core is 6.3 img/s, not 5.8).
+* Findings document for the user (Claude Docs): "ResNet-50 CPU Bottleneck
+  Findings", https://claude.ai/code/artifact/52b8bc6a-52a1-4158-8f15-e973d8320db6
+
+Open, in order of value:
+1. BF16 / AMX and INT8 (priority 15-16): would move the bottleneck (AMX raises
+   compute peak several-fold, convs may become memory-bound). Needs accuracy
+   checks.
+2. Why batch 16-64 costs 28-61% more per image on one core (L3-miss stalls
+   only 2.5 -> 4.4% of cycles): per-operator split at batch 64.
+3. Cost of one cross-core HitM transfer (perf mem on the 28-thread run).
+4. SMT (priority 21): supported but off in Linux
+   (`/sys/devices/system/cpu/smt/control = off`); enabling needs root on a
+   shared machine: the user's decision.
+5. VTune / PyTorch source build (priority 19-20): not started.
 
 ## Completed
 

@@ -1,0 +1,75 @@
+{
+ "name": "xcore_inductor_K1_S1",
+ "variant": "inductor",
+ "K": 1,
+ "S": 1,
+ "cores": [
+  1
+ ],
+ "attempt": 1,
+ "max_other_cpu_pct": 1,
+ "clean": true,
+ "warm_latency_ms": 71.189911,
+ "passes": {
+  "X1": {
+   "window": [
+    1791308502.0240364,
+    1791308507.0240364
+   ],
+   "counts": {
+    "cycles": 10485065147.0,
+    "instructions": 30943568134.0,
+    "mem_load_retired.l3_hit": 17448982.0,
+    "mem_load_retired.l3_miss": 7219885.0,
+    "mem_load_l3_hit_retired.xsnp_fwd": 11612.0,
+    "mem_load_l3_hit_retired.xsnp_no_fwd": 9031.0
+   },
+   "min_running_pct": 100.0,
+   "images": 71,
+   "per_image": {
+    "cycles": 147676973.90140846,
+    "instructions": 435824903.29577464,
+    "mem_load_retired.l3_hit": 245760.30985915492,
+    "mem_load_retired.l3_miss": 101688.52112676056,
+    "mem_load_l3_hit_retired.xsnp_fwd": 163.54929577464787,
+    "mem_load_l3_hit_retired.xsnp_no_fwd": 127.19718309859155
+   }
+  },
+  "X2": {
+   "window": [
+    1791308507.0585396,
+    1791308512.0585396
+   ],
+   "counts": {
+    "cycles": 10485069374.0,
+    "instructions": 30966588037.0,
+    "mem_load_l3_hit_retired.xsnp_miss": 3210.0,
+    "ocr.demand_data_rd.l3_hit.snoop_hitm": 11766.0,
+    "ocr.demand_data_rd.l3_hit": 18847462.0,
+    "l2_lines_in.all": 245749189.0
+   },
+   "min_running_pct": 100.0,
+   "images": 72,
+   "per_image": {
+    "cycles": 145625963.5277778,
+    "instructions": 430091500.5138889,
+    "mem_load_l3_hit_retired.xsnp_miss": 44.583333333333336,
+    "ocr.demand_data_rd.l3_hit.snoop_hitm": 163.41666666666666,
+    "ocr.demand_data_rd.l3_hit": 261770.30555555556,
+    "l2_lines_in.all": 3413183.1805555555
+   }
+  }
+ },
+ "summary_per_image": {
+  "l3_hit_loads_K": 245.76030985915492,
+  "l3_miss_loads_K": 101.68852112676056,
+  "hitm_loads_K": 0.16354929577464788,
+  "snoop_clean_hit_loads_K": 0.12719718309859154,
+  "snoop_miss_loads_K": 0.044583333333333336,
+  "demand_rd_hitm_K": 0.16341666666666665,
+  "demand_rd_l3_hit_K": 261.7703055555556,
+  "l2_fill_MB": 218.44372355555555,
+  "hitm_share_of_l3_hit_loads": 0.0006654829490912421,
+  "cycles_M_X1": 147.67697390140847
+ }
+}

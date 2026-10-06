@@ -1,0 +1,43 @@
+{
+ "mode": "fork_traced",
+ "intra": 4,
+ "inter": 2,
+ "affinity": [
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8
+ ],
+ "omp_proc_bind": "",
+ "thread_cpus": {
+  "1726440 python": "1-8",
+  "1726449 python": "1-8",
+  "1726450 python": "1-8",
+  "1726451 python": "1-8",
+  "1726452 python": "1-8",
+  "1726453 python": "1-8",
+  "1726454 python": "1-8",
+  "1726455 PTThreadPool": "1-8",
+  "1726456 PTThreadPool": "1-8",
+  "1726457 PTThreadPool": "1-8",
+  "1726458 PTThreadPool": "1-8",
+  "1726459 PTThreadPool": "1-8",
+  "1726460 PTThreadPool": "1-8",
+  "1726461 PTThreadPool": "1-8",
+  "1726462 PTThreadPool": "1-8"
+ },
+ "torch_threads": 4,
+ "interop_threads": 2,
+ "latency_ms": 31.960566,
+ "latency_p5": 31.528266,
+ "latency_p95": 32.168348,
+ "max_abs_diff": 0.0,
+ "traced_graph_contains_fork": true,
+ "eager_total_ms": 32.029406,
+ "downsample_branches_ms": 2.9098658,
+ "dependency_bound_speedup": 1.0999282880160313
+}
