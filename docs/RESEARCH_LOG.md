@@ -262,3 +262,16 @@ Measurement CPU: 6. The machine is shared with other users.
   launcher now checks instantaneous other-user CPU per configuration.
   The other user's job is itself agent-driven and backed off when it saw
   this run (their log: "joshliu multicore.py running; resume when quiet").
+
+## 2026-10-06 -- E11: follow-ups (Python share; what limits thread scaling)
+
+* **Command:** `scripts/run_followups.sh` (quiet; other users' CPU <= 6%)
+* **Results:** `results/2026-10-06_followups/`
+* **Key metrics (OBSERVED):** eager 98.63 ms, eager with GC off 98.57 ms
+  (0 collections per inference), TorchScript trace of the same ops 97.05 ms
+  -> Python layer 1.58 ms / 5.8 M instructions per inference. At 26 threads
+  the baseline spends 46% in 1x1 convs (5.9x speedup), 19% in 118 small
+  BN/ReLU/add calls (22-26 µs each; ReLU 1.9x), 7% in serial Python between
+  operators; layer4 7x7-map 3x3 convs scale only 4.6-4.9x.
+* **Interpretation (INFERRED):** batch-1 thread scaling is limited by
+  per-call fixed costs and small work items, not by bandwidth.

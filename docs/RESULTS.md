@@ -638,11 +638,16 @@ measurement independently finds 1.4 ms of time between operators (section 17).
 **At batch 1, ResNet-50 on this core is not framework-overhead-bound.** A
 model with ~10x smaller layers would be.
 
-Caveat (method): the instruction profile ran Python with `-X perf`. That
-flag adds a trampoline to every Python call, so the 4.0% of samples in
-`python3.12` there overstates the interpreter's share of a normal run.
-`experiments/python_overhead.py` measures it directly (eager vs a TorchScript
-trace of the same ops, and GC on/off).
+Direct check (OBSERVED, `results/2026-10-06_followups/processed/python_overhead.json`,
+interleaved blocks, 200 inferences each, quiet): the eager model takes
+98.63 ms. A TorchScript trace of it executes the identical ATen operator
+sequence with no Python frame or nn.Module call per operator, and takes
+97.05 ms. **The Python layer costs 1.58 ms (1.6%) and 5.8 M instructions
+(1.2%) per inference**, matching the 1.3 ms estimate above. Disabling
+Python's garbage collector changes nothing (98.57 ms): no collections run
+during steady-state inference. The 4.0% of samples in `python3.12` in the
+instruction profile is inflated by the `-X perf` trampolines used to name
+Python frames.
 
 ## 23. Multi-core (measured; separate from the single-core baseline)
 
@@ -711,9 +716,45 @@ Two ways to use N cores (CPUs 1..N):
   write), 42% of the theoretical peak. Not saturated, but growing fastest for
   the eager variants.
 
-### 23.3 What limits thread scaling (follow-up)
+### 23.3 What limits thread scaling (OBSERVED, `results/2026-10-06_followups/raw/breakdown_*.json`)
 
-PENDING (`scripts/run_followups.sh`: per-operator time at 1/4/16/26 threads).
+Per-operator time (forward hooks, median of 30) of the baseline at 1, 4, 16
+and 26 threads (`experiments/multicore_breakdown.py`; other users' CPU <= 6%
+throughout, `raw/contention.csv`):
+
+| operator type | calls | 1 thread (ms) | 26 threads (ms) | speedup | share of time at 26 |
+|---|---|---|---|---|---|
+| conv 1x1 (33 MKL + 3 oneDNN) | 36 | 40.87 | 6.89 | 5.9x | 46% |
+| conv 3x3 | 16 | 35.92 | 4.38 | 8.2x | 29% |
+| batchnorm | 53 | 4.98 | 1.48 | 3.4x | 10% |
+| relu | 49 | 1.81 | 0.93 | **1.9x** | 6% |
+| max-pool | 1 | 10.18 | 0.49 | 20.9x | 3% |
+| add | 16 | 2.03 | 0.41 | 5.0x | 3% |
+| conv 7x7, fc, avgpool | 4 | 2.77 | 0.36 | 7.7x | 2% |
+| between operators (e2e - sum of ops) | | ~1.2 | 1.15 | ~1x | 7% |
+
+* **Small operators hit a fixed per-call floor.** At 26 threads, a BN, ReLU
+  or add call takes 22-26 µs regardless of tensor size: 118 calls ≈ 2.8 ms
+  (19%). The per-call software cost measured in section 22 (1-10 µs) plus
+  waking 26 OpenMP threads per call sets that floor (INFERRED). ReLU barely
+  speeds up at all (1.9x).
+* **Serial Python between operators stays at ~1.2 ms** (7% at 26 threads).
+* **1x1 convs** (mostly MKL SGEMM) scale only 5.9x and become 46% of the
+  time.
+* **The 7x7-map layer4 3x3 convs scale 4.6-4.9x** (layer4.1/4.2.conv2:
+  3.16 -> 0.65-0.68 ms). layer4.0.conv2 has the same weights and output size
+  but a 14x14 input with stride 2, and scales 12.6x (3.43 -> 0.27 ms).
+  INFERRED: with only 49 output pixels there is too little independent work
+  for 26 threads in oneDNN's direct-conv decomposition.
+* Going from 16 to 26 threads makes conv3x3, BN and ReLU slower
+  (3.94 -> 4.38, 1.40 -> 1.48, 0.89 -> 0.93 ms). Only conv1x1 gains
+  (7.92 -> 6.89).
+* CALCULATED (Amdahl fit to 98.9 -> 15.3 ms): an effective serial part of
+  ~12 ms. Time above perfect scaling at 26 threads breaks down as: 1x1 convs
+  +5.3 ms, 3x3 convs +3.0 ms, BN/ReLU/add +2.5 ms, Python +1.1 ms
+  (≈ 12 ms).
+* fold_bn+channels_last at 26 threads (10.47 ms): no BN, max-pool 0.06 ms,
+  convs scale 8.6x (1x1) and 10.8x (3x3); ReLU+add still ~0.9 ms.
 
 ---
 

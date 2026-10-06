@@ -120,17 +120,13 @@ E3-E10. Headline: inductor 70.4 ms on one core (1.43x, 87% of FMA peak);
 
 ## Next steps, in order
 
-1. `scripts/run_followups.sh` was started at ~15:56 and waits for a quiet
-   machine (other user's agent-driven job resumed). It runs
-   `experiments/python_overhead.py` (eager vs jit_trace vs GC off) and
-   `experiments/multicore_breakdown.py` (per-op time at 1/4/16/26 threads).
-   Output `results/<date>_followups/`. Then fill RESULTS.md section 23.3 and
-   the Python check in section 22, add research-log E11, commit + push.
-2. Optional: re-run the instruction profile without `-X perf` to measure the
-   interpreter's sample share in a normal run.
-3. Keep `scripts/load_logger.sh` output (`results/machine_load_2026-10-06.log`)
-   as the contamination record; stop the logger when done
-   (`pkill -f load_logger.sh`).
+All planned experiments are done (follow-ups: `results/2026-10-06_followups/`,
+RESULTS.md 22-23.3, research log E11). Optional extensions:
+
+1. Re-run the instruction profile without `-X perf` (interpreter share in a
+   normal run; the direct measurement already gives 1.6%).
+2. Batch > 1 throughput (weight reuse should cut DRAM per image).
+3. BF16/AMX or INT8 variants (outside the FP32 brief; needs accuracy checks).
 
 The original next steps below are complete.
 

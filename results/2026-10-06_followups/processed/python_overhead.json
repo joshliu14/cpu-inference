@@ -1,0 +1,81 @@
+{
+  "environment": {
+    "time": "2026-10-06T16:01:03+0000",
+    "host": "node0.infer.nexdp-pg0.utah.cloudlab.us",
+    "affinity": [
+      6
+    ],
+    "requested_cpu": 6,
+    "torch": "2.14.1+cpu",
+    "torchvision": "0.29.1+cpu",
+    "torch_num_threads": 1,
+    "torch_num_interop_threads": 1,
+    "cpu_capability": "AVX512",
+    "mkldnn_enabled": true,
+    "env": {
+      "OMP_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "ONEDNN_VERBOSE": null,
+      "DNNL_VERBOSE": null,
+      "MKL_VERBOSE": null,
+      "ONEDNN_JIT_PROFILE": null
+    },
+    "process_threads": 1,
+    "loadavg": "1.62 5.04 7.87 2/1136 1456586",
+    "git_commit": "a09539a"
+  },
+  "jit_trace_max_abs_diff": 0.0,
+  "runs": {
+    "eager": {
+      "latency_ms": {
+        "n": 200,
+        "median": 98.629181,
+        "mean": 98.698258155,
+        "stddev": 0.2448598789854409,
+        "min": 98.313784,
+        "max": 99.523663,
+        "p5": 98.44517,
+        "p95": 99.299661,
+        "cv": 0.0024808936202389952
+      },
+      "cycles_median": 206430291,
+      "instructions_median": 475019153,
+      "gc_collections_per_inference": 0.0
+    },
+    "eager_gc_off": {
+      "latency_ms": {
+        "n": 200,
+        "median": 98.57196400000001,
+        "mean": 98.58330615000001,
+        "stddev": 0.13326239522518407,
+        "min": 98.263566,
+        "max": 98.957774,
+        "p5": 98.386652,
+        "p95": 98.797322,
+        "cv": 0.0013517744578622458
+      },
+      "cycles_median": 206312792,
+      "instructions_median": 475017577,
+      "gc_collections_per_inference": 0.0
+    },
+    "jit_trace": {
+      "latency_ms": {
+        "n": 200,
+        "median": 97.050336,
+        "mean": 97.09291443000001,
+        "stddev": 0.19819029033649263,
+        "min": 96.747279,
+        "max": 97.717723,
+        "p5": 96.861201,
+        "p95": 97.500406,
+        "cv": 0.002041243601554258
+      },
+      "cycles_median": 203133259,
+      "instructions_median": 469200743,
+      "gc_collections_per_inference": 0.0
+    }
+  },
+  "python_layer_ms_estimate": 1.5788450000000012,
+  "python_layer_instructions_estimate": 5818410,
+  "gc_ms_estimate": 0.0572169999999943
+}

@@ -1,0 +1,10 @@
+step,max_other_cpu_pct
+python_overhead,5
+breakdown_baseline_1,3
+breakdown_baseline_4,1
+breakdown_baseline_16,6
+breakdown_baseline_26,3
+breakdown_fold_bn+channels_last_1,4
+breakdown_fold_bn+channels_last_4,3
+breakdown_fold_bn+channels_last_16,3
+breakdown_fold_bn+channels_last_26,2
