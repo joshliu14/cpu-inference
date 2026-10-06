@@ -1,0 +1,10 @@
+    59.38%  libtorch_cpu.so       [.] void at::native::(anonymous namespace)::vectorized_inner_sum<float, at::native::(anonymous namespace)::InnerSumCastLoadPolicy<at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>, void>, at::native::(anonymous namespace)::CastLoadPolicy<float, float>, at::native::(anonymous namespace)::CastStoreAccumulate<float, float> >(char* restrict*, long, long, long, long)
+     4.96%  python3.12            [.] _PyEval_EvalFrameDefault
+     1.71%  libtorch_cpu.so       [.] void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::div_true_kernel(at::TensorIteratorBase&)::{lambda()#2}::operator()() const::{lambda()#2}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::div_true_kernel(at::TensorIteratorBase&)::{lambda()#2}::operator()() const::{lambda()#2}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)
+     0.88%  python3.12            [.] PyObject_Free
+     0.74%  python3.12            [.] PyObject_Malloc
+     0.62%  ld-linux-x86-64.so.2  [.] __tls_get_addr
+     0.57%  libc.so.6             [.] malloc
+     0.52%  libtorch_cpu.so       [.] void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::fill_kernel(at::TensorIterator&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda()#1}, at::native::(anonymous namespace)::fill_kernel(at::TensorIterator&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda()#2}> >(long, char**, long const*, long, long)
+
+

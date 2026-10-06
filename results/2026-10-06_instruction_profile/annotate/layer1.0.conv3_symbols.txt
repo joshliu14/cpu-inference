@@ -1,0 +1,5 @@
+    86.50%  libtorch_cpu.so       [.] mkl_blas_avx512_sgemm_kernel_0_b0
+     4.85%  libtorch_cpu.so       [.] mkl_blas_avx512_sgemm_scopy_down48_ea
+     1.14%  libtorch_cpu.so       [.] mkl_blas_avx512_sgemm_copyan
+
+

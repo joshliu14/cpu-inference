@@ -1,0 +1,740 @@
+# symbol: dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const
+# dso: libtorch_cpu.so
+# share of operator samples: 1.97%
+ Percent |	Source code & Disassembly of libtorch_cpu.so for cycles:P (83 samples, percent: local period)
+-------------------------------------------------------------------------------------------------------------
+         :
+         :
+         :
+         : 3        Disassembly of section .text:
+         :
+         : 5        0000000010ff0050 <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const>:
+    0.00 :   10ff0050:       endbr64
+    0.00 :   10ff0054:       push   rbp
+    0.00 :   10ff0055:       mov    eax,esi
+    0.00 :   10ff0057:       mov    esi,edx
+    0.00 :   10ff0059:       mov    rbp,rsp
+    0.00 :   10ff005c:       push   r15
+    0.00 :   10ff005e:       push   r14
+    0.00 :   10ff0060:       lea    rcx,[rbp-0x24c]
+    0.00 :   10ff0067:       lea    r8,[rbp-0x248]
+    0.00 :   10ff006e:       push   r13
+    0.00 :   10ff0070:       push   r12
+    0.00 :   10ff0072:       push   rbx
+    0.00 :   10ff0073:       mov    rbx,rdi
+    0.00 :   10ff0076:       sub    rsp,0x338
+    0.00 :   10ff007d:       mov    edi,DWORD PTR [rdi+0x8]
+    0.00 :   10ff0080:       mov    rdx,QWORD PTR fs:0x28
+    0.00 :   10ff0089:       mov    QWORD PTR [rbp-0x38],rdx
+    0.00 :   10ff008d:       xor    edx,edx
+    0.00 :   10ff008f:       mov    edx,eax
+    0.00 :   10ff0091:       mov    DWORD PTR [rbp-0x24c],0x0
+    0.00 :   10ff009b:       mov    DWORD PTR [rbp-0x248],0x0
+    0.00 :   10ff00a5:       call   f694e30 <void dnnl::impl::balance211<int, int>(int, int, int, int&, int&)>
+    0.00 :   10ff00aa:       mov    rdx,QWORD PTR [rbx+0x18]
+    0.00 :   10ff00ae:       xor    eax,eax
+    0.00 :   10ff00b0:       mov    ecx,0x41
+    0.00 :   10ff00b5:       lea    rdi,[rbp-0x240]
+    0.00 :   10ff00bc:       mov    r15d,DWORD PTR [rbp-0x24c]
+    0.00 :   10ff00c3:       cmp    DWORD PTR [rdx+0x138],0x4
+    0.00 :   10ff00ca:       mov    QWORD PTR [rbp-0x2a0],rdi
+    0.00 :   10ff00d1:       rep stos QWORD PTR es:[rdi],rax
+    0.00 :   10ff00d4:       lea    rax,[rdx+0x140]
+    0.00 :   10ff00db:       jne    10ff00e4 <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0x94>
+    0.00 :   10ff00dd:       lea    rax,[rdx+0x158]
+    0.00 :   10ff00e4:       mov    rdi,QWORD PTR [rax+0x10]
+    0.00 :   10ff00e8:       mov    r13,QWORD PTR [rax+0x8]
+    0.00 :   10ff00ec:       mov    rax,QWORD PTR [rbx+0x28]
+    0.00 :   10ff00f0:       mov    QWORD PTR [rbp-0x260],rdi
+    0.00 :   10ff00f7:       cmp    DWORD PTR [rax+0x138],0x4
+    0.00 :   10ff00fe:       lea    rdx,[rax+0x158]
+    0.00 :   10ff0105:       je     10ff010e <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0xbe>
+    0.00 :   10ff0107:       lea    rdx,[rax+0x140]
+    0.00 :   10ff010e:       mov    rax,QWORD PTR [rbx]
+    0.00 :   10ff0111:       mov    r12,QWORD PTR [rdx+0x10]
+    0.00 :   10ff0115:       mov    rdi,QWORD PTR [rax+0x10]
+    0.00 :   10ff0119:       call   10fe6c40 <dnnl::impl::convolution_pd_t::with_groups() const [clone .constprop.1]>
+    0.00 :   10ff011e:       test   al,al
+    0.00 :   10ff0120:       mov    rax,QWORD PTR [rbx+0x38]
+    0.00 :   10ff0124:       lea    rdx,[rax+0x158]
+    0.00 :   10ff012b:       je     10ff0933 <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0x8e3>
+    0.00 :   10ff0131:       cmp    DWORD PTR [rax+0x138],0x4
+    0.00 :   10ff0138:       jne    10ff0dfb <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0xdab>
+    0.00 :   10ff013e:       mov    rax,QWORD PTR [rax+0x130]
+    0.00 :   10ff0145:       add    rax,QWORD PTR [rdx+0x18]
+    0.00 :   10ff0149:       mov    QWORD PTR [rbp-0x2b0],rax
+    0.00 :   10ff0150:       mov    rax,QWORD PTR [rbx]
+    0.00 :   10ff0153:       mov    rdi,QWORD PTR [rax+0x10]
+    0.00 :   10ff0157:       call   10fe6c40 <dnnl::impl::convolution_pd_t::with_groups() const [clone .constprop.1]>
+    0.00 :   10ff015c:       test   al,al
+    0.00 :   10ff015e:       mov    rax,QWORD PTR [rbx+0x38]
+    0.00 :   10ff0162:       lea    rdx,[rax+0x158]
+    0.00 :   10ff0169:       je     10ff0d98 <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0xd48>
+    0.00 :   10ff016f:       cmp    DWORD PTR [rax+0x138],0x4
+    0.00 :   10ff0176:       jne    10ff0e07 <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0xdb7>
+    0.00 :   10ff017c:       mov    rax,QWORD PTR [rax+0x130]
+    0.00 :   10ff0183:       add    rax,QWORD PTR [rdx+0x10]
+    0.00 :   10ff0187:       mov    r10d,DWORD PTR [rbx+0x144]
+    0.00 :   10ff018e:       test   r10d,r10d
+    0.00 :   10ff0191:       jle    10ff0a5e <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0xa0e>
+    0.00 :   10ff0197:       lea    rdi,[r12*4+0x0]
+    0.00 :   10ff019f:       mov    esi,r10d
+    0.00 :   10ff01a2:       mov    r12,rbx
+    0.00 :   10ff01a5:       shl    rax,0x2
+    0.00 :   10ff01a9:       mov    QWORD PTR [rbp-0x298],rdi
+    0.00 :   10ff01b0:       lea    rdi,[r13*4+0x0]
+    0.00 :   10ff01b8:       mov    r11d,DWORD PTR [rbp-0x248]
+    0.00 :   10ff01bf:       mov    QWORD PTR [rbp-0x2e8],rax
+    0.00 :   10ff01c6:       mov    eax,DWORD PTR [rbx+0x48]
+    0.00 :   10ff01c9:       mov    QWORD PTR [rbp-0x2e0],rdi
+    0.00 :   10ff01d0:       mov    r13d,r11d
+    0.00 :   10ff01d3:       mov    DWORD PTR [rbp-0x344],0x0
+    0.00 :   10ff01dd:       mov    r11d,eax
+    0.00 :   10ff01e0:       mov    DWORD PTR [rbp-0x24c],r15d
+    0.00 :   10ff01e7:       cmp    r11d,0x4
+    0.00 :   10ff01eb:       je     10ff0d12 <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0xcc2>
+    0.00 :   10ff01f1:       cmp    r11d,0x3
+    0.00 :   10ff01f5:       je     10ff0d55 <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0xd05>
+    0.00 :   10ff01fb:       cmp    r11d,0x6
+    0.00 :   10ff01ff:       je     10ff0db8 <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0xd68>
+    0.00 :   10ff0205:       xor    r10d,r10d
+    0.00 :   10ff0208:       xor    r9d,r9d
+    0.00 :   10ff020b:       xor    edi,edi
+    0.00 :   10ff020d:       xor    r8d,r8d
+    0.00 :   10ff0210:       mov    DWORD PTR [rbp-0x2fc],0x0
+    0.00 :   10ff021a:       mov    r14d,r15d
+    0.00 :   10ff021d:       cmp    r15d,r13d
+    0.00 :   10ff0220:       jge    10ff0a42 <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0x9f2>
+    0.00 :   10ff0226:       mov    DWORD PTR [rbp-0x33c],r14d
+    0.00 :   10ff022d:       mov    rbx,r12
+    0.00 :   10ff0230:       mov    ecx,r11d
+    0.00 :   10ff0233:       mov    r12d,edi
+    0.00 :   10ff0236:       mov    DWORD PTR [rbp-0x340],r13d
+    0.00 :   10ff023d:       mov    edi,esi
+    0.00 :   10ff023f:       mov    r14d,r10d
+    0.00 :   10ff0242:       mov    r13d,r9d
+    0.00 :   10ff0245:       mov    esi,r8d
+    0.00 :   10ff0248:       mov    edx,DWORD PTR [rbx+0x388]
+    0.00 :   10ff024e:       mov    r10d,DWORD PTR [rbx+0x164]
+    0.00 :   10ff0255:       mov    eax,DWORD PTR [rbx+0x14c]
+    0.00 :   10ff025b:       mov    r8d,DWORD PTR [rbx+0xb4]
+    0.00 :   10ff0262:       imul   edx,r12d
+    0.00 :   10ff0266:       imul   r10d,r13d
+    0.00 :   10ff026a:       imul   eax,edx
+    0.00 :   10ff026d:       mov    DWORD PTR [rbp-0x318],edx
+    0.00 :   10ff0273:       mov    DWORD PTR [rbp-0x314],r10d
+    0.00 :   10ff027a:       add    eax,r10d
+    0.00 :   10ff027d:       mov    r10d,DWORD PTR [rbp-0x2fc]
+    0.00 :   10ff0284:       imul   r10d,DWORD PTR [rbx+0x160]
+    0.00 :   10ff028c:       mov    DWORD PTR [rbp-0x31c],eax
+    0.00 :   10ff0292:       mov    eax,edx
+    0.00 :   10ff0294:       mov    edx,DWORD PTR [rbp-0x33c]
+    0.00 :   10ff029a:       imul   eax,edi
+    0.00 :   10ff029d:       imul   eax,DWORD PTR [rbx+0x1a8]
+    0.00 :   10ff02a4:       imul   r8d,r10d
+    0.00 :   10ff02a8:       mov    r11d,eax
+    0.00 :   10ff02ab:       mov    eax,DWORD PTR [rbp-0x340]
+    0.00 :   10ff02b1:       sub    eax,edx
+    0.00 :   10ff02b3:       mov    DWORD PTR [rbp-0x348],eax
+    0.00 :   10ff02b9:       mov    eax,DWORD PTR [rbx+0x80]
+    0.00 :   10ff02bf:       cmp    ecx,0x6
+    0.00 :   10ff02c2:       je     10ff0b03 <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0xab3>
+    0.00 :   10ff02c8:       mov    edx,DWORD PTR [rbp-0x348]
+    0.00 :   10ff02ce:       add    edx,r14d
+    0.00 :   10ff02d1:       cmp    edx,eax
+    0.00 :   10ff02d3:       cmovle eax,edx
+    0.00 :   10ff02d6:       mov    r9d,eax
+    0.00 :   10ff02d9:       cmp    eax,r14d
+    0.00 :   10ff02dc:       jle    10ff0ba0 <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0xb50>
+    0.00 :   10ff02e2:       movsxd rax,esi
+    0.00 :   10ff02e5:       movsxd rdi,DWORD PTR [rbp-0x344]
+    0.00 :   10ff02ec:       mov    DWORD PTR [rbp-0x258],r14d
+    0.00 :   10ff02f3:       mov    QWORD PTR [rbp-0x2f8],rax
+    0.00 :   10ff02fa:       movsxd rax,r10d
+    0.00 :   10ff02fd:       mov    QWORD PTR [rbp-0x328],rax
+    0.00 :   10ff0304:       movsxd rax,r8d
+    0.00 :   10ff0307:       mov    QWORD PTR [rbp-0x330],rax
+    0.00 :   10ff030e:       movsxd rax,DWORD PTR [rbp-0x314]
+    0.00 :   10ff0315:       mov    QWORD PTR [rbp-0x308],rdi
+    0.00 :   10ff031c:       mov    QWORD PTR [rbp-0x338],rax
+    0.00 :   10ff0323:       mov    rax,rdi
+    0.00 :   10ff0326:       lea    edi,[r11+rdi*1]
+    0.00 :   10ff032a:       mov    DWORD PTR [rbp-0x320],edi
+    0.00 :   10ff0330:       lea    rdi,[rbp-0x244]
+    0.00 :   10ff0337:       mov    QWORD PTR [rbp-0x310],rdi
+    0.00 :   10ff033e:       movsxd rdi,DWORD PTR [rbp-0x2fc]
+    0.00 :   10ff0345:       mov    DWORD PTR [rbp-0x300],r9d
+    0.00 :   10ff034c:       mov    QWORD PTR [rbp-0x2a8],rdi
+    0.00 :   10ff0353:       mov    DWORD PTR [rbp-0x34c],r15d
+    0.00 :   10ff035a:       mov    DWORD PTR [rbp-0x350],r14d
+    0.00 :   10ff0361:       mov    DWORD PTR [rbp-0x354],r13d
+    0.00 :   10ff0368:       mov    DWORD PTR [rbp-0x358],esi
+    0.00 :   10ff036e:       mov    DWORD PTR [rbp-0x35c],r12d
+    0.00 :   10ff0375:       mov    r12d,eax
+    0.00 :   10ff0378:       nop    DWORD PTR [rax+rax*1+0x0]
+    0.00 :   10ff0380:       mov    eax,DWORD PTR [rbp-0x258]
+    0.00 :   10ff0386:       imul   eax,DWORD PTR [rbx+0xb0]
+    0.00 :   10ff038d:       sub    eax,DWORD PTR [rbx+0x90]
+    0.00 :   10ff0393:       mov    r13d,DWORD PTR [rbp-0x31c]
+    0.00 :   10ff039a:       mov    DWORD PTR [rbp-0x2c8],eax
+    0.00 :   10ff03a0:       mov    eax,DWORD PTR [rbx+0xcc]
+    0.00 :   10ff03a6:       mov    DWORD PTR [rbp-0x278],eax
+    0.00 :   10ff03ac:       cmp    eax,0x16
+    0.00 :   10ff03af:       jne    10ff03cc <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0x37c>
+    0.00 :   10ff03b1:       mov    edx,DWORD PTR [rbp-0x318]
+    0.00 :   10ff03b7:       mov    eax,DWORD PTR [rbp-0x314]
+    0.00 :   10ff03bd:       imul   edx,DWORD PTR [rbx+0x64]
+    0.00 :   10ff03c1:       imul   eax,DWORD PTR [rbx+0x150]
+    0.00 :   10ff03c8:       lea    r13d,[rdx+rax*1]
+    0.00 :   10ff03cc:       mov    rsi,QWORD PTR [rbx+0x28]
+    0.00 :   10ff03d0:       mov    rcx,QWORD PTR [rbx+0x390]
+    0.00 :   10ff03d7:       cmp    DWORD PTR [rsi+0x138],0x4
+    0.00 :   10ff03de:       lea    rdx,[rsi+0x158]
+    0.00 :   10ff03e5:       je     10ff03ee <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0x39e>
+    0.00 :   10ff03e7:       lea    rdx,[rsi+0x140]
+    0.00 :   10ff03ee:       mov    rax,QWORD PTR [rbp-0x328]
+    0.00 :   10ff03f5:       imul   rax,QWORD PTR [rdx+0x18]
+    0.00 :   10ff03fa:       movsxd r14,r13d
+    0.00 :   10ff03fd:       add    rax,QWORD PTR [rsi+0x130]
+    0.00 :   10ff0404:       movsxd rsi,DWORD PTR [rbp-0x258]
+    0.00 :   10ff040b:       imul   rsi,QWORD PTR [rdx+0x10]
+    0.00 :   10ff0410:       mov    rdi,QWORD PTR [rbp-0x2f8]
+    1.20 :   10ff0417:       imul   rdi,QWORD PTR [rdx]
+    0.00 :   10ff041b:       add    rax,rsi
+    0.00 :   10ff041e:       mov    rsi,QWORD PTR [rdx+0x8]
+    0.00 :   10ff0422:       mov    edx,DWORD PTR [rbp-0x320]
+    0.00 :   10ff0428:       imul   rsi,r14
+    0.00 :   10ff042c:       add    rax,rsi
+    0.00 :   10ff042f:       add    rax,rdi
+    0.00 :   10ff0432:       lea    rax,[rcx+rax*4]
+    0.00 :   10ff0436:       mov    QWORD PTR [rbp-0x2d8],rax
+    0.00 :   10ff043d:       mov    eax,DWORD PTR [rbx+0xc4]
+    0.00 :   10ff0443:       mov    DWORD PTR [rbp-0x254],eax
+    0.00 :   10ff0449:       cmp    eax,0x16
+    0.00 :   10ff044c:       jne    10ff0464 <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0x414>
+    0.00 :   10ff044e:       mov    eax,DWORD PTR [rbx+0x148]
+    0.00 :   10ff0454:       mov    edx,DWORD PTR [rbp-0x318]
+    0.00 :   10ff045a:       imul   edx,DWORD PTR [rbx+0x60]
+    0.00 :   10ff045e:       imul   eax,r12d
+    0.00 :   10ff0462:       add    edx,eax
+    0.00 :   10ff0464:       mov    rdi,QWORD PTR [rbx+0x18]
+    0.00 :   10ff0468:       mov    rcx,QWORD PTR [rbx+0x398]
+    0.00 :   10ff046f:       cmp    DWORD PTR [rdi+0x138],0x4
+    0.00 :   10ff0476:       lea    rsi,[rdi+0x158]
+    0.00 :   10ff047d:       je     10ff0486 <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0x436>
+    0.00 :   10ff047f:       lea    rsi,[rdi+0x140]
+    0.00 :   10ff0486:       mov    rax,QWORD PTR [rbp-0x330]
+    0.00 :   10ff048d:       imul   rax,QWORD PTR [rsi+0x18]
+    0.00 :   10ff0492:       movsxd rdx,edx
+    0.00 :   10ff0495:       add    rax,QWORD PTR [rdi+0x130]
+    0.00 :   10ff049c:       movsxd rdi,DWORD PTR [rbp-0x2c8]
+    0.00 :   10ff04a3:       imul   rdi,QWORD PTR [rsi+0x10]
+    0.00 :   10ff04a8:       imul   rdx,QWORD PTR [rsi+0x8]
+    0.00 :   10ff04ad:       add    rax,rdi
+    0.00 :   10ff04b0:       lea    rdi,[rip+0xfffffffffdd8f479]        # ed7f930 <dnnl::impl::primitive_desc_t::invariant_wei_md(int) const>
+    0.00 :   10ff04b7:       add    rax,rdx
+    0.00 :   10ff04ba:       mov    rdx,QWORD PTR [rbp-0x2f8]
+    0.00 :   10ff04c1:       imul   rdx,QWORD PTR [rsi]
+    0.00 :   10ff04c5:       add    rax,rdx
+    0.00 :   10ff04c8:       lea    rax,[rcx+rax*4]
+    0.00 :   10ff04cc:       mov    QWORD PTR [rbp-0x2b8],rax
+    0.00 :   10ff04d3:       mov    rax,QWORD PTR [rbx+0x3a0]
+    0.00 :   10ff04da:       mov    QWORD PTR [rbp-0x268],rax
+    0.00 :   10ff04e1:       mov    rax,QWORD PTR [rbx]
+    0.00 :   10ff04e4:       mov    r15,QWORD PTR [rax+0x10]
+    0.00 :   10ff04e8:       mov    rax,QWORD PTR [r15]
+    1.20 :   10ff04eb:       mov    rdx,QWORD PTR [rax+0x40]
+    0.00 :   10ff04ef:       cmp    rdx,rdi
+    0.00 :   10ff04f2:       jne    10ff0ae6 <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0xa96>
+    0.00 :   10ff04f8:       xor    edx,edx
+    0.00 :   10ff04fa:       mov    esi,0xb
+    0.00 :   10ff04ff:       mov    rdi,r15
+    0.00 :   10ff0502:       mov    DWORD PTR [rbp-0x244],0x0
+    0.00 :   10ff050c:       mov    rcx,QWORD PTR [rbp-0x310]
+    0.00 :   10ff0513:       call   QWORD PTR [rax+0xb0]
+    0.00 :   10ff0519:       xor    edx,edx
+    0.00 :   10ff051b:       xor    esi,esi
+    0.00 :   10ff051d:       mov    rax,QWORD PTR [r15]
+    0.00 :   10ff0520:       cmp    DWORD PTR [rbp-0x244],0xc0
+    0.00 :   10ff052a:       mov    rdi,r15
+    0.00 :   10ff052d:       je     10ff0acd <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0xa7d>
+    0.00 :   10ff0533:       call   QWORD PTR [rax+0x98]
+    0.00 :   10ff0539:       mov    eax,DWORD PTR [rax+0x4]
+    0.00 :   10ff053c:       lea    rdi,[rip+0xfffffffffdd8f31d]        # ed7f860 <dnnl::impl::primitive_desc_t::invariant_src_md(int, bool) const>
+    0.00 :   10ff0543:       mov    DWORD PTR [rbp-0x26c],eax
+    0.00 :   10ff0549:       mov    rax,QWORD PTR [r15]
+    0.00 :   10ff054c:       mov    rcx,QWORD PTR [rax+0x38]
+    0.00 :   10ff0550:       cmp    rcx,rdi
+    0.00 :   10ff0553:       jne    10ff0ad8 <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0xa88>
+    0.00 :   10ff0559:       xor    edx,edx
+    0.00 :   10ff055b:       mov    esi,0xb
+    0.00 :   10ff0560:       mov    rdi,r15
+    0.00 :   10ff0563:       mov    DWORD PTR [rbp-0x244],0x0
+    0.00 :   10ff056d:       mov    rcx,QWORD PTR [rbp-0x310]
+    0.00 :   10ff0574:       call   QWORD PTR [rax+0xb0]
+    0.00 :   10ff057a:       xor    edx,edx
+    0.00 :   10ff057c:       xor    esi,esi
+    0.00 :   10ff057e:       mov    rax,QWORD PTR [r15]
+    0.00 :   10ff0581:       cmp    DWORD PTR [rbp-0x244],0xa0
+    0.00 :   10ff058b:       mov    rdi,r15
+    0.00 :   10ff058e:       je     10ff0ac2 <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0xa72>
+    0.00 :   10ff0594:       call   QWORD PTR [rax+0x78]
+    0.00 :   10ff0597:       mov    rdx,QWORD PTR [rbx+0x38]
+    0.00 :   10ff059b:       mov    eax,DWORD PTR [rax+0x4]
+    0.00 :   10ff059e:       mov    edi,DWORD PTR [rdx+0x138]
+    0.00 :   10ff05a4:       add    eax,0x1
+    0.00 :   10ff05a7:       cmp    DWORD PTR [rbp-0x26c],eax
+    0.00 :   10ff05ad:       jne    10ff0a83 <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0xa33>
+    0.00 :   10ff05b3:       cmp    edi,0x4
+    0.00 :   10ff05b6:       lea    rax,[rdx+0x140]
+    0.00 :   10ff05bd:       lea    rsi,[rdx+0x158]
+    0.00 :   10ff05c4:       movsxd rcx,DWORD PTR [rbp-0x318]
+    0.00 :   10ff05cb:       cmovne rsi,rax
+    0.00 :   10ff05cf:       mov    rax,QWORD PTR [rbp-0x308]
+    0.00 :   10ff05d6:       imul   rax,QWORD PTR [rsi+0x10]
+    0.00 :   10ff05db:       add    rax,QWORD PTR [rdx+0x130]
+    0.00 :   10ff05e2:       mov    rdx,QWORD PTR [rbp-0x338]
+    0.00 :   10ff05e9:       imul   rdx,QWORD PTR [rsi+0x8]
+    0.00 :   10ff05ee:       add    rax,rdx
+    0.00 :   10ff05f1:       mov    rdx,QWORD PTR [rsi]
+    0.00 :   10ff05f4:       imul   rdx,rcx
+    0.00 :   10ff05f8:       add    rax,rdx
+    0.00 :   10ff05fb:       shl    rax,0x2
+    0.00 :   10ff05ff:       mov    rdi,QWORD PTR [rbp-0x268]
+    0.00 :   10ff0606:       mov    ecx,DWORD PTR [rbx+0x144]
+    0.00 :   10ff060c:       mov    edx,0x1
+    0.00 :   10ff0611:       add    rdi,rax
+    0.00 :   10ff0614:       mov    eax,DWORD PTR [rbx+0x174]
+    0.00 :   10ff061a:       cmp    DWORD PTR [rbp-0x254],0x16
+    0.00 :   10ff0621:       mov    QWORD PTR [rbp-0x268],rdi
+    0.00 :   10ff0628:       mov    rdi,QWORD PTR [rbx+0x3a8]
+    0.00 :   10ff062f:       cmove  edx,eax
+    0.00 :   10ff0632:       add    eax,r12d
+    0.00 :   10ff0635:       cmp    eax,ecx
+    0.00 :   10ff0637:       mov    QWORD PTR [rbp-0x288],rdi
+    0.00 :   10ff063e:       cmovg  eax,ecx
+    0.00 :   10ff0641:       mov    r9d,edx
+    0.00 :   10ff0644:       mov    DWORD PTR [rbp-0x2cc],eax
+    0.00 :   10ff064a:       mov    eax,DWORD PTR [rbx+0x150]
+    0.00 :   10ff0650:       test   rdi,rdi
+    0.00 :   10ff0653:       je     10ff0677 <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0x627>
+    0.00 :   10ff0655:       cmp    DWORD PTR [rbp-0x278],0x16
+    0.00 :   10ff065c:       je     10ff0665 <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0x615>
+    0.00 :   10ff065e:       imul   r13d,eax
+    0.00 :   10ff0662:       movsxd r14,r13d
+    0.00 :   10ff0665:       mov    rdi,QWORD PTR [rbp-0x288]
+    0.00 :   10ff066c:       lea    rdi,[rdi+r14*4]
+    0.00 :   10ff0670:       mov    QWORD PTR [rbp-0x288],rdi
+    0.00 :   10ff0677:       mov    edi,DWORD PTR [rbp-0x314]
+    0.00 :   10ff067d:       mov    edx,DWORD PTR [rbx+0x164]
+    0.00 :   10ff0683:       mov    r8d,DWORD PTR [rbx+0x68]
+    0.00 :   10ff0687:       imul   edx,eax
+    0.00 :   10ff068a:       imul   eax,edi
+    0.00 :   10ff068d:       mov    esi,r8d
+    0.00 :   10ff0690:       lea    edi,[rdx+rax*1]
+    0.00 :   10ff0693:       sub    esi,eax
+    0.00 :   10ff0695:       mov    eax,DWORD PTR [rbx+0x148]
+    0.00 :   10ff069b:       cmp    r8d,edi
+    0.00 :   10ff069e:       mov    edi,DWORD PTR [rbp-0x2cc]
+    0.00 :   10ff06a4:       cmovl  edx,esi
+    0.00 :   10ff06a7:       imul   eax,r9d
+    0.00 :   10ff06ab:       mov    DWORD PTR [rbp-0x2c4],eax
+    0.00 :   10ff06b1:       mov    eax,DWORD PTR [rbx+0x178]
+    0.00 :   10ff06b7:       cmp    edi,r12d
+    0.00 :   10ff06ba:       jle    10ff0af2 <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0xaa2>
+    0.00 :   10ff06c0:       sub    edi,r12d
+    0.00 :   10ff06c3:       mov    DWORD PTR [rbp-0x2d0],r12d
+    0.00 :   10ff06ca:       mov    r8d,r12d
+    0.00 :   10ff06cd:       mov    r10d,edi
+    0.00 :   10ff06d0:       movsxd rdi,r9d
+    0.00 :   10ff06d3:       mov    QWORD PTR [rbp-0x2f0],rdi
+    0.00 :   10ff06da:       mov    rdi,QWORD PTR [rbp-0x308]
+    0.00 :   10ff06e1:       mov    r11d,r10d
+    0.00 :   10ff06e4:       mov    r10d,r9d
+    0.00 :   10ff06e7:       mov    r9d,DWORD PTR [rbp-0x300]
+    0.00 :   10ff06ee:       mov    QWORD PTR [rbp-0x280],rdi
+    0.00 :   10ff06f5:       mov    edi,DWORD PTR [rbp-0x258]
+    0.00 :   10ff06fb:       add    eax,edi
+    0.00 :   10ff06fd:       movsxd rdi,edx
+    0.00 :   10ff0700:       mov    QWORD PTR [rbp-0x290],rdi
+    0.00 :   10ff0707:       nop    WORD PTR [rax+rax*1+0x0]
+    0.00 :   10ff0710:       xor    edx,edx
+    0.00 :   10ff0712:       test   r8d,r8d
+    0.00 :   10ff0715:       sete   dl
+    0.00 :   10ff0718:       mov    edi,edx
+    0.00 :   10ff071a:       mov    edx,r10d
+    0.00 :   10ff071d:       shl    edi,0x4
+    0.00 :   10ff0720:       cmp    r11d,r10d
+    0.00 :   10ff0723:       cmovle edx,r11d
+    0.00 :   10ff0727:       mov    DWORD PTR [rbp-0x26c],edi
+    0.00 :   10ff072d:       add    edx,r8d
+    0.00 :   10ff0730:       cmp    edx,ecx
+    0.00 :   10ff0732:       jl     10ff0765 <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0x715>
+    0.00 :   10ff0734:       mov    edx,DWORD PTR [rbx+0x148]
+    0.00 :   10ff073a:       mov    ecx,DWORD PTR [rbx+0x60]
+    0.00 :   10ff073d:       or     edi,0x20
+    0.00 :   10ff0740:       mov    DWORD PTR [rbp-0x26c],edi
+    0.00 :   10ff0746:       mov    r14d,edx
+    0.00 :   10ff0749:       imul   edx,r8d
+    0.00 :   10ff074d:       mov    esi,ecx
+    0.00 :   10ff074f:       imul   r14d,r10d
+    0.00 :   10ff0753:       sub    esi,edx
+    0.00 :   10ff0755:       lea    edi,[r14+rdx*1]
+    0.00 :   10ff0759:       cmp    ecx,edi
+    0.00 :   10ff075b:       cmovge esi,r14d
+    0.00 :   10ff075f:       mov    DWORD PTR [rbp-0x2c4],esi
+    0.00 :   10ff0765:       cmp    eax,r9d
+    0.00 :   10ff0768:       mov    edx,r9d
+    0.00 :   10ff076b:       mov    r15d,DWORD PTR [rbp-0x258]
+    1.20 :   10ff0772:       cmovle edx,eax
+    0.00 :   10ff0775:       cmp    edx,r15d
+    0.00 :   10ff0778:       jle    10ff09c0 <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0x970>
+    0.00 :   10ff077e:       movsxd rax,DWORD PTR [rbp-0x2c4]
+    0.00 :   10ff0785:       mov    DWORD PTR [rbp-0x270],r10d
+    0.00 :   10ff078c:       mov    DWORD PTR [rbp-0x2bc],r8d
+    0.00 :   10ff0793:       mov    r12d,DWORD PTR [rbp-0x2c8]
+    0.00 :   10ff079a:       mov    QWORD PTR [rbp-0x278],rax
+    0.00 :   10ff07a1:       mov    r14,QWORD PTR [rbp-0x2d8]
+    1.20 :   10ff07a8:       mov    DWORD PTR [rbp-0x2c0],r11d
+    0.00 :   10ff07af:       mov    r13,QWORD PTR [rbp-0x2b8]
+    0.00 :   10ff07b6:       jmp    10ff08e1 <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0x891>
+    0.00 :   10ff07bb:       nop    DWORD PTR [rax+rax*1+0x0]
+    0.00 :   10ff07c0:       mov    r8,QWORD PTR [rbp-0x268]
+    0.00 :   10ff07c7:       mov    r10,r13
+    0.00 :   10ff07ca:       xor    edi,edi
+    7.23 :   10ff07cc:       mov    ecx,DWORD PTR [rbx+0xa4]
+    0.00 :   10ff07d2:       mov    eax,r12d
+    0.00 :   10ff07d5:       sub    eax,DWORD PTR [rbx+0x74]
+    2.41 :   10ff07d8:       xor    r11d,r11d
+    2.41 :   10ff07db:       lea    edx,[rcx-0x1]
+    0.00 :   10ff07de:       imul   edx,esi
+    0.00 :   10ff07e1:       add    eax,edx
+    6.02 :   10ff07e3:       js     10ff07ec <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0x79c>
+    0.00 :   10ff07e5:       cdq
+    0.00 :   10ff07e6:       idiv   esi
+    0.00 :   10ff07e8:       lea    r11d,[rax+0x1]
+    0.00 :   10ff07ec:       mov    rax,QWORD PTR [rbp-0x2a8]
+    0.00 :   10ff07f3:       sub    ecx,edi
+    0.00 :   10ff07f5:       movq   xmm0,QWORD PTR [rbx+0x3b8]
+    4.82 :   10ff07fd:       mov    DWORD PTR [rbp-0x254],r9d
+    0.00 :   10ff0804:       sub    ecx,r11d
+    0.00 :   10ff0807:       mov    QWORD PTR [rbp-0x238],r14
+    0.00 :   10ff080e:       mov    rdi,QWORD PTR [rbp-0x2a0]
+    3.61 :   10ff0815:       mov    QWORD PTR [rbp-0x128],rax
+    0.00 :   10ff081c:       mov    eax,DWORD PTR [rbp-0x26c]
+    0.00 :   10ff0822:       movhps xmm0,QWORD PTR [rbx+0x390]
+    0.00 :   10ff0829:       mov    QWORD PTR [rbp-0x240],r10
+    2.41 :   10ff0830:       mov    DWORD PTR [rbp-0x58],eax
+    0.00 :   10ff0833:       mov    rax,QWORD PTR [rbp-0x288]
+    1.20 :   10ff083a:       mov    QWORD PTR [rbp-0x230],r8
+    0.00 :   10ff0841:       mov    QWORD PTR [rbp-0x228],rax
+    1.20 :   10ff0848:       mov    rax,QWORD PTR [rbp-0x280]
+    0.00 :   10ff084f:       movups XMMWORD PTR [rbp-0x1a8],xmm0
+    0.00 :   10ff0856:       mov    QWORD PTR [rbp-0x108],rax
+    0.00 :   10ff085d:       mov    eax,0x0
+    6.02 :   10ff0862:       cmovs  ecx,eax
+    0.00 :   10ff0865:       mov    rax,QWORD PTR [rbp-0x278]
+    0.00 :   10ff086c:       add    r15d,0x1
+    0.00 :   10ff0870:       mov    QWORD PTR [rbp-0xc8],rax
+    6.02 :   10ff0877:       mov    rax,QWORD PTR [rbp-0x290]
+    0.00 :   10ff087e:       movsxd rcx,ecx
+    0.00 :   10ff0881:       mov    QWORD PTR [rbp-0x148],rcx
+    0.00 :   10ff0888:       mov    QWORD PTR [rbp-0xb8],rax
+   14.46 :   10ff088f:       call   QWORD PTR [rbx+0x3b0]
+    0.00 :   10ff0895:       movsxd rax,DWORD PTR [rbx+0xb0]
+    0.00 :   10ff089c:       mov    rsi,QWORD PTR [rbp-0x260]
+    0.00 :   10ff08a3:       mov    r9d,DWORD PTR [rbp-0x254]
+    8.43 :   10ff08aa:       mov    rdx,rax
+    0.00 :   10ff08ad:       imul   rax,rsi
+    0.00 :   10ff08b1:       add    r12d,edx
+    0.00 :   10ff08b4:       mov    edx,r9d
+    4.82 :   10ff08b7:       lea    r13,[r13+rax*4+0x0]
+    0.00 :   10ff08bc:       mov    rax,QWORD PTR [rbp-0x298]
+    0.00 :   10ff08c3:       add    r14,rax
+    0.00 :   10ff08c6:       mov    eax,DWORD PTR [rbp-0x258]
+    3.61 :   10ff08cc:       add    eax,DWORD PTR [rbx+0x178]
+    0.00 :   10ff08d2:       cmp    eax,r9d
+    0.00 :   10ff08d5:       cmovle edx,eax
+    0.00 :   10ff08d8:       cmp    r15d,edx
+    1.20 :   10ff08db:       jge    10ff0960 <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0x910>
+    2.41 :   10ff08e1:       mov    eax,DWORD PTR [rbx+0xbc]
+    0.00 :   10ff08e7:       lea    esi,[rax+0x1]
+    0.00 :   10ff08ea:       test   r12d,r12d
+   10.84 :   10ff08ed:       jns    10ff07c0 <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0x770>
+    0.00 :   10ff08f3:       mov    eax,r12d
+    0.00 :   10ff08f6:       mov    rcx,QWORD PTR [rbp-0x260]
+    0.00 :   10ff08fd:       not    eax
+    0.00 :   10ff08ff:       cdq
+    0.00 :   10ff0900:       idiv   esi
+    0.00 :   10ff0902:       lea    edi,[rax+0x1]
+    0.00 :   10ff0905:       mov    eax,esi
+    0.00 :   10ff0907:       imul   eax,edi
+    0.00 :   10ff090a:       cdqe
+    2.41 :   10ff090c:       imul   rax,rcx
+    0.00 :   10ff0910:       mov    rcx,QWORD PTR [rbp-0x2b0]
+    0.00 :   10ff0917:       lea    r10,[r13+rax*4+0x0]
+    0.00 :   10ff091c:       movsxd rax,edi
+    1.20 :   10ff091f:       imul   rax,rcx
+    0.00 :   10ff0923:       mov    rcx,QWORD PTR [rbp-0x268]
+    0.00 :   10ff092a:       lea    r8,[rcx+rax*4]
+    0.00 :   10ff092e:       jmp    10ff07cc <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0x77c>
+    0.00 :   10ff0933:       cmp    DWORD PTR [rax+0x138],0x4
+    0.00 :   10ff093a:       je     10ff0943 <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0x8f3>
+    0.00 :   10ff093c:       lea    rdx,[rax+0x140]
+    0.00 :   10ff0943:       mov    rax,QWORD PTR [rax+0x130]
+    0.00 :   10ff094a:       add    rax,QWORD PTR [rdx+0x10]
+    0.00 :   10ff094e:       mov    QWORD PTR [rbp-0x2b0],rax
+    0.00 :   10ff0955:       jmp    10ff0150 <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0x100>
+    0.00 :   10ff095a:       nop    WORD PTR [rax+rax*1+0x0]
+    0.00 :   10ff0960:       mov    r10d,DWORD PTR [rbp-0x270]
+    0.00 :   10ff0967:       mov    r8d,DWORD PTR [rbp-0x2bc]
+    0.00 :   10ff096e:       mov    rsi,QWORD PTR [rbp-0x2e0]
+    0.00 :   10ff0975:       mov    r11d,DWORD PTR [rbp-0x2c0]
+    0.00 :   10ff097c:       add    QWORD PTR [rbp-0x2b8],rsi
+    0.00 :   10ff0983:       add    r8d,r10d
+    0.00 :   10ff0986:       mov    rsi,QWORD PTR [rbp-0x2e8]
+    0.00 :   10ff098d:       add    QWORD PTR [rbp-0x268],rsi
+    0.00 :   10ff0994:       cmp    DWORD PTR [rbp-0x2cc],r8d
+    0.00 :   10ff099b:       jle    10ff09c0 <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0x970>
+    1.20 :   10ff099d:       mov    rsi,QWORD PTR [rbp-0x2f0]
+    0.00 :   10ff09a4:       mov    ecx,DWORD PTR [rbx+0x144]
+    0.00 :   10ff09aa:       sub    r11d,r10d
+    1.20 :   10ff09ad:       add    QWORD PTR [rbp-0x280],rsi
+    0.00 :   10ff09b4:       jmp    10ff0710 <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0x6c0>
+    0.00 :   10ff09b9:       nop    DWORD PTR [rax+0x0]
+    0.00 :   10ff09c0:       mov    DWORD PTR [rbp-0x258],eax
+    0.00 :   10ff09c6:       mov    r12d,DWORD PTR [rbp-0x2d0]
+    0.00 :   10ff09cd:       mov    edi,eax
+    0.00 :   10ff09cf:       cmp    DWORD PTR [rbp-0x300],edi
+    0.00 :   10ff09d5:       jg     10ff0380 <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0x330>
+    0.00 :   10ff09db:       mov    ecx,DWORD PTR [rbx+0x48]
+    0.00 :   10ff09de:       mov    r15d,DWORD PTR [rbp-0x34c]
+    0.00 :   10ff09e5:       mov    r14d,DWORD PTR [rbp-0x350]
+    0.00 :   10ff09ec:       mov    r13d,DWORD PTR [rbp-0x354]
+    0.00 :   10ff09f3:       mov    esi,DWORD PTR [rbp-0x358]
+    0.00 :   10ff09f9:       mov    r12d,DWORD PTR [rbp-0x35c]
+    0.00 :   10ff0a00:       mov    edi,DWORD PTR [rbx+0x144]
+    0.00 :   10ff0a06:       cmp    ecx,0x4
+    0.00 :   10ff0a09:       je     10ff0c50 <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0xc00>
+    0.00 :   10ff0a0f:       cmp    ecx,0x3
+    0.00 :   10ff0a12:       je     10ff0bb2 <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0xb62>
+    0.00 :   10ff0a18:       cmp    ecx,0x6
+    0.00 :   10ff0a1b:       je     10ff0b0c <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0xabc>
+    0.00 :   10ff0a21:       mov    edx,DWORD PTR [rbp-0x33c]
+    0.00 :   10ff0a27:       cmp    DWORD PTR [rbp-0x340],edx
+    0.00 :   10ff0a2d:       jg     10ff0248 <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0x1f8>
+    0.00 :   10ff0a33:       mov    r13d,DWORD PTR [rbp-0x340]
+    0.00 :   10ff0a3a:       mov    r11d,ecx
+    0.00 :   10ff0a3d:       mov    esi,edi
+    0.00 :   10ff0a3f:       mov    r12,rbx
+    0.00 :   10ff0a42:       mov    edi,DWORD PTR [r12+0x174]
+    0.00 :   10ff0a4a:       add    DWORD PTR [rbp-0x344],edi
+    0.00 :   10ff0a50:       mov    eax,DWORD PTR [rbp-0x344]
+    0.00 :   10ff0a56:       cmp    eax,esi
+    0.00 :   10ff0a58:       jl     10ff01e0 <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0x190>
+    0.00 :   10ff0a5e:       mov    rax,QWORD PTR [rbp-0x38]
+    0.00 :   10ff0a62:       sub    rax,QWORD PTR fs:0x28
+    0.00 :   10ff0a6b:       jne    10ff0e1b <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0xdcb>
+    0.00 :   10ff0a71:       add    rsp,0x338
+    0.00 :   10ff0a78:       pop    rbx
+    0.00 :   10ff0a79:       pop    r12
+    0.00 :   10ff0a7b:       pop    r13
+    0.00 :   10ff0a7d:       pop    r14
+    0.00 :   10ff0a7f:       pop    r15
+    0.00 :   10ff0a81:       pop    rbp
+    0.00 :   10ff0a82:       ret
+    0.00 :   10ff0a83:       cmp    edi,0x4
+    0.00 :   10ff0a86:       lea    rax,[rdx+0x140]
+    0.00 :   10ff0a8d:       lea    rcx,[rdx+0x158]
+    0.00 :   10ff0a94:       cmovne rcx,rax
+    0.00 :   10ff0a98:       mov    rax,QWORD PTR [rbp-0x308]
+    0.00 :   10ff0a9f:       imul   rax,QWORD PTR [rcx+0x8]
+    0.00 :   10ff0aa4:       add    rax,QWORD PTR [rdx+0x130]
+    0.00 :   10ff0aab:       mov    rdx,QWORD PTR [rbp-0x338]
+    0.00 :   10ff0ab2:       imul   rdx,QWORD PTR [rcx]
+    0.00 :   10ff0ab6:       add    rax,rdx
+    0.00 :   10ff0ab9:       shl    rax,0x2
+    0.00 :   10ff0abd:       jmp    10ff05ff <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0x5af>
+    0.00 :   10ff0ac2:       call   QWORD PTR [rax+0x80]
+    0.00 :   10ff0ac8:       jmp    10ff0597 <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0x547>
+    0.00 :   10ff0acd:       call   QWORD PTR [rax+0xa0]
+    0.00 :   10ff0ad3:       jmp    10ff0539 <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0x4e9>
+    0.00 :   10ff0ad8:       xor    edx,edx
+    0.00 :   10ff0ada:       xor    esi,esi
+    0.00 :   10ff0adc:       mov    rdi,r15
+    0.00 :   10ff0adf:       call   rcx
+    0.00 :   10ff0ae1:       jmp    10ff0597 <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0x547>
+    0.00 :   10ff0ae6:       xor    esi,esi
+    0.00 :   10ff0ae8:       mov    rdi,r15
+    0.00 :   10ff0aeb:       call   rdx
+    0.00 :   10ff0aed:       jmp    10ff0539 <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0x4e9>
+    0.00 :   10ff0af2:       add    DWORD PTR [rbp-0x258],eax
+    0.00 :   10ff0af8:       mov    edi,DWORD PTR [rbp-0x258]
+    0.00 :   10ff0afe:       jmp    10ff09cf <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0x97f>
+    0.00 :   10ff0b03:       lea    r9d,[r14+0x1]
+    0.00 :   10ff0b07:       jmp    10ff02e2 <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0x292>
+    0.00 :   10ff0b0c:       add    DWORD PTR [rbp-0x33c],0x1
+    0.00 :   10ff0b13:       mov    eax,DWORD PTR [rbp-0x33c]
+    0.00 :   10ff0b19:       add    r12d,0x1
+    0.00 :   10ff0b1d:       mov    DWORD PTR [rbp-0x24c],eax
+    0.00 :   10ff0b23:       cmp    r12d,DWORD PTR [rbx+0x384]
+    0.00 :   10ff0b2a:       jne    10ff0a21 <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0x9d1>
+    0.00 :   10ff0b30:       add    r13d,0x1
+    0.00 :   10ff0b34:       xor    r12d,r12d
+    0.00 :   10ff0b37:       cmp    r13d,DWORD PTR [rbx+0x380]
+    0.00 :   10ff0b3e:       jne    10ff0a21 <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0x9d1>
+    0.00 :   10ff0b44:       add    DWORD PTR [rbp-0x2fc],0x1
+    0.00 :   10ff0b4b:       xor    r13d,r13d
+    0.00 :   10ff0b4e:       mov    eax,DWORD PTR [rbp-0x2fc]
+    0.00 :   10ff0b54:       cmp    eax,DWORD PTR [rbx+0x15c]
+    0.00 :   10ff0b5a:       jne    10ff0a21 <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0x9d1>
+    0.00 :   10ff0b60:       mov    DWORD PTR [rbp-0x2fc],0x0
+    0.00 :   10ff0b6a:       add    r14d,0x1
+    0.00 :   10ff0b6e:       cmp    r14d,DWORD PTR [rbx+0x80]
+    0.00 :   10ff0b75:       jne    10ff0a21 <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0x9d1>
+    0.00 :   10ff0b7b:       add    esi,0x1
+    0.00 :   10ff0b7e:       xor    r14d,r14d
+    0.00 :   10ff0b81:       cmp    esi,DWORD PTR [rbx+0x58]
+    0.00 :   10ff0b84:       jne    10ff0a21 <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0x9d1>
+    0.00 :   10ff0b8a:       mov    DWORD PTR [rbp-0x2fc],0x0
+    0.00 :   10ff0b94:       xor    r14d,r14d
+    0.00 :   10ff0b97:       xor    esi,esi
+    0.00 :   10ff0b99:       jmp    10ff0a21 <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0x9d1>
+    0.00 :   10ff0b9e:       xchg   ax,ax
+    0.00 :   10ff0ba0:       cmp    ecx,0x4
+    0.00 :   10ff0ba3:       je     10ff0c50 <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0xc00>
+    0.00 :   10ff0ba9:       cmp    ecx,0x3
+    0.00 :   10ff0bac:       jne    10ff0a21 <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0x9d1>
+    0.00 :   10ff0bb2:       mov    eax,DWORD PTR [rbx+0x80]
+    0.00 :   10ff0bb8:       sub    eax,r14d
+    0.00 :   10ff0bbb:       cmp    DWORD PTR [rbp-0x348],eax
+    0.00 :   10ff0bc1:       jl     10ff0cfe <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0xcae>
+    0.00 :   10ff0bc7:       add    DWORD PTR [rbp-0x33c],eax
+    0.00 :   10ff0bcd:       mov    ecx,DWORD PTR [rbp-0x33c]
+    0.00 :   10ff0bd3:       xor    r14d,r14d
+    0.00 :   10ff0bd6:       add    DWORD PTR [rbp-0x2fc],0x1
+    0.00 :   10ff0bdd:       mov    eax,DWORD PTR [rbp-0x2fc]
+    0.00 :   10ff0be3:       mov    DWORD PTR [rbp-0x24c],ecx
+    0.00 :   10ff0be9:       mov    ecx,0x3
+    0.00 :   10ff0bee:       cmp    eax,DWORD PTR [rbx+0x15c]
+    0.00 :   10ff0bf4:       jne    10ff0a21 <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0x9d1>
+    0.00 :   10ff0bfa:       mov    DWORD PTR [rbp-0x2fc],0x0
+    0.00 :   10ff0c04:       add    r13d,0x1
+    0.00 :   10ff0c08:       cmp    r13d,DWORD PTR [rbx+0x380]
+    0.00 :   10ff0c0f:       jne    10ff0a21 <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0x9d1>
+    0.00 :   10ff0c15:       add    esi,0x1
+    0.00 :   10ff0c18:       xor    r13d,r13d
+    0.00 :   10ff0c1b:       cmp    esi,DWORD PTR [rbx+0x58]
+    0.00 :   10ff0c1e:       jne    10ff0a21 <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0x9d1>
+    0.00 :   10ff0c24:       add    r12d,0x1
+    0.00 :   10ff0c28:       cmp    r12d,DWORD PTR [rbx+0x384]
+    0.00 :   10ff0c2f:       je     10ff0cd1 <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0xc81>
+    0.00 :   10ff0c35:       mov    DWORD PTR [rbp-0x2fc],0x0
+    0.00 :   10ff0c3f:       xor    r13d,r13d
+    0.00 :   10ff0c42:       xor    esi,esi
+    0.00 :   10ff0c44:       jmp    10ff0a21 <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0x9d1>
+    0.00 :   10ff0c49:       nop    DWORD PTR [rax+0x0]
+    0.00 :   10ff0c50:       mov    eax,DWORD PTR [rbx+0x80]
+    0.00 :   10ff0c56:       sub    eax,r14d
+    0.00 :   10ff0c59:       cmp    DWORD PTR [rbp-0x348],eax
+    0.00 :   10ff0c5f:       jl     10ff0ce0 <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0xc90>
+    0.00 :   10ff0c61:       add    DWORD PTR [rbp-0x33c],eax
+    0.00 :   10ff0c67:       mov    ecx,DWORD PTR [rbp-0x33c]
+    0.00 :   10ff0c6d:       add    esi,0x1
+    0.00 :   10ff0c70:       xor    r14d,r14d
+    0.00 :   10ff0c73:       mov    DWORD PTR [rbp-0x24c],ecx
+    0.00 :   10ff0c79:       mov    ecx,0x4
+    0.00 :   10ff0c7e:       cmp    esi,DWORD PTR [rbx+0x58]
+    0.00 :   10ff0c81:       jne    10ff0a21 <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0x9d1>
+    0.00 :   10ff0c87:       add    r12d,0x1
+    0.00 :   10ff0c8b:       xor    esi,esi
+    0.00 :   10ff0c8d:       cmp    r12d,DWORD PTR [rbx+0x384]
+    0.00 :   10ff0c94:       jne    10ff0a21 <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0x9d1>
+    0.00 :   10ff0c9a:       add    DWORD PTR [rbp-0x2fc],0x1
+    0.00 :   10ff0ca1:       xor    r12d,r12d
+    0.00 :   10ff0ca4:       mov    eax,DWORD PTR [rbp-0x2fc]
+    0.00 :   10ff0caa:       cmp    eax,DWORD PTR [rbx+0x15c]
+    0.00 :   10ff0cb0:       jne    10ff0a21 <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0x9d1>
+    0.00 :   10ff0cb6:       mov    DWORD PTR [rbp-0x2fc],0x0
+    0.00 :   10ff0cc0:       add    r13d,0x1
+    0.00 :   10ff0cc4:       cmp    r13d,DWORD PTR [rbx+0x380]
+    0.00 :   10ff0ccb:       je     10ff0e13 <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0xdc3>
+    0.00 :   10ff0cd1:       xor    r12d,r12d
+    0.00 :   10ff0cd4:       xor    esi,esi
+    0.00 :   10ff0cd6:       jmp    10ff0a21 <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0x9d1>
+    0.00 :   10ff0cdb:       nop    DWORD PTR [rax+rax*1+0x0]
+    0.00 :   10ff0ce0:       mov    r13d,DWORD PTR [rbp-0x340]
+    0.00 :   10ff0ce7:       mov    esi,edi
+    0.00 :   10ff0ce9:       mov    r12,rbx
+    0.00 :   10ff0cec:       mov    r11d,0x4
+    0.00 :   10ff0cf2:       mov    DWORD PTR [rbp-0x24c],r13d
+    0.00 :   10ff0cf9:       jmp    10ff0a42 <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0x9f2>
+    0.00 :   10ff0cfe:       mov    r13d,DWORD PTR [rbp-0x340]
+    0.00 :   10ff0d05:       mov    esi,edi
+    0.00 :   10ff0d07:       mov    r12,rbx
+    0.00 :   10ff0d0a:       mov    r11d,0x3
+    0.00 :   10ff0d10:       jmp    10ff0cf2 <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0xca2>
+    0.00 :   10ff0d12:       mov    eax,r15d
+    0.00 :   10ff0d15:       cdq
+    0.00 :   10ff0d16:       idiv   DWORD PTR [r12+0x80]
+    0.00 :   10ff0d1e:       mov    r10d,edx
+    0.00 :   10ff0d21:       cdq
+    0.00 :   10ff0d22:       idiv   DWORD PTR [r12+0x58]
+    0.00 :   10ff0d27:       mov    r8d,edx
+    0.00 :   10ff0d2a:       cdq
+    0.00 :   10ff0d2b:       idiv   DWORD PTR [r12+0x384]
+    0.00 :   10ff0d33:       mov    edi,edx
+    0.00 :   10ff0d35:       cdq
+    0.00 :   10ff0d36:       idiv   DWORD PTR [r12+0x15c]
+    0.00 :   10ff0d3e:       mov    DWORD PTR [rbp-0x2fc],edx
+    0.00 :   10ff0d44:       cdq
+    0.00 :   10ff0d45:       idiv   DWORD PTR [r12+0x380]
+    0.00 :   10ff0d4d:       mov    r9d,edx
+    0.00 :   10ff0d50:       jmp    10ff021a <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0x1ca>
+    0.00 :   10ff0d55:       mov    eax,r15d
+    0.00 :   10ff0d58:       cdq
+    0.00 :   10ff0d59:       idiv   DWORD PTR [r12+0x80]
+    0.00 :   10ff0d61:       mov    r10d,edx
+    0.00 :   10ff0d64:       cdq
+    0.00 :   10ff0d65:       idiv   DWORD PTR [r12+0x15c]
+    0.00 :   10ff0d6d:       mov    DWORD PTR [rbp-0x2fc],edx
+    0.00 :   10ff0d73:       cdq
+    0.00 :   10ff0d74:       idiv   DWORD PTR [r12+0x380]
+    0.00 :   10ff0d7c:       mov    r9d,edx
+    0.00 :   10ff0d7f:       cdq
+    0.00 :   10ff0d80:       idiv   DWORD PTR [r12+0x58]
+    0.00 :   10ff0d85:       mov    r8d,edx
+    0.00 :   10ff0d88:       cdq
+    0.00 :   10ff0d89:       idiv   DWORD PTR [r12+0x384]
+    0.00 :   10ff0d91:       mov    edi,edx
+    0.00 :   10ff0d93:       jmp    10ff021a <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0x1ca>
+    0.00 :   10ff0d98:       cmp    DWORD PTR [rax+0x138],0x4
+    0.00 :   10ff0d9f:       je     10ff0da8 <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0xd58>
+    0.00 :   10ff0da1:       lea    rdx,[rax+0x140]
+    0.00 :   10ff0da8:       mov    rax,QWORD PTR [rax+0x130]
+    0.00 :   10ff0daf:       add    rax,QWORD PTR [rdx+0x8]
+    0.00 :   10ff0db3:       jmp    10ff0187 <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0x137>
+    0.00 :   10ff0db8:       mov    eax,r15d
+    0.00 :   10ff0dbb:       cdq
+    0.00 :   10ff0dbc:       idiv   DWORD PTR [r12+0x384]
+    0.00 :   10ff0dc4:       mov    edi,edx
+    0.00 :   10ff0dc6:       cdq
+    0.00 :   10ff0dc7:       idiv   DWORD PTR [r12+0x380]
+    0.00 :   10ff0dcf:       mov    r9d,edx
+    0.00 :   10ff0dd2:       cdq
+    0.00 :   10ff0dd3:       idiv   DWORD PTR [r12+0x15c]
+    0.00 :   10ff0ddb:       mov    DWORD PTR [rbp-0x2fc],edx
+    0.00 :   10ff0de1:       cdq
+    0.00 :   10ff0de2:       idiv   DWORD PTR [r12+0x80]
+    0.00 :   10ff0dea:       mov    r10d,edx
+    0.00 :   10ff0ded:       cdq
+    0.00 :   10ff0dee:       idiv   DWORD PTR [r12+0x58]
+    0.00 :   10ff0df3:       mov    r8d,edx
+    0.00 :   10ff0df6:       jmp    10ff021a <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0x1ca>
+    0.00 :   10ff0dfb:       lea    rdx,[rax+0x140]
+    0.00 :   10ff0e02:       jmp    10ff013e <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0xee>
+    0.00 :   10ff0e07:       lea    rdx,[rax+0x140]
+    0.00 :   10ff0e0e:       jmp    10ff017c <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0x12c>
+    0.00 :   10ff0e13:       xor    r13d,r13d
+    0.00 :   10ff0e16:       jmp    10ff0a21 <dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const+0x9d1>
+    0.00 :   10ff0e1b:       call   1066f50 <__stack_chk_fail@plt>

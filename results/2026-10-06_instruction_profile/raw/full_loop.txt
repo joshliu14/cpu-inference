@@ -1,0 +1,5 @@
+Couldn't record kernel reference relocation symbol
+Symbol resolution may be skewed if relocation was used (e.g. kexec).
+Check /proc/kallsyms permission or run as root.
+@@LOOP_START 1791247176.676004
+@@LOOP_END iterations=117 seconds=12.025 ms_per_iter=102.7783

@@ -1,0 +1,2207 @@
+pct,addr,mnemonic,operands,class,width
+0.0,b0cc240,endbr64,,other,
+0.0,b0cc244,push,rbp,other,
+0.0,b0cc245,mov,"rbp,rsp",int/addr,
+0.0,b0cc248,and,"rsp,0xffffffffffffffc0",int/addr,
+0.0,b0cc24c,push,r12,other,
+0.0,b0cc24e,push,r13,other,
+0.0,b0cc250,push,r14,other,
+0.0,b0cc252,push,r15,other,
+0.0,b0cc254,push,rbx,other,
+0.0,b0cc255,sub,"rsp,0x158",int/addr,
+0.0,b0cc25c,mov,"r14,r8",int/addr,
+0.0,b0cc25f,mov,"r15,QWORD PTR [r9]",gpr_load,
+0.0,b0cc262,mov,"r13,QWORD PTR [rsi]",gpr_load,
+0.0,b0cc265,lea,"rbx,[r15*4+0x0]",int/addr,
+0.0,b0cc26d,test,"r13,r13",int/addr,
+0.0,b0cc270,je,b0cdb19 <mkl_blas_avx512_xsgemv+0x18d9>,branch,
+0.0,b0cc276,mov,"r12,QWORD PTR [rdx]",gpr_load,
+0.0,b0cc279,test,"r12,r12",int/addr,
+0.0,b0cc27c,je,b0cdb19 <mkl_blas_avx512_xsgemv+0x18d9>,branch,
+0.0,b0cc282,mov,"rax,QWORD PTR [rbp+0x20]",gpr_load,
+0.0,b0cc286,vmovss,"xmm0,DWORD PTR [rcx]",vec_load,xmm
+0.0,b0cc28a,vxorps,"xmm2,xmm2,xmm2",vec_arith,xmm
+0.0,b0cc28e,vmovss,"xmm3,DWORD PTR [rip+0x78d062a]        # 1299c8c0 <__NLITPACK_0.0.1+0x4c0>",vec_load,xmm
+0.0,b0cc296,vmovss,"xmm1,DWORD PTR [rax]",vec_load,xmm
+0.0,b0cc29a,vucomiss,"xmm0,xmm2",compare/mask,xmm
+0.0,b0cc29e,jp,b0cc2a6 <mkl_blas_avx512_xsgemv+0x66>,branch,
+0.0,b0cc2a0,je,b0cefc8 <mkl_blas_avx512_xsgemv+0x2d88>,branch,
+0.0,b0cc2a6,mov,"al,BYTE PTR [rdi]",gpr_load,
+0.0,b0cc2a8,cmp,"al,0x4e",int/addr,
+0.0,b0cc2aa,je,b0cc2b0 <mkl_blas_avx512_xsgemv+0x70>,branch,
+0.0,b0cc2ac,cmp,"al,0x6e",int/addr,
+0.0,b0cc2ae,jne,b0cc2b7 <mkl_blas_avx512_xsgemv+0x77>,branch,
+0.0,b0cc2b0,mov,"eax,0x1",int/addr,
+0.0,b0cc2b5,jmp,b0cc2b9 <mkl_blas_avx512_xsgemv+0x79>,branch,
+0.0,b0cc2b7,xor,"eax,eax",int/addr,
+0.0,b0cc2b9,test,"eax,eax",int/addr,
+0.0,b0cc2bb,mov,"eax,0x0",int/addr,
+0.0,b0cc2c0,mov,"rsi,r13",int/addr,
+0.0,b0cc2c3,setne,al,int/addr,
+0.0,b0cc2c6,mov,"edx,0x1",int/addr,
+0.0,b0cc2cb,test,"eax,eax",int/addr,
+0.0,b0cc2cd,mov,"r9,QWORD PTR [rbp+0x18]",gpr_load,
+0.0,b0cc2d1,cmovne,"rsi,r12",int/addr,
+0.0,b0cc2d5,mov,"rcx,QWORD PTR [rbp+0x30]",gpr_load,
+0.0,b0cc2d9,mov,"r9,QWORD PTR [r9]",gpr_load,
+0.0,b0cc2dc,mov,"rdi,r9",int/addr,
+0.0,b0cc2df,mov,"r10,r9",int/addr,
+0.0,b0cc2e2,mov,"r8,QWORD PTR [rcx]",gpr_load,
+0.0,b0cc2e5,mov,"r11,r8",int/addr,
+0.0,b0cc2e8,mov,"rcx,r12",int/addr,
+0.0,b0cc2eb,mov,"DWORD PTR [rsp+0x8],eax",gpr_store,
+0.0,b0cc2ef,cmovne,"rcx,r13",int/addr,
+0.0,b0cc2f3,dec,rsi,int/addr,
+0.0,b0cc2f6,imul,"rsi,r9",int/addr,
+0.0,b0cc2fa,neg,rsi,int/addr,
+0.0,b0cc2fd,inc,rsi,int/addr,
+0.0,b0cc300,test,"r9,r9",int/addr,
+0.0,b0cc303,cmovg,"rsi,rdx",int/addr,
+0.0,b0cc307,shl,"rdi,0x5",int/addr,
+0.0,b0cc30b,shl,"r10,0x4",int/addr,
+0.0,b0cc30f,shl,"r11,0x4",int/addr,
+0.0,b0cc313,mov,"QWORD PTR [rsp+0x30],rsi",gpr_store,
+0.0,b0cc318,mov,"QWORD PTR [rsp+0x10],rdi",gpr_store,
+0.0,b0cc31d,mov,"QWORD PTR [rsp+0x18],r10",gpr_store,
+0.0,b0cc322,mov,"QWORD PTR [rsp+0x38],r11",gpr_store,
+0.0,b0cc327,test,"r8,r8",int/addr,
+0.0,b0cc32a,jle,b0cee60 <mkl_blas_avx512_xsgemv+0x2c20>,branch,
+0.0,b0cc330,mov,"QWORD PTR [rsp+0x90],0x1",gpr_store,
+0.0,b0cc33c,vucomiss,"xmm1,xmm3",compare/mask,xmm
+0.0,b0cc340,jp,b0cc348 <mkl_blas_avx512_xsgemv+0x108>,branch,
+0.0,b0cc342,je,b0cc523 <mkl_blas_avx512_xsgemv+0x2e3>,branch,
+0.0,b0cc348,cmp,"r8,0x1",int/addr,
+0.0,b0cc34c,je,b0ced0b <mkl_blas_avx512_xsgemv+0x2acb>,branch,
+0.0,b0cc352,mov,"r10d,0x1",int/addr,
+0.0,b0cc358,vucomiss,"xmm1,xmm2",compare/mask,xmm
+0.0,b0cc35c,jp,b0cc364 <mkl_blas_avx512_xsgemv+0x124>,branch,
+0.0,b0cc35e,je,b0cec79 <mkl_blas_avx512_xsgemv+0x2a39>,branch,
+0.0,b0cc364,test,"rcx,rcx",int/addr,
+0.0,b0cc367,jle,b0cc523 <mkl_blas_avx512_xsgemv+0x2e3>,branch,
+0.0,b0cc36d,mov,"rax,r8",int/addr,
+0.0,b0cc370,shl,"rax,0x2",int/addr,
+0.0,b0cc374,je,b0cec72 <mkl_blas_avx512_xsgemv+0x2a32>,branch,
+0.0,b0cc37a,cmp,"rcx,0x10",int/addr,
+0.0,b0cc37e,jl,b0cec72 <mkl_blas_avx512_xsgemv+0x2a32>,branch,
+0.0,b0cc384,mov,"rsi,rcx",int/addr,
+0.0,b0cc387,xor,"edi,edi",int/addr,
+0.0,b0cc389,mov,"QWORD PTR [rsp+0x98],r8",gpr_store,
+0.0,b0cc391,and,"rsi,0xfffffffffffffff0",int/addr,
+0.0,b0cc395,mov,"QWORD PTR [rsp+0xb8],rbx",gpr_store,
+0.0,b0cc39d,xor,"edx,edx",int/addr,
+0.0,b0cc39f,vbroadcastss,"zmm3,xmm1",broadcast,zmm
+0.0,b0cc3a5,mov,"QWORD PTR [rsp+0xa0],r9",gpr_store,
+0.0,b0cc3ad,mov,"QWORD PTR [rsp+0xc8],r15",gpr_store,
+0.0,b0cc3b5,mov,"rbx,r11",int/addr,
+0.0,b0cc3b8,mov,"r8,QWORD PTR [rbp+0x28]",gpr_load,
+0.0,b0cc3bc,mov,"r11d,eax",int/addr,
+0.0,b0cc3bf,lea,"r9,[r10+rdx*1-0x1]",int/addr,
+0.0,b0cc3c4,sar,"r11d,0x1f",int/addr,
+0.0,b0cc3c8,lea,"r9,[r8+r9*4]",int/addr,
+0.0,b0cc3cc,lea,"r15d,[rax+r11*1]",int/addr,
+0.0,b0cc3d0,xor,"r15d,r11d",int/addr,
+0.0,b0cc3d3,cmp,"r15d,0x8888888",int/addr,
+0.0,b0cc3da,ja,b0cc401 <mkl_blas_avx512_xsgemv+0x1c1>,branch,
+0.0,b0cc3dc,vpcmpeqb,"k1,xmm0,xmm0",compare/mask,xmm
+0.0,b0cc3e2,vpbroadcastd,"zmm4,eax",broadcast,zmm
+0.0,b0cc3e8,vpmulld,"zmm5,zmm4,ZMMWORD PTR [rip+0x78d040e]        # 1299c800 <__NLITPACK_0.0.1+0x400>",vec_arith,zmm
+0.0,b0cc3f2,vpxord,"zmm4,zmm4,zmm4",vec_arith,zmm
+0.0,b0cc3f8,vgatherdps,"zmm4{k1},DWORD PTR [r9+zmm5*1]",vec_arith,zmm
+0.0,b0cc3ff,jmp,b0cc448 <mkl_blas_avx512_xsgemv+0x208>,branch,
+0.0,b0cc401,vpcmpeqb,"k2,xmm0,xmm0",compare/mask,xmm
+0.0,b0cc407,vpcmpeqb,"k1,xmm0,xmm0",compare/mask,xmm
+0.0,b0cc40d,vpbroadcastd,"zmm5,eax",broadcast,zmm
+0.0,b0cc413,vpmuldq,"zmm6,zmm5,ZMMWORD PTR [rip+0x78d03a3]        # 1299c7c0 <__NLITPACK_0.0.1+0x3c0>",vec_arith,zmm
+0.0,b0cc41d,vpmuldq,"zmm4,zmm5,ZMMWORD PTR [rip+0x78d0359]        # 1299c780 <__NLITPACK_0.0.1+0x380>",vec_arith,zmm
+0.0,b0cc427,vpxord,"zmm7,zmm7,zmm7",vec_arith,zmm
+0.0,b0cc42d,vpxord,"zmm8,zmm8,zmm8",vec_arith,zmm
+0.0,b0cc433,vgatherqps,"ymm7{k2},DWORD PTR [r9+zmm6*1]",vec_arith,zmm
+0.0,b0cc43a,vgatherqps,"ymm8{k1},DWORD PTR [r9+zmm4*1]",vec_arith,zmm
+0.0,b0cc441,vinsertf64x4,"zmm4,zmm8,ymm7,0x1",shuffle/permute,zmm
+0.0,b0cc448,mov,"r11d,eax",int/addr,
+0.0,b0cc44b,lea,"r9,[r10+rdx*1-0x1]",int/addr,
+0.0,b0cc450,sar,"r11d,0x1f",int/addr,
+0.0,b0cc454,lea,"r9,[r8+r9*4]",int/addr,
+0.0,b0cc458,lea,"r15d,[rax+r11*1]",int/addr,
+0.0,b0cc45c,xor,"r15d,r11d",int/addr,
+0.0,b0cc45f,vmulps,"zmm6,zmm3,zmm4",vec_arith,zmm
+0.0,b0cc465,cmp,"r15d,0x8888888",int/addr,
+0.0,b0cc46c,ja,b0cc48d <mkl_blas_avx512_xsgemv+0x24d>,branch,
+0.0,b0cc46e,vpcmpeqb,"k1,xmm0,xmm0",compare/mask,xmm
+0.0,b0cc474,vpbroadcastd,"zmm4,eax",broadcast,zmm
+0.0,b0cc47a,vpmulld,"zmm5,zmm4,ZMMWORD PTR [rip+0x78d037c]        # 1299c800 <__NLITPACK_0.0.1+0x400>",vec_arith,zmm
+0.0,b0cc484,vscatterdps,"DWORD PTR [r9+zmm5*1]{k1},zmm6",vec_arith,zmm
+0.0,b0cc48b,jmp,b0cc4c8 <mkl_blas_avx512_xsgemv+0x288>,branch,
+0.0,b0cc48d,vpcmpeqb,"k1,xmm0,xmm0",compare/mask,xmm
+0.0,b0cc493,vpcmpeqb,"k2,xmm0,xmm0",compare/mask,xmm
+0.0,b0cc499,vpbroadcastd,"zmm5,eax",broadcast,zmm
+0.0,b0cc49f,vpmuldq,"zmm4,zmm5,ZMMWORD PTR [rip+0x78d02d7]        # 1299c780 <__NLITPACK_0.0.1+0x380>",vec_arith,zmm
+0.0,b0cc4a9,vpmuldq,"zmm7,zmm5,ZMMWORD PTR [rip+0x78d030d]        # 1299c7c0 <__NLITPACK_0.0.1+0x3c0>",vec_arith,zmm
+0.0,b0cc4b3,vscatterqps,"DWORD PTR [r9+zmm4*1]{k1},ymm6",vec_arith,zmm
+0.0,b0cc4ba,vextracti64x4,"ymm6,zmm6,0x1",shuffle/permute,zmm
+0.0,b0cc4c1,vscatterqps,"DWORD PTR [r9+zmm7*1]{k2},ymm6",vec_arith,zmm
+0.0,b0cc4c8,add,"rdi,0x10",int/addr,
+0.0,b0cc4cc,add,"rdx,rbx",int/addr,
+0.0,b0cc4cf,cmp,"rdi,rsi",int/addr,
+0.0,b0cc4d2,jb,b0cc3bc <mkl_blas_avx512_xsgemv+0x17c>,branch,
+0.0,b0cc4d8,mov,"r8,QWORD PTR [rsp+0x98]",gpr_load,
+0.0,b0cc4e0,mov,"r9,QWORD PTR [rsp+0xa0]",gpr_load,
+0.0,b0cc4e8,mov,"rbx,QWORD PTR [rsp+0xb8]",gpr_load,
+0.0,b0cc4f0,mov,"r15,QWORD PTR [rsp+0xc8]",gpr_load,
+0.0,b0cc4f8,mov,"rdx,r8",int/addr,
+0.0,b0cc4fb,imul,"rdx,rsi",int/addr,
+0.0,b0cc4ff,cmp,"rsi,rcx",int/addr,
+0.0,b0cc502,jae,b0cc523 <mkl_blas_avx512_xsgemv+0x2e3>,branch,
+0.0,b0cc504,mov,"rax,QWORD PTR [rbp+0x28]",gpr_load,
+0.0,b0cc508,lea,"rax,[rax+r10*4]",int/addr,
+0.0,b0cc50c,vmulss,"xmm3,xmm1,DWORD PTR [rax+rdx*4-0x4]",scalar_fp,xmm
+0.0,b0cc512,inc,rsi,int/addr,
+0.0,b0cc515,vmovss,"DWORD PTR [rax+rdx*4-0x4],xmm3",vec_store,xmm
+0.0,b0cc51b,add,"rdx,r8",int/addr,
+0.0,b0cc51e,cmp,"rsi,rcx",int/addr,
+0.0,b0cc521,jb,b0cc50c <mkl_blas_avx512_xsgemv+0x2cc>,branch,
+0.0,b0cc523,vucomiss,"xmm0,xmm2",compare/mask,xmm
+0.0,b0cc527,jp,b0cc52f <mkl_blas_avx512_xsgemv+0x2ef>,branch,
+0.0,b0cc529,je,b0cdb19 <mkl_blas_avx512_xsgemv+0x18d9>,branch,
+0.0,b0cc52f,cmp,"DWORD PTR [rsp+0x8],0x0",int/addr,
+0.0,b0cc534,je,b0ccf22 <mkl_blas_avx512_xsgemv+0xce2>,branch,
+0.0,b0cc53a,cmp,"r9,0x1",int/addr,
+0.0,b0cc53e,je,b0cdb4e <mkl_blas_avx512_xsgemv+0x190e>,branch,
+0.0,b0cc544,mov,"rdi,r12",int/addr,
+0.0,b0cc547,xor,"ecx,ecx",int/addr,
+0.0,b0cc549,sar,"rdi,1",int/addr,
+0.0,b0cc54c,shr,"rdi,0x3e",int/addr,
+0.0,b0cc550,add,"rdi,r12",int/addr,
+0.0,b0cc553,and,"rdi,0xfffffffffffffffc",int/addr,
+0.0,b0cc557,jle,b0ccbb9 <mkl_blas_avx512_xsgemv+0x979>,branch,
+0.0,b0cc55d,mov,"rsi,QWORD PTR [rbp+0x28]",gpr_load,
+0.0,b0cc561,lea,"r10,[r8*4+0x0]",int/addr,
+0.0,b0cc569,mov,"rdx,QWORD PTR [rsp+0x90]",gpr_load,
+0.0,b0cc571,lea,"r11,[r9*4+0x0]",int/addr,
+0.0,b0cc579,mov,"QWORD PTR [rsp+0x70],r10",gpr_store,
+0.0,b0cc57e,mov,"r10,r14",int/addr,
+0.0,b0cc581,sub,"r10,rbx",int/addr,
+0.0,b0cc584,mov,"QWORD PTR [rsp+0xb8],rbx",gpr_store,
+0.0,b0cc58c,lea,"rsi,[rsi+rdx*4]",int/addr,
+0.0,b0cc590,mov,"QWORD PTR [rsp+0x78],rsi",gpr_store,
+0.0,b0cc595,lea,"rsi,[rbx+rbx*2]",int/addr,
+0.0,b0cc599,add,"rsi,r10",int/addr,
+0.0,b0cc59c,mov,"rdx,r15",int/addr,
+0.0,b0cc59f,mov,"QWORD PTR [rsp+0x60],rsi",gpr_store,
+0.0,b0cc5a4,mov,"rsi,r13",int/addr,
+0.0,b0cc5a7,and,"rsi,0xfffffffffffffff0",int/addr,
+0.0,b0cc5ab,lea,"rax,[r10+r15*8]",int/addr,
+0.0,b0cc5af,mov,"QWORD PTR [rsp+0x88],rsi",gpr_store,
+0.0,b0cc5b7,mov,"rsi,r9",int/addr,
+0.0,b0cc5ba,shl,"rsi,0x4",int/addr,
+0.0,b0cc5be,shl,"rdx,0x4",int/addr,
+0.0,b0cc5c2,mov,"QWORD PTR [rsp+0x68],rax",gpr_store,
+0.0,b0cc5c7,mov,"rax,rsi",int/addr,
+0.0,b0cc5ca,mov,"QWORD PTR [rsp+0xd8],rdx",gpr_store,
+0.0,b0cc5d2,add,"r10,rdx",int/addr,
+0.0,b0cc5d5,mov,"rdx,r13",int/addr,
+0.0,b0cc5d8,neg,rax,int/addr,
+0.0,b0cc5db,and,"rdx,0xffffffffffffffe0",int/addr,
+0.0,b0cc5df,mov,"QWORD PTR [rsp+0x80],rdx",gpr_store,
+0.0,b0cc5e7,mov,"rdx,QWORD PTR [rbp+0x10]",gpr_load,
+0.0,b0cc5eb,add,"rax,rdx",int/addr,
+0.0,b0cc5ee,add,"rax,rsi",int/addr,
+0.0,b0cc5f1,mov,"QWORD PTR [rsp+0x58],r10",gpr_store,
+0.0,b0cc5f6,mov,"r10,QWORD PTR [rsp+0x30]",gpr_load,
+0.0,b0cc5fb,mov,"QWORD PTR [rsp],rsi",gpr_store,
+0.0,b0cc5ff,vmovups,"zmm8,ZMMWORD PTR [rip+0x78d00f7]        # 1299c700 <__NLITPACK_0.0.1+0x300>",vec_load,zmm
+0.0,b0cc609,vmovdqu32,"zmm7,ZMMWORD PTR [rip+0x78d016d]        # 1299c780 <__NLITPACK_0.0.1+0x380>",vec_load,zmm
+0.0,b0cc613,vmovdqu32,"zmm6,ZMMWORD PTR [rip+0x78d01a3]        # 1299c7c0 <__NLITPACK_0.0.1+0x3c0>",vec_load,zmm
+0.0,b0cc61d,mov,"QWORD PTR [rsp+0xc0],r12",gpr_store,
+0.0,b0cc625,lea,"rax,[rax+r10*4]",int/addr,
+0.0,b0cc629,mov,"QWORD PTR [rsp+0x20],rax",gpr_store,
+0.0,b0cc62e,mov,"rax,rdx",int/addr,
+0.0,b0cc631,sub,"rax,r11",int/addr,
+0.0,b0cc634,neg,r11,int/addr,
+0.0,b0cc637,add,"rax,rsi",int/addr,
+0.0,b0cc63a,mov,"QWORD PTR [rsp+0x28],rdi",gpr_store,
+0.0,b0cc63f,mov,"QWORD PTR [rsp+0x98],r8",gpr_store,
+0.0,b0cc647,mov,"QWORD PTR [rsp+0xa0],r9",gpr_store,
+0.0,b0cc64f,lea,"r11,[r11+r9*4]",int/addr,
+0.0,b0cc653,mov,"QWORD PTR [rsp+0xc8],r15",gpr_store,
+0.0,b0cc65b,lea,"rax,[rax+r10*4]",int/addr,
+0.0,b0cc65f,mov,"QWORD PTR [rsp+0x18],rax",gpr_store,
+0.0,b0cc664,lea,"rax,[r11+r9*4]",int/addr,
+0.0,b0cc668,add,"rax,r10",int/addr,
+0.0,b0cc66b,mov,"QWORD PTR [rsp+0xe8],rax",gpr_store,
+0.0,b0cc673,lea,"rax,[r9*8+0x0]",int/addr,
+0.0,b0cc67b,mov,"rbx,QWORD PTR [rsp+0x68]",gpr_load,
+0.0,b0cc680,lea,"r11,[rax+r9*4]",int/addr,
+0.0,b0cc684,neg,r11,int/addr,
+0.0,b0cc687,neg,rax,int/addr,
+0.0,b0cc68a,add,"r11,rdx",int/addr,
+0.0,b0cc68d,add,"rax,rdx",int/addr,
+0.0,b0cc690,add,"r11,rsi",int/addr,
+0.0,b0cc693,add,"rax,rsi",int/addr,
+0.0,b0cc696,mov,"rsi,QWORD PTR [rsp+0x60]",gpr_load,
+0.0,b0cc69b,lea,"r11,[r11+r10*4]",int/addr,
+0.0,b0cc69f,mov,"QWORD PTR [rsp+0x10],r11",gpr_store,
+0.0,b0cc6a4,lea,"rdx,[rax+r10*4]",int/addr,
+0.0,b0cc6a8,mov,"QWORD PTR [rsp+0x8],rdx",gpr_store,
+0.0,b0cc6ad,lea,"r10,[rdi+0x3]",int/addr,
+0.0,b0cc6b1,shr,"r10,0x2",int/addr,
+0.0,b0cc6b5,xor,"eax,eax",int/addr,
+0.0,b0cc6b7,mov,"QWORD PTR [rsp+0xe0],rax",gpr_store,
+0.0,b0cc6bf,mov,"rdx,QWORD PTR [rsp+0x58]",gpr_load,
+0.0,b0cc6c4,mov,"QWORD PTR [rsp+0xb0],r10",gpr_store,
+0.0,b0cc6cc,mov,"r11,QWORD PTR [rsp]",gpr_load,
+0.0,b0cc6d0,imul,"r11,rcx",int/addr,
+0.0,b0cc6d4,mov,"rdi,QWORD PTR [rsp+0x20]",gpr_load,
+0.0,b0cc6d9,mov,"r8,QWORD PTR [rsp+0x10]",gpr_load,
+0.0,b0cc6de,mov,"r9,QWORD PTR [rsp+0x8]",gpr_load,
+0.0,b0cc6e3,mov,"r10,QWORD PTR [rsp+0x18]",gpr_load,
+0.0,b0cc6e8,vmulss,"xmm2,xmm0,DWORD PTR [rdi+r11*1-0x4]",scalar_fp,xmm
+0.0,b0cc6ef,vmulss,"xmm3,xmm0,DWORD PTR [r8+r11*1-0x4]",scalar_fp,xmm
+0.0,b0cc6f6,vmulss,"xmm4,xmm0,DWORD PTR [r9+r11*1-0x4]",scalar_fp,xmm
+0.0,b0cc6fd,vmulss,"xmm5,xmm0,DWORD PTR [r10+r11*1-0x4]",scalar_fp,xmm
+0.0,b0cc704,cmp,"QWORD PTR [rsp+0x98],0x0",int/addr,
+0.0,b0cc70d,jne,b0cc8e1 <mkl_blas_avx512_xsgemv+0x6a1>,branch,
+0.0,b0cc713,test,"r13,r13",int/addr,
+0.0,b0cc716,jle,b0ccb4f <mkl_blas_avx512_xsgemv+0x90f>,branch,
+0.0,b0cc71c,mov,"rdi,QWORD PTR [rsp+0x78]",gpr_load,
+0.0,b0cc721,vpxord,"zmm14,zmm14,zmm14",vec_arith,zmm
+0.0,b0cc727,vmovss,"xmm1,DWORD PTR [rdi-0x4]",vec_load,xmm
+0.0,b0cc72c,vmovaps,"zmm13,zmm14",shuffle/permute,zmm
+0.0,b0cc732,cmp,"r13,0x20",int/addr,
+0.0,b0cc736,jl,b0cdb31 <mkl_blas_avx512_xsgemv+0x18f1>,branch,
+0.0,b0cc73c,mov,"r12,QWORD PTR [rsp+0x80]",gpr_load,
+0.0,b0cc744,xor,"r11d,r11d",int/addr,
+0.0,b0cc747,vbroadcastss,"zmm12,xmm2",broadcast,zmm
+0.0,b0cc74d,lea,"r10,[rsi+rax*1]",int/addr,
+0.0,b0cc751,vbroadcastss,"zmm11,xmm3",broadcast,zmm
+0.0,b0cc757,vbroadcastss,"zmm10,xmm4",broadcast,zmm
+0.0,b0cc75d,vbroadcastss,"zmm9,xmm5",broadcast,zmm
+0.0,b0cc763,mov,"r15,r12",int/addr,
+0.0,b0cc766,lea,"r9,[rbx+rax*1]",int/addr,
+0.0,b0cc76a,lea,"r8,[r14+rax*1]",int/addr,
+0.0,b0cc76e,lea,"rdi,[rdx+rax*1]",int/addr,
+0.0,b0cc772,nop,DWORD PTR [rax+0x0],other,
+0.0,b0cc779,nop,DWORD PTR [rax+0x0],other,
+0.0,b0cc780,vmulps,"zmm15,zmm9,ZMMWORD PTR [rdi+r11*4]",vec_arith,zmm
+0.0,b0cc787,vmulps,"zmm16,zmm9,ZMMWORD PTR [rdi+r11*4+0x40]",vec_arith,zmm
+0.0,b0cc78f,vfmadd231ps,"zmm15,zmm10,ZMMWORD PTR [r10+r11*4]",fma,zmm
+0.0,b0cc796,vfmadd231ps,"zmm16,zmm10,ZMMWORD PTR [r10+r11*4+0x40]",fma,zmm
+0.0,b0cc79e,vfmadd231ps,"zmm15,zmm11,ZMMWORD PTR [r9+r11*4]",fma,zmm
+0.0,b0cc7a5,vfmadd231ps,"zmm16,zmm11,ZMMWORD PTR [r9+r11*4+0x40]",fma,zmm
+0.0,b0cc7ad,vfmadd231ps,"zmm15,zmm12,ZMMWORD PTR [r8+r11*4]",fma,zmm
+0.0,b0cc7b4,vfmadd231ps,"zmm16,zmm12,ZMMWORD PTR [r8+r11*4+0x40]",fma,zmm
+0.0,b0cc7bc,vaddps,"zmm14,zmm15,zmm14",vec_arith,zmm
+0.0,b0cc7c2,vaddps,"zmm13,zmm16,zmm13",vec_arith,zmm
+0.0,b0cc7c8,add,"r11,0x20",int/addr,
+0.0,b0cc7cc,cmp,"r11,r15",int/addr,
+0.0,b0cc7cf,jb,b0cc780 <mkl_blas_avx512_xsgemv+0x540>,branch,
+0.0,b0cc7d1,vaddps,"zmm14,zmm14,zmm13",vec_arith,zmm
+0.0,b0cc7d7,lea,"rdi,[r12+0x1]",int/addr,
+0.0,b0cc7dc,cmp,"rdi,r13",int/addr,
+0.0,b0cc7df,ja,b0cc899 <mkl_blas_avx512_xsgemv+0x659>,branch,
+0.0,b0cc7e5,mov,"r11,r13",int/addr,
+0.0,b0cc7e8,lea,"r9,[r14+rax*1]",int/addr,
+0.0,b0cc7ec,sub,"r11,r12",int/addr,
+0.0,b0cc7ef,lea,"r8,[rbx+rax*1]",int/addr,
+0.0,b0cc7f3,vmovaps,"zmm12,zmm7",shuffle/permute,zmm
+0.0,b0cc7f9,lea,"rdi,[rsi+rax*1]",int/addr,
+0.0,b0cc7fd,vmovaps,"zmm11,zmm6",shuffle/permute,zmm
+0.0,b0cc803,lea,"r15,[rdx+rax*1]",int/addr,
+0.0,b0cc807,vbroadcastss,"zmm10,xmm2",broadcast,zmm
+0.0,b0cc80d,xor,"r10d,r10d",int/addr,
+0.0,b0cc810,vbroadcastss,"zmm9,xmm3",broadcast,zmm
+0.0,b0cc816,vbroadcastss,"zmm3,xmm4",broadcast,zmm
+0.0,b0cc81c,vpbroadcastq,"zmm2,r11",broadcast,zmm
+0.0,b0cc822,lea,"r9,[r9+r12*4]",int/addr,
+0.0,b0cc826,lea,"r8,[r8+r12*4]",int/addr,
+0.0,b0cc82a,lea,"rdi,[rdi+r12*4]",int/addr,
+0.0,b0cc82e,lea,"r12,[r15+r12*4]",int/addr,
+0.0,b0cc832,nop,DWORD PTR [rax+0x0],other,
+0.0,b0cc839,nop,DWORD PTR [rax+0x0],other,
+0.0,b0cc840,vpcmpgtq,"k1,zmm2,zmm12",compare/mask,zmm
+0.0,b0cc846,vpcmpgtq,"k0,zmm2,zmm11",compare/mask,zmm
+0.0,b0cc84c,vpaddq,"zmm12,zmm12,zmm8",vec_arith,zmm
+0.0,b0cc852,vpaddq,"zmm11,zmm11,zmm8",vec_arith,zmm
+0.0,b0cc858,kunpckbw,"k2,k0,k1",compare/mask,
+0.0,b0cc85c,vmovaps,"zmm15,zmm14",shuffle/permute,zmm
+0.0,b0cc862,vfmadd231ps,"zmm15{k2},zmm10,ZMMWORD PTR [r9+r10*4]",fma,zmm
+0.0,b0cc869,vmovups,"zmm4{k2}{z},ZMMWORD PTR [r8+r10*4]",vec_load,zmm
+0.0,b0cc870,vmovups,"zmm13{k2}{z},ZMMWORD PTR [rdi+r10*4]",vec_load,zmm
+0.0,b0cc877,vbroadcastss,"zmm14{k2},xmm5",broadcast,zmm
+0.0,b0cc87d,vfmadd231ps,"zmm15,zmm4,zmm9",fma,zmm
+0.0,b0cc883,vfmadd231ps,"zmm15,zmm13,zmm3",fma,zmm
+0.0,b0cc889,vfmadd132ps,"zmm14{k2},zmm15,ZMMWORD PTR [r12+r10*4]",fma,zmm
+0.0,b0cc890,add,"r10,0x10",int/addr,
+0.0,b0cc894,cmp,"r10,r11",int/addr,
+0.0,b0cc897,jb,b0cc840 <mkl_blas_avx512_xsgemv+0x600>,branch,
+0.0,b0cc899,vshuff32x4,"zmm2,zmm14,zmm14,0xee",shuffle/permute,zmm
+0.0,b0cc8a0,vaddps,"zmm4,zmm2,zmm14",vec_arith,zmm
+0.0,b0cc8a6,vshuff32x4,"zmm3,zmm4,zmm4,0x55",shuffle/permute,zmm
+0.0,b0cc8ad,vaddps,"zmm5,zmm3,zmm4",vec_arith,zmm
+0.0,b0cc8b3,vpshufd,"zmm9,zmm5,0x4e",shuffle/permute,zmm
+0.0,b0cc8ba,vaddps,"zmm10,zmm5,zmm9",vec_arith,zmm
+0.0,b0cc8c0,vpshufd,"zmm11,zmm10,0xb1",shuffle/permute,zmm
+0.0,b0cc8c7,vaddps,"zmm12,zmm10,zmm11",vec_arith,zmm
+0.0,b0cc8cd,mov,"rdi,QWORD PTR [rsp+0x78]",gpr_load,
+0.0,b0cc8d2,vaddss,"xmm1,xmm1,xmm12",scalar_fp,xmm
+0.0,b0cc8d7,vmovss,"DWORD PTR [rdi-0x4],xmm1",vec_store,xmm
+0.0,b0cc8dc,jmp,b0ccb4f <mkl_blas_avx512_xsgemv+0x90f>,branch,
+0.0,b0cc8e1,test,"r13,r13",int/addr,
+0.0,b0cc8e4,jle,b0ccb4f <mkl_blas_avx512_xsgemv+0x90f>,branch,
+0.0,b0cc8ea,cmp,"QWORD PTR [rsp+0x70],0x0",int/addr,
+0.0,b0cc8f0,je,b0cdb47 <mkl_blas_avx512_xsgemv+0x1907>,branch,
+0.0,b0cc8f6,cmp,"r13,0x10",int/addr,
+0.0,b0cc8fa,jl,b0cdb47 <mkl_blas_avx512_xsgemv+0x1907>,branch,
+0.0,b0cc900,mov,"r15,QWORD PTR [rsp+0x70]",gpr_load,
+0.0,b0cc905,xor,"r12d,r12d",int/addr,
+0.0,b0cc908,mov,"rdi,QWORD PTR [rsp+0x88]",gpr_load,
+0.0,b0cc910,lea,"r9,[rsi+rax*1]",int/addr,
+0.0,b0cc914,lea,"r10,[rbx+rax*1]",int/addr,
+0.0,b0cc918,lea,"r11,[r14+rax*1]",int/addr,
+0.0,b0cc91c,mov,"QWORD PTR [rsp+0x48],rdi",gpr_store,
+0.0,b0cc921,lea,"r8,[rdx+rax*1]",int/addr,
+0.0,b0cc925,mov,"QWORD PTR [rsp+0x50],rax",gpr_store,
+0.0,b0cc92a,mov,"QWORD PTR [rsp+0x58],rdx",gpr_store,
+0.0,b0cc92f,mov,"QWORD PTR [rsp+0x40],rcx",gpr_store,
+0.0,b0cc934,vbroadcastss,"zmm11,xmm2",broadcast,zmm
+0.0,b0cc93a,vbroadcastss,"zmm10,xmm3",broadcast,zmm
+0.0,b0cc940,vbroadcastss,"zmm9,xmm4",broadcast,zmm
+0.0,b0cc946,vbroadcastss,"zmm1,xmm5",broadcast,zmm
+0.0,b0cc94c,mov,"QWORD PTR [rsp+0xd0],r13",gpr_store,
+0.0,b0cc954,mov,"QWORD PTR [rsp+0xa8],r14",gpr_store,
+0.0,b0cc95c,mov,"edi,r15d",int/addr,
+0.0,b0cc95f,mov,"rsi,r12",int/addr,
+0.0,b0cc962,mov,"rax,QWORD PTR [rsp+0x88]",gpr_load,
+0.0,b0cc96a,mov,"rdx,QWORD PTR [rsp+0x90]",gpr_load,
+0.0,b0cc972,mov,"rcx,QWORD PTR [rsp+0x38]",gpr_load,
+0.0,b0cc977,mov,"rbx,QWORD PTR [rbp+0x28]",gpr_load,
+0.0,b0cc97b,mov,"r14d,edi",int/addr,
+0.0,b0cc97e,lea,"r13,[rdx+rsi*1-0x1]",int/addr,
+0.0,b0cc983,sar,"r14d,0x1f",int/addr,
+0.0,b0cc987,lea,"r13,[rbx+r13*4]",int/addr,
+0.0,b0cc98b,lea,"r15d,[rdi+r14*1]",int/addr,
+0.0,b0cc98f,xor,"r15d,r14d",int/addr,
+0.0,b0cc992,cmp,"r15d,0x8888888",int/addr,
+0.0,b0cc999,ja,b0cc9c1 <mkl_blas_avx512_xsgemv+0x781>,branch,
+0.0,b0cc99b,vpcmpeqb,"k1,xmm0,xmm0",compare/mask,xmm
+0.0,b0cc9a1,vpbroadcastd,"zmm12,edi",broadcast,zmm
+0.0,b0cc9a7,vpmulld,"zmm13,zmm12,ZMMWORD PTR [rip+0x78cfe4f]        # 1299c800 <__NLITPACK_0.0.1+0x400>",vec_arith,zmm
+0.0,b0cc9b1,vpxord,"zmm14,zmm14,zmm14",vec_arith,zmm
+0.0,b0cc9b7,vgatherdps,"zmm14{k1},DWORD PTR [r13+zmm13*1+0x0]",vec_arith,zmm
+0.0,b0cc9bf,jmp,b0cca0a <mkl_blas_avx512_xsgemv+0x7ca>,branch,
+0.0,b0cc9c1,vpcmpeqb,"k2,xmm0,xmm0",compare/mask,xmm
+0.0,b0cc9c7,vpcmpeqb,"k1,xmm0,xmm0",compare/mask,xmm
+0.0,b0cc9cd,vpbroadcastd,"zmm13,edi",broadcast,zmm
+0.0,b0cc9d3,vpmuldq,"zmm14,zmm13,ZMMWORD PTR [rip+0x78cfde3]        # 1299c7c0 <__NLITPACK_0.0.1+0x3c0>",vec_arith,zmm
+0.0,b0cc9dd,vpmuldq,"zmm12,zmm13,ZMMWORD PTR [rip+0x78cfd99]        # 1299c780 <__NLITPACK_0.0.1+0x380>",vec_arith,zmm
+0.0,b0cc9e7,vpxord,"zmm15,zmm15,zmm15",vec_arith,zmm
+0.0,b0cc9ed,vpxord,"zmm16,zmm16,zmm16",vec_arith,zmm
+0.0,b0cc9f3,vgatherqps,"ymm15{k2},DWORD PTR [r13+zmm14*1+0x0]",vec_arith,zmm
+0.0,b0cc9fb,vgatherqps,"ymm16{k1},DWORD PTR [r13+zmm12*1+0x0]",vec_arith,zmm
+0.0,b0cca03,vinsertf64x4,"zmm14,zmm16,ymm15,0x1",shuffle/permute,zmm
+0.0,b0cca0a,mov,"r14d,edi",int/addr,
+0.0,b0cca0d,lea,"r13,[rdx+rsi*1-0x1]",int/addr,
+0.0,b0cca12,sar,"r14d,0x1f",int/addr,
+0.0,b0cca16,lea,"r13,[rbx+r13*4]",int/addr,
+0.0,b0cca1a,lea,"r15d,[rdi+r14*1]",int/addr,
+0.0,b0cca1e,xor,"r15d,r14d",int/addr,
+0.0,b0cca21,vfmadd231ps,"zmm14,zmm11,ZMMWORD PTR [r11+r12*4]",fma,zmm
+0.0,b0cca28,vfmadd231ps,"zmm14,zmm10,ZMMWORD PTR [r10+r12*4]",fma,zmm
+0.0,b0cca2f,vfmadd231ps,"zmm14,zmm9,ZMMWORD PTR [r9+r12*4]",fma,zmm
+0.0,b0cca36,vfmadd231ps,"zmm14,zmm1,ZMMWORD PTR [r8+r12*4]",fma,zmm
+0.0,b0cca3d,cmp,"r15d,0x8888888",int/addr,
+0.0,b0cca44,ja,b0cca66 <mkl_blas_avx512_xsgemv+0x826>,branch,
+0.0,b0cca46,vpcmpeqb,"k1,xmm0,xmm0",compare/mask,xmm
+0.0,b0cca4c,vpbroadcastd,"zmm12,edi",broadcast,zmm
+0.0,b0cca52,vpmulld,"zmm13,zmm12,ZMMWORD PTR [rip+0x78cfda4]        # 1299c800 <__NLITPACK_0.0.1+0x400>",vec_arith,zmm
+0.0,b0cca5c,vscatterdps,"DWORD PTR [r13+zmm13*1+0x0]{k1},zmm14",vec_arith,zmm
+0.0,b0cca64,jmp,b0ccaa3 <mkl_blas_avx512_xsgemv+0x863>,branch,
+0.0,b0cca66,vpcmpeqb,"k1,xmm0,xmm0",compare/mask,xmm
+0.0,b0cca6c,vpcmpeqb,"k2,xmm0,xmm0",compare/mask,xmm
+0.0,b0cca72,vpbroadcastd,"zmm13,edi",broadcast,zmm
+0.0,b0cca78,vpmuldq,"zmm12,zmm13,ZMMWORD PTR [rip+0x78cfcfe]        # 1299c780 <__NLITPACK_0.0.1+0x380>",vec_arith,zmm
+0.0,b0cca82,vpmuldq,"zmm15,zmm13,ZMMWORD PTR [rip+0x78cfd34]        # 1299c7c0 <__NLITPACK_0.0.1+0x3c0>",vec_arith,zmm
+0.0,b0cca8c,vscatterqps,"DWORD PTR [r13+zmm12*1+0x0]{k1},ymm14",vec_arith,zmm
+0.0,b0cca94,vextracti64x4,"ymm14,zmm14,0x1",shuffle/permute,zmm
+0.0,b0cca9b,vscatterqps,"DWORD PTR [r13+zmm15*1+0x0]{k2},ymm14",vec_arith,zmm
+0.0,b0ccaa3,add,"r12,0x10",int/addr,
+0.0,b0ccaa7,add,"rsi,rcx",int/addr,
+0.0,b0ccaaa,cmp,"r12,rax",int/addr,
+0.0,b0ccaad,jb,b0cc97b <mkl_blas_avx512_xsgemv+0x73b>,branch,
+0.0,b0ccab3,mov,"r13,QWORD PTR [rsp+0xd0]",gpr_load,
+0.0,b0ccabb,mov,"r14,QWORD PTR [rsp+0xa8]",gpr_load,
+0.0,b0ccac3,mov,"rdi,QWORD PTR [rsp+0x48]",gpr_load,
+0.0,b0ccac8,mov,"rax,QWORD PTR [rsp+0x50]",gpr_load,
+0.0,b0ccacd,mov,"rdx,QWORD PTR [rsp+0x58]",gpr_load,
+0.0,b0ccad2,mov,"rsi,QWORD PTR [rsp+0x60]",gpr_load,
+0.0,b0ccad7,mov,"rbx,QWORD PTR [rsp+0x68]",gpr_load,
+0.0,b0ccadc,mov,"rcx,QWORD PTR [rsp+0x40]",gpr_load,
+0.0,b0ccae1,mov,"r9,QWORD PTR [rsp+0x98]",gpr_load,
+0.0,b0ccae9,imul,"r9,rdi",int/addr,
+0.0,b0ccaed,cmp,"rdi,r13",int/addr,
+0.0,b0ccaf0,jae,b0ccb4f <mkl_blas_avx512_xsgemv+0x90f>,branch,
+0.0,b0ccaf2,mov,"QWORD PTR [rsp+0x40],rcx",gpr_store,
+0.0,b0ccaf7,lea,"r10,[rsi+rax*1]",int/addr,
+0.0,b0ccafb,mov,"rcx,QWORD PTR [rsp+0x78]",gpr_load,
+0.0,b0ccb00,lea,"r11,[rbx+rax*1]",int/addr,
+0.0,b0ccb04,mov,"r15,QWORD PTR [rsp+0x98]",gpr_load,
+0.0,b0ccb0c,lea,"r12,[r14+rax*1]",int/addr,
+0.0,b0ccb10,lea,"r8,[rdx+rax*1]",int/addr,
+0.0,b0ccb14,vmovss,"xmm1,DWORD PTR [r10+rdi*4]",vec_load,xmm
+0.0,b0ccb1a,vfmadd213ss,"xmm1,xmm4,DWORD PTR [rcx+r9*4-0x4]",fma,xmm
+0.0,b0ccb21,vmulss,"xmm9,xmm5,DWORD PTR [r8+rdi*4]",scalar_fp,xmm
+0.0,b0ccb27,vfmadd231ss,"xmm1,xmm2,DWORD PTR [r12+rdi*4]",fma,xmm
+0.0,b0ccb2d,vfmadd231ss,"xmm9,xmm3,DWORD PTR [r11+rdi*4]",fma,xmm
+0.0,b0ccb33,inc,rdi,int/addr,
+0.0,b0ccb36,vaddss,"xmm10,xmm1,xmm9",scalar_fp,xmm
+0.0,b0ccb3b,vmovss,"DWORD PTR [rcx+r9*4-0x4],xmm10",vec_store,xmm
+0.0,b0ccb42,add,"r9,r15",int/addr,
+0.0,b0ccb45,cmp,"rdi,r13",int/addr,
+0.0,b0ccb48,jb,b0ccb14 <mkl_blas_avx512_xsgemv+0x8d4>,branch,
+0.0,b0ccb4a,mov,"rcx,QWORD PTR [rsp+0x40]",gpr_load,
+0.0,b0ccb4f,mov,"r8,QWORD PTR [rsp+0xe0]",gpr_load,
+0.0,b0ccb57,inc,rcx,int/addr,
+0.0,b0ccb5a,mov,"r9,QWORD PTR [rsp+0xa0]",gpr_load,
+0.0,b0ccb62,mov,"rdi,QWORD PTR [rsp+0xe8]",gpr_load,
+0.0,b0ccb6a,add,"rax,QWORD PTR [rsp+0xd8]",int/addr,
+0.0,b0ccb72,lea,"r10,[r8+r9*4]",int/addr,
+0.0,b0ccb76,mov,"QWORD PTR [rsp+0xe0],r10",gpr_store,
+0.0,b0ccb7e,add,"rdi,r8",int/addr,
+0.0,b0ccb81,cmp,"rcx,QWORD PTR [rsp+0xb0]",int/addr,
+0.0,b0ccb89,jb,b0cc6cc <mkl_blas_avx512_xsgemv+0x48c>,branch,
+0.0,b0ccb8f,mov,"QWORD PTR [rsp+0x30],rdi",gpr_store,
+0.0,b0ccb94,mov,"r12,QWORD PTR [rsp+0xc0]",gpr_load,
+0.0,b0ccb9c,mov,"rdi,QWORD PTR [rsp+0x28]",gpr_load,
+0.0,b0ccba1,mov,"r8,QWORD PTR [rsp+0x98]",gpr_load,
+0.0,b0ccba9,mov,"rbx,QWORD PTR [rsp+0xb8]",gpr_load,
+0.0,b0ccbb1,mov,"r15,QWORD PTR [rsp+0xc8]",gpr_load,
+0.0,b0ccbb9,xor,"esi,esi",int/addr,
+0.0,b0ccbbb,cmp,"r12,rdi",int/addr,
+0.0,b0ccbbe,jle,b0cdb19 <mkl_blas_avx512_xsgemv+0x18d9>,branch,
+0.0,b0ccbc4,imul,"rbx,rdi",int/addr,
+0.0,b0ccbc8,vmovups,"zmm2,ZMMWORD PTR [rip+0x78cfb2e]        # 1299c700 <__NLITPACK_0.0.1+0x300>",vec_load,zmm
+0.0,b0ccbd2,vmovdqu32,"zmm3,ZMMWORD PTR [rip+0x78cfba4]        # 1299c780 <__NLITPACK_0.0.1+0x380>",vec_load,zmm
+0.0,b0ccbdc,vmovdqu32,"zmm1,ZMMWORD PTR [rip+0x78cfbda]        # 1299c7c0 <__NLITPACK_0.0.1+0x3c0>",vec_load,zmm
+0.0,b0ccbe6,mov,"r10,QWORD PTR [rbp+0x10]",gpr_load,
+0.0,b0ccbea,add,"r14,rbx",int/addr,
+0.0,b0ccbed,mov,"rdx,QWORD PTR [rbp+0x28]",gpr_load,
+0.0,b0ccbf1,sub,"r12,rdi",int/addr,
+0.0,b0ccbf4,mov,"rax,QWORD PTR [rsp+0x30]",gpr_load,
+0.0,b0ccbf9,mov,"rcx,QWORD PTR [rsp+0x90]",gpr_load,
+0.0,b0ccc01,mov,"QWORD PTR [rsp+0xa0],r9",gpr_store,
+0.0,b0ccc09,lea,"r10,[r10+rax*4]",int/addr,
+0.0,b0ccc0d,mov,"rax,r13",int/addr,
+0.0,b0ccc10,mov,"QWORD PTR [rsp],r10",gpr_store,
+0.0,b0ccc14,lea,"rbx,[rdx+rcx*4]",int/addr,
+0.0,b0ccc18,mov,"rdx,r13",int/addr,
+0.0,b0ccc1b,lea,"rcx,[r8*4+0x0]",int/addr,
+0.0,b0ccc23,and,"rax,0xfffffffffffffff0",int/addr,
+0.0,b0ccc27,and,"rdx,0xffffffffffffffe0",int/addr,
+0.0,b0ccc2b,mov,"r9,QWORD PTR [rsp+0xa0]",gpr_load,
+0.0,b0ccc33,imul,"r9,rsi",int/addr,
+0.0,b0ccc37,mov,"rdi,QWORD PTR [rsp]",gpr_load,
+0.0,b0ccc3b,vmulss,"xmm8,xmm0,DWORD PTR [rdi+r9*4-0x4]",scalar_fp,xmm
+0.0,b0ccc42,test,"r8,r8",int/addr,
+0.0,b0ccc45,jne,b0ccd3e <mkl_blas_avx512_xsgemv+0xafe>,branch,
+0.0,b0ccc4b,test,"r13,r13",int/addr,
+0.0,b0ccc4e,jle,b0ccf0d <mkl_blas_avx512_xsgemv+0xccd>,branch,
+0.0,b0ccc54,vmovss,"xmm7,DWORD PTR [rbx-0x4]",vec_load,xmm
+0.0,b0ccc59,vpxord,"zmm6,zmm6,zmm6",vec_arith,zmm
+0.0,b0ccc5f,cmp,"r13,0x20",int/addr,
+0.0,b0ccc63,jl,b0cdb39 <mkl_blas_avx512_xsgemv+0x18f9>,branch,
+0.0,b0ccc69,vmovaps,"zmm5,zmm6",shuffle/permute,zmm
+0.0,b0ccc6f,mov,"rdi,rdx",int/addr,
+0.0,b0ccc72,vbroadcastss,"zmm4,xmm8",broadcast,zmm
+0.0,b0ccc78,xor,"r10d,r10d",int/addr,
+0.0,b0ccc7b,mov,"r9,r14",int/addr,
+0.0,b0ccc7e,add,"r10,0x20",int/addr,
+0.0,b0ccc82,vfmadd231ps,"zmm6,zmm4,ZMMWORD PTR [r9]",fma,zmm
+0.0,b0ccc88,vfmadd231ps,"zmm5,zmm4,ZMMWORD PTR [r9+0x40]",fma,zmm
+0.0,b0ccc8f,add,"r9,0x80",int/addr,
+0.0,b0ccc96,cmp,"r10,rdx",int/addr,
+0.0,b0ccc99,jb,b0ccc7e <mkl_blas_avx512_xsgemv+0xa3e>,branch,
+0.0,b0ccc9b,vaddps,"zmm6,zmm6,zmm5",vec_arith,zmm
+0.0,b0ccca1,lea,"r9,[rdi+0x1]",int/addr,
+0.0,b0ccca5,cmp,"r9,r13",int/addr,
+0.0,b0ccca8,ja,b0cccfb <mkl_blas_avx512_xsgemv+0xabb>,branch,
+0.0,b0cccaa,mov,"r9,r13",int/addr,
+0.0,b0cccad,xor,"r10d,r10d",int/addr,
+0.0,b0cccb0,sub,"r9,rdi",int/addr,
+0.0,b0cccb3,lea,"rdi,[r14+rdi*4]",int/addr,
+0.0,b0cccb7,vmovaps,"zmm10,zmm3",shuffle/permute,zmm
+0.0,b0cccbd,vmovaps,"zmm9,zmm1",shuffle/permute,zmm
+0.0,b0cccc3,vbroadcastss,"zmm5,xmm8",broadcast,zmm
+0.0,b0cccc9,vpbroadcastq,"zmm4,r9",broadcast,zmm
+0.0,b0ccccf,vpcmpgtq,"k1,zmm4,zmm10",compare/mask,zmm
+0.0,b0cccd5,vpcmpgtq,"k0,zmm4,zmm9",compare/mask,zmm
+0.0,b0cccdb,vpaddq,"zmm10,zmm10,zmm2",vec_arith,zmm
+0.0,b0ccce1,vpaddq,"zmm9,zmm9,zmm2",vec_arith,zmm
+0.0,b0ccce7,kunpckbw,"k2,k0,k1",compare/mask,
+0.0,b0ccceb,vfmadd231ps,"zmm6{k2},zmm5,ZMMWORD PTR [rdi+r10*4]",fma,zmm
+0.0,b0cccf2,add,"r10,0x10",int/addr,
+0.0,b0cccf6,cmp,"r10,r9",int/addr,
+0.0,b0cccf9,jb,b0ccccf <mkl_blas_avx512_xsgemv+0xa8f>,branch,
+0.0,b0cccfb,vshuff32x4,"zmm4,zmm6,zmm6,0xee",shuffle/permute,zmm
+0.0,b0ccd02,vaddps,"zmm6,zmm4,zmm6",vec_arith,zmm
+0.0,b0ccd08,vshuff32x4,"zmm5,zmm6,zmm6,0x55",shuffle/permute,zmm
+0.0,b0ccd0f,vaddps,"zmm8,zmm5,zmm6",vec_arith,zmm
+0.0,b0ccd15,vpshufd,"zmm9,zmm8,0x4e",shuffle/permute,zmm
+0.0,b0ccd1c,vaddps,"zmm10,zmm8,zmm9",vec_arith,zmm
+0.0,b0ccd22,vpshufd,"zmm11,zmm10,0xb1",shuffle/permute,zmm
+0.0,b0ccd29,vaddps,"zmm12,zmm10,zmm11",vec_arith,zmm
+0.0,b0ccd2f,vaddss,"xmm7,xmm7,xmm12",scalar_fp,xmm
+0.0,b0ccd34,vmovss,"DWORD PTR [rbx-0x4],xmm7",vec_store,xmm
+0.0,b0ccd39,jmp,b0ccf0d <mkl_blas_avx512_xsgemv+0xccd>,branch,
+0.0,b0ccd3e,test,"r13,r13",int/addr,
+0.0,b0ccd41,jle,b0ccf0d <mkl_blas_avx512_xsgemv+0xccd>,branch,
+0.0,b0ccd47,test,"rcx,rcx",int/addr,
+0.0,b0ccd4a,je,b0cdb40 <mkl_blas_avx512_xsgemv+0x1900>,branch,
+0.0,b0ccd50,cmp,"r13,0x10",int/addr,
+0.0,b0ccd54,jl,b0cdb40 <mkl_blas_avx512_xsgemv+0x1900>,branch,
+0.0,b0ccd5a,xor,"r11d,r11d",int/addr,
+0.0,b0ccd5d,mov,"rdi,rax",int/addr,
+0.0,b0ccd60,mov,"QWORD PTR [rsp+0x8],rdx",gpr_store,
+0.0,b0ccd65,xor,"r9d,r9d",int/addr,
+0.0,b0ccd68,mov,"QWORD PTR [rsp+0x10],rcx",gpr_store,
+0.0,b0ccd6d,mov,"r10d,ecx",int/addr,
+0.0,b0ccd70,mov,"QWORD PTR [rsp+0x18],rbx",gpr_store,
+0.0,b0ccd75,vbroadcastss,"zmm4,xmm8",broadcast,zmm
+0.0,b0ccd7b,mov,"QWORD PTR [rsp+0x20],rsi",gpr_store,
+0.0,b0ccd80,mov,"QWORD PTR [rsp+0x98],r8",gpr_store,
+0.0,b0ccd88,mov,"QWORD PTR [rsp+0xc8],r15",gpr_store,
+0.0,b0ccd90,mov,"rdx,QWORD PTR [rsp+0x90]",gpr_load,
+0.0,b0ccd98,mov,"rcx,QWORD PTR [rsp+0x38]",gpr_load,
+0.0,b0ccd9d,mov,"rbx,QWORD PTR [rbp+0x28]",gpr_load,
+0.0,b0ccda1,mov,"r8d,r10d",int/addr,
+0.0,b0ccda4,lea,"rsi,[rdx+r9*1-0x1]",int/addr,
+0.0,b0ccda9,sar,"r8d,0x1f",int/addr,
+0.0,b0ccdad,lea,"rsi,[rbx+rsi*4]",int/addr,
+0.0,b0ccdb1,lea,"r15d,[r10+r8*1]",int/addr,
+0.0,b0ccdb5,xor,"r15d,r8d",int/addr,
+0.0,b0ccdb8,cmp,"r15d,0x8888888",int/addr,
+0.0,b0ccdbf,ja,b0ccde6 <mkl_blas_avx512_xsgemv+0xba6>,branch,
+0.0,b0ccdc1,vpcmpeqb,"k1,xmm0,xmm0",compare/mask,xmm
+0.0,b0ccdc7,vpbroadcastd,"zmm5,r10d",broadcast,zmm
+0.0,b0ccdcd,vpmulld,"zmm6,zmm5,ZMMWORD PTR [rip+0x78cfa29]        # 1299c800 <__NLITPACK_0.0.1+0x400>",vec_arith,zmm
+0.0,b0ccdd7,vpxord,"zmm7,zmm7,zmm7",vec_arith,zmm
+0.0,b0ccddd,vgatherdps,"zmm7{k1},DWORD PTR [rsi+zmm6*1]",vec_arith,zmm
+0.0,b0ccde4,jmp,b0cce2d <mkl_blas_avx512_xsgemv+0xbed>,branch,
+0.0,b0ccde6,vpcmpeqb,"k2,xmm0,xmm0",compare/mask,xmm
+0.0,b0ccdec,vpcmpeqb,"k1,xmm0,xmm0",compare/mask,xmm
+0.0,b0ccdf2,vpbroadcastd,"zmm6,r10d",broadcast,zmm
+0.0,b0ccdf8,vpmuldq,"zmm7,zmm6,ZMMWORD PTR [rip+0x78cf9be]        # 1299c7c0 <__NLITPACK_0.0.1+0x3c0>",vec_arith,zmm
+0.0,b0cce02,vpmuldq,"zmm5,zmm6,ZMMWORD PTR [rip+0x78cf974]        # 1299c780 <__NLITPACK_0.0.1+0x380>",vec_arith,zmm
+0.0,b0cce0c,vpxord,"zmm9,zmm9,zmm9",vec_arith,zmm
+0.0,b0cce12,vpxord,"zmm10,zmm10,zmm10",vec_arith,zmm
+0.0,b0cce18,vgatherqps,"ymm9{k2},DWORD PTR [rsi+zmm7*1]",vec_arith,zmm
+0.0,b0cce1f,vgatherqps,"ymm10{k1},DWORD PTR [rsi+zmm5*1]",vec_arith,zmm
+0.0,b0cce26,vinsertf64x4,"zmm7,zmm10,ymm9,0x1",shuffle/permute,zmm
+0.0,b0cce2d,mov,"r8d,r10d",int/addr,
+0.0,b0cce30,lea,"rsi,[rdx+r9*1-0x1]",int/addr,
+0.0,b0cce35,sar,"r8d,0x1f",int/addr,
+0.0,b0cce39,lea,"rsi,[rbx+rsi*4]",int/addr,
+0.0,b0cce3d,lea,"r15d,[r10+r8*1]",int/addr,
+0.0,b0cce41,xor,"r15d,r8d",int/addr,
+0.0,b0cce44,vfmadd231ps,"zmm7,zmm4,ZMMWORD PTR [r14+r11*4]",fma,zmm
+0.0,b0cce4b,cmp,"r15d,0x8888888",int/addr,
+0.0,b0cce52,ja,b0cce73 <mkl_blas_avx512_xsgemv+0xc33>,branch,
+0.0,b0cce54,vpcmpeqb,"k1,xmm0,xmm0",compare/mask,xmm
+0.0,b0cce5a,vpbroadcastd,"zmm5,r10d",broadcast,zmm
+0.0,b0cce60,vpmulld,"zmm6,zmm5,ZMMWORD PTR [rip+0x78cf996]        # 1299c800 <__NLITPACK_0.0.1+0x400>",vec_arith,zmm
+0.0,b0cce6a,vscatterdps,"DWORD PTR [rsi+zmm6*1]{k1},zmm7",vec_arith,zmm
+0.0,b0cce71,jmp,b0cceae <mkl_blas_avx512_xsgemv+0xc6e>,branch,
+0.0,b0cce73,vpcmpeqb,"k1,xmm0,xmm0",compare/mask,xmm
+0.0,b0cce79,vpcmpeqb,"k2,xmm0,xmm0",compare/mask,xmm
+0.0,b0cce7f,vpbroadcastd,"zmm6,r10d",broadcast,zmm
+0.0,b0cce85,vpmuldq,"zmm5,zmm6,ZMMWORD PTR [rip+0x78cf8f1]        # 1299c780 <__NLITPACK_0.0.1+0x380>",vec_arith,zmm
+0.0,b0cce8f,vpmuldq,"zmm9,zmm6,ZMMWORD PTR [rip+0x78cf927]        # 1299c7c0 <__NLITPACK_0.0.1+0x3c0>",vec_arith,zmm
+0.0,b0cce99,vscatterqps,"DWORD PTR [rsi+zmm5*1]{k1},ymm7",vec_arith,zmm
+0.0,b0ccea0,vextracti64x4,"ymm7,zmm7,0x1",shuffle/permute,zmm
+0.0,b0ccea7,vscatterqps,"DWORD PTR [rsi+zmm9*1]{k2},ymm7",vec_arith,zmm
+0.0,b0cceae,add,"r11,0x10",int/addr,
+0.0,b0cceb2,add,"r9,rcx",int/addr,
+0.0,b0cceb5,cmp,"r11,rax",int/addr,
+0.0,b0cceb8,jb,b0ccda1 <mkl_blas_avx512_xsgemv+0xb61>,branch,
+0.0,b0ccebe,mov,"rdx,QWORD PTR [rsp+0x8]",gpr_load,
+0.0,b0ccec3,mov,"rcx,QWORD PTR [rsp+0x10]",gpr_load,
+0.0,b0ccec8,mov,"rbx,QWORD PTR [rsp+0x18]",gpr_load,
+0.0,b0ccecd,mov,"rsi,QWORD PTR [rsp+0x20]",gpr_load,
+0.0,b0cced2,mov,"r8,QWORD PTR [rsp+0x98]",gpr_load,
+0.0,b0cceda,mov,"r15,QWORD PTR [rsp+0xc8]",gpr_load,
+0.0,b0ccee2,mov,"r9,r8",int/addr,
+0.0,b0ccee5,imul,"r9,rdi",int/addr,
+0.0,b0ccee9,cmp,"rdi,r13",int/addr,
+0.0,b0cceec,jae,b0ccf0d <mkl_blas_avx512_xsgemv+0xccd>,branch,
+0.0,b0cceee,vmovss,"xmm4,DWORD PTR [r14+rdi*4]",vec_load,xmm
+0.0,b0ccef4,inc,rdi,int/addr,
+0.0,b0ccef7,vfmadd213ss,"xmm4,xmm8,DWORD PTR [rbx+r9*4-0x4]",fma,xmm
+0.0,b0ccefe,vmovss,"DWORD PTR [rbx+r9*4-0x4],xmm4",vec_store,xmm
+0.0,b0ccf05,add,"r9,r8",int/addr,
+0.0,b0ccf08,cmp,"rdi,r13",int/addr,
+0.0,b0ccf0b,jb,b0cceee <mkl_blas_avx512_xsgemv+0xcae>,branch,
+0.0,b0ccf0d,inc,rsi,int/addr,
+0.0,b0ccf10,lea,"r14,[r14+r15*4]",int/addr,
+0.0,b0ccf14,cmp,"rsi,r12",int/addr,
+0.0,b0ccf17,jb,b0ccc2b <mkl_blas_avx512_xsgemv+0x9eb>,branch,
+0.0,b0ccf1d,jmp,b0cdb19 <mkl_blas_avx512_xsgemv+0x18d9>,branch,
+0.0,b0ccf22,cmp,"r9,0x1",int/addr,
+0.0,b0ccf26,je,b0ce3ab <mkl_blas_avx512_xsgemv+0x216b>,branch,
+0.0,b0ccf2c,mov,"rax,r12",int/addr,
+0.0,b0ccf2f,xor,"edx,edx",int/addr,
+0.0,b0ccf31,sar,"rax,1",int/addr,
+0.0,b0ccf34,shr,"rax,0x3e",int/addr,
+0.0,b0ccf38,add,"rax,r12",int/addr,
+0.0,b0ccf3b,mov,"QWORD PTR [rsp+0x8],rdx",gpr_store,
+0.0,b0ccf40,and,"rax,0xfffffffffffffffc",int/addr,
+0.0,b0ccf44,mov,"QWORD PTR [rsp+0x20],rdx",gpr_store,
+0.0,b0ccf49,jle,b0cd6e4 <mkl_blas_avx512_xsgemv+0x14a4>,branch,
+0.0,b0ccf4f,mov,"r10,r14",int/addr,
+0.0,b0ccf52,lea,"rsi,[r13-0x1]",int/addr,
+0.0,b0ccf56,mov,"r11,QWORD PTR [rsp+0x30]",gpr_load,
+0.0,b0ccf5b,sub,"r10,rbx",int/addr,
+0.0,b0ccf5e,mov,"rcx,QWORD PTR [rbp+0x10]",gpr_load,
+0.0,b0ccf62,lea,"rdx,[r8*4+0x0]",int/addr,
+0.0,b0ccf6a,mov,"QWORD PTR [rsp+0xd0],r13",gpr_store,
+0.0,b0ccf72,mov,"QWORD PTR [rsp+0x108],rsi",gpr_store,
+0.0,b0ccf7a,lea,"r13,[r9+r11*1]",int/addr,
+0.0,b0ccf7e,vmovss,"xmm8,DWORD PTR [rcx+r11*4-0x4]",vec_load,xmm
+0.0,b0ccf85,lea,"rdi,[rcx+r13*4]",int/addr,
+0.0,b0ccf89,mov,"QWORD PTR [rsp+0x88],r13",gpr_store,
+0.0,b0ccf91,lea,"rcx,[r10+r15*8]",int/addr,
+0.0,b0ccf95,mov,"QWORD PTR [rsp+0xe8],rcx",gpr_store,
+0.0,b0ccf9d,mov,"rcx,r15",int/addr,
+0.0,b0ccfa0,shl,"rcx,0x4",int/addr,
+0.0,b0ccfa4,lea,"r13,[rbx+rbx*2]",int/addr,
+0.0,b0ccfa8,add,"r13,r10",int/addr,
+0.0,b0ccfab,add,"r10,rcx",int/addr,
+0.0,b0ccfae,mov,"QWORD PTR [rsp+0x100],r10",gpr_store,
+0.0,b0ccfb6,mov,"r10,r8",int/addr,
+0.0,b0ccfb9,shl,"r10,0x4",int/addr,
+0.0,b0ccfbd,lea,"r11,[r9*4+0x0]",int/addr,
+0.0,b0ccfc5,mov,"QWORD PTR [rsp+0x78],rdi",gpr_store,
+0.0,b0ccfca,mov,"rdi,r10",int/addr,
+0.0,b0ccfcd,neg,rdi,int/addr,
+0.0,b0ccfd0,and,"rsi,0xfffffffffffffff0",int/addr,
+0.0,b0ccfd4,mov,"QWORD PTR [rsp+0xf0],r13",gpr_store,
+0.0,b0ccfdc,mov,"r13,QWORD PTR [rbp+0x28]",gpr_load,
+0.0,b0ccfe0,add,"rdi,r13",int/addr,
+0.0,b0ccfe3,add,"rdi,r10",int/addr,
+0.0,b0ccfe6,mov,"QWORD PTR [rsp+0xf8],rcx",gpr_store,
+0.0,b0ccfee,mov,"rcx,QWORD PTR [rsp+0x90]",gpr_load,
+0.0,b0ccff6,mov,"QWORD PTR [rsp+0x80],r11",gpr_store,
+0.0,b0ccffe,mov,"QWORD PTR [rsp+0xa8],r14",gpr_store,
+0.0,b0cd006,mov,"QWORD PTR [rsp+0xc0],r12",gpr_store,
+0.0,b0cd00e,lea,"r11,[rdi+rcx*4-0x4]",int/addr,
+0.0,b0cd013,mov,"QWORD PTR [rsp+0x28],r11",gpr_store,
+0.0,b0cd018,lea,"rdi,[r8*8+0x0]",int/addr,
+0.0,b0cd020,mov,"r11,rdi",int/addr,
+0.0,b0cd023,lea,"rdi,[rdi+r8*4]",int/addr,
+0.0,b0cd027,neg,r11,int/addr,
+0.0,b0cd02a,neg,rdi,int/addr,
+0.0,b0cd02d,add,"r11,r13",int/addr,
+0.0,b0cd030,add,"rdi,r13",int/addr,
+0.0,b0cd033,sub,"r13,rdx",int/addr,
+0.0,b0cd036,neg,rdx,int/addr,
+0.0,b0cd039,add,"r11,r10",int/addr,
+0.0,b0cd03c,add,"rdi,r10",int/addr,
+0.0,b0cd03f,add,"r13,r10",int/addr,
+0.0,b0cd042,mov,"QWORD PTR [rsp+0xe0],r10",gpr_store,
+0.0,b0cd04a,mov,"QWORD PTR [rsp+0xa0],r9",gpr_store,
+0.0,b0cd052,lea,"rdx,[rdx+r8*4]",int/addr,
+0.0,b0cd056,vmovdqu32,"zmm7,ZMMWORD PTR [rip+0x78cf720]        # 1299c780 <__NLITPACK_0.0.1+0x380>",vec_load,zmm
+0.0,b0cd060,lea,"r11,[r11+rcx*4-0x4]",int/addr,
+0.0,b0cd065,vmovdqu32,"zmm10,ZMMWORD PTR [rip+0x78cf751]        # 1299c7c0 <__NLITPACK_0.0.1+0x3c0>",vec_load,zmm
+0.0,b0cd06f,mov,"QWORD PTR [rsp+0x38],r11",gpr_store,
+0.0,b0cd074,lea,"rdi,[rdi+rcx*4-0x4]",int/addr,
+0.0,b0cd079,mov,"QWORD PTR [rsp+0x48],rdi",gpr_store,
+0.0,b0cd07e,lea,"rdi,[r13+rcx*4-0x4]",int/addr,
+0.0,b0cd083,mov,"QWORD PTR [rsp+0x40],rdi",gpr_store,
+0.0,b0cd088,lea,"r11,[rax+0x3]",int/addr,
+0.0,b0cd08c,shr,"r11,0x2",int/addr,
+0.0,b0cd090,lea,"rdi,[rdx+r8*4]",int/addr,
+0.0,b0cd094,add,"rdi,rcx",int/addr,
+0.0,b0cd097,xor,"ecx,ecx",int/addr,
+0.0,b0cd099,xor,"edx,edx",int/addr,
+0.0,b0cd09b,mov,"QWORD PTR [rsp+0xb0],r11",gpr_store,
+0.0,b0cd0a3,mov,"QWORD PTR [rsp+0x60],rsi",gpr_store,
+0.0,b0cd0a8,mov,"QWORD PTR [rsp+0xd8],rdi",gpr_store,
+0.0,b0cd0b0,mov,"QWORD PTR [rsp],rax",gpr_store,
+0.0,b0cd0b4,mov,"QWORD PTR [rsp+0x98],r8",gpr_store,
+0.0,b0cd0bc,mov,"QWORD PTR [rsp+0xb8],rbx",gpr_store,
+0.0,b0cd0c4,mov,"QWORD PTR [rsp+0xc8],r15",gpr_store,
+0.0,b0cd0cc,mov,"r12,QWORD PTR [rsp+0x48]",gpr_load,
+0.0,b0cd0d1,mov,"r11,QWORD PTR [rsp+0x40]",gpr_load,
+0.0,b0cd0d6,mov,"r14,QWORD PTR [rsp+0x38]",gpr_load,
+0.0,b0cd0db,mov,"r10,QWORD PTR [rsp+0x28]",gpr_load,
+0.0,b0cd0e0,mov,"r13,QWORD PTR [rsp+0x20]",gpr_load,
+0.0,b0cd0e5,mov,"r9,QWORD PTR [rsp+0x8]",gpr_load,
+0.0,b0cd0ea,vpxord,"zmm9,zmm9,zmm9",vec_arith,zmm
+0.0,b0cd0f0,mov,"rax,QWORD PTR [rsp+0xa8]",gpr_load,
+0.0,b0cd0f8,mov,"rbx,QWORD PTR [rsp+0xe8]",gpr_load,
+0.0,b0cd100,mov,"rsi,QWORD PTR [rsp+0xf0]",gpr_load,
+0.0,b0cd108,mov,"rdi,QWORD PTR [rsp+0x100]",gpr_load,
+0.0,b0cd110,vmulss,"xmm2,xmm8,DWORD PTR [rax+r13*4]",scalar_fp,xmm
+0.0,b0cd116,vmulss,"xmm1,xmm8,DWORD PTR [rbx+r13*4]",scalar_fp,xmm
+0.0,b0cd11c,vmulss,"xmm23,xmm8,DWORD PTR [rsi+r13*4]",scalar_fp,xmm
+0.0,b0cd123,vmulss,"xmm5,xmm8,DWORD PTR [rdi+r13*4]",scalar_fp,xmm
+0.0,b0cd129,cmp,"QWORD PTR [rsp+0xd0],0x2",int/addr,
+0.0,b0cd132,jl,b0cd627 <mkl_blas_avx512_xsgemv+0x13e7>,branch,
+0.0,b0cd138,cmp,"QWORD PTR [rsp+0x108],0x10",int/addr,
+0.0,b0cd141,jl,b0ce3a3 <mkl_blas_avx512_xsgemv+0x2163>,branch,
+0.0,b0cd147,mov,"eax,0x1",int/addr,
+0.0,b0cd14c,kmovw,"k1,eax",compare/mask,
+0.0,b0cd150,vmovss,"DWORD PTR [rsp+0x110],xmm2",vec_store,xmm
+0.0,b0cd159,mov,"rdi,rsi",int/addr,
+0.0,b0cd15c,mov,"rsi,rbx",int/addr,
+0.0,b0cd15f,mov,"rbx,QWORD PTR [rsp+0xa8]",gpr_load,
+0.0,b0cd167,mov,"rax,QWORD PTR [rsp+0x100]",gpr_load,
+0.0,b0cd16f,add,"rdi,rcx",int/addr,
+0.0,b0cd172,mov,"r15,QWORD PTR [rsp+0x88]",gpr_load,
+0.0,b0cd17a,add,"rsi,rcx",int/addr,
+0.0,b0cd17d,mov,"QWORD PTR [rsp+0x68],r15",gpr_store,
+0.0,b0cd182,add,"rbx,rcx",int/addr,
+0.0,b0cd185,mov,"r15,QWORD PTR [rsp+0x80]",gpr_load,
+0.0,b0cd18d,add,"rax,rcx",int/addr,
+0.0,b0cd190,vmovss,"DWORD PTR [rsp+0x114],xmm1",vec_store,xmm
+0.0,b0cd199,vmovss,"DWORD PTR [rsp+0x118],xmm23",vec_store,xmm
+0.0,b0cd1a1,vmovss,"DWORD PTR [rsp+0x11c],xmm5",vec_store,xmm
+0.0,b0cd1aa,mov,"QWORD PTR [rsp+0x70],0x0",gpr_store,
+0.0,b0cd1b3,mov,"r8,QWORD PTR [rsp+0x60]",gpr_load,
+0.0,b0cd1b8,mov,"QWORD PTR [rsp+0x48],r12",gpr_store,
+0.0,b0cd1bd,mov,"QWORD PTR [rsp+0x40],r11",gpr_store,
+0.0,b0cd1c2,mov,"QWORD PTR [rsp+0x38],r14",gpr_store,
+0.0,b0cd1c7,mov,"QWORD PTR [rsp+0x28],r10",gpr_store,
+0.0,b0cd1cc,vbroadcastss,"zmm4{k1}{z},DWORD PTR [rsp+0x110]",broadcast,zmm
+0.0,b0cd1d4,vbroadcastss,"zmm1{k1}{z},DWORD PTR [rsp+0x114]",broadcast,zmm
+0.0,b0cd1dc,vbroadcastss,"zmm6{k1}{z},DWORD PTR [rsp+0x118]",broadcast,zmm
+0.0,b0cd1e4,vbroadcastss,"zmm2{k1}{z},DWORD PTR [rsp+0x11c]",broadcast,zmm
+0.0,b0cd1ec,mov,"r10d,r15d",int/addr,
+0.0,b0cd1ef,mov,"r11,QWORD PTR [rsp+0x68]",gpr_load,
+0.0,b0cd1f4,mov,"r12,QWORD PTR [rsp+0x70]",gpr_load,
+0.0,b0cd1f9,mov,"r15,QWORD PTR [rsp+0x18]",gpr_load,
+0.0,b0cd1fe,mov,"QWORD PTR [rsp+0x58],rdx",gpr_store,
+0.0,b0cd203,mov,"QWORD PTR [rsp+0x50],rcx",gpr_store,
+0.0,b0cd208,mov,"QWORD PTR [rsp+0x20],r13",gpr_store,
+0.0,b0cd20d,mov,"r13,r8",int/addr,
+0.0,b0cd210,mov,"QWORD PTR [rsp+0x8],r9",gpr_store,
+0.0,b0cd215,mov,"r14,QWORD PTR [rbp+0x10]",gpr_load,
+0.0,b0cd219,mov,"edx,r10d",int/addr,
+0.0,b0cd21c,lea,"r9,[r14+r11*4-0x4]",int/addr,
+0.0,b0cd221,sar,"edx,0x1f",int/addr,
+0.0,b0cd224,lea,"ecx,[r10+rdx*1]",int/addr,
+0.0,b0cd228,xor,"ecx,edx",int/addr,
+0.0,b0cd22a,cmp,"ecx,0x8888888",int/addr,
+0.0,b0cd230,ja,b0cd257 <mkl_blas_avx512_xsgemv+0x1017>,branch,
+0.0,b0cd232,vpcmpeqb,"k1,xmm0,xmm0",compare/mask,xmm
+0.0,b0cd238,vpbroadcastd,"zmm3,r10d",broadcast,zmm
+0.0,b0cd23e,vpmulld,"zmm5,zmm3,ZMMWORD PTR [rip+0x78cf5b8]        # 1299c800 <__NLITPACK_0.0.1+0x400>",vec_arith,zmm
+0.0,b0cd248,vpxord,"zmm3,zmm3,zmm3",vec_arith,zmm
+0.0,b0cd24e,vgatherdps,"zmm3{k1},DWORD PTR [r9+zmm5*1]",vec_arith,zmm
+0.0,b0cd255,jmp,b0cd29e <mkl_blas_avx512_xsgemv+0x105e>,branch,
+0.0,b0cd257,vpcmpeqb,"k2,xmm0,xmm0",compare/mask,xmm
+0.0,b0cd25d,vpcmpeqb,"k1,xmm0,xmm0",compare/mask,xmm
+0.0,b0cd263,vpbroadcastd,"zmm5,r10d",broadcast,zmm
+0.0,b0cd269,vpmuldq,"zmm11,zmm5,ZMMWORD PTR [rip+0x78cf54d]        # 1299c7c0 <__NLITPACK_0.0.1+0x3c0>",vec_arith,zmm
+0.0,b0cd273,vpmuldq,"zmm3,zmm5,ZMMWORD PTR [rip+0x78cf503]        # 1299c780 <__NLITPACK_0.0.1+0x380>",vec_arith,zmm
+0.0,b0cd27d,vpxord,"zmm12,zmm12,zmm12",vec_arith,zmm
+0.0,b0cd283,vpxord,"zmm13,zmm13,zmm13",vec_arith,zmm
+0.0,b0cd289,vgatherqps,"ymm12{k2},DWORD PTR [r9+zmm11*1]",vec_arith,zmm
+0.0,b0cd290,vgatherqps,"ymm13{k1},DWORD PTR [r9+zmm3*1]",vec_arith,zmm
+0.0,b0cd297,vinsertf64x4,"zmm3,zmm13,ymm12,0x1",shuffle/permute,zmm
+0.0,b0cd29e,add,"r11,r15",int/addr,
+0.0,b0cd2a1,vfmadd231ps,"zmm4,zmm3,ZMMWORD PTR [rbx+r12*4+0x4]",fma,zmm
+0.0,b0cd2ac,vfmadd231ps,"zmm1,zmm3,ZMMWORD PTR [rsi+r12*4+0x4]",fma,zmm
+0.0,b0cd2b7,vfmadd231ps,"zmm6,zmm3,ZMMWORD PTR [rdi+r12*4+0x4]",fma,zmm
+0.0,b0cd2c2,vfmadd231ps,"zmm2,zmm3,ZMMWORD PTR [rax+r12*4+0x4]",fma,zmm
+0.0,b0cd2cd,add,"r12,0x10",int/addr,
+0.0,b0cd2d1,cmp,"r12,r13",int/addr,
+0.0,b0cd2d4,jb,b0cd219 <mkl_blas_avx512_xsgemv+0xfd9>,branch,
+0.0,b0cd2da,vmovups,"zmm3,ZMMWORD PTR [rip+0x78cf55c]        # 1299c840 <__NLITPACK_0.0.1+0x440>",vec_load,zmm
+0.0,b0cd2e4,vpermd,"zmm5,zmm3,zmm2",shuffle/permute,zmm
+0.0,b0cd2ea,vpermd,"zmm17,zmm3,zmm6",shuffle/permute,zmm
+0.0,b0cd2f0,vpermd,"zmm24,zmm3,zmm1",shuffle/permute,zmm
+0.0,b0cd2f6,vpermd,"zmm30,zmm3,zmm4",shuffle/permute,zmm
+0.0,b0cd2fc,vaddps,"zmm12,zmm5,zmm2",vec_arith,zmm
+0.0,b0cd302,vaddps,"zmm18,zmm17,zmm6",vec_arith,zmm
+0.0,b0cd308,vaddps,"zmm25,zmm24,zmm1",vec_arith,zmm
+0.0,b0cd30e,vaddps,"zmm31,zmm30,zmm4",vec_arith,zmm
+0.0,b0cd314,vmovups,"zmm2,ZMMWORD PTR [rip+0x78cf562]        # 1299c880 <__NLITPACK_0.0.1+0x480>",vec_load,zmm
+0.0,b0cd31e,vpermd,"zmm11,zmm2,zmm12",shuffle/permute,zmm
+0.0,b0cd324,vpermd,"zmm6,zmm2,zmm18",shuffle/permute,zmm
+0.0,b0cd32a,vpermd,"zmm1,zmm2,zmm25",shuffle/permute,zmm
+0.0,b0cd330,vpermd,"zmm4,zmm2,zmm31",shuffle/permute,zmm
+0.0,b0cd336,vaddps,"zmm13,zmm11,zmm12",vec_arith,zmm
+0.0,b0cd33c,vaddps,"zmm19,zmm6,zmm18",vec_arith,zmm
+0.0,b0cd342,vaddps,"zmm26,zmm1,zmm25",vec_arith,zmm
+0.0,b0cd348,vaddps,"zmm2,zmm4,zmm31",vec_arith,zmm
+0.0,b0cd34e,vpshufd,"zmm14,zmm13,0x4e",shuffle/permute,zmm
+0.0,b0cd355,vpshufd,"zmm20,zmm19,0x4e",shuffle/permute,zmm
+0.0,b0cd35c,vpshufd,"zmm27,zmm26,0x4e",shuffle/permute,zmm
+0.0,b0cd363,vpshufd,"zmm3,zmm2,0x4e",shuffle/permute,zmm
+0.0,b0cd36a,vaddps,"zmm15,zmm13,zmm14",vec_arith,zmm
+0.0,b0cd370,vaddps,"zmm21,zmm19,zmm20",vec_arith,zmm
+0.0,b0cd376,vaddps,"zmm28,zmm26,zmm27",vec_arith,zmm
+0.0,b0cd37c,vaddps,"zmm4,zmm2,zmm3",vec_arith,zmm
+0.0,b0cd382,vpshufd,"zmm16,zmm15,0xb1",shuffle/permute,zmm
+0.0,b0cd389,vpshufd,"zmm22,zmm21,0xb1",shuffle/permute,zmm
+0.0,b0cd390,vpshufd,"zmm29,zmm28,0xb1",shuffle/permute,zmm
+0.0,b0cd397,vpshufd,"zmm6,zmm4,0xb1",shuffle/permute,zmm
+0.0,b0cd39e,vaddps,"zmm5,zmm15,zmm16",vec_arith,zmm
+0.0,b0cd3a4,vaddps,"zmm23,zmm21,zmm22",vec_arith,zmm
+0.0,b0cd3aa,vaddps,"zmm1,zmm28,zmm29",vec_arith,zmm
+0.0,b0cd3b0,vaddps,"zmm2,zmm4,zmm6",vec_arith,zmm
+0.0,b0cd3b6,mov,"rdx,QWORD PTR [rsp+0x58]",gpr_load,
+0.0,b0cd3bb,mov,"rcx,QWORD PTR [rsp+0x50]",gpr_load,
+0.0,b0cd3c0,mov,"r12,QWORD PTR [rsp+0x48]",gpr_load,
+0.0,b0cd3c5,mov,"r11,QWORD PTR [rsp+0x40]",gpr_load,
+0.0,b0cd3ca,mov,"r14,QWORD PTR [rsp+0x38]",gpr_load,
+0.0,b0cd3cf,mov,"r10,QWORD PTR [rsp+0x28]",gpr_load,
+0.0,b0cd3d4,mov,"r13,QWORD PTR [rsp+0x20]",gpr_load,
+0.0,b0cd3d9,mov,"r9,QWORD PTR [rsp+0x8]",gpr_load,
+0.0,b0cd3de,lea,"rax,[r8+0x1]",int/addr,
+0.0,b0cd3e2,cmp,"rax,QWORD PTR [rsp+0x108]",int/addr,
+0.0,b0cd3ea,ja,b0cd627 <mkl_blas_avx512_xsgemv+0x13e7>,branch,
+0.0,b0cd3f0,mov,"eax,0x1",int/addr,
+0.0,b0cd3f5,kmovw,"k1,eax",compare/mask,
+0.0,b0cd3f9,vmovss,"DWORD PTR [rsp+0x120],xmm2",vec_store,xmm
+0.0,b0cd402,mov,"rax,QWORD PTR [rsp+0x108]",gpr_load,
+0.0,b0cd40a,sub,"rax,r8",int/addr,
+0.0,b0cd40d,vpbroadcastq,"zmm2,rax",broadcast,zmm
+0.0,b0cd413,mov,"rax,r8",int/addr,
+0.0,b0cd416,vmovss,"DWORD PTR [rsp+0x124],xmm1",vec_store,xmm
+0.0,b0cd41f,vmovss,"DWORD PTR [rsp+0x128],xmm23",vec_store,xmm
+0.0,b0cd427,mov,"rbx,QWORD PTR [rsp+0x80]",gpr_load,
+0.0,b0cd42f,imul,"rax,rbx",int/addr,
+0.0,b0cd433,vpcmpgtq,"k2,zmm2,zmm7",compare/mask,zmm
+0.0,b0cd439,vpcmpgtq,"k0,zmm2,zmm10",compare/mask,zmm
+0.0,b0cd43f,vmovss,"DWORD PTR [rsp+0x12c],xmm5",vec_store,xmm
+0.0,b0cd448,vbroadcastss,"zmm13{k1}{z},DWORD PTR [rsp+0x120]",broadcast,zmm
+0.0,b0cd450,vbroadcastss,"zmm1{k1}{z},DWORD PTR [rsp+0x124]",broadcast,zmm
+0.0,b0cd458,vbroadcastss,"zmm6{k1}{z},DWORD PTR [rsp+0x128]",broadcast,zmm
+0.0,b0cd460,vbroadcastss,"zmm5{k1}{z},DWORD PTR [rsp+0x12c]",broadcast,zmm
+0.0,b0cd468,kunpckbw,"k3,k0,k2",compare/mask,
+0.0,b0cd46c,mov,"esi,ebx",int/addr,
+0.0,b0cd46e,sar,"esi,0x1f",int/addr,
+0.0,b0cd471,add,"rax,QWORD PTR [rsp+0x78]",int/addr,
+0.0,b0cd476,lea,"edi,[rbx+rsi*1]",int/addr,
+0.0,b0cd479,xor,"edi,esi",int/addr,
+0.0,b0cd47b,cmp,"edi,0x8888888",int/addr,
+0.0,b0cd481,ja,b0cd4a7 <mkl_blas_avx512_xsgemv+0x1267>,branch,
+0.0,b0cd483,vpbroadcastd,"zmm2,ebx",broadcast,zmm
+0.0,b0cd489,vmovaps,"zmm23,zmm9",shuffle/permute,zmm
+0.0,b0cd48f,kmovw,"k1,k3",compare/mask,
+0.0,b0cd493,vpmulld,"zmm3,zmm2,ZMMWORD PTR [rip+0x78cf363]        # 1299c800 <__NLITPACK_0.0.1+0x400>",vec_arith,zmm
+0.0,b0cd49d,vgatherdps,"zmm23{k1},DWORD PTR [rax+zmm3*1-0x4]",vec_arith,zmm
+0.0,b0cd4a5,jmp,b0cd4ef <mkl_blas_avx512_xsgemv+0x12af>,branch,
+0.0,b0cd4a7,vpbroadcastd,"zmm3,ebx",broadcast,zmm
+0.0,b0cd4ad,vextracti64x4,"ymm4,zmm9,0x1",shuffle/permute,zmm
+0.0,b0cd4b4,kshiftrw,"k2,k3,0x8",compare/mask,
+0.0,b0cd4ba,vpmuldq,"zmm11,zmm3,ZMMWORD PTR [rip+0x78cf2fc]        # 1299c7c0 <__NLITPACK_0.0.1+0x3c0>",vec_arith,zmm
+0.0,b0cd4c4,vpmuldq,"zmm2,zmm3,ZMMWORD PTR [rip+0x78cf2b2]        # 1299c780 <__NLITPACK_0.0.1+0x380>",vec_arith,zmm
+0.0,b0cd4ce,vmovaps,"zmm12,zmm9",shuffle/permute,zmm
+0.0,b0cd4d4,kmovw,"k1,k3",compare/mask,
+0.0,b0cd4d8,vgatherqps,"ymm12{k1},DWORD PTR [rax+zmm2*1-0x4]",vec_arith,zmm
+0.0,b0cd4e0,vgatherqps,"ymm4{k2},DWORD PTR [rax+zmm11*1-0x4]",vec_arith,zmm
+0.0,b0cd4e8,vinsertf64x4,"zmm23,zmm12,ymm4,0x1",shuffle/permute,zmm
+0.0,b0cd4ef,mov,"rax,QWORD PTR [rsp+0xa8]",gpr_load,
+0.0,b0cd4f7,mov,"rsi,QWORD PTR [rsp+0xe8]",gpr_load,
+0.0,b0cd4ff,mov,"r15,QWORD PTR [rsp+0xf0]",gpr_load,
+0.0,b0cd507,lea,"rbx,[rax+r8*4]",int/addr,
+0.0,b0cd50b,vmovups,"zmm4,ZMMWORD PTR [rip+0x78cf32b]        # 1299c840 <__NLITPACK_0.0.1+0x440>",vec_load,zmm
+0.0,b0cd515,vmovups,"zmm3,ZMMWORD PTR [rip+0x78cf361]        # 1299c880 <__NLITPACK_0.0.1+0x480>",vec_load,zmm
+0.0,b0cd51f,lea,"rdi,[rsi+r8*4]",int/addr,
+0.0,b0cd523,lea,"rax,[r15+r8*4]",int/addr,
+0.0,b0cd527,vfmadd231ps,"zmm13{k3},zmm23,ZMMWORD PTR [rbx+rcx*1+0x4]",fma,zmm
+0.0,b0cd532,vfmadd231ps,"zmm1{k3},zmm23,ZMMWORD PTR [rdi+rcx*1+0x4]",fma,zmm
+0.0,b0cd53d,vfmadd231ps,"zmm6{k3},zmm23,ZMMWORD PTR [rax+rcx*1+0x4]",fma,zmm
+0.0,b0cd548,vpermd,"zmm2,zmm4,zmm13",shuffle/permute,zmm
+0.0,b0cd54e,vpermd,"zmm17,zmm4,zmm1",shuffle/permute,zmm
+0.0,b0cd554,vpermd,"zmm29,zmm4,zmm6",shuffle/permute,zmm
+0.0,b0cd55a,vaddps,"zmm12,zmm2,zmm13",vec_arith,zmm
+0.0,b0cd560,vaddps,"zmm18,zmm17,zmm1",vec_arith,zmm
+0.0,b0cd566,vaddps,"zmm30,zmm29,zmm6",vec_arith,zmm
+0.0,b0cd56c,vpermd,"zmm11,zmm3,zmm12",shuffle/permute,zmm
+0.0,b0cd572,vpermd,"zmm1,zmm3,zmm18",shuffle/permute,zmm
+0.0,b0cd578,vpermd,"zmm6,zmm3,zmm30",shuffle/permute,zmm
+0.0,b0cd57e,vaddps,"zmm13,zmm11,zmm12",vec_arith,zmm
+0.0,b0cd584,vaddps,"zmm19,zmm1,zmm18",vec_arith,zmm
+0.0,b0cd58a,vaddps,"zmm31,zmm6,zmm30",vec_arith,zmm
+0.0,b0cd590,vpshufd,"zmm14,zmm13,0x4e",shuffle/permute,zmm
+0.0,b0cd597,vpshufd,"zmm20,zmm19,0x4e",shuffle/permute,zmm
+0.0,b0cd59e,vaddps,"zmm15,zmm13,zmm14",vec_arith,zmm
+0.0,b0cd5a4,vaddps,"zmm21,zmm19,zmm20",vec_arith,zmm
+0.0,b0cd5aa,vpshufd,"zmm16,zmm15,0xb1",shuffle/permute,zmm
+0.0,b0cd5b1,vpshufd,"zmm22,zmm21,0xb1",shuffle/permute,zmm
+0.0,b0cd5b8,vaddps,"zmm2,zmm15,zmm16",vec_arith,zmm
+0.0,b0cd5be,vaddps,"zmm1,zmm21,zmm22",vec_arith,zmm
+0.0,b0cd5c4,mov,"rbx,QWORD PTR [rsp+0x100]",gpr_load,
+0.0,b0cd5cc,lea,"r8,[rbx+r8*4]",int/addr,
+0.0,b0cd5d0,vfmadd231ps,"zmm5{k3},zmm23,ZMMWORD PTR [r8+rcx*1+0x4]",fma,zmm
+0.0,b0cd5db,vpermd,"zmm23,zmm4,zmm5",shuffle/permute,zmm
+0.0,b0cd5e1,vaddps,"zmm24,zmm23,zmm5",vec_arith,zmm
+0.0,b0cd5e7,vpermd,"zmm5,zmm3,zmm24",shuffle/permute,zmm
+0.0,b0cd5ed,vpshufd,"zmm3,zmm31,0x4e",shuffle/permute,zmm
+0.0,b0cd5f4,vaddps,"zmm25,zmm5,zmm24",vec_arith,zmm
+0.0,b0cd5fa,vaddps,"zmm4,zmm31,zmm3",vec_arith,zmm
+0.0,b0cd600,vpshufd,"zmm26,zmm25,0x4e",shuffle/permute,zmm
+0.0,b0cd607,vpshufd,"zmm6,zmm4,0xb1",shuffle/permute,zmm
+0.0,b0cd60e,vaddps,"zmm27,zmm25,zmm26",vec_arith,zmm
+0.0,b0cd614,vaddps,"zmm23,zmm4,zmm6",vec_arith,zmm
+0.0,b0cd61a,vpshufd,"zmm28,zmm27,0xb1",shuffle/permute,zmm
+0.0,b0cd621,vaddps,"zmm5,zmm27,zmm28",vec_arith,zmm
+0.0,b0cd627,vfmadd213ss,"xmm2,xmm0,DWORD PTR [r10]",fma,xmm
+0.0,b0cd62c,inc,r9,int/addr,
+0.0,b0cd62f,vmovss,"DWORD PTR [r10],xmm2",vec_store,xmm
+0.0,b0cd634,vfmadd213ss,"xmm1,xmm0,DWORD PTR [r12]",fma,xmm
+0.0,b0cd63a,vmovss,"DWORD PTR [r12],xmm1",vec_store,xmm
+0.0,b0cd640,vfmadd213ss,"xmm23,xmm0,DWORD PTR [r14]",fma,xmm
+0.0,b0cd646,vmovss,"DWORD PTR [r14],xmm23",vec_store,xmm
+0.0,b0cd64c,vfmadd213ss,"xmm5,xmm0,DWORD PTR [r11]",fma,xmm
+0.0,b0cd651,vmovss,"DWORD PTR [r11],xmm5",vec_store,xmm
+0.0,b0cd656,mov,"rax,QWORD PTR [rsp+0xc8]",gpr_load,
+0.0,b0cd65e,mov,"rsi,QWORD PTR [rsp+0xd8]",gpr_load,
+0.0,b0cd666,mov,"rdi,QWORD PTR [rsp+0x98]",gpr_load,
+0.0,b0cd66e,mov,"rbx,QWORD PTR [rsp+0xe0]",gpr_load,
+0.0,b0cd676,add,"r11,rbx",int/addr,
+0.0,b0cd679,add,"rcx,QWORD PTR [rsp+0xf8]",int/addr,
+0.0,b0cd681,add,"r14,rbx",int/addr,
+0.0,b0cd684,add,"r12,rbx",int/addr,
+0.0,b0cd687,add,"r10,rbx",int/addr,
+0.0,b0cd68a,lea,"r13,[r13+rax*4+0x0]",int/addr,
+0.0,b0cd68f,lea,"rax,[rsi+rdx*1]",int/addr,
+0.0,b0cd693,lea,"rdx,[rdx+rdi*4]",int/addr,
+0.0,b0cd697,cmp,"r9,QWORD PTR [rsp+0xb0]",int/addr,
+0.0,b0cd69f,jb,b0cd0f0 <mkl_blas_avx512_xsgemv+0xeb0>,branch,
+0.0,b0cd6a5,mov,"QWORD PTR [rsp+0x90],rax",gpr_store,
+0.0,b0cd6ad,mov,"r13,QWORD PTR [rsp+0xd0]",gpr_load,
+0.0,b0cd6b5,mov,"r14,QWORD PTR [rsp+0xa8]",gpr_load,
+0.0,b0cd6bd,mov,"r12,QWORD PTR [rsp+0xc0]",gpr_load,
+0.0,b0cd6c5,mov,"rax,QWORD PTR [rsp]",gpr_load,
+0.0,b0cd6c9,mov,"r8,rdi",int/addr,
+0.0,b0cd6cc,mov,"r9,QWORD PTR [rsp+0xa0]",gpr_load,
+0.0,b0cd6d4,mov,"rbx,QWORD PTR [rsp+0xb8]",gpr_load,
+0.0,b0cd6dc,mov,"r15,QWORD PTR [rsp+0xc8]",gpr_load,
+0.0,b0cd6e4,xor,"edx,edx",int/addr,
+0.0,b0cd6e6,mov,"QWORD PTR [rsp+0x18],rdx",gpr_store,
+0.0,b0cd6eb,mov,"QWORD PTR [rsp+0x8],rdx",gpr_store,
+0.0,b0cd6f0,cmp,"r12,rax",int/addr,
+0.0,b0cd6f3,jle,b0cdb19 <mkl_blas_avx512_xsgemv+0x18d9>,branch,
+0.0,b0cd6f9,imul,"rbx,rax",int/addr,
+0.0,b0cd6fd,vmovups,"zmm2,ZMMWORD PTR [rip+0x78ceff9]        # 1299c700 <__NLITPACK_0.0.1+0x300>",vec_load,zmm
+0.0,b0cd707,vmovdqu32,"zmm3,ZMMWORD PTR [rip+0x78cf06f]        # 1299c780 <__NLITPACK_0.0.1+0x380>",vec_load,zmm
+0.0,b0cd711,vmovdqu32,"zmm4,ZMMWORD PTR [rip+0x78cf0a5]        # 1299c7c0 <__NLITPACK_0.0.1+0x3c0>",vec_load,zmm
+0.0,b0cd71b,mov,"rdx,QWORD PTR [rbp+0x10]",gpr_load,
+0.0,b0cd71f,sub,"r12,rax",int/addr,
+0.0,b0cd722,mov,"rcx,QWORD PTR [rsp+0x30]",gpr_load,
+0.0,b0cd727,mov,"rax,r9",int/addr,
+0.0,b0cd72a,mov,"rdi,QWORD PTR [rsp+0x90]",gpr_load,
+0.0,b0cd732,add,"r14,rbx",int/addr,
+0.0,b0cd735,mov,"rsi,QWORD PTR [rbp+0x28]",gpr_load,
+0.0,b0cd739,lea,"r11,[rdx+r9*4]",int/addr,
+0.0,b0cd73d,vmovss,"xmm7,DWORD PTR [rdx+rcx*4-0x4]",vec_load,xmm
+0.0,b0cd743,mov,"rdx,r9",int/addr,
+0.0,b0cd746,shl,"rdx,0x4",int/addr,
+0.0,b0cd74a,lea,"rbx,[r9+rcx*1]",int/addr,
+0.0,b0cd74e,shl,"rax,0x6",int/addr,
+0.0,b0cd752,lea,"r10,[rsi+rdi*4]",int/addr,
+0.0,b0cd756,mov,"QWORD PTR [rsp],r10",gpr_store,
+0.0,b0cd75a,lea,"rsi,[r13-0x1]",int/addr,
+0.0,b0cd75e,mov,"r10,rsi",int/addr,
+0.0,b0cd761,add,"rdx,r9",int/addr,
+0.0,b0cd764,and,"r10,0xffffffffffffffe0",int/addr,
+0.0,b0cd768,lea,"r11,[r11+rcx*4]",int/addr,
+0.0,b0cd76c,mov,"QWORD PTR [rsp+0x20],rax",gpr_store,
+0.0,b0cd771,add,"rcx,rdx",int/addr,
+0.0,b0cd774,mov,"QWORD PTR [rsp+0x28],rbx",gpr_store,
+0.0,b0cd779,lea,"rdi,[r9*4+0x0]",int/addr,
+0.0,b0cd781,mov,"QWORD PTR [rsp+0x30],rcx",gpr_store,
+0.0,b0cd786,mov,"QWORD PTR [rsp+0xc0],r12",gpr_store,
+0.0,b0cd78e,mov,"QWORD PTR [rsp+0x40],r11",gpr_store,
+0.0,b0cd793,mov,"QWORD PTR [rsp+0x38],r10",gpr_store,
+0.0,b0cd798,mov,"QWORD PTR [rsp+0x98],r8",gpr_store,
+0.0,b0cd7a0,mov,"rdx,QWORD PTR [rsp]",gpr_load,
+0.0,b0cd7a4,mov,"rbx,QWORD PTR [rsp+0x8]",gpr_load,
+0.0,b0cd7a9,mov,"rax,QWORD PTR [rsp+0x18]",gpr_load,
+0.0,b0cd7ae,vpxord,"zmm5,zmm5,zmm5",vec_arith,zmm
+0.0,b0cd7b4,vmulss,"xmm6,xmm7,DWORD PTR [r14]",scalar_fp,xmm
+0.0,b0cd7b9,cmp,"r13,0x2",int/addr,
+0.0,b0cd7bd,jl,b0cdaef <mkl_blas_avx512_xsgemv+0x18af>,branch,
+0.0,b0cd7c3,vmovaps,"zmm1,zmm5",shuffle/permute,zmm
+0.0,b0cd7c9,cmp,"rsi,0x20",int/addr,
+0.0,b0cd7cd,jl,b0ce395 <mkl_blas_avx512_xsgemv+0x2155>,branch,
+0.0,b0cd7d3,mov,"rcx,QWORD PTR [rsp+0x38]",gpr_load,
+0.0,b0cd7d8,xor,"r10d,r10d",int/addr,
+0.0,b0cd7db,mov,"QWORD PTR [rsp+0x48],rcx",gpr_store,
+0.0,b0cd7e0,xor,"r11d,r11d",int/addr,
+0.0,b0cd7e3,mov,"QWORD PTR [rsp+0x58],rsi",gpr_store,
+0.0,b0cd7e8,mov,"r8,r14",int/addr,
+0.0,b0cd7eb,mov,"QWORD PTR [rsp+0x8],rbx",gpr_store,
+0.0,b0cd7f0,mov,"r9d,edi",int/addr,
+0.0,b0cd7f3,mov,"QWORD PTR [rsp+0x18],rax",gpr_store,
+0.0,b0cd7f8,mov,"rdx,rcx",int/addr,
+0.0,b0cd7fb,vmovaps,"zmm8,zmm5",shuffle/permute,zmm
+0.0,b0cd801,mov,"QWORD PTR [rsp+0x50],rdi",gpr_store,
+0.0,b0cd806,mov,"QWORD PTR [rsp+0xc8],r15",gpr_store,
+0.0,b0cd80e,mov,"rsi,QWORD PTR [rsp+0x30]",gpr_load,
+0.0,b0cd813,mov,"rax,QWORD PTR [rsp+0x28]",gpr_load,
+0.0,b0cd818,mov,"rbx,QWORD PTR [rsp+0x10]",gpr_load,
+0.0,b0cd81d,mov,"rcx,QWORD PTR [rbp+0x10]",gpr_load,
+0.0,b0cd821,mov,"r12d,r9d",int/addr,
+0.0,b0cd824,lea,"rdi,[rax+r11*1-0x1]",int/addr,
+0.0,b0cd829,sar,"r12d,0x1f",int/addr,
+0.0,b0cd82d,lea,"rdi,[rcx+rdi*4]",int/addr,
+0.0,b0cd831,lea,"r15d,[r9+r12*1]",int/addr,
+0.0,b0cd835,xor,"r15d,r12d",int/addr,
+0.0,b0cd838,cmp,"r15d,0x8888888",int/addr,
+0.0,b0cd83f,ja,b0cd866 <mkl_blas_avx512_xsgemv+0x1626>,branch,
+0.0,b0cd841,vpcmpeqb,"k1,xmm0,xmm0",compare/mask,xmm
+0.0,b0cd847,vpbroadcastd,"zmm9,r9d",broadcast,zmm
+0.0,b0cd84d,vpmulld,"zmm10,zmm9,ZMMWORD PTR [rip+0x78cefa9]        # 1299c800 <__NLITPACK_0.0.1+0x400>",vec_arith,zmm
+0.0,b0cd857,vpxord,"zmm9,zmm9,zmm9",vec_arith,zmm
+0.0,b0cd85d,vgatherdps,"zmm9{k1},DWORD PTR [rdi+zmm10*1]",vec_arith,zmm
+0.0,b0cd864,jmp,b0cd8ad <mkl_blas_avx512_xsgemv+0x166d>,branch,
+0.0,b0cd866,vpcmpeqb,"k2,xmm0,xmm0",compare/mask,xmm
+0.0,b0cd86c,vpcmpeqb,"k1,xmm0,xmm0",compare/mask,xmm
+0.0,b0cd872,vpbroadcastd,"zmm10,r9d",broadcast,zmm
+0.0,b0cd878,vpmuldq,"zmm11,zmm10,ZMMWORD PTR [rip+0x78cef3e]        # 1299c7c0 <__NLITPACK_0.0.1+0x3c0>",vec_arith,zmm
+0.0,b0cd882,vpmuldq,"zmm9,zmm10,ZMMWORD PTR [rip+0x78ceef4]        # 1299c780 <__NLITPACK_0.0.1+0x380>",vec_arith,zmm
+0.0,b0cd88c,vpxord,"zmm12,zmm12,zmm12",vec_arith,zmm
+0.0,b0cd892,vpxord,"zmm13,zmm13,zmm13",vec_arith,zmm
+0.0,b0cd898,vgatherqps,"ymm12{k2},DWORD PTR [rdi+zmm11*1]",vec_arith,zmm
+0.0,b0cd89f,vgatherqps,"ymm13{k1},DWORD PTR [rdi+zmm9*1]",vec_arith,zmm
+0.0,b0cd8a6,vinsertf64x4,"zmm9,zmm13,ymm12,0x1",shuffle/permute,zmm
+0.0,b0cd8ad,mov,"r12d,r9d",int/addr,
+0.0,b0cd8b0,lea,"rdi,[rsi+r11*1-0x1]",int/addr,
+0.0,b0cd8b5,sar,"r12d,0x1f",int/addr,
+0.0,b0cd8b9,lea,"rdi,[rcx+rdi*4]",int/addr,
+0.0,b0cd8bd,lea,"r15d,[r9+r12*1]",int/addr,
+0.0,b0cd8c1,xor,"r15d,r12d",int/addr,
+0.0,b0cd8c4,vfmadd231ps,"zmm1,zmm9,ZMMWORD PTR [r8+0x4]",fma,zmm
+0.0,b0cd8ce,cmp,"r15d,0x8888888",int/addr,
+0.0,b0cd8d5,ja,b0cd8fc <mkl_blas_avx512_xsgemv+0x16bc>,branch,
+0.0,b0cd8d7,vpcmpeqb,"k1,xmm0,xmm0",compare/mask,xmm
+0.0,b0cd8dd,vpbroadcastd,"zmm9,r9d",broadcast,zmm
+0.0,b0cd8e3,vpmulld,"zmm10,zmm9,ZMMWORD PTR [rip+0x78cef13]        # 1299c800 <__NLITPACK_0.0.1+0x400>",vec_arith,zmm
+0.0,b0cd8ed,vpxord,"zmm9,zmm9,zmm9",vec_arith,zmm
+0.0,b0cd8f3,vgatherdps,"zmm9{k1},DWORD PTR [rdi+zmm10*1]",vec_arith,zmm
+0.0,b0cd8fa,jmp,b0cd943 <mkl_blas_avx512_xsgemv+0x1703>,branch,
+0.0,b0cd8fc,vpcmpeqb,"k2,xmm0,xmm0",compare/mask,xmm
+0.0,b0cd902,vpcmpeqb,"k1,xmm0,xmm0",compare/mask,xmm
+0.0,b0cd908,vpbroadcastd,"zmm10,r9d",broadcast,zmm
+0.0,b0cd90e,vpmuldq,"zmm11,zmm10,ZMMWORD PTR [rip+0x78ceea8]        # 1299c7c0 <__NLITPACK_0.0.1+0x3c0>",vec_arith,zmm
+0.0,b0cd918,vpmuldq,"zmm9,zmm10,ZMMWORD PTR [rip+0x78cee5e]        # 1299c780 <__NLITPACK_0.0.1+0x380>",vec_arith,zmm
+0.0,b0cd922,vpxord,"zmm12,zmm12,zmm12",vec_arith,zmm
+0.0,b0cd928,vpxord,"zmm13,zmm13,zmm13",vec_arith,zmm
+0.0,b0cd92e,vgatherqps,"ymm12{k2},DWORD PTR [rdi+zmm11*1]",vec_arith,zmm
+0.0,b0cd935,vgatherqps,"ymm13{k1},DWORD PTR [rdi+zmm9*1]",vec_arith,zmm
+0.0,b0cd93c,vinsertf64x4,"zmm9,zmm13,ymm12,0x1",shuffle/permute,zmm
+0.0,b0cd943,add,"r10,0x20",int/addr,
+0.0,b0cd947,add,"r11,rbx",int/addr,
+0.0,b0cd94a,vfmadd231ps,"zmm8,zmm9,ZMMWORD PTR [r8+0x44]",fma,zmm
+0.0,b0cd954,add,"r8,0x80",int/addr,
+0.0,b0cd95b,cmp,"r10,rdx",int/addr,
+0.0,b0cd95e,jb,b0cd821 <mkl_blas_avx512_xsgemv+0x15e1>,branch,
+0.0,b0cd964,mov,"rcx,QWORD PTR [rsp+0x48]",gpr_load,
+0.0,b0cd969,mov,"rdi,QWORD PTR [rsp+0x50]",gpr_load,
+0.0,b0cd96e,mov,"rsi,QWORD PTR [rsp+0x58]",gpr_load,
+0.0,b0cd973,mov,"rdx,QWORD PTR [rsp]",gpr_load,
+0.0,b0cd977,mov,"rbx,QWORD PTR [rsp+0x8]",gpr_load,
+0.0,b0cd97c,mov,"rax,QWORD PTR [rsp+0x18]",gpr_load,
+0.0,b0cd981,mov,"r15,QWORD PTR [rsp+0xc8]",gpr_load,
+0.0,b0cd989,vaddps,"zmm1,zmm1,zmm8",vec_arith,zmm
+0.0,b0cd98f,lea,"r8,[rcx+0x1]",int/addr,
+0.0,b0cd993,cmp,"r8,rsi",int/addr,
+0.0,b0cd996,ja,b0cdab7 <mkl_blas_avx512_xsgemv+0x1877>,branch,
+0.0,b0cd99c,mov,"r10,rcx",int/addr,
+0.0,b0cd99f,xor,"r8d,r8d",int/addr,
+0.0,b0cd9a2,imul,"r10,rdi",int/addr,
+0.0,b0cd9a6,mov,"r9,QWORD PTR [rsp+0x40]",gpr_load,
+0.0,b0cd9ab,xor,"r11d,r11d",int/addr,
+0.0,b0cd9ae,mov,"QWORD PTR [rsp+0xc8],r15",gpr_store,
+0.0,b0cd9b6,mov,"r12d,edi",int/addr,
+0.0,b0cd9b9,vmovaps,"zmm10,zmm3",shuffle/permute,zmm
+0.0,b0cd9bf,vmovaps,"zmm9,zmm4",shuffle/permute,zmm
+0.0,b0cd9c5,lea,"r10,[r9+r10*1-0x4]",int/addr,
+0.0,b0cd9ca,mov,"r9,rsi",int/addr,
+0.0,b0cd9cd,sub,"r9,rcx",int/addr,
+0.0,b0cd9d0,lea,"rcx,[r14+rcx*4]",int/addr,
+0.0,b0cd9d4,vpbroadcastq,"zmm8,r9",broadcast,zmm
+0.0,b0cd9da,mov,"QWORD PTR [rsp+0x8],rbx",gpr_store,
+0.0,b0cd9df,mov,"QWORD PTR [rsp+0x18],rax",gpr_store,
+0.0,b0cd9e4,mov,"r15,QWORD PTR [rsp+0x20]",gpr_load,
+0.0,b0cd9e9,vpcmpgtq,"k1,zmm8,zmm10",compare/mask,zmm
+0.0,b0cd9ef,mov,"eax,r12d",int/addr,
+0.0,b0cd9f2,vpcmpgtq,"k0,zmm8,zmm9",compare/mask,zmm
+0.0,b0cd9f8,sar,"eax,0x1f",int/addr,
+0.0,b0cd9fb,lea,"rbx,[r10+r11*1]",int/addr,
+0.0,b0cd9ff,kunpckbw,"k3,k0,k1",compare/mask,
+0.0,b0cda03,lea,"edx,[r12+rax*1]",int/addr,
+0.0,b0cda07,xor,"edx,eax",int/addr,
+0.0,b0cda09,cmp,"edx,0x8888888",int/addr,
+0.0,b0cda0f,ja,b0cda34 <mkl_blas_avx512_xsgemv+0x17f4>,branch,
+0.0,b0cda11,vpbroadcastd,"zmm11,r12d",broadcast,zmm
+0.0,b0cda17,kmovw,"k1,k3",compare/mask,
+0.0,b0cda1b,vpmulld,"zmm12,zmm11,ZMMWORD PTR [rip+0x78ceddb]        # 1299c800 <__NLITPACK_0.0.1+0x400>",vec_arith,zmm
+0.0,b0cda25,vmovaps,"zmm11,zmm5",shuffle/permute,zmm
+0.0,b0cda2b,vgatherdps,"zmm11{k1},DWORD PTR [rbx+zmm12*1]",vec_arith,zmm
+0.0,b0cda32,jmp,b0cda7a <mkl_blas_avx512_xsgemv+0x183a>,branch,
+0.0,b0cda34,vpbroadcastd,"zmm12,r12d",broadcast,zmm
+0.0,b0cda3a,vextracti64x4,"ymm13,zmm5,0x1",shuffle/permute,zmm
+0.0,b0cda41,kshiftrw,"k2,k3,0x8",compare/mask,
+0.0,b0cda47,vpmuldq,"zmm14,zmm12,ZMMWORD PTR [rip+0x78ced6f]        # 1299c7c0 <__NLITPACK_0.0.1+0x3c0>",vec_arith,zmm
+0.0,b0cda51,vpmuldq,"zmm11,zmm12,ZMMWORD PTR [rip+0x78ced25]        # 1299c780 <__NLITPACK_0.0.1+0x380>",vec_arith,zmm
+0.0,b0cda5b,vmovaps,"zmm15,zmm5",shuffle/permute,zmm
+0.0,b0cda61,kmovw,"k1,k3",compare/mask,
+0.0,b0cda65,vgatherqps,"ymm15{k1},DWORD PTR [rbx+zmm11*1]",vec_arith,zmm
+0.0,b0cda6c,vgatherqps,"ymm13{k2},DWORD PTR [rbx+zmm14*1]",vec_arith,zmm
+0.0,b0cda73,vinsertf64x4,"zmm11,zmm15,ymm13,0x1",shuffle/permute,zmm
+0.0,b0cda7a,add,"r11,r15",int/addr,
+0.0,b0cda7d,vpaddq,"zmm10,zmm10,zmm2",vec_arith,zmm
+0.0,b0cda83,vpaddq,"zmm9,zmm9,zmm2",vec_arith,zmm
+0.0,b0cda89,vfmadd231ps,"zmm1{k3},zmm11,ZMMWORD PTR [rcx+r8*4+0x4]",fma,zmm
+0.0,b0cda94,add,"r8,0x10",int/addr,
+0.0,b0cda98,cmp,"r8,r9",int/addr,
+0.0,b0cda9b,jb,b0cd9e9 <mkl_blas_avx512_xsgemv+0x17a9>,branch,
+0.0,b0cdaa1,mov,"rdx,QWORD PTR [rsp]",gpr_load,
+0.0,b0cdaa5,mov,"rbx,QWORD PTR [rsp+0x8]",gpr_load,
+0.0,b0cdaaa,mov,"rax,QWORD PTR [rsp+0x18]",gpr_load,
+0.0,b0cdaaf,mov,"r15,QWORD PTR [rsp+0xc8]",gpr_load,
+0.0,b0cdab7,vshuff32x4,"zmm8,zmm1,zmm1,0xee",shuffle/permute,zmm
+0.0,b0cdabe,vaddps,"zmm9,zmm8,zmm1",vec_arith,zmm
+0.0,b0cdac4,vshuff32x4,"zmm1,zmm9,zmm9,0x55",shuffle/permute,zmm
+0.0,b0cdacb,vaddps,"zmm10,zmm1,zmm9",vec_arith,zmm
+0.0,b0cdad1,vpshufd,"zmm11,zmm10,0x4e",shuffle/permute,zmm
+0.0,b0cdad8,vaddps,"zmm12,zmm10,zmm11",vec_arith,zmm
+0.0,b0cdade,vpshufd,"zmm13,zmm12,0xb1",shuffle/permute,zmm
+0.0,b0cdae5,vaddps,"zmm14,zmm12,zmm13",vec_arith,zmm
+0.0,b0cdaeb,vaddss,"xmm6,xmm14,xmm6",scalar_fp,xmm
+0.0,b0cdaef,vfmadd213ss,"xmm6,xmm0,DWORD PTR [rdx+rbx*4-0x4]",fma,xmm
+0.0,b0cdaf6,inc,rax,int/addr,
+0.0,b0cdaf9,vmovss,"DWORD PTR [rdx+rbx*4-0x4],xmm6",vec_store,xmm
+0.0,b0cdaff,add,"rbx,QWORD PTR [rsp+0x98]",int/addr,
+0.0,b0cdb07,lea,"r14,[r14+r15*4]",int/addr,
+0.0,b0cdb0b,cmp,"rax,QWORD PTR [rsp+0xc0]",int/addr,
+0.0,b0cdb13,jb,b0cd7b4 <mkl_blas_avx512_xsgemv+0x1574>,branch,
+0.0,b0cdb19,vzeroupper,,other,
+0.0,b0cdb1c,add,"rsp,0x158",int/addr,
+0.0,b0cdb23,pop,rbx,other,
+0.0,b0cdb24,pop,r15,other,
+0.0,b0cdb26,pop,r14,other,
+0.0,b0cdb28,pop,r13,other,
+0.0,b0cdb2a,pop,r12,other,
+0.0,b0cdb2c,mov,"rsp,rbp",int/addr,
+0.0,b0cdb2f,pop,rbp,other,
+0.0,b0cdb30,ret,,branch,
+0.0,b0cdb31,xor,"r12d,r12d",int/addr,
+0.0,b0cdb34,jmp,b0cc7d7 <mkl_blas_avx512_xsgemv+0x597>,branch,
+0.0,b0cdb39,xor,"edi,edi",int/addr,
+0.0,b0cdb3b,jmp,b0ccca1 <mkl_blas_avx512_xsgemv+0xa61>,branch,
+0.0,b0cdb40,xor,"edi,edi",int/addr,
+0.0,b0cdb42,jmp,b0ccee2 <mkl_blas_avx512_xsgemv+0xca2>,branch,
+0.0,b0cdb47,xor,"edi,edi",int/addr,
+0.0,b0cdb49,jmp,b0ccae1 <mkl_blas_avx512_xsgemv+0x8a1>,branch,
+0.0,b0cdb4e,cmp,"r8,0x1",int/addr,
+0.0,b0cdb52,jne,b0cc544 <mkl_blas_avx512_xsgemv+0x304>,branch,
+0.0,b0cdb58,mov,"rax,r12",int/addr,
+0.0,b0cdb5b,sar,"rax,1",int/addr,
+0.0,b0cdb5e,shr,"rax,0x3e",int/addr,
+0.0,b0cdb62,add,"rax,r12",int/addr,
+0.0,b0cdb65,and,"rax,0xfffffffffffffffc",int/addr,
+0.0,b0cdb69,jle,b0ce14f <mkl_blas_avx512_xsgemv+0x1f0f>,branch,
+0.0,b0cdb6f,xor,"r9d,r9d",int/addr,
+0.0,b0cdb72,lea,"r8,[rax+0x3]",int/addr,
+0.0,b0cdb76,mov,"rcx,r8",int/addr,
+0.0,b0cdb79,mov,"edx,0x1",int/addr,
+0.0,b0cdb7e,sar,"rcx,1",int/addr,
+0.0,b0cdb81,shr,"rcx,0x3e",int/addr,
+0.0,b0cdb85,mov,"QWORD PTR [rsp+0x28],r9",gpr_store,
+0.0,b0cdb8a,lea,"rsi,[rcx+rax*1+0x3]",int/addr,
+0.0,b0cdb8f,sar,"rsi,0x2",int/addr,
+0.0,b0cdb93,shr,"rsi,1",int/addr,
+0.0,b0cdb96,cmp,"rsi,0x1",int/addr,
+0.0,b0cdb9a,jb,b0cdf83 <mkl_blas_avx512_xsgemv+0x1d43>,branch,
+0.0,b0cdba0,mov,"rdx,r14",int/addr,
+0.0,b0cdba3,lea,"r11,[rbx+rbx*2]",int/addr,
+0.0,b0cdba7,sub,"rdx,rbx",int/addr,
+0.0,b0cdbaa,shr,"r8,0x3",int/addr,
+0.0,b0cdbae,mov,"QWORD PTR [rsp+0xc0],r12",gpr_store,
+0.0,b0cdbb6,mov,"QWORD PTR [rsp+0xa8],r8",gpr_store,
+0.0,b0cdbbe,mov,"QWORD PTR [rsp+0xb0],r9",gpr_store,
+0.0,b0cdbc6,lea,"r10,[rdx+r11*1]",int/addr,
+0.0,b0cdbca,mov,"QWORD PTR [rsp+0x10],r10",gpr_store,
+0.0,b0cdbcf,mov,"r10,r15",int/addr,
+0.0,b0cdbd2,shl,"r10,0x5",int/addr,
+0.0,b0cdbd6,lea,"rsi,[rdx+r15*8]",int/addr,
+0.0,b0cdbda,mov,"QWORD PTR [rsp+0x8],rsi",gpr_store,
+0.0,b0cdbdf,lea,"rcx,[rdx+r11*2]",int/addr,
+0.0,b0cdbe3,mov,"r11,r13",int/addr,
+0.0,b0cdbe6,mov,"rsi,r15",int/addr,
+0.0,b0cdbe9,and,"r11,0xfffffffffffffff0",int/addr,
+0.0,b0cdbed,mov,"QWORD PTR [rsp+0x20],rcx",gpr_store,
+0.0,b0cdbf2,lea,"rdi,[rdx+r10*1]",int/addr,
+0.0,b0cdbf6,mov,"QWORD PTR [rsp+0x18],rdi",gpr_store,
+0.0,b0cdbfb,mov,"rdi,r10",int/addr,
+0.0,b0cdbfe,shl,"rsi,0x4",int/addr,
+0.0,b0cdc02,lea,"rcx,[rbx+rbx*4]",int/addr,
+0.0,b0cdc06,sub,"rdi,rbx",int/addr,
+0.0,b0cdc09,add,"rsi,rdx",int/addr,
+0.0,b0cdc0c,mov,"QWORD PTR [rsp+0xa0],r10",gpr_store,
+0.0,b0cdc14,add,"rcx,rdx",int/addr,
+0.0,b0cdc17,mov,"QWORD PTR [rsp+0x50],r11",gpr_store,
+0.0,b0cdc1c,add,"rdx,rdi",int/addr,
+0.0,b0cdc1f,mov,"QWORD PTR [rsp+0xb8],rbx",gpr_store,
+0.0,b0cdc27,xor,"edi,edi",int/addr,
+0.0,b0cdc29,vmovdqu32,"zmm3,ZMMWORD PTR [rip+0x78ceb4d]        # 1299c780 <__NLITPACK_0.0.1+0x380>",vec_load,zmm
+0.0,b0cdc33,vmovdqu32,"zmm2,ZMMWORD PTR [rip+0x78ceb83]        # 1299c7c0 <__NLITPACK_0.0.1+0x3c0>",vec_load,zmm
+0.0,b0cdc3d,mov,"QWORD PTR [rsp],rax",gpr_store,
+0.0,b0cdc41,mov,"QWORD PTR [rsp+0xc8],r15",gpr_store,
+0.0,b0cdc49,mov,"r11,QWORD PTR [rsp+0x20]",gpr_load,
+0.0,b0cdc4e,mov,"rbx,QWORD PTR [rsp+0x18]",gpr_load,
+0.0,b0cdc53,mov,"r8,QWORD PTR [rsp+0x10]",gpr_load,
+0.0,b0cdc58,mov,"r9,QWORD PTR [rsp+0x8]",gpr_load,
+0.0,b0cdc5d,mov,"r10,QWORD PTR [rsp+0x28]",gpr_load,
+0.0,b0cdc62,mov,"r12,QWORD PTR [rbp+0x28]",gpr_load,
+0.0,b0cdc66,mov,"rax,QWORD PTR [rbp+0x10]",gpr_load,
+0.0,b0cdc6a,vmulss,"xmm18,xmm0,DWORD PTR [r10+rax*1]",scalar_fp,xmm
+0.0,b0cdc71,vmulss,"xmm17,xmm0,DWORD PTR [r10+rax*1+0x4]",scalar_fp,xmm
+0.0,b0cdc79,vmulss,"xmm16,xmm0,DWORD PTR [r10+rax*1+0x8]",scalar_fp,xmm
+0.0,b0cdc81,vmulss,"xmm15,xmm0,DWORD PTR [r10+rax*1+0xc]",scalar_fp,xmm
+0.0,b0cdc88,vmulss,"xmm14,xmm0,DWORD PTR [r10+rax*1+0x10]",scalar_fp,xmm
+0.0,b0cdc8f,vmulss,"xmm13,xmm0,DWORD PTR [r10+rax*1+0x14]",scalar_fp,xmm
+0.0,b0cdc96,vmulss,"xmm12,xmm0,DWORD PTR [r10+rax*1+0x18]",scalar_fp,xmm
+0.0,b0cdc9d,vmulss,"xmm1,xmm0,DWORD PTR [r10+rax*1+0x1c]",scalar_fp,xmm
+0.0,b0cdca4,test,"r13,r13",int/addr,
+0.0,b0cdca7,jle,b0cdf32 <mkl_blas_avx512_xsgemv+0x1cf2>,branch,
+0.0,b0cdcad,cmp,"r13,0x10",int/addr,
+0.0,b0cdcb1,jl,b0ce38e <mkl_blas_avx512_xsgemv+0x214e>,branch,
+0.0,b0cdcb7,mov,"QWORD PTR [rsp+0x98],0x0",gpr_store,
+0.0,b0cdcc3,lea,"r15,[rbx+rdi*1]",int/addr,
+0.0,b0cdcc7,mov,"QWORD PTR [rsp+0x90],r15",gpr_store,
+0.0,b0cdccf,lea,"r15,[rsi+rdi*1]",int/addr,
+0.0,b0cdcd3,mov,"QWORD PTR [rsp+0x88],r15",gpr_store,
+0.0,b0cdcdb,lea,"r15,[r8+rdi*1]",int/addr,
+0.0,b0cdcdf,mov,"QWORD PTR [rsp+0x80],r15",gpr_store,
+0.0,b0cdce7,lea,"r15,[r9+rdi*1]",int/addr,
+0.0,b0cdceb,mov,"QWORD PTR [rsp+0x78],r15",gpr_store,
+0.0,b0cdcf0,lea,"r15,[r14+rdi*1]",int/addr,
+0.0,b0cdcf4,mov,"QWORD PTR [rsp+0x70],r15",gpr_store,
+0.0,b0cdcf9,lea,"r15,[rcx+rdi*1]",int/addr,
+0.0,b0cdcfd,mov,"QWORD PTR [rsp+0x68],r15",gpr_store,
+0.0,b0cdd02,lea,"r15,[r11+rdi*1]",int/addr,
+0.0,b0cdd06,mov,"QWORD PTR [rsp+0x60],r15",gpr_store,
+0.0,b0cdd0b,lea,"r15,[rdx+rdi*1]",int/addr,
+0.0,b0cdd0f,mov,"QWORD PTR [rsp+0x58],r15",gpr_store,
+0.0,b0cdd14,mov,"rax,QWORD PTR [rsp+0x50]",gpr_load,
+0.0,b0cdd19,mov,"r15,rax",int/addr,
+0.0,b0cdd1c,mov,"QWORD PTR [rsp+0x48],rdi",gpr_store,
+0.0,b0cdd21,mov,"QWORD PTR [rsp+0x40],rdx",gpr_store,
+0.0,b0cdd26,mov,"QWORD PTR [rsp+0x38],rcx",gpr_store,
+0.0,b0cdd2b,mov,"QWORD PTR [rsp+0x30],rsi",gpr_store,
+0.0,b0cdd30,mov,"QWORD PTR [rsp+0x28],r10",gpr_store,
+0.0,b0cdd35,vbroadcastss,"zmm11,xmm14",broadcast,zmm
+0.0,b0cdd3b,vbroadcastss,"zmm10,xmm13",broadcast,zmm
+0.0,b0cdd41,vbroadcastss,"zmm9,xmm12",broadcast,zmm
+0.0,b0cdd47,vbroadcastss,"zmm8,xmm1",broadcast,zmm
+0.0,b0cdd4d,vbroadcastss,"zmm7,xmm18",broadcast,zmm
+0.0,b0cdd53,vbroadcastss,"zmm6,xmm17",broadcast,zmm
+0.0,b0cdd59,vbroadcastss,"zmm5,xmm16",broadcast,zmm
+0.0,b0cdd5f,vbroadcastss,"zmm4,xmm15",broadcast,zmm
+0.0,b0cdd65,mov,"rdx,QWORD PTR [rsp+0x58]",gpr_load,
+0.0,b0cdd6a,mov,"rcx,QWORD PTR [rsp+0x60]",gpr_load,
+0.0,b0cdd6f,mov,"rbx,QWORD PTR [rsp+0x68]",gpr_load,
+0.0,b0cdd74,mov,"rsi,QWORD PTR [rsp+0x70]",gpr_load,
+0.0,b0cdd79,mov,"rdi,QWORD PTR [rsp+0x78]",gpr_load,
+0.0,b0cdd7e,mov,"r8,QWORD PTR [rsp+0x80]",gpr_load,
+0.0,b0cdd86,mov,"r9,QWORD PTR [rsp+0x88]",gpr_load,
+0.0,b0cdd8e,mov,"r10,QWORD PTR [rsp+0x90]",gpr_load,
+0.0,b0cdd96,mov,"r11,QWORD PTR [rsp+0x98]",gpr_load,
+0.0,b0cdd9e,xchg,"ax,ax",other,
+0.0,b0cdda0,vmulps,"zmm20,zmm8,ZMMWORD PTR [r10+r11*4]",vec_arith,zmm
+0.0,b0cdda7,vmulps,"zmm21,zmm5,ZMMWORD PTR [r8+r11*4]",vec_arith,zmm
+0.0,b0cddae,vmulps,"zmm22,zmm4,ZMMWORD PTR [r9+r11*4]",vec_arith,zmm
+0.0,b0cddb5,vmovups,"zmm19,ZMMWORD PTR [rdx+r11*4]",vec_load,zmm
+0.0,b0cddbc,vfmadd231ps,"zmm20,zmm10,ZMMWORD PTR [rcx+r11*4]",fma,zmm
+0.0,b0cddc3,vfmadd231ps,"zmm21,zmm7,ZMMWORD PTR [rsi+r11*4]",fma,zmm
+0.0,b0cddca,vfmadd231ps,"zmm22,zmm6,ZMMWORD PTR [rdi+r11*4]",fma,zmm
+0.0,b0cddd1,vfmadd213ps,"zmm19,zmm9,ZMMWORD PTR [r12+r11*4]",fma,zmm
+0.0,b0cddd8,vaddps,"zmm24,zmm21,zmm22",vec_arith,zmm
+0.0,b0cddde,vfmadd231ps,"zmm19,zmm11,ZMMWORD PTR [rbx+r11*4]",fma,zmm
+0.0,b0cdde5,vaddps,"zmm23,zmm19,zmm20",vec_arith,zmm
+0.0,b0cddeb,vaddps,"zmm25,zmm23,zmm24",vec_arith,zmm
+0.0,b0cddf1,vmovups,"ZMMWORD PTR [r12+r11*4],zmm25",vec_store,zmm
+0.0,b0cddf8,add,"r11,0x10",int/addr,
+0.0,b0cddfc,cmp,"r11,r15",int/addr,
+0.0,b0cddff,jb,b0cdda0 <mkl_blas_avx512_xsgemv+0x1b60>,branch,
+0.0,b0cde01,mov,"rdi,QWORD PTR [rsp+0x48]",gpr_load,
+0.0,b0cde06,mov,"rdx,QWORD PTR [rsp+0x40]",gpr_load,
+0.0,b0cde0b,mov,"r11,QWORD PTR [rsp+0x20]",gpr_load,
+0.0,b0cde10,mov,"rcx,QWORD PTR [rsp+0x38]",gpr_load,
+0.0,b0cde15,mov,"rbx,QWORD PTR [rsp+0x18]",gpr_load,
+0.0,b0cde1a,mov,"rsi,QWORD PTR [rsp+0x30]",gpr_load,
+0.0,b0cde1f,mov,"r8,QWORD PTR [rsp+0x10]",gpr_load,
+0.0,b0cde24,mov,"r9,QWORD PTR [rsp+0x8]",gpr_load,
+0.0,b0cde29,mov,"r10,QWORD PTR [rsp+0x28]",gpr_load,
+0.0,b0cde2e,lea,"r12,[rax+0x1]",int/addr,
+0.0,b0cde32,cmp,"r12,r13",int/addr,
+0.0,b0cde35,mov,"r12,QWORD PTR [rbp+0x28]",gpr_load,
+0.0,b0cde39,ja,b0cdf32 <mkl_blas_avx512_xsgemv+0x1cf2>,branch,
+0.0,b0cde3f,mov,"QWORD PTR [rsp+0xd0],r13",gpr_store,
+0.0,b0cde47,sub,"r13,rax",int/addr,
+0.0,b0cde4a,vbroadcastss,"zmm20,xmm1",broadcast,zmm
+0.0,b0cde50,lea,"r15,[r14+rax*4]",int/addr,
+0.0,b0cde54,vpbroadcastq,"zmm1,r13",broadcast,zmm
+0.0,b0cde5a,vbroadcastss,"zmm4,xmm18",broadcast,zmm
+0.0,b0cde60,vbroadcastss,"zmm18,xmm13",broadcast,zmm
+0.0,b0cde66,vbroadcastss,"zmm19,xmm12",broadcast,zmm
+0.0,b0cde6c,vbroadcastss,"zmm7,xmm16",broadcast,zmm
+0.0,b0cde72,vbroadcastss,"zmm16,xmm14",broadcast,zmm
+0.0,b0cde78,vbroadcastss,"zmm5,xmm17",broadcast,zmm
+0.0,b0cde7e,vbroadcastss,"zmm8,xmm15",broadcast,zmm
+0.0,b0cde84,vpcmpgtq,"k1,zmm1,zmm3",compare/mask,zmm
+0.0,b0cde8a,vpcmpgtq,"k0,zmm1,zmm2",compare/mask,zmm
+0.0,b0cde90,kunpckbw,"k2,k0,k1",compare/mask,
+0.0,b0cde94,lea,"r13,[r9+rax*4]",int/addr,
+0.0,b0cde98,vmovups,"zmm13{k2}{z},ZMMWORD PTR [r12+rax*4]",vec_load,zmm
+0.0,b0cde9f,vmovups,"zmm12{k2}{z},ZMMWORD PTR [r15+rdi*1]",vec_load,zmm
+0.0,b0cdea6,vmovups,"zmm14{k2}{z},ZMMWORD PTR [r13+rdi*1+0x0]",vec_load,zmm
+0.0,b0cdeae,vfmadd213ps,"zmm4,zmm12,zmm13",fma,zmm
+0.0,b0cdeb4,vfmadd213ps,"zmm5,zmm14,zmm4",fma,zmm
+0.0,b0cdeba,lea,"r15,[r8+rax*4]",int/addr,
+0.0,b0cdebe,vmovups,"zmm15{k2}{z},ZMMWORD PTR [r15+rdi*1]",vec_load,zmm
+0.0,b0cdec5,vfmadd213ps,"zmm7,zmm15,zmm5",fma,zmm
+0.0,b0cdecb,lea,"r13,[rsi+rax*4]",int/addr,
+0.0,b0cdecf,vmovups,"zmm6{k2}{z},ZMMWORD PTR [r13+rdi*1+0x0]",vec_load,zmm
+0.0,b0cded7,vfmadd213ps,"zmm8,zmm6,zmm7",fma,zmm
+0.0,b0cdedd,lea,"r15,[rcx+rax*4]",int/addr,
+0.0,b0cdee1,vmovups,"zmm9{k2}{z},ZMMWORD PTR [r15+rdi*1]",vec_load,zmm
+0.0,b0cdee8,vmovaps,"zmm10{k2}{z},zmm8",shuffle/permute,zmm
+0.0,b0cdeee,lea,"r13,[r11+rax*4]",int/addr,
+0.0,b0cdef2,vfmadd213ps,"zmm16,zmm9,zmm10",fma,zmm
+0.0,b0cdef8,lea,"r15,[rdx+rax*4]",int/addr,
+0.0,b0cdefc,vmovups,"zmm11{k2}{z},ZMMWORD PTR [r13+rdi*1+0x0]",vec_load,zmm
+0.0,b0cdf04,vmovups,"zmm17{k2}{z},ZMMWORD PTR [r15+rdi*1]",vec_load,zmm
+0.0,b0cdf0b,vfmadd213ps,"zmm18,zmm11,zmm16",fma,zmm
+0.0,b0cdf11,vfmadd213ps,"zmm19,zmm17,zmm18",fma,zmm
+0.0,b0cdf17,lea,"r13,[rbx+rax*4]",int/addr,
+0.0,b0cdf1b,vfmadd132ps,"zmm20{k2}{z},zmm19,ZMMWORD PTR [r13+rdi*1+0x0]",fma,zmm
+0.0,b0cdf23,vmovups,"ZMMWORD PTR [r12+rax*4]{k2},zmm20",vec_store,zmm
+0.0,b0cdf2a,mov,"r13,QWORD PTR [rsp+0xd0]",gpr_load,
+0.0,b0cdf32,mov,"rax,QWORD PTR [rsp+0xb0]",gpr_load,
+0.0,b0cdf3a,add,"r10,0x20",int/addr,
+0.0,b0cdf3e,inc,rax,int/addr,
+0.0,b0cdf41,add,"rdi,QWORD PTR [rsp+0xa0]",int/addr,
+0.0,b0cdf49,mov,"QWORD PTR [rsp+0xb0],rax",gpr_store,
+0.0,b0cdf51,cmp,"rax,QWORD PTR [rsp+0xa8]",int/addr,
+0.0,b0cdf59,jb,b0cdc66 <mkl_blas_avx512_xsgemv+0x1a26>,branch,
+0.0,b0cdf5f,mov,"r9,rax",int/addr,
+0.0,b0cdf62,lea,"rdx,[r9+r9*1+0x1]",int/addr,
+0.0,b0cdf67,mov,"r12,QWORD PTR [rsp+0xc0]",gpr_load,
+0.0,b0cdf6f,mov,"rax,QWORD PTR [rsp]",gpr_load,
+0.0,b0cdf73,mov,"rbx,QWORD PTR [rsp+0xb8]",gpr_load,
+0.0,b0cdf7b,mov,"r15,QWORD PTR [rsp+0xc8]",gpr_load,
+0.0,b0cdf83,lea,"rcx,[rdx*4+0x0]",int/addr,
+0.0,b0cdf8b,neg,rcx,int/addr,
+0.0,b0cdf8e,lea,"rsi,[rax+rcx*1+0x7]",int/addr,
+0.0,b0cdf93,shr,"rsi,0x2",int/addr,
+0.0,b0cdf97,je,b0ce14f <mkl_blas_avx512_xsgemv+0x1f0f>,branch,
+0.0,b0cdf9d,mov,"rcx,rdx",int/addr,
+0.0,b0cdfa0,lea,"r10,[rdx*4+0x0]",int/addr,
+0.0,b0cdfa8,shl,"rcx,0x4",int/addr,
+0.0,b0cdfac,mov,"rsi,QWORD PTR [rbp+0x10]",gpr_load,
+0.0,b0cdfb0,vmulss,"xmm8,xmm0,DWORD PTR [rcx+rsi*1-0x10]",scalar_fp,xmm
+0.0,b0cdfb6,vmulss,"xmm7,xmm0,DWORD PTR [rcx+rsi*1-0xc]",scalar_fp,xmm
+0.0,b0cdfbc,vmulss,"xmm6,xmm0,DWORD PTR [rcx+rsi*1-0x8]",scalar_fp,xmm
+0.0,b0cdfc2,vmulss,"xmm5,xmm0,DWORD PTR [rcx+rsi*1-0x4]",scalar_fp,xmm
+0.0,b0cdfc8,test,"r13,r13",int/addr,
+0.0,b0cdfcb,jle,b0ce14f <mkl_blas_avx512_xsgemv+0x1f0f>,branch,
+0.0,b0cdfd1,cmp,"r13,0x10",int/addr,
+0.0,b0cdfd5,jl,b0ce386 <mkl_blas_avx512_xsgemv+0x2146>,branch,
+0.0,b0cdfdb,mov,"r11,rbx",int/addr,
+0.0,b0cdfde,lea,"rcx,[rdx*4-0x3]",int/addr,
+0.0,b0cdfe6,imul,"rcx,rbx",int/addr,
+0.0,b0cdfea,imul,"r11,r10",int/addr,
+0.0,b0cdfee,vbroadcastss,"zmm4,xmm8",broadcast,zmm
+0.0,b0cdff4,vbroadcastss,"zmm3,xmm7",broadcast,zmm
+0.0,b0cdffa,vbroadcastss,"zmm2,xmm6",broadcast,zmm
+0.0,b0ce000,vbroadcastss,"zmm1,xmm5",broadcast,zmm
+0.0,b0ce006,mov,"r8,r14",int/addr,
+0.0,b0ce009,lea,"rsi,[rdx*4-0x2]",int/addr,
+0.0,b0ce011,imul,"rsi,rbx",int/addr,
+0.0,b0ce015,mov,"QWORD PTR [rsp+0x8],0x0",gpr_store,
+0.0,b0ce01e,lea,"rdi,[rdx*4-0x1]",int/addr,
+0.0,b0ce026,imul,"rdi,rbx",int/addr,
+0.0,b0ce02a,mov,"r9,r13",int/addr,
+0.0,b0ce02d,sub,"r8,rbx",int/addr,
+0.0,b0ce030,mov,"QWORD PTR [rsp+0xc8],r15",gpr_store,
+0.0,b0ce038,and,"r9,0xfffffffffffffff0",int/addr,
+0.0,b0ce03c,mov,"r15,QWORD PTR [rbp+0x28]",gpr_load,
+0.0,b0ce040,add,"rcx,r8",int/addr,
+0.0,b0ce043,add,"rsi,r8",int/addr,
+0.0,b0ce046,add,"rdi,r8",int/addr,
+0.0,b0ce049,add,"r8,r11",int/addr,
+0.0,b0ce04c,mov,"r11,QWORD PTR [rsp+0x8]",gpr_load,
+0.0,b0ce051,vmovups,"zmm9,ZMMWORD PTR [rcx+r11*4]",vec_load,zmm
+0.0,b0ce058,vfmadd213ps,"zmm9,zmm4,ZMMWORD PTR [r15+r11*4]",fma,zmm
+0.0,b0ce05f,vfmadd231ps,"zmm9,zmm3,ZMMWORD PTR [rsi+r11*4]",fma,zmm
+0.0,b0ce066,vfmadd231ps,"zmm9,zmm2,ZMMWORD PTR [rdi+r11*4]",fma,zmm
+0.0,b0ce06d,vfmadd231ps,"zmm9,zmm1,ZMMWORD PTR [r8+r11*4]",fma,zmm
+0.0,b0ce074,vmovups,"ZMMWORD PTR [r15+r11*4],zmm9",vec_store,zmm
+0.0,b0ce07b,add,"r11,0x10",int/addr,
+0.0,b0ce07f,cmp,"r11,r9",int/addr,
+0.0,b0ce082,jb,b0ce051 <mkl_blas_avx512_xsgemv+0x1e11>,branch,
+0.0,b0ce084,mov,"r15,QWORD PTR [rsp+0xc8]",gpr_load,
+0.0,b0ce08c,lea,"rcx,[r9+0x1]",int/addr,
+0.0,b0ce090,cmp,"rcx,r13",int/addr,
+0.0,b0ce093,ja,b0ce14f <mkl_blas_avx512_xsgemv+0x1f0f>,branch,
+0.0,b0ce099,mov,"rcx,r13",int/addr,
+0.0,b0ce09c,lea,"rsi,[rdx*4-0x3]",int/addr,
+0.0,b0ce0a4,imul,"rsi,rbx",int/addr,
+0.0,b0ce0a8,vbroadcastss,"zmm9,xmm5",broadcast,zmm
+0.0,b0ce0ae,vbroadcastss,"zmm2,xmm8",broadcast,zmm
+0.0,b0ce0b4,vbroadcastss,"zmm4,xmm7",broadcast,zmm
+0.0,b0ce0ba,vbroadcastss,"zmm8,xmm6",broadcast,zmm
+0.0,b0ce0c0,imul,"r10,rbx",int/addr,
+0.0,b0ce0c4,sub,"rcx,r9",int/addr,
+0.0,b0ce0c7,lea,"rdi,[rdx*4-0x2]",int/addr,
+0.0,b0ce0cf,vpbroadcastq,"zmm5,rcx",broadcast,zmm
+0.0,b0ce0d5,mov,"r8,r14",int/addr,
+0.0,b0ce0d8,imul,"rdi,rbx",int/addr,
+0.0,b0ce0dc,vpcmpgtq,"k1,zmm5,ZMMWORD PTR [rip+0x78ce69a]        # 1299c780 <__NLITPACK_0.0.1+0x380>",compare/mask,zmm
+0.0,b0ce0e6,vpcmpgtq,"k0,zmm5,ZMMWORD PTR [rip+0x78ce6d0]        # 1299c7c0 <__NLITPACK_0.0.1+0x3c0>",compare/mask,zmm
+0.0,b0ce0f0,sub,"r8,rbx",int/addr,
+0.0,b0ce0f3,lea,"rdx,[rdx*4-0x1]",int/addr,
+0.0,b0ce0fb,imul,"rdx,rbx",int/addr,
+0.0,b0ce0ff,kunpckbw,"k2,k0,k1",compare/mask,
+0.0,b0ce103,add,"rsi,r8",int/addr,
+0.0,b0ce106,add,"rdi,r8",int/addr,
+0.0,b0ce109,mov,"r11,QWORD PTR [rbp+0x28]",gpr_load,
+0.0,b0ce10d,add,"r10,r8",int/addr,
+0.0,b0ce110,add,"r8,rdx",int/addr,
+0.0,b0ce113,vmovups,"zmm7{k2}{z},ZMMWORD PTR [r11+r9*4]",vec_load,zmm
+0.0,b0ce11a,vmovups,"zmm6{k2}{z},ZMMWORD PTR [rsi+r9*4]",vec_load,zmm
+0.0,b0ce121,vmovups,"zmm1{k2}{z},ZMMWORD PTR [rdi+r9*4]",vec_load,zmm
+0.0,b0ce128,vmovups,"zmm3{k2}{z},ZMMWORD PTR [r8+r9*4]",vec_load,zmm
+0.0,b0ce12f,vfmadd213ps,"zmm2,zmm6,zmm7",fma,zmm
+0.0,b0ce135,vfmadd213ps,"zmm4,zmm1,zmm2",fma,zmm
+0.0,b0ce13b,vfmadd213ps,"zmm8,zmm3,zmm4",fma,zmm
+0.0,b0ce141,vfmadd132ps,"zmm9{k2}{z},zmm8,ZMMWORD PTR [r10+r9*4]",fma,zmm
+0.0,b0ce148,vmovups,"ZMMWORD PTR [r11+r9*4]{k2},zmm9",vec_store,zmm
+0.0,b0ce14f,cmp,"r12,rax",int/addr,
+0.0,b0ce152,jle,b0cdb19 <mkl_blas_avx512_xsgemv+0x18d9>,branch,
+0.0,b0ce158,sub,"r12,rax",int/addr,
+0.0,b0ce15b,mov,"ecx,0x1",int/addr,
+0.0,b0ce160,mov,"r10,r12",int/addr,
+0.0,b0ce163,xor,"edx,edx",int/addr,
+0.0,b0ce165,shr,"r10,1",int/addr,
+0.0,b0ce168,cmp,"r10,0x1",int/addr,
+0.0,b0ce16c,jb,b0ce2bd <mkl_blas_avx512_xsgemv+0x207d>,branch,
+0.0,b0ce172,mov,"r8,rbx",int/addr,
+0.0,b0ce175,mov,"rsi,r14",int/addr,
+0.0,b0ce178,imul,"r8,rax",int/addr,
+0.0,b0ce17c,vmovdqu32,"zmm2,ZMMWORD PTR [rip+0x78ce5fa]        # 1299c780 <__NLITPACK_0.0.1+0x380>",vec_load,zmm
+0.0,b0ce186,vmovdqu32,"zmm1,ZMMWORD PTR [rip+0x78ce630]        # 1299c7c0 <__NLITPACK_0.0.1+0x3c0>",vec_load,zmm
+0.0,b0ce190,sub,"rsi,rbx",int/addr,
+0.0,b0ce193,mov,"rcx,QWORD PTR [rbp+0x10]",gpr_load,
+0.0,b0ce197,mov,"QWORD PTR [rsp],rax",gpr_store,
+0.0,b0ce19b,mov,"QWORD PTR [rsp+0xa8],r14",gpr_store,
+0.0,b0ce1a3,mov,"QWORD PTR [rsp+0xc0],r12",gpr_store,
+0.0,b0ce1ab,lea,"r9,[rsi+r15*8]",int/addr,
+0.0,b0ce1af,mov,"rsi,r13",int/addr,
+0.0,b0ce1b2,lea,"rdi,[rcx+rax*4]",int/addr,
+0.0,b0ce1b6,mov,"QWORD PTR [rsp+0xb8],rbx",gpr_store,
+0.0,b0ce1be,and,"rsi,0xfffffffffffffff0",int/addr,
+0.0,b0ce1c2,mov,"rax,QWORD PTR [rbp+0x28]",gpr_load,
+0.0,b0ce1c6,add,"r9,r8",int/addr,
+0.0,b0ce1c9,add,"r8,r14",int/addr,
+0.0,b0ce1cc,xor,"ecx,ecx",int/addr,
+0.0,b0ce1ce,vmulss,"xmm6,xmm0,DWORD PTR [rdi+rdx*8]",scalar_fp,xmm
+0.0,b0ce1d3,vmulss,"xmm5,xmm0,DWORD PTR [rdi+rdx*8+0x4]",scalar_fp,xmm
+0.0,b0ce1d9,test,"r13,r13",int/addr,
+0.0,b0ce1dc,jle,b0ce28c <mkl_blas_avx512_xsgemv+0x204c>,branch,
+0.0,b0ce1e2,cmp,"r13,0x10",int/addr,
+0.0,b0ce1e6,jl,b0ce39c <mkl_blas_avx512_xsgemv+0x215c>,branch,
+0.0,b0ce1ec,vbroadcastss,"zmm4,xmm5",broadcast,zmm
+0.0,b0ce1f2,mov,"rbx,rsi",int/addr,
+0.0,b0ce1f5,vbroadcastss,"zmm3,xmm6",broadcast,zmm
+0.0,b0ce1fb,xor,"r14d,r14d",int/addr,
+0.0,b0ce1fe,lea,"r12,[r8+rcx*1]",int/addr,
+0.0,b0ce202,lea,"r11,[r9+rcx*1]",int/addr,
+0.0,b0ce206,vmovups,"zmm7,ZMMWORD PTR [r12+r14*4]",vec_load,zmm
+0.0,b0ce20d,vfmadd213ps,"zmm7,zmm3,ZMMWORD PTR [rax+r14*4]",fma,zmm
+0.0,b0ce214,vfmadd231ps,"zmm7,zmm4,ZMMWORD PTR [r11+r14*4]",fma,zmm
+0.0,b0ce21b,vmovups,"ZMMWORD PTR [rax+r14*4],zmm7",vec_store,zmm
+0.0,b0ce222,add,"r14,0x10",int/addr,
+0.0,b0ce226,cmp,"r14,rsi",int/addr,
+0.0,b0ce229,jb,b0ce206 <mkl_blas_avx512_xsgemv+0x1fc6>,branch,
+0.0,b0ce22b,lea,"r11,[rbx+0x1]",int/addr,
+0.0,b0ce22f,cmp,"r11,r13",int/addr,
+0.0,b0ce232,ja,b0ce28c <mkl_blas_avx512_xsgemv+0x204c>,branch,
+0.0,b0ce234,mov,"r11,r13",int/addr,
+0.0,b0ce237,lea,"r12,[r8+rbx*4]",int/addr,
+0.0,b0ce23b,sub,"r11,rbx",int/addr,
+0.0,b0ce23e,lea,"r14,[r9+rbx*4]",int/addr,
+0.0,b0ce242,vbroadcastss,"zmm8,xmm5",broadcast,zmm
+0.0,b0ce248,vpbroadcastq,"zmm5,r11",broadcast,zmm
+0.0,b0ce24e,vbroadcastss,"zmm6,xmm6",broadcast,zmm
+0.0,b0ce254,vpcmpgtq,"k1,zmm5,zmm2",compare/mask,zmm
+0.0,b0ce25a,vpcmpgtq,"k0,zmm5,zmm1",compare/mask,zmm
+0.0,b0ce260,kunpckbw,"k2,k0,k1",compare/mask,
+0.0,b0ce264,vmovups,"zmm4{k2}{z},ZMMWORD PTR [rax+rbx*4]",vec_load,zmm
+0.0,b0ce26b,vmovups,"zmm3{k2}{z},ZMMWORD PTR [r12+rcx*1]",vec_load,zmm
+0.0,b0ce272,vfmadd213ps,"zmm6,zmm3,zmm4",fma,zmm
+0.0,b0ce278,vmovaps,"zmm7{k2}{z},zmm6",shuffle/permute,zmm
+0.0,b0ce27e,vfmadd132ps,"zmm8{k2}{z},zmm7,ZMMWORD PTR [r14+rcx*1]",fma,zmm
+0.0,b0ce285,vmovups,"ZMMWORD PTR [rax+rbx*4]{k2},zmm8",vec_store,zmm
+0.0,b0ce28c,inc,rdx,int/addr,
+0.0,b0ce28f,lea,"rcx,[rcx+r15*8]",int/addr,
+0.0,b0ce293,cmp,"rdx,r10",int/addr,
+0.0,b0ce296,jb,b0ce1ce <mkl_blas_avx512_xsgemv+0x1f8e>,branch,
+0.0,b0ce29c,mov,"r14,QWORD PTR [rsp+0xa8]",gpr_load,
+0.0,b0ce2a4,lea,"rcx,[rdx+rdx*1+0x1]",int/addr,
+0.0,b0ce2a9,mov,"r12,QWORD PTR [rsp+0xc0]",gpr_load,
+0.0,b0ce2b1,mov,"rax,QWORD PTR [rsp]",gpr_load,
+0.0,b0ce2b5,mov,"rbx,QWORD PTR [rsp+0xb8]",gpr_load,
+0.0,b0ce2bd,sub,"r12,rcx",int/addr,
+0.0,b0ce2c0,inc,r12,int/addr,
+0.0,b0ce2c3,je,b0cdb19 <mkl_blas_avx512_xsgemv+0x18d9>,branch,
+0.0,b0ce2c9,add,"rax,rcx",int/addr,
+0.0,b0ce2cc,mov,"rdx,QWORD PTR [rbp+0x10]",gpr_load,
+0.0,b0ce2d0,vmulss,"xmm1,xmm0,DWORD PTR [rdx+rax*4-0x4]",scalar_fp,xmm
+0.0,b0ce2d6,test,"r13,r13",int/addr,
+0.0,b0ce2d9,jle,b0cdb19 <mkl_blas_avx512_xsgemv+0x18d9>,branch,
+0.0,b0ce2df,cmp,"r13,0x10",int/addr,
+0.0,b0ce2e3,jl,b0cec6b <mkl_blas_avx512_xsgemv+0x2a2b>,branch,
+0.0,b0ce2e9,mov,"rdi,rbx",int/addr,
+0.0,b0ce2ec,mov,"rdx,r14",int/addr,
+0.0,b0ce2ef,imul,"rdi,rax",int/addr,
+0.0,b0ce2f3,vbroadcastss,"zmm0,xmm1",broadcast,zmm
+0.0,b0ce2f9,mov,"rsi,r13",int/addr,
+0.0,b0ce2fc,sub,"rdx,rbx",int/addr,
+0.0,b0ce2ff,and,"rsi,0xfffffffffffffff0",int/addr,
+0.0,b0ce303,xor,"ecx,ecx",int/addr,
+0.0,b0ce305,add,"rdx,rdi",int/addr,
+0.0,b0ce308,mov,"rdi,QWORD PTR [rbp+0x28]",gpr_load,
+0.0,b0ce30c,vmovups,"zmm2,ZMMWORD PTR [rdx+rcx*4]",vec_load,zmm
+0.0,b0ce313,vfmadd213ps,"zmm2,zmm0,ZMMWORD PTR [rdi+rcx*4]",fma,zmm
+0.0,b0ce31a,vmovups,"ZMMWORD PTR [rdi+rcx*4],zmm2",vec_store,zmm
+0.0,b0ce321,add,"rcx,0x10",int/addr,
+0.0,b0ce325,cmp,"rcx,rsi",int/addr,
+0.0,b0ce328,jb,b0ce30c <mkl_blas_avx512_xsgemv+0x20cc>,branch,
+0.0,b0ce32a,lea,"rdx,[rsi+0x1]",int/addr,
+0.0,b0ce32e,cmp,"rdx,r13",int/addr,
+0.0,b0ce331,ja,b0cdb19 <mkl_blas_avx512_xsgemv+0x18d9>,branch,
+0.0,b0ce337,sub,"r14,rbx",int/addr,
+0.0,b0ce33a,sub,"r13,rsi",int/addr,
+0.0,b0ce33d,imul,"rbx,rax",int/addr,
+0.0,b0ce341,vpbroadcastq,"zmm0,r13",broadcast,zmm
+0.0,b0ce347,vbroadcastss,"zmm2,xmm1",broadcast,zmm
+0.0,b0ce34d,vpcmpgtq,"k1,zmm0,ZMMWORD PTR [rip+0x78ce429]        # 1299c780 <__NLITPACK_0.0.1+0x380>",compare/mask,zmm
+0.0,b0ce357,vpcmpgtq,"k0,zmm0,ZMMWORD PTR [rip+0x78ce45f]        # 1299c7c0 <__NLITPACK_0.0.1+0x3c0>",compare/mask,zmm
+0.0,b0ce361,add,"r14,rbx",int/addr,
+0.0,b0ce364,kunpckbw,"k2,k0,k1",compare/mask,
+0.0,b0ce368,mov,"rax,QWORD PTR [rbp+0x28]",gpr_load,
+0.0,b0ce36c,vmovups,"zmm1{k2}{z},ZMMWORD PTR [r14+rsi*4]",vec_load,zmm
+0.0,b0ce373,vfmadd213ps,"zmm2{k2}{z},zmm1,ZMMWORD PTR [rax+rsi*4]",fma,zmm
+0.0,b0ce37a,vmovups,"ZMMWORD PTR [rax+rsi*4]{k2},zmm2",vec_store,zmm
+0.0,b0ce381,jmp,b0cdb19 <mkl_blas_avx512_xsgemv+0x18d9>,branch,
+0.0,b0ce386,xor,"r9d,r9d",int/addr,
+0.0,b0ce389,jmp,b0ce08c <mkl_blas_avx512_xsgemv+0x1e4c>,branch,
+0.0,b0ce38e,xor,"eax,eax",int/addr,
+0.0,b0ce390,jmp,b0cde2e <mkl_blas_avx512_xsgemv+0x1bee>,branch,
+0.0,b0ce395,xor,"ecx,ecx",int/addr,
+0.0,b0ce397,jmp,b0cd98f <mkl_blas_avx512_xsgemv+0x174f>,branch,
+0.0,b0ce39c,xor,"ebx,ebx",int/addr,
+0.0,b0ce39e,jmp,b0ce22b <mkl_blas_avx512_xsgemv+0x1feb>,branch,
+0.0,b0ce3a3,xor,"r8d,r8d",int/addr,
+0.0,b0ce3a6,jmp,b0cd3de <mkl_blas_avx512_xsgemv+0x119e>,branch,
+0.0,b0ce3ab,cmp,"r8,0x1",int/addr,
+0.0,b0ce3af,jne,b0ccf2c <mkl_blas_avx512_xsgemv+0xcec>,branch,
+0.0,b0ce3b5,mov,"rax,r12",int/addr,
+0.0,b0ce3b8,xor,"ecx,ecx",int/addr,
+0.0,b0ce3ba,sar,"rax,1",int/addr,
+0.0,b0ce3bd,xor,"edx,edx",int/addr,
+0.0,b0ce3bf,shr,"rax,0x3e",int/addr,
+0.0,b0ce3c3,xor,"edi,edi",int/addr,
+0.0,b0ce3c5,add,"rax,r12",int/addr,
+0.0,b0ce3c8,and,"rax,0xfffffffffffffffc",int/addr,
+0.0,b0ce3cc,jle,b0ce836 <mkl_blas_avx512_xsgemv+0x25f6>,branch,
+0.0,b0ce3d2,mov,"rsi,QWORD PTR [rbp+0x10]",gpr_load,
+0.0,b0ce3d6,mov,"r11,r15",int/addr,
+0.0,b0ce3d9,shl,"r11,0x4",int/addr,
+0.0,b0ce3dd,lea,"r10,[r13-0x1]",int/addr,
+0.0,b0ce3e1,mov,"QWORD PTR [rsp+0x30],r11",gpr_store,
+0.0,b0ce3e6,lea,"r9,[rbx+rbx*2]",int/addr,
+0.03,b0ce3ea,vmovss,"xmm8,DWORD PTR [rsi]",vec_load,xmm
+0.0,b0ce3ee,mov,"rsi,r14",int/addr,
+0.0,b0ce3f1,sub,"rsi,rbx",int/addr,
+0.0,b0ce3f4,add,"r9,rsi",int/addr,
+0.0,b0ce3f7,mov,"QWORD PTR [rsp],0x0",gpr_store,
+0.0,b0ce3ff,mov,"QWORD PTR [rsp+0xd0],r13",gpr_store,
+0.03,b0ce407,vmovdqu32,"zmm7,ZMMWORD PTR [rip+0x78ce36f]        # 1299c780 <__NLITPACK_0.0.1+0x380>",vec_load,zmm
+0.0,b0ce411,lea,"r8,[rsi+r15*8]",int/addr,
+0.03,b0ce415,vmovdqu32,"zmm9,ZMMWORD PTR [rip+0x78ce3a1]        # 1299c7c0 <__NLITPACK_0.0.1+0x3c0>",vec_load,zmm
+0.0,b0ce41f,add,"rsi,r11",int/addr,
+0.0,b0ce422,mov,"r11,r10",int/addr,
+0.0,b0ce425,and,"r11,0xfffffffffffffff0",int/addr,
+0.0,b0ce429,mov,"QWORD PTR [rsp+0x10],r11",gpr_store,
+0.0,b0ce42e,lea,"r11,[rax+0x3]",int/addr,
+0.0,b0ce432,shr,"r11,0x2",int/addr,
+0.0,b0ce436,mov,"QWORD PTR [rsp+0x8],rax",gpr_store,
+0.0,b0ce43b,mov,"QWORD PTR [rsp+0xc0],r12",gpr_store,
+0.0,b0ce443,mov,"QWORD PTR [rsp+0x20],r11",gpr_store,
+0.0,b0ce448,mov,"QWORD PTR [rsp+0x28],r10",gpr_store,
+0.0,b0ce44d,mov,"QWORD PTR [rsp+0xb8],rbx",gpr_store,
+0.0,b0ce455,mov,"QWORD PTR [rsp+0xc8],r15",gpr_store,
+0.0,b0ce45d,mov,"r13,QWORD PTR [rsp]",gpr_load,
+0.0,b0ce461,vmulss,"xmm1,xmm8,DWORD PTR [r14+rdx*4]",scalar_fp,xmm
+0.29,b0ce467,vmulss,"xmm2,xmm8,DWORD PTR [r8+rdx*4]",scalar_fp,xmm
+0.18,b0ce46d,vmulss,"xmm22,xmm8,DWORD PTR [r9+rdx*4]",scalar_fp,xmm
+0.44,b0ce474,vmulss,"xmm6,xmm8,DWORD PTR [rsi+rdx*4]",scalar_fp,xmm
+0.0,b0ce479,cmp,"QWORD PTR [rsp+0xd0],0x2",int/addr,
+0.0,b0ce482,jl,b0ce7ba <mkl_blas_avx512_xsgemv+0x257a>,branch,
+0.03,b0ce488,cmp,"QWORD PTR [rsp+0x28],0x10",int/addr,
+0.03,b0ce48e,jl,b0cec63 <mkl_blas_avx512_xsgemv+0x2a23>,branch,
+0.0,b0ce494,mov,"eax,0x1",int/addr,
+0.0,b0ce499,xor,"ebx,ebx",int/addr,
+0.03,b0ce49b,kmovw,"k1,eax",compare/mask,
+0.0,b0ce49f,lea,"r10,[r9+r13*1]",int/addr,
+0.0,b0ce4a3,vmovss,"DWORD PTR [rsp+0x38],xmm1",vec_store,xmm
+0.0,b0ce4a9,vmovss,"DWORD PTR [rsp+0x3c],xmm2",vec_store,xmm
+0.0,b0ce4af,lea,"r11,[r8+r13*1]",int/addr,
+0.0,b0ce4b3,vmovss,"DWORD PTR [rsp+0x40],xmm22",vec_store,xmm
+0.0,b0ce4bb,lea,"r12,[r14+r13*1]",int/addr,
+0.0,b0ce4bf,vmovss,"DWORD PTR [rsp+0x44],xmm6",vec_store,xmm
+0.03,b0ce4c5,lea,"rax,[rsi+r13*1]",int/addr,
+0.0,b0ce4c9,mov,"r15,QWORD PTR [rsp+0x10]",gpr_load,
+0.0,b0ce4ce,mov,"QWORD PTR [rsp],rcx",gpr_store,
+0.0,b0ce4d2,vbroadcastss,"zmm4{k1}{z},DWORD PTR [rsp+0x38]",broadcast,zmm
+0.1,b0ce4da,vbroadcastss,"zmm5{k1}{z},DWORD PTR [rsp+0x3c]",broadcast,zmm
+0.0,b0ce4e2,vbroadcastss,"zmm2{k1}{z},DWORD PTR [rsp+0x40]",broadcast,zmm
+0.05,b0ce4ea,vbroadcastss,"zmm1{k1}{z},DWORD PTR [rsp+0x44]",broadcast,zmm
+0.0,b0ce4f2,mov,"QWORD PTR [rsp+0x18],rdx",gpr_store,
+0.0,b0ce4f7,mov,"rdx,r15",int/addr,
+0.0,b0ce4fa,mov,"rcx,QWORD PTR [rbp+0x10]",gpr_load,
+1.3,b0ce4fe,vmovups,"zmm3,ZMMWORD PTR [rcx+rbx*4+0x4]",vec_load,zmm
+21.46,b0ce509,vfmadd231ps,"zmm4,zmm3,ZMMWORD PTR [r12+rbx*4+0x4]",fma,zmm
+25.01,b0ce514,vfmadd231ps,"zmm5,zmm3,ZMMWORD PTR [r11+rbx*4+0x4]",fma,zmm
+20.92,b0ce51f,vfmadd231ps,"zmm2,zmm3,ZMMWORD PTR [r10+rbx*4+0x4]",fma,zmm
+22.27,b0ce52a,vfmadd231ps,"zmm1,zmm3,ZMMWORD PTR [rax+rbx*4+0x4]",fma,zmm
+1.76,b0ce535,add,"rbx,0x10",int/addr,
+0.0,b0ce539,cmp,"rbx,rdx",int/addr,
+3.27,b0ce53c,jb,b0ce4fe <mkl_blas_avx512_xsgemv+0x22be>,branch,
+0.0,b0ce53e,vmovups,"zmm3,ZMMWORD PTR [rip+0x78ce2f8]        # 1299c840 <__NLITPACK_0.0.1+0x440>",vec_load,zmm
+0.05,b0ce548,vpermd,"zmm6,zmm3,zmm1",shuffle/permute,zmm
+0.1,b0ce54e,vpermd,"zmm16,zmm3,zmm2",shuffle/permute,zmm
+0.0,b0ce554,vpermd,"zmm23,zmm3,zmm5",shuffle/permute,zmm
+0.0,b0ce55a,vpermd,"zmm29,zmm3,zmm4",shuffle/permute,zmm
+0.03,b0ce560,vaddps,"zmm11,zmm6,zmm1",vec_arith,zmm
+0.1,b0ce566,vaddps,"zmm17,zmm16,zmm2",vec_arith,zmm
+0.05,b0ce56c,vaddps,"zmm24,zmm23,zmm5",vec_arith,zmm
+0.0,b0ce572,vaddps,"zmm30,zmm29,zmm4",vec_arith,zmm
+0.0,b0ce578,vmovups,"zmm1,ZMMWORD PTR [rip+0x78ce2fe]        # 1299c880 <__NLITPACK_0.0.1+0x480>",vec_load,zmm
+0.03,b0ce582,vpermd,"zmm10,zmm1,zmm11",shuffle/permute,zmm
+0.0,b0ce588,vpermd,"zmm2,zmm1,zmm17",shuffle/permute,zmm
+0.0,b0ce58e,vpermd,"zmm5,zmm1,zmm24",shuffle/permute,zmm
+0.0,b0ce594,vpermd,"zmm4,zmm1,zmm30",shuffle/permute,zmm
+0.1,b0ce59a,vaddps,"zmm12,zmm10,zmm11",vec_arith,zmm
+0.03,b0ce5a0,vaddps,"zmm18,zmm2,zmm17",vec_arith,zmm
+0.03,b0ce5a6,vaddps,"zmm25,zmm5,zmm24",vec_arith,zmm
+0.0,b0ce5ac,vaddps,"zmm31,zmm4,zmm30",vec_arith,zmm
+0.08,b0ce5b2,vpshufd,"zmm13,zmm12,0x4e",shuffle/permute,zmm
+0.03,b0ce5b9,vpshufd,"zmm19,zmm18,0x4e",shuffle/permute,zmm
+0.0,b0ce5c0,vpshufd,"zmm26,zmm25,0x4e",shuffle/permute,zmm
+0.0,b0ce5c7,vpshufd,"zmm1,zmm31,0x4e",shuffle/permute,zmm
+0.13,b0ce5ce,vaddps,"zmm14,zmm12,zmm13",vec_arith,zmm
+0.1,b0ce5d4,vaddps,"zmm20,zmm18,zmm19",vec_arith,zmm
+0.05,b0ce5da,vaddps,"zmm27,zmm25,zmm26",vec_arith,zmm
+0.0,b0ce5e0,vaddps,"zmm3,zmm31,zmm1",vec_arith,zmm
+0.0,b0ce5e6,vpshufd,"zmm15,zmm14,0xb1",shuffle/permute,zmm
+0.0,b0ce5ed,vpshufd,"zmm21,zmm20,0xb1",shuffle/permute,zmm
+0.0,b0ce5f4,vpshufd,"zmm28,zmm27,0xb1",shuffle/permute,zmm
+0.0,b0ce5fb,vpshufd,"zmm4,zmm3,0xb1",shuffle/permute,zmm
+0.16,b0ce602,vaddps,"zmm6,zmm14,zmm15",vec_arith,zmm
+0.05,b0ce608,vaddps,"zmm22,zmm20,zmm21",vec_arith,zmm
+0.05,b0ce60e,vaddps,"zmm2,zmm27,zmm28",vec_arith,zmm
+0.03,b0ce614,vaddps,"zmm1,zmm3,zmm4",vec_arith,zmm
+0.03,b0ce61a,mov,"rdx,QWORD PTR [rsp+0x18]",gpr_load,
+0.0,b0ce61f,mov,"rcx,QWORD PTR [rsp]",gpr_load,
+0.0,b0ce623,lea,"rax,[r15+0x1]",int/addr,
+0.0,b0ce627,cmp,"rax,QWORD PTR [rsp+0x28]",int/addr,
+0.0,b0ce62c,ja,b0ce7ba <mkl_blas_avx512_xsgemv+0x257a>,branch,
+0.0,b0ce632,mov,"eax,0x1",int/addr,
+0.0,b0ce637,lea,"r10,[r14+r15*4]",int/addr,
+0.0,b0ce63b,kmovw,"k1,eax",compare/mask,
+0.0,b0ce63f,lea,"r11,[r8+r15*4]",int/addr,
+0.03,b0ce643,vmovss,"DWORD PTR [rsp+0x48],xmm1",vec_store,xmm
+0.0,b0ce649,mov,"rax,QWORD PTR [rsp+0x28]",gpr_load,
+0.0,b0ce64e,lea,"r12,[r9+r15*4]",int/addr,
+0.0,b0ce652,sub,"rax,r15",int/addr,
+0.0,b0ce655,vpbroadcastq,"zmm1,rax",broadcast,zmm
+0.0,b0ce65b,vmovss,"DWORD PTR [rsp+0x4c],xmm2",vec_store,xmm
+0.0,b0ce661,vmovss,"DWORD PTR [rsp+0x50],xmm22",vec_store,xmm
+0.0,b0ce669,vpcmpgtq,"k2,zmm1,zmm7",compare/mask,zmm
+0.0,b0ce66f,vpcmpgtq,"k0,zmm1,zmm9",compare/mask,zmm
+0.0,b0ce675,vmovss,"DWORD PTR [rsp+0x54],xmm6",vec_store,xmm
+0.0,b0ce67b,vmovups,"zmm5,ZMMWORD PTR [rip+0x78ce1bb]        # 1299c840 <__NLITPACK_0.0.1+0x440>",vec_load,zmm
+0.0,b0ce685,vmovups,"zmm4,ZMMWORD PTR [rip+0x78ce1f1]        # 1299c880 <__NLITPACK_0.0.1+0x480>",vec_load,zmm
+0.1,b0ce68f,vbroadcastss,"zmm10{k1}{z},DWORD PTR [rsp+0x48]",broadcast,zmm
+0.05,b0ce697,vbroadcastss,"zmm17{k1}{z},DWORD PTR [rsp+0x4c]",broadcast,zmm
+0.03,b0ce69f,vbroadcastss,"zmm3{k1}{z},DWORD PTR [rsp+0x50]",broadcast,zmm
+0.1,b0ce6a7,vbroadcastss,"zmm26{k1}{z},DWORD PTR [rsp+0x54]",broadcast,zmm
+0.0,b0ce6af,kunpckbw,"k3,k0,k2",compare/mask,
+0.03,b0ce6b3,mov,"rbx,QWORD PTR [rbp+0x10]",gpr_load,
+0.0,b0ce6b7,vmovups,"zmm24{k3}{z},ZMMWORD PTR [rbx+r15*4+0x4]",vec_load,zmm
+0.0,b0ce6c2,lea,"r15,[rsi+r15*4]",int/addr,
+0.05,b0ce6c6,vfmadd231ps,"zmm10{k3},zmm24,ZMMWORD PTR [r10+r13*1+0x4]",fma,zmm
+0.03,b0ce6d1,vfmadd231ps,"zmm17{k3},zmm24,ZMMWORD PTR [r11+r13*1+0x4]",fma,zmm
+0.03,b0ce6dc,vfmadd231ps,"zmm3{k3},zmm24,ZMMWORD PTR [r12+r13*1+0x4]",fma,zmm
+0.05,b0ce6e7,vfmadd231ps,"zmm26{k3},zmm24,ZMMWORD PTR [r15+r13*1+0x4]",fma,zmm
+0.03,b0ce6f2,vpermd,"zmm2,zmm5,zmm10",shuffle/permute,zmm
+0.03,b0ce6f8,vpermd,"zmm16,zmm5,zmm17",shuffle/permute,zmm
+0.0,b0ce6fe,vpermd,"zmm25,zmm5,zmm26",shuffle/permute,zmm
+0.03,b0ce704,vpermd,"zmm5,zmm5,zmm3",shuffle/permute,zmm
+0.0,b0ce70a,vaddps,"zmm11,zmm2,zmm10",vec_arith,zmm
+0.03,b0ce710,vaddps,"zmm19,zmm16,zmm17",vec_arith,zmm
+0.05,b0ce716,vaddps,"zmm28,zmm25,zmm26",vec_arith,zmm
+0.0,b0ce71c,vaddps,"zmm3,zmm5,zmm3",vec_arith,zmm
+0.0,b0ce722,vpermd,"zmm6,zmm4,zmm11",shuffle/permute,zmm
+0.0,b0ce728,vpermd,"zmm18,zmm4,zmm19",shuffle/permute,zmm
+0.05,b0ce72e,vpermd,"zmm27,zmm4,zmm28",shuffle/permute,zmm
+0.0,b0ce734,vpermd,"zmm4,zmm4,zmm3",shuffle/permute,zmm
+0.03,b0ce73a,vaddps,"zmm12,zmm6,zmm11",vec_arith,zmm
+0.05,b0ce740,vaddps,"zmm20,zmm18,zmm19",vec_arith,zmm
+0.13,b0ce746,vaddps,"zmm29,zmm27,zmm28",vec_arith,zmm
+0.0,b0ce74c,vaddps,"zmm10,zmm4,zmm3",vec_arith,zmm
+0.0,b0ce752,vpshufd,"zmm13,zmm12,0x4e",shuffle/permute,zmm
+0.03,b0ce759,vpshufd,"zmm21,zmm20,0x4e",shuffle/permute,zmm
+0.03,b0ce760,vpshufd,"zmm30,zmm29,0x4e",shuffle/permute,zmm
+0.0,b0ce767,vpshufd,"zmm11,zmm10,0x4e",shuffle/permute,zmm
+0.05,b0ce76e,vaddps,"zmm14,zmm12,zmm13",vec_arith,zmm
+0.0,b0ce774,vaddps,"zmm22,zmm20,zmm21",vec_arith,zmm
+0.1,b0ce77a,vaddps,"zmm31,zmm29,zmm30",vec_arith,zmm
+0.05,b0ce780,vaddps,"zmm12,zmm10,zmm11",vec_arith,zmm
+0.0,b0ce786,vpshufd,"zmm15,zmm14,0xb1",shuffle/permute,zmm
+0.03,b0ce78d,vpshufd,"zmm23,zmm22,0xb1",shuffle/permute,zmm
+0.0,b0ce794,vpshufd,"zmm6,zmm31,0xb1",shuffle/permute,zmm
+0.0,b0ce79b,vpshufd,"zmm13,zmm12,0xb1",shuffle/permute,zmm
+0.03,b0ce7a2,vaddps,"zmm1,zmm14,zmm15",vec_arith,zmm
+0.08,b0ce7a8,vaddps,"zmm2,zmm22,zmm23",vec_arith,zmm
+0.05,b0ce7ae,vaddps,"zmm6,zmm31,zmm6",vec_arith,zmm
+0.0,b0ce7b4,vaddps,"zmm22,zmm12,zmm13",vec_arith,zmm
+0.0,b0ce7ba,mov,"rax,QWORD PTR [rbp+0x28]",gpr_load,
+0.0,b0ce7be,inc,rcx,int/addr,
+0.0,b0ce7c1,mov,"rbx,QWORD PTR [rsp+0xc8]",gpr_load,
+0.03,b0ce7c9,add,"r13,QWORD PTR [rsp+0x30]",int/addr,
+0.0,b0ce7ce,vfmadd213ss,"xmm1,xmm0,DWORD PTR [rdi+rax*1]",fma,xmm
+0.03,b0ce7d4,vfmadd213ss,"xmm2,xmm0,DWORD PTR [rdi+rax*1+0x4]",fma,xmm
+0.05,b0ce7db,vfmadd213ss,"xmm22,xmm0,DWORD PTR [rdi+rax*1+0x8]",fma,xmm
+0.03,b0ce7e3,vfmadd213ss,"xmm6,xmm0,DWORD PTR [rdi+rax*1+0xc]",fma,xmm
+0.0,b0ce7ea,vmovss,"DWORD PTR [rdi+rax*1],xmm1",vec_store,xmm
+0.0,b0ce7ef,vmovss,"DWORD PTR [rdi+rax*1+0x4],xmm2",vec_store,xmm
+0.03,b0ce7f5,vmovss,"DWORD PTR [rdi+rax*1+0x8],xmm22",vec_store,xmm
+0.0,b0ce7fd,vmovss,"DWORD PTR [rdi+rax*1+0xc],xmm6",vec_store,xmm
+0.0,b0ce803,add,"rdi,0x10",int/addr,
+0.0,b0ce807,lea,"rdx,[rdx+rbx*4]",int/addr,
+0.0,b0ce80b,cmp,"rcx,QWORD PTR [rsp+0x20]",int/addr,
+0.05,b0ce810,jb,b0ce461 <mkl_blas_avx512_xsgemv+0x2221>,branch,
+0.0,b0ce816,mov,"r15,rbx",int/addr,
+0.0,b0ce819,mov,"r13,QWORD PTR [rsp+0xd0]",gpr_load,
+0.0,b0ce821,mov,"rax,QWORD PTR [rsp+0x8]",gpr_load,
+0.0,b0ce826,mov,"r12,QWORD PTR [rsp+0xc0]",gpr_load,
+0.0,b0ce82e,mov,"rbx,QWORD PTR [rsp+0xb8]",gpr_load,
+0.0,b0ce836,cmp,"r12,rax",int/addr,
+0.0,b0ce839,jle,b0cdb19 <mkl_blas_avx512_xsgemv+0x18d9>,branch,
+0.0,b0ce83f,sub,"r12,rax",int/addr,
+0.0,b0ce842,xor,"ecx,ecx",int/addr,
+0.0,b0ce844,mov,"rdx,QWORD PTR [rbp+0x10]",gpr_load,
+0.0,b0ce848,mov,"r11,r12",int/addr,
+0.0,b0ce84b,shr,"r11,1",int/addr,
+0.0,b0ce84e,mov,"esi,0x1",int/addr,
+0.0,b0ce853,xor,"edi,edi",int/addr,
+0.0,b0ce855,vmovss,"xmm3,DWORD PTR [rdx]",vec_load,xmm
+0.0,b0ce859,cmp,"r11,0x1",int/addr,
+0.0,b0ce85d,jb,b0ceb04 <mkl_blas_avx512_xsgemv+0x28c4>,branch,
+0.0,b0ce863,mov,"r8,rbx",int/addr,
+0.0,b0ce866,mov,"rsi,r14",int/addr,
+0.0,b0ce869,imul,"r8,rax",int/addr,
+0.0,b0ce86d,vmovups,"zmm6,ZMMWORD PTR [rip+0x78cde89]        # 1299c700 <__NLITPACK_0.0.1+0x300>",vec_load,zmm
+0.0,b0ce877,vmovdqu32,"zmm1,ZMMWORD PTR [rip+0x78cdeff]        # 1299c780 <__NLITPACK_0.0.1+0x380>",vec_load,zmm
+0.0,b0ce881,vmovdqu32,"zmm2,ZMMWORD PTR [rip+0x78cdf35]        # 1299c7c0 <__NLITPACK_0.0.1+0x3c0>",vec_load,zmm
+0.0,b0ce88b,sub,"rsi,rbx",int/addr,
+0.0,b0ce88e,mov,"rdx,QWORD PTR [rbp+0x28]",gpr_load,
+0.0,b0ce892,mov,"QWORD PTR [rsp+0xd0],r13",gpr_store,
+0.0,b0ce89a,mov,"QWORD PTR [rsp+0xa8],r14",gpr_store,
+0.0,b0ce8a2,mov,"QWORD PTR [rsp+0x8],rax",gpr_store,
+0.0,b0ce8a7,lea,"r9,[rsi+r15*8]",int/addr,
+0.0,b0ce8ab,mov,"QWORD PTR [rsp+0x18],r11",gpr_store,
+0.0,b0ce8b0,lea,"rsi,[r13-0x1]",int/addr,
+0.0,b0ce8b4,mov,"r10,rsi",int/addr,
+0.0,b0ce8b7,lea,"rdx,[rdx+rax*4]",int/addr,
+0.0,b0ce8bb,mov,"QWORD PTR [rsp],rdx",gpr_store,
+0.0,b0ce8bf,and,"r10,0xffffffffffffffe0",int/addr,
+0.0,b0ce8c3,mov,"QWORD PTR [rsp+0x10],r10",gpr_store,
+0.0,b0ce8c8,add,"r9,r8",int/addr,
+0.0,b0ce8cb,mov,"QWORD PTR [rsp+0xc0],r12",gpr_store,
+0.0,b0ce8d3,add,"r8,r14",int/addr,
+0.0,b0ce8d6,mov,"QWORD PTR [rsp+0xb8],rbx",gpr_store,
+0.0,b0ce8de,xor,"edx,edx",int/addr,
+0.0,b0ce8e0,mov,"r13,QWORD PTR [rsp]",gpr_load,
+0.0,b0ce8e4,vmulss,"xmm5,xmm3,DWORD PTR [r8+rdi*2]",scalar_fp,xmm
+0.0,b0ce8ea,vmulss,"xmm4,xmm3,DWORD PTR [r9+rdi*2]",scalar_fp,xmm
+0.0,b0ce8f0,cmp,"QWORD PTR [rsp+0xd0],0x2",int/addr,
+0.0,b0ce8f9,jl,b0ceaa8 <mkl_blas_avx512_xsgemv+0x2868>,branch,
+0.0,b0ce8ff,vpxord,"zmm11,zmm11,zmm11",vec_arith,zmm
+0.0,b0ce905,vmovaps,"zmm10,zmm11",shuffle/permute,zmm
+0.0,b0ce90b,cmp,"rsi,0x20",int/addr,
+0.0,b0ce90f,jl,b0cec54 <mkl_blas_avx512_xsgemv+0x2a14>,branch,
+0.0,b0ce915,mov,"r12,QWORD PTR [rsp+0x10]",gpr_load,
+0.0,b0ce91a,xor,"r10d,r10d",int/addr,
+0.0,b0ce91d,vmovaps,"zmm7,zmm11",shuffle/permute,zmm
+0.0,b0ce923,lea,"rbx,[r8+rdx*1]",int/addr,
+0.0,b0ce927,mov,"r14,QWORD PTR [rbp+0x10]",gpr_load,
+0.0,b0ce92b,lea,"rax,[r9+rdx*1]",int/addr,
+0.0,b0ce92f,mov,"r11,r12",int/addr,
+0.0,b0ce932,nop,DWORD PTR [rax+0x0],other,
+0.0,b0ce939,nop,DWORD PTR [rax+0x0],other,
+0.0,b0ce940,vmovups,"zmm8,ZMMWORD PTR [r14+r10*4+0x4]",vec_load,zmm
+0.0,b0ce94b,vmovups,"zmm9,ZMMWORD PTR [r14+r10*4+0x44]",vec_load,zmm
+0.0,b0ce956,vfmadd231ps,"zmm10,zmm8,ZMMWORD PTR [rax+r10*4+0x4]",fma,zmm
+0.0,b0ce961,vfmadd231ps,"zmm11,zmm8,ZMMWORD PTR [rbx+r10*4+0x4]",fma,zmm
+0.0,b0ce96c,vfmadd231ps,"zmm7,zmm9,ZMMWORD PTR [rbx+r10*4+0x44]",fma,zmm
+0.0,b0ce977,vfmadd231ps,"zmm10,zmm9,ZMMWORD PTR [rax+r10*4+0x44]",fma,zmm
+0.0,b0ce982,add,"r10,0x20",int/addr,
+0.0,b0ce986,cmp,"r10,r11",int/addr,
+0.0,b0ce989,jb,b0ce940 <mkl_blas_avx512_xsgemv+0x2700>,branch,
+0.0,b0ce98b,vaddps,"zmm11,zmm11,zmm7",vec_arith,zmm
+0.0,b0ce991,lea,"rax,[r12+0x1]",int/addr,
+0.0,b0ce996,cmp,"rax,rsi",int/addr,
+0.0,b0ce999,ja,b0cea26 <mkl_blas_avx512_xsgemv+0x27e6>,branch,
+0.0,b0ce99f,mov,"r14,QWORD PTR [rbp+0x10]",gpr_load,
+0.0,b0ce9a3,mov,"r10,rsi",int/addr,
+0.0,b0ce9a6,sub,"r10,r12",int/addr,
+0.0,b0ce9a9,lea,"rbx,[r8+rdx*1]",int/addr,
+0.0,b0ce9ad,vmovaps,"zmm9,zmm1",shuffle/permute,zmm
+0.0,b0ce9b3,lea,"rax,[r9+rdx*1]",int/addr,
+0.0,b0ce9b7,vmovaps,"zmm8,zmm2",shuffle/permute,zmm
+0.0,b0ce9bd,xor,"r11d,r11d",int/addr,
+0.0,b0ce9c0,vpbroadcastq,"zmm7,r10",broadcast,zmm
+0.0,b0ce9c6,lea,"rbx,[rbx+r12*4]",int/addr,
+0.0,b0ce9ca,lea,"rax,[rax+r12*4]",int/addr,
+0.0,b0ce9ce,lea,"r12,[r14+r12*4]",int/addr,
+0.0,b0ce9d2,nop,DWORD PTR [rax+0x0],other,
+0.0,b0ce9d9,nop,DWORD PTR [rax+0x0],other,
+0.0,b0ce9e0,vpcmpgtq,"k1,zmm7,zmm9",compare/mask,zmm
+0.0,b0ce9e6,vpcmpgtq,"k0,zmm7,zmm8",compare/mask,zmm
+0.0,b0ce9ec,vpaddq,"zmm9,zmm9,zmm6",vec_arith,zmm
+0.0,b0ce9f2,vpaddq,"zmm8,zmm8,zmm6",vec_arith,zmm
+0.0,b0ce9f8,kunpckbw,"k2,k0,k1",compare/mask,
+0.0,b0ce9fc,vmovups,"zmm12{k2}{z},ZMMWORD PTR [r12+r11*4+0x4]",vec_load,zmm
+0.0,b0cea07,vfmadd231ps,"zmm11{k2},zmm12,ZMMWORD PTR [rbx+r11*4+0x4]",fma,zmm
+0.0,b0cea12,vfmadd231ps,"zmm10{k2},zmm12,ZMMWORD PTR [rax+r11*4+0x4]",fma,zmm
+0.0,b0cea1d,add,"r11,0x10",int/addr,
+0.0,b0cea21,cmp,"r11,r10",int/addr,
+0.0,b0cea24,jb,b0ce9e0 <mkl_blas_avx512_xsgemv+0x27a0>,branch,
+0.0,b0cea26,vmovups,"zmm16,ZMMWORD PTR [rip+0x78cde10]        # 1299c840 <__NLITPACK_0.0.1+0x440>",vec_load,zmm
+0.0,b0cea30,vmovups,"zmm18,ZMMWORD PTR [rip+0x78cde46]        # 1299c880 <__NLITPACK_0.0.1+0x480>",vec_load,zmm
+0.0,b0cea3a,vpermd,"zmm7,zmm16,zmm10",shuffle/permute,zmm
+0.0,b0cea40,vpermd,"zmm17,zmm16,zmm11",shuffle/permute,zmm
+0.0,b0cea46,vaddps,"zmm8,zmm7,zmm10",vec_arith,zmm
+0.0,b0cea4c,vaddps,"zmm19,zmm17,zmm11",vec_arith,zmm
+0.0,b0cea52,vpermd,"zmm10,zmm18,zmm8",shuffle/permute,zmm
+0.0,b0cea58,vpermd,"zmm11,zmm18,zmm19",shuffle/permute,zmm
+0.0,b0cea5e,vaddps,"zmm9,zmm10,zmm8",vec_arith,zmm
+0.0,b0cea64,vaddps,"zmm20,zmm11,zmm19",vec_arith,zmm
+0.0,b0cea6a,vpshufd,"zmm12,zmm9,0x4e",shuffle/permute,zmm
+0.0,b0cea71,vpshufd,"zmm21,zmm20,0x4e",shuffle/permute,zmm
+0.0,b0cea78,vaddps,"zmm13,zmm9,zmm12",vec_arith,zmm
+0.0,b0cea7e,vaddps,"zmm22,zmm20,zmm21",vec_arith,zmm
+0.0,b0cea84,vpshufd,"zmm14,zmm13,0xb1",shuffle/permute,zmm
+0.0,b0cea8b,vpshufd,"zmm23,zmm22,0xb1",shuffle/permute,zmm
+0.0,b0cea92,vaddps,"zmm15,zmm13,zmm14",vec_arith,zmm
+0.0,b0cea98,vaddps,"zmm24,zmm22,zmm23",vec_arith,zmm
+0.0,b0cea9e,vaddss,"xmm4,xmm15,xmm4",scalar_fp,xmm
+0.0,b0ceaa2,vaddss,"xmm5,xmm24,xmm5",scalar_fp,xmm
+0.0,b0ceaa8,vfmadd213ss,"xmm5,xmm0,DWORD PTR [r13+rcx*8+0x0]",fma,xmm
+0.0,b0ceaaf,lea,"rdx,[rdx+r15*8]",int/addr,
+0.0,b0ceab3,vfmadd213ss,"xmm4,xmm0,DWORD PTR [r13+rcx*8+0x4]",fma,xmm
+0.0,b0ceaba,vmovss,"DWORD PTR [r13+rcx*8+0x0],xmm5",vec_store,xmm
+0.0,b0ceac1,vmovss,"DWORD PTR [r13+rcx*8+0x4],xmm4",vec_store,xmm
+0.0,b0ceac8,inc,rcx,int/addr,
+0.0,b0ceacb,lea,"rdi,[rdi+r15*4]",int/addr,
+0.0,b0ceacf,cmp,"rcx,QWORD PTR [rsp+0x18]",int/addr,
+0.0,b0cead4,jb,b0ce8e4 <mkl_blas_avx512_xsgemv+0x26a4>,branch,
+0.0,b0ceada,mov,"r13,QWORD PTR [rsp+0xd0]",gpr_load,
+0.0,b0ceae2,lea,"rsi,[rcx+rcx*1+0x1]",int/addr,
+0.0,b0ceae7,mov,"r14,QWORD PTR [rsp+0xa8]",gpr_load,
+0.0,b0ceaef,mov,"rax,QWORD PTR [rsp+0x8]",gpr_load,
+0.0,b0ceaf4,mov,"r12,QWORD PTR [rsp+0xc0]",gpr_load,
+0.0,b0ceafc,mov,"rbx,QWORD PTR [rsp+0xb8]",gpr_load,
+0.0,b0ceb04,sub,"r12,rsi",int/addr,
+0.0,b0ceb07,inc,r12,int/addr,
+0.0,b0ceb0a,je,b0cdb19 <mkl_blas_avx512_xsgemv+0x18d9>,branch,
+0.0,b0ceb10,add,"rax,rsi",int/addr,
+0.0,b0ceb13,sub,"r14,rbx",int/addr,
+0.0,b0ceb16,imul,"rbx,rax",int/addr,
+0.0,b0ceb1a,add,"r14,rbx",int/addr,
+0.0,b0ceb1d,vmulss,"xmm6,xmm3,DWORD PTR [r14]",scalar_fp,xmm
+0.0,b0ceb22,cmp,"r13,0x2",int/addr,
+0.0,b0ceb26,jl,b0cec3e <mkl_blas_avx512_xsgemv+0x29fe>,branch,
+0.0,b0ceb2c,dec,r13,int/addr,
+0.0,b0ceb2f,vpxord,"zmm5,zmm5,zmm5",vec_arith,zmm
+0.0,b0ceb35,cmp,"r13,0x20",int/addr,
+0.0,b0ceb39,jl,b0cec5c <mkl_blas_avx512_xsgemv+0x2a1c>,branch,
+0.0,b0ceb3f,mov,"rsi,r13",int/addr,
+0.0,b0ceb42,xor,"edx,edx",int/addr,
+0.0,b0ceb44,vmovaps,"zmm1,zmm5",shuffle/permute,zmm
+0.0,b0ceb4a,and,"rsi,0xffffffffffffffe0",int/addr,
+0.0,b0ceb4e,mov,"rcx,QWORD PTR [rbp+0x10]",gpr_load,
+0.0,b0ceb52,vmovups,"zmm2,ZMMWORD PTR [rcx+rdx*4+0x4]",vec_load,zmm
+0.0,b0ceb5d,vmovups,"zmm3,ZMMWORD PTR [rcx+rdx*4+0x44]",vec_load,zmm
+0.0,b0ceb68,vfmadd231ps,"zmm5,zmm2,ZMMWORD PTR [r14+rdx*4+0x4]",fma,zmm
+0.0,b0ceb73,vfmadd231ps,"zmm1,zmm3,ZMMWORD PTR [r14+rdx*4+0x44]",fma,zmm
+0.0,b0ceb7e,add,"rdx,0x20",int/addr,
+0.0,b0ceb82,cmp,"rdx,rsi",int/addr,
+0.0,b0ceb85,jb,b0ceb52 <mkl_blas_avx512_xsgemv+0x2912>,branch,
+0.0,b0ceb87,vaddps,"zmm5,zmm5,zmm1",vec_arith,zmm
+0.0,b0ceb8d,lea,"rdx,[rsi+0x1]",int/addr,
+0.0,b0ceb91,cmp,"rdx,r13",int/addr,
+0.0,b0ceb94,ja,b0cec06 <mkl_blas_avx512_xsgemv+0x29c6>,branch,
+0.0,b0ceb96,mov,"rdx,QWORD PTR [rbp+0x10]",gpr_load,
+0.0,b0ceb9a,sub,"r13,rsi",int/addr,
+0.0,b0ceb9d,vmovups,"zmm4,ZMMWORD PTR [rip+0x78cdb59]        # 1299c700 <__NLITPACK_0.0.1+0x300>",vec_load,zmm
+0.0,b0ceba7,xor,"ebx,ebx",int/addr,
+0.0,b0ceba9,vmovdqu32,"zmm3,ZMMWORD PTR [rip+0x78cdbcd]        # 1299c780 <__NLITPACK_0.0.1+0x380>",vec_load,zmm
+0.0,b0cebb3,vmovdqu32,"zmm2,ZMMWORD PTR [rip+0x78cdc03]        # 1299c7c0 <__NLITPACK_0.0.1+0x3c0>",vec_load,zmm
+0.0,b0cebbd,vpbroadcastq,"zmm1,r13",broadcast,zmm
+0.0,b0cebc3,lea,"rcx,[r14+rsi*4]",int/addr,
+0.0,b0cebc7,lea,"rdx,[rdx+rsi*4]",int/addr,
+0.0,b0cebcb,vpcmpgtq,"k1,zmm1,zmm3",compare/mask,zmm
+0.0,b0cebd1,vpcmpgtq,"k0,zmm1,zmm2",compare/mask,zmm
+0.0,b0cebd7,vpaddq,"zmm3,zmm3,zmm4",vec_arith,zmm
+0.0,b0cebdd,vpaddq,"zmm2,zmm2,zmm4",vec_arith,zmm
+0.0,b0cebe3,kunpckbw,"k2,k0,k1",compare/mask,
+0.0,b0cebe7,vmovups,"zmm7{k2}{z},ZMMWORD PTR [rdx+rbx*4+0x4]",vec_load,zmm
+0.0,b0cebf2,vfmadd231ps,"zmm5{k2},zmm7,ZMMWORD PTR [rcx+rbx*4+0x4]",fma,zmm
+0.0,b0cebfd,add,"rbx,0x10",int/addr,
+0.0,b0cec01,cmp,"rbx,r13",int/addr,
+0.0,b0cec04,jb,b0cebcb <mkl_blas_avx512_xsgemv+0x298b>,branch,
+0.0,b0cec06,vshuff32x4,"zmm1,zmm5,zmm5,0xee",shuffle/permute,zmm
+0.0,b0cec0d,vaddps,"zmm3,zmm1,zmm5",vec_arith,zmm
+0.0,b0cec13,vshuff32x4,"zmm2,zmm3,zmm3,0x55",shuffle/permute,zmm
+0.0,b0cec1a,vaddps,"zmm4,zmm2,zmm3",vec_arith,zmm
+0.0,b0cec20,vpshufd,"zmm5,zmm4,0x4e",shuffle/permute,zmm
+0.0,b0cec27,vaddps,"zmm7,zmm4,zmm5",vec_arith,zmm
+0.0,b0cec2d,vpshufd,"zmm8,zmm7,0xb1",shuffle/permute,zmm
+0.0,b0cec34,vaddps,"zmm9,zmm7,zmm8",vec_arith,zmm
+0.0,b0cec3a,vaddss,"xmm6,xmm9,xmm6",scalar_fp,xmm
+0.0,b0cec3e,mov,"rdx,QWORD PTR [rbp+0x28]",gpr_load,
+0.0,b0cec42,vfmadd213ss,"xmm6,xmm0,DWORD PTR [rdx+rax*4-0x4]",fma,xmm
+0.0,b0cec49,vmovss,"DWORD PTR [rdx+rax*4-0x4],xmm6",vec_store,xmm
+0.0,b0cec4f,jmp,b0cdb19 <mkl_blas_avx512_xsgemv+0x18d9>,branch,
+0.0,b0cec54,xor,"r12d,r12d",int/addr,
+0.0,b0cec57,jmp,b0ce991 <mkl_blas_avx512_xsgemv+0x2751>,branch,
+0.0,b0cec5c,xor,"esi,esi",int/addr,
+0.0,b0cec5e,jmp,b0ceb8d <mkl_blas_avx512_xsgemv+0x294d>,branch,
+0.0,b0cec63,xor,"r15d,r15d",int/addr,
+0.0,b0cec66,jmp,b0ce623 <mkl_blas_avx512_xsgemv+0x23e3>,branch,
+0.0,b0cec6b,xor,"esi,esi",int/addr,
+0.0,b0cec6d,jmp,b0ce32a <mkl_blas_avx512_xsgemv+0x20ea>,branch,
+0.0,b0cec72,xor,"esi,esi",int/addr,
+0.0,b0cec74,jmp,b0cc4f8 <mkl_blas_avx512_xsgemv+0x2b8>,branch,
+0.0,b0cec79,test,"rcx,rcx",int/addr,
+0.0,b0cec7c,jle,b0cc523 <mkl_blas_avx512_xsgemv+0x2e3>,branch,
+0.0,b0cec82,mov,"rsi,rcx",int/addr,
+0.0,b0cec85,xor,"edi,edi",int/addr,
+0.0,b0cec87,mov,"eax,0x1",int/addr,
+0.0,b0cec8c,xor,"edx,edx",int/addr,
+0.0,b0cec8e,shr,"rsi,1",int/addr,
+0.0,b0cec91,je,b0cece8 <mkl_blas_avx512_xsgemv+0x2aa8>,branch,
+0.0,b0cec93,mov,"rax,QWORD PTR [rbp+0x28]",gpr_load,
+0.0,b0cec97,lea,"r11,[r8*4+0x0]",int/addr,
+0.0,b0cec9f,neg,r11,int/addr,
+0.0,b0ceca2,add,"r11,rax",int/addr,
+0.0,b0ceca5,lea,"r11,[r11+r8*8]",int/addr,
+0.0,b0ceca9,lea,"r11,[r11+r10*4]",int/addr,
+0.0,b0cecad,mov,"QWORD PTR [rsp],r11",gpr_store,
+0.0,b0cecb1,lea,"r11,[r8*8+0x0]",int/addr,
+0.0,b0cecb9,neg,r11,int/addr,
+0.0,b0cecbc,add,"r11,rax",int/addr,
+0.0,b0cecbf,lea,"rax,[r11+r8*8]",int/addr,
+0.0,b0cecc3,mov,"r11,QWORD PTR [rsp]",gpr_load,
+0.0,b0cecc7,lea,"rax,[rax+r10*4]",int/addr,
+0.0,b0ceccb,inc,rdi,int/addr,
+0.0,b0cecce,vmovss,"DWORD PTR [rax+rdx*8-0x4],xmm2",vec_store,xmm
+0.0,b0cecd4,vmovss,"DWORD PTR [r11+rdx*8-0x4],xmm2",vec_store,xmm
+0.0,b0cecdb,add,"rdx,r8",int/addr,
+0.0,b0cecde,cmp,"rdi,rsi",int/addr,
+0.0,b0cece1,jb,b0ceccb <mkl_blas_avx512_xsgemv+0x2a8b>,branch,
+0.0,b0cece3,lea,"rax,[rdi+rdi*1+0x1]",int/addr,
+0.0,b0cece8,dec,rax,int/addr,
+0.0,b0ceceb,cmp,"rax,rcx",int/addr,
+0.0,b0cecee,jae,b0cc523 <mkl_blas_avx512_xsgemv+0x2e3>,branch,
+0.0,b0cecf4,imul,"rax,r8",int/addr,
+0.0,b0cecf8,add,"r10,rax",int/addr,
+0.0,b0cecfb,mov,"rax,QWORD PTR [rbp+0x28]",gpr_load,
+0.0,b0cecff,vmovss,"DWORD PTR [rax+r10*4-0x4],xmm2",vec_store,xmm
+0.0,b0ced06,jmp,b0cc523 <mkl_blas_avx512_xsgemv+0x2e3>,branch,
+0.0,b0ced0b,vucomiss,"xmm1,xmm2",compare/mask,xmm
+0.0,b0ced0f,jp,b0ced17 <mkl_blas_avx512_xsgemv+0x2ad7>,branch,
+0.0,b0ced11,je,b0ced9f <mkl_blas_avx512_xsgemv+0x2b5f>,branch,
+0.0,b0ced17,test,"rcx,rcx",int/addr,
+0.0,b0ced1a,jle,b0cc523 <mkl_blas_avx512_xsgemv+0x2e3>,branch,
+0.0,b0ced20,cmp,"rcx,0x10",int/addr,
+0.0,b0ced24,jl,b0ced9b <mkl_blas_avx512_xsgemv+0x2b5b>,branch,
+0.0,b0ced26,mov,"rdx,rcx",int/addr,
+0.0,b0ced29,xor,"eax,eax",int/addr,
+0.0,b0ced2b,vbroadcastss,"zmm3,xmm1",broadcast,zmm
+0.0,b0ced31,and,"rdx,0xfffffffffffffff0",int/addr,
+0.0,b0ced35,mov,"rsi,QWORD PTR [rbp+0x28]",gpr_load,
+0.0,b0ced39,vmulps,"zmm4,zmm3,ZMMWORD PTR [rsi+rax*4]",vec_arith,zmm
+0.0,b0ced40,vmovups,"ZMMWORD PTR [rsi+rax*4],zmm4",vec_store,zmm
+0.0,b0ced47,add,"rax,0x10",int/addr,
+0.0,b0ced4b,cmp,"rax,rdx",int/addr,
+0.0,b0ced4e,jb,b0ced39 <mkl_blas_avx512_xsgemv+0x2af9>,branch,
+0.0,b0ced50,lea,"rax,[rdx+0x1]",int/addr,
+0.0,b0ced54,cmp,"rax,rcx",int/addr,
+0.0,b0ced57,ja,b0cc523 <mkl_blas_avx512_xsgemv+0x2e3>,branch,
+0.0,b0ced5d,sub,"rcx,rdx",int/addr,
+0.0,b0ced60,vpbroadcastq,"zmm3,rcx",broadcast,zmm
+0.0,b0ced66,vbroadcastss,"zmm1,xmm1",broadcast,zmm
+0.0,b0ced6c,vpcmpgtq,"k1,zmm3,ZMMWORD PTR [rip+0x78cda0a]        # 1299c780 <__NLITPACK_0.0.1+0x380>",compare/mask,zmm
+0.0,b0ced76,vpcmpgtq,"k0,zmm3,ZMMWORD PTR [rip+0x78cda40]        # 1299c7c0 <__NLITPACK_0.0.1+0x3c0>",compare/mask,zmm
+0.0,b0ced80,mov,"rax,QWORD PTR [rbp+0x28]",gpr_load,
+0.0,b0ced84,kunpckbw,"k2,k0,k1",compare/mask,
+0.0,b0ced88,vmulps,"zmm4{k2}{z},zmm1,ZMMWORD PTR [rax+rdx*4]",vec_arith,zmm
+0.0,b0ced8f,vmovups,"ZMMWORD PTR [rax+rdx*4]{k2},zmm4",vec_store,zmm
+0.0,b0ced96,jmp,b0cc523 <mkl_blas_avx512_xsgemv+0x2e3>,branch,
+0.0,b0ced9b,xor,"edx,edx",int/addr,
+0.0,b0ced9d,jmp,b0ced50 <mkl_blas_avx512_xsgemv+0x2b10>,branch,
+0.0,b0ced9f,test,"rcx,rcx",int/addr,
+0.0,b0ceda2,jle,b0cc523 <mkl_blas_avx512_xsgemv+0x2e3>,branch,
+0.0,b0ceda8,cmp,"rcx,0x18",int/addr,
+0.0,b0cedac,jle,b0cedda <mkl_blas_avx512_xsgemv+0x2b9a>,branch,
+0.0,b0cedae,shl,"rcx,0x2",int/addr,
+0.0,b0cedb2,xor,"eax,eax",int/addr,
+0.0,b0cedb4,mov,"rdi,QWORD PTR [rbp+0x28]",gpr_load,
+0.0,b0cedb8,and,"eax,0xffff",int/addr,
+0.0,b0cedbd,mov,"ah,al",int/addr,
+0.0,b0cedbf,mov,"edx,eax",int/addr,
+0.0,b0cedc1,shl,"eax,0x10",int/addr,
+0.0,b0cedc4,or,"eax,edx",int/addr,
+0.0,b0cedc6,mov,"esi,ecx",int/addr,
+0.0,b0cedc8,shr,"rcx,0x2",int/addr,
+0.0,b0cedcc,rep,"stos DWORD PTR es:[rdi],eax",other,
+0.0,b0cedce,mov,"ecx,esi",int/addr,
+0.0,b0cedd0,and,"ecx,0x3",int/addr,
+0.0,b0cedd3,rep,"stos BYTE PTR es:[rdi],al",other,
+0.0,b0cedd5,jmp,b0cc523 <mkl_blas_avx512_xsgemv+0x2e3>,branch,
+0.0,b0cedda,cmp,"rcx,0x10",int/addr,
+0.0,b0cedde,jl,b0cee5c <mkl_blas_avx512_xsgemv+0x2c1c>,branch,
+0.0,b0cede0,mov,"rax,rcx",int/addr,
+0.0,b0cede3,xor,"edx,edx",int/addr,
+0.0,b0cede5,mov,"rsi,QWORD PTR [rbp+0x28]",gpr_load,
+0.0,b0cede9,and,"rax,0xfffffffffffffff0",int/addr,
+0.0,b0ceded,vpxord,"zmm1,zmm1,zmm1",vec_arith,zmm
+0.0,b0cedf3,vmovups,"ZMMWORD PTR [rsi+rdx*4],zmm1",vec_store,zmm
+0.0,b0cedfa,add,"rdx,0x10",int/addr,
+0.0,b0cedfe,cmp,"rdx,rax",int/addr,
+0.0,b0cee01,jb,b0cedf3 <mkl_blas_avx512_xsgemv+0x2bb3>,branch,
+0.0,b0cee03,lea,"rdx,[rax+0x1]",int/addr,
+0.0,b0cee07,cmp,"rdx,rcx",int/addr,
+0.0,b0cee0a,ja,b0cc523 <mkl_blas_avx512_xsgemv+0x2e3>,branch,
+0.0,b0cee10,mov,"rsi,QWORD PTR [rbp+0x28]",gpr_load,
+0.0,b0cee14,sub,"rcx,rax",int/addr,
+0.0,b0cee17,xor,"edx,edx",int/addr,
+0.0,b0cee19,vxorps,"ymm3,ymm3,ymm3",vec_arith,ymm
+0.0,b0cee1d,vmovups,"zmm5,ZMMWORD PTR [rip+0x78cd919]        # 1299c740 <__NLITPACK_0.0.1+0x340>",vec_load,zmm
+0.0,b0cee27,lea,"rax,[rsi+rax*4]",int/addr,
+0.0,b0cee2b,vmovdqu32,"zmm4,ZMMWORD PTR [rip+0x78cd94b]        # 1299c780 <__NLITPACK_0.0.1+0x380>",vec_load,zmm
+0.0,b0cee35,vpbroadcastq,"zmm1,rcx",broadcast,zmm
+0.0,b0cee3b,vpcmpgtq,"k1,zmm1,zmm4",compare/mask,zmm
+0.0,b0cee41,vpaddq,"zmm4,zmm4,zmm5",vec_arith,zmm
+0.0,b0cee47,vmovups,"YMMWORD PTR [rax+rdx*4]{k1},ymm3",vec_store,ymm
+0.0,b0cee4e,add,"rdx,0x8",int/addr,
+0.0,b0cee52,cmp,"rdx,rcx",int/addr,
+0.0,b0cee55,jb,b0cee3b <mkl_blas_avx512_xsgemv+0x2bfb>,branch,
+0.0,b0cee57,jmp,b0cc523 <mkl_blas_avx512_xsgemv+0x2e3>,branch,
+0.0,b0cee5c,xor,"eax,eax",int/addr,
+0.0,b0cee5e,jmp,b0cee03 <mkl_blas_avx512_xsgemv+0x2bc3>,branch,
+0.0,b0cee60,mov,"rax,rcx",int/addr,
+0.0,b0cee63,neg,rax,int/addr,
+0.0,b0cee66,inc,rax,int/addr,
+0.0,b0cee69,imul,"rax,r8",int/addr,
+0.0,b0cee6d,inc,rax,int/addr,
+0.0,b0cee70,mov,"QWORD PTR [rsp+0x90],rax",gpr_store,
+0.0,b0cee78,vucomiss,"xmm1,xmm3",compare/mask,xmm
+0.0,b0cee7c,jp,b0cee84 <mkl_blas_avx512_xsgemv+0x2c44>,branch,
+0.0,b0cee7e,je,b0cc523 <mkl_blas_avx512_xsgemv+0x2e3>,branch,
+0.0,b0cee84,mov,"r10,rax",int/addr,
+0.0,b0cee87,vucomiss,"xmm1,xmm2",compare/mask,xmm
+0.0,b0cee8b,jp,b0cee93 <mkl_blas_avx512_xsgemv+0x2c53>,branch,
+0.0,b0cee8d,je,b0cef9d <mkl_blas_avx512_xsgemv+0x2d5d>,branch,
+0.0,b0cee93,test,"r8,r8",int/addr,
+0.0,b0cee96,jne,b0cc364 <mkl_blas_avx512_xsgemv+0x124>,branch,
+0.0,b0cee9c,test,"rcx,rcx",int/addr,
+0.0,b0cee9f,jle,b0cc523 <mkl_blas_avx512_xsgemv+0x2e3>,branch,
+0.0,b0ceea5,mov,"rax,QWORD PTR [rbp+0x28]",gpr_load,
+0.0,b0ceea9,mov,"rdx,r10",int/addr,
+0.0,b0ceeac,vmovups,"zmm7,ZMMWORD PTR [rip+0x78cd80a]        # 1299c6c0 <__NLITPACK_0.0.1+0x2c0>",vec_load,zmm
+0.0,b0ceeb6,vmovss,"xmm8,DWORD PTR [rax+rdx*4-0x4]",vec_load,xmm
+0.0,b0ceebc,cmp,"rcx,0x20",int/addr,
+0.0,b0ceec0,jl,b0cefc1 <mkl_blas_avx512_xsgemv+0x2d81>,branch,
+0.0,b0ceec6,mov,"rdx,rcx",int/addr,
+0.0,b0ceec9,xor,"eax,eax",int/addr,
+0.0,b0ceecb,vbroadcastss,"zmm3,xmm1",broadcast,zmm
+0.0,b0ceed1,and,"rdx,0xffffffffffffffe0",int/addr,
+0.0,b0ceed5,vmulps,"zmm4,zmm7,zmm3",vec_arith,zmm
+0.0,b0ceedb,add,"rax,0x20",int/addr,
+0.0,b0ceedf,vmulps,"zmm7,zmm3,zmm4",vec_arith,zmm
+0.0,b0ceee5,cmp,"rax,rdx",int/addr,
+0.0,b0ceee8,jb,b0ceed5 <mkl_blas_avx512_xsgemv+0x2c95>,branch,
+0.0,b0ceeea,lea,"rax,[rdx+0x1]",int/addr,
+0.0,b0ceeee,cmp,"rax,rcx",int/addr,
+0.0,b0ceef1,ja,b0cef4d <mkl_blas_avx512_xsgemv+0x2d0d>,branch,
+0.0,b0ceef3,sub,"rcx,rdx",int/addr,
+0.0,b0ceef6,xor,"eax,eax",int/addr,
+0.0,b0ceef8,vmovups,"zmm6,ZMMWORD PTR [rip+0x78cd7fe]        # 1299c700 <__NLITPACK_0.0.1+0x300>",vec_load,zmm
+0.0,b0cef02,vmovdqu32,"zmm5,ZMMWORD PTR [rip+0x78cd874]        # 1299c780 <__NLITPACK_0.0.1+0x380>",vec_load,zmm
+0.0,b0cef0c,vmovdqu32,"zmm4,ZMMWORD PTR [rip+0x78cd8aa]        # 1299c7c0 <__NLITPACK_0.0.1+0x3c0>",vec_load,zmm
+0.0,b0cef16,vbroadcastss,"zmm3,xmm1",broadcast,zmm
+0.0,b0cef1c,vpbroadcastq,"zmm1,rcx",broadcast,zmm
+0.0,b0cef22,vpcmpgtq,"k1,zmm1,zmm5",compare/mask,zmm
+0.0,b0cef28,add,"rax,0x10",int/addr,
+0.0,b0cef2c,vpcmpgtq,"k0,zmm1,zmm4",compare/mask,zmm
+0.0,b0cef32,vpaddq,"zmm5,zmm5,zmm6",vec_arith,zmm
+0.0,b0cef38,vpaddq,"zmm4,zmm4,zmm6",vec_arith,zmm
+0.0,b0cef3e,kunpckbw,"k2,k0,k1",compare/mask,
+0.0,b0cef42,vmulps,"zmm7{k2},zmm3,zmm7",vec_arith,zmm
+0.0,b0cef48,cmp,"rax,rcx",int/addr,
+0.0,b0cef4b,jb,b0cef22 <mkl_blas_avx512_xsgemv+0x2ce2>,branch,
+0.0,b0cef4d,vshuff32x4,"zmm1,zmm7,zmm7,0xee",shuffle/permute,zmm
+0.0,b0cef54,vmulps,"zmm4,zmm1,zmm7",vec_arith,zmm
+0.0,b0cef5a,vshuff32x4,"zmm3,zmm4,zmm4,0x55",shuffle/permute,zmm
+0.0,b0cef61,vmulps,"zmm5,zmm3,zmm4",vec_arith,zmm
+0.0,b0cef67,vpshufd,"zmm6,zmm5,0x4e",shuffle/permute,zmm
+0.0,b0cef6e,vmulps,"zmm7,zmm5,zmm6",vec_arith,zmm
+0.0,b0cef74,vpshufd,"zmm9,zmm7,0xb1",shuffle/permute,zmm
+0.0,b0cef7b,vmulps,"zmm10,zmm7,zmm9",vec_arith,zmm
+0.0,b0cef81,mov,"rax,QWORD PTR [rbp+0x28]",gpr_load,
+0.0,b0cef85,mov,"rdx,QWORD PTR [rsp+0x90]",gpr_load,
+0.0,b0cef8d,vmulss,"xmm8,xmm8,xmm10",scalar_fp,xmm
+0.0,b0cef92,vmovss,"DWORD PTR [rax+rdx*4-0x4],xmm8",vec_store,xmm
+0.0,b0cef98,jmp,b0cc523 <mkl_blas_avx512_xsgemv+0x2e3>,branch,
+0.0,b0cef9d,test,"r8,r8",int/addr,
+0.0,b0cefa0,jne,b0cec79 <mkl_blas_avx512_xsgemv+0x2a39>,branch,
+0.0,b0cefa6,test,"rcx,rcx",int/addr,
+0.0,b0cefa9,jle,b0cc523 <mkl_blas_avx512_xsgemv+0x2e3>,branch,
+0.0,b0cefaf,mov,"rax,QWORD PTR [rbp+0x28]",gpr_load,
+0.0,b0cefb3,mov,"rdx,r10",int/addr,
+0.0,b0cefb6,vmovss,"DWORD PTR [rax+rdx*4-0x4],xmm2",vec_store,xmm
+0.0,b0cefbc,jmp,b0cc523 <mkl_blas_avx512_xsgemv+0x2e3>,branch,
+0.0,b0cefc1,xor,"edx,edx",int/addr,
+0.0,b0cefc3,jmp,b0ceeea <mkl_blas_avx512_xsgemv+0x2caa>,branch,
+0.0,b0cefc8,vucomiss,"xmm1,xmm3",compare/mask,xmm
+0.0,b0cefcc,jne,b0cc2a6 <mkl_blas_avx512_xsgemv+0x66>,branch,
+0.0,b0cefd2,jp,b0cc2a6 <mkl_blas_avx512_xsgemv+0x66>,branch,
+0.0,b0cefd8,jmp,b0cdb19 <mkl_blas_avx512_xsgemv+0x18d9>,branch,
+0.0,b0cefdd,nop,DWORD PTR [rax],other,

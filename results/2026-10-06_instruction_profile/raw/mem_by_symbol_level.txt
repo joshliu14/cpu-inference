@@ -1,0 +1,63 @@
+     8.90%           235  N/A                                      libtorch_cpu.so       [.] mkl_blas_avx512_s_generic_fullacopybcopy
+     6.63%           175  N/A                                      libtorch_cpu.so       [.] std::_Sp_counted_base<(__gnu_cxx::_Lock_policy)2>::_M_release()
+     5.04%           133  N/A                                      libtorch_cpu.so       [.] dnnl_primitive_attr_destroy
+     4.47%           118  N/A                                      libtorch_cpu.so       [.] c10::TensorImpl* at::native::_resize_impl_<long>(c10::TensorImpl*, c10::ArrayRef<long>, c10::OptionalArrayRef<long>, bool)
+     3.75%            99  N/A                                      libtorch_cpu.so       [.] dnnl::impl::memory_desc_init_by_tag(dnnl_memory_desc&, int, long const*, dnnl_data_type_t, dnnl_format_tag_t)
+     3.60%            95  N/A                                      [unknown]             [k] 0xffffffffaca549ee
+     3.56%            94  N/A                                      libc.so.6             [.] cfree
+     3.18%            84  N/A                                      libtorch_cpu.so       [.] c10::intrusive_ptr<c10::TensorImpl, c10::UndefinedTensorImpl>::reset_not_null_(c10::TensorImpl*)
+     2.96%            78  N/A                                      libtorch_cpu.so       [.] blas_initialize_op_params
+     2.43%            64  N/A                                      libc.so.6             [.] malloc
+     2.31%            61  N/A                                      libtorch_cpu.so       [.] dnnl::impl::utils::cache_t<dnnl::impl::primitive_hashing::key_t, dnnl::impl::primitive_t, dnnl::impl::primitive_cache_iface_t::result_t, &dnnl::impl::primitive_cache_t::update_key>::get_or_create(dnnl::impl::primitive_hashing::key_t const&, dnnl::impl::primitive_cache_iface_t::result_t (&)(void*), void*, bool)
+     1.74%            46  N/A                                      libtorch_cpu.so       [.] dnnl::impl::cpu::x64::jit_blk_reorder_t::execute(dnnl::impl::exec_ctx_t const&) const
+     1.74%            46  N/A                                      libtorch_cpu.so       [.] dnnl_primitive_execute
+     1.63%            43  N/A                                      libtorch_cpu.so       [.] dnnl_memory::dnnl_memory(dnnl_engine*, dnnl_memory_desc const*, std::vector<unsigned int, std::allocator<unsigned int> > const&, std::vector<void*, std::allocator<void*> > const&)
+     1.33%            35  N/A                                      libtorch_cpu.so       [.] mkl_serv_allocate
+     1.29%            34  N/A                                      libtorch_cpu.so       [.] c10::TensorImpl::set_sizes_and_strides(c10::ArrayRef<long>, c10::ArrayRef<long>, std::optional<long>) [clone .isra.0]
+     1.29%            34  N/A                                      libtorch_cpu.so       [.] dnnl::impl::primitive_cache_iface_t::get_pd(dnnl::impl::primitive_hashing::key_t const&)
+     1.25%            33  N/A                                      libtorch_cpu.so       [.] dnnl::impl::memory_desc_wrapper::size(int, bool, bool) const
+     1.17%            31  N/A                                      libc.so.6             [.] 0x00000000000ad3b4
+     1.14%            30  N/A                                      libtorch_cpu.so       [.] mkl_blas_avx512_sgemm_kernel_0_b0
+     1.10%            29  N/A                                      libtorch_cpu.so       [.] dnnl_reorder_primitive_desc_create
+     1.02%            27  N/A                                      libtorch_cpu.so       [.] at::detail::computeStride(c10::ArrayRef<long>, c10::ArrayRef<long>, c10::SmallVector<long, 5u> const&)
+     0.95%            25  N/A                                      libc.so.6             [.] 0x00000000000a9bbf
+     0.95%            25  N/A                                      libc10.so             [.] c10::TensorImpl::copy_tensor_metadata_except_version_counter(c10::TensorImpl const*, c10::TensorImpl*, bool)
+     0.91%            24  N/A                                      libtorch_cpu.so       [.] at::Tensor at::native::alias_with_sizes_and_strides<c10::SmallVector<long, 5u> >(at::Tensor const&, c10::SmallVector<long, 5u> const&, c10::SmallVector<long, 5u> const&)
+     0.83%            22  N/A                                      libtorch_cpu.so       [.] dnnl_memory_desc_equal
+     0.72%            19  N/A                                      libstdc++.so.6.0.33   [.] free@plt
+     0.72%            19  N/A                                      libtorch_cpu.so       [.] std::vector<long, std::allocator<long> > at::native::_expand_param_if_needed<long>(c10::ArrayRef<long>, char const*, long)
+     0.64%            17  N/A                                      libc.so.6             [.] 0x00000000001a1d69
+     0.64%            17  N/A                                      libstdc++.so.6.0.33   [.] operator new(unsigned long)
+     0.64%            17  N/A                                      libtorch_cpu.so       [.] getPointer_notrans
+     0.61%            16  N/A                                      libc.so.6             [.] 0x00000000000ab88a
+     0.61%            16  N/A                                      libtorch_cpu.so       [.] at::native::_convolution(at::Tensor const&, at::Tensor const&, std::optional<at::Tensor> const&, c10::ArrayRef<long>, c10::ArrayRef<long>, c10::ArrayRef<long>, bool, c10::ArrayRef<long>, long, bool, bool, bool, bool)
+     0.57%            15  N/A                                      libc.so.6             [.] pthread_rwlock_unlock
+     0.57%            15  N/A                                      libtorch_cpu.so       [.] operator delete(void*, unsigned long)@plt
+     0.53%            14  N/A                                      libc.so.6             [.] 0x00000000001a1d11
+
+
+     6.99%           273  LFB/MAB hit                              libtorch_cpu.so       [.] mkl_blas_avx512_sgemm_scopy_right8_ea
+     5.81%           289  L2 hit                                   libtorch_cpu.so       [.] mkl_blas_avx512_sgemm_scopy_down48_ea
+     3.51%           188  L3 hit                                   libtorch_cpu.so       [.] mkl_blas_avx512_sgemm_scopy_down48_ea
+     1.79%            41  RAM hit                                  libtorch_cpu.so       [.] mkl_blas_avx512_sgemm_scopy_right8_ea
+     1.78%            66  LFB/MAB hit                              [unknown]             [k] 0xffffffffab9a7c97
+     1.72%           142  LFB/MAB hit                              libtorch_cpu.so       [.] mkl_blas_avx512_sgemm_kernel_nocopy_NN_b0
+     1.70%           130  L3 hit                                   [unknown]             [k] 0xffffffffabba6f51
+     1.69%           136  LFB/MAB hit                              libtorch_cpu.so       [.] at::native::(anonymous namespace)::batch_norm_cpu_kernel(at::Tensor&, at::Tensor const&, at::Tensor const&, at::Tensor const&, at::Tensor const&, at::Tensor const&, at::Tensor const&, at::Tensor const&, bool, double)::{lambda()#1}::operator()() const
+     1.65%           125  LFB/MAB hit                              libtorch_cpu.so       [.] mkl_blas_avx512_sgemm_kernel_nocopy_NN_b1
+     1.57%           123  L3 hit                                   [unknown]             [k] 0xffffffffabba6f5d
+     1.38%            79  LFB/MAB hit                              libtorch_cpu.so       [.] void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)
+     1.05%            40  L2 hit                                   libtorch_cpu.so       [.] void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)
+     0.83%            24  LFB/MAB hit                              libtorch_cpu.so       [.] mkl_blas_avx512_xsgemv
+     0.79%            58  L2 hit                                   libtorch_cpu.so       [.] at::native::(anonymous namespace)::batch_norm_cpu_kernel(at::Tensor&, at::Tensor const&, at::Tensor const&, at::Tensor const&, at::Tensor const&, at::Tensor const&, at::Tensor const&, at::Tensor const&, bool, double)::{lambda()#1}::operator()() const
+     0.78%            14  RAM hit                                  libtorch_cpu.so       [.] mkl_blas_avx512_sgemm_scopy_down48_ea
+     0.75%             6  L2 hit                                   [JIT] tid 552903      [.] 0x00007c3981648032
+     0.73%            61  LFB/MAB hit                              libtorch_cpu.so       [.] mkl_blas_avx512_sgemm_scopy_down48_ea
+     0.71%            45  LFB/MAB hit                              [unknown]             [k] 0xffffffffac39b86f
+     0.71%            51  LFB/MAB hit                              libtorch_cpu.so       [.] void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)
+     0.69%            42  L3 hit                                   libtorch_cpu.so       [.] void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)
+     0.63%            37  LFB/MAB hit                              [unknown]             [k] 0xffffffffac39b87a
+     0.58%            52  LFB/MAB hit                              libtorch_cpu.so       [.] void at::native::(anonymous namespace)::cpu_max_pool<float, false>(at::Tensor const&, at::Tensor const&, at::Tensor const&, c10::ArrayRef<long>, c10::ArrayRef<long>, c10::ArrayRef<long>, c10::ArrayRef<long>) [clone .constprop.0]
+     0.57%            33  L3 hit                                   libtorch_cpu.so       [.] void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)
+
+

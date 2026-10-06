@@ -1,0 +1,352 @@
+# symbol: void at::native::(anonymous namespace)::vectorized_inner_sum<float, at::native::(anonymous namespace)::InnerSumCastLoadPolicy<at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>, void>, at::native::(anonymous namespace)::CastLoadPolicy<float, float>, at::native::(anonymous namespace)::CastStoreAccumulate<float, float> >(char* restrict*, long, long, long, long)
+# dso: libtorch_cpu.so
+# share of operator samples: 59.38%
+ Percent |	Source code & Disassembly of libtorch_cpu.so for cycles:P (2501 samples, percent: local period)
+---------------------------------------------------------------------------------------------------------------
+         :
+         :
+         :
+         : 3       Disassembly of section .text:
+         :
+         : 5       0000000006f581d0 <void at::native::(anonymous namespace)::vectorized_inner_sum<float, at::native::(anonymous namespace)::InnerSumCastLoadPolicy<at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>, void>, at::native::(anonymous namespace)::CastLoadPolicy<float, float>, at::native::(anonymous namespace)::CastStoreAccumulate<float, float> >(char* restrict*, long, long, long, long)>:
+    0.00 :   6f581d0:        push   rbp
+    0.00 :   6f581d1:        mov    rbp,rsp
+    0.00 :   6f581d4:        push   r15
+    0.00 :   6f581d6:        push   r14
+    0.00 :   6f581d8:        push   r13
+    0.00 :   6f581da:        push   r12
+    0.00 :   6f581dc:        push   rbx
+    0.00 :   6f581dd:        and    rsp,0xffffffffffffffe0
+    0.00 :   6f581e1:        sub    rsp,0x28
+    0.00 :   6f581e5:        mov    QWORD PTR [rsp+0x18],rdx
+    0.00 :   6f581ea:        mov    QWORD PTR [rsp+0x10],r8
+    0.00 :   6f581ef:        test   r8,r8
+    0.00 :   6f581f2:        jg     6f58203 <void at::native::(anonymous namespace)::vectorized_inner_sum<float, at::native::(anonymous namespace)::InnerSumCastLoadPolicy<at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>, void>, at::native::(anonymous namespace)::CastLoadPolicy<float, float>, at::native::(anonymous namespace)::CastStoreAccumulate<float, float> >(char* restrict*, long, long, long, long)+0x33>
+    0.00 :   6f581f4:        lea    rsp,[rbp-0x28]
+    0.00 :   6f581f8:        pop    rbx
+    0.00 :   6f581f9:        pop    r12
+    0.00 :   6f581fb:        pop    r13
+    0.00 :   6f581fd:        pop    r14
+    0.00 :   6f581ff:        pop    r15
+    0.00 :   6f58201:        pop    rbp
+    0.00 :   6f58202:        ret
+    0.00 :   6f58203:        test   rcx,rcx
+    0.00 :   6f58206:        lea    rdx,[rcx+0x7]
+    0.00 :   6f5820a:        mov    r12,rsi
+    0.00 :   6f5820d:        mov    rax,rdi
+    0.00 :   6f58210:        cmovns rdx,rcx
+    0.00 :   6f58214:        lea    r8,[rcx+0x1f]
+    0.00 :   6f58218:        mov    r9,rcx
+    0.00 :   6f5821b:        mov    r14,QWORD PTR [rax]
+    0.00 :   6f5821e:        mov    QWORD PTR [rsp+0x20],0x0
+    0.00 :   6f58227:        mov    rsi,rdx
+    0.00 :   6f5822a:        mov    rbx,rdx
+    0.00 :   6f5822d:        sar    rsi,0x3
+    0.00 :   6f58231:        test   rcx,rcx
+    0.00 :   6f58234:        cmovns r8,rcx
+    0.00 :   6f58238:        mov    QWORD PTR [rsp-0x8],rsi
+    0.00 :   6f5823d:        shl    rsi,0x5
+    0.00 :   6f58241:        and    rbx,0xfffffffffffffff8
+    0.00 :   6f58245:        mov    r10,rsi
+    0.00 :   6f58248:        mov    QWORD PTR [rsp+0x8],rbx
+    0.00 :   6f5824d:        sar    r8,0x5
+    0.00 :   6f58251:        lea    rdi,[r8*4+0x0]
+    0.00 :   6f58259:        mov    r11,r8
+    0.00 :   6f5825c:        lea    rcx,[r8-0x1]
+    0.00 :   6f58260:        mov    QWORD PTR [rsp],rdi
+    0.00 :   6f58264:        mov    rdi,QWORD PTR [rax+0x8]
+    0.00 :   6f58268:        mov    rax,r9
+    0.00 :   6f5826b:        shl    r11,0x7
+    0.00 :   6f5826f:        sar    rax,0x3f
+    0.00 :   6f58273:        shr    rax,0x3d
+    0.00 :   6f58277:        add    r11,rdi
+    0.00 :   6f5827a:        add    r10,rdi
+    0.00 :   6f5827d:        lea    rdx,[r9+rax*1]
+    0.00 :   6f58281:        and    edx,0x7
+    0.00 :   6f58284:        sub    rdx,rax
+    0.00 :   6f58287:        mov    rax,rdx
+    0.00 :   6f5828a:        lea    rsi,[rdx-0x1]
+    0.00 :   6f5828e:        shr    rax,0x3
+    0.00 :   6f58292:        mov    QWORD PTR [rsp-0x28],rsi
+    0.00 :   6f58297:        shl    rax,0x5
+    0.00 :   6f5829b:        mov    QWORD PTR [rsp-0x18],rax
+    0.00 :   6f582a0:        mov    rax,rdx
+    0.00 :   6f582a3:        and    rax,0xfffffffffffffff8
+    0.00 :   6f582a7:        add    rax,rbx
+    0.00 :   6f582aa:        cmp    rsi,0x6
+    0.00 :   6f582ae:        cmovbe rax,rbx
+    0.00 :   6f582b2:        lea    rsi,[rax*4+0x0]
+    0.00 :   6f582ba:        lea    rbx,[rax+0x1]
+    0.00 :   6f582be:        mov    QWORD PTR [rsp-0x30],rsi
+    0.00 :   6f582c3:        mov    QWORD PTR [rsp-0x20],rbx
+    0.00 :   6f582c8:        lea    rbx,[rsi+0x4]
+    0.00 :   6f582cc:        add    rsi,0x8
+    0.00 :   6f582d0:        bsr    rcx,rcx
+    0.00 :   6f582d4:        mov    QWORD PTR [rsp-0x48],rsi
+    0.00 :   6f582d9:        lea    rsi,[rax+0x3]
+    0.00 :   6f582dd:        and    edx,0x7
+    0.00 :   6f582e0:        mov    QWORD PTR [rsp-0x40],rbx
+    0.00 :   6f582e5:        lea    rbx,[rax+0x2]
+    0.00 :   6f582e9:        mov    QWORD PTR [rsp-0x50],rsi
+    0.00 :   6f582ee:        lea    esi,[rcx+0x1]
+    0.00 :   6f582f1:        mov    QWORD PTR [rsp-0x58],rbx
+    0.00 :   6f582f6:        mov    DWORD PTR [rsp-0x5c],esi
+    0.00 :   6f582fa:        mov    QWORD PTR [rsp-0x38],rdx
+    0.00 :   6f582ff:        cmp    r9,0x5f
+    0.12 :   6f58303:        jle    6f58687 <void at::native::(anonymous namespace)::vectorized_inner_sum<float, at::native::(anonymous namespace)::InnerSumCastLoadPolicy<at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>, void>, at::native::(anonymous namespace)::CastLoadPolicy<float, float>, at::native::(anonymous namespace)::CastStoreAccumulate<float, float> >(char* restrict*, long, long, long, long)+0x4b7>
+    0.00 :   6f58309:        mov    esi,DWORD PTR [rsp-0x5c]
+    0.00 :   6f5830d:        cmp    esi,0x13
+    0.00 :   6f58310:        jle    6f586c6 <void at::native::(anonymous namespace)::vectorized_inner_sum<float, at::native::(anonymous namespace)::InnerSumCastLoadPolicy<at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>, void>, at::native::(anonymous namespace)::CastLoadPolicy<float, float>, at::native::(anonymous namespace)::CastStoreAccumulate<float, float> >(char* restrict*, long, long, long, long)+0x4f6>
+    0.00 :   6f58316:        movsxd rdx,esi
+    0.00 :   6f58319:        mov    esi,0x1
+    0.00 :   6f5831e:        sar    rdx,0x2
+    0.00 :   6f58322:        mov    ecx,edx
+    0.00 :   6f58324:        mov    r13d,edx
+    0.00 :   6f58327:        shl    esi,cl
+    0.00 :   6f58329:        movsxd rsi,esi
+    0.00 :   6f5832c:        lea    rbx,[rsi-0x1]
+    0.00 :   6f58330:        cmp    r8,rsi
+    0.00 :   6f58333:        jl     6f586fe <void at::native::(anonymous namespace)::vectorized_inner_sum<float, at::native::(anonymous namespace)::InnerSumCastLoadPolicy<at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>, void>, at::native::(anonymous namespace)::CastLoadPolicy<float, float>, at::native::(anonymous namespace)::CastStoreAccumulate<float, float> >(char* restrict*, long, long, long, long)+0x52e>
+    0.00 :   6f58339:        mov    ecx,r13d
+    0.00 :   6f5833c:        mov    r15,rbx
+    0.00 :   6f5833f:        mov    QWORD PTR [rsp-0x10],r10
+    0.00 :   6f58344:        vxorps xmm12,xmm12,xmm12
+    0.00 :   6f58349:        vmovaps ymm13,ymm12
+    0.00 :   6f5834e:        shl    r15,cl
+    0.00 :   6f58351:        lea    rcx,[rdx+rdx*1]
+    0.00 :   6f58355:        vmovaps ymm14,ymm12
+    0.00 :   6f5835a:        mov    r13,r15
+    0.00 :   6f5835d:        mov    r15,rsi
+    0.00 :   6f58360:        shl    rbx,cl
+    0.00 :   6f58363:        vmovaps ymm15,ymm12
+    0.00 :   6f58368:        shl    r15,0x7
+    0.00 :   6f5836c:        vmovaps ymm11,ymm12
+    0.00 :   6f58371:        vmovaps ymm10,ymm12
+    0.00 :   6f58376:        xor    edx,edx
+    0.00 :   6f58378:        lea    rcx,[rdi+r15*1]
+    0.00 :   6f5837c:        vmovaps ymm9,ymm12
+    0.00 :   6f58381:        vmovaps ymm8,ymm12
+    0.00 :   6f58386:        vmovaps ymm7,ymm12
+    0.00 :   6f5838a:        vmovaps ymm4,ymm12
+    0.00 :   6f5838e:        vmovaps ymm6,ymm12
+    0.00 :   6f58392:        vmovaps ymm5,ymm12
+    0.00 :   6f58396:        cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   6f583a0:        mov    r10,rdx
+    0.00 :   6f583a3:        vxorps xmm3,xmm3,xmm3
+    0.00 :   6f583a7:        vmovaps ymm2,ymm3
+    0.00 :   6f583ab:        shl    r10,0x7
+    0.00 :   6f583af:        vmovaps ymm1,ymm3
+    0.00 :   6f583b3:        vmovaps ymm0,ymm3
+    0.00 :   6f583b7:        add    r10,rdi
+    0.00 :   6f583ba:        nop    WORD PTR [rax+rax*1+0x0]
+    0.00 :   6f583c0:        vaddps ymm0,ymm0,YMMWORD PTR [r10]
+    0.00 :   6f583c5:        vaddps ymm1,ymm1,YMMWORD PTR [r10+0x20]
+    0.00 :   6f583cb:        sub    r10,0xffffffffffffff80
+    0.00 :   6f583cf:        vaddps ymm2,ymm2,YMMWORD PTR [r10-0x40]
+    0.00 :   6f583d5:        vaddps ymm3,ymm3,YMMWORD PTR [r10-0x20]
+    0.00 :   6f583db:        cmp    r10,rcx
+    0.00 :   6f583de:        jne    6f583c0 <void at::native::(anonymous namespace)::vectorized_inner_sum<float, at::native::(anonymous namespace)::InnerSumCastLoadPolicy<at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>, void>, at::native::(anonymous namespace)::CastLoadPolicy<float, float>, at::native::(anonymous namespace)::CastStoreAccumulate<float, float> >(char* restrict*, long, long, long, long)+0x1f0>
+    0.00 :   6f583e0:        lea    r10,[rdx+rsi*1]
+    0.00 :   6f583e4:        vaddps ymm5,ymm5,ymm0
+    0.00 :   6f583e8:        vaddps ymm6,ymm6,ymm1
+    0.00 :   6f583ec:        vaddps ymm4,ymm4,ymm2
+    0.00 :   6f583f0:        mov    rdx,r10
+    0.00 :   6f583f3:        vaddps ymm7,ymm7,ymm3
+    0.00 :   6f583f7:        test   r13,r10
+    0.00 :   6f583fa:        jne    6f5844d <void at::native::(anonymous namespace)::vectorized_inner_sum<float, at::native::(anonymous namespace)::InnerSumCastLoadPolicy<at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>, void>, at::native::(anonymous namespace)::CastLoadPolicy<float, float>, at::native::(anonymous namespace)::CastStoreAccumulate<float, float> >(char* restrict*, long, long, long, long)+0x27d>
+    0.00 :   6f583fc:        vaddps ymm8,ymm8,ymm5
+    0.00 :   6f58400:        vaddps ymm9,ymm9,ymm6
+    0.00 :   6f58404:        vaddps ymm10,ymm10,ymm4
+    0.00 :   6f58408:        vaddps ymm11,ymm11,ymm7
+    0.00 :   6f5840c:        test   rbx,r10
+    0.00 :   6f5840f:        jne    6f58672 <void at::native::(anonymous namespace)::vectorized_inner_sum<float, at::native::(anonymous namespace)::InnerSumCastLoadPolicy<at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>, void>, at::native::(anonymous namespace)::CastLoadPolicy<float, float>, at::native::(anonymous namespace)::CastStoreAccumulate<float, float> >(char* restrict*, long, long, long, long)+0x4a2>
+    0.00 :   6f58415:        vaddps ymm12,ymm12,ymm11
+    0.00 :   6f5841a:        vxorps xmm11,xmm11,xmm11
+    0.00 :   6f5841f:        vaddps ymm15,ymm15,ymm8
+    0.00 :   6f58424:        vaddps ymm14,ymm14,ymm9
+    0.00 :   6f58429:        vaddps ymm13,ymm13,ymm10
+    0.00 :   6f5842e:        vmovaps ymm9,ymm11
+    0.00 :   6f58433:        vmovaps ymm10,ymm11
+    0.00 :   6f58438:        vmovaps ymm8,ymm11
+    0.00 :   6f5843d:        vmovaps ymm7,ymm11
+    0.00 :   6f58441:        vmovaps ymm4,ymm11
+    0.00 :   6f58445:        vmovaps ymm6,ymm11
+    0.00 :   6f58449:        vmovaps ymm5,ymm11
+    0.00 :   6f5844d:        add    r10,rsi
+    0.00 :   6f58450:        add    rcx,r15
+    0.00 :   6f58453:        cmp    r8,r10
+    0.00 :   6f58456:        jge    6f583a0 <void at::native::(anonymous namespace)::vectorized_inner_sum<float, at::native::(anonymous namespace)::InnerSumCastLoadPolicy<at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>, void>, at::native::(anonymous namespace)::CastLoadPolicy<float, float>, at::native::(anonymous namespace)::CastStoreAccumulate<float, float> >(char* restrict*, long, long, long, long)+0x1d0>
+    0.00 :   6f5845c:        mov    r10,QWORD PTR [rsp-0x10]
+    0.00 :   6f58461:        cmp    r8,rdx
+    0.00 :   6f58464:        jle    6f586e0 <void at::native::(anonymous namespace)::vectorized_inner_sum<float, at::native::(anonymous namespace)::InnerSumCastLoadPolicy<at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>, void>, at::native::(anonymous namespace)::CastLoadPolicy<float, float>, at::native::(anonymous namespace)::CastStoreAccumulate<float, float> >(char* restrict*, long, long, long, long)+0x510>
+    0.00 :   6f5846a:        vxorps xmm1,xmm1,xmm1
+    0.00 :   6f5846e:        shl    rdx,0x7
+    1.16 :   6f58472:        vmovaps ymm2,ymm1
+    0.00 :   6f58476:        vmovaps ymm3,ymm1
+    0.00 :   6f5847a:        vmovaps ymm0,ymm1
+    0.00 :   6f5847e:        add    rdx,rdi
+    5.52 :   6f58481:        nop    DWORD PTR [rax+0x0]
+    0.00 :   6f58488:        vaddps ymm0,ymm0,YMMWORD PTR [rdx]
+    0.00 :   6f5848c:        vaddps ymm3,ymm3,YMMWORD PTR [rdx+0x20]
+    0.00 :   6f58491:        sub    rdx,0xffffffffffffff80
+    5.80 :   6f58495:        vaddps ymm2,ymm2,YMMWORD PTR [rdx-0x40]
+    0.04 :   6f5849a:        vaddps ymm1,ymm1,YMMWORD PTR [rdx-0x20]
+    0.00 :   6f5849f:        cmp    r11,rdx
+    0.00 :   6f584a2:        jne    6f58488 <void at::native::(anonymous namespace)::vectorized_inner_sum<float, at::native::(anonymous namespace)::InnerSumCastLoadPolicy<at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>, void>, at::native::(anonymous namespace)::CastLoadPolicy<float, float>, at::native::(anonymous namespace)::CastStoreAccumulate<float, float> >(char* restrict*, long, long, long, long)+0x2b8>
+    0.00 :   6f584a4:        vaddps ymm0,ymm0,ymm5
+    5.36 :   6f584a8:        vaddps ymm3,ymm3,ymm6
+    0.00 :   6f584ac:        mov    rsi,QWORD PTR [rsp]
+    0.00 :   6f584b0:        vaddps ymm2,ymm2,ymm4
+    0.00 :   6f584b4:        vaddps ymm1,ymm1,ymm7
+    1.52 :   6f584b8:        vaddps ymm0,ymm0,ymm8
+    0.00 :   6f584bd:        vaddps ymm3,ymm3,ymm9
+    0.00 :   6f584c2:        vaddps ymm2,ymm2,ymm10
+    0.00 :   6f584c7:        vaddps ymm1,ymm1,ymm11
+    4.92 :   6f584cc:        vaddps ymm0,ymm0,ymm15
+    0.00 :   6f584d1:        vaddps ymm3,ymm3,ymm14
+    0.00 :   6f584d6:        vaddps ymm2,ymm2,ymm13
+    0.00 :   6f584db:        vaddps ymm1,ymm1,ymm12
+    2.36 :   6f584e0:        cmp    QWORD PTR [rsp-0x8],rsi
+    0.00 :   6f584e5:        jle    6f584fd <void at::native::(anonymous namespace)::vectorized_inner_sum<float, at::native::(anonymous namespace)::InnerSumCastLoadPolicy<at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>, void>, at::native::(anonymous namespace)::CastLoadPolicy<float, float>, at::native::(anonymous namespace)::CastStoreAccumulate<float, float> >(char* restrict*, long, long, long, long)+0x32d>
+    0.00 :   6f584e7:        mov    rdx,r11
+    0.00 :   6f584ea:        nop    WORD PTR [rax+rax*1+0x0]
+    0.00 :   6f584f0:        vaddps ymm0,ymm0,YMMWORD PTR [rdx]
+    4.84 :   6f584f4:        add    rdx,0x20
+    0.00 :   6f584f8:        cmp    r10,rdx
+    6.60 :   6f584fb:        jne    6f584f0 <void at::native::(anonymous namespace)::vectorized_inner_sum<float, at::native::(anonymous namespace)::InnerSumCastLoadPolicy<at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>, void>, at::native::(anonymous namespace)::CastLoadPolicy<float, float>, at::native::(anonymous namespace)::CastStoreAccumulate<float, float> >(char* restrict*, long, long, long, long)+0x320>
+    5.24 :   6f584fd:        vaddps ymm0,ymm0,ymm3
+    0.00 :   6f58501:        mov    rbx,QWORD PTR [rsp+0x8]
+    0.00 :   6f58506:        vaddps ymm0,ymm0,ymm2
+    0.04 :   6f5850a:        vaddps ymm1,ymm0,ymm1
+    3.52 :   6f5850e:        vxorps xmm0,xmm0,xmm0
+    0.00 :   6f58512:        cmp    r9,rbx
+    0.00 :   6f58515:        jle    6f585ed <void at::native::(anonymous namespace)::vectorized_inner_sum<float, at::native::(anonymous namespace)::InnerSumCastLoadPolicy<at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>, void>, at::native::(anonymous namespace)::CastLoadPolicy<float, float>, at::native::(anonymous namespace)::CastStoreAccumulate<float, float> >(char* restrict*, long, long, long, long)+0x41d>
+    0.00 :   6f5851b:        cmp    QWORD PTR [rsp-0x28],0x6
+    5.72 :   6f58521:        jbe    6f586f5 <void at::native::(anonymous namespace)::vectorized_inner_sum<float, at::native::(anonymous namespace)::InnerSumCastLoadPolicy<at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>, void>, at::native::(anonymous namespace)::CastLoadPolicy<float, float>, at::native::(anonymous namespace)::CastStoreAccumulate<float, float> >(char* restrict*, long, long, long, long)+0x525>
+    0.00 :   6f58527:        mov    rbx,QWORD PTR [rsp-0x18]
+    0.00 :   6f5852c:        mov    rdx,r10
+    0.00 :   6f5852f:        vxorps xmm0,xmm0,xmm0
+    0.00 :   6f58533:        lea    rcx,[r10+rbx*1]
+    0.00 :   6f58537:        nop    WORD PTR [rax+rax*1+0x0]
+    0.00 :   6f58540:        vaddss xmm0,xmm0,DWORD PTR [rdx]
+    0.00 :   6f58544:        add    rdx,0x20
+    0.00 :   6f58548:        vaddss xmm0,xmm0,DWORD PTR [rdx-0x1c]
+    0.00 :   6f5854d:        vaddss xmm0,xmm0,DWORD PTR [rdx-0x18]
+    0.00 :   6f58552:        vaddss xmm0,xmm0,DWORD PTR [rdx-0x14]
+    0.00 :   6f58557:        vaddss xmm0,xmm0,DWORD PTR [rdx-0x10]
+    0.00 :   6f5855c:        vaddss xmm0,xmm0,DWORD PTR [rdx-0xc]
+    0.00 :   6f58561:        vaddss xmm0,xmm0,DWORD PTR [rdx-0x8]
+    0.00 :   6f58566:        vaddss xmm0,xmm0,DWORD PTR [rdx-0x4]
+    0.00 :   6f5856b:        cmp    rdx,rcx
+    0.00 :   6f5856e:        jne    6f58540 <void at::native::(anonymous namespace)::vectorized_inner_sum<float, at::native::(anonymous namespace)::InnerSumCastLoadPolicy<at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>, void>, at::native::(anonymous namespace)::CastLoadPolicy<float, float>, at::native::(anonymous namespace)::CastStoreAccumulate<float, float> >(char* restrict*, long, long, long, long)+0x370>
+    0.00 :   6f58570:        cmp    QWORD PTR [rsp-0x38],0x0
+    0.00 :   6f58576:        je     6f585ed <void at::native::(anonymous namespace)::vectorized_inner_sum<float, at::native::(anonymous namespace)::InnerSumCastLoadPolicy<at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>, void>, at::native::(anonymous namespace)::CastLoadPolicy<float, float>, at::native::(anonymous namespace)::CastStoreAccumulate<float, float> >(char* restrict*, long, long, long, long)+0x41d>
+    0.00 :   6f58578:        mov    rbx,QWORD PTR [rsp-0x30]
+    0.00 :   6f5857d:        vaddss xmm0,xmm0,DWORD PTR [rdi+rbx*1]
+    4.80 :   6f58582:        mov    rbx,QWORD PTR [rsp-0x20]
+    0.00 :   6f58587:        cmp    r9,rbx
+    0.08 :   6f5858a:        jle    6f585ed <void at::native::(anonymous namespace)::vectorized_inner_sum<float, at::native::(anonymous namespace)::InnerSumCastLoadPolicy<at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>, void>, at::native::(anonymous namespace)::CastLoadPolicy<float, float>, at::native::(anonymous namespace)::CastStoreAccumulate<float, float> >(char* restrict*, long, long, long, long)+0x41d>
+    0.00 :   6f5858c:        mov    rbx,QWORD PTR [rsp-0x40]
+    0.00 :   6f58591:        vaddss xmm0,xmm0,DWORD PTR [rdi+rbx*1]
+    0.00 :   6f58596:        mov    rbx,QWORD PTR [rsp-0x58]
+    0.00 :   6f5859b:        cmp    r9,rbx
+    0.00 :   6f5859e:        jle    6f585ed <void at::native::(anonymous namespace)::vectorized_inner_sum<float, at::native::(anonymous namespace)::InnerSumCastLoadPolicy<at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>, void>, at::native::(anonymous namespace)::CastLoadPolicy<float, float>, at::native::(anonymous namespace)::CastStoreAccumulate<float, float> >(char* restrict*, long, long, long, long)+0x41d>
+    0.00 :   6f585a0:        mov    rsi,QWORD PTR [rsp-0x48]
+    0.00 :   6f585a5:        mov    rbx,QWORD PTR [rsp-0x50]
+    0.00 :   6f585aa:        vaddss xmm0,xmm0,DWORD PTR [rdi+rsi*1]
+    0.00 :   6f585af:        cmp    r9,rbx
+    0.00 :   6f585b2:        jle    6f585ed <void at::native::(anonymous namespace)::vectorized_inner_sum<float, at::native::(anonymous namespace)::InnerSumCastLoadPolicy<at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>, void>, at::native::(anonymous namespace)::CastLoadPolicy<float, float>, at::native::(anonymous namespace)::CastStoreAccumulate<float, float> >(char* restrict*, long, long, long, long)+0x41d>
+    0.00 :   6f585b4:        lea    rdx,[rax+0x4]
+    0.00 :   6f585b8:        vaddss xmm0,xmm0,DWORD PTR [rdi+rbx*4]
+    0.00 :   6f585bd:        cmp    r9,rdx
+    0.00 :   6f585c0:        jle    6f585ed <void at::native::(anonymous namespace)::vectorized_inner_sum<float, at::native::(anonymous namespace)::InnerSumCastLoadPolicy<at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>, void>, at::native::(anonymous namespace)::CastLoadPolicy<float, float>, at::native::(anonymous namespace)::CastStoreAccumulate<float, float> >(char* restrict*, long, long, long, long)+0x41d>
+    0.00 :   6f585c2:        vaddss xmm0,xmm0,DWORD PTR [rdi+rdx*4]
+    0.00 :   6f585c7:        lea    rcx,[rdx*4+0x0]
+    0.00 :   6f585cf:        lea    rdx,[rax+0x5]
+    0.00 :   6f585d3:        cmp    r9,rdx
+    0.00 :   6f585d6:        jle    6f585ed <void at::native::(anonymous namespace)::vectorized_inner_sum<float, at::native::(anonymous namespace)::InnerSumCastLoadPolicy<at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>, void>, at::native::(anonymous namespace)::CastLoadPolicy<float, float>, at::native::(anonymous namespace)::CastStoreAccumulate<float, float> >(char* restrict*, long, long, long, long)+0x41d>
+    0.00 :   6f585d8:        lea    rdx,[rax+0x6]
+    0.00 :   6f585dc:        vaddss xmm0,xmm0,DWORD PTR [rdi+rcx*1+0x4]
+    0.00 :   6f585e2:        cmp    r9,rdx
+    0.00 :   6f585e5:        jle    6f585ed <void at::native::(anonymous namespace)::vectorized_inner_sum<float, at::native::(anonymous namespace)::InnerSumCastLoadPolicy<at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>, void>, at::native::(anonymous namespace)::CastLoadPolicy<float, float>, at::native::(anonymous namespace)::CastStoreAccumulate<float, float> >(char* restrict*, long, long, long, long)+0x41d>
+    0.00 :   6f585e7:        vaddss xmm0,xmm0,DWORD PTR [rdi+rcx*1+0x8]
+    0.00 :   6f585ed:        vaddss xmm0,xmm1,xmm0
+    0.00 :   6f585f1:        vshufps xmm3,xmm1,xmm1,0x55
+    0.00 :   6f585f6:        vshufps xmm2,xmm1,xmm1,0xff
+    5.40 :   6f585fb:        mov    rsi,QWORD PTR [rsp+0x18]
+    0.00 :   6f58600:        add    QWORD PTR [rsp+0x20],0x1
+    0.00 :   6f58606:        add    rdi,r12
+    0.08 :   6f58609:        add    r11,r12
+    0.00 :   6f5860c:        add    r10,r12
+    0.00 :   6f5860f:        mov    rbx,QWORD PTR [rsp+0x20]
+    0.00 :   6f58614:        vaddss xmm3,xmm3,xmm0
+    5.60 :   6f58618:        vunpckhps xmm0,xmm1,xmm1
+    0.00 :   6f5861c:        vaddss xmm0,xmm0,xmm3
+    0.00 :   6f58620:        vaddss xmm2,xmm2,xmm0
+    0.00 :   6f58624:        vextractf128 xmm0,ymm1,0x1
+    0.04 :   6f5862a:        vaddss xmm1,xmm0,xmm2
+    0.00 :   6f5862e:        vshufps xmm2,xmm0,xmm0,0x55
+    0.00 :   6f58633:        vaddss xmm2,xmm2,xmm1
+    0.00 :   6f58637:        vunpckhps xmm1,xmm0,xmm0
+    5.32 :   6f5863b:        vshufps xmm0,xmm0,xmm0,0xff
+    0.04 :   6f58640:        vaddss xmm1,xmm1,xmm2
+    0.04 :   6f58644:        vaddss xmm0,xmm0,xmm1
+    0.04 :   6f58648:        vaddss xmm0,xmm0,DWORD PTR [r14]
+    0.04 :   6f5864d:        vmovss DWORD PTR [r14],xmm0
+    0.00 :   6f58652:        add    r14,rsi
+    0.00 :   6f58655:        cmp    QWORD PTR [rsp+0x10],rbx
+    5.12 :   6f5865a:        jne    6f582ff <void at::native::(anonymous namespace)::vectorized_inner_sum<float, at::native::(anonymous namespace)::InnerSumCastLoadPolicy<at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>, void>, at::native::(anonymous namespace)::CastLoadPolicy<float, float>, at::native::(anonymous namespace)::CastStoreAccumulate<float, float> >(char* restrict*, long, long, long, long)+0x12f>
+    0.04 :   6f58660:        vzeroupper
+    0.00 :   6f58663:        lea    rsp,[rbp-0x28]
+    0.00 :   6f58667:        pop    rbx
+    0.00 :   6f58668:        pop    r12
+    0.00 :   6f5866a:        pop    r13
+    0.00 :   6f5866c:        pop    r14
+    0.00 :   6f5866e:        pop    r15
+    0.00 :   6f58670:        pop    rbp
+    0.00 :   6f58671:        ret
+    0.00 :   6f58672:        vxorps xmm7,xmm7,xmm7
+    0.00 :   6f58676:        vmovaps ymm4,ymm7
+    0.00 :   6f5867a:        vmovaps ymm6,ymm7
+    0.00 :   6f5867e:        vmovaps ymm5,ymm7
+    0.00 :   6f58682:        jmp    6f5844d <void at::native::(anonymous namespace)::vectorized_inner_sum<float, at::native::(anonymous namespace)::InnerSumCastLoadPolicy<at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>, void>, at::native::(anonymous namespace)::CastLoadPolicy<float, float>, at::native::(anonymous namespace)::CastStoreAccumulate<float, float> >(char* restrict*, long, long, long, long)+0x27d>
+    0.00 :   6f58687:        vxorps xmm12,xmm12,xmm12
+    0.00 :   6f5868c:        xor    edx,edx
+    0.00 :   6f5868e:        vmovaps ymm13,ymm12
+    5.20 :   6f58693:        vmovaps ymm14,ymm12
+    0.00 :   6f58698:        vmovaps ymm15,ymm12
+    0.00 :   6f5869d:        vmovaps ymm11,ymm12
+    0.00 :   6f586a2:        vmovaps ymm10,ymm12
+    0.48 :   6f586a7:        vmovaps ymm9,ymm12
+    0.00 :   6f586ac:        vmovaps ymm8,ymm12
+    0.00 :   6f586b1:        vmovaps ymm7,ymm12
+    0.00 :   6f586b5:        vmovaps ymm4,ymm12
+    4.48 :   6f586b9:        vmovaps ymm6,ymm12
+    0.00 :   6f586bd:        vmovaps ymm5,ymm12
+    4.72 :   6f586c1:        jmp    6f58461 <void at::native::(anonymous namespace)::vectorized_inner_sum<float, at::native::(anonymous namespace)::InnerSumCastLoadPolicy<at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>, void>, at::native::(anonymous namespace)::CastLoadPolicy<float, float>, at::native::(anonymous namespace)::CastStoreAccumulate<float, float> >(char* restrict*, long, long, long, long)+0x291>
+    0.00 :   6f586c6:        mov    ebx,0xf
+    0.00 :   6f586cb:        mov    esi,0x10
+    0.00 :   6f586d0:        mov    r13d,0x4
+    0.00 :   6f586d6:        mov    edx,0x4
+    0.00 :   6f586db:        jmp    6f58330 <void at::native::(anonymous namespace)::vectorized_inner_sum<float, at::native::(anonymous namespace)::InnerSumCastLoadPolicy<at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>, void>, at::native::(anonymous namespace)::CastLoadPolicy<float, float>, at::native::(anonymous namespace)::CastStoreAccumulate<float, float> >(char* restrict*, long, long, long, long)+0x160>
+    0.00 :   6f586e0:        vxorps xmm1,xmm1,xmm1
+    0.00 :   6f586e4:        vmovaps ymm2,ymm1
+    0.00 :   6f586e8:        vmovaps ymm3,ymm1
+    0.00 :   6f586ec:        vmovaps ymm0,ymm1
+    0.00 :   6f586f0:        jmp    6f584a4 <void at::native::(anonymous namespace)::vectorized_inner_sum<float, at::native::(anonymous namespace)::InnerSumCastLoadPolicy<at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>, void>, at::native::(anonymous namespace)::CastLoadPolicy<float, float>, at::native::(anonymous namespace)::CastStoreAccumulate<float, float> >(char* restrict*, long, long, long, long)+0x2d4>
+    0.00 :   6f586f5:        vxorps xmm0,xmm0,xmm0
+    5.76 :   6f586f9:        jmp    6f58578 <void at::native::(anonymous namespace)::vectorized_inner_sum<float, at::native::(anonymous namespace)::InnerSumCastLoadPolicy<at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>, void>, at::native::(anonymous namespace)::CastLoadPolicy<float, float>, at::native::(anonymous namespace)::CastStoreAccumulate<float, float> >(char* restrict*, long, long, long, long)+0x3a8>
+    0.00 :   6f586fe:        vxorps xmm14,xmm14,xmm14
+    0.00 :   6f58703:        xor    edx,edx
+    0.00 :   6f58705:        vmovaps ymm11,ymm14
+    0.00 :   6f5870a:        vmovaps ymm10,ymm14
+    0.00 :   6f5870f:        vmovaps ymm9,ymm14
+    0.00 :   6f58714:        vmovaps ymm13,ymm14
+    0.00 :   6f58719:        vmovaps ymm8,ymm14
+    0.00 :   6f5871e:        vmovaps ymm7,ymm14
+    0.00 :   6f58722:        vmovaps ymm6,ymm14
+    0.00 :   6f58726:        vmovaps ymm12,ymm14
+    0.00 :   6f5872b:        vmovaps ymm5,ymm14
+    0.00 :   6f5872f:        vmovaps ymm4,ymm14
+    0.00 :   6f58733:        vmovaps ymm15,ymm14
+    0.00 :   6f58738:        jmp    6f5846a <void at::native::(anonymous namespace)::vectorized_inner_sum<float, at::native::(anonymous namespace)::InnerSumCastLoadPolicy<at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>, void>, at::native::(anonymous namespace)::CastLoadPolicy<float, float>, at::native::(anonymous namespace)::CastStoreAccumulate<float, float> >(char* restrict*, long, long, long, long)+0x29a>

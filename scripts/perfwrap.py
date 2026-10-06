@@ -40,7 +40,9 @@ def event_spec(keys, supported):
     if rest:
         parts.append("{" + ",".join(rest) + "}")
     sw = {"task-clock", "page-faults", "context-switches", "cpu-migrations"}
-    if rest and all(n in sw for n in rest):  # software events cannot be a hw group
+    # A group of only software events is legal but pointless; list them plainly.
+    # (Software events can also join a hardware group, e.g. {cycles,page-faults}.)
+    if rest and all(n in sw for n in rest):
         parts = [p for p in parts if not p.startswith("{" + rest[0])] + [",".join(rest)]
     return ",".join(parts), [k for k in keys if k not in supported]
 
@@ -87,8 +89,11 @@ def run_one(name, keys, cmd, cpu, repeat, out_dir, supported):
             info[key] = f[0]
         else:
             vals[key] = float(f[0])
-            info[key] = {"stddev_pct": f[3].rstrip("%") if f[3] else None,
-                         "pct_running": f[5] if len(f) > 5 else None}
+            # With -r N > 1 perf inserts a variance column ("1.23%") after the
+            # event name; with -r 1 it does not, so the later columns shift.
+            has_var = f[3].endswith("%")
+            info[key] = {"stddev_pct": f[3].rstrip("%") if has_var else None,
+                         "pct_running": (f[5] if has_var else f[4]) if len(f) > 4 else None}
     for k in missing:
         info[k] = "UNAVAILABLE"
     return vals, info, r.returncode

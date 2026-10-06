@@ -1,0 +1,251 @@
+# symbol: _PyObject_GenericGetAttrWithDict
+# dso: python3.12
+# share of operator samples: 0.69%
+ Percent |	Source code & Disassembly of python3.12 for cycles:P (29 samples, percent: local period)
+--------------------------------------------------------------------------------------------------------
+         :
+         :
+         :
+         : 3      Disassembly of section .text:
+         :
+         : 5      0000000000584f60 <_PyObject_GenericGetAttrWithDict@@Base>:
+    0.00 :   584f60: endbr64	# +5.56%
+    0.00 :   584f64: push   rbp
+    0.00 :   584f65: mov    rbp,rsp
+    3.45 :   584f68: push   r15
+    0.00 :   584f6a: push   r14
+    0.00 :   584f6c: push   r13
+    0.00 :   584f6e: push   r12
+    3.45 :   584f70: push   rbx
+    0.00 :   584f71: sub    rsp,0x18
+    0.00 :   584f75: mov    rax,QWORD PTR [rsi+0x8]
+    0.00 :   584f79: mov    r14,QWORD PTR [rdi+0x8]
+    3.45 :   584f7d: mov    DWORD PTR [rbp-0x38],ecx
+    0.00 :   584f80: test   BYTE PTR [rax+0xab],0x10
+    0.00 :   584f87: je     45dffb <PyModule_GetFilename@@Base+0x900>
+    0.00 :   584f8d: mov    eax,DWORD PTR [rsi]
+    3.45 :   584f8f: mov    r13,rdi
+    0.00 :   584f92: mov    rbx,rsi
+    0.00 :   584f95: mov    r12,rdx
+    0.00 :   584f98: add    eax,0x1
+    0.00 :   584f9b: jne    585308 <_PyObject_GenericGetAttrWithDict@@Base+0x3a8>
+    3.45 :   584fa1: mov    rdi,r14
+    3.45 :   584fa4: call   5993d0 <_PyType_GetDict@@Base>	# -1.11% (p:100.00%)
+    0.00 :   584fa9: test   rax,rax
+    0.00 :   584fac: je     45e0a2 <PyModule_GetFilename@@Base+0x9a7>
+    0.00 :   584fb2: mov    rsi,rbx
+    0.00 :   584fb5: mov    rdi,r14
+    6.90 :   584fb8: call   599430 <_PyType_Lookup@@Base>	# -2.25% (p:100.00%)
+    0.00 :   584fbd: mov    r15,rax
+    0.00 :   584fc0: test   rax,rax
+    0.00 :   584fc3: je     585060 <_PyObject_GenericGetAttrWithDict@@Base+0x100>
+    3.45 :   584fc9: mov    eax,DWORD PTR [rax]
+    3.45 :   584fcb: add    eax,0x1
+    0.00 :   584fce: je     585048 <_PyObject_GenericGetAttrWithDict@@Base+0xe8>
+    0.00 :   584fd0: mov    DWORD PTR [r15],eax
+    0.00 :   584fd3: mov    rax,QWORD PTR [r15+0x8]
+   17.24 :   584fd7: mov    r8,QWORD PTR [rax+0x110]
+    0.00 :   584fde: test   r8,r8
+    0.00 :   584fe1: je     585060 <_PyObject_GenericGetAttrWithDict@@Base+0x100>
+    0.00 :   584fe3: mov    rdi,r15
+    0.00 :   584fe6: mov    QWORD PTR [rbp-0x40],r8
+    6.90 :   584fea: call   550ac0 <PyDescr_IsData@@Base>	# -2.30% (p:100.00%)
+    0.00 :   584fef: mov    r8,QWORD PTR [rbp-0x40]
+    0.00 :   584ff3: test   eax,eax
+    3.45 :   584ff5: je     5851b8 <_PyObject_GenericGetAttrWithDict@@Base+0x258>
+    0.00 :   584ffb: mov    rdx,QWORD PTR [r13+0x8]
+    3.45 :   584fff: mov    rsi,r13
+    0.00 :   585002: mov    rdi,r15
+    0.00 :   585005: call   r8
+    0.00 :   585008: test   rax,rax
+    0.00 :   58500b: jne    585018 <_PyObject_GenericGetAttrWithDict@@Base+0xb8>
+    0.00 :   58500d: mov    ecx,DWORD PTR [rbp-0x38]
+    0.00 :   585010: test   ecx,ecx
+    0.00 :   585012: jne    5852d0 <_PyObject_GenericGetAttrWithDict@@Base+0x370>
+    0.00 :   585018: mov    rdx,QWORD PTR [r15]
+    0.00 :   58501b: test   edx,edx
+    0.00 :   58501d: js     58515c <_PyObject_GenericGetAttrWithDict@@Base+0x1fc>
+    0.00 :   585023: sub    rdx,0x1
+    0.00 :   585027: mov    QWORD PTR [r15],rdx
+    3.45 :   58502a: jne    58515c <_PyObject_GenericGetAttrWithDict@@Base+0x1fc>
+    0.00 :   585030: mov    rdi,r15
+    0.00 :   585033: mov    QWORD PTR [rbp-0x38],rax
+    0.00 :   585037: call   583dc0 <_Py_Dealloc@@Base>
+    0.00 :   58503c: mov    rax,QWORD PTR [rbp-0x38]
+    0.00 :   585040: jmp    58515c <_PyObject_GenericGetAttrWithDict@@Base+0x1fc>
+    0.00 :   585045: nop    DWORD PTR [rax]
+    0.00 :   585048: mov    rax,QWORD PTR [r15+0x8]
+    0.00 :   58504c: mov    r8,QWORD PTR [rax+0x110]
+    0.00 :   585053: test   r8,r8
+    0.00 :   585056: jne    584fe3 <_PyObject_GenericGetAttrWithDict@@Base+0x83>
+    0.00 :   585058: nop    DWORD PTR [rax+rax*1+0x0]
+    0.00 :   585060: xor    r8d,r8d
+    0.00 :   585063: test   r12,r12
+    0.00 :   585066: jne    585103 <_PyObject_GenericGetAttrWithDict@@Base+0x1a3>
+    0.00 :   58506c: test   BYTE PTR [r14+0xa8],0x10
+    0.00 :   585074: je     5850e0 <_PyObject_GenericGetAttrWithDict@@Base+0x180>
+    0.00 :   585076: mov    r12,QWORD PTR [r13-0x18]
+    0.00 :   58507a: test   r12b,0x1
+    0.00 :   58507e: je     5851d0 <_PyObject_GenericGetAttrWithDict@@Base+0x270>
+    0.00 :   585084: cmp    QWORD PTR [rbx+0x8],0xa472c0
+    0.00 :   58508c: mov    QWORD PTR [rbp-0x40],r8
+    0.00 :   585090: lea    rsi,[r12+0x1]
+    0.00 :   585095: jne    45e0cc <PyModule_GetFilename@@Base+0x9d1>
+    0.00 :   58509b: mov    rdx,rbx
+    0.00 :   58509e: mov    rdi,r13
+    0.00 :   5850a1: call   578b90 <_PyDictView_New@@Base+0xd50>
+    0.00 :   5850a6: mov    r8,QWORD PTR [rbp-0x40]
+    0.00 :   5850aa: test   rax,rax
+    0.00 :   5850ad: jne    585153 <_PyObject_GenericGetAttrWithDict@@Base+0x1f3>
+    0.00 :   5850b3: test   r8,r8
+    0.00 :   5850b6: jne    585180 <_PyObject_GenericGetAttrWithDict@@Base+0x220>
+    0.00 :   5850bc: test   r15,r15
+    0.00 :   5850bf: jne    585218 <_PyObject_GenericGetAttrWithDict@@Base+0x2b8>
+    0.00 :   5850c5: mov    eax,DWORD PTR [rbp-0x38]
+    3.45 :   5850c8: test   eax,eax
+    0.00 :   5850ca: je     585238 <_PyObject_GenericGetAttrWithDict@@Base+0x2d8>
+    0.00 :   5850d0: xor    eax,eax
+    0.00 :   5850d2: jmp    58515c <_PyObject_GenericGetAttrWithDict@@Base+0x1fc>
+    0.00 :   5850d7: nop    WORD PTR [rax+rax*1+0x0]
+    0.00 :   5850e0: mov    rdx,QWORD PTR [r13+0x8]
+    0.00 :   5850e4: mov    rax,QWORD PTR [rdx+0x120]
+    0.00 :   5850eb: test   rax,rax
+    0.00 :   5850ee: je     5850b3 <_PyObject_GenericGetAttrWithDict@@Base+0x153>
+    0.00 :   5850f0: js     45e0ed <PyModule_GetFilename@@Base+0x9f2>
+    0.00 :   5850f6: add    rax,r13
+    0.00 :   5850f9: je     5850b3 <_PyObject_GenericGetAttrWithDict@@Base+0x153>
+    0.00 :   5850fb: mov    r12,QWORD PTR [rax]
+    0.00 :   5850fe: test   r12,r12
+    0.00 :   585101: je     5850b3 <_PyObject_GenericGetAttrWithDict@@Base+0x153>
+    0.00 :   585103: mov    eax,DWORD PTR [r12]
+    0.00 :   585107: mov    QWORD PTR [rbp-0x40],r8
+    0.00 :   58510b: add    eax,0x1
+    0.00 :   58510e: je     45e02e <PyModule_GetFilename@@Base+0x933>
+    0.00 :   585114: mov    DWORD PTR [r12],eax
+    0.00 :   585118: mov    rsi,rbx
+    0.00 :   58511b: mov    rdi,r12
+    0.00 :   58511e: call   574a30 <PyDict_GetItemWithError@@Base>
+    0.00 :   585123: mov    r8,QWORD PTR [rbp-0x40]
+    0.00 :   585127: test   rax,rax
+    0.00 :   58512a: je     5851e0 <_PyObject_GenericGetAttrWithDict@@Base+0x280>
+   10.34 :   585130: mov    edx,DWORD PTR [rax]
+    0.00 :   585132: add    edx,0x1
+    0.00 :   585135: je     585220 <_PyObject_GenericGetAttrWithDict@@Base+0x2c0>
+    0.00 :   58513b: mov    DWORD PTR [rax],edx
+    0.00 :   58513d: mov    rdx,QWORD PTR [r12]
+    0.00 :   585141: test   edx,edx
+    0.00 :   585143: js     585153 <_PyObject_GenericGetAttrWithDict@@Base+0x1f3>
+    0.00 :   585145: sub    rdx,0x1
+    0.00 :   585149: mov    QWORD PTR [r12],rdx
+    0.00 :   58514d: je     45e0b7 <PyModule_GetFilename@@Base+0x9bc>
+    0.00 :   585153: test   r15,r15
+    0.00 :   585156: jne    585018 <_PyObject_GenericGetAttrWithDict@@Base+0xb8>
+    0.00 :   58515c: mov    rdx,QWORD PTR [rbx]
+    0.00 :   58515f: test   edx,edx
+    0.00 :   585161: jns    5852f0 <_PyObject_GenericGetAttrWithDict@@Base+0x390>
+    0.00 :   585167: add    rsp,0x18
+    3.45 :   58516b: pop    rbx
+    0.00 :   58516c: pop    r12
+    3.45 :   58516e: pop    r13
+    0.00 :   585170: pop    r14
+    0.00 :   585172: pop    r15
+    0.00 :   585174: pop    rbp
+    6.90 :   585175: ret
+    0.00 :   585176: cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   585180: mov    rdx,QWORD PTR [r13+0x8]
+    0.00 :   585184: mov    rsi,r13
+    0.00 :   585187: mov    rdi,r15
+    0.00 :   58518a: call   r8
+    0.00 :   58518d: test   rax,rax
+    0.00 :   585190: jne    585153 <_PyObject_GenericGetAttrWithDict@@Base+0x1f3>
+    0.00 :   585192: mov    edx,DWORD PTR [rbp-0x38]
+    0.00 :   585195: test   edx,edx
+    0.00 :   585197: je     585153 <_PyObject_GenericGetAttrWithDict@@Base+0x1f3>
+    0.00 :   585199: mov    rdi,QWORD PTR [rip+0x4ae548]        # a336e8 <PyExc_AttributeError@@Base>
+    0.00 :   5851a0: call   5f1fe0 <PyErr_ExceptionMatches@@Base>
+    0.00 :   5851a5: test   eax,eax
+    0.00 :   5851a7: je     5851ae <_PyObject_GenericGetAttrWithDict@@Base+0x24e>
+    0.00 :   5851a9: call   5f2290 <PyErr_Clear@@Base>
+    0.00 :   5851ae: xor    eax,eax
+    0.00 :   5851b0: jmp    585153 <_PyObject_GenericGetAttrWithDict@@Base+0x1f3>
+    0.00 :   5851b2: nop    WORD PTR [rax+rax*1+0x0]
+    0.00 :   5851b8: test   r12,r12
+    0.00 :   5851bb: je     58506c <_PyObject_GenericGetAttrWithDict@@Base+0x10c>
+    0.00 :   5851c1: jmp    585103 <_PyObject_GenericGetAttrWithDict@@Base+0x1a3>
+    0.00 :   5851c6: cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   5851d0: test   r12,r12
+    3.45 :   5851d3: jne    585103 <_PyObject_GenericGetAttrWithDict@@Base+0x1a3>
+    0.00 :   5851d9: jmp    5850b3 <_PyObject_GenericGetAttrWithDict@@Base+0x153>
+    0.00 :   5851de: xchg   ax,ax
+    0.00 :   5851e0: mov    rax,QWORD PTR [r12]
+    0.00 :   5851e4: test   eax,eax
+    0.00 :   5851e6: js     5851f6 <_PyObject_GenericGetAttrWithDict@@Base+0x296>
+    0.00 :   5851e8: sub    rax,0x1
+    0.00 :   5851ec: mov    QWORD PTR [r12],rax
+    0.00 :   5851f0: je     45e08d <PyModule_GetFilename@@Base+0x992>
+    0.00 :   5851f6: mov    QWORD PTR [rbp-0x40],r8
+    0.00 :   5851fa: call   5f1620 <PyErr_Occurred@@Base>
+    0.00 :   5851ff: mov    r8,QWORD PTR [rbp-0x40]
+    0.00 :   585203: test   rax,rax
+    0.00 :   585206: je     5850b3 <_PyObject_GenericGetAttrWithDict@@Base+0x153>
+    0.00 :   58520c: jmp    45e04b <PyModule_GetFilename@@Base+0x950>
+    0.00 :   585211: nop    DWORD PTR [rax+0x0]
+    0.00 :   585218: mov    rax,r15
+    0.00 :   58521b: jmp    58515c <_PyObject_GenericGetAttrWithDict@@Base+0x1fc>
+    0.00 :   585220: mov    rdx,QWORD PTR [r12]
+    0.00 :   585224: test   edx,edx
+    0.00 :   585226: jns    585145 <_PyObject_GenericGetAttrWithDict@@Base+0x1e5>
+    0.00 :   58522c: jmp    585153 <_PyObject_GenericGetAttrWithDict@@Base+0x1f3>
+    0.00 :   585231: nop    DWORD PTR [rax+0x0]
+    0.00 :   585238: mov    rdi,QWORD PTR [rip+0x4ae4a9]        # a336e8 <PyExc_AttributeError@@Base>
+    0.00 :   58523f: mov    rdx,QWORD PTR [r14+0x18]
+    0.00 :   585243: xor    eax,eax
+    0.00 :   585245: mov    rcx,rbx
+    0.00 :   585248: mov    esi,0x71dd10
+    0.00 :   58524d: call   5f16b0 <PyErr_Format@@Base>
+    0.00 :   585252: mov    rdi,QWORD PTR [rip+0x4ae48f]        # a336e8 <PyExc_AttributeError@@Base>
+    0.00 :   585259: call   5f1fe0 <PyErr_ExceptionMatches@@Base>
+    0.00 :   58525e: test   eax,eax
+    0.00 :   585260: je     5850d0 <_PyObject_GenericGetAttrWithDict@@Base+0x170>
+    0.00 :   585266: call   5f2230 <PyErr_GetRaisedException@@Base>
+    0.00 :   58526b: mov    rsi,QWORD PTR [rip+0x4ae476]        # a336e8 <PyExc_AttributeError@@Base>
+    0.00 :   585272: mov    rdi,rax
+    0.00 :   585275: mov    r12,rax
+    0.00 :   585278: call   5f20f0 <PyErr_GivenExceptionMatches@@Base>
+    0.00 :   58527d: test   eax,eax
+    0.00 :   58527f: je     5852c1 <_PyObject_GenericGetAttrWithDict@@Base+0x361>
+    0.00 :   585281: cmp    QWORD PTR [r12+0x50],0x0
+    0.00 :   585287: jne    5852c1 <_PyObject_GenericGetAttrWithDict@@Base+0x361>
+    0.00 :   585289: cmp    QWORD PTR [r12+0x48],0x0
+    0.00 :   58528f: jne    5852c1 <_PyObject_GenericGetAttrWithDict@@Base+0x361>
+    0.00 :   585291: mov    rdx,rbx
+    0.00 :   585294: mov    esi,0xb42dd0
+    0.00 :   585299: mov    rdi,r12
+    0.00 :   58529c: call   583f70 <PyObject_SetAttr@@Base>
+    0.00 :   5852a1: test   eax,eax
+    0.00 :   5852a3: jne    5850d0 <_PyObject_GenericGetAttrWithDict@@Base+0x170>
+    0.00 :   5852a9: mov    rdx,r13
+    0.00 :   5852ac: mov    esi,0xb431a8
+    0.00 :   5852b1: mov    rdi,r12
+    0.00 :   5852b4: call   583f70 <PyObject_SetAttr@@Base>
+    0.00 :   5852b9: test   eax,eax
+    0.00 :   5852bb: jne    5850d0 <_PyObject_GenericGetAttrWithDict@@Base+0x170>
+    0.00 :   5852c1: mov    rdi,r12
+    0.00 :   5852c4: call   5f2250 <PyErr_SetRaisedException@@Base>
+    0.00 :   5852c9: xor    eax,eax
+    0.00 :   5852cb: jmp    58515c <_PyObject_GenericGetAttrWithDict@@Base+0x1fc>
+    0.00 :   5852d0: mov    rdi,QWORD PTR [rip+0x4ae411]        # a336e8 <PyExc_AttributeError@@Base>
+    0.00 :   5852d7: call   5f1fe0 <PyErr_ExceptionMatches@@Base>
+    0.00 :   5852dc: test   eax,eax
+    0.00 :   5852de: je     5852e5 <_PyObject_GenericGetAttrWithDict@@Base+0x385>
+    0.00 :   5852e0: call   5f2290 <PyErr_Clear@@Base>
+    0.00 :   5852e5: xor    eax,eax
+    0.00 :   5852e7: jmp    585018 <_PyObject_GenericGetAttrWithDict@@Base+0xb8>
+    0.00 :   5852ec: nop    DWORD PTR [rax+0x0]
+    0.00 :   5852f0: sub    rdx,0x1
+    0.00 :   5852f4: mov    QWORD PTR [rbx],rdx
+    0.00 :   5852f7: jne    585167 <_PyObject_GenericGetAttrWithDict@@Base+0x207>
+    0.00 :   5852fd: jmp    45e019 <PyModule_GetFilename@@Base+0x91e>
+    0.00 :   585302: nop    WORD PTR [rax+rax*1+0x0]
+    0.00 :   585308: mov    DWORD PTR [rsi],eax
+    0.00 :   58530a: jmp    584fa1 <_PyObject_GenericGetAttrWithDict@@Base+0x41>

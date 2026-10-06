@@ -1,0 +1,9 @@
+    73.43%  libtorch_cpu.so     
+    19.23%  python3.12          
+     3.06%  libc.so.6           
+     1.61%  libc10.so           
+     1.59%  libtorch_python.so  
+     0.62%  ld-linux-x86-64.so.2
+     0.31%  libstdc++.so.6.0.33 
+
+

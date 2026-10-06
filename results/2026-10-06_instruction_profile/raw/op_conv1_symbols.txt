@@ -1,0 +1,12 @@
+    78.50%  jitted-533214-0.so   [.] jit_avx512_common_conv_fwd_kernel_vmm_t.0
+    11.79%  jitted-533214-2.so   [.] jit_single_blk_kernel.2
+     0.83%  libtorch_cpu.so      [.] std::_Function_handler<void (long, long), dnnl::impl::cpu::x64::jit_blk_reorder_t::execute(dnnl::impl::exec_ctx_t const&) const::{lambda(long, long)#1}>::_M_invoke(std::_Any_data const&, long&&, long&&)
+     0.55%  libtorch_cpu.so      [.] std::_Function_handler<void (int, int), dnnl::impl::parallel_nd(long, long, std::function<void (long, long)> const&)::{lambda(int, int)#1}>::_M_invoke(std::_Any_data const&, int&&, int&&)
+     0.40%  python3.12           [.] 0x000000000021d9e4
+     0.33%  python3.12           [.] 0x000000000021d760
+     0.31%  python3.12           [.] 0x000000000021cb5a
+     0.28%  libtorch_cpu.so      [.] dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const
+     0.28%  python3.12           [.] 0x000000000021d984
+     0.21%  python3.12           [.] 0x000000000021ccf8
+
+

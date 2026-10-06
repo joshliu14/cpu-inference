@@ -1,0 +1,969 @@
+pct,addr,mnemonic,operands,class,width
+0.0,6c253c0,push,rbp,other,
+0.0,6c253c1,mov,"rax,rdi",int/addr,
+0.0,6c253c4,mov,"rdi,rdx",int/addr,
+0.0,6c253c7,mov,"rbp,rsp",int/addr,
+0.0,6c253ca,push,r15,other,
+0.0,6c253cc,push,r14,other,
+0.0,6c253ce,mov,"r14,rcx",int/addr,
+0.0,6c253d1,push,r13,other,
+0.0,6c253d3,mov,"r13,r8",int/addr,
+0.0,6c253d6,push,r12,other,
+0.0,6c253d8,push,rbx,other,
+0.0,6c253d9,and,"rsp,0xffffffffffffffe0",int/addr,
+0.0,6c253dd,sub,"rsp,0x28",int/addr,
+0.0,6c253e1,vmovdqu,"xmm6,XMMWORD PTR [rsi]",vec_load,xmm
+0.0,6c253e5,mov,"rdx,QWORD PTR [rdx+0x10]",gpr_load,
+0.0,6c253e9,mov,"rsi,QWORD PTR [rsi+0x10]",gpr_load,
+0.0,6c253ed,vmovdqa,"XMMWORD PTR [rsp+0x8],xmm6",vec_store,xmm
+0.0,6c253f3,mov,"QWORD PTR [rsp+0x18],rsi",gpr_store,
+0.0,6c253f8,cmp,"rdx,0x4",int/addr,
+0.0,6c253fc,je,"6c256c0 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x300>",branch,
+0.0,6c25402,test,"rdx,rdx",int/addr,
+0.0,6c25405,jne,"6c25412 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x52>",branch,
+0.0,6c25407,cmp,"QWORD PTR [rdi+0x8],0x4",int/addr,
+0.0,6c2540c,je,"6c25950 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x590>",branch,
+0.0,6c25412,test,"r13,r13",int/addr,
+0.0,6c25415,jg,"6c25430 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x70>",branch,
+0.0,6c25417,lea,"rsp,[rbp-0x28]",int/addr,
+0.0,6c2541b,pop,rbx,other,
+0.0,6c2541c,pop,r12,other,
+0.0,6c2541e,pop,r13,other,
+0.0,6c25420,pop,r14,other,
+0.0,6c25422,pop,r15,other,
+0.0,6c25424,pop,rbp,other,
+0.0,6c25425,ret,,branch,
+0.0,6c25426,cs,nop WORD PTR [rax+rax*1+0x0],other,
+0.0,6c25430,mov,"rbx,QWORD PTR [rdi+0x18]",gpr_load,
+0.0,6c25434,mov,"rcx,QWORD PTR [rdi]",gpr_load,
+0.0,6c25437,mov,"rsi,QWORD PTR [rdi+0x8]",gpr_load,
+0.0,6c2543b,mov,"r10,QWORD PTR [rsp+0x8]",gpr_load,
+0.0,6c25440,mov,"r11,QWORD PTR [rsp+0x10]",gpr_load,
+0.0,6c25445,mov,"r8,QWORD PTR [rsp+0x18]",gpr_load,
+0.0,6c2544a,mov,"QWORD PTR [rsp-0x8],rbx",gpr_store,
+0.0,6c2544f,mov,"rbx,QWORD PTR [rdi+0x20]",gpr_load,
+0.0,6c25453,mov,"QWORD PTR [rsp-0x10],rbx",gpr_store,
+0.0,6c25458,mov,"rbx,QWORD PTR [rdi+0x28]",gpr_load,
+0.0,6c2545c,mov,"QWORD PTR [rsp-0x18],rbx",gpr_store,
+0.0,6c25461,test,"r14,r14",int/addr,
+0.0,6c25464,jle,"6c25417 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x57>",branch,
+0.0,6c25466,lea,"r12,[r14-0x1]",int/addr,
+0.0,6c2546a,xor,"edi,edi",int/addr,
+0.0,6c2546c,mov,"r15,r8",int/addr,
+0.0,6c2546f,mov,"r8d,0x3",int/addr,
+0.0,6c25475,mov,"r9,r12",int/addr,
+0.0,6c25478,mov,"rbx,rdi",int/addr,
+0.0,6c2547b,mov,"QWORD PTR [rsp-0x40],r12",gpr_store,
+0.0,6c25480,imul,"r9,rcx",int/addr,
+0.0,6c25484,test,"rcx,rcx",int/addr,
+0.0,6c25487,mov,"QWORD PTR [rsp-0x20],r13",gpr_store,
+0.0,6c2548c,mov,"r13,r14",int/addr,
+0.0,6c2548f,mov,"QWORD PTR [rsp],0x0",gpr_store,
+0.0,6c25497,cmovs,"rbx,r9",int/addr,
+0.0,6c2549b,add,"r9,0x3",int/addr,
+0.0,6c2549f,test,"rcx,rcx",int/addr,
+0.0,6c254a2,cmovs,"r9,r8",int/addr,
+0.0,6c254a6,mov,"QWORD PTR [rsp-0x38],rbx",gpr_store,
+0.0,6c254ab,mov,"QWORD PTR [rsp-0x30],r9",gpr_store,
+0.0,6c254b0,mov,"r9,r12",int/addr,
+0.0,6c254b3,imul,"r9,rsi",int/addr,
+0.0,6c254b7,test,"rsi,rsi",int/addr,
+0.0,6c254ba,lea,"rbx,[r9+0x3]",int/addr,
+0.0,6c254be,cmovns,"r9,rdi",int/addr,
+0.0,6c254c2,cmovs,"rbx,r8",int/addr,
+0.0,6c254c6,mov,"QWORD PTR [rsp-0x48],r9",gpr_store,
+0.0,6c254cb,mov,"r9,r12",int/addr,
+0.0,6c254ce,imul,"r9,rdx",int/addr,
+0.0,6c254d2,mov,"QWORD PTR [rsp-0x28],rbx",gpr_store,
+0.0,6c254d7,test,"rdx,rdx",int/addr,
+0.0,6c254da,lea,"rbx,[r9+0x3]",int/addr,
+0.0,6c254de,cmovs,"rdi,r9",int/addr,
+0.0,6c254e2,cmovns,"r8,rbx",int/addr,
+0.0,6c254e6,lea,"rbx,[rax+0x3]",int/addr,
+0.0,6c254ea,mov,"QWORD PTR [rsp-0x60],rdi",gpr_store,
+0.0,6c254ef,mov,"QWORD PTR [rsp-0x58],r8",gpr_store,
+0.0,6c254f4,mov,"QWORD PTR [rsp-0x50],rbx",gpr_store,
+0.0,6c254f9,cmp,"QWORD PTR [rsp-0x40],0x1a",int/addr,
+0.0,6c254ff,jbe,"6c25680 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x2c0>",branch,
+0.0,6c25505,mov,"rbx,QWORD PTR [rsp-0x38]",gpr_load,
+0.0,6c2550a,mov,"rdi,QWORD PTR [rsp-0x48]",gpr_load,
+0.0,6c2550f,lea,"r9,[r10+rbx*1]",int/addr,
+0.0,6c25513,mov,"rbx,QWORD PTR [rsp-0x30]",gpr_load,
+0.0,6c25518,add,"rdi,r11",int/addr,
+0.0,6c2551b,add,"rbx,r10",int/addr,
+0.0,6c2551e,cmp,"rbx,rdi",int/addr,
+0.0,6c25521,mov,"rdi,QWORD PTR [rsp-0x28]",gpr_load,
+0.0,6c25526,setb,r8b,other,
+0.0,6c2552a,add,"rdi,r11",int/addr,
+0.0,6c2552d,cmp,"rdi,r9",int/addr,
+0.0,6c25530,setb,dil,other,
+0.0,6c25534,or,"r8d,edi",int/addr,
+0.0,6c25537,cmp,"QWORD PTR [rsp-0x50],r9",int/addr,
+0.0,6c2553c,setb,dil,other,
+0.0,6c25540,cmp,"rbx,rax",int/addr,
+0.0,6c25543,setb,r12b,other,
+0.0,6c25547,or,"edi,r12d",int/addr,
+0.0,6c2554a,test,"r8b,dil",int/addr,
+0.0,6c2554d,je,"6c25680 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x2c0>",branch,
+0.0,6c25553,mov,"rdi,QWORD PTR [rsp-0x60]",gpr_load,
+0.0,6c25558,add,"rdi,r15",int/addr,
+0.0,6c2555b,cmp,"rbx,rdi",int/addr,
+0.0,6c2555e,mov,"rbx,QWORD PTR [rsp-0x58]",gpr_load,
+0.0,6c25563,setb,dil,other,
+0.0,6c25567,lea,"r8,[r15+rbx*1]",int/addr,
+0.0,6c2556b,cmp,"r8,r9",int/addr,
+0.0,6c2556e,setb,r8b,other,
+0.0,6c25572,or,"r8b,dil",int/addr,
+0.0,6c25575,je,"6c25680 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x2c0>",branch,
+0.0,6c2557b,vmovss,"xmm2,DWORD PTR [rax]",vec_load,xmm
+0.0,6c2557f,mov,"rbx,r13",int/addr,
+0.0,6c25582,lea,"rdi,[rsi+rsi*1]",int/addr,
+0.0,6c25586,mov,"QWORD PTR [rsp-0x78],r11",gpr_store,
+0.0,6c2558b,shr,"rbx,1",int/addr,
+0.0,6c2558e,mov,"QWORD PTR [rsp-0x68],rdi",gpr_store,
+0.0,6c25593,mov,"r9,r11",int/addr,
+0.0,6c25596,mov,"r11,QWORD PTR [rsp-0x68]",gpr_load,
+0.0,6c2559b,vmovsldup,"xmm2,xmm2",shuffle/permute,xmm
+0.0,6c2559f,mov,"QWORD PTR [rsp-0x70],rbx",gpr_store,
+0.0,6c255a4,lea,"r14,[rdx+rdx*1]",int/addr,
+0.0,6c255a8,mov,"r8,r15",int/addr,
+0.0,6c255ab,mov,"QWORD PTR [rsp-0x68],rax",gpr_store,
+0.0,6c255b0,mov,"rax,QWORD PTR [rsp-0x70]",gpr_load,
+0.0,6c255b5,lea,"r12,[rcx+rcx*1]",int/addr,
+0.0,6c255b9,xor,"ebx,ebx",int/addr,
+0.0,6c255bb,mov,"rdi,r10",int/addr,
+0.0,6c255be,xchg,"ax,ax",other,
+0.0,6c255c0,vmovss,"xmm0,DWORD PTR [r8]",vec_load,xmm
+0.0,6c255c5,vmovss,"xmm1,DWORD PTR [r9]",vec_load,xmm
+0.0,6c255ca,add,"rbx,0x1",int/addr,
+0.0,6c255ce,vinsertps,"xmm0,xmm0,DWORD PTR [r8+rdx*1],0x10",shuffle/permute,xmm
+0.0,6c255d5,vinsertps,"xmm1,xmm1,DWORD PTR [r9+rsi*1],0x10",shuffle/permute,xmm
+0.0,6c255dc,add,"r8,r14",int/addr,
+0.0,6c255df,add,"r9,r11",int/addr,
+0.0,6c255e2,vfmadd132ps,"xmm0,xmm1,xmm2",fma,xmm
+0.0,6c255e7,vmovshdup,"xmm5,xmm0",shuffle/permute,xmm
+0.0,6c255eb,vmovss,"DWORD PTR [rdi],xmm0",vec_store,xmm
+0.0,6c255ef,vmovss,"DWORD PTR [rdi+rcx*1],xmm5",vec_store,xmm
+0.0,6c255f4,add,"rdi,r12",int/addr,
+0.0,6c255f7,cmp,"rax,rbx",int/addr,
+0.0,6c255fa,jne,"6c255c0 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x200>",branch,
+0.0,6c255fc,mov,"rdi,r13",int/addr,
+0.0,6c255ff,mov,"r11,QWORD PTR [rsp-0x78]",gpr_load,
+0.0,6c25604,mov,"rax,QWORD PTR [rsp-0x68]",gpr_load,
+0.0,6c25609,and,"rdi,0xfffffffffffffffe",int/addr,
+0.0,6c2560d,test,"r13b,0x1",int/addr,
+0.0,6c25611,je,"6c2563c <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x27c>",branch,
+0.0,6c25613,mov,"r9,rdx",int/addr,
+0.0,6c25616,mov,"r8,rdi",int/addr,
+0.0,6c25619,imul,"r9,rdi",int/addr,
+0.0,6c2561d,imul,"rdi,rsi",int/addr,
+0.0,6c25621,imul,"r8,rcx",int/addr,
+0.0,6c25625,vmovss,"xmm0,DWORD PTR [r15+r9*1]",vec_load,xmm
+0.0,6c2562b,vmovss,"xmm4,DWORD PTR [r11+rdi*1]",vec_load,xmm
+0.0,6c25631,vfmadd132ss,"xmm0,xmm4,DWORD PTR [rax]",fma,xmm
+0.0,6c25636,vmovss,"DWORD PTR [r10+r8*1],xmm0",vec_store,xmm
+0.0,6c2563c,mov,"rdi,QWORD PTR [rsp-0x10]",gpr_load,
+0.0,6c25641,add,"QWORD PTR [rsp],0x1",int/addr,
+0.0,6c25646,mov,"rbx,QWORD PTR [rsp]",gpr_load,
+0.0,6c2564a,add,"r11,rdi",int/addr,
+0.0,6c2564d,mov,"rdi,QWORD PTR [rsp-0x8]",gpr_load,
+0.0,6c25652,add,"r10,rdi",int/addr,
+0.0,6c25655,mov,"rdi,QWORD PTR [rsp-0x18]",gpr_load,
+0.0,6c2565a,add,"r15,rdi",int/addr,
+0.0,6c2565d,cmp,"QWORD PTR [rsp-0x20],rbx",int/addr,
+0.0,6c25662,jne,"6c254f9 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x139>",branch,
+0.0,6c25668,lea,"rsp,[rbp-0x28]",int/addr,
+0.0,6c2566c,pop,rbx,other,
+0.0,6c2566d,pop,r12,other,
+0.0,6c2566f,pop,r13,other,
+0.0,6c25671,pop,r14,other,
+0.0,6c25673,pop,r15,other,
+0.0,6c25675,pop,rbp,other,
+0.0,6c25676,ret,,branch,
+0.0,6c25677,nop,WORD PTR [rax+rax*1+0x0],other,
+0.0,6c25680,mov,"rbx,r10",int/addr,
+0.0,6c25683,mov,"r9,r11",int/addr,
+0.0,6c25686,mov,"r8,r15",int/addr,
+0.0,6c25689,xor,"edi,edi",int/addr,
+0.0,6c2568b,nop,DWORD PTR [rax+rax*1+0x0],other,
+0.0,6c25690,vmovss,"xmm0,DWORD PTR [r8]",vec_load,xmm
+0.0,6c25695,vmovss,"xmm3,DWORD PTR [r9]",vec_load,xmm
+0.0,6c2569a,add,"rdi,0x1",int/addr,
+0.0,6c2569e,add,"r8,rdx",int/addr,
+0.0,6c256a1,vfmadd132ss,"xmm0,xmm3,DWORD PTR [rax]",fma,xmm
+0.0,6c256a6,add,"r9,rsi",int/addr,
+0.0,6c256a9,vmovss,"DWORD PTR [rbx],xmm0",vec_store,xmm
+0.0,6c256ad,add,"rbx,rcx",int/addr,
+0.0,6c256b0,cmp,"r13,rdi",int/addr,
+0.0,6c256b3,jne,"6c25690 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x2d0>",branch,
+0.0,6c256b5,jmp,"6c2563c <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x27c>",branch,
+0.0,6c256b7,nop,WORD PTR [rax+rax*1+0x0],other,
+0.0,6c256c0,mov,"rcx,QWORD PTR [rdi+0x8]",gpr_load,
+0.0,6c256c4,cmp,"rcx,0x4",int/addr,
+0.0,6c256c8,je,"6c25bd0 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x810>",branch,
+0.0,6c256ce,test,"rcx,rcx",int/addr,
+0.0,6c256d1,jne,"6c25412 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x52>",branch,
+0.0,6c256d7,cmp,"QWORD PTR [rdi],0x4",int/addr,
+0.0,6c256db,jne,"6c25412 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x52>",branch,
+0.0,6c256e1,test,"r8,r8",int/addr,
+0.0,6c256e4,jle,"6c25417 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x57>",branch,
+0.0,6c256ea,lea,"rcx,[r14-0x10]",int/addr,
+0.0,6c256ee,mov,"rdx,QWORD PTR [rsp+0x8]",gpr_load,
+0.0,6c256f3,mov,"r11,rsi",int/addr,
+0.0,6c256f6,lea,"r9,[r14-0xf]",int/addr,
+0.0,6c256fa,and,"rcx,0xfffffffffffffff0",int/addr,
+0.0,6c256fe,mov,"r10,QWORD PTR [rsp+0x10]",gpr_load,
+0.0,6c25703,xor,"r15d,r15d",int/addr,
+0.0,6c25706,lea,"rbx,[rcx+0x10]",int/addr,
+0.0,6c2570a,vmovss,"xmm0,DWORD PTR [r10]",vec_load,xmm
+0.0,6c2570f,vbroadcastss,"ymm1,xmm0",broadcast,ymm
+0.0,6c25714,cmp,"r14,0xf",int/addr,
+0.0,6c25718,jle,"6c264e7 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x1127>",branch,
+0.0,6c2571e,xor,"ecx,ecx",int/addr,
+0.0,6c25720,vmovups,"ymm2,YMMWORD PTR [r11+rcx*4]",vec_load,ymm
+0.0,6c25726,vmovups,"ymm0,YMMWORD PTR [r11+rcx*4+0x20]",vec_load,ymm
+0.0,6c2572d,vfmadd132ps,"ymm2,ymm1,YMMWORD PTR [rax+0x20]",fma,ymm
+0.0,6c25733,vfmadd132ps,"ymm0,ymm1,YMMWORD PTR [rax+0x20]",fma,ymm
+0.0,6c25739,vmovups,"YMMWORD PTR [rdx+rcx*4],ymm2",vec_store,ymm
+0.0,6c2573e,vmovups,"YMMWORD PTR [rdx+rcx*4+0x20],ymm0",vec_store,ymm
+0.0,6c25744,add,"rcx,0x10",int/addr,
+0.0,6c25748,cmp,"rcx,r9",int/addr,
+0.0,6c2574b,jl,"6c25720 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x360>",branch,
+0.0,6c2574d,cmp,"r14,rbx",int/addr,
+0.0,6c25750,jle,"6c2592b <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x56b>",branch,
+0.0,6c25756,vmovss,"xmm0,DWORD PTR [r10]",vec_load,xmm
+0.0,6c2575b,mov,"rsi,rbx",int/addr,
+0.0,6c2575e,vmovss,"xmm7,DWORD PTR [rax]",vec_load,xmm
+0.0,6c25762,vfmadd231ss,"xmm0,xmm7,DWORD PTR [r11+rsi*4]",fma,xmm
+0.0,6c25768,lea,"r8,[rsi+0x1]",int/addr,
+0.0,6c2576c,lea,"rcx,[rsi*4+0x0]",int/addr,
+0.0,6c25774,mov,"QWORD PTR [rsp-0x10],r8",gpr_store,
+0.0,6c25779,mov,"QWORD PTR [rsp-0x8],r8",gpr_store,
+0.0,6c2577e,vmovss,"DWORD PTR [rdx+rcx*1],xmm0",vec_store,xmm
+0.0,6c25783,cmp,"r14,r8",int/addr,
+0.0,6c25786,jle,"6c2592b <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x56b>",branch,
+0.0,6c2578c,mov,"r8,r14",int/addr,
+0.0,6c2578f,sub,"r8,rsi",int/addr,
+0.0,6c25792,mov,"QWORD PTR [rsp-0x20],r8",gpr_store,
+0.0,6c25797,sub,"r8,0x2",int/addr,
+0.0,6c2579b,mov,"QWORD PTR [rsp-0x30],r8",gpr_store,
+0.0,6c257a0,cmp,"r8,0x2",int/addr,
+0.0,6c257a4,lea,"r8,[rcx+0x4]",int/addr,
+0.0,6c257a8,mov,"QWORD PTR [rsp-0x18],r8",gpr_store,
+0.0,6c257ad,jbe,"6c25e16 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0xa56>",branch,
+0.0,6c257b3,add,"r8,rdx",int/addr,
+0.0,6c257b6,lea,"r12,[rax+0x4]",int/addr,
+0.0,6c257ba,mov,"QWORD PTR [rsp],r8",gpr_store,
+0.0,6c257be,lea,"r8,[rdx+r14*4]",int/addr,
+0.0,6c257c2,cmp,"QWORD PTR [rsp],r12",int/addr,
+0.0,6c257c6,setae,BYTE PTR [rsp-0x28],other,
+0.0,6c257cb,cmp,"rax,r8",int/addr,
+0.0,6c257ce,setae,r12b,other,
+0.0,6c257d2,or,"r12b,BYTE PTR [rsp-0x28]",int/addr,
+0.0,6c257d7,mov,"BYTE PTR [rsp-0x28],r12b",gpr_store,
+0.0,6c257dc,lea,"r12,[r10+0x4]",int/addr,
+0.0,6c257e0,cmp,"QWORD PTR [rsp],r12",int/addr,
+0.0,6c257e4,setae,r12b,other,
+0.0,6c257e8,cmp,"r10,r8",int/addr,
+0.0,6c257eb,setae,r8b,other,
+0.0,6c257ef,or,"r12d,r8d",int/addr,
+0.0,6c257f2,test,"BYTE PTR [rsp-0x28],r12b",int/addr,
+0.0,6c257f7,je,"6c25e16 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0xa56>",branch,
+0.0,6c257fd,mov,"r8,QWORD PTR [rsp]",gpr_load,
+0.0,6c25801,lea,"r12,[r11+rcx*1+0x8]",int/addr,
+0.0,6c25806,sub,"r8,r12",int/addr,
+0.0,6c25809,cmp,"r8,0x18",int/addr,
+0.0,6c2580d,jbe,"6c25e16 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0xa56>",branch,
+0.0,6c25813,mov,"rcx,QWORD PTR [rsp-0x20]",gpr_load,
+0.0,6c25818,cmp,"QWORD PTR [rsp-0x30],0x6",int/addr,
+0.0,6c2581e,lea,"rsi,[rcx-0x1]",int/addr,
+0.0,6c25822,jbe,"6c2651f <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x115f>",branch,
+0.0,6c25828,mov,"rcx,QWORD PTR [rsp-0x18]",gpr_load,
+0.0,6c2582d,vbroadcastss,"ymm0,DWORD PTR [rax]",broadcast,ymm
+0.0,6c25832,mov,"r8,rsi",int/addr,
+0.0,6c25835,vbroadcastss,"ymm1,DWORD PTR [r10]",broadcast,ymm
+0.0,6c2583a,mov,"r12,QWORD PTR [rsp]",gpr_load,
+0.0,6c2583e,shr,"r8,0x3",int/addr,
+0.0,6c25842,add,"rcx,r11",int/addr,
+0.0,6c25845,vmovaps,"ymm2,ymm0",shuffle/permute,ymm
+0.0,6c25849,vfmadd132ps,"ymm2,ymm1,YMMWORD PTR [rcx]",fma,ymm
+0.0,6c2584e,vmovups,"YMMWORD PTR [r12],ymm2",vec_store,ymm
+0.0,6c25854,cmp,"r8,0x1",int/addr,
+0.0,6c25858,je,"6c25867 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x4a7>",branch,
+0.0,6c2585a,vfmadd132ps,"ymm0,ymm1,YMMWORD PTR [rcx+0x20]",fma,ymm
+0.0,6c25860,vmovups,"YMMWORD PTR [r12+0x20],ymm0",vec_store,ymm
+0.0,6c25867,mov,"rcx,rsi",int/addr,
+0.0,6c2586a,mov,"r8,QWORD PTR [rsp-0x10]",gpr_load,
+0.0,6c2586f,and,"rcx,0xfffffffffffffff8",int/addr,
+0.0,6c25873,add,"r8,rcx",int/addr,
+0.0,6c25876,and,"esi,0x7",int/addr,
+0.0,6c25879,mov,"QWORD PTR [rsp-0x8],r8",gpr_store,
+0.0,6c2587e,je,"6c2592b <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x56b>",branch,
+0.0,6c25884,mov,"r8,QWORD PTR [rsp-0x20]",gpr_load,
+0.0,6c25889,sub,"r8,rcx",int/addr,
+0.0,6c2588c,lea,"rsi,[r8-0x1]",int/addr,
+0.0,6c25890,sub,"r8,0x2",int/addr,
+0.0,6c25894,cmp,"r8,0x2",int/addr,
+0.0,6c25898,jbe,"6c258c9 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x509>",branch,
+0.0,6c2589a,mov,"r8,QWORD PTR [rsp-0x10]",gpr_load,
+0.0,6c2589f,vbroadcastss,"xmm0,DWORD PTR [rax]",broadcast,xmm
+0.0,6c258a4,vbroadcastss,"xmm1,DWORD PTR [r10]",broadcast,xmm
+0.0,6c258a9,add,"r8,rcx",int/addr,
+0.0,6c258ac,mov,"rcx,rsi",int/addr,
+0.0,6c258af,vfmadd132ps,"xmm0,xmm1,XMMWORD PTR [r11+r8*4]",fma,xmm
+0.0,6c258b5,and,"rcx,0xfffffffffffffffc",int/addr,
+0.0,6c258b9,add,"QWORD PTR [rsp-0x8],rcx",int/addr,
+0.0,6c258be,and,"esi,0x3",int/addr,
+0.0,6c258c1,vmovups,"XMMWORD PTR [rdx+r8*4],xmm0",vec_store,xmm
+0.0,6c258c7,je,"6c2592b <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x56b>",branch,
+0.0,6c258c9,mov,"r8,QWORD PTR [rsp-0x8]",gpr_load,
+0.0,6c258ce,vmovss,"xmm7,DWORD PTR [r10]",vec_load,xmm
+0.0,6c258d3,vmovss,"xmm0,DWORD PTR [r11+r8*4]",vec_load,xmm
+0.0,6c258d9,vfmadd132ss,"xmm0,xmm7,DWORD PTR [rax]",fma,xmm
+0.0,6c258de,lea,"rcx,[r8*4+0x0]",int/addr,
+0.0,6c258e6,lea,"rsi,[r8+0x1]",int/addr,
+0.0,6c258ea,vmovss,"DWORD PTR [rdx+rcx*1],xmm0",vec_store,xmm
+0.0,6c258ef,cmp,"r14,rsi",int/addr,
+0.0,6c258f2,jle,"6c2592b <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x56b>",branch,
+0.0,6c258f4,vmovss,"xmm0,DWORD PTR [r11+rcx*1+0x4]",vec_load,xmm
+0.0,6c258fb,vmovss,"xmm7,DWORD PTR [r10]",vec_load,xmm
+0.0,6c25900,lea,"rsi,[r8+0x2]",int/addr,
+0.0,6c25904,vfmadd132ss,"xmm0,xmm7,DWORD PTR [rax]",fma,xmm
+0.0,6c25909,vmovss,"DWORD PTR [rdx+rcx*1+0x4],xmm0",vec_store,xmm
+0.0,6c2590f,cmp,"r14,rsi",int/addr,
+0.0,6c25912,jle,"6c2592b <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x56b>",branch,
+0.0,6c25914,vmovss,"xmm0,DWORD PTR [r11+rcx*1+0x8]",vec_load,xmm
+0.0,6c2591b,vmovss,"xmm7,DWORD PTR [r10]",vec_load,xmm
+0.0,6c25920,vfmadd132ss,"xmm0,xmm7,DWORD PTR [rax]",fma,xmm
+0.0,6c25925,vmovss,"DWORD PTR [rdx+rcx*1+0x8],xmm0",vec_store,xmm
+0.0,6c2592b,add,"r15,0x1",int/addr,
+0.0,6c2592f,add,"rdx,QWORD PTR [rdi+0x18]",int/addr,
+0.0,6c25933,add,"r10,QWORD PTR [rdi+0x20]",int/addr,
+0.0,6c25937,add,"r11,QWORD PTR [rdi+0x28]",int/addr,
+0.0,6c2593b,cmp,"r13,r15",int/addr,
+0.0,6c2593e,je,"6c25e0e <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0xa4e>",branch,
+0.0,6c25944,jmp,"6c2570a <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x34a>",branch,
+0.0,6c25949,nop,DWORD PTR [rax+0x0],other,
+0.0,6c25950,cmp,"QWORD PTR [rdi],0x4",int/addr,
+0.0,6c25954,jne,"6c25412 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x52>",branch,
+0.0,6c2595a,test,"r8,r8",int/addr,
+0.0,6c2595d,jle,"6c25417 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x57>",branch,
+0.0,6c25963,lea,"rdx,[rcx-0x10]",int/addr,
+0.0,6c25967,lea,"r10,[rcx-0xf]",int/addr,
+0.0,6c2596b,mov,"r8,QWORD PTR [rsp+0x8]",gpr_load,
+0.0,6c25970,mov,"r9,rsi",int/addr,
+0.0,6c25973,and,"rdx,0xfffffffffffffff0",int/addr,
+0.0,6c25977,mov,"r15,QWORD PTR [rsp+0x10]",gpr_load,
+0.0,6c2597c,xor,"ebx,ebx",int/addr,
+0.0,6c2597e,lea,"rcx,[rdx+0x10]",int/addr,
+0.0,6c25982,mov,"QWORD PTR [rsp],rcx",gpr_store,
+0.0,6c25986,vmovss,"xmm0,DWORD PTR [r9]",vec_load,xmm
+0.0,6c2598b,vbroadcastss,"ymm1,xmm0",broadcast,ymm
+0.0,6c25990,cmp,"r14,0xf",int/addr,
+0.0,6c25994,jle,"6c264f7 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x1137>",branch,
+0.0,6c2599a,xor,"edx,edx",int/addr,
+0.0,6c2599c,nop,DWORD PTR [rax+0x0],other,
+0.0,6c259a0,vmovaps,"ymm2,YMMWORD PTR [rax+0x20]",vec_load,ymm
+0.0,6c259a5,vmovaps,"ymm0,YMMWORD PTR [rax+0x20]",vec_load,ymm
+0.0,6c259aa,vfmadd213ps,"ymm2,ymm1,YMMWORD PTR [r15+rdx*4]",fma,ymm
+0.0,6c259b0,vfmadd213ps,"ymm0,ymm1,YMMWORD PTR [r15+rdx*4+0x20]",fma,ymm
+0.0,6c259b7,vmovups,"YMMWORD PTR [r8+rdx*4],ymm2",vec_store,ymm
+0.0,6c259bd,vmovups,"YMMWORD PTR [r8+rdx*4+0x20],ymm0",vec_store,ymm
+0.0,6c259c4,add,"rdx,0x10",int/addr,
+0.0,6c259c8,cmp,"r10,rdx",int/addr,
+0.0,6c259cb,jg,"6c259a0 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x5e0>",branch,
+0.0,6c259cd,mov,"rcx,QWORD PTR [rsp]",gpr_load,
+0.0,6c259d1,cmp,"r14,rcx",int/addr,
+0.0,6c259d4,jle,"6c25ba8 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x7e8>",branch,
+0.0,6c259da,vmovss,"xmm0,DWORD PTR [r9]",vec_load,xmm
+0.0,6c259df,vmovss,"xmm7,DWORD PTR [r15+rcx*4]",vec_load,xmm
+0.0,6c259e5,vfmadd132ss,"xmm0,xmm7,DWORD PTR [rax]",fma,xmm
+0.0,6c259ea,lea,"rdx,[rcx*4+0x0]",int/addr,
+0.0,6c259f2,lea,"r12,[rcx+0x1]",int/addr,
+0.0,6c259f6,mov,"QWORD PTR [rsp-0x10],r12",gpr_store,
+0.0,6c259fb,vmovss,"DWORD PTR [r8+rdx*1],xmm0",vec_store,xmm
+0.0,6c25a01,cmp,"r14,r12",int/addr,
+0.0,6c25a04,jle,"6c25ba8 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x7e8>",branch,
+0.0,6c25a0a,mov,"rsi,r14",int/addr,
+0.0,6c25a0d,sub,"rsi,rcx",int/addr,
+0.0,6c25a10,mov,"QWORD PTR [rsp-0x20],rsi",gpr_store,
+0.0,6c25a15,sub,"rsi,0x2",int/addr,
+0.0,6c25a19,mov,"QWORD PTR [rsp-0x30],rsi",gpr_store,
+0.0,6c25a1e,cmp,"rsi,0x2",int/addr,
+0.0,6c25a22,lea,"rsi,[rdx+0x4]",int/addr,
+0.0,6c25a26,mov,"QWORD PTR [rsp-0x18],rsi",gpr_store,
+0.0,6c25a2b,jbe,"6c26052 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0xc92>",branch,
+0.0,6c25a31,add,"rsi,r8",int/addr,
+0.0,6c25a34,lea,"r11,[rax+0x4]",int/addr,
+0.0,6c25a38,mov,"QWORD PTR [rsp-0x8],rsi",gpr_store,
+0.0,6c25a3d,lea,"rsi,[r8+r14*4]",int/addr,
+0.0,6c25a41,cmp,"QWORD PTR [rsp-0x8],r11",int/addr,
+0.0,6c25a46,setae,BYTE PTR [rsp-0x28],other,
+0.0,6c25a4b,cmp,"rax,rsi",int/addr,
+0.0,6c25a4e,setae,r11b,other,
+0.0,6c25a52,or,"r11b,BYTE PTR [rsp-0x28]",int/addr,
+0.0,6c25a57,mov,"BYTE PTR [rsp-0x28],r11b",gpr_store,
+0.0,6c25a5c,lea,"r11,[r9+0x4]",int/addr,
+0.0,6c25a60,cmp,"QWORD PTR [rsp-0x8],r11",int/addr,
+0.0,6c25a65,setae,r11b,other,
+0.0,6c25a69,cmp,"r9,rsi",int/addr,
+0.0,6c25a6c,setae,sil,other,
+0.0,6c25a70,or,"r11d,esi",int/addr,
+0.0,6c25a73,test,"BYTE PTR [rsp-0x28],r11b",int/addr,
+0.0,6c25a78,je,"6c26052 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0xc92>",branch,
+0.0,6c25a7e,mov,"rsi,QWORD PTR [rsp-0x8]",gpr_load,
+0.0,6c25a83,lea,"r11,[r15+rdx*1+0x8]",int/addr,
+0.0,6c25a88,sub,"rsi,r11",int/addr,
+0.0,6c25a8b,cmp,"rsi,0x18",int/addr,
+0.0,6c25a8f,jbe,"6c26052 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0xc92>",branch,
+0.0,6c25a95,mov,"rcx,QWORD PTR [rsp-0x20]",gpr_load,
+0.0,6c25a9a,cmp,"QWORD PTR [rsp-0x30],0x6",int/addr,
+0.0,6c25aa0,lea,"rdx,[rcx-0x1]",int/addr,
+0.0,6c25aa4,jbe,"6c26526 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x1166>",branch,
+0.0,6c25aaa,vmovss,"xmm0,DWORD PTR [r9]",vec_load,xmm
+0.0,6c25aaf,vmulss,"xmm0,xmm0,DWORD PTR [rax]",scalar_fp,xmm
+0.0,6c25ab3,mov,"rsi,rdx",int/addr,
+0.0,6c25ab6,mov,"rcx,QWORD PTR [rsp-0x18]",gpr_load,
+0.0,6c25abb,mov,"r11,QWORD PTR [rsp-0x8]",gpr_load,
+0.0,6c25ac0,shr,"rsi,0x3",int/addr,
+0.0,6c25ac4,add,"rcx,r15",int/addr,
+0.0,6c25ac7,vbroadcastss,"ymm0,xmm0",broadcast,ymm
+0.0,6c25acc,vaddps,"ymm1,ymm0,YMMWORD PTR [rcx]",vec_arith,ymm
+0.0,6c25ad0,vmovups,"YMMWORD PTR [r11],ymm1",vec_store,ymm
+0.0,6c25ad5,cmp,"rsi,0x1",int/addr,
+0.0,6c25ad9,je,"6c25ae6 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x726>",branch,
+0.0,6c25adb,vaddps,"ymm0,ymm0,YMMWORD PTR [rcx+0x20]",vec_arith,ymm
+0.0,6c25ae0,vmovups,"YMMWORD PTR [r11+0x20],ymm0",vec_store,ymm
+0.0,6c25ae6,mov,"rcx,rdx",int/addr,
+0.0,6c25ae9,and,"rcx,0xfffffffffffffff8",int/addr,
+0.0,6c25aed,and,"edx,0x7",int/addr,
+0.0,6c25af0,lea,"rsi,[r12+rcx*1]",int/addr,
+0.0,6c25af4,mov,"QWORD PTR [rsp-0x10],rsi",gpr_store,
+0.0,6c25af9,je,"6c25ba8 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x7e8>",branch,
+0.0,6c25aff,mov,"rsi,QWORD PTR [rsp-0x20]",gpr_load,
+0.0,6c25b04,sub,"rsi,rcx",int/addr,
+0.0,6c25b07,lea,"rdx,[rsi-0x1]",int/addr,
+0.0,6c25b0b,sub,"rsi,0x2",int/addr,
+0.0,6c25b0f,cmp,"rsi,0x2",int/addr,
+0.0,6c25b13,jbe,"6c25b43 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x783>",branch,
+0.0,6c25b15,vmovss,"xmm0,DWORD PTR [r9]",vec_load,xmm
+0.0,6c25b1a,vmulss,"xmm0,xmm0,DWORD PTR [rax]",scalar_fp,xmm
+0.0,6c25b1e,add,"rcx,r12",int/addr,
+0.0,6c25b21,vshufps,"xmm0,xmm0,xmm0,0x0",shuffle/permute,xmm
+0.0,6c25b26,vaddps,"xmm0,xmm0,XMMWORD PTR [r15+rcx*4]",vec_arith,xmm
+0.0,6c25b2c,vmovups,"XMMWORD PTR [r8+rcx*4],xmm0",vec_store,xmm
+0.0,6c25b32,mov,"rcx,rdx",int/addr,
+0.0,6c25b35,and,"rcx,0xfffffffffffffffc",int/addr,
+0.0,6c25b39,add,"QWORD PTR [rsp-0x10],rcx",int/addr,
+0.0,6c25b3e,and,"edx,0x3",int/addr,
+0.0,6c25b41,je,"6c25ba8 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x7e8>",branch,
+0.0,6c25b43,mov,"rsi,QWORD PTR [rsp-0x10]",gpr_load,
+0.0,6c25b48,vmovss,"xmm0,DWORD PTR [r9]",vec_load,xmm
+0.0,6c25b4d,vmovss,"xmm7,DWORD PTR [r15+rsi*4]",vec_load,xmm
+0.0,6c25b53,vfmadd132ss,"xmm0,xmm7,DWORD PTR [rax]",fma,xmm
+0.0,6c25b58,lea,"rdx,[rsi*4+0x0]",int/addr,
+0.0,6c25b60,lea,"rcx,[rsi+0x1]",int/addr,
+0.0,6c25b64,vmovss,"DWORD PTR [r8+rdx*1],xmm0",vec_store,xmm
+0.0,6c25b6a,cmp,"r14,rcx",int/addr,
+0.0,6c25b6d,jle,"6c25ba8 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x7e8>",branch,
+0.0,6c25b6f,vmovss,"xmm0,DWORD PTR [r9]",vec_load,xmm
+0.0,6c25b74,vmovss,"xmm7,DWORD PTR [r15+rdx*1+0x4]",vec_load,xmm
+0.0,6c25b7b,lea,"rcx,[rsi+0x2]",int/addr,
+0.0,6c25b7f,vfmadd132ss,"xmm0,xmm7,DWORD PTR [rax]",fma,xmm
+0.0,6c25b84,vmovss,"DWORD PTR [r8+rdx*1+0x4],xmm0",vec_store,xmm
+0.0,6c25b8b,cmp,"r14,rcx",int/addr,
+0.0,6c25b8e,jle,"6c25ba8 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x7e8>",branch,
+0.0,6c25b90,vmovss,"xmm0,DWORD PTR [r9]",vec_load,xmm
+0.0,6c25b95,vmovss,"xmm7,DWORD PTR [r15+rdx*1+0x8]",vec_load,xmm
+0.0,6c25b9c,vfmadd132ss,"xmm0,xmm7,DWORD PTR [rax]",fma,xmm
+0.0,6c25ba1,vmovss,"DWORD PTR [r8+rdx*1+0x8],xmm0",vec_store,xmm
+0.0,6c25ba8,add,"rbx,0x1",int/addr,
+0.0,6c25bac,add,"r8,QWORD PTR [rdi+0x18]",int/addr,
+0.0,6c25bb0,add,"r15,QWORD PTR [rdi+0x20]",int/addr,
+0.0,6c25bb4,add,"r9,QWORD PTR [rdi+0x28]",int/addr,
+0.0,6c25bb8,cmp,"r13,rbx",int/addr,
+0.0,6c25bbb,je,"6c25e0e <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0xa4e>",branch,
+0.0,6c25bc1,jmp,"6c25986 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x5c6>",branch,
+0.0,6c25bc6,cs,nop WORD PTR [rax+rax*1+0x0],other,
+0.0,6c25bd0,cmp,"QWORD PTR [rdi],0x4",int/addr,
+0.0,6c25bd4,jne,"6c25412 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x52>",branch,
+0.0,6c25bda,test,"r8,r8",int/addr,
+0.0,6c25bdd,jle,"6c25417 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x57>",branch,
+0.0,6c25be3,lea,"r11,[r14-0xf]",int/addr,
+0.0,6c25be7,mov,"r15,rsi",int/addr,
+0.0,6c25bea,mov,"QWORD PTR [rsp-0x8],r8",gpr_store,
+0.0,6c25bef,lea,"rsi,[r14-0x10]",int/addr,
+0.0,6c25bf3,mov,"QWORD PTR [rsp],r11",gpr_store,
+0.0,6c25bf7,and,"rsi,0xfffffffffffffff0",int/addr,
+0.0,6c25bfb,mov,"rdx,QWORD PTR [rsp+0x8]",gpr_load,
+0.0,6c25c00,xor,"r12d,r12d",int/addr,
+0.0,6c25c03,mov,"rcx,QWORD PTR [rsp+0x10]",gpr_load,
+0.0,6c25c08,lea,"rbx,[rsi+0x10]",int/addr,
+0.0,6c25c0c,cmp,"r14,0xf",int/addr,
+0.0,6c25c10,jle,"6c26507 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x1147>",branch,
+0.0,6c25c16,mov,"r11,QWORD PTR [rsp]",gpr_load,
+0.0,6c25c1a,xor,"esi,esi",int/addr,
+0.0,6c25c1c,nop,DWORD PTR [rax+0x0],other,
+37.47,6c25c20,vmovups,"ymm7,YMMWORD PTR [rcx+rsi*4]",vec_load,ymm
+28.41,6c25c25,vmovups,"ymm1,YMMWORD PTR [r15+rsi*4]",vec_load,ymm
+0.69,6c25c2b,vmovups,"ymm0,YMMWORD PTR [r15+rsi*4+0x20]",vec_load,ymm
+15.46,6c25c32,vfmadd132ps,"ymm1,ymm7,YMMWORD PTR [rax+0x20]",fma,ymm
+0.05,6c25c38,vmovups,"ymm7,YMMWORD PTR [rcx+rsi*4+0x20]",vec_load,ymm
+1.36,6c25c3e,vfmadd132ps,"ymm0,ymm7,YMMWORD PTR [rax+0x20]",fma,ymm
+0.97,6c25c44,vmovups,"YMMWORD PTR [rdx+rsi*4],ymm1",vec_store,ymm
+7.55,6c25c49,vmovups,"YMMWORD PTR [rdx+rsi*4+0x20],ymm0",vec_store,ymm
+0.0,6c25c4f,add,"rsi,0x10",int/addr,
+0.0,6c25c53,cmp,"r11,rsi",int/addr,
+8.04,6c25c56,jg,"6c25c20 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x860>",branch,
+0.0,6c25c58,mov,"QWORD PTR [rsp],r11",gpr_store,
+0.0,6c25c5c,mov,"r8,rbx",int/addr,
+0.0,6c25c5f,cmp,"r14,rbx",int/addr,
+0.0,6c25c62,jle,"6c25df3 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0xa33>",branch,
+0.0,6c25c68,mov,"r13,r14",int/addr,
+0.0,6c25c6b,mov,"QWORD PTR [rsp-0x28],r8",gpr_store,
+0.0,6c25c70,sub,"r13,r8",int/addr,
+0.0,6c25c73,lea,"rsi,[r13-0x1]",int/addr,
+0.0,6c25c77,mov,"QWORD PTR [rsp-0x20],rsi",gpr_store,
+0.0,6c25c7c,cmp,"rsi,0x2",int/addr,
+0.0,6c25c80,jbe,"6c2629d <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0xedd>",branch,
+0.0,6c25c86,cmp,"r14,r8",int/addr,
+0.0,6c25c89,jle,"6c2629d <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0xedd>",branch,
+0.0,6c25c8f,lea,"rsi,[r8*4+0x0]",int/addr,
+0.0,6c25c97,lea,"r10,[rdx+rsi*1]",int/addr,
+0.0,6c25c9b,lea,"r9,[rsi+0x4]",int/addr,
+0.0,6c25c9f,mov,"r11,r10",int/addr,
+0.0,6c25ca2,lea,"r10,[r15+r9*1]",int/addr,
+0.0,6c25ca6,mov,"QWORD PTR [rsp-0x10],r11",gpr_store,
+0.0,6c25cab,sub,"r11,r10",int/addr,
+0.0,6c25cae,mov,"r10,QWORD PTR [rsp-0x10]",gpr_load,
+0.0,6c25cb3,cmp,"r11,0x18",int/addr,
+0.0,6c25cb7,seta,BYTE PTR [rsp-0x18],other,
+0.0,6c25cbc,add,"r9,rcx",int/addr,
+0.0,6c25cbf,movzx,"r11d,BYTE PTR [rsp-0x18]",gpr_load,
+0.0,6c25cc5,sub,"r10,r9",int/addr,
+0.0,6c25cc8,cmp,"r10,0x18",int/addr,
+0.0,6c25ccc,seta,r9b,other,
+0.0,6c25cd0,test,"r11b,r9b",int/addr,
+0.0,6c25cd3,je,"6c262a5 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0xee5>",branch,
+0.0,6c25cd9,lea,"r9,[rdx+r14*4]",int/addr,
+0.0,6c25cdd,mov,"r11,QWORD PTR [rsp-0x10]",gpr_load,
+0.0,6c25ce2,cmp,"rax,r9",int/addr,
+0.0,6c25ce5,lea,"r9,[rax+0x4]",int/addr,
+0.0,6c25ce9,setae,r10b,other,
+0.0,6c25ced,cmp,"r11,r9",int/addr,
+0.0,6c25cf0,setae,r9b,other,
+0.0,6c25cf4,or,"r9b,r10b",int/addr,
+0.0,6c25cf7,je,"6c262a5 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0xee5>",branch,
+0.0,6c25cfd,cmp,"QWORD PTR [rsp-0x20],0x6",int/addr,
+0.0,6c25d03,jbe,"6c26518 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x1158>",branch,
+0.0,6c25d09,lea,"r9,[r15+rsi*1]",int/addr,
+0.0,6c25d0d,lea,"r10,[rcx+rsi*1]",int/addr,
+0.0,6c25d11,vbroadcastss,"ymm0,DWORD PTR [rax]",broadcast,ymm
+0.0,6c25d16,mov,"rsi,r13",int/addr,
+0.0,6c25d19,vmovups,"ymm1,YMMWORD PTR [r9]",vec_load,ymm
+0.0,6c25d1e,vfmadd213ps,"ymm1,ymm0,YMMWORD PTR [r10]",fma,ymm
+0.0,6c25d23,shr,"rsi,0x3",int/addr,
+0.0,6c25d27,vmovups,"YMMWORD PTR [r11],ymm1",vec_store,ymm
+0.0,6c25d2c,cmp,"rsi,0x1",int/addr,
+0.0,6c25d30,je,"6c25d44 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x984>",branch,
+0.0,6c25d32,vmovups,"ymm7,YMMWORD PTR [r10+0x20]",vec_load,ymm
+0.0,6c25d38,vfmadd132ps,"ymm0,ymm7,YMMWORD PTR [r9+0x20]",fma,ymm
+0.0,6c25d3e,vmovups,"YMMWORD PTR [r11+0x20],ymm0",vec_store,ymm
+0.0,6c25d44,mov,"rsi,r13",int/addr,
+0.0,6c25d47,and,"rsi,0xfffffffffffffff8",int/addr,
+0.0,6c25d4b,add,"r8,rsi",int/addr,
+0.0,6c25d4e,test,"r13b,0x7",int/addr,
+0.0,6c25d52,je,"6c25df3 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0xa33>",branch,
+0.0,6c25d58,sub,"r13,rsi",int/addr,
+0.0,6c25d5b,lea,"r9,[r13-0x1]",int/addr,
+0.0,6c25d5f,cmp,"r9,0x2",int/addr,
+0.0,6c25d63,jbe,"6c25d94 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x9d4>",branch,
+0.0,6c25d65,mov,"r10,QWORD PTR [rsp-0x28]",gpr_load,
+0.0,6c25d6a,vbroadcastss,"xmm0,DWORD PTR [rax]",broadcast,xmm
+0.0,6c25d6f,add,"r10,rsi",int/addr,
+0.0,6c25d72,mov,"rsi,r13",int/addr,
+0.0,6c25d75,vmovups,"xmm7,XMMWORD PTR [rcx+r10*4]",vec_load,xmm
+0.0,6c25d7b,vfmadd132ps,"xmm0,xmm7,XMMWORD PTR [r15+r10*4]",fma,xmm
+0.0,6c25d81,and,"rsi,0xfffffffffffffffc",int/addr,
+0.0,6c25d85,add,"r8,rsi",int/addr,
+0.0,6c25d88,and,"r13d,0x3",int/addr,
+0.0,6c25d8c,vmovups,"XMMWORD PTR [rdx+r10*4],xmm0",vec_store,xmm
+0.0,6c25d92,je,"6c25df3 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0xa33>",branch,
+0.0,6c25d94,vmovss,"xmm0,DWORD PTR [r15+r8*4]",vec_load,xmm
+0.0,6c25d9a,vmovss,"xmm7,DWORD PTR [rcx+r8*4]",vec_load,xmm
+0.0,6c25da0,lea,"rsi,[r8*4+0x0]",int/addr,
+0.0,6c25da8,lea,"r9,[r8+0x1]",int/addr,
+0.0,6c25dac,vfmadd132ss,"xmm0,xmm7,DWORD PTR [rax]",fma,xmm
+0.0,6c25db1,vmovss,"DWORD PTR [rdx+rsi*1],xmm0",vec_store,xmm
+0.0,6c25db6,cmp,"r14,r9",int/addr,
+0.0,6c25db9,jle,"6c25df3 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0xa33>",branch,
+0.0,6c25dbb,vmovss,"xmm0,DWORD PTR [r15+rsi*1+0x4]",vec_load,xmm
+0.0,6c25dc2,vmovss,"xmm7,DWORD PTR [rcx+rsi*1+0x4]",vec_load,xmm
+0.0,6c25dc8,add,"r8,0x2",int/addr,
+0.0,6c25dcc,vfmadd132ss,"xmm0,xmm7,DWORD PTR [rax]",fma,xmm
+0.0,6c25dd1,vmovss,"DWORD PTR [rdx+rsi*1+0x4],xmm0",vec_store,xmm
+0.0,6c25dd7,cmp,"r14,r8",int/addr,
+0.0,6c25dda,jle,"6c25df3 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0xa33>",branch,
+0.0,6c25ddc,vmovss,"xmm0,DWORD PTR [rax]",vec_load,xmm
+0.0,6c25de0,vmovss,"xmm7,DWORD PTR [rcx+rsi*1+0x8]",vec_load,xmm
+0.0,6c25de6,vfmadd132ss,"xmm0,xmm7,DWORD PTR [r15+rsi*1+0x8]",fma,xmm
+0.0,6c25ded,vmovss,"DWORD PTR [rdx+rsi*1+0x8],xmm0",vec_store,xmm
+0.0,6c25df3,add,"rdx,QWORD PTR [rdi+0x18]",int/addr,
+0.0,6c25df7,add,"rcx,QWORD PTR [rdi+0x20]",int/addr,
+0.0,6c25dfb,add,"r12,0x1",int/addr,
+0.0,6c25dff,add,"r15,QWORD PTR [rdi+0x28]",int/addr,
+0.0,6c25e03,cmp,"QWORD PTR [rsp-0x8],r12",int/addr,
+0.0,6c25e08,jne,"6c25c0c <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x84c>",branch,
+0.0,6c25e0e,vzeroupper,,other,
+0.0,6c25e11,jmp,"6c25417 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x57>",branch,
+0.0,6c25e16,mov,"r8,QWORD PTR [rsp-0x18]",gpr_load,
+0.0,6c25e1b,vmovss,"xmm7,DWORD PTR [r10]",vec_load,xmm
+0.0,6c25e20,vmovss,"xmm0,DWORD PTR [r11+r8*1]",vec_load,xmm
+0.0,6c25e26,vfmadd132ss,"xmm0,xmm7,DWORD PTR [rax]",fma,xmm
+0.0,6c25e2b,vmovss,"DWORD PTR [rdx+r8*1],xmm0",vec_store,xmm
+0.0,6c25e31,lea,"r8,[rsi+0x2]",int/addr,
+0.0,6c25e35,cmp,"r14,r8",int/addr,
+0.0,6c25e38,jle,"6c2592b <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x56b>",branch,
+0.0,6c25e3e,vmovss,"xmm0,DWORD PTR [r11+rcx*1+0x8]",vec_load,xmm
+0.0,6c25e45,vmovss,"xmm7,DWORD PTR [r10]",vec_load,xmm
+0.0,6c25e4a,lea,"r8,[rsi+0x3]",int/addr,
+0.0,6c25e4e,vfmadd132ss,"xmm0,xmm7,DWORD PTR [rax]",fma,xmm
+0.0,6c25e53,vmovss,"DWORD PTR [rdx+rcx*1+0x8],xmm0",vec_store,xmm
+0.0,6c25e59,cmp,"r14,r8",int/addr,
+0.0,6c25e5c,jle,"6c2592b <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x56b>",branch,
+0.0,6c25e62,vmovss,"xmm0,DWORD PTR [r11+rcx*1+0xc]",vec_load,xmm
+0.0,6c25e69,vmovss,"xmm7,DWORD PTR [r10]",vec_load,xmm
+0.0,6c25e6e,lea,"r8,[rsi+0x4]",int/addr,
+0.0,6c25e72,vfmadd132ss,"xmm0,xmm7,DWORD PTR [rax]",fma,xmm
+0.0,6c25e77,vmovss,"DWORD PTR [rdx+rcx*1+0xc],xmm0",vec_store,xmm
+0.0,6c25e7d,cmp,"r14,r8",int/addr,
+0.0,6c25e80,jle,"6c2592b <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x56b>",branch,
+0.0,6c25e86,vmovss,"xmm0,DWORD PTR [r11+rcx*1+0x10]",vec_load,xmm
+0.0,6c25e8d,vmovss,"xmm7,DWORD PTR [r10]",vec_load,xmm
+0.0,6c25e92,lea,"r8,[rsi+0x5]",int/addr,
+0.0,6c25e96,vfmadd132ss,"xmm0,xmm7,DWORD PTR [rax]",fma,xmm
+0.0,6c25e9b,vmovss,"DWORD PTR [rdx+rcx*1+0x10],xmm0",vec_store,xmm
+0.0,6c25ea1,cmp,"r14,r8",int/addr,
+0.0,6c25ea4,jle,"6c2592b <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x56b>",branch,
+0.0,6c25eaa,vmovss,"xmm0,DWORD PTR [r11+rcx*1+0x14]",vec_load,xmm
+0.0,6c25eb1,vmovss,"xmm7,DWORD PTR [r10]",vec_load,xmm
+0.0,6c25eb6,lea,"r8,[rsi+0x6]",int/addr,
+0.0,6c25eba,vfmadd132ss,"xmm0,xmm7,DWORD PTR [rax]",fma,xmm
+0.0,6c25ebf,vmovss,"DWORD PTR [rdx+rcx*1+0x14],xmm0",vec_store,xmm
+0.0,6c25ec5,cmp,"r14,r8",int/addr,
+0.0,6c25ec8,jle,"6c2592b <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x56b>",branch,
+0.0,6c25ece,vmovss,"xmm0,DWORD PTR [r11+rcx*1+0x18]",vec_load,xmm
+0.0,6c25ed5,vmovss,"xmm7,DWORD PTR [r10]",vec_load,xmm
+0.0,6c25eda,lea,"r8,[rsi+0x7]",int/addr,
+0.0,6c25ede,vfmadd132ss,"xmm0,xmm7,DWORD PTR [rax]",fma,xmm
+0.0,6c25ee3,vmovss,"DWORD PTR [rdx+rcx*1+0x18],xmm0",vec_store,xmm
+0.0,6c25ee9,cmp,"r14,r8",int/addr,
+0.0,6c25eec,jle,"6c2592b <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x56b>",branch,
+0.0,6c25ef2,vmovss,"xmm0,DWORD PTR [r11+rcx*1+0x1c]",vec_load,xmm
+0.0,6c25ef9,vmovss,"xmm7,DWORD PTR [r10]",vec_load,xmm
+0.0,6c25efe,lea,"r8,[rsi+0x8]",int/addr,
+0.0,6c25f02,vfmadd132ss,"xmm0,xmm7,DWORD PTR [rax]",fma,xmm
+0.0,6c25f07,vmovss,"DWORD PTR [rdx+rcx*1+0x1c],xmm0",vec_store,xmm
+0.0,6c25f0d,cmp,"r14,r8",int/addr,
+0.0,6c25f10,jle,"6c2592b <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x56b>",branch,
+0.0,6c25f16,vmovss,"xmm0,DWORD PTR [r11+rcx*1+0x20]",vec_load,xmm
+0.0,6c25f1d,vmovss,"xmm7,DWORD PTR [r10]",vec_load,xmm
+0.0,6c25f22,lea,"r8,[rsi+0x9]",int/addr,
+0.0,6c25f26,vfmadd132ss,"xmm0,xmm7,DWORD PTR [rax]",fma,xmm
+0.0,6c25f2b,vmovss,"DWORD PTR [rdx+rcx*1+0x20],xmm0",vec_store,xmm
+0.0,6c25f31,cmp,"r14,r8",int/addr,
+0.0,6c25f34,jle,"6c2592b <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x56b>",branch,
+0.0,6c25f3a,vmovss,"xmm0,DWORD PTR [r11+rcx*1+0x24]",vec_load,xmm
+0.0,6c25f41,vmovss,"xmm7,DWORD PTR [r10]",vec_load,xmm
+0.0,6c25f46,lea,"r8,[rsi+0xa]",int/addr,
+0.0,6c25f4a,vfmadd132ss,"xmm0,xmm7,DWORD PTR [rax]",fma,xmm
+0.0,6c25f4f,vmovss,"DWORD PTR [rdx+rcx*1+0x24],xmm0",vec_store,xmm
+0.0,6c25f55,cmp,"r14,r8",int/addr,
+0.0,6c25f58,jle,"6c2592b <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x56b>",branch,
+0.0,6c25f5e,vmovss,"xmm0,DWORD PTR [r11+rcx*1+0x28]",vec_load,xmm
+0.0,6c25f65,vmovss,"xmm7,DWORD PTR [r10]",vec_load,xmm
+0.0,6c25f6a,lea,"r8,[rsi+0xb]",int/addr,
+0.0,6c25f6e,vfmadd132ss,"xmm0,xmm7,DWORD PTR [rax]",fma,xmm
+0.0,6c25f73,vmovss,"DWORD PTR [rdx+rcx*1+0x28],xmm0",vec_store,xmm
+0.0,6c25f79,cmp,"r14,r8",int/addr,
+0.0,6c25f7c,jle,"6c2592b <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x56b>",branch,
+0.0,6c25f82,vmovss,"xmm0,DWORD PTR [r11+rcx*1+0x2c]",vec_load,xmm
+0.0,6c25f89,vmovss,"xmm7,DWORD PTR [r10]",vec_load,xmm
+0.0,6c25f8e,lea,"r8,[rsi+0xc]",int/addr,
+0.0,6c25f92,vfmadd132ss,"xmm0,xmm7,DWORD PTR [rax]",fma,xmm
+0.0,6c25f97,vmovss,"DWORD PTR [rdx+rcx*1+0x2c],xmm0",vec_store,xmm
+0.0,6c25f9d,cmp,"r14,r8",int/addr,
+0.0,6c25fa0,jle,"6c2592b <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x56b>",branch,
+0.0,6c25fa6,vmovss,"xmm0,DWORD PTR [r11+rcx*1+0x30]",vec_load,xmm
+0.0,6c25fad,vmovss,"xmm7,DWORD PTR [r10]",vec_load,xmm
+0.0,6c25fb2,lea,"r8,[rsi+0xd]",int/addr,
+0.0,6c25fb6,vfmadd132ss,"xmm0,xmm7,DWORD PTR [rax]",fma,xmm
+0.0,6c25fbb,vmovss,"DWORD PTR [rdx+rcx*1+0x30],xmm0",vec_store,xmm
+0.0,6c25fc1,cmp,"r14,r8",int/addr,
+0.0,6c25fc4,jle,"6c2592b <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x56b>",branch,
+0.0,6c25fca,vmovss,"xmm0,DWORD PTR [r11+rcx*1+0x34]",vec_load,xmm
+0.0,6c25fd1,vmovss,"xmm7,DWORD PTR [r10]",vec_load,xmm
+0.0,6c25fd6,lea,"r8,[rsi+0xe]",int/addr,
+0.0,6c25fda,vfmadd132ss,"xmm0,xmm7,DWORD PTR [rax]",fma,xmm
+0.0,6c25fdf,vmovss,"DWORD PTR [rdx+rcx*1+0x34],xmm0",vec_store,xmm
+0.0,6c25fe5,cmp,"r14,r8",int/addr,
+0.0,6c25fe8,jle,"6c2592b <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x56b>",branch,
+0.0,6c25fee,vmovss,"xmm0,DWORD PTR [r11+rcx*1+0x38]",vec_load,xmm
+0.0,6c25ff5,vmovss,"xmm7,DWORD PTR [r10]",vec_load,xmm
+0.0,6c25ffa,lea,"r8,[rsi+0xf]",int/addr,
+0.0,6c25ffe,vfmadd132ss,"xmm0,xmm7,DWORD PTR [rax]",fma,xmm
+0.0,6c26003,vmovss,"DWORD PTR [rdx+rcx*1+0x38],xmm0",vec_store,xmm
+0.0,6c26009,cmp,"r14,r8",int/addr,
+0.0,6c2600c,jle,"6c2592b <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x56b>",branch,
+0.0,6c26012,vmovss,"xmm0,DWORD PTR [r11+rcx*1+0x3c]",vec_load,xmm
+0.0,6c26019,vmovss,"xmm7,DWORD PTR [r10]",vec_load,xmm
+0.0,6c2601e,add,"rsi,0x10",int/addr,
+0.0,6c26022,vfmadd132ss,"xmm0,xmm7,DWORD PTR [rax]",fma,xmm
+0.0,6c26027,vmovss,"DWORD PTR [rdx+rcx*1+0x3c],xmm0",vec_store,xmm
+0.0,6c2602d,cmp,"r14,rsi",int/addr,
+0.0,6c26030,jle,"6c2592b <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x56b>",branch,
+0.0,6c26036,vmovss,"xmm0,DWORD PTR [r11+rcx*1+0x40]",vec_load,xmm
+0.0,6c2603d,vmovss,"xmm7,DWORD PTR [r10]",vec_load,xmm
+0.0,6c26042,vfmadd132ss,"xmm0,xmm7,DWORD PTR [rax]",fma,xmm
+0.0,6c26047,vmovss,"DWORD PTR [rdx+rcx*1+0x40],xmm0",vec_store,xmm
+0.0,6c2604d,jmp,"6c2592b <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x56b>",branch,
+0.0,6c26052,mov,"rsi,QWORD PTR [rsp-0x18]",gpr_load,
+0.0,6c26057,vmovss,"xmm0,DWORD PTR [r9]",vec_load,xmm
+0.0,6c2605c,vmovss,"xmm7,DWORD PTR [r15+rsi*1]",vec_load,xmm
+0.0,6c26062,vfmadd132ss,"xmm0,xmm7,DWORD PTR [rax]",fma,xmm
+0.0,6c26067,vmovss,"DWORD PTR [r8+rsi*1],xmm0",vec_store,xmm
+0.0,6c2606d,lea,"rsi,[rcx+0x2]",int/addr,
+0.0,6c26071,cmp,"r14,rsi",int/addr,
+0.0,6c26074,jle,"6c25ba8 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x7e8>",branch,
+0.0,6c2607a,vmovss,"xmm0,DWORD PTR [r9]",vec_load,xmm
+0.0,6c2607f,vmovss,"xmm7,DWORD PTR [r15+rdx*1+0x8]",vec_load,xmm
+0.0,6c26086,lea,"rsi,[rcx+0x3]",int/addr,
+0.0,6c2608a,vfmadd132ss,"xmm0,xmm7,DWORD PTR [rax]",fma,xmm
+0.0,6c2608f,vmovss,"DWORD PTR [r8+rdx*1+0x8],xmm0",vec_store,xmm
+0.0,6c26096,cmp,"r14,rsi",int/addr,
+0.0,6c26099,jle,"6c25ba8 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x7e8>",branch,
+0.0,6c2609f,vmovss,"xmm0,DWORD PTR [r9]",vec_load,xmm
+0.0,6c260a4,vmovss,"xmm7,DWORD PTR [r15+rdx*1+0xc]",vec_load,xmm
+0.0,6c260ab,lea,"rsi,[rcx+0x4]",int/addr,
+0.0,6c260af,vfmadd132ss,"xmm0,xmm7,DWORD PTR [rax]",fma,xmm
+0.0,6c260b4,vmovss,"DWORD PTR [r8+rdx*1+0xc],xmm0",vec_store,xmm
+0.0,6c260bb,cmp,"r14,rsi",int/addr,
+0.0,6c260be,jle,"6c25ba8 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x7e8>",branch,
+0.0,6c260c4,vmovss,"xmm0,DWORD PTR [r9]",vec_load,xmm
+0.0,6c260c9,vmovss,"xmm7,DWORD PTR [r15+rdx*1+0x10]",vec_load,xmm
+0.0,6c260d0,lea,"rsi,[rcx+0x5]",int/addr,
+0.0,6c260d4,vfmadd132ss,"xmm0,xmm7,DWORD PTR [rax]",fma,xmm
+0.0,6c260d9,vmovss,"DWORD PTR [r8+rdx*1+0x10],xmm0",vec_store,xmm
+0.0,6c260e0,cmp,"r14,rsi",int/addr,
+0.0,6c260e3,jle,"6c25ba8 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x7e8>",branch,
+0.0,6c260e9,vmovss,"xmm0,DWORD PTR [r9]",vec_load,xmm
+0.0,6c260ee,vmovss,"xmm7,DWORD PTR [r15+rdx*1+0x14]",vec_load,xmm
+0.0,6c260f5,lea,"rsi,[rcx+0x6]",int/addr,
+0.0,6c260f9,vfmadd132ss,"xmm0,xmm7,DWORD PTR [rax]",fma,xmm
+0.0,6c260fe,vmovss,"DWORD PTR [r8+rdx*1+0x14],xmm0",vec_store,xmm
+0.0,6c26105,cmp,"r14,rsi",int/addr,
+0.0,6c26108,jle,"6c25ba8 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x7e8>",branch,
+0.0,6c2610e,vmovss,"xmm0,DWORD PTR [r9]",vec_load,xmm
+0.0,6c26113,vmovss,"xmm7,DWORD PTR [r15+rdx*1+0x18]",vec_load,xmm
+0.0,6c2611a,lea,"rsi,[rcx+0x7]",int/addr,
+0.0,6c2611e,vfmadd132ss,"xmm0,xmm7,DWORD PTR [rax]",fma,xmm
+0.0,6c26123,vmovss,"DWORD PTR [r8+rdx*1+0x18],xmm0",vec_store,xmm
+0.0,6c2612a,cmp,"r14,rsi",int/addr,
+0.0,6c2612d,jle,"6c25ba8 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x7e8>",branch,
+0.0,6c26133,vmovss,"xmm0,DWORD PTR [r9]",vec_load,xmm
+0.0,6c26138,vmovss,"xmm7,DWORD PTR [r15+rdx*1+0x1c]",vec_load,xmm
+0.0,6c2613f,lea,"rsi,[rcx+0x8]",int/addr,
+0.0,6c26143,vfmadd132ss,"xmm0,xmm7,DWORD PTR [rax]",fma,xmm
+0.0,6c26148,vmovss,"DWORD PTR [r8+rdx*1+0x1c],xmm0",vec_store,xmm
+0.0,6c2614f,cmp,"r14,rsi",int/addr,
+0.0,6c26152,jle,"6c25ba8 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x7e8>",branch,
+0.0,6c26158,vmovss,"xmm0,DWORD PTR [r9]",vec_load,xmm
+0.0,6c2615d,vmovss,"xmm7,DWORD PTR [r15+rdx*1+0x20]",vec_load,xmm
+0.0,6c26164,lea,"rsi,[rcx+0x9]",int/addr,
+0.0,6c26168,vfmadd132ss,"xmm0,xmm7,DWORD PTR [rax]",fma,xmm
+0.0,6c2616d,vmovss,"DWORD PTR [r8+rdx*1+0x20],xmm0",vec_store,xmm
+0.0,6c26174,cmp,"r14,rsi",int/addr,
+0.0,6c26177,jle,"6c25ba8 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x7e8>",branch,
+0.0,6c2617d,vmovss,"xmm0,DWORD PTR [r9]",vec_load,xmm
+0.0,6c26182,vmovss,"xmm7,DWORD PTR [r15+rdx*1+0x24]",vec_load,xmm
+0.0,6c26189,lea,"rsi,[rcx+0xa]",int/addr,
+0.0,6c2618d,vfmadd132ss,"xmm0,xmm7,DWORD PTR [rax]",fma,xmm
+0.0,6c26192,vmovss,"DWORD PTR [r8+rdx*1+0x24],xmm0",vec_store,xmm
+0.0,6c26199,cmp,"r14,rsi",int/addr,
+0.0,6c2619c,jle,"6c25ba8 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x7e8>",branch,
+0.0,6c261a2,vmovss,"xmm0,DWORD PTR [r9]",vec_load,xmm
+0.0,6c261a7,vmovss,"xmm7,DWORD PTR [r15+rdx*1+0x28]",vec_load,xmm
+0.0,6c261ae,lea,"rsi,[rcx+0xb]",int/addr,
+0.0,6c261b2,vfmadd132ss,"xmm0,xmm7,DWORD PTR [rax]",fma,xmm
+0.0,6c261b7,vmovss,"DWORD PTR [r8+rdx*1+0x28],xmm0",vec_store,xmm
+0.0,6c261be,cmp,"r14,rsi",int/addr,
+0.0,6c261c1,jle,"6c25ba8 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x7e8>",branch,
+0.0,6c261c7,vmovss,"xmm0,DWORD PTR [r9]",vec_load,xmm
+0.0,6c261cc,vmovss,"xmm7,DWORD PTR [r15+rdx*1+0x2c]",vec_load,xmm
+0.0,6c261d3,lea,"rsi,[rcx+0xc]",int/addr,
+0.0,6c261d7,vfmadd132ss,"xmm0,xmm7,DWORD PTR [rax]",fma,xmm
+0.0,6c261dc,vmovss,"DWORD PTR [r8+rdx*1+0x2c],xmm0",vec_store,xmm
+0.0,6c261e3,cmp,"r14,rsi",int/addr,
+0.0,6c261e6,jle,"6c25ba8 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x7e8>",branch,
+0.0,6c261ec,vmovss,"xmm0,DWORD PTR [r9]",vec_load,xmm
+0.0,6c261f1,vmovss,"xmm7,DWORD PTR [r15+rdx*1+0x30]",vec_load,xmm
+0.0,6c261f8,lea,"rsi,[rcx+0xd]",int/addr,
+0.0,6c261fc,vfmadd132ss,"xmm0,xmm7,DWORD PTR [rax]",fma,xmm
+0.0,6c26201,vmovss,"DWORD PTR [r8+rdx*1+0x30],xmm0",vec_store,xmm
+0.0,6c26208,cmp,"r14,rsi",int/addr,
+0.0,6c2620b,jle,"6c25ba8 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x7e8>",branch,
+0.0,6c26211,vmovss,"xmm0,DWORD PTR [r9]",vec_load,xmm
+0.0,6c26216,vmovss,"xmm7,DWORD PTR [r15+rdx*1+0x34]",vec_load,xmm
+0.0,6c2621d,lea,"rsi,[rcx+0xe]",int/addr,
+0.0,6c26221,vfmadd132ss,"xmm0,xmm7,DWORD PTR [rax]",fma,xmm
+0.0,6c26226,vmovss,"DWORD PTR [r8+rdx*1+0x34],xmm0",vec_store,xmm
+0.0,6c2622d,cmp,"r14,rsi",int/addr,
+0.0,6c26230,jle,"6c25ba8 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x7e8>",branch,
+0.0,6c26236,vmovss,"xmm0,DWORD PTR [r9]",vec_load,xmm
+0.0,6c2623b,vmovss,"xmm7,DWORD PTR [r15+rdx*1+0x38]",vec_load,xmm
+0.0,6c26242,lea,"rsi,[rcx+0xf]",int/addr,
+0.0,6c26246,vfmadd132ss,"xmm0,xmm7,DWORD PTR [rax]",fma,xmm
+0.0,6c2624b,vmovss,"DWORD PTR [r8+rdx*1+0x38],xmm0",vec_store,xmm
+0.0,6c26252,cmp,"r14,rsi",int/addr,
+0.0,6c26255,jle,"6c25ba8 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x7e8>",branch,
+0.0,6c2625b,vmovss,"xmm0,DWORD PTR [r9]",vec_load,xmm
+0.0,6c26260,vmovss,"xmm7,DWORD PTR [r15+rdx*1+0x3c]",vec_load,xmm
+0.0,6c26267,add,"rcx,0x10",int/addr,
+0.0,6c2626b,vfmadd132ss,"xmm0,xmm7,DWORD PTR [rax]",fma,xmm
+0.0,6c26270,vmovss,"DWORD PTR [r8+rdx*1+0x3c],xmm0",vec_store,xmm
+0.0,6c26277,cmp,"r14,rcx",int/addr,
+0.0,6c2627a,jle,"6c25ba8 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x7e8>",branch,
+0.0,6c26280,vmovss,"xmm0,DWORD PTR [r9]",vec_load,xmm
+0.0,6c26285,vmovss,"xmm7,DWORD PTR [r15+rdx*1+0x40]",vec_load,xmm
+0.0,6c2628c,vfmadd132ss,"xmm0,xmm7,DWORD PTR [rax]",fma,xmm
+0.0,6c26291,vmovss,"DWORD PTR [r8+rdx*1+0x40],xmm0",vec_store,xmm
+0.0,6c26298,jmp,"6c25ba8 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x7e8>",branch,
+0.0,6c2629d,lea,"rsi,[r8*4+0x0]",int/addr,
+0.0,6c262a5,vmovss,"xmm0,DWORD PTR [r15+rsi*1]",vec_load,xmm
+0.0,6c262ab,vmovss,"xmm7,DWORD PTR [rcx+rsi*1]",vec_load,xmm
+0.0,6c262b0,lea,"r9,[r8+0x1]",int/addr,
+0.0,6c262b4,vfmadd132ss,"xmm0,xmm7,DWORD PTR [rax]",fma,xmm
+0.0,6c262b9,vmovss,"DWORD PTR [rdx+rsi*1],xmm0",vec_store,xmm
+0.0,6c262be,cmp,"r14,r9",int/addr,
+0.0,6c262c1,jle,"6c25df3 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0xa33>",branch,
+0.0,6c262c7,vmovss,"xmm0,DWORD PTR [r15+rsi*1+0x4]",vec_load,xmm
+0.0,6c262ce,vmovss,"xmm7,DWORD PTR [rcx+rsi*1+0x4]",vec_load,xmm
+0.0,6c262d4,lea,"r9,[r8+0x2]",int/addr,
+0.0,6c262d8,vfmadd132ss,"xmm0,xmm7,DWORD PTR [rax]",fma,xmm
+0.0,6c262dd,vmovss,"DWORD PTR [rdx+rsi*1+0x4],xmm0",vec_store,xmm
+0.0,6c262e3,cmp,"r14,r9",int/addr,
+0.0,6c262e6,jle,"6c25df3 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0xa33>",branch,
+0.0,6c262ec,vmovss,"xmm0,DWORD PTR [rax]",vec_load,xmm
+0.0,6c262f0,vmovss,"xmm7,DWORD PTR [rcx+rsi*1+0x8]",vec_load,xmm
+0.0,6c262f6,lea,"r9,[r8+0x3]",int/addr,
+0.0,6c262fa,vfmadd132ss,"xmm0,xmm7,DWORD PTR [r15+rsi*1+0x8]",fma,xmm
+0.0,6c26301,vmovss,"DWORD PTR [rdx+rsi*1+0x8],xmm0",vec_store,xmm
+0.0,6c26307,cmp,"r14,r9",int/addr,
+0.0,6c2630a,jle,"6c25df3 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0xa33>",branch,
+0.0,6c26310,vmovss,"xmm0,DWORD PTR [r15+rsi*1+0xc]",vec_load,xmm
+0.0,6c26317,vmovss,"xmm7,DWORD PTR [rcx+rsi*1+0xc]",vec_load,xmm
+0.0,6c2631d,lea,"r9,[r8+0x4]",int/addr,
+0.0,6c26321,vfmadd132ss,"xmm0,xmm7,DWORD PTR [rax]",fma,xmm
+0.0,6c26326,vmovss,"DWORD PTR [rdx+rsi*1+0xc],xmm0",vec_store,xmm
+0.0,6c2632c,cmp,"r14,r9",int/addr,
+0.0,6c2632f,jle,"6c25df3 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0xa33>",branch,
+0.0,6c26335,vmovss,"xmm0,DWORD PTR [r15+rsi*1+0x10]",vec_load,xmm
+0.0,6c2633c,vmovss,"xmm7,DWORD PTR [rcx+rsi*1+0x10]",vec_load,xmm
+0.0,6c26342,lea,"r9,[r8+0x5]",int/addr,
+0.0,6c26346,vfmadd132ss,"xmm0,xmm7,DWORD PTR [rax]",fma,xmm
+0.0,6c2634b,vmovss,"DWORD PTR [rdx+rsi*1+0x10],xmm0",vec_store,xmm
+0.0,6c26351,cmp,"r14,r9",int/addr,
+0.0,6c26354,jle,"6c25df3 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0xa33>",branch,
+0.0,6c2635a,vmovss,"xmm0,DWORD PTR [r15+rsi*1+0x14]",vec_load,xmm
+0.0,6c26361,vmovss,"xmm7,DWORD PTR [rcx+rsi*1+0x14]",vec_load,xmm
+0.0,6c26367,lea,"r9,[r8+0x6]",int/addr,
+0.0,6c2636b,vfmadd132ss,"xmm0,xmm7,DWORD PTR [rax]",fma,xmm
+0.0,6c26370,vmovss,"DWORD PTR [rdx+rsi*1+0x14],xmm0",vec_store,xmm
+0.0,6c26376,cmp,"r14,r9",int/addr,
+0.0,6c26379,jle,"6c25df3 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0xa33>",branch,
+0.0,6c2637f,vmovss,"xmm0,DWORD PTR [r15+rsi*1+0x18]",vec_load,xmm
+0.0,6c26386,vmovss,"xmm7,DWORD PTR [rcx+rsi*1+0x18]",vec_load,xmm
+0.0,6c2638c,lea,"r9,[r8+0x7]",int/addr,
+0.0,6c26390,vfmadd132ss,"xmm0,xmm7,DWORD PTR [rax]",fma,xmm
+0.0,6c26395,vmovss,"DWORD PTR [rdx+rsi*1+0x18],xmm0",vec_store,xmm
+0.0,6c2639b,cmp,"r14,r9",int/addr,
+0.0,6c2639e,jle,"6c25df3 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0xa33>",branch,
+0.0,6c263a4,vmovss,"xmm0,DWORD PTR [rax]",vec_load,xmm
+0.0,6c263a8,vmovss,"xmm7,DWORD PTR [rcx+rsi*1+0x1c]",vec_load,xmm
+0.0,6c263ae,lea,"r9,[r8+0x8]",int/addr,
+0.0,6c263b2,vfmadd132ss,"xmm0,xmm7,DWORD PTR [r15+rsi*1+0x1c]",fma,xmm
+0.0,6c263b9,vmovss,"DWORD PTR [rdx+rsi*1+0x1c],xmm0",vec_store,xmm
+0.0,6c263bf,cmp,"r14,r9",int/addr,
+0.0,6c263c2,jle,"6c25df3 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0xa33>",branch,
+0.0,6c263c8,vmovss,"xmm0,DWORD PTR [r15+rsi*1+0x20]",vec_load,xmm
+0.0,6c263cf,vmovss,"xmm7,DWORD PTR [rcx+rsi*1+0x20]",vec_load,xmm
+0.0,6c263d5,lea,"r9,[r8+0x9]",int/addr,
+0.0,6c263d9,vfmadd132ss,"xmm0,xmm7,DWORD PTR [rax]",fma,xmm
+0.0,6c263de,vmovss,"DWORD PTR [rdx+rsi*1+0x20],xmm0",vec_store,xmm
+0.0,6c263e4,cmp,"r14,r9",int/addr,
+0.0,6c263e7,jle,"6c25df3 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0xa33>",branch,
+0.0,6c263ed,vmovss,"xmm0,DWORD PTR [r15+rsi*1+0x24]",vec_load,xmm
+0.0,6c263f4,vmovss,"xmm7,DWORD PTR [rcx+rsi*1+0x24]",vec_load,xmm
+0.0,6c263fa,lea,"r9,[r8+0xa]",int/addr,
+0.0,6c263fe,vfmadd132ss,"xmm0,xmm7,DWORD PTR [rax]",fma,xmm
+0.0,6c26403,vmovss,"DWORD PTR [rdx+rsi*1+0x24],xmm0",vec_store,xmm
+0.0,6c26409,cmp,"r14,r9",int/addr,
+0.0,6c2640c,jle,"6c25df3 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0xa33>",branch,
+0.0,6c26412,vmovss,"xmm0,DWORD PTR [r15+rsi*1+0x28]",vec_load,xmm
+0.0,6c26419,vmovss,"xmm7,DWORD PTR [rcx+rsi*1+0x28]",vec_load,xmm
+0.0,6c2641f,lea,"r9,[r8+0xb]",int/addr,
+0.0,6c26423,vfmadd132ss,"xmm0,xmm7,DWORD PTR [rax]",fma,xmm
+0.0,6c26428,vmovss,"DWORD PTR [rdx+rsi*1+0x28],xmm0",vec_store,xmm
+0.0,6c2642e,cmp,"r14,r9",int/addr,
+0.0,6c26431,jle,"6c25df3 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0xa33>",branch,
+0.0,6c26437,vmovss,"xmm0,DWORD PTR [r15+rsi*1+0x2c]",vec_load,xmm
+0.0,6c2643e,vmovss,"xmm7,DWORD PTR [rcx+rsi*1+0x2c]",vec_load,xmm
+0.0,6c26444,lea,"r9,[r8+0xc]",int/addr,
+0.0,6c26448,vfmadd132ss,"xmm0,xmm7,DWORD PTR [rax]",fma,xmm
+0.0,6c2644d,vmovss,"DWORD PTR [rdx+rsi*1+0x2c],xmm0",vec_store,xmm
+0.0,6c26453,cmp,"r14,r9",int/addr,
+0.0,6c26456,jle,"6c25df3 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0xa33>",branch,
+0.0,6c2645c,vmovss,"xmm0,DWORD PTR [r15+rsi*1+0x30]",vec_load,xmm
+0.0,6c26463,vmovss,"xmm7,DWORD PTR [rcx+rsi*1+0x30]",vec_load,xmm
+0.0,6c26469,lea,"r9,[r8+0xd]",int/addr,
+0.0,6c2646d,vfmadd132ss,"xmm0,xmm7,DWORD PTR [rax]",fma,xmm
+0.0,6c26472,vmovss,"DWORD PTR [rdx+rsi*1+0x30],xmm0",vec_store,xmm
+0.0,6c26478,cmp,"r14,r9",int/addr,
+0.0,6c2647b,jle,"6c25df3 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0xa33>",branch,
+0.0,6c26481,vmovss,"xmm0,DWORD PTR [r15+rsi*1+0x34]",vec_load,xmm
+0.0,6c26488,vmovss,"xmm7,DWORD PTR [rcx+rsi*1+0x34]",vec_load,xmm
+0.0,6c2648e,lea,"r9,[r8+0xe]",int/addr,
+0.0,6c26492,vfmadd132ss,"xmm0,xmm7,DWORD PTR [rax]",fma,xmm
+0.0,6c26497,vmovss,"DWORD PTR [rdx+rsi*1+0x34],xmm0",vec_store,xmm
+0.0,6c2649d,cmp,"r14,r9",int/addr,
+0.0,6c264a0,jle,"6c25df3 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0xa33>",branch,
+0.0,6c264a6,vmovss,"xmm0,DWORD PTR [r15+rsi*1+0x38]",vec_load,xmm
+0.0,6c264ad,vmovss,"xmm7,DWORD PTR [rcx+rsi*1+0x38]",vec_load,xmm
+0.0,6c264b3,add,"r8,0xf",int/addr,
+0.0,6c264b7,vfmadd132ss,"xmm0,xmm7,DWORD PTR [rax]",fma,xmm
+0.0,6c264bc,vmovss,"DWORD PTR [rdx+rsi*1+0x38],xmm0",vec_store,xmm
+0.0,6c264c2,cmp,"r14,r8",int/addr,
+0.0,6c264c5,jle,"6c25df3 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0xa33>",branch,
+0.0,6c264cb,vmovss,"xmm0,DWORD PTR [rax]",vec_load,xmm
+0.0,6c264cf,vmovss,"xmm7,DWORD PTR [rcx+rsi*1+0x3c]",vec_load,xmm
+0.0,6c264d5,vfmadd132ss,"xmm0,xmm7,DWORD PTR [r15+rsi*1+0x3c]",fma,xmm
+0.0,6c264dc,vmovss,"DWORD PTR [rdx+rsi*1+0x3c],xmm0",vec_store,xmm
+0.0,6c264e2,jmp,"6c25df3 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0xa33>",branch,
+0.0,6c264e7,test,"r14,r14",int/addr,
+0.0,6c264ea,jle,"6c2592b <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x56b>",branch,
+0.0,6c264f0,xor,"esi,esi",int/addr,
+0.0,6c264f2,jmp,"6c2575e <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x39e>",branch,
+0.0,6c264f7,test,"r14,r14",int/addr,
+0.0,6c264fa,jle,"6c25ba8 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x7e8>",branch,
+0.0,6c26500,xor,"ecx,ecx",int/addr,
+0.0,6c26502,jmp,"6c259df <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x61f>",branch,
+0.0,6c26507,test,"r14,r14",int/addr,
+0.0,6c2650a,jle,"6c25df3 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0xa33>",branch,
+0.0,6c26510,xor,"r8d,r8d",int/addr,
+0.0,6c26513,jmp,"6c25c68 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x8a8>",branch,
+0.0,6c26518,xor,"esi,esi",int/addr,
+0.0,6c2651a,jmp,"6c25d65 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x9a5>",branch,
+0.0,6c2651f,xor,"ecx,ecx",int/addr,
+0.0,6c26521,jmp,"6c2589a <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x4da>",branch,
+0.0,6c26526,xor,"ecx,ecx",int/addr,
+0.0,6c26528,jmp,"6c25b15 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x755>",branch,

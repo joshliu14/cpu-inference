@@ -1,0 +1,8 @@
+    91.64%  libtorch_cpu.so       [.] mkl_blas_avx512_xsgemv
+     0.48%  python3.12            [.] _PyEval_EvalFrameDefault
+     0.38%  python3.12            [.] 0x000000000021d760
+     0.36%  python3.12            [.] 0x000000000021d984
+     0.33%  python3.12            [.] 0x000000000021cb5a
+     0.29%  python3.12            [.] 0x000000000021ccf8
+
+

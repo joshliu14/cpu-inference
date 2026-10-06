@@ -1,0 +1,508 @@
+# symbol: void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)
+# dso: libtorch_cpu.so
+# share of operator samples: 84.08%
+ Percent |	Source code & Disassembly of libtorch_cpu.so for cycles:P (3549 samples, percent: local period)
+---------------------------------------------------------------------------------------------------------------
+         :
+         :
+         :
+         : 3       Disassembly of section .text:
+         :
+         : 5       0000000006f277f0 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)>:
+    0.00 :   6f277f0:        push   rbp
+    0.00 :   6f277f1:        mov    r9,rdx
+    0.00 :   6f277f4:        mov    rax,rdi
+    0.00 :   6f277f7:        mov    rdi,rcx
+    0.00 :   6f277fa:        mov    rbp,rsp
+    0.00 :   6f277fd:        push   r15
+    0.00 :   6f277ff:        push   r14
+    0.00 :   6f27801:        mov    r14,r8
+    0.00 :   6f27804:        push   r13
+    0.00 :   6f27806:        push   r12
+    0.00 :   6f27808:        push   rbx
+    0.00 :   6f27809:        and    rsp,0xffffffffffffffe0
+    0.00 :   6f2780d:        mov    rdx,QWORD PTR [rsi]
+    0.00 :   6f27810:        mov    rcx,QWORD PTR [rsi+0x8]
+    0.00 :   6f27814:        mov    rsi,QWORD PTR [r9+0x8]
+    0.00 :   6f27818:        cmp    rsi,0x4
+    0.00 :   6f2781c:        je     6f27a28 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x238>
+    0.00 :   6f27822:        test   rsi,rsi
+    0.00 :   6f27825:        jne    6f27831 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x41>
+    0.00 :   6f27827:        cmp    QWORD PTR [r9],0x4
+    0.00 :   6f2782b:        je     6f27c00 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x410>
+    0.00 :   6f27831:        test   r14,r14
+    0.00 :   6f27834:        jg     6f27848 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x58>
+    0.00 :   6f27836:        lea    rsp,[rbp-0x28]
+    0.00 :   6f2783a:        pop    rbx
+    0.00 :   6f2783b:        pop    r12
+    0.00 :   6f2783d:        pop    r13
+    0.00 :   6f2783f:        pop    r14
+    0.00 :   6f27841:        pop    r15
+    0.00 :   6f27843:        pop    rbp
+    0.00 :   6f27844:        ret
+    0.00 :   6f27845:        nop    DWORD PTR [rax]
+    0.00 :   6f27848:        mov    rbx,QWORD PTR [r9+0x10]
+    0.00 :   6f2784c:        mov    r8,QWORD PTR [r9]
+    0.00 :   6f2784f:        mov    QWORD PTR [rsp-0x18],rbx
+    0.00 :   6f27854:        mov    rbx,QWORD PTR [r9+0x18]
+    0.00 :   6f27858:        mov    QWORD PTR [rsp-0x20],rbx
+    0.00 :   6f2785d:        test   rdi,rdi
+    0.00 :   6f27860:        jle    6f27836 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x46>
+    0.00 :   6f27862:        lea    rbx,[rdi-0x1]
+    0.00 :   6f27866:        xor    r9d,r9d
+    0.00 :   6f27869:        mov    r11d,0x3
+    0.00 :   6f2786f:        mov    r12,rdi
+    0.00 :   6f27872:        mov    r10,rbx
+    0.00 :   6f27875:        mov    r15,r9
+    0.00 :   6f27878:        mov    QWORD PTR [rsp-0x50],rbx
+    0.00 :   6f2787d:        imul   r10,r8
+    0.00 :   6f27881:        test   r8,r8
+    0.00 :   6f27884:        mov    QWORD PTR [rsp-0x28],r14
+    0.00 :   6f27889:        mov    QWORD PTR [rsp-0x8],0x0
+    0.00 :   6f27892:        cmovs  r15,r10
+    0.00 :   6f27896:        add    r10,0x3
+    0.00 :   6f2789a:        test   r8,r8
+    0.00 :   6f2789d:        cmovs  r10,r11
+    0.00 :   6f278a1:        imul   rbx,rsi
+    0.00 :   6f278a5:        test   rsi,rsi
+    0.00 :   6f278a8:        mov    QWORD PTR [rsp-0x30],r15
+    0.00 :   6f278ad:        mov    QWORD PTR [rsp-0x48],r10
+    0.00 :   6f278b2:        lea    r15,[r8+r8*1]
+    0.00 :   6f278b6:        mov    r10,rbx
+    0.00 :   6f278b9:        lea    rbx,[rbx+0x3]
+    0.00 :   6f278bd:        cmovns r11,rbx
+    0.00 :   6f278c1:        mov    rbx,rdi
+    0.00 :   6f278c4:        cmovs  r9,r10
+    0.00 :   6f278c8:        shr    r12,1
+    0.00 :   6f278cb:        and    rbx,0xfffffffffffffffe
+    0.00 :   6f278cf:        mov    r14,r12
+    0.00 :   6f278d2:        mov    r10,rbx
+    0.00 :   6f278d5:        mov    QWORD PTR [rsp-0x58],rbx
+    0.00 :   6f278da:        imul   rbx,rsi
+    0.00 :   6f278de:        mov    QWORD PTR [rsp-0x40],r9
+    0.00 :   6f278e3:        imul   r10,r8
+    0.00 :   6f278e7:        mov    QWORD PTR [rsp-0x38],r11
+    0.00 :   6f278ec:        lea    r11,[rsi+rsi*1]
+    0.00 :   6f278f0:        mov    r9,rbx
+    0.00 :   6f278f3:        lea    rbx,[rax+0x3]
+    0.00 :   6f278f7:        mov    QWORD PTR [rsp-0x60],rbx
+    0.00 :   6f278fc:        cmp    QWORD PTR [rsp-0x50],0x18
+    0.00 :   6f27902:        jbe    6f279f0 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x200>
+    0.00 :   6f27908:        mov    rbx,QWORD PTR [rsp-0x30]
+    0.00 :   6f2790d:        lea    r13,[rdx+rbx*1]
+    0.00 :   6f27911:        mov    rbx,QWORD PTR [rsp-0x48]
+    0.00 :   6f27916:        lea    r12,[rdx+rbx*1]
+    0.00 :   6f2791a:        mov    rbx,QWORD PTR [rsp-0x40]
+    0.00 :   6f2791f:        add    rbx,rcx
+    0.00 :   6f27922:        cmp    r12,rbx
+    0.00 :   6f27925:        mov    rbx,QWORD PTR [rsp-0x38]
+    0.00 :   6f2792a:        setb   BYTE PTR [rsp-0x10]
+    0.00 :   6f2792f:        add    rbx,rcx
+    0.00 :   6f27932:        cmp    rbx,r13
+    0.00 :   6f27935:        setb   bl
+    0.00 :   6f27938:        or     bl,BYTE PTR [rsp-0x10]
+    0.00 :   6f2793c:        je     6f279f0 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x200>
+    0.00 :   6f27942:        cmp    QWORD PTR [rsp-0x60],r13
+    0.00 :   6f27947:        setb   bl
+    0.00 :   6f2794a:        cmp    r12,rax
+    0.00 :   6f2794d:        setb   r12b
+    0.00 :   6f27951:        or     r12b,bl
+    0.00 :   6f27954:        je     6f279f0 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x200>
+    0.00 :   6f2795a:        vmovss xmm1,DWORD PTR [rax]
+    0.00 :   6f2795e:        mov    r12,rdx
+    0.00 :   6f27961:        mov    rbx,rcx
+    0.00 :   6f27964:        xor    r13d,r13d
+    0.00 :   6f27967:        vmovsldup xmm1,xmm1
+    0.00 :   6f2796b:        vmovss xmm0,DWORD PTR [rbx]
+    0.00 :   6f2796f:        vinsertps xmm0,xmm0,DWORD PTR [rbx+rsi*1],0x10
+    0.00 :   6f27976:        add    r13,0x1
+    0.00 :   6f2797a:        add    rbx,r11
+    0.00 :   6f2797d:        vmaxps xmm0,xmm1,xmm0
+    0.00 :   6f27981:        vmovshdup xmm2,xmm0
+    0.00 :   6f27985:        vmovss DWORD PTR [r12],xmm0
+    0.00 :   6f2798b:        vmovss DWORD PTR [r12+r8*1],xmm2
+    0.00 :   6f27991:        add    r12,r15
+    0.00 :   6f27994:        cmp    r13,r14
+    0.00 :   6f27997:        jne    6f2796b <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x17b>
+    0.00 :   6f27999:        mov    rbx,QWORD PTR [rsp-0x58]
+    0.00 :   6f2799e:        cmp    rdi,rbx
+    0.00 :   6f279a1:        je     6f279b3 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x1c3>
+    0.00 :   6f279a3:        vmovss xmm0,DWORD PTR [rax]
+    0.00 :   6f279a7:        vmaxss xmm0,xmm0,DWORD PTR [rcx+r9*1]
+    0.00 :   6f279ad:        vmovss DWORD PTR [rdx+r10*1],xmm0
+    0.00 :   6f279b3:        mov    r13,QWORD PTR [rsp-0x20]
+    0.00 :   6f279b8:        add    QWORD PTR [rsp-0x8],0x1
+    0.00 :   6f279be:        mov    rbx,QWORD PTR [rsp-0x8]
+    0.00 :   6f279c3:        add    rcx,r13
+    0.00 :   6f279c6:        mov    r13,QWORD PTR [rsp-0x18]
+    0.00 :   6f279cb:        add    rdx,r13
+    0.00 :   6f279ce:        cmp    QWORD PTR [rsp-0x28],rbx
+    0.00 :   6f279d3:        jne    6f278fc <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x10c>
+    0.00 :   6f279d9:        lea    rsp,[rbp-0x28]
+    0.00 :   6f279dd:        pop    rbx
+    0.00 :   6f279de:        pop    r12
+    0.00 :   6f279e0:        pop    r13
+    0.00 :   6f279e2:        pop    r14
+    0.00 :   6f279e4:        pop    r15
+    0.00 :   6f279e6:        pop    rbp
+    0.00 :   6f279e7:        ret
+    0.00 :   6f279e8:        nop    DWORD PTR [rax+rax*1+0x0]
+    0.00 :   6f279f0:        mov    r13,rdx
+    0.00 :   6f279f3:        mov    r12,rcx
+    0.00 :   6f279f6:        xor    ebx,ebx
+    0.00 :   6f279f8:        nop    DWORD PTR [rax+rax*1+0x0]
+    0.00 :   6f27a00:        vmovss xmm0,DWORD PTR [rax]
+    0.00 :   6f27a04:        vmaxss xmm0,xmm0,DWORD PTR [r12]
+    0.00 :   6f27a0a:        add    rbx,0x1
+    0.00 :   6f27a0e:        add    r12,rsi
+    0.00 :   6f27a11:        vmovss DWORD PTR [r13+0x0],xmm0
+    0.00 :   6f27a17:        add    r13,r8
+    0.00 :   6f27a1a:        cmp    rdi,rbx
+    0.00 :   6f27a1d:        jne    6f27a00 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x210>
+    0.00 :   6f27a1f:        jmp    6f279b3 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x1c3>
+    0.00 :   6f27a21:        nop    DWORD PTR [rax+0x0]
+    0.00 :   6f27a28:        cmp    QWORD PTR [r9],0x4
+    0.00 :   6f27a2c:        jne    6f27831 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x41>
+    0.00 :   6f27a32:        test   r8,r8
+    0.00 :   6f27a35:        jle    6f27836 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x46>
+    0.00 :   6f27a3b:        lea    r8,[rdi-0xf]
+    0.00 :   6f27a3f:        lea    rsi,[rdi-0x10]
+    0.00 :   6f27a43:        xor    r15d,r15d
+    0.00 :   6f27a46:        mov    QWORD PTR [rsp-0x8],r8
+    0.00 :   6f27a4b:        and    rsi,0xfffffffffffffff0
+    0.00 :   6f27a4f:        lea    r13,[rsi+0x10]
+    0.00 :   6f27a53:        cmp    rdi,0xf
+    0.00 :   6f27a57:        jle    6f28035 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x845>
+    0.00 :   6f27a5d:        mov    r8,QWORD PTR [rsp-0x8]
+    0.00 :   6f27a62:        xor    esi,esi
+    0.00 :   6f27a64:        nop    DWORD PTR [rax+0x0]
+    0.00 :   6f27a68:        vmovaps ymm4,YMMWORD PTR [rax+0x20]
+   23.61 :   6f27a6d:        vmaxps ymm1,ymm4,YMMWORD PTR [rcx+rsi*4]
+   25.22 :   6f27a72:        vmaxps ymm0,ymm4,YMMWORD PTR [rcx+rsi*4+0x20]
+    0.90 :   6f27a78:        vmovups YMMWORD PTR [rdx+rsi*4],ymm1
+    0.79 :   6f27a7d:        vmovups YMMWORD PTR [rdx+rsi*4+0x20],ymm0
+   24.74 :   6f27a83:        add    rsi,0x10
+    0.00 :   6f27a87:        cmp    rsi,r8
+   24.68 :   6f27a8a:        jl     6f27a68 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x278>
+    0.00 :   6f27a8c:        mov    QWORD PTR [rsp-0x8],r8
+    0.00 :   6f27a91:        mov    rsi,r13
+    0.00 :   6f27a94:        cmp    rdi,r13
+    0.00 :   6f27a97:        jle    6f27be0 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x3f0>
+    0.00 :   6f27a9d:        mov    r11,rdi
+    0.00 :   6f27aa0:        mov    QWORD PTR [rsp-0x10],rsi
+    0.00 :   6f27aa5:        sub    r11,rsi
+    0.00 :   6f27aa8:        lea    rbx,[r11-0x1]
+    0.00 :   6f27aac:        mov    QWORD PTR [rsp-0x18],rbx
+    0.00 :   6f27ab1:        cmp    rbx,0x2
+    0.00 :   6f27ab5:        jbe    6f27e37 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x647>
+    0.00 :   6f27abb:        cmp    rdi,rsi
+    0.00 :   6f27abe:        jle    6f27e37 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x647>
+    0.00 :   6f27ac4:        lea    rbx,[rdx+rdi*4]
+    0.00 :   6f27ac8:        lea    r10,[rsi*4+0x0]
+    0.00 :   6f27ad0:        cmp    rax,rbx
+    0.00 :   6f27ad3:        lea    r12,[rdx+r10*1]
+    0.00 :   6f27ad7:        lea    rbx,[rax+0x4]
+    0.00 :   6f27adb:        setae  BYTE PTR [rsp-0x20]
+    0.00 :   6f27ae0:        cmp    r12,rbx
+    0.00 :   6f27ae3:        movzx  r8d,BYTE PTR [rsp-0x20]
+    0.00 :   6f27ae9:        setae  bl
+    0.00 :   6f27aec:        or     bl,r8b
+    0.00 :   6f27aef:        je     6f27e3f <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x64f>
+    0.00 :   6f27af5:        lea    rbx,[rcx+r10*1+0x4]
+    0.00 :   6f27afa:        mov    r8,r12
+    0.00 :   6f27afd:        sub    r8,rbx
+    0.00 :   6f27b00:        cmp    r8,0x18
+    0.00 :   6f27b04:        jbe    6f27e3f <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x64f>
+    0.00 :   6f27b0a:        cmp    QWORD PTR [rsp-0x18],0x6
+    0.00 :   6f27b10:        jbe    6f28045 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x855>
+    0.00 :   6f27b16:        add    r10,rcx
+    0.00 :   6f27b19:        vbroadcastss ymm0,DWORD PTR [rax]
+    0.00 :   6f27b1e:        mov    rbx,r11
+    0.00 :   6f27b21:        vmaxps ymm1,ymm0,YMMWORD PTR [r10]
+    0.00 :   6f27b26:        shr    rbx,0x3
+    0.00 :   6f27b2a:        vmovups YMMWORD PTR [r12],ymm1
+    0.00 :   6f27b30:        cmp    rbx,0x1
+    0.00 :   6f27b34:        je     6f27b43 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x353>
+    0.00 :   6f27b36:        vmaxps ymm0,ymm0,YMMWORD PTR [r10+0x20]
+    0.00 :   6f27b3c:        vmovups YMMWORD PTR [r12+0x20],ymm0
+    0.00 :   6f27b43:        mov    r10,r11
+    0.00 :   6f27b46:        and    r10,0xfffffffffffffff8
+    0.00 :   6f27b4a:        add    rsi,r10
+    0.00 :   6f27b4d:        test   r11b,0x7
+    0.00 :   6f27b51:        je     6f27be0 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x3f0>
+    0.00 :   6f27b57:        sub    r11,r10
+    0.00 :   6f27b5a:        lea    rbx,[r11-0x1]
+    0.00 :   6f27b5e:        cmp    rbx,0x2
+    0.00 :   6f27b62:        jbe    6f27b8b <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x39b>
+    0.00 :   6f27b64:        mov    rbx,QWORD PTR [rsp-0x10]
+    0.00 :   6f27b69:        vbroadcastss xmm0,DWORD PTR [rax]
+    0.00 :   6f27b6e:        add    rbx,r10
+    0.00 :   6f27b71:        mov    r10,r11
+    0.00 :   6f27b74:        vmaxps xmm0,xmm0,XMMWORD PTR [rcx+rbx*4]
+    0.00 :   6f27b79:        and    r10,0xfffffffffffffffc
+    0.00 :   6f27b7d:        add    rsi,r10
+    0.00 :   6f27b80:        and    r11d,0x3
+    0.00 :   6f27b84:        vmovups XMMWORD PTR [rdx+rbx*4],xmm0
+    0.00 :   6f27b89:        je     6f27be0 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x3f0>
+    0.00 :   6f27b8b:        vmovss xmm0,DWORD PTR [rax]
+    0.00 :   6f27b8f:        vmaxss xmm0,xmm0,DWORD PTR [rcx+rsi*4]
+    0.00 :   6f27b94:        lea    r10,[rsi*4+0x0]
+    0.00 :   6f27b9c:        lea    r11,[rsi+0x1]
+    0.00 :   6f27ba0:        vmovss DWORD PTR [rdx+r10*1],xmm0
+    0.00 :   6f27ba6:        cmp    rdi,r11
+    0.00 :   6f27ba9:        jle    6f27be0 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x3f0>
+    0.00 :   6f27bab:        vmovss xmm0,DWORD PTR [rax]
+    0.00 :   6f27baf:        vmaxss xmm0,xmm0,DWORD PTR [rcx+r10*1+0x4]
+    0.00 :   6f27bb6:        add    rsi,0x2
+    0.00 :   6f27bba:        vmovss DWORD PTR [rdx+r10*1+0x4],xmm0
+    0.00 :   6f27bc1:        cmp    rdi,rsi
+    0.00 :   6f27bc4:        jle    6f27be0 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x3f0>
+    0.00 :   6f27bc6:        vmovss xmm0,DWORD PTR [rax]
+    0.00 :   6f27bca:        vmaxss xmm0,xmm0,DWORD PTR [rcx+r10*1+0x8]
+    0.00 :   6f27bd1:        vmovss DWORD PTR [rdx+r10*1+0x8],xmm0
+    0.00 :   6f27bd8:        nop    DWORD PTR [rax+rax*1+0x0]
+    0.00 :   6f27be0:        add    r15,0x1
+    0.00 :   6f27be4:        add    rdx,QWORD PTR [r9+0x10]
+    0.00 :   6f27be8:        add    rcx,QWORD PTR [r9+0x18]
+    0.00 :   6f27bec:        cmp    r14,r15
+    0.06 :   6f27bef:        je     6f27e25 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x635>
+    0.00 :   6f27bf5:        jmp    6f27a53 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x263>
+    0.00 :   6f27bfa:        nop    WORD PTR [rax+rax*1+0x0]
+    0.00 :   6f27c00:        test   r8,r8
+    0.00 :   6f27c03:        jle    6f27836 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x46>
+    0.00 :   6f27c09:        lea    rsi,[rdi-0x10]
+    0.00 :   6f27c0d:        lea    r8,[rdi-0xf]
+    0.00 :   6f27c11:        xor    r11d,r11d
+    0.00 :   6f27c14:        and    rsi,0xfffffffffffffff0
+    0.00 :   6f27c18:        lea    rbx,[rsi+0x10]
+    0.00 :   6f27c1c:        vmovss xmm0,DWORD PTR [rcx]
+    0.00 :   6f27c20:        vbroadcastss ymm1,xmm0
+    0.00 :   6f27c25:        cmp    rdi,0xf
+    0.00 :   6f27c29:        jle    6f28025 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x835>
+    0.00 :   6f27c2f:        xor    esi,esi
+    0.00 :   6f27c31:        nop    DWORD PTR [rax+0x0]
+    0.00 :   6f27c38:        vmovaps ymm3,YMMWORD PTR [rax+0x20]
+    0.00 :   6f27c3d:        vmaxps ymm0,ymm3,ymm1
+    0.00 :   6f27c41:        vmovups YMMWORD PTR [rdx+rsi*4],ymm0
+    0.00 :   6f27c46:        vmovups YMMWORD PTR [rdx+rsi*4+0x20],ymm0
+    0.00 :   6f27c4c:        add    rsi,0x10
+    0.00 :   6f27c50:        cmp    rsi,r8
+    0.00 :   6f27c53:        jl     6f27c38 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x448>
+    0.00 :   6f27c55:        cmp    rdi,rbx
+    0.00 :   6f27c58:        jle    6f27e10 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x620>
+    0.00 :   6f27c5e:        vmovss xmm0,DWORD PTR [rcx]
+    0.00 :   6f27c62:        mov    rsi,rbx
+    0.00 :   6f27c65:        vmovss xmm1,DWORD PTR [rax]
+    0.00 :   6f27c69:        lea    r10,[rsi*4+0x0]
+    0.00 :   6f27c71:        lea    r12,[rsi+0x1]
+    0.00 :   6f27c75:        vmaxss xmm0,xmm1,xmm0
+    0.00 :   6f27c79:        vmovss DWORD PTR [rdx+r10*1],xmm0
+    0.00 :   6f27c7f:        cmp    rdi,r12
+    0.00 :   6f27c82:        jle    6f27e10 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x620>
+    0.00 :   6f27c88:        vmovss xmm0,DWORD PTR [rax]
+    0.00 :   6f27c8c:        vmaxss xmm0,xmm0,DWORD PTR [rcx]
+    0.00 :   6f27c90:        lea    r12,[rsi+0x2]
+    0.00 :   6f27c94:        vmovss DWORD PTR [rdx+r10*1+0x4],xmm0
+    0.00 :   6f27c9b:        cmp    rdi,r12
+    0.00 :   6f27c9e:        jle    6f27e10 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x620>
+    0.00 :   6f27ca4:        vmovss xmm0,DWORD PTR [rax]
+    0.00 :   6f27ca8:        vmaxss xmm0,xmm0,DWORD PTR [rcx]
+    0.00 :   6f27cac:        lea    r12,[rsi+0x3]
+    0.00 :   6f27cb0:        vmovss DWORD PTR [rdx+r10*1+0x8],xmm0
+    0.00 :   6f27cb7:        cmp    rdi,r12
+    0.00 :   6f27cba:        jle    6f27e10 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x620>
+    0.00 :   6f27cc0:        vmovss xmm0,DWORD PTR [rax]
+    0.00 :   6f27cc4:        vmaxss xmm0,xmm0,DWORD PTR [rcx]
+    0.00 :   6f27cc8:        lea    r12,[rsi+0x4]
+    0.00 :   6f27ccc:        vmovss DWORD PTR [rdx+r10*1+0xc],xmm0
+    0.00 :   6f27cd3:        cmp    rdi,r12
+    0.00 :   6f27cd6:        jle    6f27e10 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x620>
+    0.00 :   6f27cdc:        vmovss xmm0,DWORD PTR [rax]
+    0.00 :   6f27ce0:        vmaxss xmm0,xmm0,DWORD PTR [rcx]
+    0.00 :   6f27ce4:        lea    r12,[rsi+0x5]
+    0.00 :   6f27ce8:        vmovss DWORD PTR [rdx+r10*1+0x10],xmm0
+    0.00 :   6f27cef:        cmp    rdi,r12
+    0.00 :   6f27cf2:        jle    6f27e10 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x620>
+    0.00 :   6f27cf8:        vmovss xmm0,DWORD PTR [rax]
+    0.00 :   6f27cfc:        vmaxss xmm0,xmm0,DWORD PTR [rcx]
+    0.00 :   6f27d00:        lea    r12,[rsi+0x6]
+    0.00 :   6f27d04:        vmovss DWORD PTR [rdx+r10*1+0x14],xmm0
+    0.00 :   6f27d0b:        cmp    rdi,r12
+    0.00 :   6f27d0e:        jle    6f27e10 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x620>
+    0.00 :   6f27d14:        vmovss xmm0,DWORD PTR [rax]
+    0.00 :   6f27d18:        vmaxss xmm0,xmm0,DWORD PTR [rcx]
+    0.00 :   6f27d1c:        lea    r12,[rsi+0x7]
+    0.00 :   6f27d20:        vmovss DWORD PTR [rdx+r10*1+0x18],xmm0
+    0.00 :   6f27d27:        cmp    rdi,r12
+    0.00 :   6f27d2a:        jle    6f27e10 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x620>
+    0.00 :   6f27d30:        vmovss xmm0,DWORD PTR [rax]
+    0.00 :   6f27d34:        vmaxss xmm0,xmm0,DWORD PTR [rcx]
+    0.00 :   6f27d38:        lea    r12,[rsi+0x8]
+    0.00 :   6f27d3c:        vmovss DWORD PTR [rdx+r10*1+0x1c],xmm0
+    0.00 :   6f27d43:        cmp    rdi,r12
+    0.00 :   6f27d46:        jle    6f27e10 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x620>
+    0.00 :   6f27d4c:        vmovss xmm0,DWORD PTR [rax]
+    0.00 :   6f27d50:        vmaxss xmm0,xmm0,DWORD PTR [rcx]
+    0.00 :   6f27d54:        lea    r12,[rsi+0x9]
+    0.00 :   6f27d58:        vmovss DWORD PTR [rdx+r10*1+0x20],xmm0
+    0.00 :   6f27d5f:        cmp    rdi,r12
+    0.00 :   6f27d62:        jle    6f27e10 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x620>
+    0.00 :   6f27d68:        vmovss xmm0,DWORD PTR [rax]
+    0.00 :   6f27d6c:        vmaxss xmm0,xmm0,DWORD PTR [rcx]
+    0.00 :   6f27d70:        lea    r12,[rsi+0xa]
+    0.00 :   6f27d74:        vmovss DWORD PTR [rdx+r10*1+0x24],xmm0
+    0.00 :   6f27d7b:        cmp    rdi,r12
+    0.00 :   6f27d7e:        jle    6f27e10 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x620>
+    0.00 :   6f27d84:        vmovss xmm0,DWORD PTR [rax]
+    0.00 :   6f27d88:        vmaxss xmm0,xmm0,DWORD PTR [rcx]
+    0.00 :   6f27d8c:        lea    r12,[rsi+0xb]
+    0.00 :   6f27d90:        vmovss DWORD PTR [rdx+r10*1+0x28],xmm0
+    0.00 :   6f27d97:        cmp    rdi,r12
+    0.00 :   6f27d9a:        jle    6f27e10 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x620>
+    0.00 :   6f27d9c:        vmovss xmm0,DWORD PTR [rax]
+    0.00 :   6f27da0:        vmaxss xmm0,xmm0,DWORD PTR [rcx]
+    0.00 :   6f27da4:        lea    r12,[rsi+0xc]
+    0.00 :   6f27da8:        vmovss DWORD PTR [rdx+r10*1+0x2c],xmm0
+    0.00 :   6f27daf:        cmp    rdi,r12
+    0.00 :   6f27db2:        jle    6f27e10 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x620>
+    0.00 :   6f27db4:        vmovss xmm0,DWORD PTR [rax]
+    0.00 :   6f27db8:        vmaxss xmm0,xmm0,DWORD PTR [rcx]
+    0.00 :   6f27dbc:        lea    r12,[rsi+0xd]
+    0.00 :   6f27dc0:        vmovss DWORD PTR [rdx+r10*1+0x30],xmm0
+    0.00 :   6f27dc7:        cmp    rdi,r12
+    0.00 :   6f27dca:        jle    6f27e10 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x620>
+    0.00 :   6f27dcc:        vmovss xmm0,DWORD PTR [rax]
+    0.00 :   6f27dd0:        vmaxss xmm0,xmm0,DWORD PTR [rcx]
+    0.00 :   6f27dd4:        lea    r12,[rsi+0xe]
+    0.00 :   6f27dd8:        vmovss DWORD PTR [rdx+r10*1+0x34],xmm0
+    0.00 :   6f27ddf:        cmp    rdi,r12
+    0.00 :   6f27de2:        jle    6f27e10 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x620>
+    0.00 :   6f27de4:        vmovss xmm0,DWORD PTR [rax]
+    0.00 :   6f27de8:        vmaxss xmm0,xmm0,DWORD PTR [rcx]
+    0.00 :   6f27dec:        add    rsi,0xf
+    0.00 :   6f27df0:        vmovss DWORD PTR [rdx+r10*1+0x38],xmm0
+    0.00 :   6f27df7:        cmp    rdi,rsi
+    0.00 :   6f27dfa:        jle    6f27e10 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x620>
+    0.00 :   6f27dfc:        vmovss xmm0,DWORD PTR [rax]
+    0.00 :   6f27e00:        vmaxss xmm0,xmm0,DWORD PTR [rcx]
+    0.00 :   6f27e04:        vmovss DWORD PTR [rdx+r10*1+0x3c],xmm0
+    0.00 :   6f27e0b:        nop    DWORD PTR [rax+rax*1+0x0]
+    0.00 :   6f27e10:        add    r11,0x1
+    0.00 :   6f27e14:        add    rdx,QWORD PTR [r9+0x10]
+    0.00 :   6f27e18:        add    rcx,QWORD PTR [r9+0x18]
+    0.00 :   6f27e1c:        cmp    r11,r14
+    0.00 :   6f27e1f:        jne    6f27c1c <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x42c>
+    0.00 :   6f27e25:        vzeroupper
+    0.00 :   6f27e28:        lea    rsp,[rbp-0x28]
+    0.00 :   6f27e2c:        pop    rbx
+    0.00 :   6f27e2d:        pop    r12
+    0.00 :   6f27e2f:        pop    r13
+    0.00 :   6f27e31:        pop    r14
+    0.00 :   6f27e33:        pop    r15
+    0.00 :   6f27e35:        pop    rbp
+    0.00 :   6f27e36:        ret
+    0.00 :   6f27e37:        lea    r10,[rsi*4+0x0]
+    0.00 :   6f27e3f:        vmovss xmm0,DWORD PTR [rax]
+    0.00 :   6f27e43:        vmaxss xmm0,xmm0,DWORD PTR [rcx+r10*1]
+    0.00 :   6f27e49:        lea    r11,[rsi+0x1]
+    0.00 :   6f27e4d:        vmovss DWORD PTR [rdx+r10*1],xmm0
+    0.00 :   6f27e53:        cmp    rdi,r11
+    0.00 :   6f27e56:        jle    6f27be0 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x3f0>
+    0.00 :   6f27e5c:        vmovss xmm0,DWORD PTR [rax]
+    0.00 :   6f27e60:        vmaxss xmm0,xmm0,DWORD PTR [rcx+r10*1+0x4]
+    0.00 :   6f27e67:        lea    r11,[rsi+0x2]
+    0.00 :   6f27e6b:        vmovss DWORD PTR [rdx+r10*1+0x4],xmm0
+    0.00 :   6f27e72:        cmp    rdi,r11
+    0.00 :   6f27e75:        jle    6f27be0 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x3f0>
+    0.00 :   6f27e7b:        vmovss xmm0,DWORD PTR [rax]
+    0.00 :   6f27e7f:        vmaxss xmm0,xmm0,DWORD PTR [rcx+r10*1+0x8]
+    0.00 :   6f27e86:        lea    r11,[rsi+0x3]
+    0.00 :   6f27e8a:        vmovss DWORD PTR [rdx+r10*1+0x8],xmm0
+    0.00 :   6f27e91:        cmp    rdi,r11
+    0.00 :   6f27e94:        jle    6f27be0 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x3f0>
+    0.00 :   6f27e9a:        vmovss xmm0,DWORD PTR [rax]
+    0.00 :   6f27e9e:        vmaxss xmm0,xmm0,DWORD PTR [rcx+r10*1+0xc]
+    0.00 :   6f27ea5:        lea    r11,[rsi+0x4]
+    0.00 :   6f27ea9:        vmovss DWORD PTR [rdx+r10*1+0xc],xmm0
+    0.00 :   6f27eb0:        cmp    rdi,r11
+    0.00 :   6f27eb3:        jle    6f27be0 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x3f0>
+    0.00 :   6f27eb9:        vmovss xmm0,DWORD PTR [rax]
+    0.00 :   6f27ebd:        vmaxss xmm0,xmm0,DWORD PTR [rcx+r10*1+0x10]
+    0.00 :   6f27ec4:        lea    r11,[rsi+0x5]
+    0.00 :   6f27ec8:        vmovss DWORD PTR [rdx+r10*1+0x10],xmm0
+    0.00 :   6f27ecf:        cmp    rdi,r11
+    0.00 :   6f27ed2:        jle    6f27be0 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x3f0>
+    0.00 :   6f27ed8:        vmovss xmm0,DWORD PTR [rax]
+    0.00 :   6f27edc:        vmaxss xmm0,xmm0,DWORD PTR [rcx+r10*1+0x14]
+    0.00 :   6f27ee3:        lea    r11,[rsi+0x6]
+    0.00 :   6f27ee7:        vmovss DWORD PTR [rdx+r10*1+0x14],xmm0
+    0.00 :   6f27eee:        cmp    rdi,r11
+    0.00 :   6f27ef1:        jle    6f27be0 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x3f0>
+    0.00 :   6f27ef7:        vmovss xmm0,DWORD PTR [rax]
+    0.00 :   6f27efb:        vmaxss xmm0,xmm0,DWORD PTR [rcx+r10*1+0x18]
+    0.00 :   6f27f02:        lea    r11,[rsi+0x7]
+    0.00 :   6f27f06:        vmovss DWORD PTR [rdx+r10*1+0x18],xmm0
+    0.00 :   6f27f0d:        cmp    rdi,r11
+    0.00 :   6f27f10:        jle    6f27be0 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x3f0>
+    0.00 :   6f27f16:        vmovss xmm0,DWORD PTR [rax]
+    0.00 :   6f27f1a:        vmaxss xmm0,xmm0,DWORD PTR [rcx+r10*1+0x1c]
+    0.00 :   6f27f21:        lea    r11,[rsi+0x8]
+    0.00 :   6f27f25:        vmovss DWORD PTR [rdx+r10*1+0x1c],xmm0
+    0.00 :   6f27f2c:        cmp    rdi,r11
+    0.00 :   6f27f2f:        jle    6f27be0 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x3f0>
+    0.00 :   6f27f35:        vmovss xmm0,DWORD PTR [rax]
+    0.00 :   6f27f39:        vmaxss xmm0,xmm0,DWORD PTR [rcx+r10*1+0x20]
+    0.00 :   6f27f40:        lea    r11,[rsi+0x9]
+    0.00 :   6f27f44:        vmovss DWORD PTR [rdx+r10*1+0x20],xmm0
+    0.00 :   6f27f4b:        cmp    rdi,r11
+    0.00 :   6f27f4e:        jle    6f27be0 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x3f0>
+    0.00 :   6f27f54:        vmovss xmm0,DWORD PTR [rax]
+    0.00 :   6f27f58:        vmaxss xmm0,xmm0,DWORD PTR [rcx+r10*1+0x24]
+    0.00 :   6f27f5f:        lea    r11,[rsi+0xa]
+    0.00 :   6f27f63:        vmovss DWORD PTR [rdx+r10*1+0x24],xmm0
+    0.00 :   6f27f6a:        cmp    rdi,r11
+    0.00 :   6f27f6d:        jle    6f27be0 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x3f0>
+    0.00 :   6f27f73:        vmovss xmm0,DWORD PTR [rax]
+    0.00 :   6f27f77:        vmaxss xmm0,xmm0,DWORD PTR [rcx+r10*1+0x28]
+    0.00 :   6f27f7e:        lea    r11,[rsi+0xb]
+    0.00 :   6f27f82:        vmovss DWORD PTR [rdx+r10*1+0x28],xmm0
+    0.00 :   6f27f89:        cmp    rdi,r11
+    0.00 :   6f27f8c:        jle    6f27be0 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x3f0>
+    0.00 :   6f27f92:        vmovss xmm0,DWORD PTR [rax]
+    0.00 :   6f27f96:        vmaxss xmm0,xmm0,DWORD PTR [rcx+r10*1+0x2c]
+    0.00 :   6f27f9d:        lea    r11,[rsi+0xc]
+    0.00 :   6f27fa1:        vmovss DWORD PTR [rdx+r10*1+0x2c],xmm0
+    0.00 :   6f27fa8:        cmp    rdi,r11
+    0.00 :   6f27fab:        jle    6f27be0 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x3f0>
+    0.00 :   6f27fb1:        vmovss xmm0,DWORD PTR [rax]
+    0.00 :   6f27fb5:        vmaxss xmm0,xmm0,DWORD PTR [rcx+r10*1+0x30]
+    0.00 :   6f27fbc:        lea    r11,[rsi+0xd]
+    0.00 :   6f27fc0:        vmovss DWORD PTR [rdx+r10*1+0x30],xmm0
+    0.00 :   6f27fc7:        cmp    rdi,r11
+    0.00 :   6f27fca:        jle    6f27be0 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x3f0>
+    0.00 :   6f27fd0:        vmovss xmm0,DWORD PTR [rax]
+    0.00 :   6f27fd4:        vmaxss xmm0,xmm0,DWORD PTR [rcx+r10*1+0x34]
+    0.00 :   6f27fdb:        lea    r11,[rsi+0xe]
+    0.00 :   6f27fdf:        vmovss DWORD PTR [rdx+r10*1+0x34],xmm0
+    0.00 :   6f27fe6:        cmp    rdi,r11
+    0.00 :   6f27fe9:        jle    6f27be0 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x3f0>
+    0.00 :   6f27fef:        vmovss xmm0,DWORD PTR [rax]
+    0.00 :   6f27ff3:        vmaxss xmm0,xmm0,DWORD PTR [rcx+r10*1+0x38]
+    0.00 :   6f27ffa:        add    rsi,0xf
+    0.00 :   6f27ffe:        vmovss DWORD PTR [rdx+r10*1+0x38],xmm0
+    0.00 :   6f28005:        cmp    rdi,rsi
+    0.00 :   6f28008:        jle    6f27be0 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x3f0>
+    0.00 :   6f2800e:        vmovss xmm0,DWORD PTR [rax]
+    0.00 :   6f28012:        vmaxss xmm0,xmm0,DWORD PTR [rcx+r10*1+0x3c]
+    0.00 :   6f28019:        vmovss DWORD PTR [rdx+r10*1+0x3c],xmm0
+    0.00 :   6f28020:        jmp    6f27be0 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x3f0>
+    0.00 :   6f28025:        test   rdi,rdi
+    0.00 :   6f28028:        jle    6f27e10 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x620>
+    0.00 :   6f2802e:        xor    esi,esi
+    0.00 :   6f28030:        jmp    6f27c65 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x475>
+    0.00 :   6f28035:        test   rdi,rdi
+    0.00 :   6f28038:        jle    6f27be0 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x3f0>
+    0.00 :   6f2803e:        xor    esi,esi
+    0.00 :   6f28040:        jmp    6f27a9d <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x2ad>
+    0.00 :   6f28045:        xor    r10d,r10d
+    0.00 :   6f28048:        jmp    6f27b64 <void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)+0x374>

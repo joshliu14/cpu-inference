@@ -389,6 +389,7 @@ class UncoreCounters:
                 attr.size = ctypes.sizeof(PerfEventAttr)
                 attr.config, attr.config1, attr.config2 = c, c1, c2
                 attr.flags = 0
+                attr.read_format = PERF_FORMAT_TOTAL_TIME_ENABLED | PERF_FORMAT_TOTAL_TIME_RUNNING
                 self.fds.append(_perf_event_open(attr, -1, cpu, -1))
                 sc = d / "events" / f"{ev}.scale"
                 if self.scale is None and sc.exists():
@@ -397,7 +398,15 @@ class UncoreCounters:
             raise KeyError(f"no uncore PMU instances provide {event}")
 
     def read_raw(self) -> int:
-        return sum(struct.unpack("Q", os.read(fd, 8))[0] for fd in self.fds)
+        """Sum over instances. Raises if any instance was multiplexed, since
+        socket-wide counts cannot be scaled reliably over short intervals."""
+        total = 0
+        for fd in self.fds:
+            val, enabled, running = struct.unpack("QQQ", os.read(fd, 24))
+            if running < enabled:
+                raise RuntimeError("uncore counter multiplexed (running < enabled)")
+            total += val
+        return total
 
     def close(self):
         for fd in self.fds:

@@ -1,0 +1,8 @@
+    92.78%  libtorch_cpu.so       [.] void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)
+     0.45%  python3.12            [.] _PyEval_EvalFrameDefault
+     0.33%  python3.12            [.] 0x000000000021d760
+     0.28%  python3.12            [.] 0x000000000021d984
+     0.26%  python3.12            [.] 0x000000000021cb5a
+     0.26%  python3.12            [.] 0x000000000021ccf8
+
+

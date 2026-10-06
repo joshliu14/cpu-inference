@@ -1,0 +1,39 @@
+# symbol: std::_Function_handler<void (long, long), dnnl::impl::cpu::x64::jit_blk_reorder_t::execute(dnnl::impl::exec_ctx_t const&) const::{lambda(long, long)#1}>::_M_invoke(std::_Any_data const&, long&&, long&&)
+# dso: libtorch_cpu.so
+# share of operator samples: 0.83%
+ Percent |	Source code & Disassembly of libtorch_cpu.so for cycles:P (35 samples, percent: local period)
+-------------------------------------------------------------------------------------------------------------
+         :
+         :
+         :
+         : 3        Disassembly of section .text:
+         :
+         : 5        000000001017e9a0 <std::_Function_handler<void (long, long), dnnl::impl::cpu::x64::jit_blk_reorder_t::execute(dnnl::impl::exec_ctx_t const&) const::{lambda(long, long)#1}>::_M_invoke(std::_Any_data const&, long&&, long&&)>:
+    0.00 :   1017e9a0:       endbr64
+    0.00 :   1017e9a4:       mov    rax,rdx
+    0.00 :   1017e9a7:       mov    rdx,QWORD PTR [rdi]
+   14.29 :   1017e9aa:       xor    r8d,r8d
+   11.43 :   1017e9ad:       mov    rcx,QWORD PTR [rax]
+    8.57 :   1017e9b0:       mov    rdi,QWORD PTR [rdx+0x8]
+    2.86 :   1017e9b4:       imul   rcx,rdi
+    2.86 :   1017e9b8:       mov    rax,rcx
+    5.71 :   1017e9bb:       mov    rcx,QWORD PTR [rsi]
+    0.00 :   1017e9be:       mov    rsi,QWORD PTR [rdx+0x48]
+    2.86 :   1017e9c2:       imul   rcx,QWORD PTR [rdx+0x10]
+    2.86 :   1017e9c7:       sub    rsi,rax
+    0.00 :   1017e9ca:       cmp    rsi,rdi
+    2.86 :   1017e9cd:       mov    rsi,QWORD PTR [rdx+0x38]
+    0.00 :   1017e9d1:       setb   r8b
+    5.71 :   1017e9d5:       imul   rsi,rax
+    2.86 :   1017e9d9:       imul   rax,QWORD PTR [rdx+0x20]
+    0.00 :   1017e9de:       add    rsi,rcx
+    0.00 :   1017e9e1:       imul   rsi,QWORD PTR [rdx+0x40]
+    5.71 :   1017e9e6:       add    rsi,QWORD PTR [rdx+0x30]
+    2.86 :   1017e9ea:       lea    rdi,[rax+rcx*1]
+    0.00 :   1017e9ee:       mov    rax,QWORD PTR [rdx]
+    0.00 :   1017e9f1:       imul   rdi,QWORD PTR [rdx+0x28]
+    8.57 :   1017e9f6:       add    rdi,QWORD PTR [rdx+0x18]
+    0.00 :   1017e9fa:       mov    edx,r8d
+    5.71 :   1017e9fd:       mov    rax,QWORD PTR [rax+0x40]
+    5.71 :   1017ea01:       mov    rax,QWORD PTR [rax+0xe08]
+    8.57 :   1017ea08:       jmp    rax

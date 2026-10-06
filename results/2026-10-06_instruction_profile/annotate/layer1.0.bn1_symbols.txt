@@ -1,0 +1,6 @@
+    75.70%  libtorch_cpu.so       [.] at::native::(anonymous namespace)::batch_norm_cpu_kernel(at::Tensor&, at::Tensor const&, at::Tensor const&, at::Tensor const&, at::Tensor const&, at::Tensor const&, at::Tensor const&, at::Tensor const&, bool, double)::{lambda()#1}::operator()() const
+     2.94%  python3.12            [.] _PyEval_EvalFrameDefault
+     0.69%  python3.12            [.] _PyObject_GenericGetAttrWithDict
+     0.59%  libtorch_cpu.so       [.] c10::intrusive_ptr<c10::TensorImpl, c10::UndefinedTensorImpl>::reset_not_null_(c10::TensorImpl*)
+
+

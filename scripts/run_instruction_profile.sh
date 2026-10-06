@@ -23,36 +23,54 @@ echo "results -> $OUT (cpu $BENCH_CPU)"
 LOOP="$REPO_ROOT/experiments/infer_loop.py"
 SECS="${SECS:-12}"
 
+# Sampling period: the kernel has throttled kernel.perf_event_max_sample_rate to
+# 1000/s on this machine, so sample every 2.5 M cycles (~840 samples/s at 2.1 GHz)
+# instead of raising a system-wide limit. Recording starts only when the loop
+# starts (perf control FIFO, see infer_loop.perf_enable).
+PERIOD="${PERIOD:-2500003}"
 record() {   # record <name> <seconds> [--layer L]
     local name="$1" secs="$2"; shift 2
+    local ctl="$BIG/$name.ctl" ack="$BIG/$name.ack"
+    rm -f "$ctl" "$ack"; mkfifo "$ctl" "$ack"
+    PERF_CTL_FIFO="$ctl" PERF_ACK_FIFO="$ack" \
     ONEDNN_JIT_PROFILE=6 ONEDNN_JIT_PROFDIR="$JIT" JITDUMPDIR="$JIT" \
-    perf record -q -k 1 -e cycles:P -c 200003 --call-graph lbr -o "$BIG/$name.data" -- \
+    perf record -q -k 1 -e cycles:P -c "$PERIOD" --call-graph lbr -D -1 --control "fifo:$ctl,$ack" \
+        -o "$BIG/$name.data" -- \
         taskset -c "$BENCH_CPU" "$PY" -X perf "$LOOP" --seconds "$secs" "$@" >"$OUT/raw/${name}_loop.txt" 2>&1
+    rm -f "$ctl" "$ack"
     perf inject --jit -i "$BIG/$name.data" -o "$BIG/$name.jit.data" 2>/dev/null || cp "$BIG/$name.data" "$BIG/$name.jit.data"
-    perf report -i "$BIG/$name.jit.data" --stdio --no-children --sort dso -q --percent-limit 0.1 \
+    perf report -i "$BIG/$name.jit.data" --stdio --no-children --sort dso -q --percent-limit 0.1 -g none \
         >"$OUT/raw/${name}_dso.txt" 2>/dev/null
-    perf report -i "$BIG/$name.jit.data" --stdio --no-children --sort dso,sym -q --percent-limit 0.2 \
+    perf report -i "$BIG/$name.jit.data" --stdio --no-children --sort dso,sym -q --percent-limit 0.2 -g none \
         >"$OUT/raw/${name}_symbols.txt" 2>/dev/null
 }
 
 echo "[1/3] full inference loop"
 record full "$SECS"
+# (operators below: 8 s each -> ~6700 samples)
 perf report -i "$BIG/full.jit.data" --stdio --children --sort sym -q --percent-limit 2 -g none \
     >"$OUT/raw/full_children.txt" 2>/dev/null
 
 echo "[2/3] single operators"
 LAYERS="${LAYERS:-maxpool layer1.0.conv1 layer1.0.conv2 layer1.0.conv3 layer2.0.downsample.0 layer4.0.conv2 conv1 layer1.0.bn1 layer1.0.relu1 layer1.0.add fc avgpool}"
 for L in $LAYERS; do
-    record "op_$L" 5 --layer "$L"
+    record "op_$L" 8 --layer "$L"
     # Annotate the hottest symbols of this operator (by sample share).
     "$PY" "$REPO_ROOT/analysis/annotate_top.py" "$BIG/op_$L.jit.data" "$OUT/annotate/$L" 3 || true
 done
 
 echo "[3/3] perf mem (load sampling)"
-perf mem -t load record -q -o "$BIG/mem.data" -- \
-    taskset -c "$BENCH_CPU" "$PY" "$LOOP" --seconds 8 >"$OUT/raw/mem_loop.txt" 2>&1
-perf mem -t load report -i "$BIG/mem.data" --stdio --sort mem -q >"$OUT/raw/mem_by_level.txt" 2>/dev/null
-perf mem -t load report -i "$BIG/mem.data" --stdio --sort dso,sym,mem -q --percent-limit 0.5 \
+# Same events `perf mem -t load record` uses on this PMU, called through perf
+# record so the control FIFO can exclude setup. ldlat=30: only loads whose
+# load-to-use latency is >= 30 cycles are eligible, so this shows where SLOW
+# loads come from, not the overall load mix (use mem_load_retired.* for that).
+ctl="$BIG/mem.ctl" ack="$BIG/mem.ack"; rm -f "$ctl" "$ack"; mkfifo "$ctl" "$ack"
+PERF_CTL_FIFO="$ctl" PERF_ACK_FIFO="$ack" \
+perf record -q -e '{cpu/mem-loads-aux/,cpu/mem-loads,ldlat=30/}:P' -d -W -D -1 --control "fifo:$ctl,$ack" \
+    -o "$BIG/mem.data" -- taskset -c "$BENCH_CPU" "$PY" "$LOOP" --seconds 8 >"$OUT/raw/mem_loop.txt" 2>&1
+rm -f "$ctl" "$ack"
+perf mem report -i "$BIG/mem.data" --stdio --sort mem -q >"$OUT/raw/mem_by_level.txt" 2>/dev/null
+perf mem report -i "$BIG/mem.data" --stdio --sort mem,dso,sym -q --percent-limit 0.5 \
     >"$OUT/raw/mem_by_symbol_level.txt" 2>/dev/null
 perf report -i "$BIG/mem.data" --stdio --sort mem,dso -F overhead,sample,weight,mem,dso -q 2>/dev/null \
     >"$OUT/raw/mem_weight_by_level.txt" || true

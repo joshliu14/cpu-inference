@@ -1,0 +1,373 @@
+# symbol: jit_uni_reorder_kernel_f32.31
+# dso: jitted-532880-31.so
+# share of operator samples: 29.32%
+ Percent |	Source code & Disassembly of jitted-532880-31.so for cycles:P (1234 samples, percent: local period)
+-------------------------------------------------------------------------------------------------------------------
+         :
+         :
+         :
+         : 3   Disassembly of section .text:
+         :
+         : 5   0000000000000080 <jit_uni_reorder_kernel_f32.31>:
+    0.00 :    80:     push   rbp
+    0.00 :    81:     mov    rbp,rsp
+    0.00 :    84:     push   rbx
+    0.00 :    85:     push   r12
+    0.00 :    87:     push   r13
+    0.00 :    89:     push   r14
+    0.00 :    8b:     push   r15
+    0.00 :    8d:     mov    ebp,0x400
+    0.00 :    92:     mov    rsi,QWORD PTR [rdi]
+    0.00 :    95:     mov    rdx,QWORD PTR [rdi+0x8]
+    0.00 :    99:     vxorps xmm14,xmm14,xmm14
+    0.00 :    9e:     xor    r8,r8
+    0.00 :    a1:     xor    r9,r9
+    0.00 :    a4:     mov    r13d,0x20
+    0.00 :    aa:     mov    r14d,0x20
+    0.00 :    b0:     mov    r15d,0x9
+    0.08 :    b6:     vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1],0x0
+    0.57 :    bd:     vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x4800],0x1
+    0.24 :    c8:     vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x9000],0x2
+    0.65 :    d3:     vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0xd800],0x3
+    0.08 :    de:     vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x12000],0x0
+    0.57 :    e9:     vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x16800],0x1
+    0.16 :    f4:     vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x1b000],0x2
+    0.32 :    ff:     vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x1f800],0x3
+    0.00 :   10a:    vmovups XMMWORD PTR [rdx+r9*1],xmm0
+    0.00 :   110:    vmovups XMMWORD PTR [rdx+r9*1+0x10],xmm4
+    0.24 :   117:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x24000],0x0
+    0.24 :   122:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x28800],0x1
+    0.41 :   12d:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x2d000],0x2
+    0.08 :   138:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x31800],0x3
+    0.16 :   143:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x36000],0x0
+    0.16 :   14e:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x3a800],0x1
+    0.32 :   159:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x3f000],0x2
+    0.16 :   164:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x43800],0x3
+    0.00 :   16f:    vmovups XMMWORD PTR [rdx+r9*1+0x20],xmm0
+    0.49 :   176:    vmovups XMMWORD PTR [rdx+r9*1+0x30],xmm4
+    0.16 :   17d:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x24],0x0
+    0.65 :   185:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x4824],0x1
+    0.16 :   190:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x9024],0x2
+    0.24 :   19b:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0xd824],0x3
+    0.08 :   1a6:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x12024],0x0
+    0.73 :   1b1:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x16824],0x1
+    0.08 :   1bc:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x1b024],0x2
+    0.49 :   1c7:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x1f824],0x3
+    0.00 :   1d2:    vmovups XMMWORD PTR [rdx+r9*1+0x40],xmm0
+    0.32 :   1d9:    vmovups XMMWORD PTR [rdx+r9*1+0x50],xmm4
+    0.08 :   1e0:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x24024],0x0
+    0.24 :   1eb:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x28824],0x1
+    0.32 :   1f6:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x2d024],0x2
+    0.24 :   201:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x31824],0x3
+    0.24 :   20c:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x36024],0x0
+    0.16 :   217:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x3a824],0x1
+    0.49 :   222:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x3f024],0x2
+    0.16 :   22d:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x43824],0x3
+    0.00 :   238:    vmovups XMMWORD PTR [rdx+r9*1+0x60],xmm0
+    0.08 :   23f:    vmovups XMMWORD PTR [rdx+r9*1+0x70],xmm4
+    0.16 :   246:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x48],0x0
+    0.32 :   24e:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x4848],0x1
+    0.24 :   259:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x9048],0x2
+    0.57 :   264:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0xd848],0x3
+    0.00 :   26f:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x12048],0x0
+    0.08 :   27a:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x16848],0x1
+    0.24 :   285:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x1b048],0x2
+    0.24 :   290:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x1f848],0x3
+    0.00 :   29b:    vmovups XMMWORD PTR [rdx+r9*1+0x80],xmm0
+    0.32 :   2a5:    vmovups XMMWORD PTR [rdx+r9*1+0x90],xmm4
+    0.57 :   2af:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x24048],0x0
+    0.49 :   2ba:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x28848],0x1
+    0.49 :   2c5:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x2d048],0x2
+    0.16 :   2d0:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x31848],0x3
+    0.24 :   2db:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x36048],0x0
+    0.16 :   2e6:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x3a848],0x1
+    0.16 :   2f1:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x3f048],0x2
+    0.89 :   2fc:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x43848],0x3
+    0.00 :   307:    vmovups XMMWORD PTR [rdx+r9*1+0xa0],xmm0
+    0.24 :   311:    vmovups XMMWORD PTR [rdx+r9*1+0xb0],xmm4
+    0.32 :   31b:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x6c],0x0
+    0.16 :   323:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x486c],0x1
+    0.41 :   32e:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x906c],0x2
+    0.32 :   339:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0xd86c],0x3
+    0.24 :   344:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x1206c],0x0
+    0.24 :   34f:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x1686c],0x1
+    0.24 :   35a:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x1b06c],0x2
+    0.08 :   365:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x1f86c],0x3
+    0.00 :   370:    vmovups XMMWORD PTR [rdx+r9*1+0xc0],xmm0
+    0.16 :   37a:    vmovups XMMWORD PTR [rdx+r9*1+0xd0],xmm4
+    0.49 :   384:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x2406c],0x0
+    0.24 :   38f:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x2886c],0x1
+    0.49 :   39a:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x2d06c],0x2
+    0.24 :   3a5:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x3186c],0x3
+    0.49 :   3b0:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x3606c],0x0
+    0.16 :   3bb:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x3a86c],0x1
+    0.24 :   3c6:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x3f06c],0x2
+    0.08 :   3d1:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x4386c],0x3
+    0.00 :   3dc:    vmovups XMMWORD PTR [rdx+r9*1+0xe0],xmm0
+    0.16 :   3e6:    vmovups XMMWORD PTR [rdx+r9*1+0xf0],xmm4
+    0.49 :   3f0:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x90],0x0
+    0.24 :   3fb:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x4890],0x1
+    0.49 :   406:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x9090],0x2
+    0.32 :   411:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0xd890],0x3
+    0.49 :   41c:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x12090],0x0
+    0.08 :   427:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x16890],0x1
+    0.08 :   432:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x1b090],0x2
+    0.65 :   43d:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x1f890],0x3
+    0.00 :   448:    vmovups XMMWORD PTR [rdx+r9*1+0x100],xmm0
+    0.08 :   452:    vmovups XMMWORD PTR [rdx+r9*1+0x110],xmm4
+    0.65 :   45c:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x24090],0x0
+    0.24 :   467:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x28890],0x1
+    0.24 :   472:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x2d090],0x2
+    0.24 :   47d:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x31890],0x3
+    0.16 :   488:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x36090],0x0
+    0.32 :   493:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x3a890],0x1
+    0.57 :   49e:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x3f090],0x2
+    0.32 :   4a9:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x43890],0x3
+    0.00 :   4b4:    vmovups XMMWORD PTR [rdx+r9*1+0x120],xmm0
+    0.24 :   4be:    vmovups XMMWORD PTR [rdx+r9*1+0x130],xmm4
+    0.08 :   4c8:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0xb4],0x0
+    0.32 :   4d3:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x48b4],0x1
+    0.32 :   4de:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x90b4],0x2
+    0.24 :   4e9:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0xd8b4],0x3
+    0.24 :   4f4:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x120b4],0x0
+    0.32 :   4ff:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x168b4],0x1
+    0.24 :   50a:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x1b0b4],0x2
+    0.41 :   515:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x1f8b4],0x3
+    0.00 :   520:    vmovups XMMWORD PTR [rdx+r9*1+0x140],xmm0
+    0.08 :   52a:    vmovups XMMWORD PTR [rdx+r9*1+0x150],xmm4
+    0.32 :   534:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x240b4],0x0
+    0.24 :   53f:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x288b4],0x1
+    0.16 :   54a:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x2d0b4],0x2
+    0.24 :   555:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x318b4],0x3
+    0.65 :   560:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x360b4],0x0
+    0.16 :   56b:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x3a8b4],0x1
+    0.32 :   576:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x3f0b4],0x2
+    0.49 :   581:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x438b4],0x3
+    0.00 :   58c:    vmovups XMMWORD PTR [rdx+r9*1+0x160],xmm0
+    0.24 :   596:    vmovups XMMWORD PTR [rdx+r9*1+0x170],xmm4
+    0.65 :   5a0:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0xd8],0x0
+    0.57 :   5ab:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x48d8],0x1
+    0.57 :   5b6:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x90d8],0x2
+    0.65 :   5c1:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0xd8d8],0x3
+    0.57 :   5cc:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x120d8],0x0
+    0.57 :   5d7:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x168d8],0x1
+    0.24 :   5e2:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x1b0d8],0x2
+    0.65 :   5ed:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x1f8d8],0x3
+    0.00 :   5f8:    vmovups XMMWORD PTR [rdx+r9*1+0x180],xmm0
+    0.08 :   602:    vmovups XMMWORD PTR [rdx+r9*1+0x190],xmm4
+    0.41 :   60c:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x240d8],0x0
+    0.41 :   617:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x288d8],0x1
+    0.57 :   622:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x2d0d8],0x2
+    0.08 :   62d:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x318d8],0x3
+    0.57 :   638:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x360d8],0x0
+    0.57 :   643:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x3a8d8],0x1
+    0.73 :   64e:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x3f0d8],0x2
+    0.49 :   659:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x438d8],0x3
+    0.00 :   664:    vmovups XMMWORD PTR [rdx+r9*1+0x1a0],xmm0
+    0.08 :   66e:    vmovups XMMWORD PTR [rdx+r9*1+0x1b0],xmm4
+    0.00 :   678:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0xfc],0x0
+    0.32 :   683:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x48fc],0x1
+    0.57 :   68e:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x90fc],0x2
+    0.16 :   699:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0xd8fc],0x3
+    0.08 :   6a4:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x120fc],0x0
+    0.32 :   6af:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x168fc],0x1
+    0.32 :   6ba:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x1b0fc],0x2
+    0.41 :   6c5:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x1f8fc],0x3
+    0.00 :   6d0:    vmovups XMMWORD PTR [rdx+r9*1+0x1c0],xmm0
+    0.41 :   6da:    vmovups XMMWORD PTR [rdx+r9*1+0x1d0],xmm4
+    0.57 :   6e4:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x240fc],0x0
+    0.24 :   6ef:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x288fc],0x1
+    0.49 :   6fa:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x2d0fc],0x2
+    0.16 :   705:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x318fc],0x3
+    0.32 :   710:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x360fc],0x0
+    0.08 :   71b:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x3a8fc],0x1
+    0.16 :   726:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x3f0fc],0x2
+    0.65 :   731:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x438fc],0x3
+    0.00 :   73c:    vmovups XMMWORD PTR [rdx+r9*1+0x1e0],xmm0
+    0.32 :   746:    vmovups XMMWORD PTR [rdx+r9*1+0x1f0],xmm4
+    0.97 :   750:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x120],0x0
+    1.05 :   75b:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x4920],0x1
+    0.97 :   766:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x9120],0x2
+    0.81 :   771:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0xd920],0x3
+    0.81 :   77c:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x12120],0x0
+    0.57 :   787:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x16920],0x1
+    0.41 :   792:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x1b120],0x2
+    1.22 :   79d:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x1f920],0x3
+    0.08 :   7a8:    vmovups XMMWORD PTR [rdx+r9*1+0x200],xmm0
+    0.16 :   7b2:    vmovups XMMWORD PTR [rdx+r9*1+0x210],xmm4
+    0.97 :   7bc:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x24120],0x0
+    0.16 :   7c7:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x28920],0x1
+    0.65 :   7d2:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x2d120],0x2
+    0.73 :   7dd:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x31920],0x3
+    0.89 :   7e8:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x36120],0x0
+    0.81 :   7f3:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x3a920],0x1
+    0.57 :   7fe:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x3f120],0x2
+    0.97 :   809:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x43920],0x3
+    0.00 :   814:    vmovups XMMWORD PTR [rdx+r9*1+0x220],xmm0
+    0.08 :   81e:    vmovups XMMWORD PTR [rdx+r9*1+0x230],xmm4
+    0.32 :   828:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x144],0x0
+    0.41 :   833:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x4944],0x1
+    0.32 :   83e:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x9144],0x2
+    0.32 :   849:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0xd944],0x3
+    0.57 :   854:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x12144],0x0
+    0.32 :   85f:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x16944],0x1
+    0.73 :   86a:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x1b144],0x2
+    0.41 :   875:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x1f944],0x3
+    0.00 :   880:    vmovups XMMWORD PTR [rdx+r9*1+0x240],xmm0
+    0.32 :   88a:    vmovups XMMWORD PTR [rdx+r9*1+0x250],xmm4
+    0.16 :   894:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x24144],0x0
+    0.24 :   89f:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x28944],0x1
+    0.49 :   8aa:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x2d144],0x2
+    0.49 :   8b5:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x31944],0x3
+    0.32 :   8c0:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x36144],0x0
+    0.57 :   8cb:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x3a944],0x1
+    0.65 :   8d6:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x3f144],0x2
+    0.16 :   8e1:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x43944],0x3
+    0.00 :   8ec:    vmovups XMMWORD PTR [rdx+r9*1+0x260],xmm0
+    0.24 :   8f6:    vmovups XMMWORD PTR [rdx+r9*1+0x270],xmm4
+    0.49 :   900:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x168],0x0
+    0.24 :   90b:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x4968],0x1
+    0.41 :   916:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x9168],0x2
+    0.24 :   921:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0xd968],0x3
+    0.32 :   92c:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x12168],0x0
+    0.24 :   937:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x16968],0x1
+    0.32 :   942:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x1b168],0x2
+    0.16 :   94d:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x1f968],0x3
+    0.00 :   958:    vmovups XMMWORD PTR [rdx+r9*1+0x280],xmm0
+    0.00 :   962:    vmovups XMMWORD PTR [rdx+r9*1+0x290],xmm4
+    0.08 :   96c:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x24168],0x0
+    0.00 :   977:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x28968],0x1
+    0.32 :   982:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x2d168],0x2
+    0.65 :   98d:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x31968],0x3
+    0.08 :   998:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x36168],0x0
+    0.24 :   9a3:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x3a968],0x1
+    0.24 :   9ae:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x3f168],0x2
+    0.49 :   9b9:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x43968],0x3
+    0.00 :   9c4:    vmovups XMMWORD PTR [rdx+r9*1+0x2a0],xmm0
+    0.24 :   9ce:    vmovups XMMWORD PTR [rdx+r9*1+0x2b0],xmm4
+    0.41 :   9d8:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x18c],0x0
+    0.32 :   9e3:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x498c],0x1
+    0.49 :   9ee:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x918c],0x2
+    0.57 :   9f9:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0xd98c],0x3
+    0.24 :   a04:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x1218c],0x0
+    0.57 :   a0f:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x1698c],0x1
+    0.57 :   a1a:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x1b18c],0x2
+    0.41 :   a25:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x1f98c],0x3
+    0.00 :   a30:    vmovups XMMWORD PTR [rdx+r9*1+0x2c0],xmm0
+    0.00 :   a3a:    vmovups XMMWORD PTR [rdx+r9*1+0x2d0],xmm4
+    0.57 :   a44:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x2418c],0x0
+    0.32 :   a4f:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x2898c],0x1
+    0.32 :   a5a:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x2d18c],0x2
+    0.57 :   a65:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x3198c],0x3
+    0.16 :   a70:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x3618c],0x0
+    0.49 :   a7b:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x3a98c],0x1
+    0.41 :   a86:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x3f18c],0x2
+    0.41 :   a91:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x4398c],0x3
+    0.00 :   a9c:    vmovups XMMWORD PTR [rdx+r9*1+0x2e0],xmm0
+    0.08 :   aa6:    vmovups XMMWORD PTR [rdx+r9*1+0x2f0],xmm4
+    0.41 :   ab0:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x1b0],0x0
+    0.32 :   abb:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x49b0],0x1
+    0.32 :   ac6:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x91b0],0x2
+    0.24 :   ad1:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0xd9b0],0x3
+    0.16 :   adc:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x121b0],0x0
+    0.32 :   ae7:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x169b0],0x1
+    0.16 :   af2:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x1b1b0],0x2
+    0.81 :   afd:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x1f9b0],0x3
+    0.00 :   b08:    vmovups XMMWORD PTR [rdx+r9*1+0x300],xmm0
+    0.41 :   b12:    vmovups XMMWORD PTR [rdx+r9*1+0x310],xmm4
+    0.41 :   b1c:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x241b0],0x0
+    0.24 :   b27:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x289b0],0x1
+    0.08 :   b32:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x2d1b0],0x2
+    0.65 :   b3d:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x319b0],0x3
+    0.24 :   b48:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x361b0],0x0
+    0.16 :   b53:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x3a9b0],0x1
+    0.81 :   b5e:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x3f1b0],0x2
+    0.41 :   b69:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x439b0],0x3
+    0.00 :   b74:    vmovups XMMWORD PTR [rdx+r9*1+0x320],xmm0
+    0.08 :   b7e:    vmovups XMMWORD PTR [rdx+r9*1+0x330],xmm4
+    0.49 :   b88:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x1d4],0x0
+    0.16 :   b93:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x49d4],0x1
+    0.41 :   b9e:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x91d4],0x2
+    0.32 :   ba9:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0xd9d4],0x3
+    0.49 :   bb4:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x121d4],0x0
+    0.16 :   bbf:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x169d4],0x1
+    0.49 :   bca:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x1b1d4],0x2
+    0.16 :   bd5:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x1f9d4],0x3
+    0.00 :   be0:    vmovups XMMWORD PTR [rdx+r9*1+0x340],xmm0
+    0.16 :   bea:    vmovups XMMWORD PTR [rdx+r9*1+0x350],xmm4
+    0.49 :   bf4:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x241d4],0x0
+    0.41 :   bff:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x289d4],0x1
+    0.32 :   c0a:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x2d1d4],0x2
+    0.16 :   c15:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x319d4],0x3
+    0.16 :   c20:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x361d4],0x0
+    0.24 :   c2b:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x3a9d4],0x1
+    0.32 :   c36:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x3f1d4],0x2
+    0.49 :   c41:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x439d4],0x3
+    0.00 :   c4c:    vmovups XMMWORD PTR [rdx+r9*1+0x360],xmm0
+    0.08 :   c56:    vmovups XMMWORD PTR [rdx+r9*1+0x370],xmm4
+    0.16 :   c60:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x1f8],0x0
+    0.24 :   c6b:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x49f8],0x1
+    0.16 :   c76:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x91f8],0x2
+    0.41 :   c81:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0xd9f8],0x3
+    0.16 :   c8c:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x121f8],0x0
+    0.00 :   c97:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x169f8],0x1
+    0.24 :   ca2:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x1b1f8],0x2
+    0.41 :   cad:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x1f9f8],0x3
+    0.00 :   cb8:    vmovups XMMWORD PTR [rdx+r9*1+0x380],xmm0
+    0.24 :   cc2:    vmovups XMMWORD PTR [rdx+r9*1+0x390],xmm4
+    0.24 :   ccc:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x241f8],0x0
+    0.32 :   cd7:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x289f8],0x1
+    0.32 :   ce2:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x2d1f8],0x2
+    0.16 :   ced:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x319f8],0x3
+    0.32 :   cf8:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x361f8],0x0
+    0.41 :   d03:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x3a9f8],0x1
+    0.24 :   d0e:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x3f1f8],0x2
+    0.41 :   d19:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x439f8],0x3
+    0.00 :   d24:    vmovups XMMWORD PTR [rdx+r9*1+0x3a0],xmm0
+    0.24 :   d2e:    vmovups XMMWORD PTR [rdx+r9*1+0x3b0],xmm4
+    0.41 :   d38:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x21c],0x0
+    0.49 :   d43:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x4a1c],0x1
+    0.49 :   d4e:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x921c],0x2
+    0.32 :   d59:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0xda1c],0x3
+    0.41 :   d64:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x1221c],0x0
+    0.16 :   d6f:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x16a1c],0x1
+    0.57 :   d7a:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x1b21c],0x2
+    0.41 :   d85:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x1fa1c],0x3
+    0.00 :   d90:    vmovups XMMWORD PTR [rdx+r9*1+0x3c0],xmm0
+    0.00 :   d9a:    vmovups XMMWORD PTR [rdx+r9*1+0x3d0],xmm4
+    0.57 :   da4:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x2421c],0x0
+    0.16 :   daf:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x28a1c],0x1
+    0.73 :   dba:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x2d21c],0x2
+    0.24 :   dc5:    vpinsrd xmm0,xmm0,DWORD PTR [rsi+r8*1+0x31a1c],0x3
+    0.32 :   dd0:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x3621c],0x0
+    0.00 :   ddb:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x3aa1c],0x1
+    0.24 :   de6:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x3f21c],0x2
+    0.49 :   df1:    vpinsrd xmm4,xmm4,DWORD PTR [rsi+r8*1+0x43a1c],0x3
+    0.00 :   dfc:    vmovups XMMWORD PTR [rdx+r9*1+0x3e0],xmm0
+    0.00 :   e06:    vmovups XMMWORD PTR [rdx+r9*1+0x3f0],xmm4
+    0.00 :   e10:    add    r8,0x4
+    0.16 :   e14:    add    r9,0x400
+    0.00 :   e1b:    dec    r15
+    0.41 :   e1e:    jne    b6 <jit_uni_reorder_kernel_f32.31+0x36>
+    0.00 :   e24:    sub    r8,0x24
+    0.00 :   e28:    sub    r9,0x2400
+    0.08 :   e2f:    add    r8,0x240
+    0.00 :   e36:    add    r9,0x2400
+    0.00 :   e3d:    dec    r14
+    0.00 :   e40:    jne    b0 <jit_uni_reorder_kernel_f32.31+0x30>
+    0.00 :   e46:    sub    r8,0x4800
+    0.00 :   e4d:    sub    r9,0x48000
+    0.00 :   e54:    add    r8,0x48000
+    0.00 :   e5b:    add    r9,0x48000
+    0.00 :   e62:    dec    r13
+    0.00 :   e65:    jne    aa <jit_uni_reorder_kernel_f32.31+0x2a>
+    0.00 :   e6b:    sub    r8,0x900000
+    0.00 :   e72:    sub    r9,0x900000
+    0.00 :   e79:    pop    r15
+    0.00 :   e7b:    pop    r14
+    0.00 :   e7d:    pop    r13
+    0.00 :   e7f:    pop    r12
+    0.00 :   e81:    pop    rbx
+    0.00 :   e82:    pop    rbp
+    0.00 :   e83:    vzeroupper
+    0.00 :   e86:    ret

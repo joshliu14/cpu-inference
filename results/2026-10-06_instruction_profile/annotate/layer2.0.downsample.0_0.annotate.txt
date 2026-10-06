@@ -1,0 +1,2301 @@
+# symbol: jit_avx512_common_1x1_conv_kernel_t.11
+# dso: jitted-532780-11.so
+# share of operator samples: 64.81%
+ Percent |	Source code & Disassembly of jitted-532780-11.so for cycles:P (2726 samples, percent: local period)
+-------------------------------------------------------------------------------------------------------------------
+         :
+         :
+         :
+         : 3    Disassembly of section .text:
+         :
+         : 5    0000000000000080 <jit_avx512_common_1x1_conv_kernel_t.11>:
+    0.00 :     80:     push   rbp
+    0.00 :     81:     mov    rbp,rsp
+    0.00 :     84:     push   rbx
+    0.00 :     85:     push   r12
+    0.00 :     87:     push   r13
+    0.00 :     89:     push   r14
+    0.00 :     8b:     push   r15
+    0.00 :     8d:     mov    ebp,0x400
+    0.00 :     92:     sub    rsp,0x20
+    0.00 :     96:     mov    r8,QWORD PTR [rdi]
+    0.00 :     99:     mov    QWORD PTR [rsp+0x10],r8
+    0.00 :     9e:     mov    r10,QWORD PTR [rdi+0x8]
+    0.00 :     a2:     mov    r9,QWORD PTR [rdi+0x10]
+    0.00 :     a6:     mov    rsi,QWORD PTR [rdi+0x78]
+    0.00 :     aa:     mov    rbx,QWORD PTR [rdi+0x80]
+    0.00 :     b1:     mov    QWORD PTR [rsp],rbx
+    0.00 :     b5:     mov    r11,QWORD PTR [rdi+0x88]
+    0.00 :     bc:     mov    rax,QWORD PTR [rdi+0x98]
+    0.00 :     c3:     cmp    rsi,0x10
+    0.00 :     c7:     jle    32d9 <jit_avx512_common_1x1_conv_kernel_t.11+0x3259>
+    0.00 :     cd:     cmp    rsi,0x20
+    0.00 :     d1:     jle    1daa <jit_avx512_common_1x1_conv_kernel_t.11+0x1d2a>
+    0.00 :     d7:     cmp    rsi,0x30
+    0.00 :     db:     jle    e1 <jit_avx512_common_1x1_conv_kernel_t.11+0x61>
+    0.00 :     e1:     sub    rsi,0x30
+    0.00 :     e5:     mov    rbx,QWORD PTR [rsp+0x10]
+    0.00 :     ea:     mov    r14,QWORD PTR [rsp+0x10]
+    0.00 :     ef:     mov    rcx,r9
+    0.00 :     f2:     mov    rdx,QWORD PTR [rsp]
+    0.00 :     f6:     cmp    rdx,0x7
+    0.00 :     fa:     jl     1d63 <jit_avx512_common_1x1_conv_kernel_t.11+0x1ce3>
+    0.00 :    100:    mov    r15,r10
+    0.00 :    103:    mov    r14,rbx
+    0.00 :    106:    vpxord zmm0,zmm0,zmm0
+    0.00 :    10c:    vpxord zmm3,zmm3,zmm3
+    0.00 :    112:    vpxord zmm6,zmm6,zmm6
+    0.00 :    118:    vpxord zmm9,zmm9,zmm9
+    0.00 :    11e:    vpxord zmm12,zmm12,zmm12
+    0.07 :    124:    vpxord zmm15,zmm15,zmm15
+    0.00 :    12a:    vpxord zmm18,zmm18,zmm18
+    0.00 :    130:    vpxord zmm1,zmm1,zmm1
+    0.00 :    136:    vpxord zmm4,zmm4,zmm4
+    0.00 :    13c:    vpxord zmm7,zmm7,zmm7
+    0.00 :    142:    vpxord zmm10,zmm10,zmm10
+    0.00 :    148:    vpxord zmm13,zmm13,zmm13
+    0.00 :    14e:    vpxord zmm16,zmm16,zmm16
+    0.11 :    154:    vpxord zmm19,zmm19,zmm19
+    0.00 :    15a:    vpxord zmm2,zmm2,zmm2
+    0.00 :    160:    vpxord zmm5,zmm5,zmm5
+    0.00 :    166:    vpxord zmm8,zmm8,zmm8
+    0.04 :    16c:    vpxord zmm11,zmm11,zmm11
+    0.00 :    172:    vpxord zmm14,zmm14,zmm14
+    0.00 :    178:    vpxord zmm17,zmm17,zmm17
+    0.00 :    17e:    vpxord zmm20,zmm20,zmm20
+    0.07 :    184:    mov    rdi,r11
+    0.00 :    187:    sub    rdi,0x10
+    0.00 :    18b:    jle    e4f <jit_avx512_common_1x1_conv_kernel_t.11+0xdcf>
+    0.00 :    191:    vmovups zmm21,ZMMWORD PTR [r15]
+    0.04 :    197:    vmovups zmm22,ZMMWORD PTR [r15+0x4000]
+    0.07 :    1a1:    vmovups zmm23,ZMMWORD PTR [r15+0x8000]
+    0.37 :    1ab:    vbroadcastss zmm31,DWORD PTR [r14]
+    0.11 :    1b1:    vfmadd231ps zmm0,zmm21,zmm31
+    0.11 :    1b7:    vfmadd231ps zmm1,zmm22,zmm31
+    0.00 :    1bd:    vfmadd231ps zmm2,zmm23,zmm31
+    0.29 :    1c3:    vbroadcastss zmm31,DWORD PTR [r14+0x40]
+    0.04 :    1ca:    vfmadd231ps zmm3,zmm21,zmm31
+    0.18 :    1d0:    vfmadd231ps zmm4,zmm22,zmm31
+    0.33 :    1d6:    vfmadd231ps zmm5,zmm23,zmm31
+    0.29 :    1dc:    vbroadcastss zmm31,DWORD PTR [r14+0x80]
+    0.18 :    1e3:    vfmadd231ps zmm6,zmm21,zmm31
+    0.37 :    1e9:    vfmadd231ps zmm7,zmm22,zmm31
+    0.07 :    1ef:    vfmadd231ps zmm8,zmm23,zmm31
+    0.26 :    1f5:    vbroadcastss zmm31,DWORD PTR [r14+0xc0]
+    0.11 :    1fc:    vfmadd231ps zmm9,zmm21,zmm31
+    0.26 :    202:    vfmadd231ps zmm10,zmm22,zmm31
+    0.22 :    208:    vfmadd231ps zmm11,zmm23,zmm31
+    0.04 :    20e:    vbroadcastss zmm31,DWORD PTR [r14+0x100]
+    0.15 :    215:    vfmadd231ps zmm12,zmm21,zmm31
+    0.07 :    21b:    vfmadd231ps zmm13,zmm22,zmm31
+    0.22 :    221:    vfmadd231ps zmm14,zmm23,zmm31
+    0.07 :    227:    vbroadcastss zmm31,DWORD PTR [r14+0x140]
+    0.18 :    22e:    vfmadd231ps zmm15,zmm21,zmm31
+    0.18 :    234:    vfmadd231ps zmm16,zmm22,zmm31
+    0.29 :    23a:    vfmadd231ps zmm17,zmm23,zmm31
+    0.07 :    240:    vbroadcastss zmm31,DWORD PTR [r14+0x180]
+    0.22 :    247:    vfmadd231ps zmm18,zmm21,zmm31
+    0.33 :    24d:    vfmadd231ps zmm19,zmm22,zmm31
+    0.22 :    253:    vfmadd231ps zmm20,zmm23,zmm31
+    0.04 :    259:    vmovups zmm21,ZMMWORD PTR [r15+0x40]
+    0.15 :    260:    vmovups zmm22,ZMMWORD PTR [r15+0x4040]
+    0.15 :    26a:    vmovups zmm23,ZMMWORD PTR [r15+0x8040]
+    0.15 :    274:    vbroadcastss zmm31,DWORD PTR [r14+0x4]
+    0.18 :    27b:    vfmadd231ps zmm0,zmm21,zmm31
+    0.11 :    281:    vfmadd231ps zmm1,zmm22,zmm31
+    0.11 :    287:    vfmadd231ps zmm2,zmm23,zmm31
+    0.04 :    28d:    vbroadcastss zmm31,DWORD PTR [r14+0x44]
+    0.11 :    294:    vfmadd231ps zmm3,zmm21,zmm31
+    0.22 :    29a:    vfmadd231ps zmm4,zmm22,zmm31
+    0.11 :    2a0:    vfmadd231ps zmm5,zmm23,zmm31
+    0.04 :    2a6:    vbroadcastss zmm31,DWORD PTR [r14+0x84]
+    0.26 :    2ad:    vfmadd231ps zmm6,zmm21,zmm31
+    0.15 :    2b3:    vfmadd231ps zmm7,zmm22,zmm31
+    0.33 :    2b9:    vfmadd231ps zmm8,zmm23,zmm31
+    0.18 :    2bf:    vbroadcastss zmm31,DWORD PTR [r14+0xc4]
+    0.22 :    2c6:    vfmadd231ps zmm9,zmm21,zmm31
+    0.18 :    2cc:    vfmadd231ps zmm10,zmm22,zmm31
+    0.22 :    2d2:    vfmadd231ps zmm11,zmm23,zmm31
+    0.04 :    2d8:    vbroadcastss zmm31,DWORD PTR [r14+0x104]
+    0.18 :    2df:    vfmadd231ps zmm12,zmm21,zmm31
+    0.22 :    2e5:    vfmadd231ps zmm13,zmm22,zmm31
+    0.33 :    2eb:    vfmadd231ps zmm14,zmm23,zmm31
+    0.11 :    2f1:    vbroadcastss zmm31,DWORD PTR [r14+0x144]
+    0.18 :    2f8:    vfmadd231ps zmm15,zmm21,zmm31
+    0.15 :    2fe:    vfmadd231ps zmm16,zmm22,zmm31
+    0.29 :    304:    vfmadd231ps zmm17,zmm23,zmm31
+    0.04 :    30a:    vbroadcastss zmm31,DWORD PTR [r14+0x184]
+    0.18 :    311:    vfmadd231ps zmm18,zmm21,zmm31
+    0.22 :    317:    vfmadd231ps zmm19,zmm22,zmm31
+    0.11 :    31d:    vfmadd231ps zmm20,zmm23,zmm31
+    0.04 :    323:    vmovups zmm21,ZMMWORD PTR [r15+0x80]
+    0.11 :    32a:    vmovups zmm22,ZMMWORD PTR [r15+0x4080]
+    0.15 :    334:    vmovups zmm23,ZMMWORD PTR [r15+0x8080]
+    0.11 :    33e:    vbroadcastss zmm31,DWORD PTR [r14+0x8]
+    0.22 :    345:    vfmadd231ps zmm0,zmm21,zmm31
+    0.22 :    34b:    vfmadd231ps zmm1,zmm22,zmm31
+    0.44 :    351:    vfmadd231ps zmm2,zmm23,zmm31
+    0.26 :    357:    vbroadcastss zmm31,DWORD PTR [r14+0x48]
+    0.26 :    35e:    vfmadd231ps zmm3,zmm21,zmm31
+    0.18 :    364:    vfmadd231ps zmm4,zmm22,zmm31
+    0.22 :    36a:    vfmadd231ps zmm5,zmm23,zmm31
+    0.18 :    370:    vbroadcastss zmm31,DWORD PTR [r14+0x88]
+    0.29 :    377:    vfmadd231ps zmm6,zmm21,zmm31
+    0.26 :    37d:    vfmadd231ps zmm7,zmm22,zmm31
+    0.33 :    383:    vfmadd231ps zmm8,zmm23,zmm31
+    0.00 :    389:    vbroadcastss zmm31,DWORD PTR [r14+0xc8]
+    0.26 :    390:    vfmadd231ps zmm9,zmm21,zmm31
+    0.29 :    396:    vfmadd231ps zmm10,zmm22,zmm31
+    0.26 :    39c:    vfmadd231ps zmm11,zmm23,zmm31
+    0.07 :    3a2:    vbroadcastss zmm31,DWORD PTR [r14+0x108]
+    0.33 :    3a9:    vfmadd231ps zmm12,zmm21,zmm31
+    0.44 :    3af:    vfmadd231ps zmm13,zmm22,zmm31
+    0.15 :    3b5:    vfmadd231ps zmm14,zmm23,zmm31
+    0.04 :    3bb:    vbroadcastss zmm31,DWORD PTR [r14+0x148]
+    0.11 :    3c2:    vfmadd231ps zmm15,zmm21,zmm31
+    0.33 :    3c8:    vfmadd231ps zmm16,zmm22,zmm31
+    0.18 :    3ce:    vfmadd231ps zmm17,zmm23,zmm31
+    0.04 :    3d4:    vbroadcastss zmm31,DWORD PTR [r14+0x188]
+    0.15 :    3db:    vfmadd231ps zmm18,zmm21,zmm31
+    0.18 :    3e1:    vfmadd231ps zmm19,zmm22,zmm31
+    0.22 :    3e7:    vfmadd231ps zmm20,zmm23,zmm31
+    0.00 :    3ed:    vmovups zmm21,ZMMWORD PTR [r15+0xc0]
+    0.04 :    3f4:    vmovups zmm22,ZMMWORD PTR [r15+0x40c0]
+    0.29 :    3fe:    vmovups zmm23,ZMMWORD PTR [r15+0x80c0]
+    0.29 :    408:    vbroadcastss zmm31,DWORD PTR [r14+0xc]
+    0.00 :    40f:    vfmadd231ps zmm0,zmm21,zmm31
+    0.15 :    415:    vfmadd231ps zmm1,zmm22,zmm31
+    0.29 :    41b:    vfmadd231ps zmm2,zmm23,zmm31
+    0.22 :    421:    vbroadcastss zmm31,DWORD PTR [r14+0x4c]
+    0.04 :    428:    vfmadd231ps zmm3,zmm21,zmm31
+    0.22 :    42e:    vfmadd231ps zmm4,zmm22,zmm31
+    0.33 :    434:    vfmadd231ps zmm5,zmm23,zmm31
+    0.11 :    43a:    vbroadcastss zmm31,DWORD PTR [r14+0x8c]
+    0.07 :    441:    vfmadd231ps zmm6,zmm21,zmm31
+    0.15 :    447:    vfmadd231ps zmm7,zmm22,zmm31
+    0.22 :    44d:    vfmadd231ps zmm8,zmm23,zmm31
+    0.04 :    453:    vbroadcastss zmm31,DWORD PTR [r14+0xcc]
+    0.00 :    45a:    vfmadd231ps zmm9,zmm21,zmm31
+    0.11 :    460:    vfmadd231ps zmm10,zmm22,zmm31
+    0.33 :    466:    vfmadd231ps zmm11,zmm23,zmm31
+    0.04 :    46c:    vbroadcastss zmm31,DWORD PTR [r14+0x10c]
+    0.11 :    473:    vfmadd231ps zmm12,zmm21,zmm31
+    0.33 :    479:    vfmadd231ps zmm13,zmm22,zmm31
+    0.26 :    47f:    vfmadd231ps zmm14,zmm23,zmm31
+    0.00 :    485:    vbroadcastss zmm31,DWORD PTR [r14+0x14c]
+    0.18 :    48c:    vfmadd231ps zmm15,zmm21,zmm31
+    0.18 :    492:    vfmadd231ps zmm16,zmm22,zmm31
+    0.44 :    498:    vfmadd231ps zmm17,zmm23,zmm31
+    0.00 :    49e:    vbroadcastss zmm31,DWORD PTR [r14+0x18c]
+    0.11 :    4a5:    vfmadd231ps zmm18,zmm21,zmm31
+    0.37 :    4ab:    vfmadd231ps zmm19,zmm22,zmm31
+    0.26 :    4b1:    vfmadd231ps zmm20,zmm23,zmm31
+    0.04 :    4b7:    vmovups zmm21,ZMMWORD PTR [r15+0x100]
+    0.15 :    4be:    vmovups zmm22,ZMMWORD PTR [r15+0x4100]
+    0.18 :    4c8:    vmovups zmm23,ZMMWORD PTR [r15+0x8100]
+    0.15 :    4d2:    vbroadcastss zmm31,DWORD PTR [r14+0x10]
+    0.04 :    4d9:    vfmadd231ps zmm0,zmm21,zmm31
+    0.07 :    4df:    vfmadd231ps zmm1,zmm22,zmm31
+    0.37 :    4e5:    vfmadd231ps zmm2,zmm23,zmm31
+    0.18 :    4eb:    vbroadcastss zmm31,DWORD PTR [r14+0x50]
+    0.07 :    4f2:    vfmadd231ps zmm3,zmm21,zmm31
+    0.18 :    4f8:    vfmadd231ps zmm4,zmm22,zmm31
+    0.37 :    4fe:    vfmadd231ps zmm5,zmm23,zmm31
+    0.11 :    504:    vbroadcastss zmm31,DWORD PTR [r14+0x90]
+    0.07 :    50b:    vfmadd231ps zmm6,zmm21,zmm31
+    0.15 :    511:    vfmadd231ps zmm7,zmm22,zmm31
+    0.26 :    517:    vfmadd231ps zmm8,zmm23,zmm31
+    0.04 :    51d:    vbroadcastss zmm31,DWORD PTR [r14+0xd0]
+    0.11 :    524:    vfmadd231ps zmm9,zmm21,zmm31
+    0.40 :    52a:    vfmadd231ps zmm10,zmm22,zmm31
+    0.33 :    530:    vfmadd231ps zmm11,zmm23,zmm31
+    0.00 :    536:    vbroadcastss zmm31,DWORD PTR [r14+0x110]
+    0.15 :    53d:    vfmadd231ps zmm12,zmm21,zmm31
+    0.29 :    543:    vfmadd231ps zmm13,zmm22,zmm31
+    0.22 :    549:    vfmadd231ps zmm14,zmm23,zmm31
+    0.04 :    54f:    vbroadcastss zmm31,DWORD PTR [r14+0x150]
+    0.15 :    556:    vfmadd231ps zmm15,zmm21,zmm31
+    0.29 :    55c:    vfmadd231ps zmm16,zmm22,zmm31
+    0.26 :    562:    vfmadd231ps zmm17,zmm23,zmm31
+    0.00 :    568:    vbroadcastss zmm31,DWORD PTR [r14+0x190]
+    0.18 :    56f:    vfmadd231ps zmm18,zmm21,zmm31
+    0.59 :    575:    vfmadd231ps zmm19,zmm22,zmm31
+    0.15 :    57b:    vfmadd231ps zmm20,zmm23,zmm31
+    0.04 :    581:    vmovups zmm21,ZMMWORD PTR [r15+0x140]
+    0.18 :    588:    vmovups zmm22,ZMMWORD PTR [r15+0x4140]
+    0.18 :    592:    vmovups zmm23,ZMMWORD PTR [r15+0x8140]
+    0.15 :    59c:    vbroadcastss zmm31,DWORD PTR [r14+0x14]
+    0.11 :    5a3:    vfmadd231ps zmm0,zmm21,zmm31
+    0.22 :    5a9:    vfmadd231ps zmm1,zmm22,zmm31
+    0.37 :    5af:    vfmadd231ps zmm2,zmm23,zmm31
+    0.11 :    5b5:    vbroadcastss zmm31,DWORD PTR [r14+0x54]
+    0.22 :    5bc:    vfmadd231ps zmm3,zmm21,zmm31
+    0.26 :    5c2:    vfmadd231ps zmm4,zmm22,zmm31
+    0.48 :    5c8:    vfmadd231ps zmm5,zmm23,zmm31
+    0.04 :    5ce:    vbroadcastss zmm31,DWORD PTR [r14+0x94]
+    0.11 :    5d5:    vfmadd231ps zmm6,zmm21,zmm31
+    0.11 :    5db:    vfmadd231ps zmm7,zmm22,zmm31
+    0.29 :    5e1:    vfmadd231ps zmm8,zmm23,zmm31
+    0.15 :    5e7:    vbroadcastss zmm31,DWORD PTR [r14+0xd4]
+    0.22 :    5ee:    vfmadd231ps zmm9,zmm21,zmm31
+    0.26 :    5f4:    vfmadd231ps zmm10,zmm22,zmm31
+    0.15 :    5fa:    vfmadd231ps zmm11,zmm23,zmm31
+    0.00 :    600:    vbroadcastss zmm31,DWORD PTR [r14+0x114]
+    0.15 :    607:    vfmadd231ps zmm12,zmm21,zmm31
+    0.26 :    60d:    vfmadd231ps zmm13,zmm22,zmm31
+    0.48 :    613:    vfmadd231ps zmm14,zmm23,zmm31
+    0.04 :    619:    vbroadcastss zmm31,DWORD PTR [r14+0x154]
+    0.04 :    620:    vfmadd231ps zmm15,zmm21,zmm31
+    0.22 :    626:    vfmadd231ps zmm16,zmm22,zmm31
+    0.29 :    62c:    vfmadd231ps zmm17,zmm23,zmm31
+    0.07 :    632:    vbroadcastss zmm31,DWORD PTR [r14+0x194]
+    0.15 :    639:    vfmadd231ps zmm18,zmm21,zmm31
+    0.15 :    63f:    vfmadd231ps zmm19,zmm22,zmm31
+    0.26 :    645:    vfmadd231ps zmm20,zmm23,zmm31
+    0.00 :    64b:    vmovups zmm21,ZMMWORD PTR [r15+0x180]
+    0.11 :    652:    vmovups zmm22,ZMMWORD PTR [r15+0x4180]
+    0.33 :    65c:    vmovups zmm23,ZMMWORD PTR [r15+0x8180]
+    0.29 :    666:    vbroadcastss zmm31,DWORD PTR [r14+0x18]
+    0.26 :    66d:    vfmadd231ps zmm0,zmm21,zmm31
+    0.07 :    673:    vfmadd231ps zmm1,zmm22,zmm31
+    0.11 :    679:    vfmadd231ps zmm2,zmm23,zmm31
+    0.22 :    67f:    vbroadcastss zmm31,DWORD PTR [r14+0x58]
+    0.07 :    686:    vfmadd231ps zmm3,zmm21,zmm31
+    0.11 :    68c:    vfmadd231ps zmm4,zmm22,zmm31
+    0.33 :    692:    vfmadd231ps zmm5,zmm23,zmm31
+    0.11 :    698:    vbroadcastss zmm31,DWORD PTR [r14+0x98]
+    0.07 :    69f:    vfmadd231ps zmm6,zmm21,zmm31
+    0.22 :    6a5:    vfmadd231ps zmm7,zmm22,zmm31
+    0.44 :    6ab:    vfmadd231ps zmm8,zmm23,zmm31
+    0.11 :    6b1:    vbroadcastss zmm31,DWORD PTR [r14+0xd8]
+    0.29 :    6b8:    vfmadd231ps zmm9,zmm21,zmm31
+    0.33 :    6be:    vfmadd231ps zmm10,zmm22,zmm31
+    0.55 :    6c4:    vfmadd231ps zmm11,zmm23,zmm31
+    0.00 :    6ca:    vbroadcastss zmm31,DWORD PTR [r14+0x118]
+    0.15 :    6d1:    vfmadd231ps zmm12,zmm21,zmm31
+    0.37 :    6d7:    vfmadd231ps zmm13,zmm22,zmm31
+    0.26 :    6dd:    vfmadd231ps zmm14,zmm23,zmm31
+    0.00 :    6e3:    vbroadcastss zmm31,DWORD PTR [r14+0x158]
+    0.33 :    6ea:    vfmadd231ps zmm15,zmm21,zmm31
+    0.22 :    6f0:    vfmadd231ps zmm16,zmm22,zmm31
+    0.29 :    6f6:    vfmadd231ps zmm17,zmm23,zmm31
+    0.00 :    6fc:    vbroadcastss zmm31,DWORD PTR [r14+0x198]
+    0.22 :    703:    vfmadd231ps zmm18,zmm21,zmm31
+    0.26 :    709:    vfmadd231ps zmm19,zmm22,zmm31
+    0.07 :    70f:    vfmadd231ps zmm20,zmm23,zmm31
+    0.04 :    715:    vmovups zmm21,ZMMWORD PTR [r15+0x1c0]
+    0.07 :    71c:    vmovups zmm22,ZMMWORD PTR [r15+0x41c0]
+    0.18 :    726:    vmovups zmm23,ZMMWORD PTR [r15+0x81c0]
+    0.15 :    730:    vbroadcastss zmm31,DWORD PTR [r14+0x1c]
+    0.11 :    737:    vfmadd231ps zmm0,zmm21,zmm31
+    0.07 :    73d:    vfmadd231ps zmm1,zmm22,zmm31
+    0.22 :    743:    vfmadd231ps zmm2,zmm23,zmm31
+    0.07 :    749:    vbroadcastss zmm31,DWORD PTR [r14+0x5c]
+    0.15 :    750:    vfmadd231ps zmm3,zmm21,zmm31
+    0.18 :    756:    vfmadd231ps zmm4,zmm22,zmm31
+    0.26 :    75c:    vfmadd231ps zmm5,zmm23,zmm31
+    0.04 :    762:    vbroadcastss zmm31,DWORD PTR [r14+0x9c]
+    0.15 :    769:    vfmadd231ps zmm6,zmm21,zmm31
+    0.22 :    76f:    vfmadd231ps zmm7,zmm22,zmm31
+    0.37 :    775:    vfmadd231ps zmm8,zmm23,zmm31
+    0.04 :    77b:    vbroadcastss zmm31,DWORD PTR [r14+0xdc]
+    0.26 :    782:    vfmadd231ps zmm9,zmm21,zmm31
+    0.11 :    788:    vfmadd231ps zmm10,zmm22,zmm31
+    0.11 :    78e:    vfmadd231ps zmm11,zmm23,zmm31
+    0.04 :    794:    vbroadcastss zmm31,DWORD PTR [r14+0x11c]
+    0.15 :    79b:    vfmadd231ps zmm12,zmm21,zmm31
+    0.18 :    7a1:    vfmadd231ps zmm13,zmm22,zmm31
+    0.48 :    7a7:    vfmadd231ps zmm14,zmm23,zmm31
+    0.04 :    7ad:    vbroadcastss zmm31,DWORD PTR [r14+0x15c]
+    0.18 :    7b4:    vfmadd231ps zmm15,zmm21,zmm31
+    0.33 :    7ba:    vfmadd231ps zmm16,zmm22,zmm31
+    0.29 :    7c0:    vfmadd231ps zmm17,zmm23,zmm31
+    0.00 :    7c6:    vbroadcastss zmm31,DWORD PTR [r14+0x19c]
+    0.15 :    7cd:    vfmadd231ps zmm18,zmm21,zmm31
+    0.26 :    7d3:    vfmadd231ps zmm19,zmm22,zmm31
+    0.15 :    7d9:    vfmadd231ps zmm20,zmm23,zmm31
+    0.00 :    7df:    vmovups zmm21,ZMMWORD PTR [r15+rbp*1-0x200]
+    0.00 :    7e7:    vmovups zmm22,ZMMWORD PTR [r15+0x4200]
+    0.29 :    7f1:    vmovups zmm23,ZMMWORD PTR [r15+0x8200]
+    0.04 :    7fb:    vbroadcastss zmm31,DWORD PTR [r14+0x20]
+    0.15 :    802:    vfmadd231ps zmm0,zmm21,zmm31
+    0.18 :    808:    vfmadd231ps zmm1,zmm22,zmm31
+    0.29 :    80e:    vfmadd231ps zmm2,zmm23,zmm31
+    0.18 :    814:    vbroadcastss zmm31,DWORD PTR [r14+0x60]
+    0.04 :    81b:    vfmadd231ps zmm3,zmm21,zmm31
+    0.15 :    821:    vfmadd231ps zmm4,zmm22,zmm31
+    0.22 :    827:    vfmadd231ps zmm5,zmm23,zmm31
+    0.15 :    82d:    vbroadcastss zmm31,DWORD PTR [r14+0xa0]
+    0.11 :    834:    vfmadd231ps zmm6,zmm21,zmm31
+    0.15 :    83a:    vfmadd231ps zmm7,zmm22,zmm31
+    0.26 :    840:    vfmadd231ps zmm8,zmm23,zmm31
+    0.04 :    846:    vbroadcastss zmm31,DWORD PTR [r14+0xe0]
+    0.22 :    84d:    vfmadd231ps zmm9,zmm21,zmm31
+    0.40 :    853:    vfmadd231ps zmm10,zmm22,zmm31
+    0.44 :    859:    vfmadd231ps zmm11,zmm23,zmm31
+    0.00 :    85f:    vbroadcastss zmm31,DWORD PTR [r14+0x120]
+    0.15 :    866:    vfmadd231ps zmm12,zmm21,zmm31
+    0.37 :    86c:    vfmadd231ps zmm13,zmm22,zmm31
+    0.48 :    872:    vfmadd231ps zmm14,zmm23,zmm31
+    0.00 :    878:    vbroadcastss zmm31,DWORD PTR [r14+0x160]
+    0.11 :    87f:    vfmadd231ps zmm15,zmm21,zmm31
+    0.22 :    885:    vfmadd231ps zmm16,zmm22,zmm31
+    0.29 :    88b:    vfmadd231ps zmm17,zmm23,zmm31
+    0.00 :    891:    vbroadcastss zmm31,DWORD PTR [r14+0x1a0]
+    0.22 :    898:    vfmadd231ps zmm18,zmm21,zmm31
+    0.33 :    89e:    vfmadd231ps zmm19,zmm22,zmm31
+    0.07 :    8a4:    vfmadd231ps zmm20,zmm23,zmm31
+    0.07 :    8aa:    vmovups zmm21,ZMMWORD PTR [r15+rbp*1-0x1c0]
+    0.26 :    8b2:    vmovups zmm22,ZMMWORD PTR [r15+0x4240]
+    0.18 :    8bc:    vmovups zmm23,ZMMWORD PTR [r15+0x8240]
+    0.29 :    8c6:    vbroadcastss zmm31,DWORD PTR [r14+0x24]
+    0.07 :    8cd:    vfmadd231ps zmm0,zmm21,zmm31
+    0.04 :    8d3:    vfmadd231ps zmm1,zmm22,zmm31
+    0.18 :    8d9:    vfmadd231ps zmm2,zmm23,zmm31
+    0.04 :    8df:    vbroadcastss zmm31,DWORD PTR [r14+0x64]
+    0.07 :    8e6:    vfmadd231ps zmm3,zmm21,zmm31
+    0.07 :    8ec:    vfmadd231ps zmm4,zmm22,zmm31
+    0.22 :    8f2:    vfmadd231ps zmm5,zmm23,zmm31
+    0.11 :    8f8:    vbroadcastss zmm31,DWORD PTR [r14+0xa4]
+    0.22 :    8ff:    vfmadd231ps zmm6,zmm21,zmm31
+    0.11 :    905:    vfmadd231ps zmm7,zmm22,zmm31
+    0.22 :    90b:    vfmadd231ps zmm8,zmm23,zmm31
+    0.04 :    911:    vbroadcastss zmm31,DWORD PTR [r14+0xe4]
+    0.18 :    918:    vfmadd231ps zmm9,zmm21,zmm31
+    0.15 :    91e:    vfmadd231ps zmm10,zmm22,zmm31
+    0.44 :    924:    vfmadd231ps zmm11,zmm23,zmm31
+    0.00 :    92a:    vbroadcastss zmm31,DWORD PTR [r14+0x124]
+    0.15 :    931:    vfmadd231ps zmm12,zmm21,zmm31
+    0.22 :    937:    vfmadd231ps zmm13,zmm22,zmm31
+    0.44 :    93d:    vfmadd231ps zmm14,zmm23,zmm31
+    0.00 :    943:    vbroadcastss zmm31,DWORD PTR [r14+0x164]
+    0.18 :    94a:    vfmadd231ps zmm15,zmm21,zmm31
+    0.18 :    950:    vfmadd231ps zmm16,zmm22,zmm31
+    0.22 :    956:    vfmadd231ps zmm17,zmm23,zmm31
+    0.04 :    95c:    vbroadcastss zmm31,DWORD PTR [r14+0x1a4]
+    0.15 :    963:    vfmadd231ps zmm18,zmm21,zmm31
+    0.26 :    969:    vfmadd231ps zmm19,zmm22,zmm31
+    0.18 :    96f:    vfmadd231ps zmm20,zmm23,zmm31
+    0.00 :    975:    vmovups zmm21,ZMMWORD PTR [r15+rbp*1-0x180]
+    0.11 :    97d:    vmovups zmm22,ZMMWORD PTR [r15+0x4280]
+    0.51 :    987:    vmovups zmm23,ZMMWORD PTR [r15+0x8280]
+    0.22 :    991:    vbroadcastss zmm31,DWORD PTR [r14+0x28]
+    0.11 :    998:    vfmadd231ps zmm0,zmm21,zmm31
+    0.07 :    99e:    vfmadd231ps zmm1,zmm22,zmm31
+    0.33 :    9a4:    vfmadd231ps zmm2,zmm23,zmm31
+    0.26 :    9aa:    vbroadcastss zmm31,DWORD PTR [r14+0x68]
+    0.07 :    9b1:    vfmadd231ps zmm3,zmm21,zmm31
+    0.18 :    9b7:    vfmadd231ps zmm4,zmm22,zmm31
+    0.15 :    9bd:    vfmadd231ps zmm5,zmm23,zmm31
+    0.18 :    9c3:    vbroadcastss zmm31,DWORD PTR [r14+0xa8]
+    0.07 :    9ca:    vfmadd231ps zmm6,zmm21,zmm31
+    0.29 :    9d0:    vfmadd231ps zmm7,zmm22,zmm31
+    0.18 :    9d6:    vfmadd231ps zmm8,zmm23,zmm31
+    0.04 :    9dc:    vbroadcastss zmm31,DWORD PTR [r14+0xe8]
+    0.11 :    9e3:    vfmadd231ps zmm9,zmm21,zmm31
+    0.26 :    9e9:    vfmadd231ps zmm10,zmm22,zmm31
+    0.66 :    9ef:    vfmadd231ps zmm11,zmm23,zmm31
+    0.00 :    9f5:    vbroadcastss zmm31,DWORD PTR [r14+0x128]
+    0.11 :    9fc:    vfmadd231ps zmm12,zmm21,zmm31
+    0.26 :    a02:    vfmadd231ps zmm13,zmm22,zmm31
+    0.37 :    a08:    vfmadd231ps zmm14,zmm23,zmm31
+    0.04 :    a0e:    vbroadcastss zmm31,DWORD PTR [r14+0x168]
+    0.29 :    a15:    vfmadd231ps zmm15,zmm21,zmm31
+    0.26 :    a1b:    vfmadd231ps zmm16,zmm22,zmm31
+    0.37 :    a21:    vfmadd231ps zmm17,zmm23,zmm31
+    0.00 :    a27:    vbroadcastss zmm31,DWORD PTR [r14+0x1a8]
+    0.04 :    a2e:    vfmadd231ps zmm18,zmm21,zmm31
+    0.40 :    a34:    vfmadd231ps zmm19,zmm22,zmm31
+    0.11 :    a3a:    vfmadd231ps zmm20,zmm23,zmm31
+    0.04 :    a40:    vmovups zmm21,ZMMWORD PTR [r15+rbp*1-0x140]
+    0.04 :    a48:    vmovups zmm22,ZMMWORD PTR [r15+0x42c0]
+    0.22 :    a52:    vmovups zmm23,ZMMWORD PTR [r15+0x82c0]
+    0.29 :    a5c:    vbroadcastss zmm31,DWORD PTR [r14+0x2c]
+    0.18 :    a63:    vfmadd231ps zmm0,zmm21,zmm31
+    0.26 :    a69:    vfmadd231ps zmm1,zmm22,zmm31
+    0.11 :    a6f:    vfmadd231ps zmm2,zmm23,zmm31
+    0.11 :    a75:    vbroadcastss zmm31,DWORD PTR [r14+0x6c]
+    0.15 :    a7c:    vfmadd231ps zmm3,zmm21,zmm31
+    0.26 :    a82:    vfmadd231ps zmm4,zmm22,zmm31
+    0.29 :    a88:    vfmadd231ps zmm5,zmm23,zmm31
+    0.04 :    a8e:    vbroadcastss zmm31,DWORD PTR [r14+0xac]
+    0.00 :    a95:    vfmadd231ps zmm6,zmm21,zmm31
+    0.29 :    a9b:    vfmadd231ps zmm7,zmm22,zmm31
+    0.33 :    aa1:    vfmadd231ps zmm8,zmm23,zmm31
+    0.07 :    aa7:    vbroadcastss zmm31,DWORD PTR [r14+0xec]
+    0.15 :    aae:    vfmadd231ps zmm9,zmm21,zmm31
+    0.18 :    ab4:    vfmadd231ps zmm10,zmm22,zmm31
+    0.40 :    aba:    vfmadd231ps zmm11,zmm23,zmm31
+    0.11 :    ac0:    vbroadcastss zmm31,DWORD PTR [r14+0x12c]
+    0.07 :    ac7:    vfmadd231ps zmm12,zmm21,zmm31
+    0.15 :    acd:    vfmadd231ps zmm13,zmm22,zmm31
+    0.26 :    ad3:    vfmadd231ps zmm14,zmm23,zmm31
+    0.04 :    ad9:    vbroadcastss zmm31,DWORD PTR [r14+0x16c]
+    0.22 :    ae0:    vfmadd231ps zmm15,zmm21,zmm31
+    0.37 :    ae6:    vfmadd231ps zmm16,zmm22,zmm31
+    0.26 :    aec:    vfmadd231ps zmm17,zmm23,zmm31
+    0.00 :    af2:    vbroadcastss zmm31,DWORD PTR [r14+0x1ac]
+    0.11 :    af9:    vfmadd231ps zmm18,zmm21,zmm31
+    0.33 :    aff:    vfmadd231ps zmm19,zmm22,zmm31
+    0.18 :    b05:    vfmadd231ps zmm20,zmm23,zmm31
+    0.04 :    b0b:    vmovups zmm21,ZMMWORD PTR [r15+rbp*1-0x100]
+    0.00 :    b13:    vmovups zmm22,ZMMWORD PTR [r15+0x4300]
+    0.33 :    b1d:    vmovups zmm23,ZMMWORD PTR [r15+0x8300]
+    0.04 :    b27:    vbroadcastss zmm31,DWORD PTR [r14+0x30]
+    0.11 :    b2e:    vfmadd231ps zmm0,zmm21,zmm31
+    0.15 :    b34:    vfmadd231ps zmm1,zmm22,zmm31
+    0.26 :    b3a:    vfmadd231ps zmm2,zmm23,zmm31
+    0.11 :    b40:    vbroadcastss zmm31,DWORD PTR [r14+0x70]
+    0.07 :    b47:    vfmadd231ps zmm3,zmm21,zmm31
+    0.15 :    b4d:    vfmadd231ps zmm4,zmm22,zmm31
+    0.37 :    b53:    vfmadd231ps zmm5,zmm23,zmm31
+    0.07 :    b59:    vbroadcastss zmm31,DWORD PTR [r14+0xb0]
+    0.15 :    b60:    vfmadd231ps zmm6,zmm21,zmm31
+    0.15 :    b66:    vfmadd231ps zmm7,zmm22,zmm31
+    0.55 :    b6c:    vfmadd231ps zmm8,zmm23,zmm31
+    0.04 :    b72:    vbroadcastss zmm31,DWORD PTR [r14+0xf0]
+    0.15 :    b79:    vfmadd231ps zmm9,zmm21,zmm31
+    0.11 :    b7f:    vfmadd231ps zmm10,zmm22,zmm31
+    0.29 :    b85:    vfmadd231ps zmm11,zmm23,zmm31
+    0.04 :    b8b:    vbroadcastss zmm31,DWORD PTR [r14+0x130]
+    0.11 :    b92:    vfmadd231ps zmm12,zmm21,zmm31
+    0.18 :    b98:    vfmadd231ps zmm13,zmm22,zmm31
+    0.33 :    b9e:    vfmadd231ps zmm14,zmm23,zmm31
+    0.07 :    ba4:    vbroadcastss zmm31,DWORD PTR [r14+0x170]
+    0.04 :    bab:    vfmadd231ps zmm15,zmm21,zmm31
+    0.33 :    bb1:    vfmadd231ps zmm16,zmm22,zmm31
+    0.18 :    bb7:    vfmadd231ps zmm17,zmm23,zmm31
+    0.00 :    bbd:    vbroadcastss zmm31,DWORD PTR [r14+0x1b0]
+    0.18 :    bc4:    vfmadd231ps zmm18,zmm21,zmm31
+    0.18 :    bca:    vfmadd231ps zmm19,zmm22,zmm31
+    0.22 :    bd0:    vfmadd231ps zmm20,zmm23,zmm31
+    0.00 :    bd6:    vmovups zmm21,ZMMWORD PTR [r15+rbp*1-0xc0]
+    0.15 :    bde:    vmovups zmm22,ZMMWORD PTR [r15+0x4340]
+    0.15 :    be8:    vmovups zmm23,ZMMWORD PTR [r15+0x8340]
+    0.22 :    bf2:    vbroadcastss zmm31,DWORD PTR [r14+0x34]
+    0.18 :    bf9:    vfmadd231ps zmm0,zmm21,zmm31
+    0.18 :    bff:    vfmadd231ps zmm1,zmm22,zmm31
+    0.18 :    c05:    vfmadd231ps zmm2,zmm23,zmm31
+    0.15 :    c0b:    vbroadcastss zmm31,DWORD PTR [r14+0x74]
+    0.11 :    c12:    vfmadd231ps zmm3,zmm21,zmm31
+    0.18 :    c18:    vfmadd231ps zmm4,zmm22,zmm31
+    0.26 :    c1e:    vfmadd231ps zmm5,zmm23,zmm31
+    0.04 :    c24:    vbroadcastss zmm31,DWORD PTR [r14+0xb4]
+    0.11 :    c2b:    vfmadd231ps zmm6,zmm21,zmm31
+    0.04 :    c31:    vfmadd231ps zmm7,zmm22,zmm31
+    0.29 :    c37:    vfmadd231ps zmm8,zmm23,zmm31
+    0.00 :    c3d:    vbroadcastss zmm31,DWORD PTR [r14+0xf4]
+    0.11 :    c44:    vfmadd231ps zmm9,zmm21,zmm31
+    0.29 :    c4a:    vfmadd231ps zmm10,zmm22,zmm31
+    0.29 :    c50:    vfmadd231ps zmm11,zmm23,zmm31
+    0.00 :    c56:    vbroadcastss zmm31,DWORD PTR [r14+0x134]
+    0.15 :    c5d:    vfmadd231ps zmm12,zmm21,zmm31
+    0.26 :    c63:    vfmadd231ps zmm13,zmm22,zmm31
+    0.26 :    c69:    vfmadd231ps zmm14,zmm23,zmm31
+    0.00 :    c6f:    vbroadcastss zmm31,DWORD PTR [r14+0x174]
+    0.15 :    c76:    vfmadd231ps zmm15,zmm21,zmm31
+    0.15 :    c7c:    vfmadd231ps zmm16,zmm22,zmm31
+    0.26 :    c82:    vfmadd231ps zmm17,zmm23,zmm31
+    0.00 :    c88:    vbroadcastss zmm31,DWORD PTR [r14+0x1b4]
+    0.15 :    c8f:    vfmadd231ps zmm18,zmm21,zmm31
+    0.29 :    c95:    vfmadd231ps zmm19,zmm22,zmm31
+    0.11 :    c9b:    vfmadd231ps zmm20,zmm23,zmm31
+    0.00 :    ca1:    vmovups zmm21,ZMMWORD PTR [r15+rbp*1-0x80]
+    0.26 :    ca9:    vmovups zmm22,ZMMWORD PTR [r15+0x4380]
+    0.04 :    cb3:    vmovups zmm23,ZMMWORD PTR [r15+0x8380]
+    0.26 :    cbd:    vbroadcastss zmm31,DWORD PTR [r14+0x38]
+    0.15 :    cc4:    vfmadd231ps zmm0,zmm21,zmm31
+    0.15 :    cca:    vfmadd231ps zmm1,zmm22,zmm31
+    0.26 :    cd0:    vfmadd231ps zmm2,zmm23,zmm31
+    0.18 :    cd6:    vbroadcastss zmm31,DWORD PTR [r14+0x78]
+    0.15 :    cdd:    vfmadd231ps zmm3,zmm21,zmm31
+    0.26 :    ce3:    vfmadd231ps zmm4,zmm22,zmm31
+    0.22 :    ce9:    vfmadd231ps zmm5,zmm23,zmm31
+    0.11 :    cef:    vbroadcastss zmm31,DWORD PTR [r14+0xb8]
+    0.07 :    cf6:    vfmadd231ps zmm6,zmm21,zmm31
+    0.15 :    cfc:    vfmadd231ps zmm7,zmm22,zmm31
+    0.40 :    d02:    vfmadd231ps zmm8,zmm23,zmm31
+    0.07 :    d08:    vbroadcastss zmm31,DWORD PTR [r14+0xf8]
+    0.18 :    d0f:    vfmadd231ps zmm9,zmm21,zmm31
+    0.11 :    d15:    vfmadd231ps zmm10,zmm22,zmm31
+    0.15 :    d1b:    vfmadd231ps zmm11,zmm23,zmm31
+    0.00 :    d21:    vbroadcastss zmm31,DWORD PTR [r14+0x138]
+    0.11 :    d28:    vfmadd231ps zmm12,zmm21,zmm31
+    0.29 :    d2e:    vfmadd231ps zmm13,zmm22,zmm31
+    0.48 :    d34:    vfmadd231ps zmm14,zmm23,zmm31
+    0.00 :    d3a:    vbroadcastss zmm31,DWORD PTR [r14+0x178]
+    0.26 :    d41:    vfmadd231ps zmm15,zmm21,zmm31
+    0.26 :    d47:    vfmadd231ps zmm16,zmm22,zmm31
+    0.18 :    d4d:    vfmadd231ps zmm17,zmm23,zmm31
+    0.00 :    d53:    vbroadcastss zmm31,DWORD PTR [r14+0x1b8]
+    0.04 :    d5a:    vfmadd231ps zmm18,zmm21,zmm31
+    0.29 :    d60:    vfmadd231ps zmm19,zmm22,zmm31
+    0.18 :    d66:    vfmadd231ps zmm20,zmm23,zmm31
+    0.00 :    d6c:    vmovups zmm21,ZMMWORD PTR [r15+rbp*1-0x40]
+    0.22 :    d74:    vmovups zmm22,ZMMWORD PTR [r15+0x43c0]
+    0.26 :    d7e:    vmovups zmm23,ZMMWORD PTR [r15+0x83c0]
+    0.18 :    d88:    vbroadcastss zmm31,DWORD PTR [r14+0x3c]
+    0.04 :    d8f:    vfmadd231ps zmm0,zmm21,zmm31
+    0.04 :    d95:    vfmadd231ps zmm1,zmm22,zmm31
+    0.18 :    d9b:    vfmadd231ps zmm2,zmm23,zmm31
+    0.11 :    da1:    vbroadcastss zmm31,DWORD PTR [r14+0x7c]
+    0.04 :    da8:    vfmadd231ps zmm3,zmm21,zmm31
+    0.29 :    dae:    vfmadd231ps zmm4,zmm22,zmm31
+    0.15 :    db4:    vfmadd231ps zmm5,zmm23,zmm31
+    0.04 :    dba:    vbroadcastss zmm31,DWORD PTR [r14+0xbc]
+    0.04 :    dc1:    vfmadd231ps zmm6,zmm21,zmm31
+    0.37 :    dc7:    vfmadd231ps zmm7,zmm22,zmm31
+    0.22 :    dcd:    vfmadd231ps zmm8,zmm23,zmm31
+    0.04 :    dd3:    vbroadcastss zmm31,DWORD PTR [r14+0xfc]
+    0.15 :    dda:    vfmadd231ps zmm9,zmm21,zmm31
+    0.26 :    de0:    vfmadd231ps zmm10,zmm22,zmm31
+    0.48 :    de6:    vfmadd231ps zmm11,zmm23,zmm31
+    0.00 :    dec:    vbroadcastss zmm31,DWORD PTR [r14+0x13c]
+    0.07 :    df3:    vfmadd231ps zmm12,zmm21,zmm31
+    0.26 :    df9:    vfmadd231ps zmm13,zmm22,zmm31
+    0.33 :    dff:    vfmadd231ps zmm14,zmm23,zmm31
+    0.00 :    e05:    vbroadcastss zmm31,DWORD PTR [r14+0x17c]
+    0.29 :    e0c:    vfmadd231ps zmm15,zmm21,zmm31
+    0.22 :    e12:    vfmadd231ps zmm16,zmm22,zmm31
+    0.48 :    e18:    vfmadd231ps zmm17,zmm23,zmm31
+    0.00 :    e1e:    vbroadcastss zmm31,DWORD PTR [r14+0x1bc]
+    0.04 :    e25:    vfmadd231ps zmm18,zmm21,zmm31
+    0.22 :    e2b:    vfmadd231ps zmm19,zmm22,zmm31
+    0.29 :    e31:    vfmadd231ps zmm20,zmm23,zmm31
+    0.00 :    e37:    add    r14,0xc400
+    0.04 :    e3e:    add    r15,0x400
+    0.04 :    e45:    sub    rdi,0x10
+    0.59 :    e49:    jg     191 <jit_avx512_common_1x1_conv_kernel_t.11+0x111>
+    0.04 :    e4f:    vmovups zmm21,ZMMWORD PTR [r15]
+    0.00 :    e55:    vmovups zmm22,ZMMWORD PTR [r15+0x4000]
+    0.04 :    e5f:    vmovups zmm23,ZMMWORD PTR [r15+0x8000]
+    0.07 :    e69:    vbroadcastss zmm31,DWORD PTR [r14]
+    0.00 :    e6f:    vfmadd231ps zmm0,zmm21,zmm31
+    0.00 :    e75:    vfmadd231ps zmm1,zmm22,zmm31
+    0.00 :    e7b:    vfmadd231ps zmm2,zmm23,zmm31
+    0.04 :    e81:    vbroadcastss zmm31,DWORD PTR [r14+0x40]
+    0.07 :    e88:    vfmadd231ps zmm3,zmm21,zmm31
+    0.04 :    e8e:    vfmadd231ps zmm4,zmm22,zmm31
+    0.00 :    e94:    vfmadd231ps zmm5,zmm23,zmm31
+    0.00 :    e9a:    vbroadcastss zmm31,DWORD PTR [r14+0x80]
+    0.04 :    ea1:    vfmadd231ps zmm6,zmm21,zmm31
+    0.00 :    ea7:    vfmadd231ps zmm7,zmm22,zmm31
+    0.00 :    ead:    vfmadd231ps zmm8,zmm23,zmm31
+    0.00 :    eb3:    vbroadcastss zmm31,DWORD PTR [r14+0xc0]
+    0.00 :    eba:    vfmadd231ps zmm9,zmm21,zmm31
+    0.04 :    ec0:    vfmadd231ps zmm10,zmm22,zmm31
+    0.00 :    ec6:    vfmadd231ps zmm11,zmm23,zmm31
+    0.00 :    ecc:    vbroadcastss zmm31,DWORD PTR [r14+0x100]
+    0.00 :    ed3:    vfmadd231ps zmm12,zmm21,zmm31
+    0.00 :    ed9:    vfmadd231ps zmm13,zmm22,zmm31
+    0.00 :    edf:    vfmadd231ps zmm14,zmm23,zmm31
+    0.00 :    ee5:    vbroadcastss zmm31,DWORD PTR [r14+0x140]
+    0.00 :    eec:    vfmadd231ps zmm15,zmm21,zmm31
+    0.04 :    ef2:    vfmadd231ps zmm16,zmm22,zmm31
+    0.00 :    ef8:    vfmadd231ps zmm17,zmm23,zmm31
+    0.00 :    efe:    vbroadcastss zmm31,DWORD PTR [r14+0x180]
+    0.00 :    f05:    vfmadd231ps zmm18,zmm21,zmm31
+    0.00 :    f0b:    vfmadd231ps zmm19,zmm22,zmm31
+    0.00 :    f11:    vfmadd231ps zmm20,zmm23,zmm31
+    0.00 :    f17:    vmovups zmm21,ZMMWORD PTR [r15+0x40]
+    0.00 :    f1e:    vmovups zmm22,ZMMWORD PTR [r15+0x4040]
+    0.00 :    f28:    vmovups zmm23,ZMMWORD PTR [r15+0x8040]
+    0.04 :    f32:    vbroadcastss zmm31,DWORD PTR [r14+0x4]
+    0.00 :    f39:    vfmadd231ps zmm0,zmm21,zmm31
+    0.00 :    f3f:    vfmadd231ps zmm1,zmm22,zmm31
+    0.04 :    f45:    vfmadd231ps zmm2,zmm23,zmm31
+    0.00 :    f4b:    vbroadcastss zmm31,DWORD PTR [r14+0x44]
+    0.00 :    f52:    vfmadd231ps zmm3,zmm21,zmm31
+    0.00 :    f58:    vfmadd231ps zmm4,zmm22,zmm31
+    0.00 :    f5e:    vfmadd231ps zmm5,zmm23,zmm31
+    0.00 :    f64:    vbroadcastss zmm31,DWORD PTR [r14+0x84]
+    0.04 :    f6b:    vfmadd231ps zmm6,zmm21,zmm31
+    0.04 :    f71:    vfmadd231ps zmm7,zmm22,zmm31
+    0.00 :    f77:    vfmadd231ps zmm8,zmm23,zmm31
+    0.00 :    f7d:    vbroadcastss zmm31,DWORD PTR [r14+0xc4]
+    0.04 :    f84:    vfmadd231ps zmm9,zmm21,zmm31
+    0.00 :    f8a:    vfmadd231ps zmm10,zmm22,zmm31
+    0.04 :    f90:    vfmadd231ps zmm11,zmm23,zmm31
+    0.00 :    f96:    vbroadcastss zmm31,DWORD PTR [r14+0x104]
+    0.07 :    f9d:    vfmadd231ps zmm12,zmm21,zmm31
+    0.00 :    fa3:    vfmadd231ps zmm13,zmm22,zmm31
+    0.00 :    fa9:    vfmadd231ps zmm14,zmm23,zmm31
+    0.00 :    faf:    vbroadcastss zmm31,DWORD PTR [r14+0x144]
+    0.00 :    fb6:    vfmadd231ps zmm15,zmm21,zmm31
+    0.04 :    fbc:    vfmadd231ps zmm16,zmm22,zmm31
+    0.00 :    fc2:    vfmadd231ps zmm17,zmm23,zmm31
+    0.00 :    fc8:    vbroadcastss zmm31,DWORD PTR [r14+0x184]
+    0.04 :    fcf:    vfmadd231ps zmm18,zmm21,zmm31
+    0.00 :    fd5:    vfmadd231ps zmm19,zmm22,zmm31
+    0.00 :    fdb:    vfmadd231ps zmm20,zmm23,zmm31
+    0.00 :    fe1:    vmovups zmm21,ZMMWORD PTR [r15+0x80]
+    0.00 :    fe8:    vmovups zmm22,ZMMWORD PTR [r15+0x4080]
+    0.00 :    ff2:    vmovups zmm23,ZMMWORD PTR [r15+0x8080]
+    0.04 :    ffc:    vbroadcastss zmm31,DWORD PTR [r14+0x8]
+    0.00 :   1003:   vfmadd231ps zmm0,zmm21,zmm31
+    0.00 :   1009:   vfmadd231ps zmm1,zmm22,zmm31
+    0.00 :   100f:   vfmadd231ps zmm2,zmm23,zmm31
+    0.00 :   1015:   vbroadcastss zmm31,DWORD PTR [r14+0x48]
+    0.00 :   101c:   vfmadd231ps zmm3,zmm21,zmm31
+    0.04 :   1022:   vfmadd231ps zmm4,zmm22,zmm31
+    0.07 :   1028:   vfmadd231ps zmm5,zmm23,zmm31
+    0.00 :   102e:   vbroadcastss zmm31,DWORD PTR [r14+0x88]
+    0.04 :   1035:   vfmadd231ps zmm6,zmm21,zmm31
+    0.04 :   103b:   vfmadd231ps zmm7,zmm22,zmm31
+    0.00 :   1041:   vfmadd231ps zmm8,zmm23,zmm31
+    0.00 :   1047:   vbroadcastss zmm31,DWORD PTR [r14+0xc8]
+    0.00 :   104e:   vfmadd231ps zmm9,zmm21,zmm31
+    0.00 :   1054:   vfmadd231ps zmm10,zmm22,zmm31
+    0.00 :   105a:   vfmadd231ps zmm11,zmm23,zmm31
+    0.00 :   1060:   vbroadcastss zmm31,DWORD PTR [r14+0x108]
+    0.00 :   1067:   vfmadd231ps zmm12,zmm21,zmm31
+    0.04 :   106d:   vfmadd231ps zmm13,zmm22,zmm31
+    0.00 :   1073:   vfmadd231ps zmm14,zmm23,zmm31
+    0.00 :   1079:   vbroadcastss zmm31,DWORD PTR [r14+0x148]
+    0.07 :   1080:   vfmadd231ps zmm15,zmm21,zmm31
+    0.04 :   1086:   vfmadd231ps zmm16,zmm22,zmm31
+    0.00 :   108c:   vfmadd231ps zmm17,zmm23,zmm31
+    0.00 :   1092:   vbroadcastss zmm31,DWORD PTR [r14+0x188]
+    0.00 :   1099:   vfmadd231ps zmm18,zmm21,zmm31
+    0.00 :   109f:   vfmadd231ps zmm19,zmm22,zmm31
+    0.00 :   10a5:   vfmadd231ps zmm20,zmm23,zmm31
+    0.00 :   10ab:   vmovups zmm21,ZMMWORD PTR [r15+0xc0]
+    0.04 :   10b2:   vmovups zmm22,ZMMWORD PTR [r15+0x40c0]
+    0.04 :   10bc:   vmovups zmm23,ZMMWORD PTR [r15+0x80c0]
+    0.00 :   10c6:   vbroadcastss zmm31,DWORD PTR [r14+0xc]
+    0.04 :   10cd:   vfmadd231ps zmm0,zmm21,zmm31
+    0.00 :   10d3:   vfmadd231ps zmm1,zmm22,zmm31
+    0.00 :   10d9:   vfmadd231ps zmm2,zmm23,zmm31
+    0.00 :   10df:   vbroadcastss zmm31,DWORD PTR [r14+0x4c]
+    0.00 :   10e6:   vfmadd231ps zmm3,zmm21,zmm31
+    0.04 :   10ec:   vfmadd231ps zmm4,zmm22,zmm31
+    0.00 :   10f2:   vfmadd231ps zmm5,zmm23,zmm31
+    0.00 :   10f8:   vbroadcastss zmm31,DWORD PTR [r14+0x8c]
+    0.00 :   10ff:   vfmadd231ps zmm6,zmm21,zmm31
+    0.00 :   1105:   vfmadd231ps zmm7,zmm22,zmm31
+    0.04 :   110b:   vfmadd231ps zmm8,zmm23,zmm31
+    0.00 :   1111:   vbroadcastss zmm31,DWORD PTR [r14+0xcc]
+    0.04 :   1118:   vfmadd231ps zmm9,zmm21,zmm31
+    0.04 :   111e:   vfmadd231ps zmm10,zmm22,zmm31
+    0.04 :   1124:   vfmadd231ps zmm11,zmm23,zmm31
+    0.00 :   112a:   vbroadcastss zmm31,DWORD PTR [r14+0x10c]
+    0.00 :   1131:   vfmadd231ps zmm12,zmm21,zmm31
+    0.04 :   1137:   vfmadd231ps zmm13,zmm22,zmm31
+    0.00 :   113d:   vfmadd231ps zmm14,zmm23,zmm31
+    0.00 :   1143:   vbroadcastss zmm31,DWORD PTR [r14+0x14c]
+    0.00 :   114a:   vfmadd231ps zmm15,zmm21,zmm31
+    0.00 :   1150:   vfmadd231ps zmm16,zmm22,zmm31
+    0.00 :   1156:   vfmadd231ps zmm17,zmm23,zmm31
+    0.00 :   115c:   vbroadcastss zmm31,DWORD PTR [r14+0x18c]
+    0.00 :   1163:   vfmadd231ps zmm18,zmm21,zmm31
+    0.04 :   1169:   vfmadd231ps zmm19,zmm22,zmm31
+    0.00 :   116f:   vfmadd231ps zmm20,zmm23,zmm31
+    0.00 :   1175:   vmovups zmm21,ZMMWORD PTR [r15+0x100]
+    0.00 :   117c:   vmovups zmm22,ZMMWORD PTR [r15+0x4100]
+    0.00 :   1186:   vmovups zmm23,ZMMWORD PTR [r15+0x8100]
+    0.04 :   1190:   vbroadcastss zmm31,DWORD PTR [r14+0x10]
+    0.00 :   1197:   vfmadd231ps zmm0,zmm21,zmm31
+    0.00 :   119d:   vfmadd231ps zmm1,zmm22,zmm31
+    0.00 :   11a3:   vfmadd231ps zmm2,zmm23,zmm31
+    0.00 :   11a9:   vbroadcastss zmm31,DWORD PTR [r14+0x50]
+    0.00 :   11b0:   vfmadd231ps zmm3,zmm21,zmm31
+    0.00 :   11b6:   vfmadd231ps zmm4,zmm22,zmm31
+    0.04 :   11bc:   vfmadd231ps zmm5,zmm23,zmm31
+    0.00 :   11c2:   vbroadcastss zmm31,DWORD PTR [r14+0x90]
+    0.00 :   11c9:   vfmadd231ps zmm6,zmm21,zmm31
+    0.00 :   11cf:   vfmadd231ps zmm7,zmm22,zmm31
+    0.07 :   11d5:   vfmadd231ps zmm8,zmm23,zmm31
+    0.04 :   11db:   vbroadcastss zmm31,DWORD PTR [r14+0xd0]
+    0.00 :   11e2:   vfmadd231ps zmm9,zmm21,zmm31
+    0.04 :   11e8:   vfmadd231ps zmm10,zmm22,zmm31
+    0.04 :   11ee:   vfmadd231ps zmm11,zmm23,zmm31
+    0.00 :   11f4:   vbroadcastss zmm31,DWORD PTR [r14+0x110]
+    0.04 :   11fb:   vfmadd231ps zmm12,zmm21,zmm31
+    0.00 :   1201:   vfmadd231ps zmm13,zmm22,zmm31
+    0.00 :   1207:   vfmadd231ps zmm14,zmm23,zmm31
+    0.00 :   120d:   vbroadcastss zmm31,DWORD PTR [r14+0x150]
+    0.00 :   1214:   vfmadd231ps zmm15,zmm21,zmm31
+    0.00 :   121a:   vfmadd231ps zmm16,zmm22,zmm31
+    0.04 :   1220:   vfmadd231ps zmm17,zmm23,zmm31
+    0.00 :   1226:   vbroadcastss zmm31,DWORD PTR [r14+0x190]
+    0.04 :   122d:   vfmadd231ps zmm18,zmm21,zmm31
+    0.04 :   1233:   vfmadd231ps zmm19,zmm22,zmm31
+    0.00 :   1239:   vfmadd231ps zmm20,zmm23,zmm31
+    0.00 :   123f:   vmovups zmm21,ZMMWORD PTR [r15+0x140]
+    0.00 :   1246:   vmovups zmm22,ZMMWORD PTR [r15+0x4140]
+    0.04 :   1250:   vmovups zmm23,ZMMWORD PTR [r15+0x8140]
+    0.00 :   125a:   vbroadcastss zmm31,DWORD PTR [r14+0x14]
+    0.00 :   1261:   vfmadd231ps zmm0,zmm21,zmm31
+    0.04 :   1267:   vfmadd231ps zmm1,zmm22,zmm31
+    0.00 :   126d:   vfmadd231ps zmm2,zmm23,zmm31
+    0.04 :   1273:   vbroadcastss zmm31,DWORD PTR [r14+0x54]
+    0.04 :   127a:   vfmadd231ps zmm3,zmm21,zmm31
+    0.04 :   1280:   vfmadd231ps zmm4,zmm22,zmm31
+    0.00 :   1286:   vfmadd231ps zmm5,zmm23,zmm31
+    0.00 :   128c:   vbroadcastss zmm31,DWORD PTR [r14+0x94]
+    0.00 :   1293:   vfmadd231ps zmm6,zmm21,zmm31
+    0.00 :   1299:   vfmadd231ps zmm7,zmm22,zmm31
+    0.00 :   129f:   vfmadd231ps zmm8,zmm23,zmm31
+    0.00 :   12a5:   vbroadcastss zmm31,DWORD PTR [r14+0xd4]
+    0.00 :   12ac:   vfmadd231ps zmm9,zmm21,zmm31
+    0.04 :   12b2:   vfmadd231ps zmm10,zmm22,zmm31
+    0.04 :   12b8:   vfmadd231ps zmm11,zmm23,zmm31
+    0.00 :   12be:   vbroadcastss zmm31,DWORD PTR [r14+0x114]
+    0.04 :   12c5:   vfmadd231ps zmm12,zmm21,zmm31
+    0.04 :   12cb:   vfmadd231ps zmm13,zmm22,zmm31
+    0.07 :   12d1:   vfmadd231ps zmm14,zmm23,zmm31
+    0.00 :   12d7:   vbroadcastss zmm31,DWORD PTR [r14+0x154]
+    0.00 :   12de:   vfmadd231ps zmm15,zmm21,zmm31
+    0.04 :   12e4:   vfmadd231ps zmm16,zmm22,zmm31
+    0.04 :   12ea:   vfmadd231ps zmm17,zmm23,zmm31
+    0.04 :   12f0:   vbroadcastss zmm31,DWORD PTR [r14+0x194]
+    0.00 :   12f7:   vfmadd231ps zmm18,zmm21,zmm31
+    0.00 :   12fd:   vfmadd231ps zmm19,zmm22,zmm31
+    0.00 :   1303:   vfmadd231ps zmm20,zmm23,zmm31
+    0.00 :   1309:   vmovups zmm21,ZMMWORD PTR [r15+0x180]
+    0.00 :   1310:   vmovups zmm22,ZMMWORD PTR [r15+0x4180]
+    0.04 :   131a:   vmovups zmm23,ZMMWORD PTR [r15+0x8180]
+    0.07 :   1324:   vbroadcastss zmm31,DWORD PTR [r14+0x18]
+    0.00 :   132b:   vfmadd231ps zmm0,zmm21,zmm31
+    0.00 :   1331:   vfmadd231ps zmm1,zmm22,zmm31
+    0.00 :   1337:   vfmadd231ps zmm2,zmm23,zmm31
+    0.00 :   133d:   vbroadcastss zmm31,DWORD PTR [r14+0x58]
+    0.00 :   1344:   vfmadd231ps zmm3,zmm21,zmm31
+    0.00 :   134a:   vfmadd231ps zmm4,zmm22,zmm31
+    0.07 :   1350:   vfmadd231ps zmm5,zmm23,zmm31
+    0.00 :   1356:   vbroadcastss zmm31,DWORD PTR [r14+0x98]
+    0.00 :   135d:   vfmadd231ps zmm6,zmm21,zmm31
+    0.04 :   1363:   vfmadd231ps zmm7,zmm22,zmm31
+    0.00 :   1369:   vfmadd231ps zmm8,zmm23,zmm31
+    0.00 :   136f:   vbroadcastss zmm31,DWORD PTR [r14+0xd8]
+    0.00 :   1376:   vfmadd231ps zmm9,zmm21,zmm31
+    0.00 :   137c:   vfmadd231ps zmm10,zmm22,zmm31
+    0.11 :   1382:   vfmadd231ps zmm11,zmm23,zmm31
+    0.00 :   1388:   vbroadcastss zmm31,DWORD PTR [r14+0x118]
+    0.00 :   138f:   vfmadd231ps zmm12,zmm21,zmm31
+    0.00 :   1395:   vfmadd231ps zmm13,zmm22,zmm31
+    0.00 :   139b:   vfmadd231ps zmm14,zmm23,zmm31
+    0.00 :   13a1:   vbroadcastss zmm31,DWORD PTR [r14+0x158]
+    0.00 :   13a8:   vfmadd231ps zmm15,zmm21,zmm31
+    0.00 :   13ae:   vfmadd231ps zmm16,zmm22,zmm31
+    0.11 :   13b4:   vfmadd231ps zmm17,zmm23,zmm31
+    0.00 :   13ba:   vbroadcastss zmm31,DWORD PTR [r14+0x198]
+    0.00 :   13c1:   vfmadd231ps zmm18,zmm21,zmm31
+    0.00 :   13c7:   vfmadd231ps zmm19,zmm22,zmm31
+    0.04 :   13cd:   vfmadd231ps zmm20,zmm23,zmm31
+    0.00 :   13d3:   vmovups zmm21,ZMMWORD PTR [r15+0x1c0]
+    0.00 :   13da:   vmovups zmm22,ZMMWORD PTR [r15+0x41c0]
+    0.00 :   13e4:   vmovups zmm23,ZMMWORD PTR [r15+0x81c0]
+    0.00 :   13ee:   vbroadcastss zmm31,DWORD PTR [r14+0x1c]
+    0.00 :   13f5:   vfmadd231ps zmm0,zmm21,zmm31
+    0.00 :   13fb:   vfmadd231ps zmm1,zmm22,zmm31
+    0.00 :   1401:   vfmadd231ps zmm2,zmm23,zmm31
+    0.00 :   1407:   vbroadcastss zmm31,DWORD PTR [r14+0x5c]
+    0.04 :   140e:   vfmadd231ps zmm3,zmm21,zmm31
+    0.00 :   1414:   vfmadd231ps zmm4,zmm22,zmm31
+    0.00 :   141a:   vfmadd231ps zmm5,zmm23,zmm31
+    0.00 :   1420:   vbroadcastss zmm31,DWORD PTR [r14+0x9c]
+    0.00 :   1427:   vfmadd231ps zmm6,zmm21,zmm31
+    0.04 :   142d:   vfmadd231ps zmm7,zmm22,zmm31
+    0.00 :   1433:   vfmadd231ps zmm8,zmm23,zmm31
+    0.00 :   1439:   vbroadcastss zmm31,DWORD PTR [r14+0xdc]
+    0.04 :   1440:   vfmadd231ps zmm9,zmm21,zmm31
+    0.00 :   1446:   vfmadd231ps zmm10,zmm22,zmm31
+    0.04 :   144c:   vfmadd231ps zmm11,zmm23,zmm31
+    0.00 :   1452:   vbroadcastss zmm31,DWORD PTR [r14+0x11c]
+    0.04 :   1459:   vfmadd231ps zmm12,zmm21,zmm31
+    0.00 :   145f:   vfmadd231ps zmm13,zmm22,zmm31
+    0.00 :   1465:   vfmadd231ps zmm14,zmm23,zmm31
+    0.00 :   146b:   vbroadcastss zmm31,DWORD PTR [r14+0x15c]
+    0.00 :   1472:   vfmadd231ps zmm15,zmm21,zmm31
+    0.04 :   1478:   vfmadd231ps zmm16,zmm22,zmm31
+    0.04 :   147e:   vfmadd231ps zmm17,zmm23,zmm31
+    0.00 :   1484:   vbroadcastss zmm31,DWORD PTR [r14+0x19c]
+    0.00 :   148b:   vfmadd231ps zmm18,zmm21,zmm31
+    0.00 :   1491:   vfmadd231ps zmm19,zmm22,zmm31
+    0.04 :   1497:   vfmadd231ps zmm20,zmm23,zmm31
+    0.00 :   149d:   vmovups zmm21,ZMMWORD PTR [r15+rbp*1-0x200]
+    0.00 :   14a5:   vmovups zmm22,ZMMWORD PTR [r15+0x4200]
+    0.04 :   14af:   vmovups zmm23,ZMMWORD PTR [r15+0x8200]
+    0.00 :   14b9:   vbroadcastss zmm31,DWORD PTR [r14+0x20]
+    0.00 :   14c0:   vfmadd231ps zmm0,zmm21,zmm31
+    0.00 :   14c6:   vfmadd231ps zmm1,zmm22,zmm31
+    0.00 :   14cc:   vfmadd231ps zmm2,zmm23,zmm31
+    0.00 :   14d2:   vbroadcastss zmm31,DWORD PTR [r14+0x60]
+    0.00 :   14d9:   vfmadd231ps zmm3,zmm21,zmm31
+    0.04 :   14df:   vfmadd231ps zmm4,zmm22,zmm31
+    0.00 :   14e5:   vfmadd231ps zmm5,zmm23,zmm31
+    0.00 :   14eb:   vbroadcastss zmm31,DWORD PTR [r14+0xa0]
+    0.00 :   14f2:   vfmadd231ps zmm6,zmm21,zmm31
+    0.00 :   14f8:   vfmadd231ps zmm7,zmm22,zmm31
+    0.07 :   14fe:   vfmadd231ps zmm8,zmm23,zmm31
+    0.00 :   1504:   vbroadcastss zmm31,DWORD PTR [r14+0xe0]
+    0.07 :   150b:   vfmadd231ps zmm9,zmm21,zmm31
+    0.00 :   1511:   vfmadd231ps zmm10,zmm22,zmm31
+    0.04 :   1517:   vfmadd231ps zmm11,zmm23,zmm31
+    0.00 :   151d:   vbroadcastss zmm31,DWORD PTR [r14+0x120]
+    0.00 :   1524:   vfmadd231ps zmm12,zmm21,zmm31
+    0.00 :   152a:   vfmadd231ps zmm13,zmm22,zmm31
+    0.00 :   1530:   vfmadd231ps zmm14,zmm23,zmm31
+    0.00 :   1536:   vbroadcastss zmm31,DWORD PTR [r14+0x160]
+    0.00 :   153d:   vfmadd231ps zmm15,zmm21,zmm31
+    0.00 :   1543:   vfmadd231ps zmm16,zmm22,zmm31
+    0.00 :   1549:   vfmadd231ps zmm17,zmm23,zmm31
+    0.00 :   154f:   vbroadcastss zmm31,DWORD PTR [r14+0x1a0]
+    0.00 :   1556:   vfmadd231ps zmm18,zmm21,zmm31
+    0.07 :   155c:   vfmadd231ps zmm19,zmm22,zmm31
+    0.00 :   1562:   vfmadd231ps zmm20,zmm23,zmm31
+    0.00 :   1568:   vmovups zmm21,ZMMWORD PTR [r15+rbp*1-0x1c0]
+    0.04 :   1570:   vmovups zmm22,ZMMWORD PTR [r15+0x4240]
+    0.00 :   157a:   vmovups zmm23,ZMMWORD PTR [r15+0x8240]
+    0.00 :   1584:   vbroadcastss zmm31,DWORD PTR [r14+0x24]
+    0.00 :   158b:   vfmadd231ps zmm0,zmm21,zmm31
+    0.00 :   1591:   vfmadd231ps zmm1,zmm22,zmm31
+    0.00 :   1597:   vfmadd231ps zmm2,zmm23,zmm31
+    0.07 :   159d:   vbroadcastss zmm31,DWORD PTR [r14+0x64]
+    0.00 :   15a4:   vfmadd231ps zmm3,zmm21,zmm31
+    0.00 :   15aa:   vfmadd231ps zmm4,zmm22,zmm31
+    0.04 :   15b0:   vfmadd231ps zmm5,zmm23,zmm31
+    0.00 :   15b6:   vbroadcastss zmm31,DWORD PTR [r14+0xa4]
+    0.04 :   15bd:   vfmadd231ps zmm6,zmm21,zmm31
+    0.04 :   15c3:   vfmadd231ps zmm7,zmm22,zmm31
+    0.04 :   15c9:   vfmadd231ps zmm8,zmm23,zmm31
+    0.00 :   15cf:   vbroadcastss zmm31,DWORD PTR [r14+0xe4]
+    0.04 :   15d6:   vfmadd231ps zmm9,zmm21,zmm31
+    0.00 :   15dc:   vfmadd231ps zmm10,zmm22,zmm31
+    0.04 :   15e2:   vfmadd231ps zmm11,zmm23,zmm31
+    0.00 :   15e8:   vbroadcastss zmm31,DWORD PTR [r14+0x124]
+    0.00 :   15ef:   vfmadd231ps zmm12,zmm21,zmm31
+    0.04 :   15f5:   vfmadd231ps zmm13,zmm22,zmm31
+    0.04 :   15fb:   vfmadd231ps zmm14,zmm23,zmm31
+    0.00 :   1601:   vbroadcastss zmm31,DWORD PTR [r14+0x164]
+    0.00 :   1608:   vfmadd231ps zmm15,zmm21,zmm31
+    0.00 :   160e:   vfmadd231ps zmm16,zmm22,zmm31
+    0.00 :   1614:   vfmadd231ps zmm17,zmm23,zmm31
+    0.00 :   161a:   vbroadcastss zmm31,DWORD PTR [r14+0x1a4]
+    0.00 :   1621:   vfmadd231ps zmm18,zmm21,zmm31
+    0.00 :   1627:   vfmadd231ps zmm19,zmm22,zmm31
+    0.00 :   162d:   vfmadd231ps zmm20,zmm23,zmm31
+    0.00 :   1633:   vmovups zmm21,ZMMWORD PTR [r15+rbp*1-0x180]
+    0.00 :   163b:   vmovups zmm22,ZMMWORD PTR [r15+0x4280]
+    0.00 :   1645:   vmovups zmm23,ZMMWORD PTR [r15+0x8280]
+    0.00 :   164f:   vbroadcastss zmm31,DWORD PTR [r14+0x28]
+    0.00 :   1656:   vfmadd231ps zmm0,zmm21,zmm31
+    0.00 :   165c:   vfmadd231ps zmm1,zmm22,zmm31
+    0.00 :   1662:   vfmadd231ps zmm2,zmm23,zmm31
+    0.00 :   1668:   vbroadcastss zmm31,DWORD PTR [r14+0x68]
+    0.00 :   166f:   vfmadd231ps zmm3,zmm21,zmm31
+    0.00 :   1675:   vfmadd231ps zmm4,zmm22,zmm31
+    0.07 :   167b:   vfmadd231ps zmm5,zmm23,zmm31
+    0.00 :   1681:   vbroadcastss zmm31,DWORD PTR [r14+0xa8]
+    0.00 :   1688:   vfmadd231ps zmm6,zmm21,zmm31
+    0.00 :   168e:   vfmadd231ps zmm7,zmm22,zmm31
+    0.00 :   1694:   vfmadd231ps zmm8,zmm23,zmm31
+    0.00 :   169a:   vbroadcastss zmm31,DWORD PTR [r14+0xe8]
+    0.00 :   16a1:   vfmadd231ps zmm9,zmm21,zmm31
+    0.00 :   16a7:   vfmadd231ps zmm10,zmm22,zmm31
+    0.00 :   16ad:   vfmadd231ps zmm11,zmm23,zmm31
+    0.00 :   16b3:   vbroadcastss zmm31,DWORD PTR [r14+0x128]
+    0.00 :   16ba:   vfmadd231ps zmm12,zmm21,zmm31
+    0.00 :   16c0:   vfmadd231ps zmm13,zmm22,zmm31
+    0.00 :   16c6:   vfmadd231ps zmm14,zmm23,zmm31
+    0.00 :   16cc:   vbroadcastss zmm31,DWORD PTR [r14+0x168]
+    0.00 :   16d3:   vfmadd231ps zmm15,zmm21,zmm31
+    0.00 :   16d9:   vfmadd231ps zmm16,zmm22,zmm31
+    0.00 :   16df:   vfmadd231ps zmm17,zmm23,zmm31
+    0.00 :   16e5:   vbroadcastss zmm31,DWORD PTR [r14+0x1a8]
+    0.04 :   16ec:   vfmadd231ps zmm18,zmm21,zmm31
+    0.11 :   16f2:   vfmadd231ps zmm19,zmm22,zmm31
+    0.00 :   16f8:   vfmadd231ps zmm20,zmm23,zmm31
+    0.00 :   16fe:   vmovups zmm21,ZMMWORD PTR [r15+rbp*1-0x140]
+    0.00 :   1706:   vmovups zmm22,ZMMWORD PTR [r15+0x42c0]
+    0.00 :   1710:   vmovups zmm23,ZMMWORD PTR [r15+0x82c0]
+    0.00 :   171a:   vbroadcastss zmm31,DWORD PTR [r14+0x2c]
+    0.04 :   1721:   vfmadd231ps zmm0,zmm21,zmm31
+    0.00 :   1727:   vfmadd231ps zmm1,zmm22,zmm31
+    0.00 :   172d:   vfmadd231ps zmm2,zmm23,zmm31
+    0.04 :   1733:   vbroadcastss zmm31,DWORD PTR [r14+0x6c]
+    0.00 :   173a:   vfmadd231ps zmm3,zmm21,zmm31
+    0.04 :   1740:   vfmadd231ps zmm4,zmm22,zmm31
+    0.04 :   1746:   vfmadd231ps zmm5,zmm23,zmm31
+    0.00 :   174c:   vbroadcastss zmm31,DWORD PTR [r14+0xac]
+    0.00 :   1753:   vfmadd231ps zmm6,zmm21,zmm31
+    0.00 :   1759:   vfmadd231ps zmm7,zmm22,zmm31
+    0.04 :   175f:   vfmadd231ps zmm8,zmm23,zmm31
+    0.00 :   1765:   vbroadcastss zmm31,DWORD PTR [r14+0xec]
+    0.04 :   176c:   vfmadd231ps zmm9,zmm21,zmm31
+    0.00 :   1772:   vfmadd231ps zmm10,zmm22,zmm31
+    0.04 :   1778:   vfmadd231ps zmm11,zmm23,zmm31
+    0.00 :   177e:   vbroadcastss zmm31,DWORD PTR [r14+0x12c]
+    0.00 :   1785:   vfmadd231ps zmm12,zmm21,zmm31
+    0.00 :   178b:   vfmadd231ps zmm13,zmm22,zmm31
+    0.00 :   1791:   vfmadd231ps zmm14,zmm23,zmm31
+    0.00 :   1797:   vbroadcastss zmm31,DWORD PTR [r14+0x16c]
+    0.00 :   179e:   vfmadd231ps zmm15,zmm21,zmm31
+    0.00 :   17a4:   vfmadd231ps zmm16,zmm22,zmm31
+    0.00 :   17aa:   vfmadd231ps zmm17,zmm23,zmm31
+    0.00 :   17b0:   vbroadcastss zmm31,DWORD PTR [r14+0x1ac]
+    0.04 :   17b7:   vfmadd231ps zmm18,zmm21,zmm31
+    0.00 :   17bd:   vfmadd231ps zmm19,zmm22,zmm31
+    0.00 :   17c3:   vfmadd231ps zmm20,zmm23,zmm31
+    0.00 :   17c9:   vmovups zmm21,ZMMWORD PTR [r15+rbp*1-0x100]
+    0.00 :   17d1:   vmovups zmm22,ZMMWORD PTR [r15+0x4300]
+    0.04 :   17db:   vmovups zmm23,ZMMWORD PTR [r15+0x8300]
+    0.00 :   17e5:   vbroadcastss zmm31,DWORD PTR [r14+0x30]
+    0.00 :   17ec:   vfmadd231ps zmm0,zmm21,zmm31
+    0.07 :   17f2:   vfmadd231ps zmm1,zmm22,zmm31
+    0.00 :   17f8:   vfmadd231ps zmm2,zmm23,zmm31
+    0.00 :   17fe:   vbroadcastss zmm31,DWORD PTR [r14+0x70]
+    0.07 :   1805:   vfmadd231ps zmm3,zmm21,zmm31
+    0.00 :   180b:   vfmadd231ps zmm4,zmm22,zmm31
+    0.04 :   1811:   vfmadd231ps zmm5,zmm23,zmm31
+    0.00 :   1817:   vbroadcastss zmm31,DWORD PTR [r14+0xb0]
+    0.00 :   181e:   vfmadd231ps zmm6,zmm21,zmm31
+    0.07 :   1824:   vfmadd231ps zmm7,zmm22,zmm31
+    0.00 :   182a:   vfmadd231ps zmm8,zmm23,zmm31
+    0.00 :   1830:   vbroadcastss zmm31,DWORD PTR [r14+0xf0]
+    0.00 :   1837:   vfmadd231ps zmm9,zmm21,zmm31
+    0.04 :   183d:   vfmadd231ps zmm10,zmm22,zmm31
+    0.00 :   1843:   vfmadd231ps zmm11,zmm23,zmm31
+    0.00 :   1849:   vbroadcastss zmm31,DWORD PTR [r14+0x130]
+    0.00 :   1850:   vfmadd231ps zmm12,zmm21,zmm31
+    0.00 :   1856:   vfmadd231ps zmm13,zmm22,zmm31
+    0.04 :   185c:   vfmadd231ps zmm14,zmm23,zmm31
+    0.00 :   1862:   vbroadcastss zmm31,DWORD PTR [r14+0x170]
+    0.00 :   1869:   vfmadd231ps zmm15,zmm21,zmm31
+    0.00 :   186f:   vfmadd231ps zmm16,zmm22,zmm31
+    0.04 :   1875:   vfmadd231ps zmm17,zmm23,zmm31
+    0.00 :   187b:   vbroadcastss zmm31,DWORD PTR [r14+0x1b0]
+    0.00 :   1882:   vfmadd231ps zmm18,zmm21,zmm31
+    0.00 :   1888:   vfmadd231ps zmm19,zmm22,zmm31
+    0.00 :   188e:   vfmadd231ps zmm20,zmm23,zmm31
+    0.00 :   1894:   vmovups zmm21,ZMMWORD PTR [r15+rbp*1-0xc0]
+    0.00 :   189c:   vmovups zmm22,ZMMWORD PTR [r15+0x4340]
+    0.00 :   18a6:   vmovups zmm23,ZMMWORD PTR [r15+0x8340]
+    0.00 :   18b0:   vbroadcastss zmm31,DWORD PTR [r14+0x34]
+    0.00 :   18b7:   vfmadd231ps zmm0,zmm21,zmm31
+    0.00 :   18bd:   vfmadd231ps zmm1,zmm22,zmm31
+    0.00 :   18c3:   vfmadd231ps zmm2,zmm23,zmm31
+    0.00 :   18c9:   vbroadcastss zmm31,DWORD PTR [r14+0x74]
+    0.00 :   18d0:   vfmadd231ps zmm3,zmm21,zmm31
+    0.00 :   18d6:   vfmadd231ps zmm4,zmm22,zmm31
+    0.00 :   18dc:   vfmadd231ps zmm5,zmm23,zmm31
+    0.00 :   18e2:   vbroadcastss zmm31,DWORD PTR [r14+0xb4]
+    0.00 :   18e9:   vfmadd231ps zmm6,zmm21,zmm31
+    0.00 :   18ef:   vfmadd231ps zmm7,zmm22,zmm31
+    0.04 :   18f5:   vfmadd231ps zmm8,zmm23,zmm31
+    0.00 :   18fb:   vbroadcastss zmm31,DWORD PTR [r14+0xf4]
+    0.00 :   1902:   vfmadd231ps zmm9,zmm21,zmm31
+    0.00 :   1908:   vfmadd231ps zmm10,zmm22,zmm31
+    0.00 :   190e:   vfmadd231ps zmm11,zmm23,zmm31
+    0.00 :   1914:   vbroadcastss zmm31,DWORD PTR [r14+0x134]
+    0.00 :   191b:   vfmadd231ps zmm12,zmm21,zmm31
+    0.04 :   1921:   vfmadd231ps zmm13,zmm22,zmm31
+    0.00 :   1927:   vfmadd231ps zmm14,zmm23,zmm31
+    0.00 :   192d:   vbroadcastss zmm31,DWORD PTR [r14+0x174]
+    0.04 :   1934:   vfmadd231ps zmm15,zmm21,zmm31
+    0.07 :   193a:   vfmadd231ps zmm16,zmm22,zmm31
+    0.04 :   1940:   vfmadd231ps zmm17,zmm23,zmm31
+    0.00 :   1946:   vbroadcastss zmm31,DWORD PTR [r14+0x1b4]
+    0.07 :   194d:   vfmadd231ps zmm18,zmm21,zmm31
+    0.00 :   1953:   vfmadd231ps zmm19,zmm22,zmm31
+    0.00 :   1959:   vfmadd231ps zmm20,zmm23,zmm31
+    0.00 :   195f:   vmovups zmm21,ZMMWORD PTR [r15+rbp*1-0x80]
+    0.00 :   1967:   vmovups zmm22,ZMMWORD PTR [r15+0x4380]
+    0.00 :   1971:   vmovups zmm23,ZMMWORD PTR [r15+0x8380]
+    0.04 :   197b:   vbroadcastss zmm31,DWORD PTR [r14+0x38]
+    0.00 :   1982:   vfmadd231ps zmm0,zmm21,zmm31
+    0.00 :   1988:   vfmadd231ps zmm1,zmm22,zmm31
+    0.00 :   198e:   vfmadd231ps zmm2,zmm23,zmm31
+    0.00 :   1994:   vbroadcastss zmm31,DWORD PTR [r14+0x78]
+    0.00 :   199b:   vfmadd231ps zmm3,zmm21,zmm31
+    0.00 :   19a1:   vfmadd231ps zmm4,zmm22,zmm31
+    0.00 :   19a7:   vfmadd231ps zmm5,zmm23,zmm31
+    0.04 :   19ad:   vbroadcastss zmm31,DWORD PTR [r14+0xb8]
+    0.04 :   19b4:   vfmadd231ps zmm6,zmm21,zmm31
+    0.00 :   19ba:   vfmadd231ps zmm7,zmm22,zmm31
+    0.00 :   19c0:   vfmadd231ps zmm8,zmm23,zmm31
+    0.00 :   19c6:   vbroadcastss zmm31,DWORD PTR [r14+0xf8]
+    0.00 :   19cd:   vfmadd231ps zmm9,zmm21,zmm31
+    0.04 :   19d3:   vfmadd231ps zmm10,zmm22,zmm31
+    0.00 :   19d9:   vfmadd231ps zmm11,zmm23,zmm31
+    0.00 :   19df:   vbroadcastss zmm31,DWORD PTR [r14+0x138]
+    0.04 :   19e6:   vfmadd231ps zmm12,zmm21,zmm31
+    0.00 :   19ec:   vfmadd231ps zmm13,zmm22,zmm31
+    0.00 :   19f2:   vfmadd231ps zmm14,zmm23,zmm31
+    0.00 :   19f8:   vbroadcastss zmm31,DWORD PTR [r14+0x178]
+    0.00 :   19ff:   vfmadd231ps zmm15,zmm21,zmm31
+    0.00 :   1a05:   vfmadd231ps zmm16,zmm22,zmm31
+    0.04 :   1a0b:   vfmadd231ps zmm17,zmm23,zmm31
+    0.00 :   1a11:   vbroadcastss zmm31,DWORD PTR [r14+0x1b8]
+    0.00 :   1a18:   vfmadd231ps zmm18,zmm21,zmm31
+    0.00 :   1a1e:   vfmadd231ps zmm19,zmm22,zmm31
+    0.04 :   1a24:   vfmadd231ps zmm20,zmm23,zmm31
+    0.00 :   1a2a:   vmovups zmm21,ZMMWORD PTR [r15+rbp*1-0x40]
+    0.04 :   1a32:   vmovups zmm22,ZMMWORD PTR [r15+0x43c0]
+    0.00 :   1a3c:   vmovups zmm23,ZMMWORD PTR [r15+0x83c0]
+    0.00 :   1a46:   vbroadcastss zmm31,DWORD PTR [r14+0x3c]
+    0.04 :   1a4d:   vfmadd231ps zmm0,zmm21,zmm31
+    0.00 :   1a53:   vfmadd231ps zmm1,zmm22,zmm31
+    0.07 :   1a59:   vfmadd231ps zmm2,zmm23,zmm31
+    0.00 :   1a5f:   vbroadcastss zmm31,DWORD PTR [r14+0x7c]
+    0.00 :   1a66:   vfmadd231ps zmm3,zmm21,zmm31
+    0.00 :   1a6c:   vfmadd231ps zmm4,zmm22,zmm31
+    0.04 :   1a72:   vfmadd231ps zmm5,zmm23,zmm31
+    0.00 :   1a78:   vbroadcastss zmm31,DWORD PTR [r14+0xbc]
+    0.00 :   1a7f:   vfmadd231ps zmm6,zmm21,zmm31
+    0.00 :   1a85:   vfmadd231ps zmm7,zmm22,zmm31
+    0.04 :   1a8b:   vfmadd231ps zmm8,zmm23,zmm31
+    0.00 :   1a91:   vbroadcastss zmm31,DWORD PTR [r14+0xfc]
+    0.00 :   1a98:   vfmadd231ps zmm9,zmm21,zmm31
+    0.04 :   1a9e:   vfmadd231ps zmm10,zmm22,zmm31
+    0.00 :   1aa4:   vfmadd231ps zmm11,zmm23,zmm31
+    0.00 :   1aaa:   vbroadcastss zmm31,DWORD PTR [r14+0x13c]
+    0.00 :   1ab1:   vfmadd231ps zmm12,zmm21,zmm31
+    0.07 :   1ab7:   vfmadd231ps zmm13,zmm22,zmm31
+    0.00 :   1abd:   vfmadd231ps zmm14,zmm23,zmm31
+    0.00 :   1ac3:   vbroadcastss zmm31,DWORD PTR [r14+0x17c]
+    0.04 :   1aca:   vfmadd231ps zmm15,zmm21,zmm31
+    0.04 :   1ad0:   vfmadd231ps zmm16,zmm22,zmm31
+    0.00 :   1ad6:   vfmadd231ps zmm17,zmm23,zmm31
+    0.00 :   1adc:   vbroadcastss zmm31,DWORD PTR [r14+0x1bc]
+    0.04 :   1ae3:   vfmadd231ps zmm18,zmm21,zmm31
+    0.00 :   1ae9:   vfmadd231ps zmm19,zmm22,zmm31
+    0.00 :   1aef:   vfmadd231ps zmm20,zmm23,zmm31
+    0.00 :   1af5:   test   rax,0x100
+    0.04 :   1afb:   jne    1bbd <jit_avx512_common_1x1_conv_kernel_t.11+0x1b3d>
+    0.00 :   1b01:   vaddps zmm0,zmm0,ZMMWORD PTR [rcx]
+    0.00 :   1b07:   vaddps zmm1,zmm1,ZMMWORD PTR [rcx+0xc400]
+    0.00 :   1b11:   vaddps zmm2,zmm2,ZMMWORD PTR [rcx+0x18800]
+    0.00 :   1b1b:   vaddps zmm3,zmm3,ZMMWORD PTR [rcx+0x40]
+    0.00 :   1b22:   vaddps zmm4,zmm4,ZMMWORD PTR [rcx+0xc440]
+    0.00 :   1b2c:   vaddps zmm5,zmm5,ZMMWORD PTR [rcx+0x18840]
+    0.00 :   1b36:   vaddps zmm6,zmm6,ZMMWORD PTR [rcx+0x80]
+    0.00 :   1b3d:   vaddps zmm7,zmm7,ZMMWORD PTR [rcx+0xc480]
+    0.00 :   1b47:   vaddps zmm8,zmm8,ZMMWORD PTR [rcx+0x18880]
+    0.00 :   1b51:   vaddps zmm9,zmm9,ZMMWORD PTR [rcx+0xc0]
+    0.00 :   1b58:   vaddps zmm10,zmm10,ZMMWORD PTR [rcx+0xc4c0]
+    0.00 :   1b62:   vaddps zmm11,zmm11,ZMMWORD PTR [rcx+0x188c0]
+    0.00 :   1b6c:   vaddps zmm12,zmm12,ZMMWORD PTR [rcx+0x100]
+    0.00 :   1b73:   vaddps zmm13,zmm13,ZMMWORD PTR [rcx+0xc500]
+    0.00 :   1b7d:   vaddps zmm14,zmm14,ZMMWORD PTR [rcx+0x18900]
+    0.00 :   1b87:   vaddps zmm15,zmm15,ZMMWORD PTR [rcx+0x140]
+    0.00 :   1b8e:   vaddps zmm16,zmm16,ZMMWORD PTR [rcx+0xc540]
+    0.00 :   1b98:   vaddps zmm17,zmm17,ZMMWORD PTR [rcx+0x18940]
+    0.00 :   1ba2:   vaddps zmm18,zmm18,ZMMWORD PTR [rcx+0x180]
+    0.00 :   1ba9:   vaddps zmm19,zmm19,ZMMWORD PTR [rcx+0xc580]
+    0.00 :   1bb3:   vaddps zmm20,zmm20,ZMMWORD PTR [rcx+0x18980]
+    0.00 :   1bbd:   test   rcx,0x3f
+    0.00 :   1bc4:   jne    1c8b <jit_avx512_common_1x1_conv_kernel_t.11+0x1c0b>
+    0.00 :   1bca:   vmovups ZMMWORD PTR [rcx],zmm0
+    0.04 :   1bd0:   vmovups ZMMWORD PTR [rcx+0xc400],zmm1
+    0.00 :   1bda:   vmovups ZMMWORD PTR [rcx+0x18800],zmm2
+    0.04 :   1be4:   vmovups ZMMWORD PTR [rcx+0x40],zmm3
+    0.00 :   1beb:   vmovups ZMMWORD PTR [rcx+0xc440],zmm4
+    0.00 :   1bf5:   vmovups ZMMWORD PTR [rcx+0x18840],zmm5
+    0.04 :   1bff:   vmovups ZMMWORD PTR [rcx+0x80],zmm6
+    0.00 :   1c06:   vmovups ZMMWORD PTR [rcx+0xc480],zmm7
+    0.04 :   1c10:   vmovups ZMMWORD PTR [rcx+0x18880],zmm8
+    0.00 :   1c1a:   vmovups ZMMWORD PTR [rcx+0xc0],zmm9
+    0.11 :   1c21:   vmovups ZMMWORD PTR [rcx+0xc4c0],zmm10
+    0.00 :   1c2b:   vmovups ZMMWORD PTR [rcx+0x188c0],zmm11
+    0.00 :   1c35:   vmovups ZMMWORD PTR [rcx+0x100],zmm12
+    0.04 :   1c3c:   vmovups ZMMWORD PTR [rcx+0xc500],zmm13
+    0.11 :   1c46:   vmovups ZMMWORD PTR [rcx+0x18900],zmm14
+    0.07 :   1c50:   vmovups ZMMWORD PTR [rcx+0x140],zmm15
+    0.11 :   1c57:   vmovups ZMMWORD PTR [rcx+0xc540],zmm16
+    0.04 :   1c61:   vmovups ZMMWORD PTR [rcx+0x18940],zmm17
+    0.07 :   1c6b:   vmovups ZMMWORD PTR [rcx+0x180],zmm18
+    0.07 :   1c72:   vmovups ZMMWORD PTR [rcx+0xc580],zmm19
+    0.18 :   1c7c:   vmovups ZMMWORD PTR [rcx+0x18980],zmm20
+    0.00 :   1c86:   jmp    1d47 <jit_avx512_common_1x1_conv_kernel_t.11+0x1cc7>
+    0.00 :   1c8b:   vmovups ZMMWORD PTR [rcx],zmm0
+    0.00 :   1c91:   vmovups ZMMWORD PTR [rcx+0xc400],zmm1
+    0.00 :   1c9b:   vmovups ZMMWORD PTR [rcx+0x18800],zmm2
+    0.00 :   1ca5:   vmovups ZMMWORD PTR [rcx+0x40],zmm3
+    0.00 :   1cac:   vmovups ZMMWORD PTR [rcx+0xc440],zmm4
+    0.00 :   1cb6:   vmovups ZMMWORD PTR [rcx+0x18840],zmm5
+    0.00 :   1cc0:   vmovups ZMMWORD PTR [rcx+0x80],zmm6
+    0.00 :   1cc7:   vmovups ZMMWORD PTR [rcx+0xc480],zmm7
+    0.00 :   1cd1:   vmovups ZMMWORD PTR [rcx+0x18880],zmm8
+    0.00 :   1cdb:   vmovups ZMMWORD PTR [rcx+0xc0],zmm9
+    0.00 :   1ce2:   vmovups ZMMWORD PTR [rcx+0xc4c0],zmm10
+    0.00 :   1cec:   vmovups ZMMWORD PTR [rcx+0x188c0],zmm11
+    0.00 :   1cf6:   vmovups ZMMWORD PTR [rcx+0x100],zmm12
+    0.00 :   1cfd:   vmovups ZMMWORD PTR [rcx+0xc500],zmm13
+    0.00 :   1d07:   vmovups ZMMWORD PTR [rcx+0x18900],zmm14
+    0.00 :   1d11:   vmovups ZMMWORD PTR [rcx+0x140],zmm15
+    0.00 :   1d18:   vmovups ZMMWORD PTR [rcx+0xc540],zmm16
+    0.00 :   1d22:   vmovups ZMMWORD PTR [rcx+0x18940],zmm17
+    0.00 :   1d2c:   vmovups ZMMWORD PTR [rcx+0x180],zmm18
+    0.00 :   1d33:   vmovups ZMMWORD PTR [rcx+0xc580],zmm19
+    0.00 :   1d3d:   vmovups ZMMWORD PTR [rcx+0x18980],zmm20
+    0.00 :   1d47:   add    rbx,0x1c0
+    0.00 :   1d4e:   add    rcx,0x1c0
+    0.00 :   1d55:   sub    rdx,0x7
+    0.00 :   1d59:   cmp    rdx,0x7
+    0.04 :   1d5d:   jge    100 <jit_avx512_common_1x1_conv_kernel_t.11+0x80>
+    0.00 :   1d63:   add    r10,0xc000
+    0.00 :   1d6a:   add    r12,0xc0
+    0.00 :   1d71:   add    r9,0x24c00
+    0.00 :   1d78:   cmp    rsi,0x40
+    0.00 :   1d7c:   je     1daa <jit_avx512_common_1x1_conv_kernel_t.11+0x1d2a>
+    0.00 :   1d82:   cmp    rsi,0x20
+    0.00 :   1d86:   jg     e1 <jit_avx512_common_1x1_conv_kernel_t.11+0x61>
+    0.00 :   1d8c:   cmp    rsi,0x20
+    0.00 :   1d90:   jge    1daa <jit_avx512_common_1x1_conv_kernel_t.11+0x1d2a>
+    0.00 :   1d96:   cmp    rsi,0x10
+    0.00 :   1d9a:   jge    32d9 <jit_avx512_common_1x1_conv_kernel_t.11+0x3259>
+    0.00 :   1da0:   cmp    rsi,0x10
+    0.00 :   1da4:   jle    32d9 <jit_avx512_common_1x1_conv_kernel_t.11+0x3259>
+    0.00 :   1daa:   sub    rsi,0x20
+    0.00 :   1dae:   mov    rbx,QWORD PTR [rsp+0x10]
+    0.00 :   1db3:   mov    r14,QWORD PTR [rsp+0x10]
+    0.00 :   1db8:   mov    rcx,r9
+    0.00 :   1dbb:   mov    rdx,QWORD PTR [rsp]
+    0.00 :   1dbf:   cmp    rdx,0x7
+    0.00 :   1dc3:   jl     32b0 <jit_avx512_common_1x1_conv_kernel_t.11+0x3230>
+    0.00 :   1dc9:   mov    r15,r10
+    0.00 :   1dcc:   mov    r14,rbx
+    0.00 :   1dcf:   vpxord zmm0,zmm0,zmm0
+    0.00 :   1dd5:   vpxord zmm2,zmm2,zmm2
+    0.00 :   1ddb:   vpxord zmm4,zmm4,zmm4
+    0.00 :   1de1:   vpxord zmm6,zmm6,zmm6
+    0.00 :   1de7:   vpxord zmm8,zmm8,zmm8
+    0.00 :   1ded:   vpxord zmm10,zmm10,zmm10
+    0.00 :   1df3:   vpxord zmm12,zmm12,zmm12
+    0.00 :   1df9:   vpxord zmm1,zmm1,zmm1
+    0.00 :   1dff:   vpxord zmm3,zmm3,zmm3
+    0.00 :   1e05:   vpxord zmm5,zmm5,zmm5
+    0.00 :   1e0b:   vpxord zmm7,zmm7,zmm7
+    0.00 :   1e11:   vpxord zmm9,zmm9,zmm9
+    0.00 :   1e17:   vpxord zmm11,zmm11,zmm11
+    0.00 :   1e1d:   vpxord zmm13,zmm13,zmm13
+    0.00 :   1e23:   mov    rdi,r11
+    0.00 :   1e26:   sub    rdi,0x10
+    0.00 :   1e2a:   jle    27ae <jit_avx512_common_1x1_conv_kernel_t.11+0x272e>
+    0.00 :   1e30:   vmovups zmm14,ZMMWORD PTR [r15]
+    0.00 :   1e36:   vmovups zmm15,ZMMWORD PTR [r15+0x4000]
+    0.00 :   1e40:   vbroadcastss zmm31,DWORD PTR [r14]
+    0.00 :   1e46:   vfmadd231ps zmm0,zmm14,zmm31
+    0.00 :   1e4c:   vfmadd231ps zmm1,zmm15,zmm31
+    0.00 :   1e52:   vbroadcastss zmm31,DWORD PTR [r14+0x40]
+    0.04 :   1e59:   vfmadd231ps zmm2,zmm14,zmm31
+    0.00 :   1e5f:   vfmadd231ps zmm3,zmm15,zmm31
+    0.00 :   1e65:   vbroadcastss zmm31,DWORD PTR [r14+0x80]
+    0.00 :   1e6c:   vfmadd231ps zmm4,zmm14,zmm31
+    0.00 :   1e72:   vfmadd231ps zmm5,zmm15,zmm31
+    0.00 :   1e78:   vbroadcastss zmm31,DWORD PTR [r14+0xc0]
+    0.00 :   1e7f:   vfmadd231ps zmm6,zmm14,zmm31
+    0.00 :   1e85:   vfmadd231ps zmm7,zmm15,zmm31
+    0.04 :   1e8b:   vbroadcastss zmm31,DWORD PTR [r14+0x100]
+    0.04 :   1e92:   vfmadd231ps zmm8,zmm14,zmm31
+    0.00 :   1e98:   vfmadd231ps zmm9,zmm15,zmm31
+    0.00 :   1e9e:   vbroadcastss zmm31,DWORD PTR [r14+0x140]
+    0.04 :   1ea5:   vfmadd231ps zmm10,zmm14,zmm31
+    0.04 :   1eab:   vfmadd231ps zmm11,zmm15,zmm31
+    0.00 :   1eb1:   vbroadcastss zmm31,DWORD PTR [r14+0x180]
+    0.00 :   1eb8:   vfmadd231ps zmm12,zmm14,zmm31
+    0.04 :   1ebe:   vfmadd231ps zmm13,zmm15,zmm31
+    0.07 :   1ec4:   vmovups zmm14,ZMMWORD PTR [r15+0x40]
+    0.00 :   1ecb:   vmovups zmm15,ZMMWORD PTR [r15+0x4040]
+    0.00 :   1ed5:   vbroadcastss zmm31,DWORD PTR [r14+0x4]
+    0.04 :   1edc:   vfmadd231ps zmm0,zmm14,zmm31
+    0.07 :   1ee2:   vfmadd231ps zmm1,zmm15,zmm31
+    0.00 :   1ee8:   vbroadcastss zmm31,DWORD PTR [r14+0x44]
+    0.04 :   1eef:   vfmadd231ps zmm2,zmm14,zmm31
+    0.11 :   1ef5:   vfmadd231ps zmm3,zmm15,zmm31
+    0.00 :   1efb:   vbroadcastss zmm31,DWORD PTR [r14+0x84]
+    0.00 :   1f02:   vfmadd231ps zmm4,zmm14,zmm31
+    0.00 :   1f08:   vfmadd231ps zmm5,zmm15,zmm31
+    0.00 :   1f0e:   vbroadcastss zmm31,DWORD PTR [r14+0xc4]
+    0.00 :   1f15:   vfmadd231ps zmm6,zmm14,zmm31
+    0.00 :   1f1b:   vfmadd231ps zmm7,zmm15,zmm31
+    0.00 :   1f21:   vbroadcastss zmm31,DWORD PTR [r14+0x104]
+    0.00 :   1f28:   vfmadd231ps zmm8,zmm14,zmm31
+    0.00 :   1f2e:   vfmadd231ps zmm9,zmm15,zmm31
+    0.04 :   1f34:   vbroadcastss zmm31,DWORD PTR [r14+0x144]
+    0.00 :   1f3b:   vfmadd231ps zmm10,zmm14,zmm31
+    0.00 :   1f41:   vfmadd231ps zmm11,zmm15,zmm31
+    0.07 :   1f47:   vbroadcastss zmm31,DWORD PTR [r14+0x184]
+    0.00 :   1f4e:   vfmadd231ps zmm12,zmm14,zmm31
+    0.04 :   1f54:   vfmadd231ps zmm13,zmm15,zmm31
+    0.00 :   1f5a:   vmovups zmm14,ZMMWORD PTR [r15+0x80]
+    0.00 :   1f61:   vmovups zmm15,ZMMWORD PTR [r15+0x4080]
+    0.00 :   1f6b:   vbroadcastss zmm31,DWORD PTR [r14+0x8]
+    0.00 :   1f72:   vfmadd231ps zmm0,zmm14,zmm31
+    0.00 :   1f78:   vfmadd231ps zmm1,zmm15,zmm31
+    0.00 :   1f7e:   vbroadcastss zmm31,DWORD PTR [r14+0x48]
+    0.00 :   1f85:   vfmadd231ps zmm2,zmm14,zmm31
+    0.00 :   1f8b:   vfmadd231ps zmm3,zmm15,zmm31
+    0.00 :   1f91:   vbroadcastss zmm31,DWORD PTR [r14+0x88]
+    0.00 :   1f98:   vfmadd231ps zmm4,zmm14,zmm31
+    0.00 :   1f9e:   vfmadd231ps zmm5,zmm15,zmm31
+    0.00 :   1fa4:   vbroadcastss zmm31,DWORD PTR [r14+0xc8]
+    0.04 :   1fab:   vfmadd231ps zmm6,zmm14,zmm31
+    0.04 :   1fb1:   vfmadd231ps zmm7,zmm15,zmm31
+    0.00 :   1fb7:   vbroadcastss zmm31,DWORD PTR [r14+0x108]
+    0.00 :   1fbe:   vfmadd231ps zmm8,zmm14,zmm31
+    0.00 :   1fc4:   vfmadd231ps zmm9,zmm15,zmm31
+    0.00 :   1fca:   vbroadcastss zmm31,DWORD PTR [r14+0x148]
+    0.00 :   1fd1:   vfmadd231ps zmm10,zmm14,zmm31
+    0.00 :   1fd7:   vfmadd231ps zmm11,zmm15,zmm31
+    0.00 :   1fdd:   vbroadcastss zmm31,DWORD PTR [r14+0x188]
+    0.04 :   1fe4:   vfmadd231ps zmm12,zmm14,zmm31
+    0.00 :   1fea:   vfmadd231ps zmm13,zmm15,zmm31
+    0.00 :   1ff0:   vmovups zmm14,ZMMWORD PTR [r15+0xc0]
+    0.04 :   1ff7:   vmovups zmm15,ZMMWORD PTR [r15+0x40c0]
+    0.00 :   2001:   vbroadcastss zmm31,DWORD PTR [r14+0xc]
+    0.00 :   2008:   vfmadd231ps zmm0,zmm14,zmm31
+    0.00 :   200e:   vfmadd231ps zmm1,zmm15,zmm31
+    0.07 :   2014:   vbroadcastss zmm31,DWORD PTR [r14+0x4c]
+    0.04 :   201b:   vfmadd231ps zmm2,zmm14,zmm31
+    0.00 :   2021:   vfmadd231ps zmm3,zmm15,zmm31
+    0.00 :   2027:   vbroadcastss zmm31,DWORD PTR [r14+0x8c]
+    0.07 :   202e:   vfmadd231ps zmm4,zmm14,zmm31
+    0.00 :   2034:   vfmadd231ps zmm5,zmm15,zmm31
+    0.04 :   203a:   vbroadcastss zmm31,DWORD PTR [r14+0xcc]
+    0.00 :   2041:   vfmadd231ps zmm6,zmm14,zmm31
+    0.07 :   2047:   vfmadd231ps zmm7,zmm15,zmm31
+    0.00 :   204d:   vbroadcastss zmm31,DWORD PTR [r14+0x10c]
+    0.00 :   2054:   vfmadd231ps zmm8,zmm14,zmm31
+    0.00 :   205a:   vfmadd231ps zmm9,zmm15,zmm31
+    0.00 :   2060:   vbroadcastss zmm31,DWORD PTR [r14+0x14c]
+    0.00 :   2067:   vfmadd231ps zmm10,zmm14,zmm31
+    0.07 :   206d:   vfmadd231ps zmm11,zmm15,zmm31
+    0.04 :   2073:   vbroadcastss zmm31,DWORD PTR [r14+0x18c]
+    0.00 :   207a:   vfmadd231ps zmm12,zmm14,zmm31
+    0.00 :   2080:   vfmadd231ps zmm13,zmm15,zmm31
+    0.00 :   2086:   vmovups zmm14,ZMMWORD PTR [r15+0x100]
+    0.07 :   208d:   vmovups zmm15,ZMMWORD PTR [r15+0x4100]
+    0.04 :   2097:   vbroadcastss zmm31,DWORD PTR [r14+0x10]
+    0.07 :   209e:   vfmadd231ps zmm0,zmm14,zmm31
+    0.04 :   20a4:   vfmadd231ps zmm1,zmm15,zmm31
+    0.00 :   20aa:   vbroadcastss zmm31,DWORD PTR [r14+0x50]
+    0.00 :   20b1:   vfmadd231ps zmm2,zmm14,zmm31
+    0.00 :   20b7:   vfmadd231ps zmm3,zmm15,zmm31
+    0.00 :   20bd:   vbroadcastss zmm31,DWORD PTR [r14+0x90]
+    0.04 :   20c4:   vfmadd231ps zmm4,zmm14,zmm31
+    0.04 :   20ca:   vfmadd231ps zmm5,zmm15,zmm31
+    0.00 :   20d0:   vbroadcastss zmm31,DWORD PTR [r14+0xd0]
+    0.00 :   20d7:   vfmadd231ps zmm6,zmm14,zmm31
+    0.00 :   20dd:   vfmadd231ps zmm7,zmm15,zmm31
+    0.04 :   20e3:   vbroadcastss zmm31,DWORD PTR [r14+0x110]
+    0.00 :   20ea:   vfmadd231ps zmm8,zmm14,zmm31
+    0.00 :   20f0:   vfmadd231ps zmm9,zmm15,zmm31
+    0.00 :   20f6:   vbroadcastss zmm31,DWORD PTR [r14+0x150]
+    0.00 :   20fd:   vfmadd231ps zmm10,zmm14,zmm31
+    0.04 :   2103:   vfmadd231ps zmm11,zmm15,zmm31
+    0.00 :   2109:   vbroadcastss zmm31,DWORD PTR [r14+0x190]
+    0.00 :   2110:   vfmadd231ps zmm12,zmm14,zmm31
+    0.00 :   2116:   vfmadd231ps zmm13,zmm15,zmm31
+    0.00 :   211c:   vmovups zmm14,ZMMWORD PTR [r15+0x140]
+    0.04 :   2123:   vmovups zmm15,ZMMWORD PTR [r15+0x4140]
+    0.00 :   212d:   vbroadcastss zmm31,DWORD PTR [r14+0x14]
+    0.00 :   2134:   vfmadd231ps zmm0,zmm14,zmm31
+    0.07 :   213a:   vfmadd231ps zmm1,zmm15,zmm31
+    0.00 :   2140:   vbroadcastss zmm31,DWORD PTR [r14+0x54]
+    0.00 :   2147:   vfmadd231ps zmm2,zmm14,zmm31
+    0.00 :   214d:   vfmadd231ps zmm3,zmm15,zmm31
+    0.00 :   2153:   vbroadcastss zmm31,DWORD PTR [r14+0x94]
+    0.00 :   215a:   vfmadd231ps zmm4,zmm14,zmm31
+    0.07 :   2160:   vfmadd231ps zmm5,zmm15,zmm31
+    0.00 :   2166:   vbroadcastss zmm31,DWORD PTR [r14+0xd4]
+    0.00 :   216d:   vfmadd231ps zmm6,zmm14,zmm31
+    0.00 :   2173:   vfmadd231ps zmm7,zmm15,zmm31
+    0.00 :   2179:   vbroadcastss zmm31,DWORD PTR [r14+0x114]
+    0.04 :   2180:   vfmadd231ps zmm8,zmm14,zmm31
+    0.04 :   2186:   vfmadd231ps zmm9,zmm15,zmm31
+    0.04 :   218c:   vbroadcastss zmm31,DWORD PTR [r14+0x154]
+    0.00 :   2193:   vfmadd231ps zmm10,zmm14,zmm31
+    0.07 :   2199:   vfmadd231ps zmm11,zmm15,zmm31
+    0.00 :   219f:   vbroadcastss zmm31,DWORD PTR [r14+0x194]
+    0.00 :   21a6:   vfmadd231ps zmm12,zmm14,zmm31
+    0.00 :   21ac:   vfmadd231ps zmm13,zmm15,zmm31
+    0.07 :   21b2:   vmovups zmm14,ZMMWORD PTR [r15+0x180]
+    0.00 :   21b9:   vmovups zmm15,ZMMWORD PTR [r15+0x4180]
+    0.00 :   21c3:   vbroadcastss zmm31,DWORD PTR [r14+0x18]
+    0.04 :   21ca:   vfmadd231ps zmm0,zmm14,zmm31
+    0.00 :   21d0:   vfmadd231ps zmm1,zmm15,zmm31
+    0.04 :   21d6:   vbroadcastss zmm31,DWORD PTR [r14+0x58]
+    0.00 :   21dd:   vfmadd231ps zmm2,zmm14,zmm31
+    0.04 :   21e3:   vfmadd231ps zmm3,zmm15,zmm31
+    0.04 :   21e9:   vbroadcastss zmm31,DWORD PTR [r14+0x98]
+    0.00 :   21f0:   vfmadd231ps zmm4,zmm14,zmm31
+    0.00 :   21f6:   vfmadd231ps zmm5,zmm15,zmm31
+    0.00 :   21fc:   vbroadcastss zmm31,DWORD PTR [r14+0xd8]
+    0.00 :   2203:   vfmadd231ps zmm6,zmm14,zmm31
+    0.04 :   2209:   vfmadd231ps zmm7,zmm15,zmm31
+    0.00 :   220f:   vbroadcastss zmm31,DWORD PTR [r14+0x118]
+    0.00 :   2216:   vfmadd231ps zmm8,zmm14,zmm31
+    0.07 :   221c:   vfmadd231ps zmm9,zmm15,zmm31
+    0.00 :   2222:   vbroadcastss zmm31,DWORD PTR [r14+0x158]
+    0.00 :   2229:   vfmadd231ps zmm10,zmm14,zmm31
+    0.04 :   222f:   vfmadd231ps zmm11,zmm15,zmm31
+    0.00 :   2235:   vbroadcastss zmm31,DWORD PTR [r14+0x198]
+    0.00 :   223c:   vfmadd231ps zmm12,zmm14,zmm31
+    0.00 :   2242:   vfmadd231ps zmm13,zmm15,zmm31
+    0.00 :   2248:   vmovups zmm14,ZMMWORD PTR [r15+0x1c0]
+    0.00 :   224f:   vmovups zmm15,ZMMWORD PTR [r15+0x41c0]
+    0.00 :   2259:   vbroadcastss zmm31,DWORD PTR [r14+0x1c]
+    0.00 :   2260:   vfmadd231ps zmm0,zmm14,zmm31
+    0.00 :   2266:   vfmadd231ps zmm1,zmm15,zmm31
+    0.00 :   226c:   vbroadcastss zmm31,DWORD PTR [r14+0x5c]
+    0.00 :   2273:   vfmadd231ps zmm2,zmm14,zmm31
+    0.07 :   2279:   vfmadd231ps zmm3,zmm15,zmm31
+    0.00 :   227f:   vbroadcastss zmm31,DWORD PTR [r14+0x9c]
+    0.00 :   2286:   vfmadd231ps zmm4,zmm14,zmm31
+    0.00 :   228c:   vfmadd231ps zmm5,zmm15,zmm31
+    0.00 :   2292:   vbroadcastss zmm31,DWORD PTR [r14+0xdc]
+    0.00 :   2299:   vfmadd231ps zmm6,zmm14,zmm31
+    0.04 :   229f:   vfmadd231ps zmm7,zmm15,zmm31
+    0.00 :   22a5:   vbroadcastss zmm31,DWORD PTR [r14+0x11c]
+    0.00 :   22ac:   vfmadd231ps zmm8,zmm14,zmm31
+    0.04 :   22b2:   vfmadd231ps zmm9,zmm15,zmm31
+    0.00 :   22b8:   vbroadcastss zmm31,DWORD PTR [r14+0x15c]
+    0.04 :   22bf:   vfmadd231ps zmm10,zmm14,zmm31
+    0.00 :   22c5:   vfmadd231ps zmm11,zmm15,zmm31
+    0.11 :   22cb:   vbroadcastss zmm31,DWORD PTR [r14+0x19c]
+    0.00 :   22d2:   vfmadd231ps zmm12,zmm14,zmm31
+    0.00 :   22d8:   vfmadd231ps zmm13,zmm15,zmm31
+    0.07 :   22de:   vmovups zmm14,ZMMWORD PTR [r15+rbp*1-0x200]
+    0.04 :   22e6:   vmovups zmm15,ZMMWORD PTR [r15+0x4200]
+    0.04 :   22f0:   vbroadcastss zmm31,DWORD PTR [r14+0x20]
+    0.00 :   22f7:   vfmadd231ps zmm0,zmm14,zmm31
+    0.00 :   22fd:   vfmadd231ps zmm1,zmm15,zmm31
+    0.00 :   2303:   vbroadcastss zmm31,DWORD PTR [r14+0x60]
+    0.00 :   230a:   vfmadd231ps zmm2,zmm14,zmm31
+    0.07 :   2310:   vfmadd231ps zmm3,zmm15,zmm31
+    0.00 :   2316:   vbroadcastss zmm31,DWORD PTR [r14+0xa0]
+    0.00 :   231d:   vfmadd231ps zmm4,zmm14,zmm31
+    0.00 :   2323:   vfmadd231ps zmm5,zmm15,zmm31
+    0.00 :   2329:   vbroadcastss zmm31,DWORD PTR [r14+0xe0]
+    0.04 :   2330:   vfmadd231ps zmm6,zmm14,zmm31
+    0.04 :   2336:   vfmadd231ps zmm7,zmm15,zmm31
+    0.00 :   233c:   vbroadcastss zmm31,DWORD PTR [r14+0x120]
+    0.00 :   2343:   vfmadd231ps zmm8,zmm14,zmm31
+    0.00 :   2349:   vfmadd231ps zmm9,zmm15,zmm31
+    0.00 :   234f:   vbroadcastss zmm31,DWORD PTR [r14+0x160]
+    0.00 :   2356:   vfmadd231ps zmm10,zmm14,zmm31
+    0.04 :   235c:   vfmadd231ps zmm11,zmm15,zmm31
+    0.00 :   2362:   vbroadcastss zmm31,DWORD PTR [r14+0x1a0]
+    0.07 :   2369:   vfmadd231ps zmm12,zmm14,zmm31
+    0.00 :   236f:   vfmadd231ps zmm13,zmm15,zmm31
+    0.00 :   2375:   vmovups zmm14,ZMMWORD PTR [r15+rbp*1-0x1c0]
+    0.00 :   237d:   vmovups zmm15,ZMMWORD PTR [r15+0x4240]
+    0.00 :   2387:   vbroadcastss zmm31,DWORD PTR [r14+0x24]
+    0.04 :   238e:   vfmadd231ps zmm0,zmm14,zmm31
+    0.00 :   2394:   vfmadd231ps zmm1,zmm15,zmm31
+    0.00 :   239a:   vbroadcastss zmm31,DWORD PTR [r14+0x64]
+    0.00 :   23a1:   vfmadd231ps zmm2,zmm14,zmm31
+    0.00 :   23a7:   vfmadd231ps zmm3,zmm15,zmm31
+    0.00 :   23ad:   vbroadcastss zmm31,DWORD PTR [r14+0xa4]
+    0.00 :   23b4:   vfmadd231ps zmm4,zmm14,zmm31
+    0.00 :   23ba:   vfmadd231ps zmm5,zmm15,zmm31
+    0.00 :   23c0:   vbroadcastss zmm31,DWORD PTR [r14+0xe4]
+    0.04 :   23c7:   vfmadd231ps zmm6,zmm14,zmm31
+    0.07 :   23cd:   vfmadd231ps zmm7,zmm15,zmm31
+    0.04 :   23d3:   vbroadcastss zmm31,DWORD PTR [r14+0x124]
+    0.00 :   23da:   vfmadd231ps zmm8,zmm14,zmm31
+    0.00 :   23e0:   vfmadd231ps zmm9,zmm15,zmm31
+    0.00 :   23e6:   vbroadcastss zmm31,DWORD PTR [r14+0x164]
+    0.04 :   23ed:   vfmadd231ps zmm10,zmm14,zmm31
+    0.07 :   23f3:   vfmadd231ps zmm11,zmm15,zmm31
+    0.04 :   23f9:   vbroadcastss zmm31,DWORD PTR [r14+0x1a4]
+    0.00 :   2400:   vfmadd231ps zmm12,zmm14,zmm31
+    0.04 :   2406:   vfmadd231ps zmm13,zmm15,zmm31
+    0.00 :   240c:   vmovups zmm14,ZMMWORD PTR [r15+rbp*1-0x180]
+    0.00 :   2414:   vmovups zmm15,ZMMWORD PTR [r15+0x4280]
+    0.00 :   241e:   vbroadcastss zmm31,DWORD PTR [r14+0x28]
+    0.07 :   2425:   vfmadd231ps zmm0,zmm14,zmm31
+    0.00 :   242b:   vfmadd231ps zmm1,zmm15,zmm31
+    0.00 :   2431:   vbroadcastss zmm31,DWORD PTR [r14+0x68]
+    0.00 :   2438:   vfmadd231ps zmm2,zmm14,zmm31
+    0.00 :   243e:   vfmadd231ps zmm3,zmm15,zmm31
+    0.00 :   2444:   vbroadcastss zmm31,DWORD PTR [r14+0xa8]
+    0.00 :   244b:   vfmadd231ps zmm4,zmm14,zmm31
+    0.04 :   2451:   vfmadd231ps zmm5,zmm15,zmm31
+    0.00 :   2457:   vbroadcastss zmm31,DWORD PTR [r14+0xe8]
+    0.00 :   245e:   vfmadd231ps zmm6,zmm14,zmm31
+    0.04 :   2464:   vfmadd231ps zmm7,zmm15,zmm31
+    0.00 :   246a:   vbroadcastss zmm31,DWORD PTR [r14+0x128]
+    0.00 :   2471:   vfmadd231ps zmm8,zmm14,zmm31
+    0.00 :   2477:   vfmadd231ps zmm9,zmm15,zmm31
+    0.00 :   247d:   vbroadcastss zmm31,DWORD PTR [r14+0x168]
+    0.04 :   2484:   vfmadd231ps zmm10,zmm14,zmm31
+    0.04 :   248a:   vfmadd231ps zmm11,zmm15,zmm31
+    0.00 :   2490:   vbroadcastss zmm31,DWORD PTR [r14+0x1a8]
+    0.00 :   2497:   vfmadd231ps zmm12,zmm14,zmm31
+    0.04 :   249d:   vfmadd231ps zmm13,zmm15,zmm31
+    0.00 :   24a3:   vmovups zmm14,ZMMWORD PTR [r15+rbp*1-0x140]
+    0.00 :   24ab:   vmovups zmm15,ZMMWORD PTR [r15+0x42c0]
+    0.00 :   24b5:   vbroadcastss zmm31,DWORD PTR [r14+0x2c]
+    0.00 :   24bc:   vfmadd231ps zmm0,zmm14,zmm31
+    0.04 :   24c2:   vfmadd231ps zmm1,zmm15,zmm31
+    0.00 :   24c8:   vbroadcastss zmm31,DWORD PTR [r14+0x6c]
+    0.00 :   24cf:   vfmadd231ps zmm2,zmm14,zmm31
+    0.04 :   24d5:   vfmadd231ps zmm3,zmm15,zmm31
+    0.04 :   24db:   vbroadcastss zmm31,DWORD PTR [r14+0xac]
+    0.00 :   24e2:   vfmadd231ps zmm4,zmm14,zmm31
+    0.04 :   24e8:   vfmadd231ps zmm5,zmm15,zmm31
+    0.07 :   24ee:   vbroadcastss zmm31,DWORD PTR [r14+0xec]
+    0.00 :   24f5:   vfmadd231ps zmm6,zmm14,zmm31
+    0.04 :   24fb:   vfmadd231ps zmm7,zmm15,zmm31
+    0.00 :   2501:   vbroadcastss zmm31,DWORD PTR [r14+0x12c]
+    0.00 :   2508:   vfmadd231ps zmm8,zmm14,zmm31
+    0.00 :   250e:   vfmadd231ps zmm9,zmm15,zmm31
+    0.04 :   2514:   vbroadcastss zmm31,DWORD PTR [r14+0x16c]
+    0.00 :   251b:   vfmadd231ps zmm10,zmm14,zmm31
+    0.00 :   2521:   vfmadd231ps zmm11,zmm15,zmm31
+    0.04 :   2527:   vbroadcastss zmm31,DWORD PTR [r14+0x1ac]
+    0.00 :   252e:   vfmadd231ps zmm12,zmm14,zmm31
+    0.04 :   2534:   vfmadd231ps zmm13,zmm15,zmm31
+    0.00 :   253a:   vmovups zmm14,ZMMWORD PTR [r15+rbp*1-0x100]
+    0.00 :   2542:   vmovups zmm15,ZMMWORD PTR [r15+0x4300]
+    0.00 :   254c:   vbroadcastss zmm31,DWORD PTR [r14+0x30]
+    0.04 :   2553:   vfmadd231ps zmm0,zmm14,zmm31
+    0.04 :   2559:   vfmadd231ps zmm1,zmm15,zmm31
+    0.00 :   255f:   vbroadcastss zmm31,DWORD PTR [r14+0x70]
+    0.04 :   2566:   vfmadd231ps zmm2,zmm14,zmm31
+    0.04 :   256c:   vfmadd231ps zmm3,zmm15,zmm31
+    0.04 :   2572:   vbroadcastss zmm31,DWORD PTR [r14+0xb0]
+    0.00 :   2579:   vfmadd231ps zmm4,zmm14,zmm31
+    0.00 :   257f:   vfmadd231ps zmm5,zmm15,zmm31
+    0.04 :   2585:   vbroadcastss zmm31,DWORD PTR [r14+0xf0]
+    0.00 :   258c:   vfmadd231ps zmm6,zmm14,zmm31
+    0.00 :   2592:   vfmadd231ps zmm7,zmm15,zmm31
+    0.00 :   2598:   vbroadcastss zmm31,DWORD PTR [r14+0x130]
+    0.00 :   259f:   vfmadd231ps zmm8,zmm14,zmm31
+    0.00 :   25a5:   vfmadd231ps zmm9,zmm15,zmm31
+    0.00 :   25ab:   vbroadcastss zmm31,DWORD PTR [r14+0x170]
+    0.00 :   25b2:   vfmadd231ps zmm10,zmm14,zmm31
+    0.00 :   25b8:   vfmadd231ps zmm11,zmm15,zmm31
+    0.00 :   25be:   vbroadcastss zmm31,DWORD PTR [r14+0x1b0]
+    0.00 :   25c5:   vfmadd231ps zmm12,zmm14,zmm31
+    0.00 :   25cb:   vfmadd231ps zmm13,zmm15,zmm31
+    0.00 :   25d1:   vmovups zmm14,ZMMWORD PTR [r15+rbp*1-0xc0]
+    0.00 :   25d9:   vmovups zmm15,ZMMWORD PTR [r15+0x4340]
+    0.00 :   25e3:   vbroadcastss zmm31,DWORD PTR [r14+0x34]
+    0.11 :   25ea:   vfmadd231ps zmm0,zmm14,zmm31
+    0.00 :   25f0:   vfmadd231ps zmm1,zmm15,zmm31
+    0.00 :   25f6:   vbroadcastss zmm31,DWORD PTR [r14+0x74]
+    0.00 :   25fd:   vfmadd231ps zmm2,zmm14,zmm31
+    0.04 :   2603:   vfmadd231ps zmm3,zmm15,zmm31
+    0.00 :   2609:   vbroadcastss zmm31,DWORD PTR [r14+0xb4]
+    0.00 :   2610:   vfmadd231ps zmm4,zmm14,zmm31
+    0.04 :   2616:   vfmadd231ps zmm5,zmm15,zmm31
+    0.00 :   261c:   vbroadcastss zmm31,DWORD PTR [r14+0xf4]
+    0.00 :   2623:   vfmadd231ps zmm6,zmm14,zmm31
+    0.00 :   2629:   vfmadd231ps zmm7,zmm15,zmm31
+    0.00 :   262f:   vbroadcastss zmm31,DWORD PTR [r14+0x134]
+    0.00 :   2636:   vfmadd231ps zmm8,zmm14,zmm31
+    0.00 :   263c:   vfmadd231ps zmm9,zmm15,zmm31
+    0.00 :   2642:   vbroadcastss zmm31,DWORD PTR [r14+0x174]
+    0.00 :   2649:   vfmadd231ps zmm10,zmm14,zmm31
+    0.00 :   264f:   vfmadd231ps zmm11,zmm15,zmm31
+    0.00 :   2655:   vbroadcastss zmm31,DWORD PTR [r14+0x1b4]
+    0.04 :   265c:   vfmadd231ps zmm12,zmm14,zmm31
+    0.00 :   2662:   vfmadd231ps zmm13,zmm15,zmm31
+    0.04 :   2668:   vmovups zmm14,ZMMWORD PTR [r15+rbp*1-0x80]
+    0.00 :   2670:   vmovups zmm15,ZMMWORD PTR [r15+0x4380]
+    0.00 :   267a:   vbroadcastss zmm31,DWORD PTR [r14+0x38]
+    0.04 :   2681:   vfmadd231ps zmm0,zmm14,zmm31
+    0.00 :   2687:   vfmadd231ps zmm1,zmm15,zmm31
+    0.00 :   268d:   vbroadcastss zmm31,DWORD PTR [r14+0x78]
+    0.00 :   2694:   vfmadd231ps zmm2,zmm14,zmm31
+    0.00 :   269a:   vfmadd231ps zmm3,zmm15,zmm31
+    0.00 :   26a0:   vbroadcastss zmm31,DWORD PTR [r14+0xb8]
+    0.00 :   26a7:   vfmadd231ps zmm4,zmm14,zmm31
+    0.04 :   26ad:   vfmadd231ps zmm5,zmm15,zmm31
+    0.04 :   26b3:   vbroadcastss zmm31,DWORD PTR [r14+0xf8]
+    0.00 :   26ba:   vfmadd231ps zmm6,zmm14,zmm31
+    0.04 :   26c0:   vfmadd231ps zmm7,zmm15,zmm31
+    0.00 :   26c6:   vbroadcastss zmm31,DWORD PTR [r14+0x138]
+    0.00 :   26cd:   vfmadd231ps zmm8,zmm14,zmm31
+    0.00 :   26d3:   vfmadd231ps zmm9,zmm15,zmm31
+    0.00 :   26d9:   vbroadcastss zmm31,DWORD PTR [r14+0x178]
+    0.00 :   26e0:   vfmadd231ps zmm10,zmm14,zmm31
+    0.07 :   26e6:   vfmadd231ps zmm11,zmm15,zmm31
+    0.04 :   26ec:   vbroadcastss zmm31,DWORD PTR [r14+0x1b8]
+    0.00 :   26f3:   vfmadd231ps zmm12,zmm14,zmm31
+    0.04 :   26f9:   vfmadd231ps zmm13,zmm15,zmm31
+    0.04 :   26ff:   vmovups zmm14,ZMMWORD PTR [r15+rbp*1-0x40]
+    0.00 :   2707:   vmovups zmm15,ZMMWORD PTR [r15+0x43c0]
+    0.00 :   2711:   vbroadcastss zmm31,DWORD PTR [r14+0x3c]
+    0.00 :   2718:   vfmadd231ps zmm0,zmm14,zmm31
+    0.04 :   271e:   vfmadd231ps zmm1,zmm15,zmm31
+    0.00 :   2724:   vbroadcastss zmm31,DWORD PTR [r14+0x7c]
+    0.00 :   272b:   vfmadd231ps zmm2,zmm14,zmm31
+    0.00 :   2731:   vfmadd231ps zmm3,zmm15,zmm31
+    0.04 :   2737:   vbroadcastss zmm31,DWORD PTR [r14+0xbc]
+    0.00 :   273e:   vfmadd231ps zmm4,zmm14,zmm31
+    0.04 :   2744:   vfmadd231ps zmm5,zmm15,zmm31
+    0.00 :   274a:   vbroadcastss zmm31,DWORD PTR [r14+0xfc]
+    0.00 :   2751:   vfmadd231ps zmm6,zmm14,zmm31
+    0.00 :   2757:   vfmadd231ps zmm7,zmm15,zmm31
+    0.04 :   275d:   vbroadcastss zmm31,DWORD PTR [r14+0x13c]
+    0.00 :   2764:   vfmadd231ps zmm8,zmm14,zmm31
+    0.00 :   276a:   vfmadd231ps zmm9,zmm15,zmm31
+    0.00 :   2770:   vbroadcastss zmm31,DWORD PTR [r14+0x17c]
+    0.00 :   2777:   vfmadd231ps zmm10,zmm14,zmm31
+    0.04 :   277d:   vfmadd231ps zmm11,zmm15,zmm31
+    0.00 :   2783:   vbroadcastss zmm31,DWORD PTR [r14+0x1bc]
+    0.04 :   278a:   vfmadd231ps zmm12,zmm14,zmm31
+    0.04 :   2790:   vfmadd231ps zmm13,zmm15,zmm31
+    0.00 :   2796:   add    r14,0xc400
+    0.04 :   279d:   add    r15,0x400
+    0.00 :   27a4:   sub    rdi,0x10
+    0.00 :   27a8:   jg     1e30 <jit_avx512_common_1x1_conv_kernel_t.11+0x1db0>
+    0.00 :   27ae:   vmovups zmm14,ZMMWORD PTR [r15]
+    0.00 :   27b4:   vmovups zmm15,ZMMWORD PTR [r15+0x4000]
+    0.00 :   27be:   vbroadcastss zmm31,DWORD PTR [r14]
+    0.00 :   27c4:   vfmadd231ps zmm0,zmm14,zmm31
+    0.00 :   27ca:   vfmadd231ps zmm1,zmm15,zmm31
+    0.00 :   27d0:   vbroadcastss zmm31,DWORD PTR [r14+0x40]
+    0.00 :   27d7:   vfmadd231ps zmm2,zmm14,zmm31
+    0.00 :   27dd:   vfmadd231ps zmm3,zmm15,zmm31
+    0.00 :   27e3:   vbroadcastss zmm31,DWORD PTR [r14+0x80]
+    0.00 :   27ea:   vfmadd231ps zmm4,zmm14,zmm31
+    0.00 :   27f0:   vfmadd231ps zmm5,zmm15,zmm31
+    0.00 :   27f6:   vbroadcastss zmm31,DWORD PTR [r14+0xc0]
+    0.00 :   27fd:   vfmadd231ps zmm6,zmm14,zmm31
+    0.00 :   2803:   vfmadd231ps zmm7,zmm15,zmm31
+    0.00 :   2809:   vbroadcastss zmm31,DWORD PTR [r14+0x100]
+    0.00 :   2810:   vfmadd231ps zmm8,zmm14,zmm31
+    0.00 :   2816:   vfmadd231ps zmm9,zmm15,zmm31
+    0.00 :   281c:   vbroadcastss zmm31,DWORD PTR [r14+0x140]
+    0.00 :   2823:   vfmadd231ps zmm10,zmm14,zmm31
+    0.00 :   2829:   vfmadd231ps zmm11,zmm15,zmm31
+    0.00 :   282f:   vbroadcastss zmm31,DWORD PTR [r14+0x180]
+    0.00 :   2836:   vfmadd231ps zmm12,zmm14,zmm31
+    0.00 :   283c:   vfmadd231ps zmm13,zmm15,zmm31
+    0.00 :   2842:   vmovups zmm14,ZMMWORD PTR [r15+0x40]
+    0.00 :   2849:   vmovups zmm15,ZMMWORD PTR [r15+0x4040]
+    0.00 :   2853:   vbroadcastss zmm31,DWORD PTR [r14+0x4]
+    0.00 :   285a:   vfmadd231ps zmm0,zmm14,zmm31
+    0.00 :   2860:   vfmadd231ps zmm1,zmm15,zmm31
+    0.00 :   2866:   vbroadcastss zmm31,DWORD PTR [r14+0x44]
+    0.00 :   286d:   vfmadd231ps zmm2,zmm14,zmm31
+    0.00 :   2873:   vfmadd231ps zmm3,zmm15,zmm31
+    0.00 :   2879:   vbroadcastss zmm31,DWORD PTR [r14+0x84]
+    0.00 :   2880:   vfmadd231ps zmm4,zmm14,zmm31
+    0.00 :   2886:   vfmadd231ps zmm5,zmm15,zmm31
+    0.00 :   288c:   vbroadcastss zmm31,DWORD PTR [r14+0xc4]
+    0.00 :   2893:   vfmadd231ps zmm6,zmm14,zmm31
+    0.00 :   2899:   vfmadd231ps zmm7,zmm15,zmm31
+    0.00 :   289f:   vbroadcastss zmm31,DWORD PTR [r14+0x104]
+    0.00 :   28a6:   vfmadd231ps zmm8,zmm14,zmm31
+    0.00 :   28ac:   vfmadd231ps zmm9,zmm15,zmm31
+    0.00 :   28b2:   vbroadcastss zmm31,DWORD PTR [r14+0x144]
+    0.00 :   28b9:   vfmadd231ps zmm10,zmm14,zmm31
+    0.00 :   28bf:   vfmadd231ps zmm11,zmm15,zmm31
+    0.00 :   28c5:   vbroadcastss zmm31,DWORD PTR [r14+0x184]
+    0.00 :   28cc:   vfmadd231ps zmm12,zmm14,zmm31
+    0.00 :   28d2:   vfmadd231ps zmm13,zmm15,zmm31
+    0.00 :   28d8:   vmovups zmm14,ZMMWORD PTR [r15+0x80]
+    0.00 :   28df:   vmovups zmm15,ZMMWORD PTR [r15+0x4080]
+    0.00 :   28e9:   vbroadcastss zmm31,DWORD PTR [r14+0x8]
+    0.00 :   28f0:   vfmadd231ps zmm0,zmm14,zmm31
+    0.00 :   28f6:   vfmadd231ps zmm1,zmm15,zmm31
+    0.00 :   28fc:   vbroadcastss zmm31,DWORD PTR [r14+0x48]
+    0.00 :   2903:   vfmadd231ps zmm2,zmm14,zmm31
+    0.00 :   2909:   vfmadd231ps zmm3,zmm15,zmm31
+    0.00 :   290f:   vbroadcastss zmm31,DWORD PTR [r14+0x88]
+    0.00 :   2916:   vfmadd231ps zmm4,zmm14,zmm31
+    0.00 :   291c:   vfmadd231ps zmm5,zmm15,zmm31
+    0.00 :   2922:   vbroadcastss zmm31,DWORD PTR [r14+0xc8]
+    0.00 :   2929:   vfmadd231ps zmm6,zmm14,zmm31
+    0.00 :   292f:   vfmadd231ps zmm7,zmm15,zmm31
+    0.00 :   2935:   vbroadcastss zmm31,DWORD PTR [r14+0x108]
+    0.04 :   293c:   vfmadd231ps zmm8,zmm14,zmm31
+    0.00 :   2942:   vfmadd231ps zmm9,zmm15,zmm31
+    0.00 :   2948:   vbroadcastss zmm31,DWORD PTR [r14+0x148]
+    0.00 :   294f:   vfmadd231ps zmm10,zmm14,zmm31
+    0.00 :   2955:   vfmadd231ps zmm11,zmm15,zmm31
+    0.00 :   295b:   vbroadcastss zmm31,DWORD PTR [r14+0x188]
+    0.00 :   2962:   vfmadd231ps zmm12,zmm14,zmm31
+    0.00 :   2968:   vfmadd231ps zmm13,zmm15,zmm31
+    0.00 :   296e:   vmovups zmm14,ZMMWORD PTR [r15+0xc0]
+    0.00 :   2975:   vmovups zmm15,ZMMWORD PTR [r15+0x40c0]
+    0.00 :   297f:   vbroadcastss zmm31,DWORD PTR [r14+0xc]
+    0.00 :   2986:   vfmadd231ps zmm0,zmm14,zmm31
+    0.00 :   298c:   vfmadd231ps zmm1,zmm15,zmm31
+    0.00 :   2992:   vbroadcastss zmm31,DWORD PTR [r14+0x4c]
+    0.00 :   2999:   vfmadd231ps zmm2,zmm14,zmm31
+    0.00 :   299f:   vfmadd231ps zmm3,zmm15,zmm31
+    0.00 :   29a5:   vbroadcastss zmm31,DWORD PTR [r14+0x8c]
+    0.00 :   29ac:   vfmadd231ps zmm4,zmm14,zmm31
+    0.00 :   29b2:   vfmadd231ps zmm5,zmm15,zmm31
+    0.00 :   29b8:   vbroadcastss zmm31,DWORD PTR [r14+0xcc]
+    0.00 :   29bf:   vfmadd231ps zmm6,zmm14,zmm31
+    0.00 :   29c5:   vfmadd231ps zmm7,zmm15,zmm31
+    0.00 :   29cb:   vbroadcastss zmm31,DWORD PTR [r14+0x10c]
+    0.00 :   29d2:   vfmadd231ps zmm8,zmm14,zmm31
+    0.00 :   29d8:   vfmadd231ps zmm9,zmm15,zmm31
+    0.00 :   29de:   vbroadcastss zmm31,DWORD PTR [r14+0x14c]
+    0.00 :   29e5:   vfmadd231ps zmm10,zmm14,zmm31
+    0.00 :   29eb:   vfmadd231ps zmm11,zmm15,zmm31
+    0.00 :   29f1:   vbroadcastss zmm31,DWORD PTR [r14+0x18c]
+    0.00 :   29f8:   vfmadd231ps zmm12,zmm14,zmm31
+    0.00 :   29fe:   vfmadd231ps zmm13,zmm15,zmm31
+    0.00 :   2a04:   vmovups zmm14,ZMMWORD PTR [r15+0x100]
+    0.00 :   2a0b:   vmovups zmm15,ZMMWORD PTR [r15+0x4100]
+    0.00 :   2a15:   vbroadcastss zmm31,DWORD PTR [r14+0x10]
+    0.00 :   2a1c:   vfmadd231ps zmm0,zmm14,zmm31
+    0.04 :   2a22:   vfmadd231ps zmm1,zmm15,zmm31
+    0.00 :   2a28:   vbroadcastss zmm31,DWORD PTR [r14+0x50]
+    0.00 :   2a2f:   vfmadd231ps zmm2,zmm14,zmm31
+    0.00 :   2a35:   vfmadd231ps zmm3,zmm15,zmm31
+    0.00 :   2a3b:   vbroadcastss zmm31,DWORD PTR [r14+0x90]
+    0.00 :   2a42:   vfmadd231ps zmm4,zmm14,zmm31
+    0.00 :   2a48:   vfmadd231ps zmm5,zmm15,zmm31
+    0.00 :   2a4e:   vbroadcastss zmm31,DWORD PTR [r14+0xd0]
+    0.00 :   2a55:   vfmadd231ps zmm6,zmm14,zmm31
+    0.00 :   2a5b:   vfmadd231ps zmm7,zmm15,zmm31
+    0.00 :   2a61:   vbroadcastss zmm31,DWORD PTR [r14+0x110]
+    0.00 :   2a68:   vfmadd231ps zmm8,zmm14,zmm31
+    0.00 :   2a6e:   vfmadd231ps zmm9,zmm15,zmm31
+    0.00 :   2a74:   vbroadcastss zmm31,DWORD PTR [r14+0x150]
+    0.00 :   2a7b:   vfmadd231ps zmm10,zmm14,zmm31
+    0.00 :   2a81:   vfmadd231ps zmm11,zmm15,zmm31
+    0.00 :   2a87:   vbroadcastss zmm31,DWORD PTR [r14+0x190]
+    0.00 :   2a8e:   vfmadd231ps zmm12,zmm14,zmm31
+    0.00 :   2a94:   vfmadd231ps zmm13,zmm15,zmm31
+    0.00 :   2a9a:   vmovups zmm14,ZMMWORD PTR [r15+0x140]
+    0.00 :   2aa1:   vmovups zmm15,ZMMWORD PTR [r15+0x4140]
+    0.00 :   2aab:   vbroadcastss zmm31,DWORD PTR [r14+0x14]
+    0.00 :   2ab2:   vfmadd231ps zmm0,zmm14,zmm31
+    0.00 :   2ab8:   vfmadd231ps zmm1,zmm15,zmm31
+    0.00 :   2abe:   vbroadcastss zmm31,DWORD PTR [r14+0x54]
+    0.00 :   2ac5:   vfmadd231ps zmm2,zmm14,zmm31
+    0.00 :   2acb:   vfmadd231ps zmm3,zmm15,zmm31
+    0.00 :   2ad1:   vbroadcastss zmm31,DWORD PTR [r14+0x94]
+    0.00 :   2ad8:   vfmadd231ps zmm4,zmm14,zmm31
+    0.04 :   2ade:   vfmadd231ps zmm5,zmm15,zmm31
+    0.00 :   2ae4:   vbroadcastss zmm31,DWORD PTR [r14+0xd4]
+    0.00 :   2aeb:   vfmadd231ps zmm6,zmm14,zmm31
+    0.00 :   2af1:   vfmadd231ps zmm7,zmm15,zmm31
+    0.00 :   2af7:   vbroadcastss zmm31,DWORD PTR [r14+0x114]
+    0.00 :   2afe:   vfmadd231ps zmm8,zmm14,zmm31
+    0.00 :   2b04:   vfmadd231ps zmm9,zmm15,zmm31
+    0.00 :   2b0a:   vbroadcastss zmm31,DWORD PTR [r14+0x154]
+    0.00 :   2b11:   vfmadd231ps zmm10,zmm14,zmm31
+    0.00 :   2b17:   vfmadd231ps zmm11,zmm15,zmm31
+    0.00 :   2b1d:   vbroadcastss zmm31,DWORD PTR [r14+0x194]
+    0.00 :   2b24:   vfmadd231ps zmm12,zmm14,zmm31
+    0.00 :   2b2a:   vfmadd231ps zmm13,zmm15,zmm31
+    0.00 :   2b30:   vmovups zmm14,ZMMWORD PTR [r15+0x180]
+    0.00 :   2b37:   vmovups zmm15,ZMMWORD PTR [r15+0x4180]
+    0.00 :   2b41:   vbroadcastss zmm31,DWORD PTR [r14+0x18]
+    0.00 :   2b48:   vfmadd231ps zmm0,zmm14,zmm31
+    0.00 :   2b4e:   vfmadd231ps zmm1,zmm15,zmm31
+    0.00 :   2b54:   vbroadcastss zmm31,DWORD PTR [r14+0x58]
+    0.00 :   2b5b:   vfmadd231ps zmm2,zmm14,zmm31
+    0.00 :   2b61:   vfmadd231ps zmm3,zmm15,zmm31
+    0.00 :   2b67:   vbroadcastss zmm31,DWORD PTR [r14+0x98]
+    0.00 :   2b6e:   vfmadd231ps zmm4,zmm14,zmm31
+    0.00 :   2b74:   vfmadd231ps zmm5,zmm15,zmm31
+    0.00 :   2b7a:   vbroadcastss zmm31,DWORD PTR [r14+0xd8]
+    0.00 :   2b81:   vfmadd231ps zmm6,zmm14,zmm31
+    0.00 :   2b87:   vfmadd231ps zmm7,zmm15,zmm31
+    0.00 :   2b8d:   vbroadcastss zmm31,DWORD PTR [r14+0x118]
+    0.00 :   2b94:   vfmadd231ps zmm8,zmm14,zmm31
+    0.00 :   2b9a:   vfmadd231ps zmm9,zmm15,zmm31
+    0.00 :   2ba0:   vbroadcastss zmm31,DWORD PTR [r14+0x158]
+    0.00 :   2ba7:   vfmadd231ps zmm10,zmm14,zmm31
+    0.00 :   2bad:   vfmadd231ps zmm11,zmm15,zmm31
+    0.00 :   2bb3:   vbroadcastss zmm31,DWORD PTR [r14+0x198]
+    0.00 :   2bba:   vfmadd231ps zmm12,zmm14,zmm31
+    0.00 :   2bc0:   vfmadd231ps zmm13,zmm15,zmm31
+    0.00 :   2bc6:   vmovups zmm14,ZMMWORD PTR [r15+0x1c0]
+    0.00 :   2bcd:   vmovups zmm15,ZMMWORD PTR [r15+0x41c0]
+    0.00 :   2bd7:   vbroadcastss zmm31,DWORD PTR [r14+0x1c]
+    0.00 :   2bde:   vfmadd231ps zmm0,zmm14,zmm31
+    0.04 :   2be4:   vfmadd231ps zmm1,zmm15,zmm31
+    0.00 :   2bea:   vbroadcastss zmm31,DWORD PTR [r14+0x5c]
+    0.00 :   2bf1:   vfmadd231ps zmm2,zmm14,zmm31
+    0.00 :   2bf7:   vfmadd231ps zmm3,zmm15,zmm31
+    0.00 :   2bfd:   vbroadcastss zmm31,DWORD PTR [r14+0x9c]
+    0.00 :   2c04:   vfmadd231ps zmm4,zmm14,zmm31
+    0.00 :   2c0a:   vfmadd231ps zmm5,zmm15,zmm31
+    0.00 :   2c10:   vbroadcastss zmm31,DWORD PTR [r14+0xdc]
+    0.00 :   2c17:   vfmadd231ps zmm6,zmm14,zmm31
+    0.00 :   2c1d:   vfmadd231ps zmm7,zmm15,zmm31
+    0.00 :   2c23:   vbroadcastss zmm31,DWORD PTR [r14+0x11c]
+    0.00 :   2c2a:   vfmadd231ps zmm8,zmm14,zmm31
+    0.00 :   2c30:   vfmadd231ps zmm9,zmm15,zmm31
+    0.00 :   2c36:   vbroadcastss zmm31,DWORD PTR [r14+0x15c]
+    0.00 :   2c3d:   vfmadd231ps zmm10,zmm14,zmm31
+    0.00 :   2c43:   vfmadd231ps zmm11,zmm15,zmm31
+    0.00 :   2c49:   vbroadcastss zmm31,DWORD PTR [r14+0x19c]
+    0.00 :   2c50:   vfmadd231ps zmm12,zmm14,zmm31
+    0.00 :   2c56:   vfmadd231ps zmm13,zmm15,zmm31
+    0.00 :   2c5c:   vmovups zmm14,ZMMWORD PTR [r15+rbp*1-0x200]
+    0.00 :   2c64:   vmovups zmm15,ZMMWORD PTR [r15+0x4200]
+    0.00 :   2c6e:   vbroadcastss zmm31,DWORD PTR [r14+0x20]
+    0.00 :   2c75:   vfmadd231ps zmm0,zmm14,zmm31
+    0.00 :   2c7b:   vfmadd231ps zmm1,zmm15,zmm31
+    0.00 :   2c81:   vbroadcastss zmm31,DWORD PTR [r14+0x60]
+    0.00 :   2c88:   vfmadd231ps zmm2,zmm14,zmm31
+    0.00 :   2c8e:   vfmadd231ps zmm3,zmm15,zmm31
+    0.00 :   2c94:   vbroadcastss zmm31,DWORD PTR [r14+0xa0]
+    0.00 :   2c9b:   vfmadd231ps zmm4,zmm14,zmm31
+    0.00 :   2ca1:   vfmadd231ps zmm5,zmm15,zmm31
+    0.00 :   2ca7:   vbroadcastss zmm31,DWORD PTR [r14+0xe0]
+    0.00 :   2cae:   vfmadd231ps zmm6,zmm14,zmm31
+    0.00 :   2cb4:   vfmadd231ps zmm7,zmm15,zmm31
+    0.00 :   2cba:   vbroadcastss zmm31,DWORD PTR [r14+0x120]
+    0.00 :   2cc1:   vfmadd231ps zmm8,zmm14,zmm31
+    0.00 :   2cc7:   vfmadd231ps zmm9,zmm15,zmm31
+    0.00 :   2ccd:   vbroadcastss zmm31,DWORD PTR [r14+0x160]
+    0.00 :   2cd4:   vfmadd231ps zmm10,zmm14,zmm31
+    0.00 :   2cda:   vfmadd231ps zmm11,zmm15,zmm31
+    0.00 :   2ce0:   vbroadcastss zmm31,DWORD PTR [r14+0x1a0]
+    0.00 :   2ce7:   vfmadd231ps zmm12,zmm14,zmm31
+    0.00 :   2ced:   vfmadd231ps zmm13,zmm15,zmm31
+    0.00 :   2cf3:   vmovups zmm14,ZMMWORD PTR [r15+rbp*1-0x1c0]
+    0.00 :   2cfb:   vmovups zmm15,ZMMWORD PTR [r15+0x4240]
+    0.00 :   2d05:   vbroadcastss zmm31,DWORD PTR [r14+0x24]
+    0.00 :   2d0c:   vfmadd231ps zmm0,zmm14,zmm31
+    0.00 :   2d12:   vfmadd231ps zmm1,zmm15,zmm31
+    0.00 :   2d18:   vbroadcastss zmm31,DWORD PTR [r14+0x64]
+    0.00 :   2d1f:   vfmadd231ps zmm2,zmm14,zmm31
+    0.00 :   2d25:   vfmadd231ps zmm3,zmm15,zmm31
+    0.00 :   2d2b:   vbroadcastss zmm31,DWORD PTR [r14+0xa4]
+    0.00 :   2d32:   vfmadd231ps zmm4,zmm14,zmm31
+    0.00 :   2d38:   vfmadd231ps zmm5,zmm15,zmm31
+    0.00 :   2d3e:   vbroadcastss zmm31,DWORD PTR [r14+0xe4]
+    0.00 :   2d45:   vfmadd231ps zmm6,zmm14,zmm31
+    0.00 :   2d4b:   vfmadd231ps zmm7,zmm15,zmm31
+    0.00 :   2d51:   vbroadcastss zmm31,DWORD PTR [r14+0x124]
+    0.00 :   2d58:   vfmadd231ps zmm8,zmm14,zmm31
+    0.00 :   2d5e:   vfmadd231ps zmm9,zmm15,zmm31
+    0.00 :   2d64:   vbroadcastss zmm31,DWORD PTR [r14+0x164]
+    0.00 :   2d6b:   vfmadd231ps zmm10,zmm14,zmm31
+    0.00 :   2d71:   vfmadd231ps zmm11,zmm15,zmm31
+    0.00 :   2d77:   vbroadcastss zmm31,DWORD PTR [r14+0x1a4]
+    0.00 :   2d7e:   vfmadd231ps zmm12,zmm14,zmm31
+    0.00 :   2d84:   vfmadd231ps zmm13,zmm15,zmm31
+    0.00 :   2d8a:   vmovups zmm14,ZMMWORD PTR [r15+rbp*1-0x180]
+    0.00 :   2d92:   vmovups zmm15,ZMMWORD PTR [r15+0x4280]
+    0.00 :   2d9c:   vbroadcastss zmm31,DWORD PTR [r14+0x28]
+    0.00 :   2da3:   vfmadd231ps zmm0,zmm14,zmm31
+    0.00 :   2da9:   vfmadd231ps zmm1,zmm15,zmm31
+    0.00 :   2daf:   vbroadcastss zmm31,DWORD PTR [r14+0x68]
+    0.00 :   2db6:   vfmadd231ps zmm2,zmm14,zmm31
+    0.00 :   2dbc:   vfmadd231ps zmm3,zmm15,zmm31
+    0.00 :   2dc2:   vbroadcastss zmm31,DWORD PTR [r14+0xa8]
+    0.00 :   2dc9:   vfmadd231ps zmm4,zmm14,zmm31
+    0.00 :   2dcf:   vfmadd231ps zmm5,zmm15,zmm31
+    0.00 :   2dd5:   vbroadcastss zmm31,DWORD PTR [r14+0xe8]
+    0.00 :   2ddc:   vfmadd231ps zmm6,zmm14,zmm31
+    0.00 :   2de2:   vfmadd231ps zmm7,zmm15,zmm31
+    0.00 :   2de8:   vbroadcastss zmm31,DWORD PTR [r14+0x128]
+    0.04 :   2def:   vfmadd231ps zmm8,zmm14,zmm31
+    0.00 :   2df5:   vfmadd231ps zmm9,zmm15,zmm31
+    0.00 :   2dfb:   vbroadcastss zmm31,DWORD PTR [r14+0x168]
+    0.00 :   2e02:   vfmadd231ps zmm10,zmm14,zmm31
+    0.04 :   2e08:   vfmadd231ps zmm11,zmm15,zmm31
+    0.00 :   2e0e:   vbroadcastss zmm31,DWORD PTR [r14+0x1a8]
+    0.00 :   2e15:   vfmadd231ps zmm12,zmm14,zmm31
+    0.00 :   2e1b:   vfmadd231ps zmm13,zmm15,zmm31
+    0.00 :   2e21:   vmovups zmm14,ZMMWORD PTR [r15+rbp*1-0x140]
+    0.00 :   2e29:   vmovups zmm15,ZMMWORD PTR [r15+0x42c0]
+    0.00 :   2e33:   vbroadcastss zmm31,DWORD PTR [r14+0x2c]
+    0.04 :   2e3a:   vfmadd231ps zmm0,zmm14,zmm31
+    0.00 :   2e40:   vfmadd231ps zmm1,zmm15,zmm31
+    0.00 :   2e46:   vbroadcastss zmm31,DWORD PTR [r14+0x6c]
+    0.00 :   2e4d:   vfmadd231ps zmm2,zmm14,zmm31
+    0.00 :   2e53:   vfmadd231ps zmm3,zmm15,zmm31
+    0.00 :   2e59:   vbroadcastss zmm31,DWORD PTR [r14+0xac]
+    0.00 :   2e60:   vfmadd231ps zmm4,zmm14,zmm31
+    0.00 :   2e66:   vfmadd231ps zmm5,zmm15,zmm31
+    0.00 :   2e6c:   vbroadcastss zmm31,DWORD PTR [r14+0xec]
+    0.00 :   2e73:   vfmadd231ps zmm6,zmm14,zmm31
+    0.00 :   2e79:   vfmadd231ps zmm7,zmm15,zmm31
+    0.00 :   2e7f:   vbroadcastss zmm31,DWORD PTR [r14+0x12c]
+    0.00 :   2e86:   vfmadd231ps zmm8,zmm14,zmm31
+    0.00 :   2e8c:   vfmadd231ps zmm9,zmm15,zmm31
+    0.00 :   2e92:   vbroadcastss zmm31,DWORD PTR [r14+0x16c]
+    0.00 :   2e99:   vfmadd231ps zmm10,zmm14,zmm31
+    0.00 :   2e9f:   vfmadd231ps zmm11,zmm15,zmm31
+    0.00 :   2ea5:   vbroadcastss zmm31,DWORD PTR [r14+0x1ac]
+    0.00 :   2eac:   vfmadd231ps zmm12,zmm14,zmm31
+    0.00 :   2eb2:   vfmadd231ps zmm13,zmm15,zmm31
+    0.00 :   2eb8:   vmovups zmm14,ZMMWORD PTR [r15+rbp*1-0x100]
+    0.00 :   2ec0:   vmovups zmm15,ZMMWORD PTR [r15+0x4300]
+    0.00 :   2eca:   vbroadcastss zmm31,DWORD PTR [r14+0x30]
+    0.00 :   2ed1:   vfmadd231ps zmm0,zmm14,zmm31
+    0.00 :   2ed7:   vfmadd231ps zmm1,zmm15,zmm31
+    0.00 :   2edd:   vbroadcastss zmm31,DWORD PTR [r14+0x70]
+    0.00 :   2ee4:   vfmadd231ps zmm2,zmm14,zmm31
+    0.00 :   2eea:   vfmadd231ps zmm3,zmm15,zmm31
+    0.00 :   2ef0:   vbroadcastss zmm31,DWORD PTR [r14+0xb0]
+    0.00 :   2ef7:   vfmadd231ps zmm4,zmm14,zmm31
+    0.00 :   2efd:   vfmadd231ps zmm5,zmm15,zmm31
+    0.00 :   2f03:   vbroadcastss zmm31,DWORD PTR [r14+0xf0]
+    0.04 :   2f0a:   vfmadd231ps zmm6,zmm14,zmm31
+    0.00 :   2f10:   vfmadd231ps zmm7,zmm15,zmm31
+    0.00 :   2f16:   vbroadcastss zmm31,DWORD PTR [r14+0x130]
+    0.00 :   2f1d:   vfmadd231ps zmm8,zmm14,zmm31
+    0.00 :   2f23:   vfmadd231ps zmm9,zmm15,zmm31
+    0.00 :   2f29:   vbroadcastss zmm31,DWORD PTR [r14+0x170]
+    0.00 :   2f30:   vfmadd231ps zmm10,zmm14,zmm31
+    0.04 :   2f36:   vfmadd231ps zmm11,zmm15,zmm31
+    0.00 :   2f3c:   vbroadcastss zmm31,DWORD PTR [r14+0x1b0]
+    0.00 :   2f43:   vfmadd231ps zmm12,zmm14,zmm31
+    0.00 :   2f49:   vfmadd231ps zmm13,zmm15,zmm31
+    0.00 :   2f4f:   vmovups zmm14,ZMMWORD PTR [r15+rbp*1-0xc0]
+    0.00 :   2f57:   vmovups zmm15,ZMMWORD PTR [r15+0x4340]
+    0.00 :   2f61:   vbroadcastss zmm31,DWORD PTR [r14+0x34]
+    0.04 :   2f68:   vfmadd231ps zmm0,zmm14,zmm31
+    0.00 :   2f6e:   vfmadd231ps zmm1,zmm15,zmm31
+    0.00 :   2f74:   vbroadcastss zmm31,DWORD PTR [r14+0x74]
+    0.00 :   2f7b:   vfmadd231ps zmm2,zmm14,zmm31
+    0.00 :   2f81:   vfmadd231ps zmm3,zmm15,zmm31
+    0.00 :   2f87:   vbroadcastss zmm31,DWORD PTR [r14+0xb4]
+    0.00 :   2f8e:   vfmadd231ps zmm4,zmm14,zmm31
+    0.00 :   2f94:   vfmadd231ps zmm5,zmm15,zmm31
+    0.00 :   2f9a:   vbroadcastss zmm31,DWORD PTR [r14+0xf4]
+    0.00 :   2fa1:   vfmadd231ps zmm6,zmm14,zmm31
+    0.00 :   2fa7:   vfmadd231ps zmm7,zmm15,zmm31
+    0.00 :   2fad:   vbroadcastss zmm31,DWORD PTR [r14+0x134]
+    0.00 :   2fb4:   vfmadd231ps zmm8,zmm14,zmm31
+    0.00 :   2fba:   vfmadd231ps zmm9,zmm15,zmm31
+    0.00 :   2fc0:   vbroadcastss zmm31,DWORD PTR [r14+0x174]
+    0.00 :   2fc7:   vfmadd231ps zmm10,zmm14,zmm31
+    0.00 :   2fcd:   vfmadd231ps zmm11,zmm15,zmm31
+    0.00 :   2fd3:   vbroadcastss zmm31,DWORD PTR [r14+0x1b4]
+    0.00 :   2fda:   vfmadd231ps zmm12,zmm14,zmm31
+    0.04 :   2fe0:   vfmadd231ps zmm13,zmm15,zmm31
+    0.00 :   2fe6:   vmovups zmm14,ZMMWORD PTR [r15+rbp*1-0x80]
+    0.00 :   2fee:   vmovups zmm15,ZMMWORD PTR [r15+0x4380]
+    0.00 :   2ff8:   vbroadcastss zmm31,DWORD PTR [r14+0x38]
+    0.00 :   2fff:   vfmadd231ps zmm0,zmm14,zmm31
+    0.00 :   3005:   vfmadd231ps zmm1,zmm15,zmm31
+    0.00 :   300b:   vbroadcastss zmm31,DWORD PTR [r14+0x78]
+    0.00 :   3012:   vfmadd231ps zmm2,zmm14,zmm31
+    0.00 :   3018:   vfmadd231ps zmm3,zmm15,zmm31
+    0.00 :   301e:   vbroadcastss zmm31,DWORD PTR [r14+0xb8]
+    0.00 :   3025:   vfmadd231ps zmm4,zmm14,zmm31
+    0.00 :   302b:   vfmadd231ps zmm5,zmm15,zmm31
+    0.00 :   3031:   vbroadcastss zmm31,DWORD PTR [r14+0xf8]
+    0.00 :   3038:   vfmadd231ps zmm6,zmm14,zmm31
+    0.00 :   303e:   vfmadd231ps zmm7,zmm15,zmm31
+    0.00 :   3044:   vbroadcastss zmm31,DWORD PTR [r14+0x138]
+    0.00 :   304b:   vfmadd231ps zmm8,zmm14,zmm31
+    0.00 :   3051:   vfmadd231ps zmm9,zmm15,zmm31
+    0.00 :   3057:   vbroadcastss zmm31,DWORD PTR [r14+0x178]
+    0.00 :   305e:   vfmadd231ps zmm10,zmm14,zmm31
+    0.00 :   3064:   vfmadd231ps zmm11,zmm15,zmm31
+    0.00 :   306a:   vbroadcastss zmm31,DWORD PTR [r14+0x1b8]
+    0.00 :   3071:   vfmadd231ps zmm12,zmm14,zmm31
+    0.00 :   3077:   vfmadd231ps zmm13,zmm15,zmm31
+    0.00 :   307d:   vmovups zmm14,ZMMWORD PTR [r15+rbp*1-0x40]
+    0.00 :   3085:   vmovups zmm15,ZMMWORD PTR [r15+0x43c0]
+    0.00 :   308f:   vbroadcastss zmm31,DWORD PTR [r14+0x3c]
+    0.00 :   3096:   vfmadd231ps zmm0,zmm14,zmm31
+    0.00 :   309c:   vfmadd231ps zmm1,zmm15,zmm31
+    0.00 :   30a2:   vbroadcastss zmm31,DWORD PTR [r14+0x7c]
+    0.00 :   30a9:   vfmadd231ps zmm2,zmm14,zmm31
+    0.00 :   30af:   vfmadd231ps zmm3,zmm15,zmm31
+    0.00 :   30b5:   vbroadcastss zmm31,DWORD PTR [r14+0xbc]
+    0.00 :   30bc:   vfmadd231ps zmm4,zmm14,zmm31
+    0.00 :   30c2:   vfmadd231ps zmm5,zmm15,zmm31
+    0.00 :   30c8:   vbroadcastss zmm31,DWORD PTR [r14+0xfc]
+    0.00 :   30cf:   vfmadd231ps zmm6,zmm14,zmm31
+    0.00 :   30d5:   vfmadd231ps zmm7,zmm15,zmm31
+    0.00 :   30db:   vbroadcastss zmm31,DWORD PTR [r14+0x13c]
+    0.00 :   30e2:   vfmadd231ps zmm8,zmm14,zmm31
+    0.00 :   30e8:   vfmadd231ps zmm9,zmm15,zmm31
+    0.00 :   30ee:   vbroadcastss zmm31,DWORD PTR [r14+0x17c]
+    0.00 :   30f5:   vfmadd231ps zmm10,zmm14,zmm31
+    0.00 :   30fb:   vfmadd231ps zmm11,zmm15,zmm31
+    0.00 :   3101:   vbroadcastss zmm31,DWORD PTR [r14+0x1bc]
+    0.00 :   3108:   vfmadd231ps zmm12,zmm14,zmm31
+    0.00 :   310e:   vfmadd231ps zmm13,zmm15,zmm31
+    0.00 :   3114:   test   rax,0x100
+    0.00 :   311a:   jne    3196 <jit_avx512_common_1x1_conv_kernel_t.11+0x3116>
+    0.00 :   3120:   vaddps zmm0,zmm0,ZMMWORD PTR [rcx]
+    0.00 :   3126:   vaddps zmm1,zmm1,ZMMWORD PTR [rcx+0xc400]
+    0.00 :   3130:   vaddps zmm2,zmm2,ZMMWORD PTR [rcx+0x40]
+    0.00 :   3137:   vaddps zmm3,zmm3,ZMMWORD PTR [rcx+0xc440]
+    0.00 :   3141:   vaddps zmm4,zmm4,ZMMWORD PTR [rcx+0x80]
+    0.00 :   3148:   vaddps zmm5,zmm5,ZMMWORD PTR [rcx+0xc480]
+    0.00 :   3152:   vaddps zmm6,zmm6,ZMMWORD PTR [rcx+0xc0]
+    0.00 :   3159:   vaddps zmm7,zmm7,ZMMWORD PTR [rcx+0xc4c0]
+    0.00 :   3163:   vaddps zmm8,zmm8,ZMMWORD PTR [rcx+0x100]
+    0.00 :   316a:   vaddps zmm9,zmm9,ZMMWORD PTR [rcx+0xc500]
+    0.00 :   3174:   vaddps zmm10,zmm10,ZMMWORD PTR [rcx+0x140]
+    0.00 :   317b:   vaddps zmm11,zmm11,ZMMWORD PTR [rcx+0xc540]
+    0.00 :   3185:   vaddps zmm12,zmm12,ZMMWORD PTR [rcx+0x180]
+    0.00 :   318c:   vaddps zmm13,zmm13,ZMMWORD PTR [rcx+0xc580]
+    0.00 :   3196:   test   rcx,0x3f
+    0.00 :   319d:   jne    321e <jit_avx512_common_1x1_conv_kernel_t.11+0x319e>
+    0.00 :   31a3:   vmovups ZMMWORD PTR [rcx],zmm0
+    0.00 :   31a9:   vmovups ZMMWORD PTR [rcx+0xc400],zmm1
+    0.00 :   31b3:   vmovups ZMMWORD PTR [rcx+0x40],zmm2
+    0.00 :   31ba:   vmovups ZMMWORD PTR [rcx+0xc440],zmm3
+    0.00 :   31c4:   vmovups ZMMWORD PTR [rcx+0x80],zmm4
+    0.00 :   31cb:   vmovups ZMMWORD PTR [rcx+0xc480],zmm5
+    0.00 :   31d5:   vmovups ZMMWORD PTR [rcx+0xc0],zmm6
+    0.00 :   31dc:   vmovups ZMMWORD PTR [rcx+0xc4c0],zmm7
+    0.00 :   31e6:   vmovups ZMMWORD PTR [rcx+0x100],zmm8
+    0.00 :   31ed:   vmovups ZMMWORD PTR [rcx+0xc500],zmm9
+    0.00 :   31f7:   vmovups ZMMWORD PTR [rcx+0x140],zmm10
+    0.00 :   31fe:   vmovups ZMMWORD PTR [rcx+0xc540],zmm11
+    0.00 :   3208:   vmovups ZMMWORD PTR [rcx+0x180],zmm12
+    0.00 :   320f:   vmovups ZMMWORD PTR [rcx+0xc580],zmm13
+    0.00 :   3219:   jmp    3294 <jit_avx512_common_1x1_conv_kernel_t.11+0x3214>
+    0.00 :   321e:   vmovups ZMMWORD PTR [rcx],zmm0
+    0.00 :   3224:   vmovups ZMMWORD PTR [rcx+0xc400],zmm1
+    0.00 :   322e:   vmovups ZMMWORD PTR [rcx+0x40],zmm2
+    0.00 :   3235:   vmovups ZMMWORD PTR [rcx+0xc440],zmm3
+    0.00 :   323f:   vmovups ZMMWORD PTR [rcx+0x80],zmm4
+    0.00 :   3246:   vmovups ZMMWORD PTR [rcx+0xc480],zmm5
+    0.00 :   3250:   vmovups ZMMWORD PTR [rcx+0xc0],zmm6
+    0.00 :   3257:   vmovups ZMMWORD PTR [rcx+0xc4c0],zmm7
+    0.00 :   3261:   vmovups ZMMWORD PTR [rcx+0x100],zmm8
+    0.00 :   3268:   vmovups ZMMWORD PTR [rcx+0xc500],zmm9
+    0.00 :   3272:   vmovups ZMMWORD PTR [rcx+0x140],zmm10
+    0.00 :   3279:   vmovups ZMMWORD PTR [rcx+0xc540],zmm11
+    0.00 :   3283:   vmovups ZMMWORD PTR [rcx+0x180],zmm12
+    0.00 :   328a:   vmovups ZMMWORD PTR [rcx+0xc580],zmm13
+    0.00 :   3294:   add    rbx,0x1c0
+    0.00 :   329b:   add    rcx,0x1c0
+    0.00 :   32a2:   sub    rdx,0x7
+    0.00 :   32a6:   cmp    rdx,0x7
+    0.00 :   32aa:   jge    1dc9 <jit_avx512_common_1x1_conv_kernel_t.11+0x1d49>
+    0.00 :   32b0:   add    r10,0x8000
+    0.00 :   32b7:   add    r12,0x80
+    0.00 :   32be:   add    r9,0x18800
+    0.00 :   32c5:   cmp    rsi,0x10
+    0.00 :   32c9:   jg     1daa <jit_avx512_common_1x1_conv_kernel_t.11+0x1d2a>
+    0.00 :   32cf:   cmp    rsi,0x10
+    0.00 :   32d3:   jge    32d9 <jit_avx512_common_1x1_conv_kernel_t.11+0x3259>
+    0.00 :   32d9:   cmp    rsi,0x0
+    0.00 :   32dd:   jle    3b49 <jit_avx512_common_1x1_conv_kernel_t.11+0x3ac9>
+    0.00 :   32e3:   sub    rsi,0x10
+    0.00 :   32e7:   mov    rbx,QWORD PTR [rsp+0x10]
+    0.00 :   32ec:   mov    r14,QWORD PTR [rsp+0x10]
+    0.00 :   32f1:   mov    rcx,r9
+    0.00 :   32f4:   mov    rdx,QWORD PTR [rsp]
+    0.00 :   32f8:   cmp    rdx,0x7
+    0.00 :   32fc:   jl     3b2d <jit_avx512_common_1x1_conv_kernel_t.11+0x3aad>
+    0.00 :   3302:   mov    r15,r10
+    0.00 :   3305:   mov    r14,rbx
+    0.00 :   3308:   vpxord zmm0,zmm0,zmm0
+    0.00 :   330e:   vpxord zmm1,zmm1,zmm1
+    0.00 :   3314:   vpxord zmm2,zmm2,zmm2
+    0.00 :   331a:   vpxord zmm3,zmm3,zmm3
+    0.00 :   3320:   vpxord zmm4,zmm4,zmm4
+    0.00 :   3326:   vpxord zmm5,zmm5,zmm5
+    0.00 :   332c:   vpxord zmm6,zmm6,zmm6
+    0.00 :   3332:   mov    rdi,r11
+    0.00 :   3335:   sub    rdi,0x10
+    0.00 :   3339:   jle    36dd <jit_avx512_common_1x1_conv_kernel_t.11+0x365d>
+    0.00 :   333f:   vmovups zmm7,ZMMWORD PTR [r15]
+    0.00 :   3345:   vfmadd231ps zmm0,zmm7,DWORD BCST [r14]
+    0.00 :   334b:   vfmadd231ps zmm1,zmm7,DWORD BCST [r14+0x40]
+    0.00 :   3352:   vfmadd231ps zmm2,zmm7,DWORD BCST [r14+0x80]
+    0.00 :   3359:   vfmadd231ps zmm3,zmm7,DWORD BCST [r14+0xc0]
+    0.00 :   3360:   vfmadd231ps zmm4,zmm7,DWORD BCST [r14+0x100]
+    0.00 :   3367:   vfmadd231ps zmm5,zmm7,DWORD BCST [r14+0x140]
+    0.00 :   336e:   vfmadd231ps zmm6,zmm7,DWORD BCST [r14+0x180]
+    0.00 :   3375:   vmovups zmm7,ZMMWORD PTR [r15+0x40]
+    0.00 :   337c:   vfmadd231ps zmm0,zmm7,DWORD BCST [r14+0x4]
+    0.00 :   3383:   vfmadd231ps zmm1,zmm7,DWORD BCST [r14+0x44]
+    0.00 :   338a:   vfmadd231ps zmm2,zmm7,DWORD BCST [r14+0x84]
+    0.00 :   3391:   vfmadd231ps zmm3,zmm7,DWORD BCST [r14+0xc4]
+    0.00 :   3398:   vfmadd231ps zmm4,zmm7,DWORD BCST [r14+0x104]
+    0.00 :   339f:   vfmadd231ps zmm5,zmm7,DWORD BCST [r14+0x144]
+    0.00 :   33a6:   vfmadd231ps zmm6,zmm7,DWORD BCST [r14+0x184]
+    0.00 :   33ad:   vmovups zmm7,ZMMWORD PTR [r15+0x80]
+    0.00 :   33b4:   vfmadd231ps zmm0,zmm7,DWORD BCST [r14+0x8]
+    0.00 :   33bb:   vfmadd231ps zmm1,zmm7,DWORD BCST [r14+0x48]
+    0.00 :   33c2:   vfmadd231ps zmm2,zmm7,DWORD BCST [r14+0x88]
+    0.00 :   33c9:   vfmadd231ps zmm3,zmm7,DWORD BCST [r14+0xc8]
+    0.00 :   33d0:   vfmadd231ps zmm4,zmm7,DWORD BCST [r14+0x108]
+    0.00 :   33d7:   vfmadd231ps zmm5,zmm7,DWORD BCST [r14+0x148]
+    0.00 :   33de:   vfmadd231ps zmm6,zmm7,DWORD BCST [r14+0x188]
+    0.00 :   33e5:   vmovups zmm7,ZMMWORD PTR [r15+0xc0]
+    0.00 :   33ec:   vfmadd231ps zmm0,zmm7,DWORD BCST [r14+0xc]
+    0.00 :   33f3:   vfmadd231ps zmm1,zmm7,DWORD BCST [r14+0x4c]
+    0.00 :   33fa:   vfmadd231ps zmm2,zmm7,DWORD BCST [r14+0x8c]
+    0.00 :   3401:   vfmadd231ps zmm3,zmm7,DWORD BCST [r14+0xcc]
+    0.00 :   3408:   vfmadd231ps zmm4,zmm7,DWORD BCST [r14+0x10c]
+    0.00 :   340f:   vfmadd231ps zmm5,zmm7,DWORD BCST [r14+0x14c]
+    0.00 :   3416:   vfmadd231ps zmm6,zmm7,DWORD BCST [r14+0x18c]
+    0.00 :   341d:   vmovups zmm7,ZMMWORD PTR [r15+0x100]
+    0.00 :   3424:   vfmadd231ps zmm0,zmm7,DWORD BCST [r14+0x10]
+    0.00 :   342b:   vfmadd231ps zmm1,zmm7,DWORD BCST [r14+0x50]
+    0.00 :   3432:   vfmadd231ps zmm2,zmm7,DWORD BCST [r14+0x90]
+    0.00 :   3439:   vfmadd231ps zmm3,zmm7,DWORD BCST [r14+0xd0]
+    0.00 :   3440:   vfmadd231ps zmm4,zmm7,DWORD BCST [r14+0x110]
+    0.00 :   3447:   vfmadd231ps zmm5,zmm7,DWORD BCST [r14+0x150]
+    0.00 :   344e:   vfmadd231ps zmm6,zmm7,DWORD BCST [r14+0x190]
+    0.00 :   3455:   vmovups zmm7,ZMMWORD PTR [r15+0x140]
+    0.00 :   345c:   vfmadd231ps zmm0,zmm7,DWORD BCST [r14+0x14]
+    0.00 :   3463:   vfmadd231ps zmm1,zmm7,DWORD BCST [r14+0x54]
+    0.00 :   346a:   vfmadd231ps zmm2,zmm7,DWORD BCST [r14+0x94]
+    0.00 :   3471:   vfmadd231ps zmm3,zmm7,DWORD BCST [r14+0xd4]
+    0.00 :   3478:   vfmadd231ps zmm4,zmm7,DWORD BCST [r14+0x114]
+    0.00 :   347f:   vfmadd231ps zmm5,zmm7,DWORD BCST [r14+0x154]
+    0.00 :   3486:   vfmadd231ps zmm6,zmm7,DWORD BCST [r14+0x194]
+    0.00 :   348d:   vmovups zmm7,ZMMWORD PTR [r15+0x180]
+    0.00 :   3494:   vfmadd231ps zmm0,zmm7,DWORD BCST [r14+0x18]
+    0.00 :   349b:   vfmadd231ps zmm1,zmm7,DWORD BCST [r14+0x58]
+    0.00 :   34a2:   vfmadd231ps zmm2,zmm7,DWORD BCST [r14+0x98]
+    0.00 :   34a9:   vfmadd231ps zmm3,zmm7,DWORD BCST [r14+0xd8]
+    0.00 :   34b0:   vfmadd231ps zmm4,zmm7,DWORD BCST [r14+0x118]
+    0.00 :   34b7:   vfmadd231ps zmm5,zmm7,DWORD BCST [r14+0x158]
+    0.00 :   34be:   vfmadd231ps zmm6,zmm7,DWORD BCST [r14+0x198]
+    0.00 :   34c5:   vmovups zmm7,ZMMWORD PTR [r15+0x1c0]
+    0.00 :   34cc:   vfmadd231ps zmm0,zmm7,DWORD BCST [r14+0x1c]
+    0.00 :   34d3:   vfmadd231ps zmm1,zmm7,DWORD BCST [r14+0x5c]
+    0.00 :   34da:   vfmadd231ps zmm2,zmm7,DWORD BCST [r14+0x9c]
+    0.00 :   34e1:   vfmadd231ps zmm3,zmm7,DWORD BCST [r14+0xdc]
+    0.00 :   34e8:   vfmadd231ps zmm4,zmm7,DWORD BCST [r14+0x11c]
+    0.00 :   34ef:   vfmadd231ps zmm5,zmm7,DWORD BCST [r14+0x15c]
+    0.00 :   34f6:   vfmadd231ps zmm6,zmm7,DWORD BCST [r14+0x19c]
+    0.00 :   34fd:   vmovups zmm7,ZMMWORD PTR [r15+rbp*1-0x200]
+    0.00 :   3505:   vfmadd231ps zmm0,zmm7,DWORD BCST [r14+0x20]
+    0.00 :   350c:   vfmadd231ps zmm1,zmm7,DWORD BCST [r14+0x60]
+    0.00 :   3513:   vfmadd231ps zmm2,zmm7,DWORD BCST [r14+0xa0]
+    0.00 :   351a:   vfmadd231ps zmm3,zmm7,DWORD BCST [r14+0xe0]
+    0.00 :   3521:   vfmadd231ps zmm4,zmm7,DWORD BCST [r14+0x120]
+    0.00 :   3528:   vfmadd231ps zmm5,zmm7,DWORD BCST [r14+0x160]
+    0.00 :   352f:   vfmadd231ps zmm6,zmm7,DWORD BCST [r14+0x1a0]
+    0.00 :   3536:   vmovups zmm7,ZMMWORD PTR [r15+rbp*1-0x1c0]
+    0.00 :   353e:   vfmadd231ps zmm0,zmm7,DWORD BCST [r14+0x24]
+    0.00 :   3545:   vfmadd231ps zmm1,zmm7,DWORD BCST [r14+0x64]
+    0.00 :   354c:   vfmadd231ps zmm2,zmm7,DWORD BCST [r14+0xa4]
+    0.00 :   3553:   vfmadd231ps zmm3,zmm7,DWORD BCST [r14+0xe4]
+    0.00 :   355a:   vfmadd231ps zmm4,zmm7,DWORD BCST [r14+0x124]
+    0.00 :   3561:   vfmadd231ps zmm5,zmm7,DWORD BCST [r14+0x164]
+    0.00 :   3568:   vfmadd231ps zmm6,zmm7,DWORD BCST [r14+0x1a4]
+    0.00 :   356f:   vmovups zmm7,ZMMWORD PTR [r15+rbp*1-0x180]
+    0.00 :   3577:   vfmadd231ps zmm0,zmm7,DWORD BCST [r14+0x28]
+    0.00 :   357e:   vfmadd231ps zmm1,zmm7,DWORD BCST [r14+0x68]
+    0.00 :   3585:   vfmadd231ps zmm2,zmm7,DWORD BCST [r14+0xa8]
+    0.00 :   358c:   vfmadd231ps zmm3,zmm7,DWORD BCST [r14+0xe8]
+    0.00 :   3593:   vfmadd231ps zmm4,zmm7,DWORD BCST [r14+0x128]
+    0.00 :   359a:   vfmadd231ps zmm5,zmm7,DWORD BCST [r14+0x168]
+    0.00 :   35a1:   vfmadd231ps zmm6,zmm7,DWORD BCST [r14+0x1a8]
+    0.00 :   35a8:   vmovups zmm7,ZMMWORD PTR [r15+rbp*1-0x140]
+    0.00 :   35b0:   vfmadd231ps zmm0,zmm7,DWORD BCST [r14+0x2c]
+    0.00 :   35b7:   vfmadd231ps zmm1,zmm7,DWORD BCST [r14+0x6c]
+    0.00 :   35be:   vfmadd231ps zmm2,zmm7,DWORD BCST [r14+0xac]
+    0.00 :   35c5:   vfmadd231ps zmm3,zmm7,DWORD BCST [r14+0xec]
+    0.00 :   35cc:   vfmadd231ps zmm4,zmm7,DWORD BCST [r14+0x12c]
+    0.00 :   35d3:   vfmadd231ps zmm5,zmm7,DWORD BCST [r14+0x16c]
+    0.00 :   35da:   vfmadd231ps zmm6,zmm7,DWORD BCST [r14+0x1ac]
+    0.00 :   35e1:   vmovups zmm7,ZMMWORD PTR [r15+rbp*1-0x100]
+    0.00 :   35e9:   vfmadd231ps zmm0,zmm7,DWORD BCST [r14+0x30]
+    0.00 :   35f0:   vfmadd231ps zmm1,zmm7,DWORD BCST [r14+0x70]
+    0.00 :   35f7:   vfmadd231ps zmm2,zmm7,DWORD BCST [r14+0xb0]
+    0.00 :   35fe:   vfmadd231ps zmm3,zmm7,DWORD BCST [r14+0xf0]
+    0.00 :   3605:   vfmadd231ps zmm4,zmm7,DWORD BCST [r14+0x130]
+    0.00 :   360c:   vfmadd231ps zmm5,zmm7,DWORD BCST [r14+0x170]
+    0.00 :   3613:   vfmadd231ps zmm6,zmm7,DWORD BCST [r14+0x1b0]
+    0.00 :   361a:   vmovups zmm7,ZMMWORD PTR [r15+rbp*1-0xc0]
+    0.00 :   3622:   vfmadd231ps zmm0,zmm7,DWORD BCST [r14+0x34]
+    0.00 :   3629:   vfmadd231ps zmm1,zmm7,DWORD BCST [r14+0x74]
+    0.00 :   3630:   vfmadd231ps zmm2,zmm7,DWORD BCST [r14+0xb4]
+    0.00 :   3637:   vfmadd231ps zmm3,zmm7,DWORD BCST [r14+0xf4]
+    0.00 :   363e:   vfmadd231ps zmm4,zmm7,DWORD BCST [r14+0x134]
+    0.00 :   3645:   vfmadd231ps zmm5,zmm7,DWORD BCST [r14+0x174]
+    0.00 :   364c:   vfmadd231ps zmm6,zmm7,DWORD BCST [r14+0x1b4]
+    0.00 :   3653:   vmovups zmm7,ZMMWORD PTR [r15+rbp*1-0x80]
+    0.00 :   365b:   vfmadd231ps zmm0,zmm7,DWORD BCST [r14+0x38]
+    0.00 :   3662:   vfmadd231ps zmm1,zmm7,DWORD BCST [r14+0x78]
+    0.00 :   3669:   vfmadd231ps zmm2,zmm7,DWORD BCST [r14+0xb8]
+    0.00 :   3670:   vfmadd231ps zmm3,zmm7,DWORD BCST [r14+0xf8]
+    0.00 :   3677:   vfmadd231ps zmm4,zmm7,DWORD BCST [r14+0x138]
+    0.00 :   367e:   vfmadd231ps zmm5,zmm7,DWORD BCST [r14+0x178]
+    0.00 :   3685:   vfmadd231ps zmm6,zmm7,DWORD BCST [r14+0x1b8]
+    0.00 :   368c:   vmovups zmm7,ZMMWORD PTR [r15+rbp*1-0x40]
+    0.00 :   3694:   vfmadd231ps zmm0,zmm7,DWORD BCST [r14+0x3c]
+    0.00 :   369b:   vfmadd231ps zmm1,zmm7,DWORD BCST [r14+0x7c]
+    0.00 :   36a2:   vfmadd231ps zmm2,zmm7,DWORD BCST [r14+0xbc]
+    0.00 :   36a9:   vfmadd231ps zmm3,zmm7,DWORD BCST [r14+0xfc]
+    0.00 :   36b0:   vfmadd231ps zmm4,zmm7,DWORD BCST [r14+0x13c]
+    0.00 :   36b7:   vfmadd231ps zmm5,zmm7,DWORD BCST [r14+0x17c]
+    0.00 :   36be:   vfmadd231ps zmm6,zmm7,DWORD BCST [r14+0x1bc]
+    0.00 :   36c5:   add    r14,0xc400
+    0.00 :   36cc:   add    r15,0x400
+    0.00 :   36d3:   sub    rdi,0x10
+    0.00 :   36d7:   jg     333f <jit_avx512_common_1x1_conv_kernel_t.11+0x32bf>
+    0.00 :   36dd:   vmovups zmm7,ZMMWORD PTR [r15]
+    0.00 :   36e3:   vfmadd231ps zmm0,zmm7,DWORD BCST [r14]
+    0.00 :   36e9:   vfmadd231ps zmm1,zmm7,DWORD BCST [r14+0x40]
+    0.00 :   36f0:   vfmadd231ps zmm2,zmm7,DWORD BCST [r14+0x80]
+    0.00 :   36f7:   vfmadd231ps zmm3,zmm7,DWORD BCST [r14+0xc0]
+    0.00 :   36fe:   vfmadd231ps zmm4,zmm7,DWORD BCST [r14+0x100]
+    0.00 :   3705:   vfmadd231ps zmm5,zmm7,DWORD BCST [r14+0x140]
+    0.00 :   370c:   vfmadd231ps zmm6,zmm7,DWORD BCST [r14+0x180]
+    0.00 :   3713:   vmovups zmm7,ZMMWORD PTR [r15+0x40]
+    0.00 :   371a:   vfmadd231ps zmm0,zmm7,DWORD BCST [r14+0x4]
+    0.00 :   3721:   vfmadd231ps zmm1,zmm7,DWORD BCST [r14+0x44]
+    0.00 :   3728:   vfmadd231ps zmm2,zmm7,DWORD BCST [r14+0x84]
+    0.00 :   372f:   vfmadd231ps zmm3,zmm7,DWORD BCST [r14+0xc4]
+    0.00 :   3736:   vfmadd231ps zmm4,zmm7,DWORD BCST [r14+0x104]
+    0.00 :   373d:   vfmadd231ps zmm5,zmm7,DWORD BCST [r14+0x144]
+    0.00 :   3744:   vfmadd231ps zmm6,zmm7,DWORD BCST [r14+0x184]
+    0.00 :   374b:   vmovups zmm7,ZMMWORD PTR [r15+0x80]
+    0.00 :   3752:   vfmadd231ps zmm0,zmm7,DWORD BCST [r14+0x8]
+    0.00 :   3759:   vfmadd231ps zmm1,zmm7,DWORD BCST [r14+0x48]
+    0.00 :   3760:   vfmadd231ps zmm2,zmm7,DWORD BCST [r14+0x88]
+    0.00 :   3767:   vfmadd231ps zmm3,zmm7,DWORD BCST [r14+0xc8]
+    0.00 :   376e:   vfmadd231ps zmm4,zmm7,DWORD BCST [r14+0x108]
+    0.00 :   3775:   vfmadd231ps zmm5,zmm7,DWORD BCST [r14+0x148]
+    0.00 :   377c:   vfmadd231ps zmm6,zmm7,DWORD BCST [r14+0x188]
+    0.00 :   3783:   vmovups zmm7,ZMMWORD PTR [r15+0xc0]
+    0.00 :   378a:   vfmadd231ps zmm0,zmm7,DWORD BCST [r14+0xc]
+    0.00 :   3791:   vfmadd231ps zmm1,zmm7,DWORD BCST [r14+0x4c]
+    0.00 :   3798:   vfmadd231ps zmm2,zmm7,DWORD BCST [r14+0x8c]
+    0.00 :   379f:   vfmadd231ps zmm3,zmm7,DWORD BCST [r14+0xcc]
+    0.00 :   37a6:   vfmadd231ps zmm4,zmm7,DWORD BCST [r14+0x10c]
+    0.00 :   37ad:   vfmadd231ps zmm5,zmm7,DWORD BCST [r14+0x14c]
+    0.00 :   37b4:   vfmadd231ps zmm6,zmm7,DWORD BCST [r14+0x18c]
+    0.00 :   37bb:   vmovups zmm7,ZMMWORD PTR [r15+0x100]
+    0.00 :   37c2:   vfmadd231ps zmm0,zmm7,DWORD BCST [r14+0x10]
+    0.00 :   37c9:   vfmadd231ps zmm1,zmm7,DWORD BCST [r14+0x50]
+    0.00 :   37d0:   vfmadd231ps zmm2,zmm7,DWORD BCST [r14+0x90]
+    0.00 :   37d7:   vfmadd231ps zmm3,zmm7,DWORD BCST [r14+0xd0]
+    0.00 :   37de:   vfmadd231ps zmm4,zmm7,DWORD BCST [r14+0x110]
+    0.00 :   37e5:   vfmadd231ps zmm5,zmm7,DWORD BCST [r14+0x150]
+    0.00 :   37ec:   vfmadd231ps zmm6,zmm7,DWORD BCST [r14+0x190]
+    0.00 :   37f3:   vmovups zmm7,ZMMWORD PTR [r15+0x140]
+    0.00 :   37fa:   vfmadd231ps zmm0,zmm7,DWORD BCST [r14+0x14]
+    0.00 :   3801:   vfmadd231ps zmm1,zmm7,DWORD BCST [r14+0x54]
+    0.00 :   3808:   vfmadd231ps zmm2,zmm7,DWORD BCST [r14+0x94]
+    0.00 :   380f:   vfmadd231ps zmm3,zmm7,DWORD BCST [r14+0xd4]
+    0.00 :   3816:   vfmadd231ps zmm4,zmm7,DWORD BCST [r14+0x114]
+    0.00 :   381d:   vfmadd231ps zmm5,zmm7,DWORD BCST [r14+0x154]
+    0.00 :   3824:   vfmadd231ps zmm6,zmm7,DWORD BCST [r14+0x194]
+    0.00 :   382b:   vmovups zmm7,ZMMWORD PTR [r15+0x180]
+    0.00 :   3832:   vfmadd231ps zmm0,zmm7,DWORD BCST [r14+0x18]
+    0.00 :   3839:   vfmadd231ps zmm1,zmm7,DWORD BCST [r14+0x58]
+    0.00 :   3840:   vfmadd231ps zmm2,zmm7,DWORD BCST [r14+0x98]
+    0.00 :   3847:   vfmadd231ps zmm3,zmm7,DWORD BCST [r14+0xd8]
+    0.00 :   384e:   vfmadd231ps zmm4,zmm7,DWORD BCST [r14+0x118]
+    0.00 :   3855:   vfmadd231ps zmm5,zmm7,DWORD BCST [r14+0x158]
+    0.00 :   385c:   vfmadd231ps zmm6,zmm7,DWORD BCST [r14+0x198]
+    0.00 :   3863:   vmovups zmm7,ZMMWORD PTR [r15+0x1c0]
+    0.00 :   386a:   vfmadd231ps zmm0,zmm7,DWORD BCST [r14+0x1c]
+    0.00 :   3871:   vfmadd231ps zmm1,zmm7,DWORD BCST [r14+0x5c]
+    0.00 :   3878:   vfmadd231ps zmm2,zmm7,DWORD BCST [r14+0x9c]
+    0.00 :   387f:   vfmadd231ps zmm3,zmm7,DWORD BCST [r14+0xdc]
+    0.00 :   3886:   vfmadd231ps zmm4,zmm7,DWORD BCST [r14+0x11c]
+    0.00 :   388d:   vfmadd231ps zmm5,zmm7,DWORD BCST [r14+0x15c]
+    0.00 :   3894:   vfmadd231ps zmm6,zmm7,DWORD BCST [r14+0x19c]
+    0.00 :   389b:   vmovups zmm7,ZMMWORD PTR [r15+rbp*1-0x200]
+    0.00 :   38a3:   vfmadd231ps zmm0,zmm7,DWORD BCST [r14+0x20]
+    0.00 :   38aa:   vfmadd231ps zmm1,zmm7,DWORD BCST [r14+0x60]
+    0.00 :   38b1:   vfmadd231ps zmm2,zmm7,DWORD BCST [r14+0xa0]
+    0.00 :   38b8:   vfmadd231ps zmm3,zmm7,DWORD BCST [r14+0xe0]
+    0.00 :   38bf:   vfmadd231ps zmm4,zmm7,DWORD BCST [r14+0x120]
+    0.00 :   38c6:   vfmadd231ps zmm5,zmm7,DWORD BCST [r14+0x160]
+    0.00 :   38cd:   vfmadd231ps zmm6,zmm7,DWORD BCST [r14+0x1a0]
+    0.00 :   38d4:   vmovups zmm7,ZMMWORD PTR [r15+rbp*1-0x1c0]
+    0.00 :   38dc:   vfmadd231ps zmm0,zmm7,DWORD BCST [r14+0x24]
+    0.00 :   38e3:   vfmadd231ps zmm1,zmm7,DWORD BCST [r14+0x64]
+    0.00 :   38ea:   vfmadd231ps zmm2,zmm7,DWORD BCST [r14+0xa4]
+    0.00 :   38f1:   vfmadd231ps zmm3,zmm7,DWORD BCST [r14+0xe4]
+    0.00 :   38f8:   vfmadd231ps zmm4,zmm7,DWORD BCST [r14+0x124]
+    0.00 :   38ff:   vfmadd231ps zmm5,zmm7,DWORD BCST [r14+0x164]
+    0.00 :   3906:   vfmadd231ps zmm6,zmm7,DWORD BCST [r14+0x1a4]
+    0.00 :   390d:   vmovups zmm7,ZMMWORD PTR [r15+rbp*1-0x180]
+    0.00 :   3915:   vfmadd231ps zmm0,zmm7,DWORD BCST [r14+0x28]
+    0.00 :   391c:   vfmadd231ps zmm1,zmm7,DWORD BCST [r14+0x68]
+    0.00 :   3923:   vfmadd231ps zmm2,zmm7,DWORD BCST [r14+0xa8]
+    0.00 :   392a:   vfmadd231ps zmm3,zmm7,DWORD BCST [r14+0xe8]
+    0.00 :   3931:   vfmadd231ps zmm4,zmm7,DWORD BCST [r14+0x128]
+    0.00 :   3938:   vfmadd231ps zmm5,zmm7,DWORD BCST [r14+0x168]
+    0.00 :   393f:   vfmadd231ps zmm6,zmm7,DWORD BCST [r14+0x1a8]
+    0.00 :   3946:   vmovups zmm7,ZMMWORD PTR [r15+rbp*1-0x140]
+    0.00 :   394e:   vfmadd231ps zmm0,zmm7,DWORD BCST [r14+0x2c]
+    0.00 :   3955:   vfmadd231ps zmm1,zmm7,DWORD BCST [r14+0x6c]
+    0.00 :   395c:   vfmadd231ps zmm2,zmm7,DWORD BCST [r14+0xac]
+    0.00 :   3963:   vfmadd231ps zmm3,zmm7,DWORD BCST [r14+0xec]
+    0.00 :   396a:   vfmadd231ps zmm4,zmm7,DWORD BCST [r14+0x12c]
+    0.00 :   3971:   vfmadd231ps zmm5,zmm7,DWORD BCST [r14+0x16c]
+    0.00 :   3978:   vfmadd231ps zmm6,zmm7,DWORD BCST [r14+0x1ac]
+    0.00 :   397f:   vmovups zmm7,ZMMWORD PTR [r15+rbp*1-0x100]
+    0.00 :   3987:   vfmadd231ps zmm0,zmm7,DWORD BCST [r14+0x30]
+    0.00 :   398e:   vfmadd231ps zmm1,zmm7,DWORD BCST [r14+0x70]
+    0.00 :   3995:   vfmadd231ps zmm2,zmm7,DWORD BCST [r14+0xb0]
+    0.00 :   399c:   vfmadd231ps zmm3,zmm7,DWORD BCST [r14+0xf0]
+    0.00 :   39a3:   vfmadd231ps zmm4,zmm7,DWORD BCST [r14+0x130]
+    0.00 :   39aa:   vfmadd231ps zmm5,zmm7,DWORD BCST [r14+0x170]
+    0.00 :   39b1:   vfmadd231ps zmm6,zmm7,DWORD BCST [r14+0x1b0]
+    0.00 :   39b8:   vmovups zmm7,ZMMWORD PTR [r15+rbp*1-0xc0]
+    0.00 :   39c0:   vfmadd231ps zmm0,zmm7,DWORD BCST [r14+0x34]
+    0.00 :   39c7:   vfmadd231ps zmm1,zmm7,DWORD BCST [r14+0x74]
+    0.00 :   39ce:   vfmadd231ps zmm2,zmm7,DWORD BCST [r14+0xb4]
+    0.00 :   39d5:   vfmadd231ps zmm3,zmm7,DWORD BCST [r14+0xf4]
+    0.00 :   39dc:   vfmadd231ps zmm4,zmm7,DWORD BCST [r14+0x134]
+    0.00 :   39e3:   vfmadd231ps zmm5,zmm7,DWORD BCST [r14+0x174]
+    0.00 :   39ea:   vfmadd231ps zmm6,zmm7,DWORD BCST [r14+0x1b4]
+    0.00 :   39f1:   vmovups zmm7,ZMMWORD PTR [r15+rbp*1-0x80]
+    0.00 :   39f9:   vfmadd231ps zmm0,zmm7,DWORD BCST [r14+0x38]
+    0.00 :   3a00:   vfmadd231ps zmm1,zmm7,DWORD BCST [r14+0x78]
+    0.00 :   3a07:   vfmadd231ps zmm2,zmm7,DWORD BCST [r14+0xb8]
+    0.00 :   3a0e:   vfmadd231ps zmm3,zmm7,DWORD BCST [r14+0xf8]
+    0.00 :   3a15:   vfmadd231ps zmm4,zmm7,DWORD BCST [r14+0x138]
+    0.00 :   3a1c:   vfmadd231ps zmm5,zmm7,DWORD BCST [r14+0x178]
+    0.00 :   3a23:   vfmadd231ps zmm6,zmm7,DWORD BCST [r14+0x1b8]
+    0.00 :   3a2a:   vmovups zmm7,ZMMWORD PTR [r15+rbp*1-0x40]
+    0.00 :   3a32:   vfmadd231ps zmm0,zmm7,DWORD BCST [r14+0x3c]
+    0.00 :   3a39:   vfmadd231ps zmm1,zmm7,DWORD BCST [r14+0x7c]
+    0.00 :   3a40:   vfmadd231ps zmm2,zmm7,DWORD BCST [r14+0xbc]
+    0.00 :   3a47:   vfmadd231ps zmm3,zmm7,DWORD BCST [r14+0xfc]
+    0.00 :   3a4e:   vfmadd231ps zmm4,zmm7,DWORD BCST [r14+0x13c]
+    0.00 :   3a55:   vfmadd231ps zmm5,zmm7,DWORD BCST [r14+0x17c]
+    0.00 :   3a5c:   vfmadd231ps zmm6,zmm7,DWORD BCST [r14+0x1bc]
+    0.00 :   3a63:   test   rax,0x100
+    0.00 :   3a69:   jne    3a9f <jit_avx512_common_1x1_conv_kernel_t.11+0x3a1f>
+    0.00 :   3a6f:   vaddps zmm0,zmm0,ZMMWORD PTR [rcx]
+    0.00 :   3a75:   vaddps zmm1,zmm1,ZMMWORD PTR [rcx+0x40]
+    0.00 :   3a7c:   vaddps zmm2,zmm2,ZMMWORD PTR [rcx+0x80]
+    0.00 :   3a83:   vaddps zmm3,zmm3,ZMMWORD PTR [rcx+0xc0]
+    0.00 :   3a8a:   vaddps zmm4,zmm4,ZMMWORD PTR [rcx+0x100]
+    0.00 :   3a91:   vaddps zmm5,zmm5,ZMMWORD PTR [rcx+0x140]
+    0.00 :   3a98:   vaddps zmm6,zmm6,ZMMWORD PTR [rcx+0x180]
+    0.00 :   3a9f:   test   rcx,0x3f
+    0.00 :   3aa6:   jne    3ae1 <jit_avx512_common_1x1_conv_kernel_t.11+0x3a61>
+    0.00 :   3aac:   vmovups ZMMWORD PTR [rcx],zmm0
+    0.00 :   3ab2:   vmovups ZMMWORD PTR [rcx+0x40],zmm1
+    0.00 :   3ab9:   vmovups ZMMWORD PTR [rcx+0x80],zmm2
+    0.00 :   3ac0:   vmovups ZMMWORD PTR [rcx+0xc0],zmm3
+    0.00 :   3ac7:   vmovups ZMMWORD PTR [rcx+0x100],zmm4
+    0.00 :   3ace:   vmovups ZMMWORD PTR [rcx+0x140],zmm5
+    0.00 :   3ad5:   vmovups ZMMWORD PTR [rcx+0x180],zmm6
+    0.00 :   3adc:   jmp    3b11 <jit_avx512_common_1x1_conv_kernel_t.11+0x3a91>
+    0.00 :   3ae1:   vmovups ZMMWORD PTR [rcx],zmm0
+    0.00 :   3ae7:   vmovups ZMMWORD PTR [rcx+0x40],zmm1
+    0.00 :   3aee:   vmovups ZMMWORD PTR [rcx+0x80],zmm2
+    0.00 :   3af5:   vmovups ZMMWORD PTR [rcx+0xc0],zmm3
+    0.00 :   3afc:   vmovups ZMMWORD PTR [rcx+0x100],zmm4
+    0.00 :   3b03:   vmovups ZMMWORD PTR [rcx+0x140],zmm5
+    0.00 :   3b0a:   vmovups ZMMWORD PTR [rcx+0x180],zmm6
+    0.00 :   3b11:   add    rbx,0x1c0
+    0.00 :   3b18:   add    rcx,0x1c0
+    0.00 :   3b1f:   sub    rdx,0x7
+    0.00 :   3b23:   cmp    rdx,0x7
+    0.00 :   3b27:   jge    3302 <jit_avx512_common_1x1_conv_kernel_t.11+0x3282>
+    0.00 :   3b2d:   add    r10,0x4000
+    0.00 :   3b34:   add    r12,0x40
+    0.00 :   3b38:   add    r9,0xc400
+    0.00 :   3b3f:   cmp    rsi,0x0
+    0.00 :   3b43:   jg     32d9 <jit_avx512_common_1x1_conv_kernel_t.11+0x3259>
+    0.00 :   3b49:   add    rsp,0x20
+    0.00 :   3b4d:   pop    r15
+    0.00 :   3b4f:   pop    r14
+    0.00 :   3b51:   pop    r13
+    0.00 :   3b53:   pop    r12
+    0.00 :   3b55:   pop    rbx
+    0.00 :   3b56:   pop    rbp
+    0.00 :   3b57:   vzeroupper
+    0.00 :   3b5a:   ret

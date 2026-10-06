@@ -1,0 +1,10 @@
+    83.79%  jitted-532639-3.so
+     4.23%  python3.12        
+     3.38%  libtorch_cpu.so   
+     3.21%  jitted-532639-4.so
+     2.47%  jitted-532639-6.so
+     1.85%  libc.so.6         
+     0.74%  jitted-532639-5.so
+     0.14%  libc10.so         
+
+

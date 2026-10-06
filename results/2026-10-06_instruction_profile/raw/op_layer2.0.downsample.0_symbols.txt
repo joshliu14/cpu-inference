@@ -1,0 +1,15 @@
+    64.81%  jitted-532780-11.so  [.] jit_avx512_common_1x1_conv_kernel_t.11
+    11.58%  jitted-532780-13.so  [.] jit_single_blk_kernel.13
+     5.75%  jitted-532780-15.so  [.] jit_single_blk_kernel.15
+     5.25%  jitted-532780-12.so  [.] rtus_driver_t.12
+     1.93%  jitted-532780-14.so  [.] jit_single_blk_kernel.14
+     1.19%  libtorch_cpu.so      [.] std::_Function_handler<void (long, long), dnnl::impl::cpu::x64::jit_blk_reorder_t::execute(dnnl::impl::exec_ctx_t const&) const::{lambda(long, long)#1}>::_M_invoke(std::_Any_data const&, long&&, long&&)
+     0.64%  libtorch_cpu.so      [.] std::_Function_handler<void (int, int), dnnl::impl::parallel_nd(long, long, std::function<void (long, long)> const&)::{lambda(int, int)#1}>::_M_invoke(std::_Any_data const&, int&&, int&&)
+     0.33%  python3.12           [.] 0x000000000021d760
+     0.31%  python3.12           [.] 0x000000000021cb5a
+     0.26%  python3.12           [.] 0x000000000021ccf8
+     0.24%  python3.12           [.] 0x000000000021d984
+     0.21%  python3.12           [.] 0x000000000021d6f8
+     0.21%  python3.12           [.] 0x000000000021d9e4
+
+

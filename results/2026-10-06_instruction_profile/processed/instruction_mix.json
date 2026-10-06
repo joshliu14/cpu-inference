@@ -1,0 +1,410 @@
+{
+  "avgpool": {
+    "symbol": "void at::native::(anonymous namespace)::vectorized_inner_sum<float, at::native::(anonymous namespace)::InnerSumCastLoadPolicy<at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>, void>, at::native::(anonymous namespace)::CastLoadPolicy<float, float>, at::native::(anonymous namespace)::CastStoreAccumulate<float, float> >(char* restrict*, long, long, long, long)",
+    "symbol_share": "59.38%",
+    "weighted": {
+      "branch": 28.119999999999997,
+      "gpr_load": 10.2,
+      "gpr_store": 0.0,
+      "int/addr": 7.279999999999999,
+      "other": 5.56,
+      "scalar_fp": 0.16,
+      "shuffle/permute": 22.240000000000002,
+      "vec_arith": 26.44,
+      "vec_store": 0.04
+    },
+    "static": {
+      "branch": 9.090909090909092,
+      "gpr_load": 4.398826979472141,
+      "gpr_store": 4.9853372434017595,
+      "int/addr": 35.77712609970675,
+      "other": 7.331378299120235,
+      "scalar_fp": 7.038123167155426,
+      "shuffle/permute": 17.302052785923756,
+      "vec_arith": 13.78299120234604,
+      "vec_store": 0.2932551319648094
+    },
+    "vector_widths_static": {
+      "xmm": 12,
+      "ymm": 36
+    },
+    "n_instructions": 341
+  },
+  "conv1": {
+    "symbol": "jit_avx512_common_conv_fwd_kernel_vmm_t.0",
+    "symbol_share": "78.5%",
+    "weighted": {
+      "branch": 0.18,
+      "fma": 94.83,
+      "gpr_load": 0.0,
+      "int/addr": 0.3,
+      "other": 0.12,
+      "vec_arith": 0.32999999999999996,
+      "vec_load": 1.56,
+      "vec_store": 1.92
+    },
+    "static": {
+      "branch": 0.5161895823557016,
+      "fma": 81.93336461755044,
+      "gpr_load": 0.328484279680901,
+      "int/addr": 1.6893477240732049,
+      "other": 0.7508212106992023,
+      "vec_arith": 7.883622712341623,
+      "vec_load": 2.956358517128109,
+      "vec_store": 3.9418113561708115
+    },
+    "vector_widths_static": {
+      "zmm": 2061
+    },
+    "n_instructions": 2131
+  },
+  "fc": {
+    "symbol": "mkl_blas_avx512_xsgemv",
+    "symbol_share": "91.64%",
+    "weighted": {
+      "branch": 3.3499999999999996,
+      "broadcast": 0.43000000000000005,
+      "compare/mask": 0.03,
+      "fma": 89.93,
+      "gpr_load": 0.06,
+      "gpr_store": 0.0,
+      "int/addr": 1.85,
+      "other": 0.0,
+      "scalar_fp": 0.9099999999999999,
+      "shuffle/permute": 0.52,
+      "vec_arith": 1.56,
+      "vec_load": 1.3900000000000001,
+      "vec_store": 0.06
+    },
+    "static": {
+      "branch": 8.748866727107888,
+      "broadcast": 4.623753399818677,
+      "compare/mask": 3.85312783318223,
+      "fma": 4.034451495920218,
+      "gpr_load": 10.471441523118767,
+      "gpr_store": 7.343608340888485,
+      "int/addr": 36.26473254759746,
+      "other": 1.1786038077969174,
+      "scalar_fp": 1.9038984587488668,
+      "shuffle/permute": 5.757026291931097,
+      "vec_arith": 9.927470534904804,
+      "vec_load": 3.626473254759746,
+      "vec_store": 2.2665457842248413
+    },
+    "vector_widths_static": {
+      "xmm": 67,
+      "ymm": 2,
+      "zmm": 369
+    },
+    "n_instructions": 2206
+  },
+  "layer1.0.add": {
+    "symbol": "void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)",
+    "symbol_share": "92.78%",
+    "weighted": {
+      "branch": 8.04,
+      "broadcast": 0.0,
+      "fma": 16.82,
+      "gpr_load": 0.0,
+      "gpr_store": 0.0,
+      "int/addr": 0.0,
+      "other": 0.0,
+      "scalar_fp": 0.0,
+      "shuffle/permute": 0.0,
+      "vec_arith": 0.0,
+      "vec_load": 66.62,
+      "vec_store": 8.52
+    },
+    "static": {
+      "branch": 13.223140495867769,
+      "broadcast": 0.9297520661157025,
+      "fma": 7.644628099173553,
+      "gpr_load": 5.475206611570248,
+      "gpr_store": 4.132231404958678,
+      "int/addr": 39.9793388429752,
+      "other": 4.75206611570248,
+      "scalar_fp": 0.2066115702479339,
+      "shuffle/permute": 0.6198347107438017,
+      "vec_arith": 0.30991735537190085,
+      "vec_load": 14.566115702479337,
+      "vec_store": 8.16115702479339
+    },
+    "vector_widths_static": {
+      "xmm": 263,
+      "ymm": 34
+    },
+    "n_instructions": 968
+  },
+  "layer1.0.bn1": {
+    "symbol": "at::native::(anonymous namespace)::batch_norm_cpu_kernel(at::Tensor&, at::Tensor const&, at::Tensor const&, at::Tensor const&, at::Tensor const&, at::Tensor const&, at::Tensor const&, at::Tensor const&, bool, double)::{lambda()#1}::operator()() const",
+    "symbol_share": "75.7%",
+    "weighted": {
+      "branch": 26.99,
+      "broadcast": 0.16,
+      "compare/mask": 0.0,
+      "fma": 23.17,
+      "gpr_load": 46.14,
+      "gpr_store": 0.0,
+      "int/addr": 0.59,
+      "other": 0.09,
+      "scalar_fp": 0.0,
+      "shuffle/permute": 0.0,
+      "vec_arith": 0.0,
+      "vec_load": 0.0,
+      "vec_store": 2.85
+    },
+    "static": {
+      "branch": 16.714082503556188,
+      "broadcast": 0.8534850640113799,
+      "compare/mask": 1.031294452347084,
+      "fma": 1.2446657183499288,
+      "gpr_load": 16.32290184921764,
+      "gpr_store": 9.495021337126602,
+      "int/addr": 37.660028449502136,
+      "other": 5.085348506401138,
+      "scalar_fp": 0.2844950213371266,
+      "shuffle/permute": 3.591749644381223,
+      "vec_arith": 4.8719772403982935,
+      "vec_load": 1.422475106685633,
+      "vec_store": 1.422475106685633
+    },
+    "vector_widths_static": {
+      "xmm": 152,
+      "ymm": 100
+    },
+    "n_instructions": 2812
+  },
+  "layer1.0.conv1": {
+    "symbol": "mkl_blas_avx512_sgemm_kernel_nocopy_NN_b0",
+    "symbol_share": "90.11%",
+    "weighted": {
+      "branch": 1.64,
+      "broadcast": 10.39,
+      "compare/mask": 0.03,
+      "fma": 64.57,
+      "gpr_load": 0.0,
+      "gpr_store": 0.0,
+      "int/addr": 3.9299999999999997,
+      "other": 0.05,
+      "prefetch": 8.83,
+      "vec_arith": 1.52,
+      "vec_load": 6.13,
+      "vec_store": 3.18
+    },
+    "static": {
+      "branch": 1.9700682861833498,
+      "broadcast": 19.65785529039473,
+      "compare/mask": 0.014275857146256156,
+      "fma": 38.830331437816746,
+      "gpr_load": 0.07851721430440886,
+      "gpr_store": 0.04282757143876847,
+      "int/addr": 9.928858645221156,
+      "other": 2.0866544528777746,
+      "prefetch": 11.506340859882462,
+      "vec_arith": 4.625377715386994,
+      "vec_load": 8.48461776392491,
+      "vec_store": 2.7742749054224465
+    },
+    "vector_widths_static": {
+      "xmm": 4,
+      "zmm": 22992
+    },
+    "n_instructions": 42029
+  },
+  "layer1.0.conv2": {
+    "symbol": "jit_avx512_common_conv_fwd_kernel_vmm_t.3",
+    "symbol_share": "83.79%",
+    "weighted": {
+      "branch": 0.24,
+      "fma": 97.48,
+      "gpr_load": 0.03,
+      "int/addr": 0.23,
+      "other": 0.03,
+      "vec_arith": 2.14,
+      "vec_load": 3.16,
+      "vec_store": 0.5
+    },
+    "static": {
+      "branch": 0.23553162853297444,
+      "fma": 89.36742934051144,
+      "gpr_load": 0.2018842530282638,
+      "int/addr": 0.8075370121130552,
+      "other": 0.5047106325706594,
+      "vec_arith": 3.768506056527591,
+      "vec_load": 3.2301480484522207,
+      "vec_store": 1.8842530282637955
+    },
+    "vector_widths_static": {
+      "zmm": 2920
+    },
+    "n_instructions": 2972
+  },
+  "layer1.0.conv3": {
+    "symbol": "mkl_blas_avx512_sgemm_kernel_0_b0",
+    "symbol_share": "86.5%",
+    "weighted": {
+      "branch": 0.61,
+      "broadcast": 8.19,
+      "fma": 74.51,
+      "gpr_load": 0.17,
+      "gpr_store": 0.0,
+      "int/addr": 1.1700000000000002,
+      "other": 2.23,
+      "prefetch": 1.42,
+      "vec_arith": 0.76,
+      "vec_load": 8.75,
+      "vec_store": 2.09
+    },
+    "static": {
+      "branch": 2.887180291856269,
+      "broadcast": 26.063078612898167,
+      "fma": 30.597834614781107,
+      "gpr_load": 0.17260316962184216,
+      "gpr_store": 0.09414718343009572,
+      "int/addr": 13.729797583555625,
+      "other": 6.5903028401067,
+      "prefetch": 9.132276792719285,
+      "vec_arith": 2.730268319472776,
+      "vec_load": 5.648831005805743,
+      "vec_store": 2.353679585752393
+    },
+    "vector_widths_static": {
+      "xmm": 90,
+      "ymm": 30,
+      "zmm": 2514
+    },
+    "n_instructions": 6373
+  },
+  "layer1.0.relu1": {
+    "symbol": "void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)",
+    "symbol_share": "84.08%",
+    "weighted": {
+      "branch": 24.74,
+      "broadcast": 0.0,
+      "gpr_load": 0.0,
+      "gpr_store": 0.0,
+      "int/addr": 24.74,
+      "other": 0.0,
+      "scalar_fp": 0.0,
+      "shuffle/permute": 0.0,
+      "vec_arith": 48.83,
+      "vec_load": 0.0,
+      "vec_store": 1.69
+    },
+    "static": {
+      "branch": 15.090543259557343,
+      "broadcast": 0.6036217303822937,
+      "gpr_load": 3.420523138832998,
+      "gpr_store": 3.0181086519114686,
+      "int/addr": 42.45472837022133,
+      "other": 8.048289738430583,
+      "scalar_fp": 7.44466800804829,
+      "shuffle/permute": 0.6036217303822937,
+      "vec_arith": 1.4084507042253522,
+      "vec_load": 8.651911468812877,
+      "vec_store": 9.25553319919517
+    },
+    "vector_widths_static": {
+      "xmm": 83,
+      "ymm": 13
+    },
+    "n_instructions": 497
+  },
+  "layer2.0.downsample.0": {
+    "symbol": "jit_avx512_common_1x1_conv_kernel_t.11",
+    "symbol_share": "64.81%",
+    "weighted": {
+      "branch": 0.6699999999999999,
+      "broadcast": 11.45,
+      "fma": 80.58,
+      "gpr_load": 0.0,
+      "gpr_store": 0.0,
+      "int/addr": 0.19,
+      "other": 0.0,
+      "vec_arith": 0.22,
+      "vec_load": 6.63,
+      "vec_store": 0.96
+    },
+    "static": {
+      "branch": 1.48471615720524,
+      "broadcast": 19.563318777292576,
+      "fma": 58.689956331877724,
+      "gpr_load": 0.6986899563318777,
+      "gpr_store": 0.08733624454148471,
+      "int/addr": 3.1877729257641922,
+      "other": 0.5676855895196506,
+      "vec_arith": 3.6681222707423577,
+      "vec_load": 8.384279475982533,
+      "vec_store": 3.6681222707423577
+    },
+    "vector_widths_static": {
+      "zmm": 1704
+    },
+    "n_instructions": 2290
+  },
+  "layer4.0.conv2": {
+    "symbol": "jit_avx512_common_conv_fwd_kernel_vmm_t.29",
+    "symbol_share": "60.13%",
+    "weighted": {
+      "branch": 0.63,
+      "fma": 86.73,
+      "gpr_load": 0.24,
+      "int/addr": 0.9500000000000001,
+      "other": 0.48,
+      "vec_arith": 0.48,
+      "vec_load": 10.870000000000001,
+      "vec_store": 0.16
+    },
+    "static": {
+      "branch": 0.9478672985781991,
+      "fma": 75.82938388625593,
+      "gpr_load": 1.1848341232227488,
+      "int/addr": 2.3696682464454977,
+      "other": 3.3175355450236967,
+      "vec_arith": 3.3175355450236967,
+      "vec_load": 11.374407582938389,
+      "vec_store": 1.6587677725118484
+    },
+    "vector_widths_static": {
+      "zmm": 389
+    },
+    "n_instructions": 422
+  },
+  "maxpool": {
+    "symbol": "void at::native::(anonymous namespace)::cpu_max_pool<float, false>(at::Tensor const&, at::Tensor const&, at::Tensor const&, c10::ArrayRef<long>, c10::ArrayRef<long>, c10::ArrayRef<long>, c10::ArrayRef<long>) [clone .constprop.0]",
+    "symbol_share": "94.92%",
+    "weighted": {
+      "branch": 31.45,
+      "broadcast": 0.0,
+      "compare/mask": 8.33,
+      "gpr_load": 18.56,
+      "gpr_store": 3.05,
+      "int/addr": 24.13,
+      "other": 1.48,
+      "scalar_fp": 6.95,
+      "shuffle/permute": 0.0,
+      "vec_arith": 0.0,
+      "vec_load": 5.15,
+      "vec_store": 1.05
+    },
+    "static": {
+      "branch": 14.114832535885165,
+      "broadcast": 0.23923444976076555,
+      "compare/mask": 0.4784688995215311,
+      "gpr_load": 24.401913875598087,
+      "gpr_store": 13.516746411483254,
+      "int/addr": 36.961722488038276,
+      "other": 3.2296650717703352,
+      "scalar_fp": 0.23923444976076555,
+      "shuffle/permute": 3.2296650717703352,
+      "vec_arith": 1.9138755980861244,
+      "vec_load": 0.7177033492822966,
+      "vec_store": 0.9569377990430622
+    },
+    "vector_widths_static": {
+      "xmm": 23,
+      "ymm": 7
+    },
+    "n_instructions": 836
+  }
+}

@@ -1,0 +1,11 @@
+    60.13%  jitted-532880-29.so  [.] jit_avx512_common_conv_fwd_kernel_vmm_t.29
+    29.32%  jitted-532880-31.so  [.] jit_uni_reorder_kernel_f32.31
+     1.97%  libtorch_cpu.so      [.] dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const
+     0.76%  jitted-532880-30.so  [.] jit_single_blk_kernel.30
+     0.38%  python3.12           [.] 0x000000000021cb5a
+     0.36%  python3.12           [.] 0x000000000021d984
+     0.33%  jitted-532880-32.so  [.] jit_single_blk_kernel.32
+     0.33%  python3.12           [.] 0x000000000021d760
+     0.24%  libc.so.6            [.] cfree
+
+

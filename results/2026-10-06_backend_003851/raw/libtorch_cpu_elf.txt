@@ -1,0 +1,10 @@
+# /users/joshliu/cpu-inference/.venv/lib/python3.12/site-packages/torch/lib/libtorch_cpu.so
+  Class:                             ELF64
+  Type:                              DYN (Shared object file)
+  Machine:                           Advanced Micro Devices X86-64
+# section sizes (.text = machine code)
+  [12] .text             PROGBITS        000000000106b900 106b900 10dd3000 00  AX  0   0 256
+  [16] .rodata           PROGBITS        0000000011e3e940 11e3e940 116ad13 00   A  0   0 64
+  [30] .data             PROGBITS        0000000014c43000 14c42000 0300d8 00  WA  0   0 4096
+# symbol table present?
+1

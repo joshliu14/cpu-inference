@@ -1,0 +1,1959 @@
+# symbol: mkl_blas_avx512_sgemm_scopy_down48_ea
+# dso: libtorch_cpu.so
+# share of operator samples: 4.85%
+ Percent |	Source code & Disassembly of libtorch_cpu.so for cycles:P (204 samples, percent: local period)
+--------------------------------------------------------------------------------------------------------------
+         :
+         :
+         :
+         : 3       Disassembly of section .text:
+         :
+         : 5       000000000c239d00 <mkl_blas_avx512_sgemm_scopy_down48_ea>:
+    0.00 :   c239d00:        endbr64
+    0.00 :   c239d04:        mov    rdi,QWORD PTR [rdi]
+    0.49 :   c239d07:        mov    rsi,QWORD PTR [rsi]
+    0.00 :   c239d0a:        mov    rcx,QWORD PTR [rcx]
+    0.00 :   c239d0d:        sub    rdx,0xffffffffffffff80
+    0.00 :   c239d11:        sub    r9,0xffffffffffffff80
+    0.00 :   c239d15:        shl    rcx,0x2
+    0.00 :   c239d19:        lea    r11,[rcx+rcx*2]
+    0.00 :   c239d1d:        vbroadcastss zmm6,DWORD PTR [r8]
+    0.00 :   c239d23:        vpcmpeqb xmm3,xmm3,xmm3
+    0.00 :   c239d27:        vpsrld xmm3,xmm3,0x17
+    0.00 :   c239d2c:        vpslld xmm3,xmm3,0x19
+    0.00 :   c239d31:        vpsrld xmm3,xmm3,0x2
+    0.00 :   c239d36:        vpcmpeqb xmm4,xmm4,xmm4
+    0.00 :   c239d3a:        vpslld xmm4,xmm4,0x1f
+    0.00 :   c239d3f:        vbroadcastss zmm4,xmm4
+    0.00 :   c239d45:        vucomiss xmm6,xmm3
+    0.00 :   c239d49:        jne    c23a9f0 <mkl_blas_avx512_sgemm_scopy_down48_ea+0xcf0>
+    0.00 :   c239d4f:        cmp    rsi,0x30
+    0.00 :   c239d53:        jl     c23a090 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x390>
+    0.00 :   c239d59:        nop    DWORD PTR [rax+0x0]
+    0.00 :   c239d60:        mov    r10,rdx
+    0.00 :   c239d63:        lea    r8,[r10+rcx*4]
+    0.00 :   c239d67:        add    rdx,0xc0
+    0.00 :   c239d6e:        mov    rax,rdi
+    0.00 :   c239d71:        sar    rax,0x3
+    0.00 :   c239d75:        jle    c239f00 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x200>
+    0.00 :   c239d7b:        nop    DWORD PTR [rax+rax*1+0x0]
+    8.82 :   c239d80:        vmovups zmm0,ZMMWORD PTR [r10-0x80]
+    1.47 :   c239d87:        vmovups ZMMWORD PTR [r9-0x80],zmm0
+    0.00 :   c239d8e:        vmovups zmm0,ZMMWORD PTR [r10-0x40]
+    0.00 :   c239d95:        vmovups ZMMWORD PTR [r9-0x40],zmm0
+    4.41 :   c239d9c:        vmovups zmm0,ZMMWORD PTR [r10]
+    0.49 :   c239da2:        vmovups ZMMWORD PTR [r9],zmm0
+    2.94 :   c239da8:        vmovups zmm0,ZMMWORD PTR [r10+rcx*1-0x80]
+    0.49 :   c239db0:        vmovups ZMMWORD PTR [r9+0x40],zmm0
+    0.00 :   c239db7:        vmovups zmm0,ZMMWORD PTR [r10+rcx*1-0x40]
+    0.00 :   c239dbf:        vmovups ZMMWORD PTR [r9+0x80],zmm0
+    5.39 :   c239dc6:        vmovups zmm0,ZMMWORD PTR [r10+rcx*1]
+    1.47 :   c239dcd:        vmovups ZMMWORD PTR [r9+0xc0],zmm0
+    2.45 :   c239dd4:        vmovups zmm0,ZMMWORD PTR [r10+rcx*2-0x80]
+    0.00 :   c239ddc:        vmovups ZMMWORD PTR [r9+0x100],zmm0
+    0.00 :   c239de3:        vmovups zmm0,ZMMWORD PTR [r10+rcx*2-0x40]
+    0.00 :   c239deb:        vmovups ZMMWORD PTR [r9+0x140],zmm0
+    5.39 :   c239df2:        vmovups zmm0,ZMMWORD PTR [r10+rcx*2]
+    0.00 :   c239df9:        vmovups ZMMWORD PTR [r9+0x180],zmm0
+    5.39 :   c239e00:        vmovups zmm0,ZMMWORD PTR [r10+r11*1-0x80]
+    0.49 :   c239e08:        vmovups ZMMWORD PTR [r9+0x1c0],zmm0
+    0.00 :   c239e0f:        vmovups zmm0,ZMMWORD PTR [r10+r11*1-0x40]
+    0.49 :   c239e17:        vmovups ZMMWORD PTR [r9+0x200],zmm0
+    3.92 :   c239e1e:        vmovups zmm0,ZMMWORD PTR [r10+r11*1]
+    0.00 :   c239e25:        vmovups ZMMWORD PTR [r9+0x240],zmm0
+    5.39 :   c239e2c:        vmovups zmm0,ZMMWORD PTR [r8-0x80]
+    0.98 :   c239e33:        vmovups ZMMWORD PTR [r9+0x280],zmm0
+    0.00 :   c239e3a:        vmovups zmm0,ZMMWORD PTR [r8-0x40]
+    0.49 :   c239e41:        vmovups ZMMWORD PTR [r9+0x2c0],zmm0
+    5.88 :   c239e48:        vmovups zmm0,ZMMWORD PTR [r8]
+    0.49 :   c239e4e:        vmovups ZMMWORD PTR [r9+0x300],zmm0
+    8.33 :   c239e55:        vmovups zmm0,ZMMWORD PTR [r8+rcx*1-0x80]
+    1.96 :   c239e5d:        vmovups ZMMWORD PTR [r9+0x340],zmm0
+    0.00 :   c239e64:        vmovups zmm0,ZMMWORD PTR [r8+rcx*1-0x40]
+    0.00 :   c239e6c:        vmovups ZMMWORD PTR [r9+0x380],zmm0
+    4.41 :   c239e73:        vmovups zmm0,ZMMWORD PTR [r8+rcx*1]
+    0.49 :   c239e7a:        vmovups ZMMWORD PTR [r9+0x3c0],zmm0
+    7.84 :   c239e81:        vmovups zmm0,ZMMWORD PTR [r8+rcx*2-0x80]
+    0.00 :   c239e89:        vmovups ZMMWORD PTR [r9+0x400],zmm0
+    0.00 :   c239e90:        vmovups zmm0,ZMMWORD PTR [r8+rcx*2-0x40]
+    0.49 :   c239e98:        vmovups ZMMWORD PTR [r9+0x440],zmm0
+    4.41 :   c239e9f:        vmovups zmm0,ZMMWORD PTR [r8+rcx*2]
+    0.98 :   c239ea6:        vmovups ZMMWORD PTR [r9+0x480],zmm0
+    4.41 :   c239ead:        vmovups zmm0,ZMMWORD PTR [r8+r11*1-0x80]
+    0.00 :   c239eb5:        vmovups ZMMWORD PTR [r9+0x4c0],zmm0
+    0.00 :   c239ebc:        vmovups zmm0,ZMMWORD PTR [r8+r11*1-0x40]
+    0.49 :   c239ec4:        vmovups ZMMWORD PTR [r9+0x500],zmm0
+    5.88 :   c239ecb:        vmovups zmm0,ZMMWORD PTR [r8+r11*1]
+    0.98 :   c239ed2:        vmovups ZMMWORD PTR [r9+0x540],zmm0
+    0.00 :   c239ed9:        lea    r10,[r10+rcx*8]
+    0.00 :   c239edd:        lea    r8,[r8+rcx*8]
+    0.00 :   c239ee1:        sub    r9,0xfffffffffffffa00
+    0.00 :   c239ee8:        dec    rax
+    0.98 :   c239eeb:        jg     c239d80 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x80>
+    0.00 :   c239ef1:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c239efc:        nop    DWORD PTR [rax+0x0]
+    0.00 :   c239f00:        test   rdi,0x4
+    0.00 :   c239f07:        jle    c239fd0 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x2d0>
+    0.00 :   c239f0d:        vmovups zmm0,ZMMWORD PTR [r10-0x80]
+    0.00 :   c239f14:        vmovups ZMMWORD PTR [r9-0x80],zmm0
+    0.00 :   c239f1b:        vmovups zmm0,ZMMWORD PTR [r10-0x40]
+    0.00 :   c239f22:        vmovups ZMMWORD PTR [r9-0x40],zmm0
+    0.00 :   c239f29:        vmovups zmm0,ZMMWORD PTR [r10]
+    0.00 :   c239f2f:        vmovups ZMMWORD PTR [r9],zmm0
+    0.00 :   c239f35:        vmovups zmm0,ZMMWORD PTR [r10+rcx*1-0x80]
+    0.00 :   c239f3d:        vmovups ZMMWORD PTR [r9+0x40],zmm0
+    0.00 :   c239f44:        vmovups zmm0,ZMMWORD PTR [r10+rcx*1-0x40]
+    0.00 :   c239f4c:        vmovups ZMMWORD PTR [r9+0x80],zmm0
+    0.00 :   c239f53:        vmovups zmm0,ZMMWORD PTR [r10+rcx*1]
+    0.00 :   c239f5a:        vmovups ZMMWORD PTR [r9+0xc0],zmm0
+    0.00 :   c239f61:        vmovups zmm0,ZMMWORD PTR [r10+rcx*2-0x80]
+    0.00 :   c239f69:        vmovups ZMMWORD PTR [r9+0x100],zmm0
+    0.00 :   c239f70:        vmovups zmm0,ZMMWORD PTR [r10+rcx*2-0x40]
+    0.00 :   c239f78:        vmovups ZMMWORD PTR [r9+0x140],zmm0
+    0.00 :   c239f7f:        vmovups zmm0,ZMMWORD PTR [r10+rcx*2]
+    0.00 :   c239f86:        vmovups ZMMWORD PTR [r9+0x180],zmm0
+    0.00 :   c239f8d:        vmovups zmm0,ZMMWORD PTR [r10+r11*1-0x80]
+    0.00 :   c239f95:        vmovups ZMMWORD PTR [r9+0x1c0],zmm0
+    0.00 :   c239f9c:        vmovups zmm0,ZMMWORD PTR [r10+r11*1-0x40]
+    0.00 :   c239fa4:        vmovups ZMMWORD PTR [r9+0x200],zmm0
+    0.00 :   c239fab:        vmovups zmm0,ZMMWORD PTR [r10+r11*1]
+    0.00 :   c239fb2:        vmovups ZMMWORD PTR [r9+0x240],zmm0
+    0.00 :   c239fb9:        lea    r10,[r10+rcx*4]
+    0.00 :   c239fbd:        sub    r9,0xfffffffffffffd00
+    0.00 :   c239fc4:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c239fcf:        nop
+    0.00 :   c239fd0:        test   rdi,0x2
+    0.00 :   c239fd7:        jle    c23a040 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x340>
+    0.00 :   c239fd9:        vmovups zmm0,ZMMWORD PTR [r10-0x80]
+    0.00 :   c239fe0:        vmovups ZMMWORD PTR [r9-0x80],zmm0
+    0.00 :   c239fe7:        vmovups zmm0,ZMMWORD PTR [r10-0x40]
+    0.00 :   c239fee:        vmovups ZMMWORD PTR [r9-0x40],zmm0
+    0.00 :   c239ff5:        vmovups zmm0,ZMMWORD PTR [r10]
+    0.00 :   c239ffb:        vmovups ZMMWORD PTR [r9],zmm0
+    0.00 :   c23a001:        vmovups zmm0,ZMMWORD PTR [r10+rcx*1-0x80]
+    0.00 :   c23a009:        vmovups ZMMWORD PTR [r9+0x40],zmm0
+    0.00 :   c23a010:        vmovups zmm0,ZMMWORD PTR [r10+rcx*1-0x40]
+    0.00 :   c23a018:        vmovups ZMMWORD PTR [r9+0x80],zmm0
+    0.00 :   c23a01f:        vmovups zmm0,ZMMWORD PTR [r10+rcx*1]
+    0.00 :   c23a026:        vmovups ZMMWORD PTR [r9+0xc0],zmm0
+    0.00 :   c23a02d:        lea    r10,[r10+rcx*2]
+    0.00 :   c23a031:        sub    r9,0xfffffffffffffe80
+    0.00 :   c23a038:        nop    DWORD PTR [rax+rax*1+0x0]
+    0.00 :   c23a040:        test   rdi,0x1
+    0.00 :   c23a047:        jle    c23a080 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x380>
+    0.00 :   c23a049:        vmovups zmm0,ZMMWORD PTR [r10-0x80]
+    0.00 :   c23a050:        vmovups ZMMWORD PTR [r9-0x80],zmm0
+    0.00 :   c23a057:        vmovups zmm0,ZMMWORD PTR [r10-0x40]
+    0.00 :   c23a05e:        vmovups ZMMWORD PTR [r9-0x40],zmm0
+    0.00 :   c23a065:        vmovups zmm0,ZMMWORD PTR [r10]
+    0.00 :   c23a06b:        vmovups ZMMWORD PTR [r9],zmm0
+    0.00 :   c23a071:        sub    r9,0xffffffffffffff40
+    0.00 :   c23a078:        nop    DWORD PTR [rax+rax*1+0x0]
+    0.00 :   c23a080:        sub    rsi,0x30
+    0.00 :   c23a084:        cmp    rsi,0x30
+    0.00 :   c23a088:        jge    c239d60 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x60>
+    0.00 :   c23a08e:        xchg   ax,ax
+    0.00 :   c23a090:        cmp    rsi,0x20
+    0.00 :   c23a094:        jl     c23a2f0 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x5f0>
+    0.00 :   c23a09a:        mov    r10,rdx
+    0.00 :   c23a09d:        lea    r8,[r10+rcx*4]
+    0.00 :   c23a0a1:        add    rdx,0x80
+    0.00 :   c23a0a8:        mov    rax,rdi
+    0.00 :   c23a0ab:        sar    rax,0x3
+    0.00 :   c23a0af:        jle    c23a1d0 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x4d0>
+    0.00 :   c23a0b5:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23a0c0:        vmovups zmm0,ZMMWORD PTR [r10-0x80]
+    0.00 :   c23a0c7:        vmovups ZMMWORD PTR [r9-0x80],zmm0
+    0.00 :   c23a0ce:        vmovups zmm0,ZMMWORD PTR [r10-0x40]
+    0.00 :   c23a0d5:        vmovups ZMMWORD PTR [r9-0x40],zmm0
+    0.00 :   c23a0dc:        vmovups zmm0,ZMMWORD PTR [r10+rcx*1-0x80]
+    0.00 :   c23a0e4:        vmovups ZMMWORD PTR [r9],zmm0
+    0.00 :   c23a0ea:        vmovups zmm0,ZMMWORD PTR [r10+rcx*1-0x40]
+    0.00 :   c23a0f2:        vmovups ZMMWORD PTR [r9+0x40],zmm0
+    0.00 :   c23a0f9:        vmovups zmm0,ZMMWORD PTR [r10+rcx*2-0x80]
+    0.00 :   c23a101:        vmovups ZMMWORD PTR [r9+0x80],zmm0
+    0.00 :   c23a108:        vmovups zmm0,ZMMWORD PTR [r10+rcx*2-0x40]
+    0.00 :   c23a110:        vmovups ZMMWORD PTR [r9+0xc0],zmm0
+    0.00 :   c23a117:        vmovups zmm0,ZMMWORD PTR [r10+r11*1-0x80]
+    0.00 :   c23a11f:        vmovups ZMMWORD PTR [r9+0x100],zmm0
+    0.00 :   c23a126:        vmovups zmm0,ZMMWORD PTR [r10+r11*1-0x40]
+    0.00 :   c23a12e:        vmovups ZMMWORD PTR [r9+0x140],zmm0
+    0.00 :   c23a135:        vmovups zmm0,ZMMWORD PTR [r8-0x80]
+    0.00 :   c23a13c:        vmovups ZMMWORD PTR [r9+0x180],zmm0
+    0.00 :   c23a143:        vmovups zmm0,ZMMWORD PTR [r8-0x40]
+    0.00 :   c23a14a:        vmovups ZMMWORD PTR [r9+0x1c0],zmm0
+    0.00 :   c23a151:        vmovups zmm0,ZMMWORD PTR [r8+rcx*1-0x80]
+    0.00 :   c23a159:        vmovups ZMMWORD PTR [r9+0x200],zmm0
+    0.00 :   c23a160:        vmovups zmm0,ZMMWORD PTR [r8+rcx*1-0x40]
+    0.00 :   c23a168:        vmovups ZMMWORD PTR [r9+0x240],zmm0
+    0.00 :   c23a16f:        vmovups zmm0,ZMMWORD PTR [r8+rcx*2-0x80]
+    0.00 :   c23a177:        vmovups ZMMWORD PTR [r9+0x280],zmm0
+    0.00 :   c23a17e:        vmovups zmm0,ZMMWORD PTR [r8+rcx*2-0x40]
+    0.00 :   c23a186:        vmovups ZMMWORD PTR [r9+0x2c0],zmm0
+    0.00 :   c23a18d:        vmovups zmm0,ZMMWORD PTR [r8+r11*1-0x80]
+    0.00 :   c23a195:        vmovups ZMMWORD PTR [r9+0x300],zmm0
+    0.00 :   c23a19c:        vmovups zmm0,ZMMWORD PTR [r8+r11*1-0x40]
+    0.00 :   c23a1a4:        vmovups ZMMWORD PTR [r9+0x340],zmm0
+    0.00 :   c23a1ab:        lea    r10,[r10+rcx*8]
+    0.00 :   c23a1af:        lea    r8,[r8+rcx*8]
+    0.00 :   c23a1b3:        sub    r9,0xfffffffffffffc00
+    0.00 :   c23a1ba:        dec    rax
+    0.00 :   c23a1bd:        jg     c23a0c0 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x3c0>
+    0.00 :   c23a1c3:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23a1ce:        xchg   ax,ax
+    0.00 :   c23a1d0:        test   rdi,0x4
+    0.00 :   c23a1d7:        jle    c23a260 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x560>
+    0.00 :   c23a1dd:        vmovups zmm0,ZMMWORD PTR [r10-0x80]
+    0.00 :   c23a1e4:        vmovups ZMMWORD PTR [r9-0x80],zmm0
+    0.00 :   c23a1eb:        vmovups zmm0,ZMMWORD PTR [r10-0x40]
+    0.00 :   c23a1f2:        vmovups ZMMWORD PTR [r9-0x40],zmm0
+    0.00 :   c23a1f9:        vmovups zmm0,ZMMWORD PTR [r10+rcx*1-0x80]
+    0.00 :   c23a201:        vmovups ZMMWORD PTR [r9],zmm0
+    0.00 :   c23a207:        vmovups zmm0,ZMMWORD PTR [r10+rcx*1-0x40]
+    0.00 :   c23a20f:        vmovups ZMMWORD PTR [r9+0x40],zmm0
+    0.00 :   c23a216:        vmovups zmm0,ZMMWORD PTR [r10+rcx*2-0x80]
+    0.00 :   c23a21e:        vmovups ZMMWORD PTR [r9+0x80],zmm0
+    0.00 :   c23a225:        vmovups zmm0,ZMMWORD PTR [r10+rcx*2-0x40]
+    0.00 :   c23a22d:        vmovups ZMMWORD PTR [r9+0xc0],zmm0
+    0.00 :   c23a234:        vmovups zmm0,ZMMWORD PTR [r10+r11*1-0x80]
+    0.00 :   c23a23c:        vmovups ZMMWORD PTR [r9+0x100],zmm0
+    0.00 :   c23a243:        vmovups zmm0,ZMMWORD PTR [r10+r11*1-0x40]
+    0.00 :   c23a24b:        vmovups ZMMWORD PTR [r9+0x140],zmm0
+    0.00 :   c23a252:        lea    r10,[r10+rcx*4]
+    0.00 :   c23a256:        sub    r9,0xfffffffffffffe00
+    0.00 :   c23a25d:        nop    DWORD PTR [rax]
+    0.00 :   c23a260:        test   rdi,0x2
+    0.00 :   c23a267:        jle    c23a2b0 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x5b0>
+    0.00 :   c23a269:        vmovups zmm0,ZMMWORD PTR [r10-0x80]
+    0.00 :   c23a270:        vmovups ZMMWORD PTR [r9-0x80],zmm0
+    0.00 :   c23a277:        vmovups zmm0,ZMMWORD PTR [r10-0x40]
+    0.00 :   c23a27e:        vmovups ZMMWORD PTR [r9-0x40],zmm0
+    0.00 :   c23a285:        vmovups zmm0,ZMMWORD PTR [r10+rcx*1-0x80]
+    0.00 :   c23a28d:        vmovups ZMMWORD PTR [r9],zmm0
+    0.00 :   c23a293:        vmovups zmm0,ZMMWORD PTR [r10+rcx*1-0x40]
+    0.00 :   c23a29b:        vmovups ZMMWORD PTR [r9+0x40],zmm0
+    0.00 :   c23a2a2:        lea    r10,[r10+rcx*2]
+    0.00 :   c23a2a6:        sub    r9,0xffffffffffffff00
+    0.00 :   c23a2ad:        nop    DWORD PTR [rax]
+    0.00 :   c23a2b0:        test   rdi,0x1
+    0.00 :   c23a2b7:        jle    c23a2e0 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x5e0>
+    0.00 :   c23a2b9:        vmovups zmm0,ZMMWORD PTR [r10-0x80]
+    0.00 :   c23a2c0:        vmovups ZMMWORD PTR [r9-0x80],zmm0
+    0.00 :   c23a2c7:        vmovups zmm0,ZMMWORD PTR [r10-0x40]
+    0.00 :   c23a2ce:        vmovups ZMMWORD PTR [r9-0x40],zmm0
+    0.00 :   c23a2d5:        sub    r9,0xffffffffffffff80
+    0.00 :   c23a2d9:        nop    DWORD PTR [rax+0x0]
+    0.00 :   c23a2e0:        sub    rsi,0x20
+    0.00 :   c23a2e4:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23a2ef:        nop
+    0.00 :   c23a2f0:        cmp    rsi,0x10
+    0.00 :   c23a2f4:        jl     c23a460 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x760>
+    0.00 :   c23a2fa:        mov    r10,rdx
+    0.00 :   c23a2fd:        lea    r8,[r10+rcx*4]
+    0.00 :   c23a301:        add    rdx,0x40
+    0.00 :   c23a305:        mov    rax,rdi
+    0.00 :   c23a308:        sar    rax,0x3
+    0.00 :   c23a30c:        jle    c23a3b0 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x6b0>
+    0.00 :   c23a312:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23a31d:        nop    DWORD PTR [rax]
+    0.00 :   c23a320:        vmovups zmm0,ZMMWORD PTR [r10-0x80]
+    0.00 :   c23a327:        vmovups ZMMWORD PTR [r9-0x80],zmm0
+    0.00 :   c23a32e:        vmovups zmm0,ZMMWORD PTR [r10+rcx*1-0x80]
+    0.00 :   c23a336:        vmovups ZMMWORD PTR [r9-0x40],zmm0
+    0.00 :   c23a33d:        vmovups zmm0,ZMMWORD PTR [r10+rcx*2-0x80]
+    0.00 :   c23a345:        vmovups ZMMWORD PTR [r9],zmm0
+    0.00 :   c23a34b:        vmovups zmm0,ZMMWORD PTR [r10+r11*1-0x80]
+    0.00 :   c23a353:        vmovups ZMMWORD PTR [r9+0x40],zmm0
+    0.00 :   c23a35a:        vmovups zmm0,ZMMWORD PTR [r8-0x80]
+    0.00 :   c23a361:        vmovups ZMMWORD PTR [r9+0x80],zmm0
+    0.00 :   c23a368:        vmovups zmm0,ZMMWORD PTR [r8+rcx*1-0x80]
+    0.00 :   c23a370:        vmovups ZMMWORD PTR [r9+0xc0],zmm0
+    0.00 :   c23a377:        vmovups zmm0,ZMMWORD PTR [r8+rcx*2-0x80]
+    0.00 :   c23a37f:        vmovups ZMMWORD PTR [r9+0x100],zmm0
+    0.98 :   c23a386:        vmovups zmm0,ZMMWORD PTR [r8+r11*1-0x80]
+    0.00 :   c23a38e:        vmovups ZMMWORD PTR [r9+0x140],zmm0
+    0.00 :   c23a395:        lea    r10,[r10+rcx*8]
+    0.00 :   c23a399:        lea    r8,[r8+rcx*8]
+    0.00 :   c23a39d:        sub    r9,0xfffffffffffffe00
+    0.00 :   c23a3a4:        dec    rax
+    0.00 :   c23a3a7:        jg     c23a320 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x620>
+    0.00 :   c23a3ad:        nop    DWORD PTR [rax]
+    0.00 :   c23a3b0:        test   rdi,0x4
+    0.00 :   c23a3b7:        jle    c23a400 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x700>
+    0.00 :   c23a3b9:        vmovups zmm0,ZMMWORD PTR [r10-0x80]
+    0.00 :   c23a3c0:        vmovups ZMMWORD PTR [r9-0x80],zmm0
+    0.00 :   c23a3c7:        vmovups zmm0,ZMMWORD PTR [r10+rcx*1-0x80]
+    0.00 :   c23a3cf:        vmovups ZMMWORD PTR [r9-0x40],zmm0
+    0.00 :   c23a3d6:        vmovups zmm0,ZMMWORD PTR [r10+rcx*2-0x80]
+    0.00 :   c23a3de:        vmovups ZMMWORD PTR [r9],zmm0
+    0.00 :   c23a3e4:        vmovups zmm0,ZMMWORD PTR [r10+r11*1-0x80]
+    0.00 :   c23a3ec:        vmovups ZMMWORD PTR [r9+0x40],zmm0
+    0.00 :   c23a3f3:        lea    r10,[r10+rcx*4]
+    0.00 :   c23a3f7:        sub    r9,0xffffffffffffff00
+    0.00 :   c23a3fe:        xchg   ax,ax
+    0.00 :   c23a400:        test   rdi,0x2
+    0.00 :   c23a407:        jle    c23a430 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x730>
+    0.00 :   c23a409:        vmovups zmm0,ZMMWORD PTR [r10-0x80]
+    0.00 :   c23a410:        vmovups ZMMWORD PTR [r9-0x80],zmm0
+    0.00 :   c23a417:        vmovups zmm0,ZMMWORD PTR [r10+rcx*1-0x80]
+    0.00 :   c23a41f:        vmovups ZMMWORD PTR [r9-0x40],zmm0
+    0.00 :   c23a426:        lea    r10,[r10+rcx*2]
+    0.00 :   c23a42a:        sub    r9,0xffffffffffffff80
+    0.00 :   c23a42e:        xchg   ax,ax
+    0.00 :   c23a430:        test   rdi,0x1
+    0.00 :   c23a437:        jle    c23a450 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x750>
+    0.00 :   c23a439:        vmovups zmm0,ZMMWORD PTR [r10-0x80]
+    0.00 :   c23a440:        vmovups ZMMWORD PTR [r9-0x80],zmm0
+    0.00 :   c23a447:        sub    r9,0xffffffffffffffc0
+    0.00 :   c23a44b:        nop    DWORD PTR [rax+rax*1+0x0]
+    0.00 :   c23a450:        sub    rsi,0x10
+    0.00 :   c23a454:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23a45f:        nop
+    0.00 :   c23a460:        cmp    rsi,0x8
+    0.00 :   c23a464:        jl     c23a5c0 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x8c0>
+    0.00 :   c23a46a:        mov    r10,rdx
+    0.00 :   c23a46d:        lea    r8,[r10+rcx*4]
+    0.00 :   c23a471:        add    rdx,0x20
+    0.00 :   c23a475:        mov    rax,rdi
+    0.00 :   c23a478:        sar    rax,0x3
+    0.00 :   c23a47c:        jle    c23a510 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x810>
+    0.00 :   c23a482:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23a48d:        nop    DWORD PTR [rax]
+    0.00 :   c23a490:        vmovups ymm0,YMMWORD PTR [r10-0x80]
+    0.00 :   c23a496:        vmovups YMMWORD PTR [r9-0x80],ymm0
+    0.00 :   c23a49c:        vmovups ymm0,YMMWORD PTR [r10+rcx*1-0x80]
+    0.00 :   c23a4a3:        vmovups YMMWORD PTR [r9-0x60],ymm0
+    0.00 :   c23a4a9:        vmovups ymm0,YMMWORD PTR [r10+rcx*2-0x80]
+    0.00 :   c23a4b0:        vmovups YMMWORD PTR [r9-0x40],ymm0
+    0.00 :   c23a4b6:        vmovups ymm0,YMMWORD PTR [r10+r11*1-0x80]
+    0.00 :   c23a4bd:        vmovups YMMWORD PTR [r9-0x20],ymm0
+    0.00 :   c23a4c3:        vmovups ymm0,YMMWORD PTR [r8-0x80]
+    0.00 :   c23a4c9:        vmovups YMMWORD PTR [r9],ymm0
+    0.00 :   c23a4ce:        vmovups ymm0,YMMWORD PTR [r8+rcx*1-0x80]
+    0.00 :   c23a4d5:        vmovups YMMWORD PTR [r9+0x20],ymm0
+    0.00 :   c23a4db:        vmovups ymm0,YMMWORD PTR [r8+rcx*2-0x80]
+    0.00 :   c23a4e2:        vmovups YMMWORD PTR [r9+0x40],ymm0
+    0.00 :   c23a4e8:        vmovups ymm0,YMMWORD PTR [r8+r11*1-0x80]
+    0.00 :   c23a4ef:        vmovups YMMWORD PTR [r9+0x60],ymm0
+    0.00 :   c23a4f5:        lea    r10,[r10+rcx*8]
+    0.00 :   c23a4f9:        lea    r8,[r8+rcx*8]
+    0.00 :   c23a4fd:        sub    r9,0xffffffffffffff00
+    0.00 :   c23a504:        dec    rax
+    0.00 :   c23a507:        jg     c23a490 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x790>
+    0.00 :   c23a509:        nop    DWORD PTR [rax+0x0]
+    0.00 :   c23a510:        test   rdi,0x4
+    0.00 :   c23a517:        jle    c23a560 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x860>
+    0.00 :   c23a519:        vmovups ymm0,YMMWORD PTR [r10-0x80]
+    0.00 :   c23a51f:        vmovups YMMWORD PTR [r9-0x80],ymm0
+    0.00 :   c23a525:        vmovups ymm0,YMMWORD PTR [r10+rcx*1-0x80]
+    0.00 :   c23a52c:        vmovups YMMWORD PTR [r9-0x60],ymm0
+    0.00 :   c23a532:        vmovups ymm0,YMMWORD PTR [r10+rcx*2-0x80]
+    0.00 :   c23a539:        vmovups YMMWORD PTR [r9-0x40],ymm0
+    0.00 :   c23a53f:        vmovups ymm0,YMMWORD PTR [r10+r11*1-0x80]
+    0.00 :   c23a546:        vmovups YMMWORD PTR [r9-0x20],ymm0
+    0.00 :   c23a54c:        lea    r10,[r10+rcx*4]
+    0.00 :   c23a550:        sub    r9,0xffffffffffffff80
+    0.00 :   c23a554:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23a55f:        nop
+    0.00 :   c23a560:        test   rdi,0x2
+    0.00 :   c23a567:        jle    c23a590 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x890>
+    0.00 :   c23a569:        vmovups ymm0,YMMWORD PTR [r10-0x80]
+    0.00 :   c23a56f:        vmovups YMMWORD PTR [r9-0x80],ymm0
+    0.00 :   c23a575:        vmovups ymm0,YMMWORD PTR [r10+rcx*1-0x80]
+    0.00 :   c23a57c:        vmovups YMMWORD PTR [r9-0x60],ymm0
+    0.00 :   c23a582:        lea    r10,[r10+rcx*2]
+    0.00 :   c23a586:        sub    r9,0xffffffffffffffc0
+    0.00 :   c23a58a:        nop    WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23a590:        test   rdi,0x1
+    0.00 :   c23a597:        jle    c23a5b0 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x8b0>
+    0.00 :   c23a599:        vmovups ymm0,YMMWORD PTR [r10-0x80]
+    0.00 :   c23a59f:        vmovups YMMWORD PTR [r9-0x80],ymm0
+    0.00 :   c23a5a5:        sub    r9,0xffffffffffffffe0
+    0.00 :   c23a5a9:        nop    DWORD PTR [rax+0x0]
+    0.00 :   c23a5b0:        sub    rsi,0x8
+    0.00 :   c23a5b4:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23a5bf:        nop
+    0.00 :   c23a5c0:        cmp    rsi,0x4
+    0.00 :   c23a5c4:        jl     c23a720 <mkl_blas_avx512_sgemm_scopy_down48_ea+0xa20>
+    0.00 :   c23a5ca:        mov    r10,rdx
+    0.00 :   c23a5cd:        lea    r8,[r10+rcx*4]
+    0.00 :   c23a5d1:        add    rdx,0x10
+    0.00 :   c23a5d5:        mov    rax,rdi
+    0.00 :   c23a5d8:        sar    rax,0x3
+    0.00 :   c23a5dc:        jle    c23a670 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x970>
+    0.00 :   c23a5e2:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23a5ed:        nop    DWORD PTR [rax]
+    0.00 :   c23a5f0:        vmovups xmm0,XMMWORD PTR [r10-0x80]
+    0.00 :   c23a5f6:        vmovups XMMWORD PTR [r9-0x80],xmm0
+    0.00 :   c23a5fc:        vmovups xmm0,XMMWORD PTR [r10+rcx*1-0x80]
+    0.00 :   c23a603:        vmovups XMMWORD PTR [r9-0x70],xmm0
+    0.00 :   c23a609:        vmovups xmm0,XMMWORD PTR [r10+rcx*2-0x80]
+    0.00 :   c23a610:        vmovups XMMWORD PTR [r9-0x60],xmm0
+    0.00 :   c23a616:        vmovups xmm0,XMMWORD PTR [r10+r11*1-0x80]
+    0.00 :   c23a61d:        vmovups XMMWORD PTR [r9-0x50],xmm0
+    0.00 :   c23a623:        vmovups xmm0,XMMWORD PTR [r8-0x80]
+    0.00 :   c23a629:        vmovups XMMWORD PTR [r9-0x40],xmm0
+    0.00 :   c23a62f:        vmovups xmm0,XMMWORD PTR [r8+rcx*1-0x80]
+    0.00 :   c23a636:        vmovups XMMWORD PTR [r9-0x30],xmm0
+    0.00 :   c23a63c:        vmovups xmm0,XMMWORD PTR [r8+rcx*2-0x80]
+    0.00 :   c23a643:        vmovups XMMWORD PTR [r9-0x20],xmm0
+    0.00 :   c23a649:        vmovups xmm0,XMMWORD PTR [r8+r11*1-0x80]
+    0.00 :   c23a650:        vmovups XMMWORD PTR [r9-0x10],xmm0
+    0.00 :   c23a656:        lea    r10,[r10+rcx*8]
+    0.00 :   c23a65a:        lea    r8,[r8+rcx*8]
+    0.00 :   c23a65e:        sub    r9,0xffffffffffffff80
+    0.00 :   c23a662:        dec    rax
+    0.00 :   c23a665:        jg     c23a5f0 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x8f0>
+    0.00 :   c23a667:        nop    WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23a670:        test   rdi,0x4
+    0.00 :   c23a677:        jle    c23a6c0 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x9c0>
+    0.00 :   c23a679:        vmovups xmm0,XMMWORD PTR [r10-0x80]
+    0.00 :   c23a67f:        vmovups XMMWORD PTR [r9-0x80],xmm0
+    0.00 :   c23a685:        vmovups xmm0,XMMWORD PTR [r10+rcx*1-0x80]
+    0.00 :   c23a68c:        vmovups XMMWORD PTR [r9-0x70],xmm0
+    0.00 :   c23a692:        vmovups xmm0,XMMWORD PTR [r10+rcx*2-0x80]
+    0.00 :   c23a699:        vmovups XMMWORD PTR [r9-0x60],xmm0
+    0.00 :   c23a69f:        vmovups xmm0,XMMWORD PTR [r10+r11*1-0x80]
+    0.00 :   c23a6a6:        vmovups XMMWORD PTR [r9-0x50],xmm0
+    0.00 :   c23a6ac:        lea    r10,[r10+rcx*4]
+    0.00 :   c23a6b0:        sub    r9,0xffffffffffffffc0
+    0.00 :   c23a6b4:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23a6bf:        nop
+    0.00 :   c23a6c0:        test   rdi,0x2
+    0.00 :   c23a6c7:        jle    c23a6f0 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x9f0>
+    0.00 :   c23a6c9:        vmovups xmm0,XMMWORD PTR [r10-0x80]
+    0.00 :   c23a6cf:        vmovups XMMWORD PTR [r9-0x80],xmm0
+    0.00 :   c23a6d5:        vmovups xmm0,XMMWORD PTR [r10+rcx*1-0x80]
+    0.00 :   c23a6dc:        vmovups XMMWORD PTR [r9-0x70],xmm0
+    0.00 :   c23a6e2:        lea    r10,[r10+rcx*2]
+    0.00 :   c23a6e6:        sub    r9,0xffffffffffffffe0
+    0.00 :   c23a6ea:        nop    WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23a6f0:        test   rdi,0x1
+    0.00 :   c23a6f7:        jle    c23a710 <mkl_blas_avx512_sgemm_scopy_down48_ea+0xa10>
+    0.00 :   c23a6f9:        vmovups xmm0,XMMWORD PTR [r10-0x80]
+    0.00 :   c23a6ff:        vmovups XMMWORD PTR [r9-0x80],xmm0
+    0.00 :   c23a705:        sub    r9,0xfffffffffffffff0
+    0.00 :   c23a709:        nop    DWORD PTR [rax+0x0]
+    0.00 :   c23a710:        sub    rsi,0x4
+    0.00 :   c23a714:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23a71f:        nop
+    0.00 :   c23a720:        cmp    rsi,0x2
+    0.00 :   c23a724:        jl     c23a880 <mkl_blas_avx512_sgemm_scopy_down48_ea+0xb80>
+    0.00 :   c23a72a:        mov    r10,rdx
+    0.00 :   c23a72d:        lea    r8,[r10+rcx*4]
+    0.00 :   c23a731:        add    rdx,0x8
+    0.00 :   c23a735:        mov    rax,rdi
+    0.00 :   c23a738:        sar    rax,0x3
+    0.00 :   c23a73c:        jle    c23a7d0 <mkl_blas_avx512_sgemm_scopy_down48_ea+0xad0>
+    0.00 :   c23a742:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23a74d:        nop    DWORD PTR [rax]
+    0.00 :   c23a750:        vmovsd xmm0,QWORD PTR [r10-0x80]
+    0.00 :   c23a756:        vmovlps QWORD PTR [r9-0x80],xmm0
+    0.00 :   c23a75c:        vmovsd xmm0,QWORD PTR [r10+rcx*1-0x80]
+    0.00 :   c23a763:        vmovlps QWORD PTR [r9-0x78],xmm0
+    0.00 :   c23a769:        vmovsd xmm0,QWORD PTR [r10+rcx*2-0x80]
+    0.00 :   c23a770:        vmovlps QWORD PTR [r9-0x70],xmm0
+    0.00 :   c23a776:        vmovsd xmm0,QWORD PTR [r10+r11*1-0x80]
+    0.00 :   c23a77d:        vmovlps QWORD PTR [r9-0x68],xmm0
+    0.00 :   c23a783:        vmovsd xmm0,QWORD PTR [r8-0x80]
+    0.00 :   c23a789:        vmovlps QWORD PTR [r9-0x60],xmm0
+    0.00 :   c23a78f:        vmovsd xmm0,QWORD PTR [r8+rcx*1-0x80]
+    0.00 :   c23a796:        vmovlps QWORD PTR [r9-0x58],xmm0
+    0.00 :   c23a79c:        vmovsd xmm0,QWORD PTR [r8+rcx*2-0x80]
+    0.00 :   c23a7a3:        vmovlps QWORD PTR [r9-0x50],xmm0
+    0.00 :   c23a7a9:        vmovsd xmm0,QWORD PTR [r8+r11*1-0x80]
+    0.00 :   c23a7b0:        vmovlps QWORD PTR [r9-0x48],xmm0
+    0.00 :   c23a7b6:        lea    r10,[r10+rcx*8]
+    0.00 :   c23a7ba:        lea    r8,[r8+rcx*8]
+    0.00 :   c23a7be:        sub    r9,0xffffffffffffffc0
+    0.00 :   c23a7c2:        dec    rax
+    0.00 :   c23a7c5:        jg     c23a750 <mkl_blas_avx512_sgemm_scopy_down48_ea+0xa50>
+    0.00 :   c23a7c7:        nop    WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23a7d0:        test   rdi,0x4
+    0.00 :   c23a7d7:        jle    c23a820 <mkl_blas_avx512_sgemm_scopy_down48_ea+0xb20>
+    0.00 :   c23a7d9:        vmovsd xmm0,QWORD PTR [r10-0x80]
+    0.00 :   c23a7df:        vmovlps QWORD PTR [r9-0x80],xmm0
+    0.00 :   c23a7e5:        vmovsd xmm0,QWORD PTR [r10+rcx*1-0x80]
+    0.00 :   c23a7ec:        vmovlps QWORD PTR [r9-0x78],xmm0
+    0.00 :   c23a7f2:        vmovsd xmm0,QWORD PTR [r10+rcx*2-0x80]
+    0.00 :   c23a7f9:        vmovlps QWORD PTR [r9-0x70],xmm0
+    0.00 :   c23a7ff:        vmovsd xmm0,QWORD PTR [r10+r11*1-0x80]
+    0.00 :   c23a806:        vmovlps QWORD PTR [r9-0x68],xmm0
+    0.00 :   c23a80c:        lea    r10,[r10+rcx*4]
+    0.00 :   c23a810:        sub    r9,0xffffffffffffffe0
+    0.00 :   c23a814:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23a81f:        nop
+    0.00 :   c23a820:        test   rdi,0x2
+    0.00 :   c23a827:        jle    c23a850 <mkl_blas_avx512_sgemm_scopy_down48_ea+0xb50>
+    0.00 :   c23a829:        vmovsd xmm0,QWORD PTR [r10-0x80]
+    0.00 :   c23a82f:        vmovlps QWORD PTR [r9-0x80],xmm0
+    0.00 :   c23a835:        vmovsd xmm0,QWORD PTR [r10+rcx*1-0x80]
+    0.00 :   c23a83c:        vmovlps QWORD PTR [r9-0x78],xmm0
+    0.00 :   c23a842:        lea    r10,[r10+rcx*2]
+    0.00 :   c23a846:        sub    r9,0xfffffffffffffff0
+    0.00 :   c23a84a:        nop    WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23a850:        test   rdi,0x1
+    0.00 :   c23a857:        jle    c23a870 <mkl_blas_avx512_sgemm_scopy_down48_ea+0xb70>
+    0.00 :   c23a859:        vmovsd xmm0,QWORD PTR [r10-0x80]
+    0.00 :   c23a85f:        vmovlps QWORD PTR [r9-0x80],xmm0
+    0.00 :   c23a865:        sub    r9,0xfffffffffffffff8
+    0.00 :   c23a869:        nop    DWORD PTR [rax+0x0]
+    0.00 :   c23a870:        sub    rsi,0x2
+    0.00 :   c23a874:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23a87f:        nop
+    0.00 :   c23a880:        cmp    rsi,0x1
+    0.00 :   c23a884:        jl     c23a9e0 <mkl_blas_avx512_sgemm_scopy_down48_ea+0xce0>
+    0.00 :   c23a88a:        mov    r10,rdx
+    0.00 :   c23a88d:        lea    r8,[r10+rcx*4]
+    0.00 :   c23a891:        add    rdx,0x4
+    0.00 :   c23a895:        mov    rax,rdi
+    0.00 :   c23a898:        sar    rax,0x3
+    0.00 :   c23a89c:        jle    c23a930 <mkl_blas_avx512_sgemm_scopy_down48_ea+0xc30>
+    0.00 :   c23a8a2:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23a8ad:        nop    DWORD PTR [rax]
+    0.00 :   c23a8b0:        vmovss xmm0,DWORD PTR [r10-0x80]
+    0.00 :   c23a8b6:        vmovss DWORD PTR [r9-0x80],xmm0
+    0.00 :   c23a8bc:        vmovss xmm0,DWORD PTR [r10+rcx*1-0x80]
+    0.00 :   c23a8c3:        vmovss DWORD PTR [r9-0x7c],xmm0
+    0.00 :   c23a8c9:        vmovss xmm0,DWORD PTR [r10+rcx*2-0x80]
+    0.00 :   c23a8d0:        vmovss DWORD PTR [r9-0x78],xmm0
+    0.00 :   c23a8d6:        vmovss xmm0,DWORD PTR [r10+r11*1-0x80]
+    0.00 :   c23a8dd:        vmovss DWORD PTR [r9-0x74],xmm0
+    0.00 :   c23a8e3:        vmovss xmm0,DWORD PTR [r8-0x80]
+    0.00 :   c23a8e9:        vmovss DWORD PTR [r9-0x70],xmm0
+    0.00 :   c23a8ef:        vmovss xmm0,DWORD PTR [r8+rcx*1-0x80]
+    0.00 :   c23a8f6:        vmovss DWORD PTR [r9-0x6c],xmm0
+    0.00 :   c23a8fc:        vmovss xmm0,DWORD PTR [r8+rcx*2-0x80]
+    0.00 :   c23a903:        vmovss DWORD PTR [r9-0x68],xmm0
+    0.00 :   c23a909:        vmovss xmm0,DWORD PTR [r8+r11*1-0x80]
+    0.00 :   c23a910:        vmovss DWORD PTR [r9-0x64],xmm0
+    0.00 :   c23a916:        lea    r10,[r10+rcx*8]
+    0.00 :   c23a91a:        lea    r8,[r8+rcx*8]
+    0.00 :   c23a91e:        sub    r9,0xffffffffffffffe0
+    0.00 :   c23a922:        dec    rax
+    0.00 :   c23a925:        jg     c23a8b0 <mkl_blas_avx512_sgemm_scopy_down48_ea+0xbb0>
+    0.00 :   c23a927:        nop    WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23a930:        test   rdi,0x4
+    0.00 :   c23a937:        jle    c23a980 <mkl_blas_avx512_sgemm_scopy_down48_ea+0xc80>
+    0.00 :   c23a939:        vmovss xmm0,DWORD PTR [r10-0x80]
+    0.00 :   c23a93f:        vmovss DWORD PTR [r9-0x80],xmm0
+    0.00 :   c23a945:        vmovss xmm0,DWORD PTR [r10+rcx*1-0x80]
+    0.00 :   c23a94c:        vmovss DWORD PTR [r9-0x7c],xmm0
+    0.00 :   c23a952:        vmovss xmm0,DWORD PTR [r10+rcx*2-0x80]
+    0.00 :   c23a959:        vmovss DWORD PTR [r9-0x78],xmm0
+    0.00 :   c23a95f:        vmovss xmm0,DWORD PTR [r10+r11*1-0x80]
+    0.00 :   c23a966:        vmovss DWORD PTR [r9-0x74],xmm0
+    0.00 :   c23a96c:        lea    r10,[r10+rcx*4]
+    0.00 :   c23a970:        sub    r9,0xfffffffffffffff0
+    0.00 :   c23a974:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23a97f:        nop
+    0.00 :   c23a980:        test   rdi,0x2
+    0.00 :   c23a987:        jle    c23a9b0 <mkl_blas_avx512_sgemm_scopy_down48_ea+0xcb0>
+    0.00 :   c23a989:        vmovss xmm0,DWORD PTR [r10-0x80]
+    0.00 :   c23a98f:        vmovss DWORD PTR [r9-0x80],xmm0
+    0.00 :   c23a995:        vmovss xmm0,DWORD PTR [r10+rcx*1-0x80]
+    0.00 :   c23a99c:        vmovss DWORD PTR [r9-0x7c],xmm0
+    0.00 :   c23a9a2:        lea    r10,[r10+rcx*2]
+    0.00 :   c23a9a6:        sub    r9,0xfffffffffffffff8
+    0.00 :   c23a9aa:        nop    WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23a9b0:        test   rdi,0x1
+    0.00 :   c23a9b7:        jle    c23a9d0 <mkl_blas_avx512_sgemm_scopy_down48_ea+0xcd0>
+    0.00 :   c23a9b9:        vmovss xmm0,DWORD PTR [r10-0x80]
+    0.00 :   c23a9bf:        vmovss DWORD PTR [r9-0x80],xmm0
+    0.00 :   c23a9c5:        sub    r9,0xfffffffffffffffc
+    0.00 :   c23a9c9:        nop    DWORD PTR [rax+0x0]
+    0.00 :   c23a9d0:        sub    rsi,0x1
+    0.00 :   c23a9d4:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23a9df:        nop
+    0.00 :   c23a9e0:        jmp    c23c990 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x2c90>
+    0.00 :   c23a9e5:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23a9f0:        vxorps xmm3,xmm3,xmm4
+    0.00 :   c23a9f4:        vucomiss xmm6,xmm3
+    0.00 :   c23a9f8:        jne    c23b9d0 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x1cd0>
+    0.00 :   c23a9fe:        vmovaps zmm6,zmm4
+    0.00 :   c23aa04:        cmp    rsi,0x30
+    0.00 :   c23aa08:        jl     c23ae40 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x1140>
+    0.00 :   c23aa0e:        xchg   ax,ax
+    0.00 :   c23aa10:        mov    r10,rdx
+    0.00 :   c23aa13:        lea    r8,[r10+rcx*4]
+    0.00 :   c23aa17:        add    rdx,0xc0
+    0.00 :   c23aa1e:        mov    rax,rdi
+    0.00 :   c23aa21:        sar    rax,0x3
+    0.00 :   c23aa25:        jle    c23ac40 <mkl_blas_avx512_sgemm_scopy_down48_ea+0xf40>
+    0.00 :   c23aa2b:        nop    DWORD PTR [rax+rax*1+0x0]
+    0.00 :   c23aa30:        vmovups zmm0,ZMMWORD PTR [r10-0x80]
+    0.00 :   c23aa37:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23aa3d:        vmovups ZMMWORD PTR [r9-0x80],zmm0
+    0.00 :   c23aa44:        vmovups zmm0,ZMMWORD PTR [r10-0x40]
+    0.00 :   c23aa4b:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23aa51:        vmovups ZMMWORD PTR [r9-0x40],zmm0
+    0.00 :   c23aa58:        vmovups zmm0,ZMMWORD PTR [r10]
+    0.00 :   c23aa5e:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23aa64:        vmovups ZMMWORD PTR [r9],zmm0
+    0.00 :   c23aa6a:        vmovups zmm0,ZMMWORD PTR [r10+rcx*1-0x80]
+    0.00 :   c23aa72:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23aa78:        vmovups ZMMWORD PTR [r9+0x40],zmm0
+    0.00 :   c23aa7f:        vmovups zmm0,ZMMWORD PTR [r10+rcx*1-0x40]
+    0.00 :   c23aa87:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23aa8d:        vmovups ZMMWORD PTR [r9+0x80],zmm0
+    0.00 :   c23aa94:        vmovups zmm0,ZMMWORD PTR [r10+rcx*1]
+    0.00 :   c23aa9b:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23aaa1:        vmovups ZMMWORD PTR [r9+0xc0],zmm0
+    0.00 :   c23aaa8:        vmovups zmm0,ZMMWORD PTR [r10+rcx*2-0x80]
+    0.00 :   c23aab0:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23aab6:        vmovups ZMMWORD PTR [r9+0x100],zmm0
+    0.00 :   c23aabd:        vmovups zmm0,ZMMWORD PTR [r10+rcx*2-0x40]
+    0.00 :   c23aac5:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23aacb:        vmovups ZMMWORD PTR [r9+0x140],zmm0
+    0.00 :   c23aad2:        vmovups zmm0,ZMMWORD PTR [r10+rcx*2]
+    0.00 :   c23aad9:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23aadf:        vmovups ZMMWORD PTR [r9+0x180],zmm0
+    0.00 :   c23aae6:        vmovups zmm0,ZMMWORD PTR [r10+r11*1-0x80]
+    0.00 :   c23aaee:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23aaf4:        vmovups ZMMWORD PTR [r9+0x1c0],zmm0
+    0.00 :   c23aafb:        vmovups zmm0,ZMMWORD PTR [r10+r11*1-0x40]
+    0.00 :   c23ab03:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23ab09:        vmovups ZMMWORD PTR [r9+0x200],zmm0
+    0.00 :   c23ab10:        vmovups zmm0,ZMMWORD PTR [r10+r11*1]
+    0.00 :   c23ab17:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23ab1d:        vmovups ZMMWORD PTR [r9+0x240],zmm0
+    0.00 :   c23ab24:        vmovups zmm0,ZMMWORD PTR [r8-0x80]
+    0.00 :   c23ab2b:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23ab31:        vmovups ZMMWORD PTR [r9+0x280],zmm0
+    0.00 :   c23ab38:        vmovups zmm0,ZMMWORD PTR [r8-0x40]
+    0.00 :   c23ab3f:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23ab45:        vmovups ZMMWORD PTR [r9+0x2c0],zmm0
+    0.00 :   c23ab4c:        vmovups zmm0,ZMMWORD PTR [r8]
+    0.00 :   c23ab52:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23ab58:        vmovups ZMMWORD PTR [r9+0x300],zmm0
+    0.00 :   c23ab5f:        vmovups zmm0,ZMMWORD PTR [r8+rcx*1-0x80]
+    0.00 :   c23ab67:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23ab6d:        vmovups ZMMWORD PTR [r9+0x340],zmm0
+    0.00 :   c23ab74:        vmovups zmm0,ZMMWORD PTR [r8+rcx*1-0x40]
+    0.00 :   c23ab7c:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23ab82:        vmovups ZMMWORD PTR [r9+0x380],zmm0
+    0.00 :   c23ab89:        vmovups zmm0,ZMMWORD PTR [r8+rcx*1]
+    0.00 :   c23ab90:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23ab96:        vmovups ZMMWORD PTR [r9+0x3c0],zmm0
+    0.00 :   c23ab9d:        vmovups zmm0,ZMMWORD PTR [r8+rcx*2-0x80]
+    0.00 :   c23aba5:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23abab:        vmovups ZMMWORD PTR [r9+0x400],zmm0
+    0.00 :   c23abb2:        vmovups zmm0,ZMMWORD PTR [r8+rcx*2-0x40]
+    0.00 :   c23abba:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23abc0:        vmovups ZMMWORD PTR [r9+0x440],zmm0
+    0.00 :   c23abc7:        vmovups zmm0,ZMMWORD PTR [r8+rcx*2]
+    0.00 :   c23abce:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23abd4:        vmovups ZMMWORD PTR [r9+0x480],zmm0
+    0.00 :   c23abdb:        vmovups zmm0,ZMMWORD PTR [r8+r11*1-0x80]
+    0.00 :   c23abe3:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23abe9:        vmovups ZMMWORD PTR [r9+0x4c0],zmm0
+    0.00 :   c23abf0:        vmovups zmm0,ZMMWORD PTR [r8+r11*1-0x40]
+    0.00 :   c23abf8:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23abfe:        vmovups ZMMWORD PTR [r9+0x500],zmm0
+    0.00 :   c23ac05:        vmovups zmm0,ZMMWORD PTR [r8+r11*1]
+    0.00 :   c23ac0c:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23ac12:        vmovups ZMMWORD PTR [r9+0x540],zmm0
+    0.00 :   c23ac19:        lea    r10,[r10+rcx*8]
+    0.00 :   c23ac1d:        lea    r8,[r8+rcx*8]
+    0.00 :   c23ac21:        sub    r9,0xfffffffffffffa00
+    0.00 :   c23ac28:        dec    rax
+    0.00 :   c23ac2b:        jg     c23aa30 <mkl_blas_avx512_sgemm_scopy_down48_ea+0xd30>
+    0.00 :   c23ac31:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23ac3c:        nop    DWORD PTR [rax+0x0]
+    0.00 :   c23ac40:        test   rdi,0x4
+    0.00 :   c23ac47:        jle    c23ad50 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x1050>
+    0.00 :   c23ac4d:        vmovups zmm0,ZMMWORD PTR [r10-0x80]
+    0.00 :   c23ac54:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23ac5a:        vmovups ZMMWORD PTR [r9-0x80],zmm0
+    0.00 :   c23ac61:        vmovups zmm0,ZMMWORD PTR [r10-0x40]
+    0.00 :   c23ac68:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23ac6e:        vmovups ZMMWORD PTR [r9-0x40],zmm0
+    0.00 :   c23ac75:        vmovups zmm0,ZMMWORD PTR [r10]
+    0.00 :   c23ac7b:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23ac81:        vmovups ZMMWORD PTR [r9],zmm0
+    0.00 :   c23ac87:        vmovups zmm0,ZMMWORD PTR [r10+rcx*1-0x80]
+    0.00 :   c23ac8f:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23ac95:        vmovups ZMMWORD PTR [r9+0x40],zmm0
+    0.00 :   c23ac9c:        vmovups zmm0,ZMMWORD PTR [r10+rcx*1-0x40]
+    0.00 :   c23aca4:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23acaa:        vmovups ZMMWORD PTR [r9+0x80],zmm0
+    0.00 :   c23acb1:        vmovups zmm0,ZMMWORD PTR [r10+rcx*1]
+    0.00 :   c23acb8:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23acbe:        vmovups ZMMWORD PTR [r9+0xc0],zmm0
+    0.00 :   c23acc5:        vmovups zmm0,ZMMWORD PTR [r10+rcx*2-0x80]
+    0.00 :   c23accd:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23acd3:        vmovups ZMMWORD PTR [r9+0x100],zmm0
+    0.00 :   c23acda:        vmovups zmm0,ZMMWORD PTR [r10+rcx*2-0x40]
+    0.00 :   c23ace2:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23ace8:        vmovups ZMMWORD PTR [r9+0x140],zmm0
+    0.00 :   c23acef:        vmovups zmm0,ZMMWORD PTR [r10+rcx*2]
+    0.00 :   c23acf6:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23acfc:        vmovups ZMMWORD PTR [r9+0x180],zmm0
+    0.00 :   c23ad03:        vmovups zmm0,ZMMWORD PTR [r10+r11*1-0x80]
+    0.00 :   c23ad0b:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23ad11:        vmovups ZMMWORD PTR [r9+0x1c0],zmm0
+    0.00 :   c23ad18:        vmovups zmm0,ZMMWORD PTR [r10+r11*1-0x40]
+    0.00 :   c23ad20:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23ad26:        vmovups ZMMWORD PTR [r9+0x200],zmm0
+    0.00 :   c23ad2d:        vmovups zmm0,ZMMWORD PTR [r10+r11*1]
+    0.00 :   c23ad34:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23ad3a:        vmovups ZMMWORD PTR [r9+0x240],zmm0
+    0.00 :   c23ad41:        lea    r10,[r10+rcx*4]
+    0.00 :   c23ad45:        sub    r9,0xfffffffffffffd00
+    0.00 :   c23ad4c:        nop    DWORD PTR [rax+0x0]
+    0.00 :   c23ad50:        test   rdi,0x2
+    0.00 :   c23ad57:        jle    c23ade0 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x10e0>
+    0.00 :   c23ad5d:        vmovups zmm0,ZMMWORD PTR [r10-0x80]
+    0.00 :   c23ad64:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23ad6a:        vmovups ZMMWORD PTR [r9-0x80],zmm0
+    0.00 :   c23ad71:        vmovups zmm0,ZMMWORD PTR [r10-0x40]
+    0.00 :   c23ad78:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23ad7e:        vmovups ZMMWORD PTR [r9-0x40],zmm0
+    0.00 :   c23ad85:        vmovups zmm0,ZMMWORD PTR [r10]
+    0.00 :   c23ad8b:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23ad91:        vmovups ZMMWORD PTR [r9],zmm0
+    0.00 :   c23ad97:        vmovups zmm0,ZMMWORD PTR [r10+rcx*1-0x80]
+    0.00 :   c23ad9f:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23ada5:        vmovups ZMMWORD PTR [r9+0x40],zmm0
+    0.00 :   c23adac:        vmovups zmm0,ZMMWORD PTR [r10+rcx*1-0x40]
+    0.00 :   c23adb4:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23adba:        vmovups ZMMWORD PTR [r9+0x80],zmm0
+    0.00 :   c23adc1:        vmovups zmm0,ZMMWORD PTR [r10+rcx*1]
+    0.00 :   c23adc8:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23adce:        vmovups ZMMWORD PTR [r9+0xc0],zmm0
+    0.00 :   c23add5:        lea    r10,[r10+rcx*2]
+    0.00 :   c23add9:        sub    r9,0xfffffffffffffe80
+    0.00 :   c23ade0:        test   rdi,0x1
+    0.00 :   c23ade7:        jle    c23ae30 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x1130>
+    0.00 :   c23ade9:        vmovups zmm0,ZMMWORD PTR [r10-0x80]
+    0.00 :   c23adf0:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23adf6:        vmovups ZMMWORD PTR [r9-0x80],zmm0
+    0.00 :   c23adfd:        vmovups zmm0,ZMMWORD PTR [r10-0x40]
+    0.00 :   c23ae04:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23ae0a:        vmovups ZMMWORD PTR [r9-0x40],zmm0
+    0.00 :   c23ae11:        vmovups zmm0,ZMMWORD PTR [r10]
+    0.00 :   c23ae17:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23ae1d:        vmovups ZMMWORD PTR [r9],zmm0
+    0.00 :   c23ae23:        sub    r9,0xffffffffffffff40
+    0.00 :   c23ae2a:        nop    WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23ae30:        sub    rsi,0x30
+    0.00 :   c23ae34:        cmp    rsi,0x30
+    0.00 :   c23ae38:        jge    c23aa10 <mkl_blas_avx512_sgemm_scopy_down48_ea+0xd10>
+    0.00 :   c23ae3e:        xchg   ax,ax
+    0.00 :   c23ae40:        cmp    rsi,0x20
+    0.00 :   c23ae44:        jl     c23b160 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x1460>
+    0.00 :   c23ae4a:        mov    r10,rdx
+    0.00 :   c23ae4d:        lea    r8,[r10+rcx*4]
+    0.00 :   c23ae51:        add    rdx,0x80
+    0.00 :   c23ae58:        mov    rax,rdi
+    0.00 :   c23ae5b:        sar    rax,0x3
+    0.00 :   c23ae5f:        jle    c23afe0 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x12e0>
+    0.00 :   c23ae65:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23ae70:        vmovups zmm0,ZMMWORD PTR [r10-0x80]
+    0.00 :   c23ae77:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23ae7d:        vmovups ZMMWORD PTR [r9-0x80],zmm0
+    0.00 :   c23ae84:        vmovups zmm0,ZMMWORD PTR [r10-0x40]
+    0.00 :   c23ae8b:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23ae91:        vmovups ZMMWORD PTR [r9-0x40],zmm0
+    0.00 :   c23ae98:        vmovups zmm0,ZMMWORD PTR [r10+rcx*1-0x80]
+    0.00 :   c23aea0:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23aea6:        vmovups ZMMWORD PTR [r9],zmm0
+    0.00 :   c23aeac:        vmovups zmm0,ZMMWORD PTR [r10+rcx*1-0x40]
+    0.00 :   c23aeb4:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23aeba:        vmovups ZMMWORD PTR [r9+0x40],zmm0
+    0.00 :   c23aec1:        vmovups zmm0,ZMMWORD PTR [r10+rcx*2-0x80]
+    0.00 :   c23aec9:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23aecf:        vmovups ZMMWORD PTR [r9+0x80],zmm0
+    0.00 :   c23aed6:        vmovups zmm0,ZMMWORD PTR [r10+rcx*2-0x40]
+    0.00 :   c23aede:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23aee4:        vmovups ZMMWORD PTR [r9+0xc0],zmm0
+    0.00 :   c23aeeb:        vmovups zmm0,ZMMWORD PTR [r10+r11*1-0x80]
+    0.00 :   c23aef3:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23aef9:        vmovups ZMMWORD PTR [r9+0x100],zmm0
+    0.00 :   c23af00:        vmovups zmm0,ZMMWORD PTR [r10+r11*1-0x40]
+    0.00 :   c23af08:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23af0e:        vmovups ZMMWORD PTR [r9+0x140],zmm0
+    0.00 :   c23af15:        vmovups zmm0,ZMMWORD PTR [r8-0x80]
+    0.00 :   c23af1c:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23af22:        vmovups ZMMWORD PTR [r9+0x180],zmm0
+    0.00 :   c23af29:        vmovups zmm0,ZMMWORD PTR [r8-0x40]
+    0.00 :   c23af30:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23af36:        vmovups ZMMWORD PTR [r9+0x1c0],zmm0
+    0.00 :   c23af3d:        vmovups zmm0,ZMMWORD PTR [r8+rcx*1-0x80]
+    0.00 :   c23af45:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23af4b:        vmovups ZMMWORD PTR [r9+0x200],zmm0
+    0.00 :   c23af52:        vmovups zmm0,ZMMWORD PTR [r8+rcx*1-0x40]
+    0.00 :   c23af5a:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23af60:        vmovups ZMMWORD PTR [r9+0x240],zmm0
+    0.00 :   c23af67:        vmovups zmm0,ZMMWORD PTR [r8+rcx*2-0x80]
+    0.00 :   c23af6f:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23af75:        vmovups ZMMWORD PTR [r9+0x280],zmm0
+    0.00 :   c23af7c:        vmovups zmm0,ZMMWORD PTR [r8+rcx*2-0x40]
+    0.00 :   c23af84:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23af8a:        vmovups ZMMWORD PTR [r9+0x2c0],zmm0
+    0.00 :   c23af91:        vmovups zmm0,ZMMWORD PTR [r8+r11*1-0x80]
+    0.00 :   c23af99:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23af9f:        vmovups ZMMWORD PTR [r9+0x300],zmm0
+    0.00 :   c23afa6:        vmovups zmm0,ZMMWORD PTR [r8+r11*1-0x40]
+    0.00 :   c23afae:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23afb4:        vmovups ZMMWORD PTR [r9+0x340],zmm0
+    0.00 :   c23afbb:        lea    r10,[r10+rcx*8]
+    0.00 :   c23afbf:        lea    r8,[r8+rcx*8]
+    0.00 :   c23afc3:        sub    r9,0xfffffffffffffc00
+    0.00 :   c23afca:        dec    rax
+    0.00 :   c23afcd:        jg     c23ae70 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x1170>
+    0.00 :   c23afd3:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23afde:        xchg   ax,ax
+    0.00 :   c23afe0:        test   rdi,0x4
+    0.00 :   c23afe7:        jle    c23b0a0 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x13a0>
+    0.00 :   c23afed:        vmovups zmm0,ZMMWORD PTR [r10-0x80]
+    0.00 :   c23aff4:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23affa:        vmovups ZMMWORD PTR [r9-0x80],zmm0
+    0.00 :   c23b001:        vmovups zmm0,ZMMWORD PTR [r10-0x40]
+    0.00 :   c23b008:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23b00e:        vmovups ZMMWORD PTR [r9-0x40],zmm0
+    0.00 :   c23b015:        vmovups zmm0,ZMMWORD PTR [r10+rcx*1-0x80]
+    0.00 :   c23b01d:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23b023:        vmovups ZMMWORD PTR [r9],zmm0
+    0.00 :   c23b029:        vmovups zmm0,ZMMWORD PTR [r10+rcx*1-0x40]
+    0.00 :   c23b031:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23b037:        vmovups ZMMWORD PTR [r9+0x40],zmm0
+    0.00 :   c23b03e:        vmovups zmm0,ZMMWORD PTR [r10+rcx*2-0x80]
+    0.00 :   c23b046:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23b04c:        vmovups ZMMWORD PTR [r9+0x80],zmm0
+    0.00 :   c23b053:        vmovups zmm0,ZMMWORD PTR [r10+rcx*2-0x40]
+    0.00 :   c23b05b:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23b061:        vmovups ZMMWORD PTR [r9+0xc0],zmm0
+    0.00 :   c23b068:        vmovups zmm0,ZMMWORD PTR [r10+r11*1-0x80]
+    0.00 :   c23b070:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23b076:        vmovups ZMMWORD PTR [r9+0x100],zmm0
+    0.00 :   c23b07d:        vmovups zmm0,ZMMWORD PTR [r10+r11*1-0x40]
+    0.00 :   c23b085:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23b08b:        vmovups ZMMWORD PTR [r9+0x140],zmm0
+    0.00 :   c23b092:        lea    r10,[r10+rcx*4]
+    0.00 :   c23b096:        sub    r9,0xfffffffffffffe00
+    0.00 :   c23b09d:        nop    DWORD PTR [rax]
+    0.00 :   c23b0a0:        test   rdi,0x2
+    0.00 :   c23b0a7:        jle    c23b110 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x1410>
+    0.00 :   c23b0a9:        vmovups zmm0,ZMMWORD PTR [r10-0x80]
+    0.00 :   c23b0b0:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23b0b6:        vmovups ZMMWORD PTR [r9-0x80],zmm0
+    0.00 :   c23b0bd:        vmovups zmm0,ZMMWORD PTR [r10-0x40]
+    0.00 :   c23b0c4:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23b0ca:        vmovups ZMMWORD PTR [r9-0x40],zmm0
+    0.00 :   c23b0d1:        vmovups zmm0,ZMMWORD PTR [r10+rcx*1-0x80]
+    0.00 :   c23b0d9:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23b0df:        vmovups ZMMWORD PTR [r9],zmm0
+    0.00 :   c23b0e5:        vmovups zmm0,ZMMWORD PTR [r10+rcx*1-0x40]
+    0.00 :   c23b0ed:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23b0f3:        vmovups ZMMWORD PTR [r9+0x40],zmm0
+    0.00 :   c23b0fa:        lea    r10,[r10+rcx*2]
+    0.00 :   c23b0fe:        sub    r9,0xffffffffffffff00
+    0.00 :   c23b105:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23b110:        test   rdi,0x1
+    0.00 :   c23b117:        jle    c23b150 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x1450>
+    0.00 :   c23b119:        vmovups zmm0,ZMMWORD PTR [r10-0x80]
+    0.00 :   c23b120:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23b126:        vmovups ZMMWORD PTR [r9-0x80],zmm0
+    0.00 :   c23b12d:        vmovups zmm0,ZMMWORD PTR [r10-0x40]
+    0.00 :   c23b134:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23b13a:        vmovups ZMMWORD PTR [r9-0x40],zmm0
+    0.00 :   c23b141:        sub    r9,0xffffffffffffff80
+    0.00 :   c23b145:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23b150:        sub    rsi,0x20
+    0.00 :   c23b154:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23b15f:        nop
+    0.00 :   c23b160:        cmp    rsi,0x10
+    0.00 :   c23b164:        jl     c23b340 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x1640>
+    0.00 :   c23b16a:        mov    r10,rdx
+    0.00 :   c23b16d:        lea    r8,[r10+rcx*4]
+    0.00 :   c23b171:        add    rdx,0x40
+    0.00 :   c23b175:        mov    rax,rdi
+    0.00 :   c23b178:        sar    rax,0x3
+    0.00 :   c23b17c:        jle    c23b250 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x1550>
+    0.00 :   c23b182:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23b18d:        nop    DWORD PTR [rax]
+    0.00 :   c23b190:        vmovups zmm0,ZMMWORD PTR [r10-0x80]
+    0.00 :   c23b197:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23b19d:        vmovups ZMMWORD PTR [r9-0x80],zmm0
+    0.00 :   c23b1a4:        vmovups zmm0,ZMMWORD PTR [r10+rcx*1-0x80]
+    0.00 :   c23b1ac:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23b1b2:        vmovups ZMMWORD PTR [r9-0x40],zmm0
+    0.00 :   c23b1b9:        vmovups zmm0,ZMMWORD PTR [r10+rcx*2-0x80]
+    0.00 :   c23b1c1:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23b1c7:        vmovups ZMMWORD PTR [r9],zmm0
+    0.00 :   c23b1cd:        vmovups zmm0,ZMMWORD PTR [r10+r11*1-0x80]
+    0.00 :   c23b1d5:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23b1db:        vmovups ZMMWORD PTR [r9+0x40],zmm0
+    0.00 :   c23b1e2:        vmovups zmm0,ZMMWORD PTR [r8-0x80]
+    0.00 :   c23b1e9:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23b1ef:        vmovups ZMMWORD PTR [r9+0x80],zmm0
+    0.00 :   c23b1f6:        vmovups zmm0,ZMMWORD PTR [r8+rcx*1-0x80]
+    0.00 :   c23b1fe:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23b204:        vmovups ZMMWORD PTR [r9+0xc0],zmm0
+    0.00 :   c23b20b:        vmovups zmm0,ZMMWORD PTR [r8+rcx*2-0x80]
+    0.00 :   c23b213:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23b219:        vmovups ZMMWORD PTR [r9+0x100],zmm0
+    0.00 :   c23b220:        vmovups zmm0,ZMMWORD PTR [r8+r11*1-0x80]
+    0.00 :   c23b228:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23b22e:        vmovups ZMMWORD PTR [r9+0x140],zmm0
+    0.00 :   c23b235:        lea    r10,[r10+rcx*8]
+    0.00 :   c23b239:        lea    r8,[r8+rcx*8]
+    0.00 :   c23b23d:        sub    r9,0xfffffffffffffe00
+    0.00 :   c23b244:        dec    rax
+    0.00 :   c23b247:        jg     c23b190 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x1490>
+    0.00 :   c23b24d:        nop    DWORD PTR [rax]
+    0.00 :   c23b250:        test   rdi,0x4
+    0.00 :   c23b257:        jle    c23b2c0 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x15c0>
+    0.00 :   c23b259:        vmovups zmm0,ZMMWORD PTR [r10-0x80]
+    0.00 :   c23b260:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23b266:        vmovups ZMMWORD PTR [r9-0x80],zmm0
+    0.00 :   c23b26d:        vmovups zmm0,ZMMWORD PTR [r10+rcx*1-0x80]
+    0.00 :   c23b275:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23b27b:        vmovups ZMMWORD PTR [r9-0x40],zmm0
+    0.00 :   c23b282:        vmovups zmm0,ZMMWORD PTR [r10+rcx*2-0x80]
+    0.00 :   c23b28a:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23b290:        vmovups ZMMWORD PTR [r9],zmm0
+    0.00 :   c23b296:        vmovups zmm0,ZMMWORD PTR [r10+r11*1-0x80]
+    0.00 :   c23b29e:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23b2a4:        vmovups ZMMWORD PTR [r9+0x40],zmm0
+    0.00 :   c23b2ab:        lea    r10,[r10+rcx*4]
+    0.00 :   c23b2af:        sub    r9,0xffffffffffffff00
+    0.00 :   c23b2b6:        cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23b2c0:        test   rdi,0x2
+    0.00 :   c23b2c7:        jle    c23b300 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x1600>
+    0.00 :   c23b2c9:        vmovups zmm0,ZMMWORD PTR [r10-0x80]
+    0.00 :   c23b2d0:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23b2d6:        vmovups ZMMWORD PTR [r9-0x80],zmm0
+    0.00 :   c23b2dd:        vmovups zmm0,ZMMWORD PTR [r10+rcx*1-0x80]
+    0.00 :   c23b2e5:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23b2eb:        vmovups ZMMWORD PTR [r9-0x40],zmm0
+    0.00 :   c23b2f2:        lea    r10,[r10+rcx*2]
+    0.00 :   c23b2f6:        sub    r9,0xffffffffffffff80
+    0.00 :   c23b2fa:        nop    WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23b300:        test   rdi,0x1
+    0.00 :   c23b307:        jle    c23b330 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x1630>
+    0.00 :   c23b309:        vmovups zmm0,ZMMWORD PTR [r10-0x80]
+    0.00 :   c23b310:        vpxorq zmm0,zmm6,zmm0
+    0.00 :   c23b316:        vmovups ZMMWORD PTR [r9-0x80],zmm0
+    0.00 :   c23b31d:        sub    r9,0xffffffffffffffc0
+    0.00 :   c23b321:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23b32c:        nop    DWORD PTR [rax+0x0]
+    0.00 :   c23b330:        sub    rsi,0x10
+    0.00 :   c23b334:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23b33f:        nop
+    0.00 :   c23b340:        cmp    rsi,0x8
+    0.00 :   c23b344:        jl     c23b4e0 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x17e0>
+    0.00 :   c23b34a:        mov    r10,rdx
+    0.00 :   c23b34d:        lea    r8,[r10+rcx*4]
+    0.00 :   c23b351:        add    rdx,0x20
+    0.00 :   c23b355:        mov    rax,rdi
+    0.00 :   c23b358:        sar    rax,0x3
+    0.00 :   c23b35c:        jle    c23b410 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x1710>
+    0.00 :   c23b362:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23b36d:        nop    DWORD PTR [rax]
+    0.00 :   c23b370:        vmovups ymm0,YMMWORD PTR [r10-0x80]
+    0.00 :   c23b376:        vxorps ymm0,ymm6,ymm0
+    0.00 :   c23b37a:        vmovups YMMWORD PTR [r9-0x80],ymm0
+    0.00 :   c23b380:        vmovups ymm0,YMMWORD PTR [r10+rcx*1-0x80]
+    0.00 :   c23b387:        vxorps ymm0,ymm6,ymm0
+    0.00 :   c23b38b:        vmovups YMMWORD PTR [r9-0x60],ymm0
+    0.00 :   c23b391:        vmovups ymm0,YMMWORD PTR [r10+rcx*2-0x80]
+    0.00 :   c23b398:        vxorps ymm0,ymm6,ymm0
+    0.00 :   c23b39c:        vmovups YMMWORD PTR [r9-0x40],ymm0
+    0.00 :   c23b3a2:        vmovups ymm0,YMMWORD PTR [r10+r11*1-0x80]
+    0.00 :   c23b3a9:        vxorps ymm0,ymm6,ymm0
+    0.00 :   c23b3ad:        vmovups YMMWORD PTR [r9-0x20],ymm0
+    0.00 :   c23b3b3:        vmovups ymm0,YMMWORD PTR [r8-0x80]
+    0.00 :   c23b3b9:        vxorps ymm0,ymm6,ymm0
+    0.00 :   c23b3bd:        vmovups YMMWORD PTR [r9],ymm0
+    0.00 :   c23b3c2:        vmovups ymm0,YMMWORD PTR [r8+rcx*1-0x80]
+    0.00 :   c23b3c9:        vxorps ymm0,ymm6,ymm0
+    0.00 :   c23b3cd:        vmovups YMMWORD PTR [r9+0x20],ymm0
+    0.00 :   c23b3d3:        vmovups ymm0,YMMWORD PTR [r8+rcx*2-0x80]
+    0.00 :   c23b3da:        vxorps ymm0,ymm6,ymm0
+    0.00 :   c23b3de:        vmovups YMMWORD PTR [r9+0x40],ymm0
+    0.00 :   c23b3e4:        vmovups ymm0,YMMWORD PTR [r8+r11*1-0x80]
+    0.00 :   c23b3eb:        vxorps ymm0,ymm6,ymm0
+    0.00 :   c23b3ef:        vmovups YMMWORD PTR [r9+0x60],ymm0
+    0.00 :   c23b3f5:        lea    r10,[r10+rcx*8]
+    0.00 :   c23b3f9:        lea    r8,[r8+rcx*8]
+    0.00 :   c23b3fd:        sub    r9,0xffffffffffffff00
+    0.00 :   c23b404:        dec    rax
+    0.00 :   c23b407:        jg     c23b370 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x1670>
+    0.00 :   c23b40d:        nop    DWORD PTR [rax]
+    0.00 :   c23b410:        test   rdi,0x4
+    0.00 :   c23b417:        jle    c23b470 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x1770>
+    0.00 :   c23b419:        vmovups ymm0,YMMWORD PTR [r10-0x80]
+    0.00 :   c23b41f:        vxorps ymm0,ymm6,ymm0
+    0.00 :   c23b423:        vmovups YMMWORD PTR [r9-0x80],ymm0
+    0.00 :   c23b429:        vmovups ymm0,YMMWORD PTR [r10+rcx*1-0x80]
+    0.00 :   c23b430:        vxorps ymm0,ymm6,ymm0
+    0.00 :   c23b434:        vmovups YMMWORD PTR [r9-0x60],ymm0
+    0.00 :   c23b43a:        vmovups ymm0,YMMWORD PTR [r10+rcx*2-0x80]
+    0.00 :   c23b441:        vxorps ymm0,ymm6,ymm0
+    0.00 :   c23b445:        vmovups YMMWORD PTR [r9-0x40],ymm0
+    0.00 :   c23b44b:        vmovups ymm0,YMMWORD PTR [r10+r11*1-0x80]
+    0.00 :   c23b452:        vxorps ymm0,ymm6,ymm0
+    0.00 :   c23b456:        vmovups YMMWORD PTR [r9-0x20],ymm0
+    0.00 :   c23b45c:        lea    r10,[r10+rcx*4]
+    0.00 :   c23b460:        sub    r9,0xffffffffffffff80
+    0.00 :   c23b464:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23b46f:        nop
+    0.00 :   c23b470:        test   rdi,0x2
+    0.00 :   c23b477:        jle    c23b4b0 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x17b0>
+    0.00 :   c23b479:        vmovups ymm0,YMMWORD PTR [r10-0x80]
+    0.00 :   c23b47f:        vxorps ymm0,ymm6,ymm0
+    0.00 :   c23b483:        vmovups YMMWORD PTR [r9-0x80],ymm0
+    0.00 :   c23b489:        vmovups ymm0,YMMWORD PTR [r10+rcx*1-0x80]
+    0.00 :   c23b490:        vxorps ymm0,ymm6,ymm0
+    0.00 :   c23b494:        vmovups YMMWORD PTR [r9-0x60],ymm0
+    0.00 :   c23b49a:        lea    r10,[r10+rcx*2]
+    0.00 :   c23b49e:        sub    r9,0xffffffffffffffc0
+    0.00 :   c23b4a2:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23b4ad:        nop    DWORD PTR [rax]
+    0.00 :   c23b4b0:        test   rdi,0x1
+    0.00 :   c23b4b7:        jle    c23b4d0 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x17d0>
+    0.00 :   c23b4b9:        vmovups ymm0,YMMWORD PTR [r10-0x80]
+    0.00 :   c23b4bf:        vxorps ymm0,ymm6,ymm0
+    0.00 :   c23b4c3:        vmovups YMMWORD PTR [r9-0x80],ymm0
+    0.00 :   c23b4c9:        sub    r9,0xffffffffffffffe0
+    0.00 :   c23b4cd:        nop    DWORD PTR [rax]
+    0.00 :   c23b4d0:        sub    rsi,0x8
+    0.00 :   c23b4d4:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23b4df:        nop
+    0.00 :   c23b4e0:        cmp    rsi,0x4
+    0.00 :   c23b4e4:        jl     c23b680 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x1980>
+    0.00 :   c23b4ea:        mov    r10,rdx
+    0.00 :   c23b4ed:        lea    r8,[r10+rcx*4]
+    0.00 :   c23b4f1:        add    rdx,0x10
+    0.00 :   c23b4f5:        mov    rax,rdi
+    0.00 :   c23b4f8:        sar    rax,0x3
+    0.00 :   c23b4fc:        jle    c23b5b0 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x18b0>
+    0.00 :   c23b502:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23b50d:        nop    DWORD PTR [rax]
+    0.00 :   c23b510:        vmovups xmm0,XMMWORD PTR [r10-0x80]
+    0.00 :   c23b516:        vxorps xmm0,xmm6,xmm0
+    0.00 :   c23b51a:        vmovups XMMWORD PTR [r9-0x80],xmm0
+    0.00 :   c23b520:        vmovups xmm0,XMMWORD PTR [r10+rcx*1-0x80]
+    0.00 :   c23b527:        vxorps xmm0,xmm6,xmm0
+    0.00 :   c23b52b:        vmovups XMMWORD PTR [r9-0x70],xmm0
+    0.00 :   c23b531:        vmovups xmm0,XMMWORD PTR [r10+rcx*2-0x80]
+    0.00 :   c23b538:        vxorps xmm0,xmm6,xmm0
+    0.00 :   c23b53c:        vmovups XMMWORD PTR [r9-0x60],xmm0
+    0.00 :   c23b542:        vmovups xmm0,XMMWORD PTR [r10+r11*1-0x80]
+    0.00 :   c23b549:        vxorps xmm0,xmm6,xmm0
+    0.00 :   c23b54d:        vmovups XMMWORD PTR [r9-0x50],xmm0
+    0.00 :   c23b553:        vmovups xmm0,XMMWORD PTR [r8-0x80]
+    0.00 :   c23b559:        vxorps xmm0,xmm6,xmm0
+    0.00 :   c23b55d:        vmovups XMMWORD PTR [r9-0x40],xmm0
+    0.00 :   c23b563:        vmovups xmm0,XMMWORD PTR [r8+rcx*1-0x80]
+    0.00 :   c23b56a:        vxorps xmm0,xmm6,xmm0
+    0.00 :   c23b56e:        vmovups XMMWORD PTR [r9-0x30],xmm0
+    0.00 :   c23b574:        vmovups xmm0,XMMWORD PTR [r8+rcx*2-0x80]
+    0.00 :   c23b57b:        vxorps xmm0,xmm6,xmm0
+    0.00 :   c23b57f:        vmovups XMMWORD PTR [r9-0x20],xmm0
+    0.00 :   c23b585:        vmovups xmm0,XMMWORD PTR [r8+r11*1-0x80]
+    0.00 :   c23b58c:        vxorps xmm0,xmm6,xmm0
+    0.00 :   c23b590:        vmovups XMMWORD PTR [r9-0x10],xmm0
+    0.00 :   c23b596:        lea    r10,[r10+rcx*8]
+    0.00 :   c23b59a:        lea    r8,[r8+rcx*8]
+    0.00 :   c23b59e:        sub    r9,0xffffffffffffff80
+    0.00 :   c23b5a2:        dec    rax
+    0.00 :   c23b5a5:        jg     c23b510 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x1810>
+    0.00 :   c23b5ab:        nop    DWORD PTR [rax+rax*1+0x0]
+    0.00 :   c23b5b0:        test   rdi,0x4
+    0.00 :   c23b5b7:        jle    c23b610 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x1910>
+    0.00 :   c23b5b9:        vmovups xmm0,XMMWORD PTR [r10-0x80]
+    0.00 :   c23b5bf:        vxorps xmm0,xmm6,xmm0
+    0.00 :   c23b5c3:        vmovups XMMWORD PTR [r9-0x80],xmm0
+    0.00 :   c23b5c9:        vmovups xmm0,XMMWORD PTR [r10+rcx*1-0x80]
+    0.00 :   c23b5d0:        vxorps xmm0,xmm6,xmm0
+    0.00 :   c23b5d4:        vmovups XMMWORD PTR [r9-0x70],xmm0
+    0.00 :   c23b5da:        vmovups xmm0,XMMWORD PTR [r10+rcx*2-0x80]
+    0.00 :   c23b5e1:        vxorps xmm0,xmm6,xmm0
+    0.00 :   c23b5e5:        vmovups XMMWORD PTR [r9-0x60],xmm0
+    0.00 :   c23b5eb:        vmovups xmm0,XMMWORD PTR [r10+r11*1-0x80]
+    0.00 :   c23b5f2:        vxorps xmm0,xmm6,xmm0
+    0.00 :   c23b5f6:        vmovups XMMWORD PTR [r9-0x50],xmm0
+    0.00 :   c23b5fc:        lea    r10,[r10+rcx*4]
+    0.00 :   c23b600:        sub    r9,0xffffffffffffffc0
+    0.00 :   c23b604:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23b60f:        nop
+    0.00 :   c23b610:        test   rdi,0x2
+    0.00 :   c23b617:        jle    c23b650 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x1950>
+    0.00 :   c23b619:        vmovups xmm0,XMMWORD PTR [r10-0x80]
+    0.00 :   c23b61f:        vxorps xmm0,xmm6,xmm0
+    0.00 :   c23b623:        vmovups XMMWORD PTR [r9-0x80],xmm0
+    0.00 :   c23b629:        vmovups xmm0,XMMWORD PTR [r10+rcx*1-0x80]
+    0.00 :   c23b630:        vxorps xmm0,xmm6,xmm0
+    0.00 :   c23b634:        vmovups XMMWORD PTR [r9-0x70],xmm0
+    0.00 :   c23b63a:        lea    r10,[r10+rcx*2]
+    0.00 :   c23b63e:        sub    r9,0xffffffffffffffe0
+    0.00 :   c23b642:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23b64d:        nop    DWORD PTR [rax]
+    0.00 :   c23b650:        test   rdi,0x1
+    0.00 :   c23b657:        jle    c23b670 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x1970>
+    0.00 :   c23b659:        vmovups xmm0,XMMWORD PTR [r10-0x80]
+    0.00 :   c23b65f:        vxorps xmm0,xmm6,xmm0
+    0.00 :   c23b663:        vmovups XMMWORD PTR [r9-0x80],xmm0
+    0.00 :   c23b669:        sub    r9,0xfffffffffffffff0
+    0.00 :   c23b66d:        nop    DWORD PTR [rax]
+    0.00 :   c23b670:        sub    rsi,0x4
+    0.00 :   c23b674:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23b67f:        nop
+    0.00 :   c23b680:        cmp    rsi,0x2
+    0.00 :   c23b684:        jl     c23b820 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x1b20>
+    0.00 :   c23b68a:        mov    r10,rdx
+    0.00 :   c23b68d:        lea    r8,[r10+rcx*4]
+    0.00 :   c23b691:        add    rdx,0x8
+    0.00 :   c23b695:        mov    rax,rdi
+    0.00 :   c23b698:        sar    rax,0x3
+    0.00 :   c23b69c:        jle    c23b750 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x1a50>
+    0.00 :   c23b6a2:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23b6ad:        nop    DWORD PTR [rax]
+    0.00 :   c23b6b0:        vmovsd xmm0,QWORD PTR [r10-0x80]
+    0.00 :   c23b6b6:        vxorps xmm0,xmm6,xmm0
+    0.00 :   c23b6ba:        vmovlps QWORD PTR [r9-0x80],xmm0
+    0.00 :   c23b6c0:        vmovsd xmm0,QWORD PTR [r10+rcx*1-0x80]
+    0.00 :   c23b6c7:        vxorps xmm0,xmm6,xmm0
+    0.00 :   c23b6cb:        vmovlps QWORD PTR [r9-0x78],xmm0
+    0.00 :   c23b6d1:        vmovsd xmm0,QWORD PTR [r10+rcx*2-0x80]
+    0.00 :   c23b6d8:        vxorps xmm0,xmm6,xmm0
+    0.00 :   c23b6dc:        vmovlps QWORD PTR [r9-0x70],xmm0
+    0.00 :   c23b6e2:        vmovsd xmm0,QWORD PTR [r10+r11*1-0x80]
+    0.00 :   c23b6e9:        vxorps xmm0,xmm6,xmm0
+    0.00 :   c23b6ed:        vmovlps QWORD PTR [r9-0x68],xmm0
+    0.00 :   c23b6f3:        vmovsd xmm0,QWORD PTR [r8-0x80]
+    0.00 :   c23b6f9:        vxorps xmm0,xmm6,xmm0
+    0.00 :   c23b6fd:        vmovlps QWORD PTR [r9-0x60],xmm0
+    0.00 :   c23b703:        vmovsd xmm0,QWORD PTR [r8+rcx*1-0x80]
+    0.00 :   c23b70a:        vxorps xmm0,xmm6,xmm0
+    0.00 :   c23b70e:        vmovlps QWORD PTR [r9-0x58],xmm0
+    0.00 :   c23b714:        vmovsd xmm0,QWORD PTR [r8+rcx*2-0x80]
+    0.00 :   c23b71b:        vxorps xmm0,xmm6,xmm0
+    0.00 :   c23b71f:        vmovlps QWORD PTR [r9-0x50],xmm0
+    0.00 :   c23b725:        vmovsd xmm0,QWORD PTR [r8+r11*1-0x80]
+    0.00 :   c23b72c:        vxorps xmm0,xmm6,xmm0
+    0.00 :   c23b730:        vmovlps QWORD PTR [r9-0x48],xmm0
+    0.00 :   c23b736:        lea    r10,[r10+rcx*8]
+    0.00 :   c23b73a:        lea    r8,[r8+rcx*8]
+    0.00 :   c23b73e:        sub    r9,0xffffffffffffffc0
+    0.00 :   c23b742:        dec    rax
+    0.00 :   c23b745:        jg     c23b6b0 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x19b0>
+    0.00 :   c23b74b:        nop    DWORD PTR [rax+rax*1+0x0]
+    0.00 :   c23b750:        test   rdi,0x4
+    0.00 :   c23b757:        jle    c23b7b0 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x1ab0>
+    0.00 :   c23b759:        vmovsd xmm0,QWORD PTR [r10-0x80]
+    0.00 :   c23b75f:        vxorps xmm0,xmm6,xmm0
+    0.00 :   c23b763:        vmovlps QWORD PTR [r9-0x80],xmm0
+    0.00 :   c23b769:        vmovsd xmm0,QWORD PTR [r10+rcx*1-0x80]
+    0.00 :   c23b770:        vxorps xmm0,xmm6,xmm0
+    0.00 :   c23b774:        vmovlps QWORD PTR [r9-0x78],xmm0
+    0.00 :   c23b77a:        vmovsd xmm0,QWORD PTR [r10+rcx*2-0x80]
+    0.00 :   c23b781:        vxorps xmm0,xmm6,xmm0
+    0.00 :   c23b785:        vmovlps QWORD PTR [r9-0x70],xmm0
+    0.00 :   c23b78b:        vmovsd xmm0,QWORD PTR [r10+r11*1-0x80]
+    0.00 :   c23b792:        vxorps xmm0,xmm6,xmm0
+    0.00 :   c23b796:        vmovlps QWORD PTR [r9-0x68],xmm0
+    0.00 :   c23b79c:        lea    r10,[r10+rcx*4]
+    0.00 :   c23b7a0:        sub    r9,0xffffffffffffffe0
+    0.00 :   c23b7a4:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23b7af:        nop
+    0.00 :   c23b7b0:        test   rdi,0x2
+    0.00 :   c23b7b7:        jle    c23b7f0 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x1af0>
+    0.00 :   c23b7b9:        vmovsd xmm0,QWORD PTR [r10-0x80]
+    0.00 :   c23b7bf:        vxorps xmm0,xmm6,xmm0
+    0.00 :   c23b7c3:        vmovlps QWORD PTR [r9-0x80],xmm0
+    0.00 :   c23b7c9:        vmovsd xmm0,QWORD PTR [r10+rcx*1-0x80]
+    0.00 :   c23b7d0:        vxorps xmm0,xmm6,xmm0
+    0.00 :   c23b7d4:        vmovlps QWORD PTR [r9-0x78],xmm0
+    0.00 :   c23b7da:        lea    r10,[r10+rcx*2]
+    0.00 :   c23b7de:        sub    r9,0xfffffffffffffff0
+    0.00 :   c23b7e2:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23b7ed:        nop    DWORD PTR [rax]
+    0.00 :   c23b7f0:        test   rdi,0x1
+    0.00 :   c23b7f7:        jle    c23b810 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x1b10>
+    0.00 :   c23b7f9:        vmovsd xmm0,QWORD PTR [r10-0x80]
+    0.00 :   c23b7ff:        vxorps xmm0,xmm6,xmm0
+    0.00 :   c23b803:        vmovlps QWORD PTR [r9-0x80],xmm0
+    0.00 :   c23b809:        sub    r9,0xfffffffffffffff8
+    0.00 :   c23b80d:        nop    DWORD PTR [rax]
+    0.00 :   c23b810:        sub    rsi,0x2
+    0.00 :   c23b814:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23b81f:        nop
+    0.00 :   c23b820:        cmp    rsi,0x1
+    0.00 :   c23b824:        jl     c23b9c0 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x1cc0>
+    0.00 :   c23b82a:        mov    r10,rdx
+    0.00 :   c23b82d:        lea    r8,[r10+rcx*4]
+    0.00 :   c23b831:        add    rdx,0x4
+    0.00 :   c23b835:        mov    rax,rdi
+    0.00 :   c23b838:        sar    rax,0x3
+    0.00 :   c23b83c:        jle    c23b8f0 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x1bf0>
+    0.00 :   c23b842:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23b84d:        nop    DWORD PTR [rax]
+    0.00 :   c23b850:        vmovss xmm0,DWORD PTR [r10-0x80]
+    0.00 :   c23b856:        vxorps xmm0,xmm6,xmm0
+    0.00 :   c23b85a:        vmovss DWORD PTR [r9-0x80],xmm0
+    0.00 :   c23b860:        vmovss xmm0,DWORD PTR [r10+rcx*1-0x80]
+    0.00 :   c23b867:        vxorps xmm0,xmm6,xmm0
+    0.00 :   c23b86b:        vmovss DWORD PTR [r9-0x7c],xmm0
+    0.00 :   c23b871:        vmovss xmm0,DWORD PTR [r10+rcx*2-0x80]
+    0.00 :   c23b878:        vxorps xmm0,xmm6,xmm0
+    0.00 :   c23b87c:        vmovss DWORD PTR [r9-0x78],xmm0
+    0.00 :   c23b882:        vmovss xmm0,DWORD PTR [r10+r11*1-0x80]
+    0.00 :   c23b889:        vxorps xmm0,xmm6,xmm0
+    0.00 :   c23b88d:        vmovss DWORD PTR [r9-0x74],xmm0
+    0.00 :   c23b893:        vmovss xmm0,DWORD PTR [r8-0x80]
+    0.00 :   c23b899:        vxorps xmm0,xmm6,xmm0
+    0.00 :   c23b89d:        vmovss DWORD PTR [r9-0x70],xmm0
+    0.00 :   c23b8a3:        vmovss xmm0,DWORD PTR [r8+rcx*1-0x80]
+    0.00 :   c23b8aa:        vxorps xmm0,xmm6,xmm0
+    0.00 :   c23b8ae:        vmovss DWORD PTR [r9-0x6c],xmm0
+    0.00 :   c23b8b4:        vmovss xmm0,DWORD PTR [r8+rcx*2-0x80]
+    0.00 :   c23b8bb:        vxorps xmm0,xmm6,xmm0
+    0.00 :   c23b8bf:        vmovss DWORD PTR [r9-0x68],xmm0
+    0.00 :   c23b8c5:        vmovss xmm0,DWORD PTR [r8+r11*1-0x80]
+    0.00 :   c23b8cc:        vxorps xmm0,xmm6,xmm0
+    0.00 :   c23b8d0:        vmovss DWORD PTR [r9-0x64],xmm0
+    0.00 :   c23b8d6:        lea    r10,[r10+rcx*8]
+    0.00 :   c23b8da:        lea    r8,[r8+rcx*8]
+    0.00 :   c23b8de:        sub    r9,0xffffffffffffffe0
+    0.00 :   c23b8e2:        dec    rax
+    0.00 :   c23b8e5:        jg     c23b850 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x1b50>
+    0.00 :   c23b8eb:        nop    DWORD PTR [rax+rax*1+0x0]
+    0.00 :   c23b8f0:        test   rdi,0x4
+    0.00 :   c23b8f7:        jle    c23b950 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x1c50>
+    0.00 :   c23b8f9:        vmovss xmm0,DWORD PTR [r10-0x80]
+    0.00 :   c23b8ff:        vxorps xmm0,xmm6,xmm0
+    0.00 :   c23b903:        vmovss DWORD PTR [r9-0x80],xmm0
+    0.00 :   c23b909:        vmovss xmm0,DWORD PTR [r10+rcx*1-0x80]
+    0.00 :   c23b910:        vxorps xmm0,xmm6,xmm0
+    0.00 :   c23b914:        vmovss DWORD PTR [r9-0x7c],xmm0
+    0.00 :   c23b91a:        vmovss xmm0,DWORD PTR [r10+rcx*2-0x80]
+    0.00 :   c23b921:        vxorps xmm0,xmm6,xmm0
+    0.00 :   c23b925:        vmovss DWORD PTR [r9-0x78],xmm0
+    0.00 :   c23b92b:        vmovss xmm0,DWORD PTR [r10+r11*1-0x80]
+    0.00 :   c23b932:        vxorps xmm0,xmm6,xmm0
+    0.00 :   c23b936:        vmovss DWORD PTR [r9-0x74],xmm0
+    0.00 :   c23b93c:        lea    r10,[r10+rcx*4]
+    0.00 :   c23b940:        sub    r9,0xfffffffffffffff0
+    0.00 :   c23b944:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23b94f:        nop
+    0.00 :   c23b950:        test   rdi,0x2
+    0.00 :   c23b957:        jle    c23b990 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x1c90>
+    0.00 :   c23b959:        vmovss xmm0,DWORD PTR [r10-0x80]
+    0.00 :   c23b95f:        vxorps xmm0,xmm6,xmm0
+    0.00 :   c23b963:        vmovss DWORD PTR [r9-0x80],xmm0
+    0.00 :   c23b969:        vmovss xmm0,DWORD PTR [r10+rcx*1-0x80]
+    0.00 :   c23b970:        vxorps xmm0,xmm6,xmm0
+    0.00 :   c23b974:        vmovss DWORD PTR [r9-0x7c],xmm0
+    0.00 :   c23b97a:        lea    r10,[r10+rcx*2]
+    0.00 :   c23b97e:        sub    r9,0xfffffffffffffff8
+    0.00 :   c23b982:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23b98d:        nop    DWORD PTR [rax]
+    0.00 :   c23b990:        test   rdi,0x1
+    0.00 :   c23b997:        jle    c23b9b0 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x1cb0>
+    0.00 :   c23b999:        vmovss xmm0,DWORD PTR [r10-0x80]
+    0.00 :   c23b99f:        vxorps xmm0,xmm6,xmm0
+    0.00 :   c23b9a3:        vmovss DWORD PTR [r9-0x80],xmm0
+    0.00 :   c23b9a9:        sub    r9,0xfffffffffffffffc
+    0.00 :   c23b9ad:        nop    DWORD PTR [rax]
+    0.00 :   c23b9b0:        sub    rsi,0x1
+    0.00 :   c23b9b4:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23b9bf:        nop
+    0.00 :   c23b9c0:        jmp    c23c990 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x2c90>
+    0.00 :   c23b9c5:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23b9d0:        cmp    rsi,0x30
+    0.00 :   c23b9d4:        jl     c23be10 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x2110>
+    0.00 :   c23b9da:        nop    WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23b9e0:        mov    r10,rdx
+    0.00 :   c23b9e3:        lea    r8,[r10+rcx*4]
+    0.00 :   c23b9e7:        add    rdx,0xc0
+    0.00 :   c23b9ee:        mov    rax,rdi
+    0.00 :   c23b9f1:        sar    rax,0x3
+    0.00 :   c23b9f5:        jle    c23bc10 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x1f10>
+    0.00 :   c23b9fb:        nop    DWORD PTR [rax+rax*1+0x0]
+    0.00 :   c23ba00:        vmovups zmm0,ZMMWORD PTR [r10-0x80]
+    0.00 :   c23ba07:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23ba0d:        vmovups ZMMWORD PTR [r9-0x80],zmm0
+    0.00 :   c23ba14:        vmovups zmm0,ZMMWORD PTR [r10-0x40]
+    0.00 :   c23ba1b:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23ba21:        vmovups ZMMWORD PTR [r9-0x40],zmm0
+    0.00 :   c23ba28:        vmovups zmm0,ZMMWORD PTR [r10]
+    0.00 :   c23ba2e:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23ba34:        vmovups ZMMWORD PTR [r9],zmm0
+    0.00 :   c23ba3a:        vmovups zmm0,ZMMWORD PTR [r10+rcx*1-0x80]
+    0.00 :   c23ba42:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23ba48:        vmovups ZMMWORD PTR [r9+0x40],zmm0
+    0.00 :   c23ba4f:        vmovups zmm0,ZMMWORD PTR [r10+rcx*1-0x40]
+    0.00 :   c23ba57:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23ba5d:        vmovups ZMMWORD PTR [r9+0x80],zmm0
+    0.00 :   c23ba64:        vmovups zmm0,ZMMWORD PTR [r10+rcx*1]
+    0.00 :   c23ba6b:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23ba71:        vmovups ZMMWORD PTR [r9+0xc0],zmm0
+    0.00 :   c23ba78:        vmovups zmm0,ZMMWORD PTR [r10+rcx*2-0x80]
+    0.00 :   c23ba80:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23ba86:        vmovups ZMMWORD PTR [r9+0x100],zmm0
+    0.00 :   c23ba8d:        vmovups zmm0,ZMMWORD PTR [r10+rcx*2-0x40]
+    0.00 :   c23ba95:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23ba9b:        vmovups ZMMWORD PTR [r9+0x140],zmm0
+    0.00 :   c23baa2:        vmovups zmm0,ZMMWORD PTR [r10+rcx*2]
+    0.00 :   c23baa9:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23baaf:        vmovups ZMMWORD PTR [r9+0x180],zmm0
+    0.00 :   c23bab6:        vmovups zmm0,ZMMWORD PTR [r10+r11*1-0x80]
+    0.00 :   c23babe:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23bac4:        vmovups ZMMWORD PTR [r9+0x1c0],zmm0
+    0.00 :   c23bacb:        vmovups zmm0,ZMMWORD PTR [r10+r11*1-0x40]
+    0.00 :   c23bad3:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23bad9:        vmovups ZMMWORD PTR [r9+0x200],zmm0
+    0.00 :   c23bae0:        vmovups zmm0,ZMMWORD PTR [r10+r11*1]
+    0.00 :   c23bae7:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23baed:        vmovups ZMMWORD PTR [r9+0x240],zmm0
+    0.00 :   c23baf4:        vmovups zmm0,ZMMWORD PTR [r8-0x80]
+    0.00 :   c23bafb:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23bb01:        vmovups ZMMWORD PTR [r9+0x280],zmm0
+    0.00 :   c23bb08:        vmovups zmm0,ZMMWORD PTR [r8-0x40]
+    0.00 :   c23bb0f:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23bb15:        vmovups ZMMWORD PTR [r9+0x2c0],zmm0
+    0.00 :   c23bb1c:        vmovups zmm0,ZMMWORD PTR [r8]
+    0.00 :   c23bb22:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23bb28:        vmovups ZMMWORD PTR [r9+0x300],zmm0
+    0.00 :   c23bb2f:        vmovups zmm0,ZMMWORD PTR [r8+rcx*1-0x80]
+    0.00 :   c23bb37:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23bb3d:        vmovups ZMMWORD PTR [r9+0x340],zmm0
+    0.00 :   c23bb44:        vmovups zmm0,ZMMWORD PTR [r8+rcx*1-0x40]
+    0.00 :   c23bb4c:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23bb52:        vmovups ZMMWORD PTR [r9+0x380],zmm0
+    0.00 :   c23bb59:        vmovups zmm0,ZMMWORD PTR [r8+rcx*1]
+    0.00 :   c23bb60:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23bb66:        vmovups ZMMWORD PTR [r9+0x3c0],zmm0
+    0.00 :   c23bb6d:        vmovups zmm0,ZMMWORD PTR [r8+rcx*2-0x80]
+    0.00 :   c23bb75:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23bb7b:        vmovups ZMMWORD PTR [r9+0x400],zmm0
+    0.00 :   c23bb82:        vmovups zmm0,ZMMWORD PTR [r8+rcx*2-0x40]
+    0.00 :   c23bb8a:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23bb90:        vmovups ZMMWORD PTR [r9+0x440],zmm0
+    0.00 :   c23bb97:        vmovups zmm0,ZMMWORD PTR [r8+rcx*2]
+    0.00 :   c23bb9e:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23bba4:        vmovups ZMMWORD PTR [r9+0x480],zmm0
+    0.00 :   c23bbab:        vmovups zmm0,ZMMWORD PTR [r8+r11*1-0x80]
+    0.00 :   c23bbb3:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23bbb9:        vmovups ZMMWORD PTR [r9+0x4c0],zmm0
+    0.00 :   c23bbc0:        vmovups zmm0,ZMMWORD PTR [r8+r11*1-0x40]
+    0.00 :   c23bbc8:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23bbce:        vmovups ZMMWORD PTR [r9+0x500],zmm0
+    0.00 :   c23bbd5:        vmovups zmm0,ZMMWORD PTR [r8+r11*1]
+    0.00 :   c23bbdc:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23bbe2:        vmovups ZMMWORD PTR [r9+0x540],zmm0
+    0.00 :   c23bbe9:        lea    r10,[r10+rcx*8]
+    0.00 :   c23bbed:        lea    r8,[r8+rcx*8]
+    0.00 :   c23bbf1:        sub    r9,0xfffffffffffffa00
+    0.00 :   c23bbf8:        dec    rax
+    0.00 :   c23bbfb:        jg     c23ba00 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x1d00>
+    0.00 :   c23bc01:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23bc0c:        nop    DWORD PTR [rax+0x0]
+    0.00 :   c23bc10:        test   rdi,0x4
+    0.00 :   c23bc17:        jle    c23bd20 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x2020>
+    0.00 :   c23bc1d:        vmovups zmm0,ZMMWORD PTR [r10-0x80]
+    0.00 :   c23bc24:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23bc2a:        vmovups ZMMWORD PTR [r9-0x80],zmm0
+    0.00 :   c23bc31:        vmovups zmm0,ZMMWORD PTR [r10-0x40]
+    0.00 :   c23bc38:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23bc3e:        vmovups ZMMWORD PTR [r9-0x40],zmm0
+    0.00 :   c23bc45:        vmovups zmm0,ZMMWORD PTR [r10]
+    0.00 :   c23bc4b:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23bc51:        vmovups ZMMWORD PTR [r9],zmm0
+    0.00 :   c23bc57:        vmovups zmm0,ZMMWORD PTR [r10+rcx*1-0x80]
+    0.00 :   c23bc5f:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23bc65:        vmovups ZMMWORD PTR [r9+0x40],zmm0
+    0.00 :   c23bc6c:        vmovups zmm0,ZMMWORD PTR [r10+rcx*1-0x40]
+    0.00 :   c23bc74:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23bc7a:        vmovups ZMMWORD PTR [r9+0x80],zmm0
+    0.00 :   c23bc81:        vmovups zmm0,ZMMWORD PTR [r10+rcx*1]
+    0.00 :   c23bc88:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23bc8e:        vmovups ZMMWORD PTR [r9+0xc0],zmm0
+    0.00 :   c23bc95:        vmovups zmm0,ZMMWORD PTR [r10+rcx*2-0x80]
+    0.00 :   c23bc9d:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23bca3:        vmovups ZMMWORD PTR [r9+0x100],zmm0
+    0.00 :   c23bcaa:        vmovups zmm0,ZMMWORD PTR [r10+rcx*2-0x40]
+    0.00 :   c23bcb2:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23bcb8:        vmovups ZMMWORD PTR [r9+0x140],zmm0
+    0.00 :   c23bcbf:        vmovups zmm0,ZMMWORD PTR [r10+rcx*2]
+    0.00 :   c23bcc6:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23bccc:        vmovups ZMMWORD PTR [r9+0x180],zmm0
+    0.00 :   c23bcd3:        vmovups zmm0,ZMMWORD PTR [r10+r11*1-0x80]
+    0.00 :   c23bcdb:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23bce1:        vmovups ZMMWORD PTR [r9+0x1c0],zmm0
+    0.00 :   c23bce8:        vmovups zmm0,ZMMWORD PTR [r10+r11*1-0x40]
+    0.00 :   c23bcf0:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23bcf6:        vmovups ZMMWORD PTR [r9+0x200],zmm0
+    0.00 :   c23bcfd:        vmovups zmm0,ZMMWORD PTR [r10+r11*1]
+    0.00 :   c23bd04:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23bd0a:        vmovups ZMMWORD PTR [r9+0x240],zmm0
+    0.00 :   c23bd11:        lea    r10,[r10+rcx*4]
+    0.00 :   c23bd15:        sub    r9,0xfffffffffffffd00
+    0.00 :   c23bd1c:        nop    DWORD PTR [rax+0x0]
+    0.00 :   c23bd20:        test   rdi,0x2
+    0.00 :   c23bd27:        jle    c23bdb0 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x20b0>
+    0.00 :   c23bd2d:        vmovups zmm0,ZMMWORD PTR [r10-0x80]
+    0.00 :   c23bd34:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23bd3a:        vmovups ZMMWORD PTR [r9-0x80],zmm0
+    0.00 :   c23bd41:        vmovups zmm0,ZMMWORD PTR [r10-0x40]
+    0.00 :   c23bd48:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23bd4e:        vmovups ZMMWORD PTR [r9-0x40],zmm0
+    0.00 :   c23bd55:        vmovups zmm0,ZMMWORD PTR [r10]
+    0.00 :   c23bd5b:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23bd61:        vmovups ZMMWORD PTR [r9],zmm0
+    0.00 :   c23bd67:        vmovups zmm0,ZMMWORD PTR [r10+rcx*1-0x80]
+    0.00 :   c23bd6f:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23bd75:        vmovups ZMMWORD PTR [r9+0x40],zmm0
+    0.00 :   c23bd7c:        vmovups zmm0,ZMMWORD PTR [r10+rcx*1-0x40]
+    0.00 :   c23bd84:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23bd8a:        vmovups ZMMWORD PTR [r9+0x80],zmm0
+    0.00 :   c23bd91:        vmovups zmm0,ZMMWORD PTR [r10+rcx*1]
+    0.00 :   c23bd98:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23bd9e:        vmovups ZMMWORD PTR [r9+0xc0],zmm0
+    0.00 :   c23bda5:        lea    r10,[r10+rcx*2]
+    0.00 :   c23bda9:        sub    r9,0xfffffffffffffe80
+    0.00 :   c23bdb0:        test   rdi,0x1
+    0.00 :   c23bdb7:        jle    c23be00 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x2100>
+    0.00 :   c23bdb9:        vmovups zmm0,ZMMWORD PTR [r10-0x80]
+    0.00 :   c23bdc0:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23bdc6:        vmovups ZMMWORD PTR [r9-0x80],zmm0
+    0.00 :   c23bdcd:        vmovups zmm0,ZMMWORD PTR [r10-0x40]
+    0.00 :   c23bdd4:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23bdda:        vmovups ZMMWORD PTR [r9-0x40],zmm0
+    0.00 :   c23bde1:        vmovups zmm0,ZMMWORD PTR [r10]
+    0.00 :   c23bde7:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23bded:        vmovups ZMMWORD PTR [r9],zmm0
+    0.00 :   c23bdf3:        sub    r9,0xffffffffffffff40
+    0.00 :   c23bdfa:        nop    WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23be00:        sub    rsi,0x30
+    0.00 :   c23be04:        cmp    rsi,0x30
+    0.00 :   c23be08:        jge    c23b9e0 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x1ce0>
+    0.00 :   c23be0e:        xchg   ax,ax
+    0.00 :   c23be10:        cmp    rsi,0x20
+    0.00 :   c23be14:        jl     c23c130 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x2430>
+    0.00 :   c23be1a:        mov    r10,rdx
+    0.00 :   c23be1d:        lea    r8,[r10+rcx*4]
+    0.00 :   c23be21:        add    rdx,0x80
+    0.00 :   c23be28:        mov    rax,rdi
+    0.00 :   c23be2b:        sar    rax,0x3
+    0.00 :   c23be2f:        jle    c23bfb0 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x22b0>
+    0.00 :   c23be35:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23be40:        vmovups zmm0,ZMMWORD PTR [r10-0x80]
+    0.00 :   c23be47:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23be4d:        vmovups ZMMWORD PTR [r9-0x80],zmm0
+    0.00 :   c23be54:        vmovups zmm0,ZMMWORD PTR [r10-0x40]
+    0.00 :   c23be5b:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23be61:        vmovups ZMMWORD PTR [r9-0x40],zmm0
+    0.00 :   c23be68:        vmovups zmm0,ZMMWORD PTR [r10+rcx*1-0x80]
+    0.00 :   c23be70:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23be76:        vmovups ZMMWORD PTR [r9],zmm0
+    0.00 :   c23be7c:        vmovups zmm0,ZMMWORD PTR [r10+rcx*1-0x40]
+    0.00 :   c23be84:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23be8a:        vmovups ZMMWORD PTR [r9+0x40],zmm0
+    0.00 :   c23be91:        vmovups zmm0,ZMMWORD PTR [r10+rcx*2-0x80]
+    0.00 :   c23be99:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23be9f:        vmovups ZMMWORD PTR [r9+0x80],zmm0
+    0.00 :   c23bea6:        vmovups zmm0,ZMMWORD PTR [r10+rcx*2-0x40]
+    0.00 :   c23beae:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23beb4:        vmovups ZMMWORD PTR [r9+0xc0],zmm0
+    0.00 :   c23bebb:        vmovups zmm0,ZMMWORD PTR [r10+r11*1-0x80]
+    0.00 :   c23bec3:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23bec9:        vmovups ZMMWORD PTR [r9+0x100],zmm0
+    0.00 :   c23bed0:        vmovups zmm0,ZMMWORD PTR [r10+r11*1-0x40]
+    0.00 :   c23bed8:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23bede:        vmovups ZMMWORD PTR [r9+0x140],zmm0
+    0.00 :   c23bee5:        vmovups zmm0,ZMMWORD PTR [r8-0x80]
+    0.00 :   c23beec:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23bef2:        vmovups ZMMWORD PTR [r9+0x180],zmm0
+    0.00 :   c23bef9:        vmovups zmm0,ZMMWORD PTR [r8-0x40]
+    0.00 :   c23bf00:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23bf06:        vmovups ZMMWORD PTR [r9+0x1c0],zmm0
+    0.00 :   c23bf0d:        vmovups zmm0,ZMMWORD PTR [r8+rcx*1-0x80]
+    0.00 :   c23bf15:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23bf1b:        vmovups ZMMWORD PTR [r9+0x200],zmm0
+    0.00 :   c23bf22:        vmovups zmm0,ZMMWORD PTR [r8+rcx*1-0x40]
+    0.00 :   c23bf2a:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23bf30:        vmovups ZMMWORD PTR [r9+0x240],zmm0
+    0.00 :   c23bf37:        vmovups zmm0,ZMMWORD PTR [r8+rcx*2-0x80]
+    0.00 :   c23bf3f:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23bf45:        vmovups ZMMWORD PTR [r9+0x280],zmm0
+    0.00 :   c23bf4c:        vmovups zmm0,ZMMWORD PTR [r8+rcx*2-0x40]
+    0.00 :   c23bf54:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23bf5a:        vmovups ZMMWORD PTR [r9+0x2c0],zmm0
+    0.00 :   c23bf61:        vmovups zmm0,ZMMWORD PTR [r8+r11*1-0x80]
+    0.00 :   c23bf69:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23bf6f:        vmovups ZMMWORD PTR [r9+0x300],zmm0
+    0.00 :   c23bf76:        vmovups zmm0,ZMMWORD PTR [r8+r11*1-0x40]
+    0.00 :   c23bf7e:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23bf84:        vmovups ZMMWORD PTR [r9+0x340],zmm0
+    0.00 :   c23bf8b:        lea    r10,[r10+rcx*8]
+    0.00 :   c23bf8f:        lea    r8,[r8+rcx*8]
+    0.00 :   c23bf93:        sub    r9,0xfffffffffffffc00
+    0.00 :   c23bf9a:        dec    rax
+    0.00 :   c23bf9d:        jg     c23be40 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x2140>
+    0.00 :   c23bfa3:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23bfae:        xchg   ax,ax
+    0.00 :   c23bfb0:        test   rdi,0x4
+    0.00 :   c23bfb7:        jle    c23c070 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x2370>
+    0.00 :   c23bfbd:        vmovups zmm0,ZMMWORD PTR [r10-0x80]
+    0.00 :   c23bfc4:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23bfca:        vmovups ZMMWORD PTR [r9-0x80],zmm0
+    0.00 :   c23bfd1:        vmovups zmm0,ZMMWORD PTR [r10-0x40]
+    0.00 :   c23bfd8:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23bfde:        vmovups ZMMWORD PTR [r9-0x40],zmm0
+    0.00 :   c23bfe5:        vmovups zmm0,ZMMWORD PTR [r10+rcx*1-0x80]
+    0.00 :   c23bfed:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23bff3:        vmovups ZMMWORD PTR [r9],zmm0
+    0.00 :   c23bff9:        vmovups zmm0,ZMMWORD PTR [r10+rcx*1-0x40]
+    0.00 :   c23c001:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23c007:        vmovups ZMMWORD PTR [r9+0x40],zmm0
+    0.00 :   c23c00e:        vmovups zmm0,ZMMWORD PTR [r10+rcx*2-0x80]
+    0.00 :   c23c016:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23c01c:        vmovups ZMMWORD PTR [r9+0x80],zmm0
+    0.00 :   c23c023:        vmovups zmm0,ZMMWORD PTR [r10+rcx*2-0x40]
+    0.00 :   c23c02b:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23c031:        vmovups ZMMWORD PTR [r9+0xc0],zmm0
+    0.00 :   c23c038:        vmovups zmm0,ZMMWORD PTR [r10+r11*1-0x80]
+    0.00 :   c23c040:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23c046:        vmovups ZMMWORD PTR [r9+0x100],zmm0
+    0.00 :   c23c04d:        vmovups zmm0,ZMMWORD PTR [r10+r11*1-0x40]
+    0.00 :   c23c055:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23c05b:        vmovups ZMMWORD PTR [r9+0x140],zmm0
+    0.00 :   c23c062:        lea    r10,[r10+rcx*4]
+    0.00 :   c23c066:        sub    r9,0xfffffffffffffe00
+    0.00 :   c23c06d:        nop    DWORD PTR [rax]
+    0.00 :   c23c070:        test   rdi,0x2
+    0.00 :   c23c077:        jle    c23c0e0 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x23e0>
+    0.00 :   c23c079:        vmovups zmm0,ZMMWORD PTR [r10-0x80]
+    0.00 :   c23c080:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23c086:        vmovups ZMMWORD PTR [r9-0x80],zmm0
+    0.00 :   c23c08d:        vmovups zmm0,ZMMWORD PTR [r10-0x40]
+    0.00 :   c23c094:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23c09a:        vmovups ZMMWORD PTR [r9-0x40],zmm0
+    0.00 :   c23c0a1:        vmovups zmm0,ZMMWORD PTR [r10+rcx*1-0x80]
+    0.00 :   c23c0a9:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23c0af:        vmovups ZMMWORD PTR [r9],zmm0
+    0.00 :   c23c0b5:        vmovups zmm0,ZMMWORD PTR [r10+rcx*1-0x40]
+    0.00 :   c23c0bd:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23c0c3:        vmovups ZMMWORD PTR [r9+0x40],zmm0
+    0.00 :   c23c0ca:        lea    r10,[r10+rcx*2]
+    0.00 :   c23c0ce:        sub    r9,0xffffffffffffff00
+    0.00 :   c23c0d5:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23c0e0:        test   rdi,0x1
+    0.00 :   c23c0e7:        jle    c23c120 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x2420>
+    0.00 :   c23c0e9:        vmovups zmm0,ZMMWORD PTR [r10-0x80]
+    0.00 :   c23c0f0:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23c0f6:        vmovups ZMMWORD PTR [r9-0x80],zmm0
+    0.00 :   c23c0fd:        vmovups zmm0,ZMMWORD PTR [r10-0x40]
+    0.00 :   c23c104:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23c10a:        vmovups ZMMWORD PTR [r9-0x40],zmm0
+    0.00 :   c23c111:        sub    r9,0xffffffffffffff80
+    0.00 :   c23c115:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23c120:        sub    rsi,0x20
+    0.00 :   c23c124:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23c12f:        nop
+    0.00 :   c23c130:        cmp    rsi,0x10
+    0.00 :   c23c134:        jl     c23c310 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x2610>
+    0.00 :   c23c13a:        mov    r10,rdx
+    0.00 :   c23c13d:        lea    r8,[r10+rcx*4]
+    0.00 :   c23c141:        add    rdx,0x40
+    0.00 :   c23c145:        mov    rax,rdi
+    0.00 :   c23c148:        sar    rax,0x3
+    0.00 :   c23c14c:        jle    c23c220 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x2520>
+    0.00 :   c23c152:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23c15d:        nop    DWORD PTR [rax]
+    0.00 :   c23c160:        vmovups zmm0,ZMMWORD PTR [r10-0x80]
+    0.00 :   c23c167:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23c16d:        vmovups ZMMWORD PTR [r9-0x80],zmm0
+    0.00 :   c23c174:        vmovups zmm0,ZMMWORD PTR [r10+rcx*1-0x80]
+    0.00 :   c23c17c:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23c182:        vmovups ZMMWORD PTR [r9-0x40],zmm0
+    0.00 :   c23c189:        vmovups zmm0,ZMMWORD PTR [r10+rcx*2-0x80]
+    0.00 :   c23c191:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23c197:        vmovups ZMMWORD PTR [r9],zmm0
+    0.00 :   c23c19d:        vmovups zmm0,ZMMWORD PTR [r10+r11*1-0x80]
+    0.00 :   c23c1a5:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23c1ab:        vmovups ZMMWORD PTR [r9+0x40],zmm0
+    0.00 :   c23c1b2:        vmovups zmm0,ZMMWORD PTR [r8-0x80]
+    0.00 :   c23c1b9:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23c1bf:        vmovups ZMMWORD PTR [r9+0x80],zmm0
+    0.00 :   c23c1c6:        vmovups zmm0,ZMMWORD PTR [r8+rcx*1-0x80]
+    0.00 :   c23c1ce:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23c1d4:        vmovups ZMMWORD PTR [r9+0xc0],zmm0
+    0.00 :   c23c1db:        vmovups zmm0,ZMMWORD PTR [r8+rcx*2-0x80]
+    0.00 :   c23c1e3:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23c1e9:        vmovups ZMMWORD PTR [r9+0x100],zmm0
+    0.00 :   c23c1f0:        vmovups zmm0,ZMMWORD PTR [r8+r11*1-0x80]
+    0.00 :   c23c1f8:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23c1fe:        vmovups ZMMWORD PTR [r9+0x140],zmm0
+    0.00 :   c23c205:        lea    r10,[r10+rcx*8]
+    0.00 :   c23c209:        lea    r8,[r8+rcx*8]
+    0.00 :   c23c20d:        sub    r9,0xfffffffffffffe00
+    0.00 :   c23c214:        dec    rax
+    0.00 :   c23c217:        jg     c23c160 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x2460>
+    0.00 :   c23c21d:        nop    DWORD PTR [rax]
+    0.00 :   c23c220:        test   rdi,0x4
+    0.00 :   c23c227:        jle    c23c290 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x2590>
+    0.00 :   c23c229:        vmovups zmm0,ZMMWORD PTR [r10-0x80]
+    0.00 :   c23c230:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23c236:        vmovups ZMMWORD PTR [r9-0x80],zmm0
+    0.00 :   c23c23d:        vmovups zmm0,ZMMWORD PTR [r10+rcx*1-0x80]
+    0.00 :   c23c245:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23c24b:        vmovups ZMMWORD PTR [r9-0x40],zmm0
+    0.00 :   c23c252:        vmovups zmm0,ZMMWORD PTR [r10+rcx*2-0x80]
+    0.00 :   c23c25a:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23c260:        vmovups ZMMWORD PTR [r9],zmm0
+    0.00 :   c23c266:        vmovups zmm0,ZMMWORD PTR [r10+r11*1-0x80]
+    0.00 :   c23c26e:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23c274:        vmovups ZMMWORD PTR [r9+0x40],zmm0
+    0.00 :   c23c27b:        lea    r10,[r10+rcx*4]
+    0.00 :   c23c27f:        sub    r9,0xffffffffffffff00
+    0.00 :   c23c286:        cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23c290:        test   rdi,0x2
+    0.00 :   c23c297:        jle    c23c2d0 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x25d0>
+    0.00 :   c23c299:        vmovups zmm0,ZMMWORD PTR [r10-0x80]
+    0.00 :   c23c2a0:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23c2a6:        vmovups ZMMWORD PTR [r9-0x80],zmm0
+    0.00 :   c23c2ad:        vmovups zmm0,ZMMWORD PTR [r10+rcx*1-0x80]
+    0.00 :   c23c2b5:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23c2bb:        vmovups ZMMWORD PTR [r9-0x40],zmm0
+    0.00 :   c23c2c2:        lea    r10,[r10+rcx*2]
+    0.00 :   c23c2c6:        sub    r9,0xffffffffffffff80
+    0.00 :   c23c2ca:        nop    WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23c2d0:        test   rdi,0x1
+    0.00 :   c23c2d7:        jle    c23c300 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x2600>
+    0.00 :   c23c2d9:        vmovups zmm0,ZMMWORD PTR [r10-0x80]
+    0.00 :   c23c2e0:        vmulps zmm0,zmm6,zmm0
+    0.00 :   c23c2e6:        vmovups ZMMWORD PTR [r9-0x80],zmm0
+    0.00 :   c23c2ed:        sub    r9,0xffffffffffffffc0
+    0.00 :   c23c2f1:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23c2fc:        nop    DWORD PTR [rax+0x0]
+    0.00 :   c23c300:        sub    rsi,0x10
+    0.00 :   c23c304:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23c30f:        nop
+    0.00 :   c23c310:        cmp    rsi,0x8
+    0.00 :   c23c314:        jl     c23c4b0 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x27b0>
+    0.00 :   c23c31a:        mov    r10,rdx
+    0.00 :   c23c31d:        lea    r8,[r10+rcx*4]
+    0.00 :   c23c321:        add    rdx,0x20
+    0.00 :   c23c325:        mov    rax,rdi
+    0.00 :   c23c328:        sar    rax,0x3
+    0.00 :   c23c32c:        jle    c23c3e0 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x26e0>
+    0.00 :   c23c332:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23c33d:        nop    DWORD PTR [rax]
+    0.00 :   c23c340:        vmovups ymm0,YMMWORD PTR [r10-0x80]
+    0.00 :   c23c346:        vmulps ymm0,ymm6,ymm0
+    0.00 :   c23c34a:        vmovups YMMWORD PTR [r9-0x80],ymm0
+    0.00 :   c23c350:        vmovups ymm0,YMMWORD PTR [r10+rcx*1-0x80]
+    0.00 :   c23c357:        vmulps ymm0,ymm6,ymm0
+    0.00 :   c23c35b:        vmovups YMMWORD PTR [r9-0x60],ymm0
+    0.00 :   c23c361:        vmovups ymm0,YMMWORD PTR [r10+rcx*2-0x80]
+    0.00 :   c23c368:        vmulps ymm0,ymm6,ymm0
+    0.00 :   c23c36c:        vmovups YMMWORD PTR [r9-0x40],ymm0
+    0.00 :   c23c372:        vmovups ymm0,YMMWORD PTR [r10+r11*1-0x80]
+    0.00 :   c23c379:        vmulps ymm0,ymm6,ymm0
+    0.00 :   c23c37d:        vmovups YMMWORD PTR [r9-0x20],ymm0
+    0.00 :   c23c383:        vmovups ymm0,YMMWORD PTR [r8-0x80]
+    0.00 :   c23c389:        vmulps ymm0,ymm6,ymm0
+    0.00 :   c23c38d:        vmovups YMMWORD PTR [r9],ymm0
+    0.00 :   c23c392:        vmovups ymm0,YMMWORD PTR [r8+rcx*1-0x80]
+    0.00 :   c23c399:        vmulps ymm0,ymm6,ymm0
+    0.00 :   c23c39d:        vmovups YMMWORD PTR [r9+0x20],ymm0
+    0.00 :   c23c3a3:        vmovups ymm0,YMMWORD PTR [r8+rcx*2-0x80]
+    0.00 :   c23c3aa:        vmulps ymm0,ymm6,ymm0
+    0.00 :   c23c3ae:        vmovups YMMWORD PTR [r9+0x40],ymm0
+    0.00 :   c23c3b4:        vmovups ymm0,YMMWORD PTR [r8+r11*1-0x80]
+    0.00 :   c23c3bb:        vmulps ymm0,ymm6,ymm0
+    0.00 :   c23c3bf:        vmovups YMMWORD PTR [r9+0x60],ymm0
+    0.00 :   c23c3c5:        lea    r10,[r10+rcx*8]
+    0.00 :   c23c3c9:        lea    r8,[r8+rcx*8]
+    0.00 :   c23c3cd:        sub    r9,0xffffffffffffff00
+    0.00 :   c23c3d4:        dec    rax
+    0.00 :   c23c3d7:        jg     c23c340 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x2640>
+    0.00 :   c23c3dd:        nop    DWORD PTR [rax]
+    0.00 :   c23c3e0:        test   rdi,0x4
+    0.00 :   c23c3e7:        jle    c23c440 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x2740>
+    0.00 :   c23c3e9:        vmovups ymm0,YMMWORD PTR [r10-0x80]
+    0.00 :   c23c3ef:        vmulps ymm0,ymm6,ymm0
+    0.00 :   c23c3f3:        vmovups YMMWORD PTR [r9-0x80],ymm0
+    0.00 :   c23c3f9:        vmovups ymm0,YMMWORD PTR [r10+rcx*1-0x80]
+    0.00 :   c23c400:        vmulps ymm0,ymm6,ymm0
+    0.00 :   c23c404:        vmovups YMMWORD PTR [r9-0x60],ymm0
+    0.00 :   c23c40a:        vmovups ymm0,YMMWORD PTR [r10+rcx*2-0x80]
+    0.00 :   c23c411:        vmulps ymm0,ymm6,ymm0
+    0.00 :   c23c415:        vmovups YMMWORD PTR [r9-0x40],ymm0
+    0.00 :   c23c41b:        vmovups ymm0,YMMWORD PTR [r10+r11*1-0x80]
+    0.00 :   c23c422:        vmulps ymm0,ymm6,ymm0
+    0.00 :   c23c426:        vmovups YMMWORD PTR [r9-0x20],ymm0
+    0.00 :   c23c42c:        lea    r10,[r10+rcx*4]
+    0.00 :   c23c430:        sub    r9,0xffffffffffffff80
+    0.00 :   c23c434:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23c43f:        nop
+    0.00 :   c23c440:        test   rdi,0x2
+    0.00 :   c23c447:        jle    c23c480 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x2780>
+    0.00 :   c23c449:        vmovups ymm0,YMMWORD PTR [r10-0x80]
+    0.00 :   c23c44f:        vmulps ymm0,ymm6,ymm0
+    0.00 :   c23c453:        vmovups YMMWORD PTR [r9-0x80],ymm0
+    0.00 :   c23c459:        vmovups ymm0,YMMWORD PTR [r10+rcx*1-0x80]
+    0.00 :   c23c460:        vmulps ymm0,ymm6,ymm0
+    0.00 :   c23c464:        vmovups YMMWORD PTR [r9-0x60],ymm0
+    0.00 :   c23c46a:        lea    r10,[r10+rcx*2]
+    0.00 :   c23c46e:        sub    r9,0xffffffffffffffc0
+    0.00 :   c23c472:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23c47d:        nop    DWORD PTR [rax]
+    0.00 :   c23c480:        test   rdi,0x1
+    0.00 :   c23c487:        jle    c23c4a0 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x27a0>
+    0.00 :   c23c489:        vmovups ymm0,YMMWORD PTR [r10-0x80]
+    0.00 :   c23c48f:        vmulps ymm0,ymm6,ymm0
+    0.00 :   c23c493:        vmovups YMMWORD PTR [r9-0x80],ymm0
+    0.00 :   c23c499:        sub    r9,0xffffffffffffffe0
+    0.00 :   c23c49d:        nop    DWORD PTR [rax]
+    0.00 :   c23c4a0:        sub    rsi,0x8
+    0.00 :   c23c4a4:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23c4af:        nop
+    0.00 :   c23c4b0:        cmp    rsi,0x4
+    0.00 :   c23c4b4:        jl     c23c650 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x2950>
+    0.00 :   c23c4ba:        mov    r10,rdx
+    0.00 :   c23c4bd:        lea    r8,[r10+rcx*4]
+    0.00 :   c23c4c1:        add    rdx,0x10
+    0.00 :   c23c4c5:        mov    rax,rdi
+    0.00 :   c23c4c8:        sar    rax,0x3
+    0.00 :   c23c4cc:        jle    c23c580 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x2880>
+    0.00 :   c23c4d2:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23c4dd:        nop    DWORD PTR [rax]
+    0.00 :   c23c4e0:        vmovups xmm0,XMMWORD PTR [r10-0x80]
+    0.00 :   c23c4e6:        vmulps xmm0,xmm6,xmm0
+    0.00 :   c23c4ea:        vmovups XMMWORD PTR [r9-0x80],xmm0
+    0.00 :   c23c4f0:        vmovups xmm0,XMMWORD PTR [r10+rcx*1-0x80]
+    0.00 :   c23c4f7:        vmulps xmm0,xmm6,xmm0
+    0.00 :   c23c4fb:        vmovups XMMWORD PTR [r9-0x70],xmm0
+    0.00 :   c23c501:        vmovups xmm0,XMMWORD PTR [r10+rcx*2-0x80]
+    0.00 :   c23c508:        vmulps xmm0,xmm6,xmm0
+    0.00 :   c23c50c:        vmovups XMMWORD PTR [r9-0x60],xmm0
+    0.00 :   c23c512:        vmovups xmm0,XMMWORD PTR [r10+r11*1-0x80]
+    0.00 :   c23c519:        vmulps xmm0,xmm6,xmm0
+    0.00 :   c23c51d:        vmovups XMMWORD PTR [r9-0x50],xmm0
+    0.00 :   c23c523:        vmovups xmm0,XMMWORD PTR [r8-0x80]
+    0.00 :   c23c529:        vmulps xmm0,xmm6,xmm0
+    0.00 :   c23c52d:        vmovups XMMWORD PTR [r9-0x40],xmm0
+    0.00 :   c23c533:        vmovups xmm0,XMMWORD PTR [r8+rcx*1-0x80]
+    0.00 :   c23c53a:        vmulps xmm0,xmm6,xmm0
+    0.00 :   c23c53e:        vmovups XMMWORD PTR [r9-0x30],xmm0
+    0.00 :   c23c544:        vmovups xmm0,XMMWORD PTR [r8+rcx*2-0x80]
+    0.00 :   c23c54b:        vmulps xmm0,xmm6,xmm0
+    0.00 :   c23c54f:        vmovups XMMWORD PTR [r9-0x20],xmm0
+    0.00 :   c23c555:        vmovups xmm0,XMMWORD PTR [r8+r11*1-0x80]
+    0.00 :   c23c55c:        vmulps xmm0,xmm6,xmm0
+    0.00 :   c23c560:        vmovups XMMWORD PTR [r9-0x10],xmm0
+    0.00 :   c23c566:        lea    r10,[r10+rcx*8]
+    0.00 :   c23c56a:        lea    r8,[r8+rcx*8]
+    0.00 :   c23c56e:        sub    r9,0xffffffffffffff80
+    0.00 :   c23c572:        dec    rax
+    0.00 :   c23c575:        jg     c23c4e0 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x27e0>
+    0.00 :   c23c57b:        nop    DWORD PTR [rax+rax*1+0x0]
+    0.00 :   c23c580:        test   rdi,0x4
+    0.00 :   c23c587:        jle    c23c5e0 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x28e0>
+    0.00 :   c23c589:        vmovups xmm0,XMMWORD PTR [r10-0x80]
+    0.00 :   c23c58f:        vmulps xmm0,xmm6,xmm0
+    0.00 :   c23c593:        vmovups XMMWORD PTR [r9-0x80],xmm0
+    0.00 :   c23c599:        vmovups xmm0,XMMWORD PTR [r10+rcx*1-0x80]
+    0.00 :   c23c5a0:        vmulps xmm0,xmm6,xmm0
+    0.00 :   c23c5a4:        vmovups XMMWORD PTR [r9-0x70],xmm0
+    0.00 :   c23c5aa:        vmovups xmm0,XMMWORD PTR [r10+rcx*2-0x80]
+    0.00 :   c23c5b1:        vmulps xmm0,xmm6,xmm0
+    0.00 :   c23c5b5:        vmovups XMMWORD PTR [r9-0x60],xmm0
+    0.00 :   c23c5bb:        vmovups xmm0,XMMWORD PTR [r10+r11*1-0x80]
+    0.00 :   c23c5c2:        vmulps xmm0,xmm6,xmm0
+    0.00 :   c23c5c6:        vmovups XMMWORD PTR [r9-0x50],xmm0
+    0.00 :   c23c5cc:        lea    r10,[r10+rcx*4]
+    0.00 :   c23c5d0:        sub    r9,0xffffffffffffffc0
+    0.00 :   c23c5d4:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23c5df:        nop
+    0.00 :   c23c5e0:        test   rdi,0x2
+    0.00 :   c23c5e7:        jle    c23c620 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x2920>
+    0.00 :   c23c5e9:        vmovups xmm0,XMMWORD PTR [r10-0x80]
+    0.00 :   c23c5ef:        vmulps xmm0,xmm6,xmm0
+    0.00 :   c23c5f3:        vmovups XMMWORD PTR [r9-0x80],xmm0
+    0.00 :   c23c5f9:        vmovups xmm0,XMMWORD PTR [r10+rcx*1-0x80]
+    0.00 :   c23c600:        vmulps xmm0,xmm6,xmm0
+    0.00 :   c23c604:        vmovups XMMWORD PTR [r9-0x70],xmm0
+    0.00 :   c23c60a:        lea    r10,[r10+rcx*2]
+    0.00 :   c23c60e:        sub    r9,0xffffffffffffffe0
+    0.00 :   c23c612:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23c61d:        nop    DWORD PTR [rax]
+    0.00 :   c23c620:        test   rdi,0x1
+    0.00 :   c23c627:        jle    c23c640 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x2940>
+    0.00 :   c23c629:        vmovups xmm0,XMMWORD PTR [r10-0x80]
+    0.00 :   c23c62f:        vmulps xmm0,xmm6,xmm0
+    0.00 :   c23c633:        vmovups XMMWORD PTR [r9-0x80],xmm0
+    0.00 :   c23c639:        sub    r9,0xfffffffffffffff0
+    0.00 :   c23c63d:        nop    DWORD PTR [rax]
+    0.00 :   c23c640:        sub    rsi,0x4
+    0.00 :   c23c644:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23c64f:        nop
+    0.00 :   c23c650:        cmp    rsi,0x2
+    0.00 :   c23c654:        jl     c23c7f0 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x2af0>
+    0.00 :   c23c65a:        mov    r10,rdx
+    0.00 :   c23c65d:        lea    r8,[r10+rcx*4]
+    0.00 :   c23c661:        add    rdx,0x8
+    0.00 :   c23c665:        mov    rax,rdi
+    0.00 :   c23c668:        sar    rax,0x3
+    0.00 :   c23c66c:        jle    c23c720 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x2a20>
+    0.00 :   c23c672:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23c67d:        nop    DWORD PTR [rax]
+    0.00 :   c23c680:        vmovsd xmm0,QWORD PTR [r10-0x80]
+    0.00 :   c23c686:        vmulps xmm0,xmm6,xmm0
+    0.00 :   c23c68a:        vmovlps QWORD PTR [r9-0x80],xmm0
+    0.00 :   c23c690:        vmovsd xmm0,QWORD PTR [r10+rcx*1-0x80]
+    0.00 :   c23c697:        vmulps xmm0,xmm6,xmm0
+    0.00 :   c23c69b:        vmovlps QWORD PTR [r9-0x78],xmm0
+    0.00 :   c23c6a1:        vmovsd xmm0,QWORD PTR [r10+rcx*2-0x80]
+    0.00 :   c23c6a8:        vmulps xmm0,xmm6,xmm0
+    0.00 :   c23c6ac:        vmovlps QWORD PTR [r9-0x70],xmm0
+    0.00 :   c23c6b2:        vmovsd xmm0,QWORD PTR [r10+r11*1-0x80]
+    0.00 :   c23c6b9:        vmulps xmm0,xmm6,xmm0
+    0.00 :   c23c6bd:        vmovlps QWORD PTR [r9-0x68],xmm0
+    0.00 :   c23c6c3:        vmovsd xmm0,QWORD PTR [r8-0x80]
+    0.00 :   c23c6c9:        vmulps xmm0,xmm6,xmm0
+    0.00 :   c23c6cd:        vmovlps QWORD PTR [r9-0x60],xmm0
+    0.00 :   c23c6d3:        vmovsd xmm0,QWORD PTR [r8+rcx*1-0x80]
+    0.00 :   c23c6da:        vmulps xmm0,xmm6,xmm0
+    0.00 :   c23c6de:        vmovlps QWORD PTR [r9-0x58],xmm0
+    0.00 :   c23c6e4:        vmovsd xmm0,QWORD PTR [r8+rcx*2-0x80]
+    0.00 :   c23c6eb:        vmulps xmm0,xmm6,xmm0
+    0.00 :   c23c6ef:        vmovlps QWORD PTR [r9-0x50],xmm0
+    0.00 :   c23c6f5:        vmovsd xmm0,QWORD PTR [r8+r11*1-0x80]
+    0.00 :   c23c6fc:        vmulps xmm0,xmm6,xmm0
+    0.00 :   c23c700:        vmovlps QWORD PTR [r9-0x48],xmm0
+    0.00 :   c23c706:        lea    r10,[r10+rcx*8]
+    0.00 :   c23c70a:        lea    r8,[r8+rcx*8]
+    0.00 :   c23c70e:        sub    r9,0xffffffffffffffc0
+    0.00 :   c23c712:        dec    rax
+    0.00 :   c23c715:        jg     c23c680 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x2980>
+    0.00 :   c23c71b:        nop    DWORD PTR [rax+rax*1+0x0]
+    0.00 :   c23c720:        test   rdi,0x4
+    0.00 :   c23c727:        jle    c23c780 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x2a80>
+    0.00 :   c23c729:        vmovsd xmm0,QWORD PTR [r10-0x80]
+    0.00 :   c23c72f:        vmulps xmm0,xmm6,xmm0
+    0.00 :   c23c733:        vmovlps QWORD PTR [r9-0x80],xmm0
+    0.00 :   c23c739:        vmovsd xmm0,QWORD PTR [r10+rcx*1-0x80]
+    0.00 :   c23c740:        vmulps xmm0,xmm6,xmm0
+    0.00 :   c23c744:        vmovlps QWORD PTR [r9-0x78],xmm0
+    0.00 :   c23c74a:        vmovsd xmm0,QWORD PTR [r10+rcx*2-0x80]
+    0.00 :   c23c751:        vmulps xmm0,xmm6,xmm0
+    0.00 :   c23c755:        vmovlps QWORD PTR [r9-0x70],xmm0
+    0.00 :   c23c75b:        vmovsd xmm0,QWORD PTR [r10+r11*1-0x80]
+    0.00 :   c23c762:        vmulps xmm0,xmm6,xmm0
+    0.00 :   c23c766:        vmovlps QWORD PTR [r9-0x68],xmm0
+    0.00 :   c23c76c:        lea    r10,[r10+rcx*4]
+    0.00 :   c23c770:        sub    r9,0xffffffffffffffe0
+    0.00 :   c23c774:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23c77f:        nop
+    0.00 :   c23c780:        test   rdi,0x2
+    0.00 :   c23c787:        jle    c23c7c0 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x2ac0>
+    0.00 :   c23c789:        vmovsd xmm0,QWORD PTR [r10-0x80]
+    0.00 :   c23c78f:        vmulps xmm0,xmm6,xmm0
+    0.00 :   c23c793:        vmovlps QWORD PTR [r9-0x80],xmm0
+    0.00 :   c23c799:        vmovsd xmm0,QWORD PTR [r10+rcx*1-0x80]
+    0.00 :   c23c7a0:        vmulps xmm0,xmm6,xmm0
+    0.00 :   c23c7a4:        vmovlps QWORD PTR [r9-0x78],xmm0
+    0.00 :   c23c7aa:        lea    r10,[r10+rcx*2]
+    0.00 :   c23c7ae:        sub    r9,0xfffffffffffffff0
+    0.00 :   c23c7b2:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23c7bd:        nop    DWORD PTR [rax]
+    0.00 :   c23c7c0:        test   rdi,0x1
+    0.00 :   c23c7c7:        jle    c23c7e0 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x2ae0>
+    0.00 :   c23c7c9:        vmovsd xmm0,QWORD PTR [r10-0x80]
+    0.00 :   c23c7cf:        vmulps xmm0,xmm6,xmm0
+    0.00 :   c23c7d3:        vmovlps QWORD PTR [r9-0x80],xmm0
+    0.00 :   c23c7d9:        sub    r9,0xfffffffffffffff8
+    0.00 :   c23c7dd:        nop    DWORD PTR [rax]
+    0.00 :   c23c7e0:        sub    rsi,0x2
+    0.00 :   c23c7e4:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23c7ef:        nop
+    0.00 :   c23c7f0:        cmp    rsi,0x1
+    0.00 :   c23c7f4:        jl     c23c990 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x2c90>
+    0.00 :   c23c7fa:        mov    r10,rdx
+    0.00 :   c23c7fd:        lea    r8,[r10+rcx*4]
+    0.00 :   c23c801:        add    rdx,0x4
+    0.00 :   c23c805:        mov    rax,rdi
+    0.00 :   c23c808:        sar    rax,0x3
+    0.00 :   c23c80c:        jle    c23c8c0 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x2bc0>
+    0.00 :   c23c812:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23c81d:        nop    DWORD PTR [rax]
+    0.00 :   c23c820:        vmovss xmm0,DWORD PTR [r10-0x80]
+    0.00 :   c23c826:        vmulps xmm0,xmm6,xmm0
+    0.00 :   c23c82a:        vmovss DWORD PTR [r9-0x80],xmm0
+    0.00 :   c23c830:        vmovss xmm0,DWORD PTR [r10+rcx*1-0x80]
+    0.00 :   c23c837:        vmulps xmm0,xmm6,xmm0
+    0.00 :   c23c83b:        vmovss DWORD PTR [r9-0x7c],xmm0
+    0.00 :   c23c841:        vmovss xmm0,DWORD PTR [r10+rcx*2-0x80]
+    0.00 :   c23c848:        vmulps xmm0,xmm6,xmm0
+    0.00 :   c23c84c:        vmovss DWORD PTR [r9-0x78],xmm0
+    0.00 :   c23c852:        vmovss xmm0,DWORD PTR [r10+r11*1-0x80]
+    0.00 :   c23c859:        vmulps xmm0,xmm6,xmm0
+    0.00 :   c23c85d:        vmovss DWORD PTR [r9-0x74],xmm0
+    0.00 :   c23c863:        vmovss xmm0,DWORD PTR [r8-0x80]
+    0.00 :   c23c869:        vmulps xmm0,xmm6,xmm0
+    0.00 :   c23c86d:        vmovss DWORD PTR [r9-0x70],xmm0
+    0.00 :   c23c873:        vmovss xmm0,DWORD PTR [r8+rcx*1-0x80]
+    0.00 :   c23c87a:        vmulps xmm0,xmm6,xmm0
+    0.00 :   c23c87e:        vmovss DWORD PTR [r9-0x6c],xmm0
+    0.00 :   c23c884:        vmovss xmm0,DWORD PTR [r8+rcx*2-0x80]
+    0.00 :   c23c88b:        vmulps xmm0,xmm6,xmm0
+    0.00 :   c23c88f:        vmovss DWORD PTR [r9-0x68],xmm0
+    0.00 :   c23c895:        vmovss xmm0,DWORD PTR [r8+r11*1-0x80]
+    0.00 :   c23c89c:        vmulps xmm0,xmm6,xmm0
+    0.00 :   c23c8a0:        vmovss DWORD PTR [r9-0x64],xmm0
+    0.00 :   c23c8a6:        lea    r10,[r10+rcx*8]
+    0.00 :   c23c8aa:        lea    r8,[r8+rcx*8]
+    0.00 :   c23c8ae:        sub    r9,0xffffffffffffffe0
+    0.00 :   c23c8b2:        dec    rax
+    0.00 :   c23c8b5:        jg     c23c820 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x2b20>
+    0.00 :   c23c8bb:        nop    DWORD PTR [rax+rax*1+0x0]
+    0.00 :   c23c8c0:        test   rdi,0x4
+    0.00 :   c23c8c7:        jle    c23c920 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x2c20>
+    0.00 :   c23c8c9:        vmovss xmm0,DWORD PTR [r10-0x80]
+    0.00 :   c23c8cf:        vmulps xmm0,xmm6,xmm0
+    0.00 :   c23c8d3:        vmovss DWORD PTR [r9-0x80],xmm0
+    0.00 :   c23c8d9:        vmovss xmm0,DWORD PTR [r10+rcx*1-0x80]
+    0.00 :   c23c8e0:        vmulps xmm0,xmm6,xmm0
+    0.00 :   c23c8e4:        vmovss DWORD PTR [r9-0x7c],xmm0
+    0.00 :   c23c8ea:        vmovss xmm0,DWORD PTR [r10+rcx*2-0x80]
+    0.00 :   c23c8f1:        vmulps xmm0,xmm6,xmm0
+    0.00 :   c23c8f5:        vmovss DWORD PTR [r9-0x78],xmm0
+    0.00 :   c23c8fb:        vmovss xmm0,DWORD PTR [r10+r11*1-0x80]
+    0.00 :   c23c902:        vmulps xmm0,xmm6,xmm0
+    0.00 :   c23c906:        vmovss DWORD PTR [r9-0x74],xmm0
+    0.00 :   c23c90c:        lea    r10,[r10+rcx*4]
+    0.00 :   c23c910:        sub    r9,0xfffffffffffffff0
+    0.00 :   c23c914:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23c91f:        nop
+    0.00 :   c23c920:        test   rdi,0x2
+    0.00 :   c23c927:        jle    c23c960 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x2c60>
+    0.00 :   c23c929:        vmovss xmm0,DWORD PTR [r10-0x80]
+    0.00 :   c23c92f:        vmulps xmm0,xmm6,xmm0
+    0.00 :   c23c933:        vmovss DWORD PTR [r9-0x80],xmm0
+    0.00 :   c23c939:        vmovss xmm0,DWORD PTR [r10+rcx*1-0x80]
+    0.00 :   c23c940:        vmulps xmm0,xmm6,xmm0
+    0.00 :   c23c944:        vmovss DWORD PTR [r9-0x7c],xmm0
+    0.00 :   c23c94a:        lea    r10,[r10+rcx*2]
+    0.00 :   c23c94e:        sub    r9,0xfffffffffffffff8
+    0.00 :   c23c952:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23c95d:        nop    DWORD PTR [rax]
+    0.00 :   c23c960:        test   rdi,0x1
+    0.00 :   c23c967:        jle    c23c980 <mkl_blas_avx512_sgemm_scopy_down48_ea+0x2c80>
+    0.00 :   c23c969:        vmovss xmm0,DWORD PTR [r10-0x80]
+    0.00 :   c23c96f:        vmulps xmm0,xmm6,xmm0
+    0.00 :   c23c973:        vmovss DWORD PTR [r9-0x80],xmm0
+    0.00 :   c23c979:        sub    r9,0xfffffffffffffffc
+    0.00 :   c23c97d:        nop    DWORD PTR [rax]
+    0.00 :   c23c980:        sub    rsi,0x1
+    0.00 :   c23c984:        data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   c23c98f:        nop
+    0.00 :   c23c990:        vzeroupper
+    0.00 :   c23c993:        ret

@@ -1,0 +1,25 @@
+    75.70%  libtorch_cpu.so       [.] at::native::(anonymous namespace)::batch_norm_cpu_kernel(at::Tensor&, at::Tensor const&, at::Tensor const&, at::Tensor const&, at::Tensor const&, at::Tensor const&, at::Tensor const&, at::Tensor const&, bool, double)::{lambda()#1}::operator()() const
+     2.94%  python3.12            [.] _PyEval_EvalFrameDefault
+     0.69%  python3.12            [.] _PyObject_GenericGetAttrWithDict
+     0.59%  libtorch_cpu.so       [.] c10::intrusive_ptr<c10::TensorImpl, c10::UndefinedTensorImpl>::reset_not_null_(c10::TensorImpl*)
+     0.43%  libtorch_cpu.so       [.] c10::intrusive_ptr<c10::TensorImpl, c10::UndefinedTensorImpl>::retain_()
+     0.36%  ld-linux-x86-64.so.2  [.] __tls_get_addr
+     0.36%  python3.12            [.] _PyType_Lookup
+     0.33%  libtorch_cpu.so       [.] c10::impl::OperatorEntry::lookup(c10::DispatchKeySet) const
+     0.33%  python3.12            [.] 0x000000000021cb5a
+     0.33%  python3.12            [.] 0x000000000021d760
+     0.31%  libtorch_cpu.so       [.] void at::native::(anonymous namespace)::batch_norm_cpu_collect_linear_and_constant_terms<float, float>(float*, float*, long, at::Tensor const&, at::Tensor const&, at::Tensor const&, at::Tensor const&, at::Tensor const&, at::Tensor const&, bool, double)
+     0.31%  python3.12            [.] PyDict_GetItemWithError
+     0.28%  libtorch_cpu.so       [.] at::detail::empty_generic(c10::ArrayRef<long>, c10::Allocator*, c10::DispatchKeySet, c10::ScalarType, std::optional<c10::MemoryFormat>)
+     0.24%  libc.so.6             [.] cfree
+     0.24%  libtorch_cpu.so       [.] at::native::batch_norm_cpu(at::Tensor const&, std::optional<at::Tensor> const&, std::optional<at::Tensor> const&, std::optional<at::Tensor> const&, std::optional<at::Tensor> const&, bool, double, double)
+     0.24%  python3.12            [.] 0x000000000017259a
+     0.24%  python3.12            [.] 0x000000000021ccf8
+     0.24%  python3.12            [.] 0x000000000021d9e4
+     0.21%  python3.12            [.] PyObject_GetAttr
+     0.21%  python3.12            [.] PyObject_Malloc
+     0.21%  python3.12            [.] PyType_IsSubtype
+     0.21%  python3.12            [.] _PyObject_GC_New
+     0.21%  python3.12            [.] 0x000000000021d984
+
+

@@ -1,0 +1,6 @@
+    83.79%  jitted-532639-3.so  [.] jit_avx512_common_conv_fwd_kernel_vmm_t.3
+     3.21%  jitted-532639-4.so  [.] jit_single_blk_kernel.4
+     2.47%  jitted-532639-6.so  [.] jit_single_blk_kernel.6
+     0.74%  jitted-532639-5.so  [.] jit_uni_reorder_kernel_f32.5
+
+

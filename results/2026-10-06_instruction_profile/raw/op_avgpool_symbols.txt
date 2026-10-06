@@ -1,0 +1,37 @@
+    59.38%  libtorch_cpu.so       [.] void at::native::(anonymous namespace)::vectorized_inner_sum<float, at::native::(anonymous namespace)::InnerSumCastLoadPolicy<at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>, void>, at::native::(anonymous namespace)::CastLoadPolicy<float, float>, at::native::(anonymous namespace)::CastStoreAccumulate<float, float> >(char* restrict*, long, long, long, long)
+     4.96%  python3.12            [.] _PyEval_EvalFrameDefault
+     1.71%  libtorch_cpu.so       [.] void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::div_true_kernel(at::TensorIteratorBase&)::{lambda()#2}::operator()() const::{lambda()#2}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::div_true_kernel(at::TensorIteratorBase&)::{lambda()#2}::operator()() const::{lambda()#2}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)
+     0.88%  python3.12            [.] PyObject_Free
+     0.74%  python3.12            [.] PyObject_Malloc
+     0.62%  ld-linux-x86-64.so.2  [.] __tls_get_addr
+     0.57%  libc.so.6             [.] malloc
+     0.52%  libtorch_cpu.so       [.] void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::fill_kernel(at::TensorIterator&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda()#1}, at::native::(anonymous namespace)::fill_kernel(at::TensorIterator&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda()#2}> >(long, char**, long const*, long, long)
+     0.45%  libtorch_cpu.so       [.] at::TensorIteratorBase::permute_dimensions(c10::ArrayRef<long>)
+     0.45%  libtorch_cpu.so       [.] c10::impl::OperatorEntry::lookup(c10::DispatchKeySet) const
+     0.40%  python3.12            [.] _PyType_Lookup
+     0.38%  libtorch_cpu.so       [.] c10::intrusive_ptr<c10::TensorImpl, c10::UndefinedTensorImpl>::reset_not_null_(c10::TensorImpl*)
+     0.38%  python3.12            [.] _PyObject_GenericGetAttrWithDict
+     0.36%  libtorch_cpu.so       [.] at::meta::resize_reduction(at::impl::MetaBase&, at::Tensor const&, c10::OptionalArrayRef<long>, bool, c10::ScalarType, bool)
+     0.33%  python3.12            [.] 0x000000000021cb5a
+     0.33%  python3.12            [.] 0x000000000021d760
+     0.31%  libc.so.6             [.] 0x00000000000a9cb9
+     0.31%  libtorch_cpu.so       [.] at::TensorIteratorBase::populate_operands(at::TensorIteratorConfig&)
+     0.31%  python3.12            [.] _PyObject_GC_New
+     0.28%  libtorch_cpu.so       [.] at::detail::empty_generic(c10::ArrayRef<long>, c10::Allocator*, c10::DispatchKeySet, c10::ScalarType, std::optional<c10::MemoryFormat>)
+     0.28%  libtorch_cpu.so       [.] at::native::copy_impl(at::Tensor&, at::Tensor const&, bool) [clone .isra.0]
+     0.26%  libtorch_cpu.so       [.] at::TensorIteratorBase::compute_strides(at::TensorIteratorConfig const&)
+     0.26%  libtorch_cpu.so       [.] at::TensorIteratorBase::compute_types(at::TensorIteratorConfig const&)
+     0.26%  libtorch_cpu.so       [.] at::TensorIteratorBase::serial_for_each(c10::function_ref<void (char**, long const*, long, long)>, at::Range) const
+     0.26%  python3.12            [.] 0x000000000021d984
+     0.24%  libtorch_cpu.so       [.] at::TensorIteratorBase::reorder_dimensions()
+     0.24%  libtorch_cpu.so       [.] at::internal::OpaqueOptionalTensorRef::OpaqueOptionalTensorRef()
+     0.24%  libtorch_cpu.so       [.] at::native::DispatchStubImpl::try_get_call_ptr(c10::DeviceType, void*, void*, void*)
+     0.24%  python3.12            [.] PyCell_New
+     0.21%  libc10.so             [.] c10::TensorImpl::TensorImpl(c10::Storage&&, c10::DispatchKeySet, caffe2::TypeMeta, std::optional<c10::Device>)
+     0.21%  libtorch_cpu.so       [.] at::TensorIteratorBase::build(at::TensorIteratorConfig&)
+     0.21%  libtorch_cpu.so       [.] at::native::DispatchStubImpl::try_choose_cpu_impl(void*, void*, void*)
+     0.21%  python3.12            [.] PyType_GenericAlloc
+     0.21%  python3.12            [.] _Py_NewReference
+     0.21%  python3.12            [.] 0x000000000021d9e4
+
+

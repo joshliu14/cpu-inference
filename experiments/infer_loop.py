@@ -49,9 +49,22 @@ else:
     def step():
         model(x)
 
+def perf_enable():
+    """If launched under `perf record -D -1 --control fifo:CTL,ACK`, start
+    sampling only now, so setup (imports, model build, warm-up) is excluded."""
+    ctl, ack = os.environ.get("PERF_CTL_FIFO"), os.environ.get("PERF_ACK_FIFO")
+    if ctl:
+        with open(ctl, "w") as f:
+            f.write("enable\n")
+        if ack:
+            with open(ack) as f:
+                f.readline()
+
+
 with torch.inference_mode():
     for _ in range(args.warmup):
         step()
+    perf_enable()
     print(f"@@LOOP_START {time.time():.6f}", flush=True)
     t0 = time.perf_counter()
     n = 0

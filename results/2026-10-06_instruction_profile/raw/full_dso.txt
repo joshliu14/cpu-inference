@@ -1,0 +1,29 @@
+    52.37%  libtorch_cpu.so     
+     7.87%  jitted-532218-27.so 
+     5.17%  jitted-532218-3.so  
+     4.74%  jitted-532218-16.so 
+     4.04%  python3.12          
+     3.88%  jitted-532218-38.so 
+     3.42%  jitted-532218-31.so 
+     2.18%  jitted-532218-29.so 
+     1.78%  jitted-532218-7.so  
+     1.73%  jitted-532218-0.so  
+     1.68%  jitted-532218-18.so 
+     1.67%  jitted-532218-33.so 
+     1.59%  jitted-532218-22.so 
+     1.46%  jitted-532218-20.so 
+     1.41%  jitted-532218-11.so 
+     1.14%  libc.so.6           
+     0.80%  jitted-532218-36.so 
+     0.34%  jitted-532218-13.so 
+     0.28%  libtorch_python.so  
+     0.25%  jitted-532218-2.so  
+     0.21%  jitted-532218-9.so  
+     0.20%  jitted-532218-15.so 
+     0.18%  jitted-532218-25.so 
+     0.16%  libc10.so           
+     0.15%  jitted-532218-12.so 
+     0.15%  jitted-532218-24.so 
+     0.13%  libstdc++.so.6.0.33 
+
+

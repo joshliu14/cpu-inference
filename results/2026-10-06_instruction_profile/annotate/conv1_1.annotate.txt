@@ -1,0 +1,177 @@
+# symbol: jit_single_blk_kernel.2
+# dso: jitted-533214-2.so
+# share of operator samples: 11.79%
+ Percent |	Source code & Disassembly of jitted-533214-2.so for cycles:P (497 samples, percent: local period)
+-----------------------------------------------------------------------------------------------------------------
+         :
+         :
+         :
+         : 3   Disassembly of section .text:
+         :
+         : 5   0000000000000080 <jit_single_blk_kernel.2>:
+    0.00 :    80:     cmp    dl,0x1
+    0.00 :    83:     je     469 <jit_single_blk_kernel.2+0x3e9>
+    4.23 :    89:     vmovups ymm0,YMMWORD PTR [rdi]
+    3.42 :    8d:     vmovups ymm1,YMMWORD PTR [rdi+0x40]
+    4.02 :    92:     vmovups ymm2,YMMWORD PTR [rdi+0x80]
+    5.03 :    9a:     vmovups ymm3,YMMWORD PTR [rdi+0xc0]
+    7.65 :    a2:     vmovups ymm4,YMMWORD PTR [rdi+0x100]
+    2.01 :    aa:     vmovups ymm5,YMMWORD PTR [rdi+0x140]
+    1.01 :    b2:     vmovups ymm6,YMMWORD PTR [rdi+0x180]
+    1.21 :    ba:     vmovups ymm7,YMMWORD PTR [rdi+0x1c0]
+    0.20 :    c2:     vunpcklps ymm8,ymm0,ymm1
+    0.20 :    c6:     vunpckhps ymm0,ymm0,ymm1
+    0.20 :    ca:     vunpcklps ymm9,ymm2,ymm3
+    0.00 :    ce:     vunpckhps ymm1,ymm2,ymm3
+    0.60 :    d2:     vunpcklps ymm10,ymm4,ymm5
+    0.00 :    d6:     vunpckhps ymm2,ymm4,ymm5
+    0.40 :    da:     vunpcklps ymm11,ymm6,ymm7
+    0.20 :    de:     vunpckhps ymm3,ymm6,ymm7
+    0.40 :    e2:     vshufps ymm4,ymm8,ymm9,0x44
+    0.80 :    e8:     vshufps ymm5,ymm8,ymm9,0xee
+    0.00 :    ee:     vshufps ymm6,ymm0,ymm1,0x44
+    0.20 :    f3:     vshufps ymm7,ymm0,ymm1,0xee
+    1.01 :    f8:     vshufps ymm8,ymm10,ymm11,0x44
+    0.60 :    fe:     vshufps ymm9,ymm10,ymm11,0xee
+    0.20 :   104:    vshufps ymm10,ymm2,ymm3,0x44
+    0.40 :   109:    vshufps ymm11,ymm2,ymm3,0xee
+    0.00 :   10e:    vperm2f128 ymm0,ymm4,ymm8,0x20
+    0.20 :   114:    vperm2f128 ymm1,ymm5,ymm9,0x20
+    0.40 :   11a:    vperm2f128 ymm2,ymm6,ymm10,0x20
+    0.20 :   120:    vperm2f128 ymm3,ymm7,ymm11,0x20
+    0.20 :   126:    vperm2f128 ymm4,ymm4,ymm8,0x31
+    0.20 :   12c:    vperm2f128 ymm5,ymm5,ymm9,0x31
+    0.00 :   132:    vperm2f128 ymm6,ymm6,ymm10,0x31
+    0.20 :   138:    vperm2f128 ymm7,ymm7,ymm11,0x31
+    0.20 :   13e:    vmovups YMMWORD PTR [rsi],ymm0
+    0.00 :   142:    vmovups YMMWORD PTR [rsi+0xc400],ymm1
+    0.20 :   14a:    vmovups YMMWORD PTR [rsi+0x18800],ymm2
+    0.40 :   152:    vmovups YMMWORD PTR [rsi+0x24c00],ymm3
+    0.20 :   15a:    vmovups YMMWORD PTR [rsi+0x31000],ymm4
+    0.00 :   162:    vmovups YMMWORD PTR [rsi+0x3d400],ymm5
+    0.20 :   16a:    vmovups YMMWORD PTR [rsi+0x49800],ymm6
+    0.20 :   172:    vmovups YMMWORD PTR [rsi+0x55c00],ymm7
+    0.20 :   17a:    vmovups ymm0,YMMWORD PTR [rdi+0x200]
+    1.21 :   182:    vmovups ymm1,YMMWORD PTR [rdi+0x240]
+    1.41 :   18a:    vmovups ymm2,YMMWORD PTR [rdi+0x280]
+    0.60 :   192:    vmovups ymm3,YMMWORD PTR [rdi+0x2c0]
+    1.01 :   19a:    vmovups ymm4,YMMWORD PTR [rdi+0x300]
+    2.01 :   1a2:    vmovups ymm5,YMMWORD PTR [rdi+0x340]
+    1.01 :   1aa:    vmovups ymm6,YMMWORD PTR [rdi+0x380]
+    0.40 :   1b2:    vmovups ymm7,YMMWORD PTR [rdi+0x3c0]
+    0.00 :   1ba:    vunpcklps ymm8,ymm0,ymm1
+    0.20 :   1be:    vunpckhps ymm0,ymm0,ymm1
+    0.40 :   1c2:    vunpcklps ymm9,ymm2,ymm3
+    0.00 :   1c6:    vunpckhps ymm1,ymm2,ymm3
+    0.00 :   1ca:    vunpcklps ymm10,ymm4,ymm5
+    0.00 :   1ce:    vunpckhps ymm2,ymm4,ymm5
+    0.20 :   1d2:    vunpcklps ymm11,ymm6,ymm7
+    0.20 :   1d6:    vunpckhps ymm3,ymm6,ymm7
+    0.60 :   1da:    vshufps ymm4,ymm8,ymm9,0x44
+    0.40 :   1e0:    vshufps ymm5,ymm8,ymm9,0xee
+    0.00 :   1e6:    vshufps ymm6,ymm0,ymm1,0x44
+    0.00 :   1eb:    vshufps ymm7,ymm0,ymm1,0xee
+    0.80 :   1f0:    vshufps ymm8,ymm10,ymm11,0x44
+    0.00 :   1f6:    vshufps ymm9,ymm10,ymm11,0xee
+    0.00 :   1fc:    vshufps ymm10,ymm2,ymm3,0x44
+    0.00 :   201:    vshufps ymm11,ymm2,ymm3,0xee
+    0.20 :   206:    vperm2f128 ymm0,ymm4,ymm8,0x20
+    0.20 :   20c:    vperm2f128 ymm1,ymm5,ymm9,0x20
+    0.40 :   212:    vperm2f128 ymm2,ymm6,ymm10,0x20
+    0.00 :   218:    vperm2f128 ymm3,ymm7,ymm11,0x20
+    0.40 :   21e:    vperm2f128 ymm4,ymm4,ymm8,0x31
+    0.20 :   224:    vperm2f128 ymm5,ymm5,ymm9,0x31
+    0.40 :   22a:    vperm2f128 ymm6,ymm6,ymm10,0x31
+    0.20 :   230:    vperm2f128 ymm7,ymm7,ymm11,0x31
+    0.20 :   236:    vmovups YMMWORD PTR [rsi+0x20],ymm0
+    1.21 :   23b:    vmovups YMMWORD PTR [rsi+0xc420],ymm1
+    0.40 :   243:    vmovups YMMWORD PTR [rsi+0x18820],ymm2
+    5.03 :   24b:    vmovups YMMWORD PTR [rsi+0x24c20],ymm3
+    2.01 :   253:    vmovups YMMWORD PTR [rsi+0x31020],ymm4
+    0.20 :   25b:    vmovups YMMWORD PTR [rsi+0x3d420],ymm5
+    0.00 :   263:    vmovups YMMWORD PTR [rsi+0x49820],ymm6
+    0.20 :   26b:    vmovups YMMWORD PTR [rsi+0x55c20],ymm7
+    0.20 :   273:    vmovups ymm0,YMMWORD PTR [rdi+0x20]
+    1.21 :   278:    vmovups ymm1,YMMWORD PTR [rdi+0x60]
+    0.60 :   27d:    vmovups ymm2,YMMWORD PTR [rdi+0xa0]
+    0.00 :   285:    vmovups ymm3,YMMWORD PTR [rdi+0xe0]
+    0.00 :   28d:    vmovups ymm4,YMMWORD PTR [rdi+0x120]
+    0.20 :   295:    vmovups ymm5,YMMWORD PTR [rdi+0x160]
+    0.40 :   29d:    vmovups ymm6,YMMWORD PTR [rdi+0x1a0]
+    0.20 :   2a5:    vmovups ymm7,YMMWORD PTR [rdi+0x1e0]
+    0.40 :   2ad:    vunpcklps ymm8,ymm0,ymm1
+    0.00 :   2b1:    vunpckhps ymm0,ymm0,ymm1
+    0.40 :   2b5:    vunpcklps ymm9,ymm2,ymm3
+    0.20 :   2b9:    vunpckhps ymm1,ymm2,ymm3
+    0.20 :   2bd:    vunpcklps ymm10,ymm4,ymm5
+    0.20 :   2c1:    vunpckhps ymm2,ymm4,ymm5
+    0.00 :   2c5:    vunpcklps ymm11,ymm6,ymm7
+    0.00 :   2c9:    vunpckhps ymm3,ymm6,ymm7
+    0.80 :   2cd:    vshufps ymm4,ymm8,ymm9,0x44
+    0.20 :   2d3:    vshufps ymm5,ymm8,ymm9,0xee
+    0.20 :   2d9:    vshufps ymm6,ymm0,ymm1,0x44
+    0.80 :   2de:    vshufps ymm7,ymm0,ymm1,0xee
+    0.20 :   2e3:    vshufps ymm8,ymm10,ymm11,0x44
+    0.00 :   2e9:    vshufps ymm9,ymm10,ymm11,0xee
+    0.20 :   2ef:    vshufps ymm10,ymm2,ymm3,0x44
+    0.20 :   2f4:    vshufps ymm11,ymm2,ymm3,0xee
+    0.40 :   2f9:    vperm2f128 ymm0,ymm4,ymm8,0x20
+    0.20 :   2ff:    vperm2f128 ymm1,ymm5,ymm9,0x20
+    0.20 :   305:    vperm2f128 ymm2,ymm6,ymm10,0x20
+    0.20 :   30b:    vperm2f128 ymm3,ymm7,ymm11,0x20
+    0.00 :   311:    vperm2f128 ymm4,ymm4,ymm8,0x31
+    0.20 :   317:    vperm2f128 ymm5,ymm5,ymm9,0x31
+    0.40 :   31d:    vperm2f128 ymm6,ymm6,ymm10,0x31
+    0.00 :   323:    vperm2f128 ymm7,ymm7,ymm11,0x31
+    0.20 :   329:    vmovups YMMWORD PTR [rsi+0x62000],ymm0
+    0.20 :   331:    vmovups YMMWORD PTR [rsi+0x6e400],ymm1
+    0.20 :   339:    vmovups YMMWORD PTR [rsi+0x7a800],ymm2
+    0.80 :   341:    vmovups YMMWORD PTR [rsi+0x86c00],ymm3
+    0.00 :   349:    vmovups YMMWORD PTR [rsi+0x93000],ymm4
+    0.20 :   351:    vmovups YMMWORD PTR [rsi+0x9f400],ymm5
+    0.20 :   359:    vmovups YMMWORD PTR [rsi+0xab800],ymm6
+    0.20 :   361:    vmovups YMMWORD PTR [rsi+0xb7c00],ymm7
+    0.40 :   369:    vmovups ymm0,YMMWORD PTR [rdi+0x220]
+    0.20 :   371:    vmovups ymm1,YMMWORD PTR [rdi+0x260]
+    0.40 :   379:    vmovups ymm2,YMMWORD PTR [rdi+0x2a0]
+    0.20 :   381:    vmovups ymm3,YMMWORD PTR [rdi+0x2e0]
+    0.00 :   389:    vmovups ymm4,YMMWORD PTR [rdi+0x320]
+    0.20 :   391:    vmovups ymm5,YMMWORD PTR [rdi+0x360]
+    0.00 :   399:    vmovups ymm6,YMMWORD PTR [rdi+0x3a0]
+    0.20 :   3a1:    vmovups ymm7,YMMWORD PTR [rdi+0x3e0]
+    0.20 :   3a9:    vunpcklps ymm8,ymm0,ymm1
+    0.20 :   3ad:    vunpckhps ymm0,ymm0,ymm1
+    0.00 :   3b1:    vunpcklps ymm9,ymm2,ymm3
+    0.20 :   3b5:    vunpckhps ymm1,ymm2,ymm3
+    0.00 :   3b9:    vunpcklps ymm10,ymm4,ymm5
+    0.20 :   3bd:    vunpckhps ymm2,ymm4,ymm5
+    0.20 :   3c1:    vunpcklps ymm11,ymm6,ymm7
+    0.20 :   3c5:    vunpckhps ymm3,ymm6,ymm7
+    0.60 :   3c9:    vshufps ymm4,ymm8,ymm9,0x44
+    0.00 :   3cf:    vshufps ymm5,ymm8,ymm9,0xee
+    0.40 :   3d5:    vshufps ymm6,ymm0,ymm1,0x44
+    0.00 :   3da:    vshufps ymm7,ymm0,ymm1,0xee
+    0.40 :   3df:    vshufps ymm8,ymm10,ymm11,0x44
+    1.01 :   3e5:    vshufps ymm9,ymm10,ymm11,0xee
+    0.40 :   3eb:    vshufps ymm10,ymm2,ymm3,0x44
+    0.20 :   3f0:    vshufps ymm11,ymm2,ymm3,0xee
+    0.20 :   3f5:    vperm2f128 ymm0,ymm4,ymm8,0x20
+    0.20 :   3fb:    vperm2f128 ymm1,ymm5,ymm9,0x20
+    0.40 :   401:    vperm2f128 ymm2,ymm6,ymm10,0x20
+    1.01 :   407:    vperm2f128 ymm3,ymm7,ymm11,0x20
+    0.60 :   40d:    vperm2f128 ymm4,ymm4,ymm8,0x31
+    0.40 :   413:    vperm2f128 ymm5,ymm5,ymm9,0x31
+    0.20 :   419:    vperm2f128 ymm6,ymm6,ymm10,0x31
+    0.20 :   41f:    vperm2f128 ymm7,ymm7,ymm11,0x31
+    0.40 :   425:    vmovups YMMWORD PTR [rsi+0x62020],ymm0
+    7.65 :   42d:    vmovups YMMWORD PTR [rsi+0x6e420],ymm1
+    2.01 :   435:    vmovups YMMWORD PTR [rsi+0x7a820],ymm2
+    0.00 :   43d:    vmovups YMMWORD PTR [rsi+0x86c20],ymm3
+    0.80 :   445:    vmovups YMMWORD PTR [rsi+0x93020],ymm4
+    1.21 :   44d:    vmovups YMMWORD PTR [rsi+0x9f420],ymm5
+    1.41 :   455:    vmovups YMMWORD PTR [rsi+0xab820],ymm6
+    7.04 :   45d:    vmovups YMMWORD PTR [rsi+0xb7c20],ymm7
+    0.00 :   465:    vzeroupper
+    1.21 :   468:    ret
+    0.00 :   469:    vzeroupper
+    0.00 :   46c:    ret

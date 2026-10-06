@@ -1,0 +1,1 @@
+Backend probe run while another user's job loaded all cores (see 2026-10-06_counter_validation_CONTENDED/NOTE.md). Structural results (which ATen ops / oneDNN primitives / MKL calls run) are valid; the per-call times in BACKEND.md are inflated. The clean re-run is 2026-10-06_backend_003851.

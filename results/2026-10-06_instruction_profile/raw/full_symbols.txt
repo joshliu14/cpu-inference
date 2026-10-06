@@ -1,0 +1,35 @@
+    14.07%  libtorch_cpu.so       [.] mkl_blas_avx512_sgemm_kernel_0_b0
+     9.85%  libtorch_cpu.so       [.] void at::native::(anonymous namespace)::cpu_max_pool<float, false>(at::Tensor const&, at::Tensor const&, at::Tensor const&, c10::ArrayRef<long>, c10::ArrayRef<long>, c10::ArrayRef<long>, c10::ArrayRef<long>) [clone .constprop.0]
+     7.87%  jitted-532218-27.so   [.] jit_avx512_common_conv_fwd_kernel_vmm_t.27
+     6.43%  libtorch_cpu.so       [.] mkl_blas_avx512_sgemm_kernel_nocopy_NN_b0
+     5.17%  jitted-532218-3.so    [.] jit_avx512_common_conv_fwd_kernel_vmm_t.3
+     4.82%  libtorch_cpu.so       [.] mkl_blas_avx512_sgemm_kernel_nocopy_NN_b1
+     4.74%  jitted-532218-16.so   [.] jit_avx512_common_conv_fwd_kernel_vmm_t.16
+     4.40%  libtorch_cpu.so       [.] mkl_blas_avx512_sgemm_kernel_0
+     3.88%  jitted-532218-38.so   [.] jit_avx512_common_conv_fwd_kernel_vmm_t.38
+     3.73%  libtorch_cpu.so       [.] at::native::(anonymous namespace)::batch_norm_cpu_kernel(at::Tensor&, at::Tensor const&, at::Tensor const&, at::Tensor const&, at::Tensor const&, at::Tensor const&, at::Tensor const&, at::Tensor const&, bool, double)::{lambda()#1}::operator()() const
+     3.42%  jitted-532218-31.so   [.] jit_uni_reorder_kernel_f32.31
+     2.18%  jitted-532218-29.so   [.] jit_avx512_common_conv_fwd_kernel_vmm_t.29
+     1.85%  libtorch_cpu.so       [.] void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float)#1}, at::native::(anonymous namespace)::add_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>, at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)
+     1.78%  jitted-532218-7.so    [.] jit_avx512_common_conv_fwd_kernel_vmm_t.7
+     1.73%  jitted-532218-0.so    [.] jit_avx512_common_conv_fwd_kernel_vmm_t.0
+     1.70%  libtorch_cpu.so       [.] mkl_blas_avx512_sgemm_scopy_right8_ea
+     1.68%  jitted-532218-18.so   [.] jit_avx512_common_conv_fwd_kernel_vmm_t.18
+     1.67%  jitted-532218-33.so   [.] jit_avx512_common_1x1_conv_kernel_t.33
+     1.59%  jitted-532218-22.so   [.] jit_avx512_common_1x1_conv_kernel_t.22
+     1.46%  jitted-532218-20.so   [.] jit_uni_reorder_kernel_f32.20
+     1.41%  jitted-532218-11.so   [.] jit_avx512_common_1x1_conv_kernel_t.11
+     1.37%  libtorch_cpu.so       [.] void c10::function_ref<void (char**, long const*, long, long)>::callback_fn<at::native::AVX2::VectorizedLoop2d<at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, at::native::(anonymous namespace)::clamp_min_scalar_kernel_impl(at::TensorIteratorBase&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(at::vec::AVX2::Vectorized<float>)#1}> >(long, char**, long const*, long, long)
+     0.80%  jitted-532218-36.so   [.] jit_single_blk_kernel.36
+     0.69%  libtorch_cpu.so       [.] mkl_blas_avx512_sgemm_scopy_down48_ea
+     0.46%  libtorch_cpu.so       [.] mkl_blas_avx512_xsgemv
+     0.39%  libtorch_cpu.so       [.] dnnl::impl::cpu::x64::jit_avx512_common_convolution_fwd_t<(dnnl_data_type_t)3, (dnnl_data_type_t)3, (dnnl_data_type_t)3>::execute_forward_2d(dnnl::impl::exec_ctx_t const&) const::{lambda(int, int)#1}::operator()(int, int) const
+     0.34%  jitted-532218-13.so   [.] jit_single_blk_kernel.13
+     0.34%  python3.12            [.] _PyEval_EvalFrameDefault
+     0.25%  jitted-532218-2.so    [.] jit_single_blk_kernel.2
+     0.25%  python3.12            [.] 0x000000000021cb5a
+     0.23%  python3.12            [.] 0x000000000021ccf8
+     0.23%  python3.12            [.] 0x000000000021d9e4
+     0.21%  jitted-532218-9.so    [.] jit_uni_reorder_kernel_f32.9
+
+

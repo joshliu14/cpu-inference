@@ -1,0 +1,11 @@
+    86.50%  libtorch_cpu.so       [.] mkl_blas_avx512_sgemm_kernel_0_b0
+     4.85%  libtorch_cpu.so       [.] mkl_blas_avx512_sgemm_scopy_down48_ea
+     1.14%  libtorch_cpu.so       [.] mkl_blas_avx512_sgemm_copyan
+     0.50%  libtorch_cpu.so       [.] mkl_blas_avx512_sgemm_scopy_right8_ea
+     0.40%  python3.12            [.] 0x000000000021cb5a
+     0.38%  python3.12            [.] 0x000000000021d984
+     0.36%  python3.12            [.] 0x000000000021d760
+     0.26%  python3.12            [.] 0x000000000021ccf8
+     0.24%  python3.12            [.] _PyEval_EvalFrameDefault
+
+

@@ -1,0 +1,3 @@
+    94.92%  libtorch_cpu.so      [.] void at::native::(anonymous namespace)::cpu_max_pool<float, false>(at::Tensor const&, at::Tensor const&, at::Tensor const&, c10::ArrayRef<long>, c10::ArrayRef<long>, c10::ArrayRef<long>, c10::ArrayRef<long>) [clone .constprop.0]
+
+

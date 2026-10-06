@@ -1,0 +1,2291 @@
+pct,addr,mnemonic,operands,class,width
+0.0,80,push,rbp,other,
+0.0,81,mov,"rbp,rsp",int/addr,
+0.0,84,push,rbx,other,
+0.0,85,push,r12,other,
+0.0,87,push,r13,other,
+0.0,89,push,r14,other,
+0.0,8b,push,r15,other,
+0.0,8d,mov,"ebp,0x400",int/addr,
+0.0,92,sub,"rsp,0x20",int/addr,
+0.0,96,mov,"r8,QWORD PTR [rdi]",gpr_load,
+0.0,99,mov,"QWORD PTR [rsp+0x10],r8",gpr_store,
+0.0,9e,mov,"r10,QWORD PTR [rdi+0x8]",gpr_load,
+0.0,a2,mov,"r9,QWORD PTR [rdi+0x10]",gpr_load,
+0.0,a6,mov,"rsi,QWORD PTR [rdi+0x78]",gpr_load,
+0.0,aa,mov,"rbx,QWORD PTR [rdi+0x80]",gpr_load,
+0.0,b1,mov,"QWORD PTR [rsp],rbx",gpr_store,
+0.0,b5,mov,"r11,QWORD PTR [rdi+0x88]",gpr_load,
+0.0,bc,mov,"rax,QWORD PTR [rdi+0x98]",gpr_load,
+0.0,c3,cmp,"rsi,0x10",int/addr,
+0.0,c7,jle,32d9 <jit_avx512_common_1x1_conv_kernel_t.11+0x3259>,branch,
+0.0,cd,cmp,"rsi,0x20",int/addr,
+0.0,d1,jle,1daa <jit_avx512_common_1x1_conv_kernel_t.11+0x1d2a>,branch,
+0.0,d7,cmp,"rsi,0x30",int/addr,
+0.0,db,jle,e1 <jit_avx512_common_1x1_conv_kernel_t.11+0x61>,branch,
+0.0,e1,sub,"rsi,0x30",int/addr,
+0.0,e5,mov,"rbx,QWORD PTR [rsp+0x10]",gpr_load,
+0.0,ea,mov,"r14,QWORD PTR [rsp+0x10]",gpr_load,
+0.0,ef,mov,"rcx,r9",int/addr,
+0.0,f2,mov,"rdx,QWORD PTR [rsp]",gpr_load,
+0.0,f6,cmp,"rdx,0x7",int/addr,
+0.0,fa,jl,1d63 <jit_avx512_common_1x1_conv_kernel_t.11+0x1ce3>,branch,
+0.0,100,mov,"r15,r10",int/addr,
+0.0,103,mov,"r14,rbx",int/addr,
+0.0,106,vpxord,"zmm0,zmm0,zmm0",vec_arith,zmm
+0.0,10c,vpxord,"zmm3,zmm3,zmm3",vec_arith,zmm
+0.0,112,vpxord,"zmm6,zmm6,zmm6",vec_arith,zmm
+0.0,118,vpxord,"zmm9,zmm9,zmm9",vec_arith,zmm
+0.0,11e,vpxord,"zmm12,zmm12,zmm12",vec_arith,zmm
+0.07,124,vpxord,"zmm15,zmm15,zmm15",vec_arith,zmm
+0.0,12a,vpxord,"zmm18,zmm18,zmm18",vec_arith,zmm
+0.0,130,vpxord,"zmm1,zmm1,zmm1",vec_arith,zmm
+0.0,136,vpxord,"zmm4,zmm4,zmm4",vec_arith,zmm
+0.0,13c,vpxord,"zmm7,zmm7,zmm7",vec_arith,zmm
+0.0,142,vpxord,"zmm10,zmm10,zmm10",vec_arith,zmm
+0.0,148,vpxord,"zmm13,zmm13,zmm13",vec_arith,zmm
+0.0,14e,vpxord,"zmm16,zmm16,zmm16",vec_arith,zmm
+0.11,154,vpxord,"zmm19,zmm19,zmm19",vec_arith,zmm
+0.0,15a,vpxord,"zmm2,zmm2,zmm2",vec_arith,zmm
+0.0,160,vpxord,"zmm5,zmm5,zmm5",vec_arith,zmm
+0.0,166,vpxord,"zmm8,zmm8,zmm8",vec_arith,zmm
+0.04,16c,vpxord,"zmm11,zmm11,zmm11",vec_arith,zmm
+0.0,172,vpxord,"zmm14,zmm14,zmm14",vec_arith,zmm
+0.0,178,vpxord,"zmm17,zmm17,zmm17",vec_arith,zmm
+0.0,17e,vpxord,"zmm20,zmm20,zmm20",vec_arith,zmm
+0.07,184,mov,"rdi,r11",int/addr,
+0.0,187,sub,"rdi,0x10",int/addr,
+0.0,18b,jle,e4f <jit_avx512_common_1x1_conv_kernel_t.11+0xdcf>,branch,
+0.0,191,vmovups,"zmm21,ZMMWORD PTR [r15]",vec_load,zmm
+0.04,197,vmovups,"zmm22,ZMMWORD PTR [r15+0x4000]",vec_load,zmm
+0.07,1a1,vmovups,"zmm23,ZMMWORD PTR [r15+0x8000]",vec_load,zmm
+0.37,1ab,vbroadcastss,"zmm31,DWORD PTR [r14]",broadcast,zmm
+0.11,1b1,vfmadd231ps,"zmm0,zmm21,zmm31",fma,zmm
+0.11,1b7,vfmadd231ps,"zmm1,zmm22,zmm31",fma,zmm
+0.0,1bd,vfmadd231ps,"zmm2,zmm23,zmm31",fma,zmm
+0.29,1c3,vbroadcastss,"zmm31,DWORD PTR [r14+0x40]",broadcast,zmm
+0.04,1ca,vfmadd231ps,"zmm3,zmm21,zmm31",fma,zmm
+0.18,1d0,vfmadd231ps,"zmm4,zmm22,zmm31",fma,zmm
+0.33,1d6,vfmadd231ps,"zmm5,zmm23,zmm31",fma,zmm
+0.29,1dc,vbroadcastss,"zmm31,DWORD PTR [r14+0x80]",broadcast,zmm
+0.18,1e3,vfmadd231ps,"zmm6,zmm21,zmm31",fma,zmm
+0.37,1e9,vfmadd231ps,"zmm7,zmm22,zmm31",fma,zmm
+0.07,1ef,vfmadd231ps,"zmm8,zmm23,zmm31",fma,zmm
+0.26,1f5,vbroadcastss,"zmm31,DWORD PTR [r14+0xc0]",broadcast,zmm
+0.11,1fc,vfmadd231ps,"zmm9,zmm21,zmm31",fma,zmm
+0.26,202,vfmadd231ps,"zmm10,zmm22,zmm31",fma,zmm
+0.22,208,vfmadd231ps,"zmm11,zmm23,zmm31",fma,zmm
+0.04,20e,vbroadcastss,"zmm31,DWORD PTR [r14+0x100]",broadcast,zmm
+0.15,215,vfmadd231ps,"zmm12,zmm21,zmm31",fma,zmm
+0.07,21b,vfmadd231ps,"zmm13,zmm22,zmm31",fma,zmm
+0.22,221,vfmadd231ps,"zmm14,zmm23,zmm31",fma,zmm
+0.07,227,vbroadcastss,"zmm31,DWORD PTR [r14+0x140]",broadcast,zmm
+0.18,22e,vfmadd231ps,"zmm15,zmm21,zmm31",fma,zmm
+0.18,234,vfmadd231ps,"zmm16,zmm22,zmm31",fma,zmm
+0.29,23a,vfmadd231ps,"zmm17,zmm23,zmm31",fma,zmm
+0.07,240,vbroadcastss,"zmm31,DWORD PTR [r14+0x180]",broadcast,zmm
+0.22,247,vfmadd231ps,"zmm18,zmm21,zmm31",fma,zmm
+0.33,24d,vfmadd231ps,"zmm19,zmm22,zmm31",fma,zmm
+0.22,253,vfmadd231ps,"zmm20,zmm23,zmm31",fma,zmm
+0.04,259,vmovups,"zmm21,ZMMWORD PTR [r15+0x40]",vec_load,zmm
+0.15,260,vmovups,"zmm22,ZMMWORD PTR [r15+0x4040]",vec_load,zmm
+0.15,26a,vmovups,"zmm23,ZMMWORD PTR [r15+0x8040]",vec_load,zmm
+0.15,274,vbroadcastss,"zmm31,DWORD PTR [r14+0x4]",broadcast,zmm
+0.18,27b,vfmadd231ps,"zmm0,zmm21,zmm31",fma,zmm
+0.11,281,vfmadd231ps,"zmm1,zmm22,zmm31",fma,zmm
+0.11,287,vfmadd231ps,"zmm2,zmm23,zmm31",fma,zmm
+0.04,28d,vbroadcastss,"zmm31,DWORD PTR [r14+0x44]",broadcast,zmm
+0.11,294,vfmadd231ps,"zmm3,zmm21,zmm31",fma,zmm
+0.22,29a,vfmadd231ps,"zmm4,zmm22,zmm31",fma,zmm
+0.11,2a0,vfmadd231ps,"zmm5,zmm23,zmm31",fma,zmm
+0.04,2a6,vbroadcastss,"zmm31,DWORD PTR [r14+0x84]",broadcast,zmm
+0.26,2ad,vfmadd231ps,"zmm6,zmm21,zmm31",fma,zmm
+0.15,2b3,vfmadd231ps,"zmm7,zmm22,zmm31",fma,zmm
+0.33,2b9,vfmadd231ps,"zmm8,zmm23,zmm31",fma,zmm
+0.18,2bf,vbroadcastss,"zmm31,DWORD PTR [r14+0xc4]",broadcast,zmm
+0.22,2c6,vfmadd231ps,"zmm9,zmm21,zmm31",fma,zmm
+0.18,2cc,vfmadd231ps,"zmm10,zmm22,zmm31",fma,zmm
+0.22,2d2,vfmadd231ps,"zmm11,zmm23,zmm31",fma,zmm
+0.04,2d8,vbroadcastss,"zmm31,DWORD PTR [r14+0x104]",broadcast,zmm
+0.18,2df,vfmadd231ps,"zmm12,zmm21,zmm31",fma,zmm
+0.22,2e5,vfmadd231ps,"zmm13,zmm22,zmm31",fma,zmm
+0.33,2eb,vfmadd231ps,"zmm14,zmm23,zmm31",fma,zmm
+0.11,2f1,vbroadcastss,"zmm31,DWORD PTR [r14+0x144]",broadcast,zmm
+0.18,2f8,vfmadd231ps,"zmm15,zmm21,zmm31",fma,zmm
+0.15,2fe,vfmadd231ps,"zmm16,zmm22,zmm31",fma,zmm
+0.29,304,vfmadd231ps,"zmm17,zmm23,zmm31",fma,zmm
+0.04,30a,vbroadcastss,"zmm31,DWORD PTR [r14+0x184]",broadcast,zmm
+0.18,311,vfmadd231ps,"zmm18,zmm21,zmm31",fma,zmm
+0.22,317,vfmadd231ps,"zmm19,zmm22,zmm31",fma,zmm
+0.11,31d,vfmadd231ps,"zmm20,zmm23,zmm31",fma,zmm
+0.04,323,vmovups,"zmm21,ZMMWORD PTR [r15+0x80]",vec_load,zmm
+0.11,32a,vmovups,"zmm22,ZMMWORD PTR [r15+0x4080]",vec_load,zmm
+0.15,334,vmovups,"zmm23,ZMMWORD PTR [r15+0x8080]",vec_load,zmm
+0.11,33e,vbroadcastss,"zmm31,DWORD PTR [r14+0x8]",broadcast,zmm
+0.22,345,vfmadd231ps,"zmm0,zmm21,zmm31",fma,zmm
+0.22,34b,vfmadd231ps,"zmm1,zmm22,zmm31",fma,zmm
+0.44,351,vfmadd231ps,"zmm2,zmm23,zmm31",fma,zmm
+0.26,357,vbroadcastss,"zmm31,DWORD PTR [r14+0x48]",broadcast,zmm
+0.26,35e,vfmadd231ps,"zmm3,zmm21,zmm31",fma,zmm
+0.18,364,vfmadd231ps,"zmm4,zmm22,zmm31",fma,zmm
+0.22,36a,vfmadd231ps,"zmm5,zmm23,zmm31",fma,zmm
+0.18,370,vbroadcastss,"zmm31,DWORD PTR [r14+0x88]",broadcast,zmm
+0.29,377,vfmadd231ps,"zmm6,zmm21,zmm31",fma,zmm
+0.26,37d,vfmadd231ps,"zmm7,zmm22,zmm31",fma,zmm
+0.33,383,vfmadd231ps,"zmm8,zmm23,zmm31",fma,zmm
+0.0,389,vbroadcastss,"zmm31,DWORD PTR [r14+0xc8]",broadcast,zmm
+0.26,390,vfmadd231ps,"zmm9,zmm21,zmm31",fma,zmm
+0.29,396,vfmadd231ps,"zmm10,zmm22,zmm31",fma,zmm
+0.26,39c,vfmadd231ps,"zmm11,zmm23,zmm31",fma,zmm
+0.07,3a2,vbroadcastss,"zmm31,DWORD PTR [r14+0x108]",broadcast,zmm
+0.33,3a9,vfmadd231ps,"zmm12,zmm21,zmm31",fma,zmm
+0.44,3af,vfmadd231ps,"zmm13,zmm22,zmm31",fma,zmm
+0.15,3b5,vfmadd231ps,"zmm14,zmm23,zmm31",fma,zmm
+0.04,3bb,vbroadcastss,"zmm31,DWORD PTR [r14+0x148]",broadcast,zmm
+0.11,3c2,vfmadd231ps,"zmm15,zmm21,zmm31",fma,zmm
+0.33,3c8,vfmadd231ps,"zmm16,zmm22,zmm31",fma,zmm
+0.18,3ce,vfmadd231ps,"zmm17,zmm23,zmm31",fma,zmm
+0.04,3d4,vbroadcastss,"zmm31,DWORD PTR [r14+0x188]",broadcast,zmm
+0.15,3db,vfmadd231ps,"zmm18,zmm21,zmm31",fma,zmm
+0.18,3e1,vfmadd231ps,"zmm19,zmm22,zmm31",fma,zmm
+0.22,3e7,vfmadd231ps,"zmm20,zmm23,zmm31",fma,zmm
+0.0,3ed,vmovups,"zmm21,ZMMWORD PTR [r15+0xc0]",vec_load,zmm
+0.04,3f4,vmovups,"zmm22,ZMMWORD PTR [r15+0x40c0]",vec_load,zmm
+0.29,3fe,vmovups,"zmm23,ZMMWORD PTR [r15+0x80c0]",vec_load,zmm
+0.29,408,vbroadcastss,"zmm31,DWORD PTR [r14+0xc]",broadcast,zmm
+0.0,40f,vfmadd231ps,"zmm0,zmm21,zmm31",fma,zmm
+0.15,415,vfmadd231ps,"zmm1,zmm22,zmm31",fma,zmm
+0.29,41b,vfmadd231ps,"zmm2,zmm23,zmm31",fma,zmm
+0.22,421,vbroadcastss,"zmm31,DWORD PTR [r14+0x4c]",broadcast,zmm
+0.04,428,vfmadd231ps,"zmm3,zmm21,zmm31",fma,zmm
+0.22,42e,vfmadd231ps,"zmm4,zmm22,zmm31",fma,zmm
+0.33,434,vfmadd231ps,"zmm5,zmm23,zmm31",fma,zmm
+0.11,43a,vbroadcastss,"zmm31,DWORD PTR [r14+0x8c]",broadcast,zmm
+0.07,441,vfmadd231ps,"zmm6,zmm21,zmm31",fma,zmm
+0.15,447,vfmadd231ps,"zmm7,zmm22,zmm31",fma,zmm
+0.22,44d,vfmadd231ps,"zmm8,zmm23,zmm31",fma,zmm
+0.04,453,vbroadcastss,"zmm31,DWORD PTR [r14+0xcc]",broadcast,zmm
+0.0,45a,vfmadd231ps,"zmm9,zmm21,zmm31",fma,zmm
+0.11,460,vfmadd231ps,"zmm10,zmm22,zmm31",fma,zmm
+0.33,466,vfmadd231ps,"zmm11,zmm23,zmm31",fma,zmm
+0.04,46c,vbroadcastss,"zmm31,DWORD PTR [r14+0x10c]",broadcast,zmm
+0.11,473,vfmadd231ps,"zmm12,zmm21,zmm31",fma,zmm
+0.33,479,vfmadd231ps,"zmm13,zmm22,zmm31",fma,zmm
+0.26,47f,vfmadd231ps,"zmm14,zmm23,zmm31",fma,zmm
+0.0,485,vbroadcastss,"zmm31,DWORD PTR [r14+0x14c]",broadcast,zmm
+0.18,48c,vfmadd231ps,"zmm15,zmm21,zmm31",fma,zmm
+0.18,492,vfmadd231ps,"zmm16,zmm22,zmm31",fma,zmm
+0.44,498,vfmadd231ps,"zmm17,zmm23,zmm31",fma,zmm
+0.0,49e,vbroadcastss,"zmm31,DWORD PTR [r14+0x18c]",broadcast,zmm
+0.11,4a5,vfmadd231ps,"zmm18,zmm21,zmm31",fma,zmm
+0.37,4ab,vfmadd231ps,"zmm19,zmm22,zmm31",fma,zmm
+0.26,4b1,vfmadd231ps,"zmm20,zmm23,zmm31",fma,zmm
+0.04,4b7,vmovups,"zmm21,ZMMWORD PTR [r15+0x100]",vec_load,zmm
+0.15,4be,vmovups,"zmm22,ZMMWORD PTR [r15+0x4100]",vec_load,zmm
+0.18,4c8,vmovups,"zmm23,ZMMWORD PTR [r15+0x8100]",vec_load,zmm
+0.15,4d2,vbroadcastss,"zmm31,DWORD PTR [r14+0x10]",broadcast,zmm
+0.04,4d9,vfmadd231ps,"zmm0,zmm21,zmm31",fma,zmm
+0.07,4df,vfmadd231ps,"zmm1,zmm22,zmm31",fma,zmm
+0.37,4e5,vfmadd231ps,"zmm2,zmm23,zmm31",fma,zmm
+0.18,4eb,vbroadcastss,"zmm31,DWORD PTR [r14+0x50]",broadcast,zmm
+0.07,4f2,vfmadd231ps,"zmm3,zmm21,zmm31",fma,zmm
+0.18,4f8,vfmadd231ps,"zmm4,zmm22,zmm31",fma,zmm
+0.37,4fe,vfmadd231ps,"zmm5,zmm23,zmm31",fma,zmm
+0.11,504,vbroadcastss,"zmm31,DWORD PTR [r14+0x90]",broadcast,zmm
+0.07,50b,vfmadd231ps,"zmm6,zmm21,zmm31",fma,zmm
+0.15,511,vfmadd231ps,"zmm7,zmm22,zmm31",fma,zmm
+0.26,517,vfmadd231ps,"zmm8,zmm23,zmm31",fma,zmm
+0.04,51d,vbroadcastss,"zmm31,DWORD PTR [r14+0xd0]",broadcast,zmm
+0.11,524,vfmadd231ps,"zmm9,zmm21,zmm31",fma,zmm
+0.4,52a,vfmadd231ps,"zmm10,zmm22,zmm31",fma,zmm
+0.33,530,vfmadd231ps,"zmm11,zmm23,zmm31",fma,zmm
+0.0,536,vbroadcastss,"zmm31,DWORD PTR [r14+0x110]",broadcast,zmm
+0.15,53d,vfmadd231ps,"zmm12,zmm21,zmm31",fma,zmm
+0.29,543,vfmadd231ps,"zmm13,zmm22,zmm31",fma,zmm
+0.22,549,vfmadd231ps,"zmm14,zmm23,zmm31",fma,zmm
+0.04,54f,vbroadcastss,"zmm31,DWORD PTR [r14+0x150]",broadcast,zmm
+0.15,556,vfmadd231ps,"zmm15,zmm21,zmm31",fma,zmm
+0.29,55c,vfmadd231ps,"zmm16,zmm22,zmm31",fma,zmm
+0.26,562,vfmadd231ps,"zmm17,zmm23,zmm31",fma,zmm
+0.0,568,vbroadcastss,"zmm31,DWORD PTR [r14+0x190]",broadcast,zmm
+0.18,56f,vfmadd231ps,"zmm18,zmm21,zmm31",fma,zmm
+0.59,575,vfmadd231ps,"zmm19,zmm22,zmm31",fma,zmm
+0.15,57b,vfmadd231ps,"zmm20,zmm23,zmm31",fma,zmm
+0.04,581,vmovups,"zmm21,ZMMWORD PTR [r15+0x140]",vec_load,zmm
+0.18,588,vmovups,"zmm22,ZMMWORD PTR [r15+0x4140]",vec_load,zmm
+0.18,592,vmovups,"zmm23,ZMMWORD PTR [r15+0x8140]",vec_load,zmm
+0.15,59c,vbroadcastss,"zmm31,DWORD PTR [r14+0x14]",broadcast,zmm
+0.11,5a3,vfmadd231ps,"zmm0,zmm21,zmm31",fma,zmm
+0.22,5a9,vfmadd231ps,"zmm1,zmm22,zmm31",fma,zmm
+0.37,5af,vfmadd231ps,"zmm2,zmm23,zmm31",fma,zmm
+0.11,5b5,vbroadcastss,"zmm31,DWORD PTR [r14+0x54]",broadcast,zmm
+0.22,5bc,vfmadd231ps,"zmm3,zmm21,zmm31",fma,zmm
+0.26,5c2,vfmadd231ps,"zmm4,zmm22,zmm31",fma,zmm
+0.48,5c8,vfmadd231ps,"zmm5,zmm23,zmm31",fma,zmm
+0.04,5ce,vbroadcastss,"zmm31,DWORD PTR [r14+0x94]",broadcast,zmm
+0.11,5d5,vfmadd231ps,"zmm6,zmm21,zmm31",fma,zmm
+0.11,5db,vfmadd231ps,"zmm7,zmm22,zmm31",fma,zmm
+0.29,5e1,vfmadd231ps,"zmm8,zmm23,zmm31",fma,zmm
+0.15,5e7,vbroadcastss,"zmm31,DWORD PTR [r14+0xd4]",broadcast,zmm
+0.22,5ee,vfmadd231ps,"zmm9,zmm21,zmm31",fma,zmm
+0.26,5f4,vfmadd231ps,"zmm10,zmm22,zmm31",fma,zmm
+0.15,5fa,vfmadd231ps,"zmm11,zmm23,zmm31",fma,zmm
+0.0,600,vbroadcastss,"zmm31,DWORD PTR [r14+0x114]",broadcast,zmm
+0.15,607,vfmadd231ps,"zmm12,zmm21,zmm31",fma,zmm
+0.26,60d,vfmadd231ps,"zmm13,zmm22,zmm31",fma,zmm
+0.48,613,vfmadd231ps,"zmm14,zmm23,zmm31",fma,zmm
+0.04,619,vbroadcastss,"zmm31,DWORD PTR [r14+0x154]",broadcast,zmm
+0.04,620,vfmadd231ps,"zmm15,zmm21,zmm31",fma,zmm
+0.22,626,vfmadd231ps,"zmm16,zmm22,zmm31",fma,zmm
+0.29,62c,vfmadd231ps,"zmm17,zmm23,zmm31",fma,zmm
+0.07,632,vbroadcastss,"zmm31,DWORD PTR [r14+0x194]",broadcast,zmm
+0.15,639,vfmadd231ps,"zmm18,zmm21,zmm31",fma,zmm
+0.15,63f,vfmadd231ps,"zmm19,zmm22,zmm31",fma,zmm
+0.26,645,vfmadd231ps,"zmm20,zmm23,zmm31",fma,zmm
+0.0,64b,vmovups,"zmm21,ZMMWORD PTR [r15+0x180]",vec_load,zmm
+0.11,652,vmovups,"zmm22,ZMMWORD PTR [r15+0x4180]",vec_load,zmm
+0.33,65c,vmovups,"zmm23,ZMMWORD PTR [r15+0x8180]",vec_load,zmm
+0.29,666,vbroadcastss,"zmm31,DWORD PTR [r14+0x18]",broadcast,zmm
+0.26,66d,vfmadd231ps,"zmm0,zmm21,zmm31",fma,zmm
+0.07,673,vfmadd231ps,"zmm1,zmm22,zmm31",fma,zmm
+0.11,679,vfmadd231ps,"zmm2,zmm23,zmm31",fma,zmm
+0.22,67f,vbroadcastss,"zmm31,DWORD PTR [r14+0x58]",broadcast,zmm
+0.07,686,vfmadd231ps,"zmm3,zmm21,zmm31",fma,zmm
+0.11,68c,vfmadd231ps,"zmm4,zmm22,zmm31",fma,zmm
+0.33,692,vfmadd231ps,"zmm5,zmm23,zmm31",fma,zmm
+0.11,698,vbroadcastss,"zmm31,DWORD PTR [r14+0x98]",broadcast,zmm
+0.07,69f,vfmadd231ps,"zmm6,zmm21,zmm31",fma,zmm
+0.22,6a5,vfmadd231ps,"zmm7,zmm22,zmm31",fma,zmm
+0.44,6ab,vfmadd231ps,"zmm8,zmm23,zmm31",fma,zmm
+0.11,6b1,vbroadcastss,"zmm31,DWORD PTR [r14+0xd8]",broadcast,zmm
+0.29,6b8,vfmadd231ps,"zmm9,zmm21,zmm31",fma,zmm
+0.33,6be,vfmadd231ps,"zmm10,zmm22,zmm31",fma,zmm
+0.55,6c4,vfmadd231ps,"zmm11,zmm23,zmm31",fma,zmm
+0.0,6ca,vbroadcastss,"zmm31,DWORD PTR [r14+0x118]",broadcast,zmm
+0.15,6d1,vfmadd231ps,"zmm12,zmm21,zmm31",fma,zmm
+0.37,6d7,vfmadd231ps,"zmm13,zmm22,zmm31",fma,zmm
+0.26,6dd,vfmadd231ps,"zmm14,zmm23,zmm31",fma,zmm
+0.0,6e3,vbroadcastss,"zmm31,DWORD PTR [r14+0x158]",broadcast,zmm
+0.33,6ea,vfmadd231ps,"zmm15,zmm21,zmm31",fma,zmm
+0.22,6f0,vfmadd231ps,"zmm16,zmm22,zmm31",fma,zmm
+0.29,6f6,vfmadd231ps,"zmm17,zmm23,zmm31",fma,zmm
+0.0,6fc,vbroadcastss,"zmm31,DWORD PTR [r14+0x198]",broadcast,zmm
+0.22,703,vfmadd231ps,"zmm18,zmm21,zmm31",fma,zmm
+0.26,709,vfmadd231ps,"zmm19,zmm22,zmm31",fma,zmm
+0.07,70f,vfmadd231ps,"zmm20,zmm23,zmm31",fma,zmm
+0.04,715,vmovups,"zmm21,ZMMWORD PTR [r15+0x1c0]",vec_load,zmm
+0.07,71c,vmovups,"zmm22,ZMMWORD PTR [r15+0x41c0]",vec_load,zmm
+0.18,726,vmovups,"zmm23,ZMMWORD PTR [r15+0x81c0]",vec_load,zmm
+0.15,730,vbroadcastss,"zmm31,DWORD PTR [r14+0x1c]",broadcast,zmm
+0.11,737,vfmadd231ps,"zmm0,zmm21,zmm31",fma,zmm
+0.07,73d,vfmadd231ps,"zmm1,zmm22,zmm31",fma,zmm
+0.22,743,vfmadd231ps,"zmm2,zmm23,zmm31",fma,zmm
+0.07,749,vbroadcastss,"zmm31,DWORD PTR [r14+0x5c]",broadcast,zmm
+0.15,750,vfmadd231ps,"zmm3,zmm21,zmm31",fma,zmm
+0.18,756,vfmadd231ps,"zmm4,zmm22,zmm31",fma,zmm
+0.26,75c,vfmadd231ps,"zmm5,zmm23,zmm31",fma,zmm
+0.04,762,vbroadcastss,"zmm31,DWORD PTR [r14+0x9c]",broadcast,zmm
+0.15,769,vfmadd231ps,"zmm6,zmm21,zmm31",fma,zmm
+0.22,76f,vfmadd231ps,"zmm7,zmm22,zmm31",fma,zmm
+0.37,775,vfmadd231ps,"zmm8,zmm23,zmm31",fma,zmm
+0.04,77b,vbroadcastss,"zmm31,DWORD PTR [r14+0xdc]",broadcast,zmm
+0.26,782,vfmadd231ps,"zmm9,zmm21,zmm31",fma,zmm
+0.11,788,vfmadd231ps,"zmm10,zmm22,zmm31",fma,zmm
+0.11,78e,vfmadd231ps,"zmm11,zmm23,zmm31",fma,zmm
+0.04,794,vbroadcastss,"zmm31,DWORD PTR [r14+0x11c]",broadcast,zmm
+0.15,79b,vfmadd231ps,"zmm12,zmm21,zmm31",fma,zmm
+0.18,7a1,vfmadd231ps,"zmm13,zmm22,zmm31",fma,zmm
+0.48,7a7,vfmadd231ps,"zmm14,zmm23,zmm31",fma,zmm
+0.04,7ad,vbroadcastss,"zmm31,DWORD PTR [r14+0x15c]",broadcast,zmm
+0.18,7b4,vfmadd231ps,"zmm15,zmm21,zmm31",fma,zmm
+0.33,7ba,vfmadd231ps,"zmm16,zmm22,zmm31",fma,zmm
+0.29,7c0,vfmadd231ps,"zmm17,zmm23,zmm31",fma,zmm
+0.0,7c6,vbroadcastss,"zmm31,DWORD PTR [r14+0x19c]",broadcast,zmm
+0.15,7cd,vfmadd231ps,"zmm18,zmm21,zmm31",fma,zmm
+0.26,7d3,vfmadd231ps,"zmm19,zmm22,zmm31",fma,zmm
+0.15,7d9,vfmadd231ps,"zmm20,zmm23,zmm31",fma,zmm
+0.0,7df,vmovups,"zmm21,ZMMWORD PTR [r15+rbp*1-0x200]",vec_load,zmm
+0.0,7e7,vmovups,"zmm22,ZMMWORD PTR [r15+0x4200]",vec_load,zmm
+0.29,7f1,vmovups,"zmm23,ZMMWORD PTR [r15+0x8200]",vec_load,zmm
+0.04,7fb,vbroadcastss,"zmm31,DWORD PTR [r14+0x20]",broadcast,zmm
+0.15,802,vfmadd231ps,"zmm0,zmm21,zmm31",fma,zmm
+0.18,808,vfmadd231ps,"zmm1,zmm22,zmm31",fma,zmm
+0.29,80e,vfmadd231ps,"zmm2,zmm23,zmm31",fma,zmm
+0.18,814,vbroadcastss,"zmm31,DWORD PTR [r14+0x60]",broadcast,zmm
+0.04,81b,vfmadd231ps,"zmm3,zmm21,zmm31",fma,zmm
+0.15,821,vfmadd231ps,"zmm4,zmm22,zmm31",fma,zmm
+0.22,827,vfmadd231ps,"zmm5,zmm23,zmm31",fma,zmm
+0.15,82d,vbroadcastss,"zmm31,DWORD PTR [r14+0xa0]",broadcast,zmm
+0.11,834,vfmadd231ps,"zmm6,zmm21,zmm31",fma,zmm
+0.15,83a,vfmadd231ps,"zmm7,zmm22,zmm31",fma,zmm
+0.26,840,vfmadd231ps,"zmm8,zmm23,zmm31",fma,zmm
+0.04,846,vbroadcastss,"zmm31,DWORD PTR [r14+0xe0]",broadcast,zmm
+0.22,84d,vfmadd231ps,"zmm9,zmm21,zmm31",fma,zmm
+0.4,853,vfmadd231ps,"zmm10,zmm22,zmm31",fma,zmm
+0.44,859,vfmadd231ps,"zmm11,zmm23,zmm31",fma,zmm
+0.0,85f,vbroadcastss,"zmm31,DWORD PTR [r14+0x120]",broadcast,zmm
+0.15,866,vfmadd231ps,"zmm12,zmm21,zmm31",fma,zmm
+0.37,86c,vfmadd231ps,"zmm13,zmm22,zmm31",fma,zmm
+0.48,872,vfmadd231ps,"zmm14,zmm23,zmm31",fma,zmm
+0.0,878,vbroadcastss,"zmm31,DWORD PTR [r14+0x160]",broadcast,zmm
+0.11,87f,vfmadd231ps,"zmm15,zmm21,zmm31",fma,zmm
+0.22,885,vfmadd231ps,"zmm16,zmm22,zmm31",fma,zmm
+0.29,88b,vfmadd231ps,"zmm17,zmm23,zmm31",fma,zmm
+0.0,891,vbroadcastss,"zmm31,DWORD PTR [r14+0x1a0]",broadcast,zmm
+0.22,898,vfmadd231ps,"zmm18,zmm21,zmm31",fma,zmm
+0.33,89e,vfmadd231ps,"zmm19,zmm22,zmm31",fma,zmm
+0.07,8a4,vfmadd231ps,"zmm20,zmm23,zmm31",fma,zmm
+0.07,8aa,vmovups,"zmm21,ZMMWORD PTR [r15+rbp*1-0x1c0]",vec_load,zmm
+0.26,8b2,vmovups,"zmm22,ZMMWORD PTR [r15+0x4240]",vec_load,zmm
+0.18,8bc,vmovups,"zmm23,ZMMWORD PTR [r15+0x8240]",vec_load,zmm
+0.29,8c6,vbroadcastss,"zmm31,DWORD PTR [r14+0x24]",broadcast,zmm
+0.07,8cd,vfmadd231ps,"zmm0,zmm21,zmm31",fma,zmm
+0.04,8d3,vfmadd231ps,"zmm1,zmm22,zmm31",fma,zmm
+0.18,8d9,vfmadd231ps,"zmm2,zmm23,zmm31",fma,zmm
+0.04,8df,vbroadcastss,"zmm31,DWORD PTR [r14+0x64]",broadcast,zmm
+0.07,8e6,vfmadd231ps,"zmm3,zmm21,zmm31",fma,zmm
+0.07,8ec,vfmadd231ps,"zmm4,zmm22,zmm31",fma,zmm
+0.22,8f2,vfmadd231ps,"zmm5,zmm23,zmm31",fma,zmm
+0.11,8f8,vbroadcastss,"zmm31,DWORD PTR [r14+0xa4]",broadcast,zmm
+0.22,8ff,vfmadd231ps,"zmm6,zmm21,zmm31",fma,zmm
+0.11,905,vfmadd231ps,"zmm7,zmm22,zmm31",fma,zmm
+0.22,90b,vfmadd231ps,"zmm8,zmm23,zmm31",fma,zmm
+0.04,911,vbroadcastss,"zmm31,DWORD PTR [r14+0xe4]",broadcast,zmm
+0.18,918,vfmadd231ps,"zmm9,zmm21,zmm31",fma,zmm
+0.15,91e,vfmadd231ps,"zmm10,zmm22,zmm31",fma,zmm
+0.44,924,vfmadd231ps,"zmm11,zmm23,zmm31",fma,zmm
+0.0,92a,vbroadcastss,"zmm31,DWORD PTR [r14+0x124]",broadcast,zmm
+0.15,931,vfmadd231ps,"zmm12,zmm21,zmm31",fma,zmm
+0.22,937,vfmadd231ps,"zmm13,zmm22,zmm31",fma,zmm
+0.44,93d,vfmadd231ps,"zmm14,zmm23,zmm31",fma,zmm
+0.0,943,vbroadcastss,"zmm31,DWORD PTR [r14+0x164]",broadcast,zmm
+0.18,94a,vfmadd231ps,"zmm15,zmm21,zmm31",fma,zmm
+0.18,950,vfmadd231ps,"zmm16,zmm22,zmm31",fma,zmm
+0.22,956,vfmadd231ps,"zmm17,zmm23,zmm31",fma,zmm
+0.04,95c,vbroadcastss,"zmm31,DWORD PTR [r14+0x1a4]",broadcast,zmm
+0.15,963,vfmadd231ps,"zmm18,zmm21,zmm31",fma,zmm
+0.26,969,vfmadd231ps,"zmm19,zmm22,zmm31",fma,zmm
+0.18,96f,vfmadd231ps,"zmm20,zmm23,zmm31",fma,zmm
+0.0,975,vmovups,"zmm21,ZMMWORD PTR [r15+rbp*1-0x180]",vec_load,zmm
+0.11,97d,vmovups,"zmm22,ZMMWORD PTR [r15+0x4280]",vec_load,zmm
+0.51,987,vmovups,"zmm23,ZMMWORD PTR [r15+0x8280]",vec_load,zmm
+0.22,991,vbroadcastss,"zmm31,DWORD PTR [r14+0x28]",broadcast,zmm
+0.11,998,vfmadd231ps,"zmm0,zmm21,zmm31",fma,zmm
+0.07,99e,vfmadd231ps,"zmm1,zmm22,zmm31",fma,zmm
+0.33,9a4,vfmadd231ps,"zmm2,zmm23,zmm31",fma,zmm
+0.26,9aa,vbroadcastss,"zmm31,DWORD PTR [r14+0x68]",broadcast,zmm
+0.07,9b1,vfmadd231ps,"zmm3,zmm21,zmm31",fma,zmm
+0.18,9b7,vfmadd231ps,"zmm4,zmm22,zmm31",fma,zmm
+0.15,9bd,vfmadd231ps,"zmm5,zmm23,zmm31",fma,zmm
+0.18,9c3,vbroadcastss,"zmm31,DWORD PTR [r14+0xa8]",broadcast,zmm
+0.07,9ca,vfmadd231ps,"zmm6,zmm21,zmm31",fma,zmm
+0.29,9d0,vfmadd231ps,"zmm7,zmm22,zmm31",fma,zmm
+0.18,9d6,vfmadd231ps,"zmm8,zmm23,zmm31",fma,zmm
+0.04,9dc,vbroadcastss,"zmm31,DWORD PTR [r14+0xe8]",broadcast,zmm
+0.11,9e3,vfmadd231ps,"zmm9,zmm21,zmm31",fma,zmm
+0.26,9e9,vfmadd231ps,"zmm10,zmm22,zmm31",fma,zmm
+0.66,9ef,vfmadd231ps,"zmm11,zmm23,zmm31",fma,zmm
+0.0,9f5,vbroadcastss,"zmm31,DWORD PTR [r14+0x128]",broadcast,zmm
+0.11,9fc,vfmadd231ps,"zmm12,zmm21,zmm31",fma,zmm
+0.26,a02,vfmadd231ps,"zmm13,zmm22,zmm31",fma,zmm
+0.37,a08,vfmadd231ps,"zmm14,zmm23,zmm31",fma,zmm
+0.04,a0e,vbroadcastss,"zmm31,DWORD PTR [r14+0x168]",broadcast,zmm
+0.29,a15,vfmadd231ps,"zmm15,zmm21,zmm31",fma,zmm
+0.26,a1b,vfmadd231ps,"zmm16,zmm22,zmm31",fma,zmm
+0.37,a21,vfmadd231ps,"zmm17,zmm23,zmm31",fma,zmm
+0.0,a27,vbroadcastss,"zmm31,DWORD PTR [r14+0x1a8]",broadcast,zmm
+0.04,a2e,vfmadd231ps,"zmm18,zmm21,zmm31",fma,zmm
+0.4,a34,vfmadd231ps,"zmm19,zmm22,zmm31",fma,zmm
+0.11,a3a,vfmadd231ps,"zmm20,zmm23,zmm31",fma,zmm
+0.04,a40,vmovups,"zmm21,ZMMWORD PTR [r15+rbp*1-0x140]",vec_load,zmm
+0.04,a48,vmovups,"zmm22,ZMMWORD PTR [r15+0x42c0]",vec_load,zmm
+0.22,a52,vmovups,"zmm23,ZMMWORD PTR [r15+0x82c0]",vec_load,zmm
+0.29,a5c,vbroadcastss,"zmm31,DWORD PTR [r14+0x2c]",broadcast,zmm
+0.18,a63,vfmadd231ps,"zmm0,zmm21,zmm31",fma,zmm
+0.26,a69,vfmadd231ps,"zmm1,zmm22,zmm31",fma,zmm
+0.11,a6f,vfmadd231ps,"zmm2,zmm23,zmm31",fma,zmm
+0.11,a75,vbroadcastss,"zmm31,DWORD PTR [r14+0x6c]",broadcast,zmm
+0.15,a7c,vfmadd231ps,"zmm3,zmm21,zmm31",fma,zmm
+0.26,a82,vfmadd231ps,"zmm4,zmm22,zmm31",fma,zmm
+0.29,a88,vfmadd231ps,"zmm5,zmm23,zmm31",fma,zmm
+0.04,a8e,vbroadcastss,"zmm31,DWORD PTR [r14+0xac]",broadcast,zmm
+0.0,a95,vfmadd231ps,"zmm6,zmm21,zmm31",fma,zmm
+0.29,a9b,vfmadd231ps,"zmm7,zmm22,zmm31",fma,zmm
+0.33,aa1,vfmadd231ps,"zmm8,zmm23,zmm31",fma,zmm
+0.07,aa7,vbroadcastss,"zmm31,DWORD PTR [r14+0xec]",broadcast,zmm
+0.15,aae,vfmadd231ps,"zmm9,zmm21,zmm31",fma,zmm
+0.18,ab4,vfmadd231ps,"zmm10,zmm22,zmm31",fma,zmm
+0.4,aba,vfmadd231ps,"zmm11,zmm23,zmm31",fma,zmm
+0.11,ac0,vbroadcastss,"zmm31,DWORD PTR [r14+0x12c]",broadcast,zmm
+0.07,ac7,vfmadd231ps,"zmm12,zmm21,zmm31",fma,zmm
+0.15,acd,vfmadd231ps,"zmm13,zmm22,zmm31",fma,zmm
+0.26,ad3,vfmadd231ps,"zmm14,zmm23,zmm31",fma,zmm
+0.04,ad9,vbroadcastss,"zmm31,DWORD PTR [r14+0x16c]",broadcast,zmm
+0.22,ae0,vfmadd231ps,"zmm15,zmm21,zmm31",fma,zmm
+0.37,ae6,vfmadd231ps,"zmm16,zmm22,zmm31",fma,zmm
+0.26,aec,vfmadd231ps,"zmm17,zmm23,zmm31",fma,zmm
+0.0,af2,vbroadcastss,"zmm31,DWORD PTR [r14+0x1ac]",broadcast,zmm
+0.11,af9,vfmadd231ps,"zmm18,zmm21,zmm31",fma,zmm
+0.33,aff,vfmadd231ps,"zmm19,zmm22,zmm31",fma,zmm
+0.18,b05,vfmadd231ps,"zmm20,zmm23,zmm31",fma,zmm
+0.04,b0b,vmovups,"zmm21,ZMMWORD PTR [r15+rbp*1-0x100]",vec_load,zmm
+0.0,b13,vmovups,"zmm22,ZMMWORD PTR [r15+0x4300]",vec_load,zmm
+0.33,b1d,vmovups,"zmm23,ZMMWORD PTR [r15+0x8300]",vec_load,zmm
+0.04,b27,vbroadcastss,"zmm31,DWORD PTR [r14+0x30]",broadcast,zmm
+0.11,b2e,vfmadd231ps,"zmm0,zmm21,zmm31",fma,zmm
+0.15,b34,vfmadd231ps,"zmm1,zmm22,zmm31",fma,zmm
+0.26,b3a,vfmadd231ps,"zmm2,zmm23,zmm31",fma,zmm
+0.11,b40,vbroadcastss,"zmm31,DWORD PTR [r14+0x70]",broadcast,zmm
+0.07,b47,vfmadd231ps,"zmm3,zmm21,zmm31",fma,zmm
+0.15,b4d,vfmadd231ps,"zmm4,zmm22,zmm31",fma,zmm
+0.37,b53,vfmadd231ps,"zmm5,zmm23,zmm31",fma,zmm
+0.07,b59,vbroadcastss,"zmm31,DWORD PTR [r14+0xb0]",broadcast,zmm
+0.15,b60,vfmadd231ps,"zmm6,zmm21,zmm31",fma,zmm
+0.15,b66,vfmadd231ps,"zmm7,zmm22,zmm31",fma,zmm
+0.55,b6c,vfmadd231ps,"zmm8,zmm23,zmm31",fma,zmm
+0.04,b72,vbroadcastss,"zmm31,DWORD PTR [r14+0xf0]",broadcast,zmm
+0.15,b79,vfmadd231ps,"zmm9,zmm21,zmm31",fma,zmm
+0.11,b7f,vfmadd231ps,"zmm10,zmm22,zmm31",fma,zmm
+0.29,b85,vfmadd231ps,"zmm11,zmm23,zmm31",fma,zmm
+0.04,b8b,vbroadcastss,"zmm31,DWORD PTR [r14+0x130]",broadcast,zmm
+0.11,b92,vfmadd231ps,"zmm12,zmm21,zmm31",fma,zmm
+0.18,b98,vfmadd231ps,"zmm13,zmm22,zmm31",fma,zmm
+0.33,b9e,vfmadd231ps,"zmm14,zmm23,zmm31",fma,zmm
+0.07,ba4,vbroadcastss,"zmm31,DWORD PTR [r14+0x170]",broadcast,zmm
+0.04,bab,vfmadd231ps,"zmm15,zmm21,zmm31",fma,zmm
+0.33,bb1,vfmadd231ps,"zmm16,zmm22,zmm31",fma,zmm
+0.18,bb7,vfmadd231ps,"zmm17,zmm23,zmm31",fma,zmm
+0.0,bbd,vbroadcastss,"zmm31,DWORD PTR [r14+0x1b0]",broadcast,zmm
+0.18,bc4,vfmadd231ps,"zmm18,zmm21,zmm31",fma,zmm
+0.18,bca,vfmadd231ps,"zmm19,zmm22,zmm31",fma,zmm
+0.22,bd0,vfmadd231ps,"zmm20,zmm23,zmm31",fma,zmm
+0.0,bd6,vmovups,"zmm21,ZMMWORD PTR [r15+rbp*1-0xc0]",vec_load,zmm
+0.15,bde,vmovups,"zmm22,ZMMWORD PTR [r15+0x4340]",vec_load,zmm
+0.15,be8,vmovups,"zmm23,ZMMWORD PTR [r15+0x8340]",vec_load,zmm
+0.22,bf2,vbroadcastss,"zmm31,DWORD PTR [r14+0x34]",broadcast,zmm
+0.18,bf9,vfmadd231ps,"zmm0,zmm21,zmm31",fma,zmm
+0.18,bff,vfmadd231ps,"zmm1,zmm22,zmm31",fma,zmm
+0.18,c05,vfmadd231ps,"zmm2,zmm23,zmm31",fma,zmm
+0.15,c0b,vbroadcastss,"zmm31,DWORD PTR [r14+0x74]",broadcast,zmm
+0.11,c12,vfmadd231ps,"zmm3,zmm21,zmm31",fma,zmm
+0.18,c18,vfmadd231ps,"zmm4,zmm22,zmm31",fma,zmm
+0.26,c1e,vfmadd231ps,"zmm5,zmm23,zmm31",fma,zmm
+0.04,c24,vbroadcastss,"zmm31,DWORD PTR [r14+0xb4]",broadcast,zmm
+0.11,c2b,vfmadd231ps,"zmm6,zmm21,zmm31",fma,zmm
+0.04,c31,vfmadd231ps,"zmm7,zmm22,zmm31",fma,zmm
+0.29,c37,vfmadd231ps,"zmm8,zmm23,zmm31",fma,zmm
+0.0,c3d,vbroadcastss,"zmm31,DWORD PTR [r14+0xf4]",broadcast,zmm
+0.11,c44,vfmadd231ps,"zmm9,zmm21,zmm31",fma,zmm
+0.29,c4a,vfmadd231ps,"zmm10,zmm22,zmm31",fma,zmm
+0.29,c50,vfmadd231ps,"zmm11,zmm23,zmm31",fma,zmm
+0.0,c56,vbroadcastss,"zmm31,DWORD PTR [r14+0x134]",broadcast,zmm
+0.15,c5d,vfmadd231ps,"zmm12,zmm21,zmm31",fma,zmm
+0.26,c63,vfmadd231ps,"zmm13,zmm22,zmm31",fma,zmm
+0.26,c69,vfmadd231ps,"zmm14,zmm23,zmm31",fma,zmm
+0.0,c6f,vbroadcastss,"zmm31,DWORD PTR [r14+0x174]",broadcast,zmm
+0.15,c76,vfmadd231ps,"zmm15,zmm21,zmm31",fma,zmm
+0.15,c7c,vfmadd231ps,"zmm16,zmm22,zmm31",fma,zmm
+0.26,c82,vfmadd231ps,"zmm17,zmm23,zmm31",fma,zmm
+0.0,c88,vbroadcastss,"zmm31,DWORD PTR [r14+0x1b4]",broadcast,zmm
+0.15,c8f,vfmadd231ps,"zmm18,zmm21,zmm31",fma,zmm
+0.29,c95,vfmadd231ps,"zmm19,zmm22,zmm31",fma,zmm
+0.11,c9b,vfmadd231ps,"zmm20,zmm23,zmm31",fma,zmm
+0.0,ca1,vmovups,"zmm21,ZMMWORD PTR [r15+rbp*1-0x80]",vec_load,zmm
+0.26,ca9,vmovups,"zmm22,ZMMWORD PTR [r15+0x4380]",vec_load,zmm
+0.04,cb3,vmovups,"zmm23,ZMMWORD PTR [r15+0x8380]",vec_load,zmm
+0.26,cbd,vbroadcastss,"zmm31,DWORD PTR [r14+0x38]",broadcast,zmm
+0.15,cc4,vfmadd231ps,"zmm0,zmm21,zmm31",fma,zmm
+0.15,cca,vfmadd231ps,"zmm1,zmm22,zmm31",fma,zmm
+0.26,cd0,vfmadd231ps,"zmm2,zmm23,zmm31",fma,zmm
+0.18,cd6,vbroadcastss,"zmm31,DWORD PTR [r14+0x78]",broadcast,zmm
+0.15,cdd,vfmadd231ps,"zmm3,zmm21,zmm31",fma,zmm
+0.26,ce3,vfmadd231ps,"zmm4,zmm22,zmm31",fma,zmm
+0.22,ce9,vfmadd231ps,"zmm5,zmm23,zmm31",fma,zmm
+0.11,cef,vbroadcastss,"zmm31,DWORD PTR [r14+0xb8]",broadcast,zmm
+0.07,cf6,vfmadd231ps,"zmm6,zmm21,zmm31",fma,zmm
+0.15,cfc,vfmadd231ps,"zmm7,zmm22,zmm31",fma,zmm
+0.4,d02,vfmadd231ps,"zmm8,zmm23,zmm31",fma,zmm
+0.07,d08,vbroadcastss,"zmm31,DWORD PTR [r14+0xf8]",broadcast,zmm
+0.18,d0f,vfmadd231ps,"zmm9,zmm21,zmm31",fma,zmm
+0.11,d15,vfmadd231ps,"zmm10,zmm22,zmm31",fma,zmm
+0.15,d1b,vfmadd231ps,"zmm11,zmm23,zmm31",fma,zmm
+0.0,d21,vbroadcastss,"zmm31,DWORD PTR [r14+0x138]",broadcast,zmm
+0.11,d28,vfmadd231ps,"zmm12,zmm21,zmm31",fma,zmm
+0.29,d2e,vfmadd231ps,"zmm13,zmm22,zmm31",fma,zmm
+0.48,d34,vfmadd231ps,"zmm14,zmm23,zmm31",fma,zmm
+0.0,d3a,vbroadcastss,"zmm31,DWORD PTR [r14+0x178]",broadcast,zmm
+0.26,d41,vfmadd231ps,"zmm15,zmm21,zmm31",fma,zmm
+0.26,d47,vfmadd231ps,"zmm16,zmm22,zmm31",fma,zmm
+0.18,d4d,vfmadd231ps,"zmm17,zmm23,zmm31",fma,zmm
+0.0,d53,vbroadcastss,"zmm31,DWORD PTR [r14+0x1b8]",broadcast,zmm
+0.04,d5a,vfmadd231ps,"zmm18,zmm21,zmm31",fma,zmm
+0.29,d60,vfmadd231ps,"zmm19,zmm22,zmm31",fma,zmm
+0.18,d66,vfmadd231ps,"zmm20,zmm23,zmm31",fma,zmm
+0.0,d6c,vmovups,"zmm21,ZMMWORD PTR [r15+rbp*1-0x40]",vec_load,zmm
+0.22,d74,vmovups,"zmm22,ZMMWORD PTR [r15+0x43c0]",vec_load,zmm
+0.26,d7e,vmovups,"zmm23,ZMMWORD PTR [r15+0x83c0]",vec_load,zmm
+0.18,d88,vbroadcastss,"zmm31,DWORD PTR [r14+0x3c]",broadcast,zmm
+0.04,d8f,vfmadd231ps,"zmm0,zmm21,zmm31",fma,zmm
+0.04,d95,vfmadd231ps,"zmm1,zmm22,zmm31",fma,zmm
+0.18,d9b,vfmadd231ps,"zmm2,zmm23,zmm31",fma,zmm
+0.11,da1,vbroadcastss,"zmm31,DWORD PTR [r14+0x7c]",broadcast,zmm
+0.04,da8,vfmadd231ps,"zmm3,zmm21,zmm31",fma,zmm
+0.29,dae,vfmadd231ps,"zmm4,zmm22,zmm31",fma,zmm
+0.15,db4,vfmadd231ps,"zmm5,zmm23,zmm31",fma,zmm
+0.04,dba,vbroadcastss,"zmm31,DWORD PTR [r14+0xbc]",broadcast,zmm
+0.04,dc1,vfmadd231ps,"zmm6,zmm21,zmm31",fma,zmm
+0.37,dc7,vfmadd231ps,"zmm7,zmm22,zmm31",fma,zmm
+0.22,dcd,vfmadd231ps,"zmm8,zmm23,zmm31",fma,zmm
+0.04,dd3,vbroadcastss,"zmm31,DWORD PTR [r14+0xfc]",broadcast,zmm
+0.15,dda,vfmadd231ps,"zmm9,zmm21,zmm31",fma,zmm
+0.26,de0,vfmadd231ps,"zmm10,zmm22,zmm31",fma,zmm
+0.48,de6,vfmadd231ps,"zmm11,zmm23,zmm31",fma,zmm
+0.0,dec,vbroadcastss,"zmm31,DWORD PTR [r14+0x13c]",broadcast,zmm
+0.07,df3,vfmadd231ps,"zmm12,zmm21,zmm31",fma,zmm
+0.26,df9,vfmadd231ps,"zmm13,zmm22,zmm31",fma,zmm
+0.33,dff,vfmadd231ps,"zmm14,zmm23,zmm31",fma,zmm
+0.0,e05,vbroadcastss,"zmm31,DWORD PTR [r14+0x17c]",broadcast,zmm
+0.29,e0c,vfmadd231ps,"zmm15,zmm21,zmm31",fma,zmm
+0.22,e12,vfmadd231ps,"zmm16,zmm22,zmm31",fma,zmm
+0.48,e18,vfmadd231ps,"zmm17,zmm23,zmm31",fma,zmm
+0.0,e1e,vbroadcastss,"zmm31,DWORD PTR [r14+0x1bc]",broadcast,zmm
+0.04,e25,vfmadd231ps,"zmm18,zmm21,zmm31",fma,zmm
+0.22,e2b,vfmadd231ps,"zmm19,zmm22,zmm31",fma,zmm
+0.29,e31,vfmadd231ps,"zmm20,zmm23,zmm31",fma,zmm
+0.0,e37,add,"r14,0xc400",int/addr,
+0.04,e3e,add,"r15,0x400",int/addr,
+0.04,e45,sub,"rdi,0x10",int/addr,
+0.59,e49,jg,191 <jit_avx512_common_1x1_conv_kernel_t.11+0x111>,branch,
+0.04,e4f,vmovups,"zmm21,ZMMWORD PTR [r15]",vec_load,zmm
+0.0,e55,vmovups,"zmm22,ZMMWORD PTR [r15+0x4000]",vec_load,zmm
+0.04,e5f,vmovups,"zmm23,ZMMWORD PTR [r15+0x8000]",vec_load,zmm
+0.07,e69,vbroadcastss,"zmm31,DWORD PTR [r14]",broadcast,zmm
+0.0,e6f,vfmadd231ps,"zmm0,zmm21,zmm31",fma,zmm
+0.0,e75,vfmadd231ps,"zmm1,zmm22,zmm31",fma,zmm
+0.0,e7b,vfmadd231ps,"zmm2,zmm23,zmm31",fma,zmm
+0.04,e81,vbroadcastss,"zmm31,DWORD PTR [r14+0x40]",broadcast,zmm
+0.07,e88,vfmadd231ps,"zmm3,zmm21,zmm31",fma,zmm
+0.04,e8e,vfmadd231ps,"zmm4,zmm22,zmm31",fma,zmm
+0.0,e94,vfmadd231ps,"zmm5,zmm23,zmm31",fma,zmm
+0.0,e9a,vbroadcastss,"zmm31,DWORD PTR [r14+0x80]",broadcast,zmm
+0.04,ea1,vfmadd231ps,"zmm6,zmm21,zmm31",fma,zmm
+0.0,ea7,vfmadd231ps,"zmm7,zmm22,zmm31",fma,zmm
+0.0,ead,vfmadd231ps,"zmm8,zmm23,zmm31",fma,zmm
+0.0,eb3,vbroadcastss,"zmm31,DWORD PTR [r14+0xc0]",broadcast,zmm
+0.0,eba,vfmadd231ps,"zmm9,zmm21,zmm31",fma,zmm
+0.04,ec0,vfmadd231ps,"zmm10,zmm22,zmm31",fma,zmm
+0.0,ec6,vfmadd231ps,"zmm11,zmm23,zmm31",fma,zmm
+0.0,ecc,vbroadcastss,"zmm31,DWORD PTR [r14+0x100]",broadcast,zmm
+0.0,ed3,vfmadd231ps,"zmm12,zmm21,zmm31",fma,zmm
+0.0,ed9,vfmadd231ps,"zmm13,zmm22,zmm31",fma,zmm
+0.0,edf,vfmadd231ps,"zmm14,zmm23,zmm31",fma,zmm
+0.0,ee5,vbroadcastss,"zmm31,DWORD PTR [r14+0x140]",broadcast,zmm
+0.0,eec,vfmadd231ps,"zmm15,zmm21,zmm31",fma,zmm
+0.04,ef2,vfmadd231ps,"zmm16,zmm22,zmm31",fma,zmm
+0.0,ef8,vfmadd231ps,"zmm17,zmm23,zmm31",fma,zmm
+0.0,efe,vbroadcastss,"zmm31,DWORD PTR [r14+0x180]",broadcast,zmm
+0.0,f05,vfmadd231ps,"zmm18,zmm21,zmm31",fma,zmm
+0.0,f0b,vfmadd231ps,"zmm19,zmm22,zmm31",fma,zmm
+0.0,f11,vfmadd231ps,"zmm20,zmm23,zmm31",fma,zmm
+0.0,f17,vmovups,"zmm21,ZMMWORD PTR [r15+0x40]",vec_load,zmm
+0.0,f1e,vmovups,"zmm22,ZMMWORD PTR [r15+0x4040]",vec_load,zmm
+0.0,f28,vmovups,"zmm23,ZMMWORD PTR [r15+0x8040]",vec_load,zmm
+0.04,f32,vbroadcastss,"zmm31,DWORD PTR [r14+0x4]",broadcast,zmm
+0.0,f39,vfmadd231ps,"zmm0,zmm21,zmm31",fma,zmm
+0.0,f3f,vfmadd231ps,"zmm1,zmm22,zmm31",fma,zmm
+0.04,f45,vfmadd231ps,"zmm2,zmm23,zmm31",fma,zmm
+0.0,f4b,vbroadcastss,"zmm31,DWORD PTR [r14+0x44]",broadcast,zmm
+0.0,f52,vfmadd231ps,"zmm3,zmm21,zmm31",fma,zmm
+0.0,f58,vfmadd231ps,"zmm4,zmm22,zmm31",fma,zmm
+0.0,f5e,vfmadd231ps,"zmm5,zmm23,zmm31",fma,zmm
+0.0,f64,vbroadcastss,"zmm31,DWORD PTR [r14+0x84]",broadcast,zmm
+0.04,f6b,vfmadd231ps,"zmm6,zmm21,zmm31",fma,zmm
+0.04,f71,vfmadd231ps,"zmm7,zmm22,zmm31",fma,zmm
+0.0,f77,vfmadd231ps,"zmm8,zmm23,zmm31",fma,zmm
+0.0,f7d,vbroadcastss,"zmm31,DWORD PTR [r14+0xc4]",broadcast,zmm
+0.04,f84,vfmadd231ps,"zmm9,zmm21,zmm31",fma,zmm
+0.0,f8a,vfmadd231ps,"zmm10,zmm22,zmm31",fma,zmm
+0.04,f90,vfmadd231ps,"zmm11,zmm23,zmm31",fma,zmm
+0.0,f96,vbroadcastss,"zmm31,DWORD PTR [r14+0x104]",broadcast,zmm
+0.07,f9d,vfmadd231ps,"zmm12,zmm21,zmm31",fma,zmm
+0.0,fa3,vfmadd231ps,"zmm13,zmm22,zmm31",fma,zmm
+0.0,fa9,vfmadd231ps,"zmm14,zmm23,zmm31",fma,zmm
+0.0,faf,vbroadcastss,"zmm31,DWORD PTR [r14+0x144]",broadcast,zmm
+0.0,fb6,vfmadd231ps,"zmm15,zmm21,zmm31",fma,zmm
+0.04,fbc,vfmadd231ps,"zmm16,zmm22,zmm31",fma,zmm
+0.0,fc2,vfmadd231ps,"zmm17,zmm23,zmm31",fma,zmm
+0.0,fc8,vbroadcastss,"zmm31,DWORD PTR [r14+0x184]",broadcast,zmm
+0.04,fcf,vfmadd231ps,"zmm18,zmm21,zmm31",fma,zmm
+0.0,fd5,vfmadd231ps,"zmm19,zmm22,zmm31",fma,zmm
+0.0,fdb,vfmadd231ps,"zmm20,zmm23,zmm31",fma,zmm
+0.0,fe1,vmovups,"zmm21,ZMMWORD PTR [r15+0x80]",vec_load,zmm
+0.0,fe8,vmovups,"zmm22,ZMMWORD PTR [r15+0x4080]",vec_load,zmm
+0.0,ff2,vmovups,"zmm23,ZMMWORD PTR [r15+0x8080]",vec_load,zmm
+0.04,ffc,vbroadcastss,"zmm31,DWORD PTR [r14+0x8]",broadcast,zmm
+0.0,1003,vfmadd231ps,"zmm0,zmm21,zmm31",fma,zmm
+0.0,1009,vfmadd231ps,"zmm1,zmm22,zmm31",fma,zmm
+0.0,100f,vfmadd231ps,"zmm2,zmm23,zmm31",fma,zmm
+0.0,1015,vbroadcastss,"zmm31,DWORD PTR [r14+0x48]",broadcast,zmm
+0.0,101c,vfmadd231ps,"zmm3,zmm21,zmm31",fma,zmm
+0.04,1022,vfmadd231ps,"zmm4,zmm22,zmm31",fma,zmm
+0.07,1028,vfmadd231ps,"zmm5,zmm23,zmm31",fma,zmm
+0.0,102e,vbroadcastss,"zmm31,DWORD PTR [r14+0x88]",broadcast,zmm
+0.04,1035,vfmadd231ps,"zmm6,zmm21,zmm31",fma,zmm
+0.04,103b,vfmadd231ps,"zmm7,zmm22,zmm31",fma,zmm
+0.0,1041,vfmadd231ps,"zmm8,zmm23,zmm31",fma,zmm
+0.0,1047,vbroadcastss,"zmm31,DWORD PTR [r14+0xc8]",broadcast,zmm
+0.0,104e,vfmadd231ps,"zmm9,zmm21,zmm31",fma,zmm
+0.0,1054,vfmadd231ps,"zmm10,zmm22,zmm31",fma,zmm
+0.0,105a,vfmadd231ps,"zmm11,zmm23,zmm31",fma,zmm
+0.0,1060,vbroadcastss,"zmm31,DWORD PTR [r14+0x108]",broadcast,zmm
+0.0,1067,vfmadd231ps,"zmm12,zmm21,zmm31",fma,zmm
+0.04,106d,vfmadd231ps,"zmm13,zmm22,zmm31",fma,zmm
+0.0,1073,vfmadd231ps,"zmm14,zmm23,zmm31",fma,zmm
+0.0,1079,vbroadcastss,"zmm31,DWORD PTR [r14+0x148]",broadcast,zmm
+0.07,1080,vfmadd231ps,"zmm15,zmm21,zmm31",fma,zmm
+0.04,1086,vfmadd231ps,"zmm16,zmm22,zmm31",fma,zmm
+0.0,108c,vfmadd231ps,"zmm17,zmm23,zmm31",fma,zmm
+0.0,1092,vbroadcastss,"zmm31,DWORD PTR [r14+0x188]",broadcast,zmm
+0.0,1099,vfmadd231ps,"zmm18,zmm21,zmm31",fma,zmm
+0.0,109f,vfmadd231ps,"zmm19,zmm22,zmm31",fma,zmm
+0.0,10a5,vfmadd231ps,"zmm20,zmm23,zmm31",fma,zmm
+0.0,10ab,vmovups,"zmm21,ZMMWORD PTR [r15+0xc0]",vec_load,zmm
+0.04,10b2,vmovups,"zmm22,ZMMWORD PTR [r15+0x40c0]",vec_load,zmm
+0.04,10bc,vmovups,"zmm23,ZMMWORD PTR [r15+0x80c0]",vec_load,zmm
+0.0,10c6,vbroadcastss,"zmm31,DWORD PTR [r14+0xc]",broadcast,zmm
+0.04,10cd,vfmadd231ps,"zmm0,zmm21,zmm31",fma,zmm
+0.0,10d3,vfmadd231ps,"zmm1,zmm22,zmm31",fma,zmm
+0.0,10d9,vfmadd231ps,"zmm2,zmm23,zmm31",fma,zmm
+0.0,10df,vbroadcastss,"zmm31,DWORD PTR [r14+0x4c]",broadcast,zmm
+0.0,10e6,vfmadd231ps,"zmm3,zmm21,zmm31",fma,zmm
+0.04,10ec,vfmadd231ps,"zmm4,zmm22,zmm31",fma,zmm
+0.0,10f2,vfmadd231ps,"zmm5,zmm23,zmm31",fma,zmm
+0.0,10f8,vbroadcastss,"zmm31,DWORD PTR [r14+0x8c]",broadcast,zmm
+0.0,10ff,vfmadd231ps,"zmm6,zmm21,zmm31",fma,zmm
+0.0,1105,vfmadd231ps,"zmm7,zmm22,zmm31",fma,zmm
+0.04,110b,vfmadd231ps,"zmm8,zmm23,zmm31",fma,zmm
+0.0,1111,vbroadcastss,"zmm31,DWORD PTR [r14+0xcc]",broadcast,zmm
+0.04,1118,vfmadd231ps,"zmm9,zmm21,zmm31",fma,zmm
+0.04,111e,vfmadd231ps,"zmm10,zmm22,zmm31",fma,zmm
+0.04,1124,vfmadd231ps,"zmm11,zmm23,zmm31",fma,zmm
+0.0,112a,vbroadcastss,"zmm31,DWORD PTR [r14+0x10c]",broadcast,zmm
+0.0,1131,vfmadd231ps,"zmm12,zmm21,zmm31",fma,zmm
+0.04,1137,vfmadd231ps,"zmm13,zmm22,zmm31",fma,zmm
+0.0,113d,vfmadd231ps,"zmm14,zmm23,zmm31",fma,zmm
+0.0,1143,vbroadcastss,"zmm31,DWORD PTR [r14+0x14c]",broadcast,zmm
+0.0,114a,vfmadd231ps,"zmm15,zmm21,zmm31",fma,zmm
+0.0,1150,vfmadd231ps,"zmm16,zmm22,zmm31",fma,zmm
+0.0,1156,vfmadd231ps,"zmm17,zmm23,zmm31",fma,zmm
+0.0,115c,vbroadcastss,"zmm31,DWORD PTR [r14+0x18c]",broadcast,zmm
+0.0,1163,vfmadd231ps,"zmm18,zmm21,zmm31",fma,zmm
+0.04,1169,vfmadd231ps,"zmm19,zmm22,zmm31",fma,zmm
+0.0,116f,vfmadd231ps,"zmm20,zmm23,zmm31",fma,zmm
+0.0,1175,vmovups,"zmm21,ZMMWORD PTR [r15+0x100]",vec_load,zmm
+0.0,117c,vmovups,"zmm22,ZMMWORD PTR [r15+0x4100]",vec_load,zmm
+0.0,1186,vmovups,"zmm23,ZMMWORD PTR [r15+0x8100]",vec_load,zmm
+0.04,1190,vbroadcastss,"zmm31,DWORD PTR [r14+0x10]",broadcast,zmm
+0.0,1197,vfmadd231ps,"zmm0,zmm21,zmm31",fma,zmm
+0.0,119d,vfmadd231ps,"zmm1,zmm22,zmm31",fma,zmm
+0.0,11a3,vfmadd231ps,"zmm2,zmm23,zmm31",fma,zmm
+0.0,11a9,vbroadcastss,"zmm31,DWORD PTR [r14+0x50]",broadcast,zmm
+0.0,11b0,vfmadd231ps,"zmm3,zmm21,zmm31",fma,zmm
+0.0,11b6,vfmadd231ps,"zmm4,zmm22,zmm31",fma,zmm
+0.04,11bc,vfmadd231ps,"zmm5,zmm23,zmm31",fma,zmm
+0.0,11c2,vbroadcastss,"zmm31,DWORD PTR [r14+0x90]",broadcast,zmm
+0.0,11c9,vfmadd231ps,"zmm6,zmm21,zmm31",fma,zmm
+0.0,11cf,vfmadd231ps,"zmm7,zmm22,zmm31",fma,zmm
+0.07,11d5,vfmadd231ps,"zmm8,zmm23,zmm31",fma,zmm
+0.04,11db,vbroadcastss,"zmm31,DWORD PTR [r14+0xd0]",broadcast,zmm
+0.0,11e2,vfmadd231ps,"zmm9,zmm21,zmm31",fma,zmm
+0.04,11e8,vfmadd231ps,"zmm10,zmm22,zmm31",fma,zmm
+0.04,11ee,vfmadd231ps,"zmm11,zmm23,zmm31",fma,zmm
+0.0,11f4,vbroadcastss,"zmm31,DWORD PTR [r14+0x110]",broadcast,zmm
+0.04,11fb,vfmadd231ps,"zmm12,zmm21,zmm31",fma,zmm
+0.0,1201,vfmadd231ps,"zmm13,zmm22,zmm31",fma,zmm
+0.0,1207,vfmadd231ps,"zmm14,zmm23,zmm31",fma,zmm
+0.0,120d,vbroadcastss,"zmm31,DWORD PTR [r14+0x150]",broadcast,zmm
+0.0,1214,vfmadd231ps,"zmm15,zmm21,zmm31",fma,zmm
+0.0,121a,vfmadd231ps,"zmm16,zmm22,zmm31",fma,zmm
+0.04,1220,vfmadd231ps,"zmm17,zmm23,zmm31",fma,zmm
+0.0,1226,vbroadcastss,"zmm31,DWORD PTR [r14+0x190]",broadcast,zmm
+0.04,122d,vfmadd231ps,"zmm18,zmm21,zmm31",fma,zmm
+0.04,1233,vfmadd231ps,"zmm19,zmm22,zmm31",fma,zmm
+0.0,1239,vfmadd231ps,"zmm20,zmm23,zmm31",fma,zmm
+0.0,123f,vmovups,"zmm21,ZMMWORD PTR [r15+0x140]",vec_load,zmm
+0.0,1246,vmovups,"zmm22,ZMMWORD PTR [r15+0x4140]",vec_load,zmm
+0.04,1250,vmovups,"zmm23,ZMMWORD PTR [r15+0x8140]",vec_load,zmm
+0.0,125a,vbroadcastss,"zmm31,DWORD PTR [r14+0x14]",broadcast,zmm
+0.0,1261,vfmadd231ps,"zmm0,zmm21,zmm31",fma,zmm
+0.04,1267,vfmadd231ps,"zmm1,zmm22,zmm31",fma,zmm
+0.0,126d,vfmadd231ps,"zmm2,zmm23,zmm31",fma,zmm
+0.04,1273,vbroadcastss,"zmm31,DWORD PTR [r14+0x54]",broadcast,zmm
+0.04,127a,vfmadd231ps,"zmm3,zmm21,zmm31",fma,zmm
+0.04,1280,vfmadd231ps,"zmm4,zmm22,zmm31",fma,zmm
+0.0,1286,vfmadd231ps,"zmm5,zmm23,zmm31",fma,zmm
+0.0,128c,vbroadcastss,"zmm31,DWORD PTR [r14+0x94]",broadcast,zmm
+0.0,1293,vfmadd231ps,"zmm6,zmm21,zmm31",fma,zmm
+0.0,1299,vfmadd231ps,"zmm7,zmm22,zmm31",fma,zmm
+0.0,129f,vfmadd231ps,"zmm8,zmm23,zmm31",fma,zmm
+0.0,12a5,vbroadcastss,"zmm31,DWORD PTR [r14+0xd4]",broadcast,zmm
+0.0,12ac,vfmadd231ps,"zmm9,zmm21,zmm31",fma,zmm
+0.04,12b2,vfmadd231ps,"zmm10,zmm22,zmm31",fma,zmm
+0.04,12b8,vfmadd231ps,"zmm11,zmm23,zmm31",fma,zmm
+0.0,12be,vbroadcastss,"zmm31,DWORD PTR [r14+0x114]",broadcast,zmm
+0.04,12c5,vfmadd231ps,"zmm12,zmm21,zmm31",fma,zmm
+0.04,12cb,vfmadd231ps,"zmm13,zmm22,zmm31",fma,zmm
+0.07,12d1,vfmadd231ps,"zmm14,zmm23,zmm31",fma,zmm
+0.0,12d7,vbroadcastss,"zmm31,DWORD PTR [r14+0x154]",broadcast,zmm
+0.0,12de,vfmadd231ps,"zmm15,zmm21,zmm31",fma,zmm
+0.04,12e4,vfmadd231ps,"zmm16,zmm22,zmm31",fma,zmm
+0.04,12ea,vfmadd231ps,"zmm17,zmm23,zmm31",fma,zmm
+0.04,12f0,vbroadcastss,"zmm31,DWORD PTR [r14+0x194]",broadcast,zmm
+0.0,12f7,vfmadd231ps,"zmm18,zmm21,zmm31",fma,zmm
+0.0,12fd,vfmadd231ps,"zmm19,zmm22,zmm31",fma,zmm
+0.0,1303,vfmadd231ps,"zmm20,zmm23,zmm31",fma,zmm
+0.0,1309,vmovups,"zmm21,ZMMWORD PTR [r15+0x180]",vec_load,zmm
+0.0,1310,vmovups,"zmm22,ZMMWORD PTR [r15+0x4180]",vec_load,zmm
+0.04,131a,vmovups,"zmm23,ZMMWORD PTR [r15+0x8180]",vec_load,zmm
+0.07,1324,vbroadcastss,"zmm31,DWORD PTR [r14+0x18]",broadcast,zmm
+0.0,132b,vfmadd231ps,"zmm0,zmm21,zmm31",fma,zmm
+0.0,1331,vfmadd231ps,"zmm1,zmm22,zmm31",fma,zmm
+0.0,1337,vfmadd231ps,"zmm2,zmm23,zmm31",fma,zmm
+0.0,133d,vbroadcastss,"zmm31,DWORD PTR [r14+0x58]",broadcast,zmm
+0.0,1344,vfmadd231ps,"zmm3,zmm21,zmm31",fma,zmm
+0.0,134a,vfmadd231ps,"zmm4,zmm22,zmm31",fma,zmm
+0.07,1350,vfmadd231ps,"zmm5,zmm23,zmm31",fma,zmm
+0.0,1356,vbroadcastss,"zmm31,DWORD PTR [r14+0x98]",broadcast,zmm
+0.0,135d,vfmadd231ps,"zmm6,zmm21,zmm31",fma,zmm
+0.04,1363,vfmadd231ps,"zmm7,zmm22,zmm31",fma,zmm
+0.0,1369,vfmadd231ps,"zmm8,zmm23,zmm31",fma,zmm
+0.0,136f,vbroadcastss,"zmm31,DWORD PTR [r14+0xd8]",broadcast,zmm
+0.0,1376,vfmadd231ps,"zmm9,zmm21,zmm31",fma,zmm
+0.0,137c,vfmadd231ps,"zmm10,zmm22,zmm31",fma,zmm
+0.11,1382,vfmadd231ps,"zmm11,zmm23,zmm31",fma,zmm
+0.0,1388,vbroadcastss,"zmm31,DWORD PTR [r14+0x118]",broadcast,zmm
+0.0,138f,vfmadd231ps,"zmm12,zmm21,zmm31",fma,zmm
+0.0,1395,vfmadd231ps,"zmm13,zmm22,zmm31",fma,zmm
+0.0,139b,vfmadd231ps,"zmm14,zmm23,zmm31",fma,zmm
+0.0,13a1,vbroadcastss,"zmm31,DWORD PTR [r14+0x158]",broadcast,zmm
+0.0,13a8,vfmadd231ps,"zmm15,zmm21,zmm31",fma,zmm
+0.0,13ae,vfmadd231ps,"zmm16,zmm22,zmm31",fma,zmm
+0.11,13b4,vfmadd231ps,"zmm17,zmm23,zmm31",fma,zmm
+0.0,13ba,vbroadcastss,"zmm31,DWORD PTR [r14+0x198]",broadcast,zmm
+0.0,13c1,vfmadd231ps,"zmm18,zmm21,zmm31",fma,zmm
+0.0,13c7,vfmadd231ps,"zmm19,zmm22,zmm31",fma,zmm
+0.04,13cd,vfmadd231ps,"zmm20,zmm23,zmm31",fma,zmm
+0.0,13d3,vmovups,"zmm21,ZMMWORD PTR [r15+0x1c0]",vec_load,zmm
+0.0,13da,vmovups,"zmm22,ZMMWORD PTR [r15+0x41c0]",vec_load,zmm
+0.0,13e4,vmovups,"zmm23,ZMMWORD PTR [r15+0x81c0]",vec_load,zmm
+0.0,13ee,vbroadcastss,"zmm31,DWORD PTR [r14+0x1c]",broadcast,zmm
+0.0,13f5,vfmadd231ps,"zmm0,zmm21,zmm31",fma,zmm
+0.0,13fb,vfmadd231ps,"zmm1,zmm22,zmm31",fma,zmm
+0.0,1401,vfmadd231ps,"zmm2,zmm23,zmm31",fma,zmm
+0.0,1407,vbroadcastss,"zmm31,DWORD PTR [r14+0x5c]",broadcast,zmm
+0.04,140e,vfmadd231ps,"zmm3,zmm21,zmm31",fma,zmm
+0.0,1414,vfmadd231ps,"zmm4,zmm22,zmm31",fma,zmm
+0.0,141a,vfmadd231ps,"zmm5,zmm23,zmm31",fma,zmm
+0.0,1420,vbroadcastss,"zmm31,DWORD PTR [r14+0x9c]",broadcast,zmm
+0.0,1427,vfmadd231ps,"zmm6,zmm21,zmm31",fma,zmm
+0.04,142d,vfmadd231ps,"zmm7,zmm22,zmm31",fma,zmm
+0.0,1433,vfmadd231ps,"zmm8,zmm23,zmm31",fma,zmm
+0.0,1439,vbroadcastss,"zmm31,DWORD PTR [r14+0xdc]",broadcast,zmm
+0.04,1440,vfmadd231ps,"zmm9,zmm21,zmm31",fma,zmm
+0.0,1446,vfmadd231ps,"zmm10,zmm22,zmm31",fma,zmm
+0.04,144c,vfmadd231ps,"zmm11,zmm23,zmm31",fma,zmm
+0.0,1452,vbroadcastss,"zmm31,DWORD PTR [r14+0x11c]",broadcast,zmm
+0.04,1459,vfmadd231ps,"zmm12,zmm21,zmm31",fma,zmm
+0.0,145f,vfmadd231ps,"zmm13,zmm22,zmm31",fma,zmm
+0.0,1465,vfmadd231ps,"zmm14,zmm23,zmm31",fma,zmm
+0.0,146b,vbroadcastss,"zmm31,DWORD PTR [r14+0x15c]",broadcast,zmm
+0.0,1472,vfmadd231ps,"zmm15,zmm21,zmm31",fma,zmm
+0.04,1478,vfmadd231ps,"zmm16,zmm22,zmm31",fma,zmm
+0.04,147e,vfmadd231ps,"zmm17,zmm23,zmm31",fma,zmm
+0.0,1484,vbroadcastss,"zmm31,DWORD PTR [r14+0x19c]",broadcast,zmm
+0.0,148b,vfmadd231ps,"zmm18,zmm21,zmm31",fma,zmm
+0.0,1491,vfmadd231ps,"zmm19,zmm22,zmm31",fma,zmm
+0.04,1497,vfmadd231ps,"zmm20,zmm23,zmm31",fma,zmm
+0.0,149d,vmovups,"zmm21,ZMMWORD PTR [r15+rbp*1-0x200]",vec_load,zmm
+0.0,14a5,vmovups,"zmm22,ZMMWORD PTR [r15+0x4200]",vec_load,zmm
+0.04,14af,vmovups,"zmm23,ZMMWORD PTR [r15+0x8200]",vec_load,zmm
+0.0,14b9,vbroadcastss,"zmm31,DWORD PTR [r14+0x20]",broadcast,zmm
+0.0,14c0,vfmadd231ps,"zmm0,zmm21,zmm31",fma,zmm
+0.0,14c6,vfmadd231ps,"zmm1,zmm22,zmm31",fma,zmm
+0.0,14cc,vfmadd231ps,"zmm2,zmm23,zmm31",fma,zmm
+0.0,14d2,vbroadcastss,"zmm31,DWORD PTR [r14+0x60]",broadcast,zmm
+0.0,14d9,vfmadd231ps,"zmm3,zmm21,zmm31",fma,zmm
+0.04,14df,vfmadd231ps,"zmm4,zmm22,zmm31",fma,zmm
+0.0,14e5,vfmadd231ps,"zmm5,zmm23,zmm31",fma,zmm
+0.0,14eb,vbroadcastss,"zmm31,DWORD PTR [r14+0xa0]",broadcast,zmm
+0.0,14f2,vfmadd231ps,"zmm6,zmm21,zmm31",fma,zmm
+0.0,14f8,vfmadd231ps,"zmm7,zmm22,zmm31",fma,zmm
+0.07,14fe,vfmadd231ps,"zmm8,zmm23,zmm31",fma,zmm
+0.0,1504,vbroadcastss,"zmm31,DWORD PTR [r14+0xe0]",broadcast,zmm
+0.07,150b,vfmadd231ps,"zmm9,zmm21,zmm31",fma,zmm
+0.0,1511,vfmadd231ps,"zmm10,zmm22,zmm31",fma,zmm
+0.04,1517,vfmadd231ps,"zmm11,zmm23,zmm31",fma,zmm
+0.0,151d,vbroadcastss,"zmm31,DWORD PTR [r14+0x120]",broadcast,zmm
+0.0,1524,vfmadd231ps,"zmm12,zmm21,zmm31",fma,zmm
+0.0,152a,vfmadd231ps,"zmm13,zmm22,zmm31",fma,zmm
+0.0,1530,vfmadd231ps,"zmm14,zmm23,zmm31",fma,zmm
+0.0,1536,vbroadcastss,"zmm31,DWORD PTR [r14+0x160]",broadcast,zmm
+0.0,153d,vfmadd231ps,"zmm15,zmm21,zmm31",fma,zmm
+0.0,1543,vfmadd231ps,"zmm16,zmm22,zmm31",fma,zmm
+0.0,1549,vfmadd231ps,"zmm17,zmm23,zmm31",fma,zmm
+0.0,154f,vbroadcastss,"zmm31,DWORD PTR [r14+0x1a0]",broadcast,zmm
+0.0,1556,vfmadd231ps,"zmm18,zmm21,zmm31",fma,zmm
+0.07,155c,vfmadd231ps,"zmm19,zmm22,zmm31",fma,zmm
+0.0,1562,vfmadd231ps,"zmm20,zmm23,zmm31",fma,zmm
+0.0,1568,vmovups,"zmm21,ZMMWORD PTR [r15+rbp*1-0x1c0]",vec_load,zmm
+0.04,1570,vmovups,"zmm22,ZMMWORD PTR [r15+0x4240]",vec_load,zmm
+0.0,157a,vmovups,"zmm23,ZMMWORD PTR [r15+0x8240]",vec_load,zmm
+0.0,1584,vbroadcastss,"zmm31,DWORD PTR [r14+0x24]",broadcast,zmm
+0.0,158b,vfmadd231ps,"zmm0,zmm21,zmm31",fma,zmm
+0.0,1591,vfmadd231ps,"zmm1,zmm22,zmm31",fma,zmm
+0.0,1597,vfmadd231ps,"zmm2,zmm23,zmm31",fma,zmm
+0.07,159d,vbroadcastss,"zmm31,DWORD PTR [r14+0x64]",broadcast,zmm
+0.0,15a4,vfmadd231ps,"zmm3,zmm21,zmm31",fma,zmm
+0.0,15aa,vfmadd231ps,"zmm4,zmm22,zmm31",fma,zmm
+0.04,15b0,vfmadd231ps,"zmm5,zmm23,zmm31",fma,zmm
+0.0,15b6,vbroadcastss,"zmm31,DWORD PTR [r14+0xa4]",broadcast,zmm
+0.04,15bd,vfmadd231ps,"zmm6,zmm21,zmm31",fma,zmm
+0.04,15c3,vfmadd231ps,"zmm7,zmm22,zmm31",fma,zmm
+0.04,15c9,vfmadd231ps,"zmm8,zmm23,zmm31",fma,zmm
+0.0,15cf,vbroadcastss,"zmm31,DWORD PTR [r14+0xe4]",broadcast,zmm
+0.04,15d6,vfmadd231ps,"zmm9,zmm21,zmm31",fma,zmm
+0.0,15dc,vfmadd231ps,"zmm10,zmm22,zmm31",fma,zmm
+0.04,15e2,vfmadd231ps,"zmm11,zmm23,zmm31",fma,zmm
+0.0,15e8,vbroadcastss,"zmm31,DWORD PTR [r14+0x124]",broadcast,zmm
+0.0,15ef,vfmadd231ps,"zmm12,zmm21,zmm31",fma,zmm
+0.04,15f5,vfmadd231ps,"zmm13,zmm22,zmm31",fma,zmm
+0.04,15fb,vfmadd231ps,"zmm14,zmm23,zmm31",fma,zmm
+0.0,1601,vbroadcastss,"zmm31,DWORD PTR [r14+0x164]",broadcast,zmm
+0.0,1608,vfmadd231ps,"zmm15,zmm21,zmm31",fma,zmm
+0.0,160e,vfmadd231ps,"zmm16,zmm22,zmm31",fma,zmm
+0.0,1614,vfmadd231ps,"zmm17,zmm23,zmm31",fma,zmm
+0.0,161a,vbroadcastss,"zmm31,DWORD PTR [r14+0x1a4]",broadcast,zmm
+0.0,1621,vfmadd231ps,"zmm18,zmm21,zmm31",fma,zmm
+0.0,1627,vfmadd231ps,"zmm19,zmm22,zmm31",fma,zmm
+0.0,162d,vfmadd231ps,"zmm20,zmm23,zmm31",fma,zmm
+0.0,1633,vmovups,"zmm21,ZMMWORD PTR [r15+rbp*1-0x180]",vec_load,zmm
+0.0,163b,vmovups,"zmm22,ZMMWORD PTR [r15+0x4280]",vec_load,zmm
+0.0,1645,vmovups,"zmm23,ZMMWORD PTR [r15+0x8280]",vec_load,zmm
+0.0,164f,vbroadcastss,"zmm31,DWORD PTR [r14+0x28]",broadcast,zmm
+0.0,1656,vfmadd231ps,"zmm0,zmm21,zmm31",fma,zmm
+0.0,165c,vfmadd231ps,"zmm1,zmm22,zmm31",fma,zmm
+0.0,1662,vfmadd231ps,"zmm2,zmm23,zmm31",fma,zmm
+0.0,1668,vbroadcastss,"zmm31,DWORD PTR [r14+0x68]",broadcast,zmm
+0.0,166f,vfmadd231ps,"zmm3,zmm21,zmm31",fma,zmm
+0.0,1675,vfmadd231ps,"zmm4,zmm22,zmm31",fma,zmm
+0.07,167b,vfmadd231ps,"zmm5,zmm23,zmm31",fma,zmm
+0.0,1681,vbroadcastss,"zmm31,DWORD PTR [r14+0xa8]",broadcast,zmm
+0.0,1688,vfmadd231ps,"zmm6,zmm21,zmm31",fma,zmm
+0.0,168e,vfmadd231ps,"zmm7,zmm22,zmm31",fma,zmm
+0.0,1694,vfmadd231ps,"zmm8,zmm23,zmm31",fma,zmm
+0.0,169a,vbroadcastss,"zmm31,DWORD PTR [r14+0xe8]",broadcast,zmm
+0.0,16a1,vfmadd231ps,"zmm9,zmm21,zmm31",fma,zmm
+0.0,16a7,vfmadd231ps,"zmm10,zmm22,zmm31",fma,zmm
+0.0,16ad,vfmadd231ps,"zmm11,zmm23,zmm31",fma,zmm
+0.0,16b3,vbroadcastss,"zmm31,DWORD PTR [r14+0x128]",broadcast,zmm
+0.0,16ba,vfmadd231ps,"zmm12,zmm21,zmm31",fma,zmm
+0.0,16c0,vfmadd231ps,"zmm13,zmm22,zmm31",fma,zmm
+0.0,16c6,vfmadd231ps,"zmm14,zmm23,zmm31",fma,zmm
+0.0,16cc,vbroadcastss,"zmm31,DWORD PTR [r14+0x168]",broadcast,zmm
+0.0,16d3,vfmadd231ps,"zmm15,zmm21,zmm31",fma,zmm
+0.0,16d9,vfmadd231ps,"zmm16,zmm22,zmm31",fma,zmm
+0.0,16df,vfmadd231ps,"zmm17,zmm23,zmm31",fma,zmm
+0.0,16e5,vbroadcastss,"zmm31,DWORD PTR [r14+0x1a8]",broadcast,zmm
+0.04,16ec,vfmadd231ps,"zmm18,zmm21,zmm31",fma,zmm
+0.11,16f2,vfmadd231ps,"zmm19,zmm22,zmm31",fma,zmm
+0.0,16f8,vfmadd231ps,"zmm20,zmm23,zmm31",fma,zmm
+0.0,16fe,vmovups,"zmm21,ZMMWORD PTR [r15+rbp*1-0x140]",vec_load,zmm
+0.0,1706,vmovups,"zmm22,ZMMWORD PTR [r15+0x42c0]",vec_load,zmm
+0.0,1710,vmovups,"zmm23,ZMMWORD PTR [r15+0x82c0]",vec_load,zmm
+0.0,171a,vbroadcastss,"zmm31,DWORD PTR [r14+0x2c]",broadcast,zmm
+0.04,1721,vfmadd231ps,"zmm0,zmm21,zmm31",fma,zmm
+0.0,1727,vfmadd231ps,"zmm1,zmm22,zmm31",fma,zmm
+0.0,172d,vfmadd231ps,"zmm2,zmm23,zmm31",fma,zmm
+0.04,1733,vbroadcastss,"zmm31,DWORD PTR [r14+0x6c]",broadcast,zmm
+0.0,173a,vfmadd231ps,"zmm3,zmm21,zmm31",fma,zmm
+0.04,1740,vfmadd231ps,"zmm4,zmm22,zmm31",fma,zmm
+0.04,1746,vfmadd231ps,"zmm5,zmm23,zmm31",fma,zmm
+0.0,174c,vbroadcastss,"zmm31,DWORD PTR [r14+0xac]",broadcast,zmm
+0.0,1753,vfmadd231ps,"zmm6,zmm21,zmm31",fma,zmm
+0.0,1759,vfmadd231ps,"zmm7,zmm22,zmm31",fma,zmm
+0.04,175f,vfmadd231ps,"zmm8,zmm23,zmm31",fma,zmm
+0.0,1765,vbroadcastss,"zmm31,DWORD PTR [r14+0xec]",broadcast,zmm
+0.04,176c,vfmadd231ps,"zmm9,zmm21,zmm31",fma,zmm
+0.0,1772,vfmadd231ps,"zmm10,zmm22,zmm31",fma,zmm
+0.04,1778,vfmadd231ps,"zmm11,zmm23,zmm31",fma,zmm
+0.0,177e,vbroadcastss,"zmm31,DWORD PTR [r14+0x12c]",broadcast,zmm
+0.0,1785,vfmadd231ps,"zmm12,zmm21,zmm31",fma,zmm
+0.0,178b,vfmadd231ps,"zmm13,zmm22,zmm31",fma,zmm
+0.0,1791,vfmadd231ps,"zmm14,zmm23,zmm31",fma,zmm
+0.0,1797,vbroadcastss,"zmm31,DWORD PTR [r14+0x16c]",broadcast,zmm
+0.0,179e,vfmadd231ps,"zmm15,zmm21,zmm31",fma,zmm
+0.0,17a4,vfmadd231ps,"zmm16,zmm22,zmm31",fma,zmm
+0.0,17aa,vfmadd231ps,"zmm17,zmm23,zmm31",fma,zmm
+0.0,17b0,vbroadcastss,"zmm31,DWORD PTR [r14+0x1ac]",broadcast,zmm
+0.04,17b7,vfmadd231ps,"zmm18,zmm21,zmm31",fma,zmm
+0.0,17bd,vfmadd231ps,"zmm19,zmm22,zmm31",fma,zmm
+0.0,17c3,vfmadd231ps,"zmm20,zmm23,zmm31",fma,zmm
+0.0,17c9,vmovups,"zmm21,ZMMWORD PTR [r15+rbp*1-0x100]",vec_load,zmm
+0.0,17d1,vmovups,"zmm22,ZMMWORD PTR [r15+0x4300]",vec_load,zmm
+0.04,17db,vmovups,"zmm23,ZMMWORD PTR [r15+0x8300]",vec_load,zmm
+0.0,17e5,vbroadcastss,"zmm31,DWORD PTR [r14+0x30]",broadcast,zmm
+0.0,17ec,vfmadd231ps,"zmm0,zmm21,zmm31",fma,zmm
+0.07,17f2,vfmadd231ps,"zmm1,zmm22,zmm31",fma,zmm
+0.0,17f8,vfmadd231ps,"zmm2,zmm23,zmm31",fma,zmm
+0.0,17fe,vbroadcastss,"zmm31,DWORD PTR [r14+0x70]",broadcast,zmm
+0.07,1805,vfmadd231ps,"zmm3,zmm21,zmm31",fma,zmm
+0.0,180b,vfmadd231ps,"zmm4,zmm22,zmm31",fma,zmm
+0.04,1811,vfmadd231ps,"zmm5,zmm23,zmm31",fma,zmm
+0.0,1817,vbroadcastss,"zmm31,DWORD PTR [r14+0xb0]",broadcast,zmm
+0.0,181e,vfmadd231ps,"zmm6,zmm21,zmm31",fma,zmm
+0.07,1824,vfmadd231ps,"zmm7,zmm22,zmm31",fma,zmm
+0.0,182a,vfmadd231ps,"zmm8,zmm23,zmm31",fma,zmm
+0.0,1830,vbroadcastss,"zmm31,DWORD PTR [r14+0xf0]",broadcast,zmm
+0.0,1837,vfmadd231ps,"zmm9,zmm21,zmm31",fma,zmm
+0.04,183d,vfmadd231ps,"zmm10,zmm22,zmm31",fma,zmm
+0.0,1843,vfmadd231ps,"zmm11,zmm23,zmm31",fma,zmm
+0.0,1849,vbroadcastss,"zmm31,DWORD PTR [r14+0x130]",broadcast,zmm
+0.0,1850,vfmadd231ps,"zmm12,zmm21,zmm31",fma,zmm
+0.0,1856,vfmadd231ps,"zmm13,zmm22,zmm31",fma,zmm
+0.04,185c,vfmadd231ps,"zmm14,zmm23,zmm31",fma,zmm
+0.0,1862,vbroadcastss,"zmm31,DWORD PTR [r14+0x170]",broadcast,zmm
+0.0,1869,vfmadd231ps,"zmm15,zmm21,zmm31",fma,zmm
+0.0,186f,vfmadd231ps,"zmm16,zmm22,zmm31",fma,zmm
+0.04,1875,vfmadd231ps,"zmm17,zmm23,zmm31",fma,zmm
+0.0,187b,vbroadcastss,"zmm31,DWORD PTR [r14+0x1b0]",broadcast,zmm
+0.0,1882,vfmadd231ps,"zmm18,zmm21,zmm31",fma,zmm
+0.0,1888,vfmadd231ps,"zmm19,zmm22,zmm31",fma,zmm
+0.0,188e,vfmadd231ps,"zmm20,zmm23,zmm31",fma,zmm
+0.0,1894,vmovups,"zmm21,ZMMWORD PTR [r15+rbp*1-0xc0]",vec_load,zmm
+0.0,189c,vmovups,"zmm22,ZMMWORD PTR [r15+0x4340]",vec_load,zmm
+0.0,18a6,vmovups,"zmm23,ZMMWORD PTR [r15+0x8340]",vec_load,zmm
+0.0,18b0,vbroadcastss,"zmm31,DWORD PTR [r14+0x34]",broadcast,zmm
+0.0,18b7,vfmadd231ps,"zmm0,zmm21,zmm31",fma,zmm
+0.0,18bd,vfmadd231ps,"zmm1,zmm22,zmm31",fma,zmm
+0.0,18c3,vfmadd231ps,"zmm2,zmm23,zmm31",fma,zmm
+0.0,18c9,vbroadcastss,"zmm31,DWORD PTR [r14+0x74]",broadcast,zmm
+0.0,18d0,vfmadd231ps,"zmm3,zmm21,zmm31",fma,zmm
+0.0,18d6,vfmadd231ps,"zmm4,zmm22,zmm31",fma,zmm
+0.0,18dc,vfmadd231ps,"zmm5,zmm23,zmm31",fma,zmm
+0.0,18e2,vbroadcastss,"zmm31,DWORD PTR [r14+0xb4]",broadcast,zmm
+0.0,18e9,vfmadd231ps,"zmm6,zmm21,zmm31",fma,zmm
+0.0,18ef,vfmadd231ps,"zmm7,zmm22,zmm31",fma,zmm
+0.04,18f5,vfmadd231ps,"zmm8,zmm23,zmm31",fma,zmm
+0.0,18fb,vbroadcastss,"zmm31,DWORD PTR [r14+0xf4]",broadcast,zmm
+0.0,1902,vfmadd231ps,"zmm9,zmm21,zmm31",fma,zmm
+0.0,1908,vfmadd231ps,"zmm10,zmm22,zmm31",fma,zmm
+0.0,190e,vfmadd231ps,"zmm11,zmm23,zmm31",fma,zmm
+0.0,1914,vbroadcastss,"zmm31,DWORD PTR [r14+0x134]",broadcast,zmm
+0.0,191b,vfmadd231ps,"zmm12,zmm21,zmm31",fma,zmm
+0.04,1921,vfmadd231ps,"zmm13,zmm22,zmm31",fma,zmm
+0.0,1927,vfmadd231ps,"zmm14,zmm23,zmm31",fma,zmm
+0.0,192d,vbroadcastss,"zmm31,DWORD PTR [r14+0x174]",broadcast,zmm
+0.04,1934,vfmadd231ps,"zmm15,zmm21,zmm31",fma,zmm
+0.07,193a,vfmadd231ps,"zmm16,zmm22,zmm31",fma,zmm
+0.04,1940,vfmadd231ps,"zmm17,zmm23,zmm31",fma,zmm
+0.0,1946,vbroadcastss,"zmm31,DWORD PTR [r14+0x1b4]",broadcast,zmm
+0.07,194d,vfmadd231ps,"zmm18,zmm21,zmm31",fma,zmm
+0.0,1953,vfmadd231ps,"zmm19,zmm22,zmm31",fma,zmm
+0.0,1959,vfmadd231ps,"zmm20,zmm23,zmm31",fma,zmm
+0.0,195f,vmovups,"zmm21,ZMMWORD PTR [r15+rbp*1-0x80]",vec_load,zmm
+0.0,1967,vmovups,"zmm22,ZMMWORD PTR [r15+0x4380]",vec_load,zmm
+0.0,1971,vmovups,"zmm23,ZMMWORD PTR [r15+0x8380]",vec_load,zmm
+0.04,197b,vbroadcastss,"zmm31,DWORD PTR [r14+0x38]",broadcast,zmm
+0.0,1982,vfmadd231ps,"zmm0,zmm21,zmm31",fma,zmm
+0.0,1988,vfmadd231ps,"zmm1,zmm22,zmm31",fma,zmm
+0.0,198e,vfmadd231ps,"zmm2,zmm23,zmm31",fma,zmm
+0.0,1994,vbroadcastss,"zmm31,DWORD PTR [r14+0x78]",broadcast,zmm
+0.0,199b,vfmadd231ps,"zmm3,zmm21,zmm31",fma,zmm
+0.0,19a1,vfmadd231ps,"zmm4,zmm22,zmm31",fma,zmm
+0.0,19a7,vfmadd231ps,"zmm5,zmm23,zmm31",fma,zmm
+0.04,19ad,vbroadcastss,"zmm31,DWORD PTR [r14+0xb8]",broadcast,zmm
+0.04,19b4,vfmadd231ps,"zmm6,zmm21,zmm31",fma,zmm
+0.0,19ba,vfmadd231ps,"zmm7,zmm22,zmm31",fma,zmm
+0.0,19c0,vfmadd231ps,"zmm8,zmm23,zmm31",fma,zmm
+0.0,19c6,vbroadcastss,"zmm31,DWORD PTR [r14+0xf8]",broadcast,zmm
+0.0,19cd,vfmadd231ps,"zmm9,zmm21,zmm31",fma,zmm
+0.04,19d3,vfmadd231ps,"zmm10,zmm22,zmm31",fma,zmm
+0.0,19d9,vfmadd231ps,"zmm11,zmm23,zmm31",fma,zmm
+0.0,19df,vbroadcastss,"zmm31,DWORD PTR [r14+0x138]",broadcast,zmm
+0.04,19e6,vfmadd231ps,"zmm12,zmm21,zmm31",fma,zmm
+0.0,19ec,vfmadd231ps,"zmm13,zmm22,zmm31",fma,zmm
+0.0,19f2,vfmadd231ps,"zmm14,zmm23,zmm31",fma,zmm
+0.0,19f8,vbroadcastss,"zmm31,DWORD PTR [r14+0x178]",broadcast,zmm
+0.0,19ff,vfmadd231ps,"zmm15,zmm21,zmm31",fma,zmm
+0.0,1a05,vfmadd231ps,"zmm16,zmm22,zmm31",fma,zmm
+0.04,1a0b,vfmadd231ps,"zmm17,zmm23,zmm31",fma,zmm
+0.0,1a11,vbroadcastss,"zmm31,DWORD PTR [r14+0x1b8]",broadcast,zmm
+0.0,1a18,vfmadd231ps,"zmm18,zmm21,zmm31",fma,zmm
+0.0,1a1e,vfmadd231ps,"zmm19,zmm22,zmm31",fma,zmm
+0.04,1a24,vfmadd231ps,"zmm20,zmm23,zmm31",fma,zmm
+0.0,1a2a,vmovups,"zmm21,ZMMWORD PTR [r15+rbp*1-0x40]",vec_load,zmm
+0.04,1a32,vmovups,"zmm22,ZMMWORD PTR [r15+0x43c0]",vec_load,zmm
+0.0,1a3c,vmovups,"zmm23,ZMMWORD PTR [r15+0x83c0]",vec_load,zmm
+0.0,1a46,vbroadcastss,"zmm31,DWORD PTR [r14+0x3c]",broadcast,zmm
+0.04,1a4d,vfmadd231ps,"zmm0,zmm21,zmm31",fma,zmm
+0.0,1a53,vfmadd231ps,"zmm1,zmm22,zmm31",fma,zmm
+0.07,1a59,vfmadd231ps,"zmm2,zmm23,zmm31",fma,zmm
+0.0,1a5f,vbroadcastss,"zmm31,DWORD PTR [r14+0x7c]",broadcast,zmm
+0.0,1a66,vfmadd231ps,"zmm3,zmm21,zmm31",fma,zmm
+0.0,1a6c,vfmadd231ps,"zmm4,zmm22,zmm31",fma,zmm
+0.04,1a72,vfmadd231ps,"zmm5,zmm23,zmm31",fma,zmm
+0.0,1a78,vbroadcastss,"zmm31,DWORD PTR [r14+0xbc]",broadcast,zmm
+0.0,1a7f,vfmadd231ps,"zmm6,zmm21,zmm31",fma,zmm
+0.0,1a85,vfmadd231ps,"zmm7,zmm22,zmm31",fma,zmm
+0.04,1a8b,vfmadd231ps,"zmm8,zmm23,zmm31",fma,zmm
+0.0,1a91,vbroadcastss,"zmm31,DWORD PTR [r14+0xfc]",broadcast,zmm
+0.0,1a98,vfmadd231ps,"zmm9,zmm21,zmm31",fma,zmm
+0.04,1a9e,vfmadd231ps,"zmm10,zmm22,zmm31",fma,zmm
+0.0,1aa4,vfmadd231ps,"zmm11,zmm23,zmm31",fma,zmm
+0.0,1aaa,vbroadcastss,"zmm31,DWORD PTR [r14+0x13c]",broadcast,zmm
+0.0,1ab1,vfmadd231ps,"zmm12,zmm21,zmm31",fma,zmm
+0.07,1ab7,vfmadd231ps,"zmm13,zmm22,zmm31",fma,zmm
+0.0,1abd,vfmadd231ps,"zmm14,zmm23,zmm31",fma,zmm
+0.0,1ac3,vbroadcastss,"zmm31,DWORD PTR [r14+0x17c]",broadcast,zmm
+0.04,1aca,vfmadd231ps,"zmm15,zmm21,zmm31",fma,zmm
+0.04,1ad0,vfmadd231ps,"zmm16,zmm22,zmm31",fma,zmm
+0.0,1ad6,vfmadd231ps,"zmm17,zmm23,zmm31",fma,zmm
+0.0,1adc,vbroadcastss,"zmm31,DWORD PTR [r14+0x1bc]",broadcast,zmm
+0.04,1ae3,vfmadd231ps,"zmm18,zmm21,zmm31",fma,zmm
+0.0,1ae9,vfmadd231ps,"zmm19,zmm22,zmm31",fma,zmm
+0.0,1aef,vfmadd231ps,"zmm20,zmm23,zmm31",fma,zmm
+0.0,1af5,test,"rax,0x100",int/addr,
+0.04,1afb,jne,1bbd <jit_avx512_common_1x1_conv_kernel_t.11+0x1b3d>,branch,
+0.0,1b01,vaddps,"zmm0,zmm0,ZMMWORD PTR [rcx]",vec_arith,zmm
+0.0,1b07,vaddps,"zmm1,zmm1,ZMMWORD PTR [rcx+0xc400]",vec_arith,zmm
+0.0,1b11,vaddps,"zmm2,zmm2,ZMMWORD PTR [rcx+0x18800]",vec_arith,zmm
+0.0,1b1b,vaddps,"zmm3,zmm3,ZMMWORD PTR [rcx+0x40]",vec_arith,zmm
+0.0,1b22,vaddps,"zmm4,zmm4,ZMMWORD PTR [rcx+0xc440]",vec_arith,zmm
+0.0,1b2c,vaddps,"zmm5,zmm5,ZMMWORD PTR [rcx+0x18840]",vec_arith,zmm
+0.0,1b36,vaddps,"zmm6,zmm6,ZMMWORD PTR [rcx+0x80]",vec_arith,zmm
+0.0,1b3d,vaddps,"zmm7,zmm7,ZMMWORD PTR [rcx+0xc480]",vec_arith,zmm
+0.0,1b47,vaddps,"zmm8,zmm8,ZMMWORD PTR [rcx+0x18880]",vec_arith,zmm
+0.0,1b51,vaddps,"zmm9,zmm9,ZMMWORD PTR [rcx+0xc0]",vec_arith,zmm
+0.0,1b58,vaddps,"zmm10,zmm10,ZMMWORD PTR [rcx+0xc4c0]",vec_arith,zmm
+0.0,1b62,vaddps,"zmm11,zmm11,ZMMWORD PTR [rcx+0x188c0]",vec_arith,zmm
+0.0,1b6c,vaddps,"zmm12,zmm12,ZMMWORD PTR [rcx+0x100]",vec_arith,zmm
+0.0,1b73,vaddps,"zmm13,zmm13,ZMMWORD PTR [rcx+0xc500]",vec_arith,zmm
+0.0,1b7d,vaddps,"zmm14,zmm14,ZMMWORD PTR [rcx+0x18900]",vec_arith,zmm
+0.0,1b87,vaddps,"zmm15,zmm15,ZMMWORD PTR [rcx+0x140]",vec_arith,zmm
+0.0,1b8e,vaddps,"zmm16,zmm16,ZMMWORD PTR [rcx+0xc540]",vec_arith,zmm
+0.0,1b98,vaddps,"zmm17,zmm17,ZMMWORD PTR [rcx+0x18940]",vec_arith,zmm
+0.0,1ba2,vaddps,"zmm18,zmm18,ZMMWORD PTR [rcx+0x180]",vec_arith,zmm
+0.0,1ba9,vaddps,"zmm19,zmm19,ZMMWORD PTR [rcx+0xc580]",vec_arith,zmm
+0.0,1bb3,vaddps,"zmm20,zmm20,ZMMWORD PTR [rcx+0x18980]",vec_arith,zmm
+0.0,1bbd,test,"rcx,0x3f",int/addr,
+0.0,1bc4,jne,1c8b <jit_avx512_common_1x1_conv_kernel_t.11+0x1c0b>,branch,
+0.0,1bca,vmovups,"ZMMWORD PTR [rcx],zmm0",vec_store,zmm
+0.04,1bd0,vmovups,"ZMMWORD PTR [rcx+0xc400],zmm1",vec_store,zmm
+0.0,1bda,vmovups,"ZMMWORD PTR [rcx+0x18800],zmm2",vec_store,zmm
+0.04,1be4,vmovups,"ZMMWORD PTR [rcx+0x40],zmm3",vec_store,zmm
+0.0,1beb,vmovups,"ZMMWORD PTR [rcx+0xc440],zmm4",vec_store,zmm
+0.0,1bf5,vmovups,"ZMMWORD PTR [rcx+0x18840],zmm5",vec_store,zmm
+0.04,1bff,vmovups,"ZMMWORD PTR [rcx+0x80],zmm6",vec_store,zmm
+0.0,1c06,vmovups,"ZMMWORD PTR [rcx+0xc480],zmm7",vec_store,zmm
+0.04,1c10,vmovups,"ZMMWORD PTR [rcx+0x18880],zmm8",vec_store,zmm
+0.0,1c1a,vmovups,"ZMMWORD PTR [rcx+0xc0],zmm9",vec_store,zmm
+0.11,1c21,vmovups,"ZMMWORD PTR [rcx+0xc4c0],zmm10",vec_store,zmm
+0.0,1c2b,vmovups,"ZMMWORD PTR [rcx+0x188c0],zmm11",vec_store,zmm
+0.0,1c35,vmovups,"ZMMWORD PTR [rcx+0x100],zmm12",vec_store,zmm
+0.04,1c3c,vmovups,"ZMMWORD PTR [rcx+0xc500],zmm13",vec_store,zmm
+0.11,1c46,vmovups,"ZMMWORD PTR [rcx+0x18900],zmm14",vec_store,zmm
+0.07,1c50,vmovups,"ZMMWORD PTR [rcx+0x140],zmm15",vec_store,zmm
+0.11,1c57,vmovups,"ZMMWORD PTR [rcx+0xc540],zmm16",vec_store,zmm
+0.04,1c61,vmovups,"ZMMWORD PTR [rcx+0x18940],zmm17",vec_store,zmm
+0.07,1c6b,vmovups,"ZMMWORD PTR [rcx+0x180],zmm18",vec_store,zmm
+0.07,1c72,vmovups,"ZMMWORD PTR [rcx+0xc580],zmm19",vec_store,zmm
+0.18,1c7c,vmovups,"ZMMWORD PTR [rcx+0x18980],zmm20",vec_store,zmm
+0.0,1c86,jmp,1d47 <jit_avx512_common_1x1_conv_kernel_t.11+0x1cc7>,branch,
+0.0,1c8b,vmovups,"ZMMWORD PTR [rcx],zmm0",vec_store,zmm
+0.0,1c91,vmovups,"ZMMWORD PTR [rcx+0xc400],zmm1",vec_store,zmm
+0.0,1c9b,vmovups,"ZMMWORD PTR [rcx+0x18800],zmm2",vec_store,zmm
+0.0,1ca5,vmovups,"ZMMWORD PTR [rcx+0x40],zmm3",vec_store,zmm
+0.0,1cac,vmovups,"ZMMWORD PTR [rcx+0xc440],zmm4",vec_store,zmm
+0.0,1cb6,vmovups,"ZMMWORD PTR [rcx+0x18840],zmm5",vec_store,zmm
+0.0,1cc0,vmovups,"ZMMWORD PTR [rcx+0x80],zmm6",vec_store,zmm
+0.0,1cc7,vmovups,"ZMMWORD PTR [rcx+0xc480],zmm7",vec_store,zmm
+0.0,1cd1,vmovups,"ZMMWORD PTR [rcx+0x18880],zmm8",vec_store,zmm
+0.0,1cdb,vmovups,"ZMMWORD PTR [rcx+0xc0],zmm9",vec_store,zmm
+0.0,1ce2,vmovups,"ZMMWORD PTR [rcx+0xc4c0],zmm10",vec_store,zmm
+0.0,1cec,vmovups,"ZMMWORD PTR [rcx+0x188c0],zmm11",vec_store,zmm
+0.0,1cf6,vmovups,"ZMMWORD PTR [rcx+0x100],zmm12",vec_store,zmm
+0.0,1cfd,vmovups,"ZMMWORD PTR [rcx+0xc500],zmm13",vec_store,zmm
+0.0,1d07,vmovups,"ZMMWORD PTR [rcx+0x18900],zmm14",vec_store,zmm
+0.0,1d11,vmovups,"ZMMWORD PTR [rcx+0x140],zmm15",vec_store,zmm
+0.0,1d18,vmovups,"ZMMWORD PTR [rcx+0xc540],zmm16",vec_store,zmm
+0.0,1d22,vmovups,"ZMMWORD PTR [rcx+0x18940],zmm17",vec_store,zmm
+0.0,1d2c,vmovups,"ZMMWORD PTR [rcx+0x180],zmm18",vec_store,zmm
+0.0,1d33,vmovups,"ZMMWORD PTR [rcx+0xc580],zmm19",vec_store,zmm
+0.0,1d3d,vmovups,"ZMMWORD PTR [rcx+0x18980],zmm20",vec_store,zmm
+0.0,1d47,add,"rbx,0x1c0",int/addr,
+0.0,1d4e,add,"rcx,0x1c0",int/addr,
+0.0,1d55,sub,"rdx,0x7",int/addr,
+0.0,1d59,cmp,"rdx,0x7",int/addr,
+0.04,1d5d,jge,100 <jit_avx512_common_1x1_conv_kernel_t.11+0x80>,branch,
+0.0,1d63,add,"r10,0xc000",int/addr,
+0.0,1d6a,add,"r12,0xc0",int/addr,
+0.0,1d71,add,"r9,0x24c00",int/addr,
+0.0,1d78,cmp,"rsi,0x40",int/addr,
+0.0,1d7c,je,1daa <jit_avx512_common_1x1_conv_kernel_t.11+0x1d2a>,branch,
+0.0,1d82,cmp,"rsi,0x20",int/addr,
+0.0,1d86,jg,e1 <jit_avx512_common_1x1_conv_kernel_t.11+0x61>,branch,
+0.0,1d8c,cmp,"rsi,0x20",int/addr,
+0.0,1d90,jge,1daa <jit_avx512_common_1x1_conv_kernel_t.11+0x1d2a>,branch,
+0.0,1d96,cmp,"rsi,0x10",int/addr,
+0.0,1d9a,jge,32d9 <jit_avx512_common_1x1_conv_kernel_t.11+0x3259>,branch,
+0.0,1da0,cmp,"rsi,0x10",int/addr,
+0.0,1da4,jle,32d9 <jit_avx512_common_1x1_conv_kernel_t.11+0x3259>,branch,
+0.0,1daa,sub,"rsi,0x20",int/addr,
+0.0,1dae,mov,"rbx,QWORD PTR [rsp+0x10]",gpr_load,
+0.0,1db3,mov,"r14,QWORD PTR [rsp+0x10]",gpr_load,
+0.0,1db8,mov,"rcx,r9",int/addr,
+0.0,1dbb,mov,"rdx,QWORD PTR [rsp]",gpr_load,
+0.0,1dbf,cmp,"rdx,0x7",int/addr,
+0.0,1dc3,jl,32b0 <jit_avx512_common_1x1_conv_kernel_t.11+0x3230>,branch,
+0.0,1dc9,mov,"r15,r10",int/addr,
+0.0,1dcc,mov,"r14,rbx",int/addr,
+0.0,1dcf,vpxord,"zmm0,zmm0,zmm0",vec_arith,zmm
+0.0,1dd5,vpxord,"zmm2,zmm2,zmm2",vec_arith,zmm
+0.0,1ddb,vpxord,"zmm4,zmm4,zmm4",vec_arith,zmm
+0.0,1de1,vpxord,"zmm6,zmm6,zmm6",vec_arith,zmm
+0.0,1de7,vpxord,"zmm8,zmm8,zmm8",vec_arith,zmm
+0.0,1ded,vpxord,"zmm10,zmm10,zmm10",vec_arith,zmm
+0.0,1df3,vpxord,"zmm12,zmm12,zmm12",vec_arith,zmm
+0.0,1df9,vpxord,"zmm1,zmm1,zmm1",vec_arith,zmm
+0.0,1dff,vpxord,"zmm3,zmm3,zmm3",vec_arith,zmm
+0.0,1e05,vpxord,"zmm5,zmm5,zmm5",vec_arith,zmm
+0.0,1e0b,vpxord,"zmm7,zmm7,zmm7",vec_arith,zmm
+0.0,1e11,vpxord,"zmm9,zmm9,zmm9",vec_arith,zmm
+0.0,1e17,vpxord,"zmm11,zmm11,zmm11",vec_arith,zmm
+0.0,1e1d,vpxord,"zmm13,zmm13,zmm13",vec_arith,zmm
+0.0,1e23,mov,"rdi,r11",int/addr,
+0.0,1e26,sub,"rdi,0x10",int/addr,
+0.0,1e2a,jle,27ae <jit_avx512_common_1x1_conv_kernel_t.11+0x272e>,branch,
+0.0,1e30,vmovups,"zmm14,ZMMWORD PTR [r15]",vec_load,zmm
+0.0,1e36,vmovups,"zmm15,ZMMWORD PTR [r15+0x4000]",vec_load,zmm
+0.0,1e40,vbroadcastss,"zmm31,DWORD PTR [r14]",broadcast,zmm
+0.0,1e46,vfmadd231ps,"zmm0,zmm14,zmm31",fma,zmm
+0.0,1e4c,vfmadd231ps,"zmm1,zmm15,zmm31",fma,zmm
+0.0,1e52,vbroadcastss,"zmm31,DWORD PTR [r14+0x40]",broadcast,zmm
+0.04,1e59,vfmadd231ps,"zmm2,zmm14,zmm31",fma,zmm
+0.0,1e5f,vfmadd231ps,"zmm3,zmm15,zmm31",fma,zmm
+0.0,1e65,vbroadcastss,"zmm31,DWORD PTR [r14+0x80]",broadcast,zmm
+0.0,1e6c,vfmadd231ps,"zmm4,zmm14,zmm31",fma,zmm
+0.0,1e72,vfmadd231ps,"zmm5,zmm15,zmm31",fma,zmm
+0.0,1e78,vbroadcastss,"zmm31,DWORD PTR [r14+0xc0]",broadcast,zmm
+0.0,1e7f,vfmadd231ps,"zmm6,zmm14,zmm31",fma,zmm
+0.0,1e85,vfmadd231ps,"zmm7,zmm15,zmm31",fma,zmm
+0.04,1e8b,vbroadcastss,"zmm31,DWORD PTR [r14+0x100]",broadcast,zmm
+0.04,1e92,vfmadd231ps,"zmm8,zmm14,zmm31",fma,zmm
+0.0,1e98,vfmadd231ps,"zmm9,zmm15,zmm31",fma,zmm
+0.0,1e9e,vbroadcastss,"zmm31,DWORD PTR [r14+0x140]",broadcast,zmm
+0.04,1ea5,vfmadd231ps,"zmm10,zmm14,zmm31",fma,zmm
+0.04,1eab,vfmadd231ps,"zmm11,zmm15,zmm31",fma,zmm
+0.0,1eb1,vbroadcastss,"zmm31,DWORD PTR [r14+0x180]",broadcast,zmm
+0.0,1eb8,vfmadd231ps,"zmm12,zmm14,zmm31",fma,zmm
+0.04,1ebe,vfmadd231ps,"zmm13,zmm15,zmm31",fma,zmm
+0.07,1ec4,vmovups,"zmm14,ZMMWORD PTR [r15+0x40]",vec_load,zmm
+0.0,1ecb,vmovups,"zmm15,ZMMWORD PTR [r15+0x4040]",vec_load,zmm
+0.0,1ed5,vbroadcastss,"zmm31,DWORD PTR [r14+0x4]",broadcast,zmm
+0.04,1edc,vfmadd231ps,"zmm0,zmm14,zmm31",fma,zmm
+0.07,1ee2,vfmadd231ps,"zmm1,zmm15,zmm31",fma,zmm
+0.0,1ee8,vbroadcastss,"zmm31,DWORD PTR [r14+0x44]",broadcast,zmm
+0.04,1eef,vfmadd231ps,"zmm2,zmm14,zmm31",fma,zmm
+0.11,1ef5,vfmadd231ps,"zmm3,zmm15,zmm31",fma,zmm
+0.0,1efb,vbroadcastss,"zmm31,DWORD PTR [r14+0x84]",broadcast,zmm
+0.0,1f02,vfmadd231ps,"zmm4,zmm14,zmm31",fma,zmm
+0.0,1f08,vfmadd231ps,"zmm5,zmm15,zmm31",fma,zmm
+0.0,1f0e,vbroadcastss,"zmm31,DWORD PTR [r14+0xc4]",broadcast,zmm
+0.0,1f15,vfmadd231ps,"zmm6,zmm14,zmm31",fma,zmm
+0.0,1f1b,vfmadd231ps,"zmm7,zmm15,zmm31",fma,zmm
+0.0,1f21,vbroadcastss,"zmm31,DWORD PTR [r14+0x104]",broadcast,zmm
+0.0,1f28,vfmadd231ps,"zmm8,zmm14,zmm31",fma,zmm
+0.0,1f2e,vfmadd231ps,"zmm9,zmm15,zmm31",fma,zmm
+0.04,1f34,vbroadcastss,"zmm31,DWORD PTR [r14+0x144]",broadcast,zmm
+0.0,1f3b,vfmadd231ps,"zmm10,zmm14,zmm31",fma,zmm
+0.0,1f41,vfmadd231ps,"zmm11,zmm15,zmm31",fma,zmm
+0.07,1f47,vbroadcastss,"zmm31,DWORD PTR [r14+0x184]",broadcast,zmm
+0.0,1f4e,vfmadd231ps,"zmm12,zmm14,zmm31",fma,zmm
+0.04,1f54,vfmadd231ps,"zmm13,zmm15,zmm31",fma,zmm
+0.0,1f5a,vmovups,"zmm14,ZMMWORD PTR [r15+0x80]",vec_load,zmm
+0.0,1f61,vmovups,"zmm15,ZMMWORD PTR [r15+0x4080]",vec_load,zmm
+0.0,1f6b,vbroadcastss,"zmm31,DWORD PTR [r14+0x8]",broadcast,zmm
+0.0,1f72,vfmadd231ps,"zmm0,zmm14,zmm31",fma,zmm
+0.0,1f78,vfmadd231ps,"zmm1,zmm15,zmm31",fma,zmm
+0.0,1f7e,vbroadcastss,"zmm31,DWORD PTR [r14+0x48]",broadcast,zmm
+0.0,1f85,vfmadd231ps,"zmm2,zmm14,zmm31",fma,zmm
+0.0,1f8b,vfmadd231ps,"zmm3,zmm15,zmm31",fma,zmm
+0.0,1f91,vbroadcastss,"zmm31,DWORD PTR [r14+0x88]",broadcast,zmm
+0.0,1f98,vfmadd231ps,"zmm4,zmm14,zmm31",fma,zmm
+0.0,1f9e,vfmadd231ps,"zmm5,zmm15,zmm31",fma,zmm
+0.0,1fa4,vbroadcastss,"zmm31,DWORD PTR [r14+0xc8]",broadcast,zmm
+0.04,1fab,vfmadd231ps,"zmm6,zmm14,zmm31",fma,zmm
+0.04,1fb1,vfmadd231ps,"zmm7,zmm15,zmm31",fma,zmm
+0.0,1fb7,vbroadcastss,"zmm31,DWORD PTR [r14+0x108]",broadcast,zmm
+0.0,1fbe,vfmadd231ps,"zmm8,zmm14,zmm31",fma,zmm
+0.0,1fc4,vfmadd231ps,"zmm9,zmm15,zmm31",fma,zmm
+0.0,1fca,vbroadcastss,"zmm31,DWORD PTR [r14+0x148]",broadcast,zmm
+0.0,1fd1,vfmadd231ps,"zmm10,zmm14,zmm31",fma,zmm
+0.0,1fd7,vfmadd231ps,"zmm11,zmm15,zmm31",fma,zmm
+0.0,1fdd,vbroadcastss,"zmm31,DWORD PTR [r14+0x188]",broadcast,zmm
+0.04,1fe4,vfmadd231ps,"zmm12,zmm14,zmm31",fma,zmm
+0.0,1fea,vfmadd231ps,"zmm13,zmm15,zmm31",fma,zmm
+0.0,1ff0,vmovups,"zmm14,ZMMWORD PTR [r15+0xc0]",vec_load,zmm
+0.04,1ff7,vmovups,"zmm15,ZMMWORD PTR [r15+0x40c0]",vec_load,zmm
+0.0,2001,vbroadcastss,"zmm31,DWORD PTR [r14+0xc]",broadcast,zmm
+0.0,2008,vfmadd231ps,"zmm0,zmm14,zmm31",fma,zmm
+0.0,200e,vfmadd231ps,"zmm1,zmm15,zmm31",fma,zmm
+0.07,2014,vbroadcastss,"zmm31,DWORD PTR [r14+0x4c]",broadcast,zmm
+0.04,201b,vfmadd231ps,"zmm2,zmm14,zmm31",fma,zmm
+0.0,2021,vfmadd231ps,"zmm3,zmm15,zmm31",fma,zmm
+0.0,2027,vbroadcastss,"zmm31,DWORD PTR [r14+0x8c]",broadcast,zmm
+0.07,202e,vfmadd231ps,"zmm4,zmm14,zmm31",fma,zmm
+0.0,2034,vfmadd231ps,"zmm5,zmm15,zmm31",fma,zmm
+0.04,203a,vbroadcastss,"zmm31,DWORD PTR [r14+0xcc]",broadcast,zmm
+0.0,2041,vfmadd231ps,"zmm6,zmm14,zmm31",fma,zmm
+0.07,2047,vfmadd231ps,"zmm7,zmm15,zmm31",fma,zmm
+0.0,204d,vbroadcastss,"zmm31,DWORD PTR [r14+0x10c]",broadcast,zmm
+0.0,2054,vfmadd231ps,"zmm8,zmm14,zmm31",fma,zmm
+0.0,205a,vfmadd231ps,"zmm9,zmm15,zmm31",fma,zmm
+0.0,2060,vbroadcastss,"zmm31,DWORD PTR [r14+0x14c]",broadcast,zmm
+0.0,2067,vfmadd231ps,"zmm10,zmm14,zmm31",fma,zmm
+0.07,206d,vfmadd231ps,"zmm11,zmm15,zmm31",fma,zmm
+0.04,2073,vbroadcastss,"zmm31,DWORD PTR [r14+0x18c]",broadcast,zmm
+0.0,207a,vfmadd231ps,"zmm12,zmm14,zmm31",fma,zmm
+0.0,2080,vfmadd231ps,"zmm13,zmm15,zmm31",fma,zmm
+0.0,2086,vmovups,"zmm14,ZMMWORD PTR [r15+0x100]",vec_load,zmm
+0.07,208d,vmovups,"zmm15,ZMMWORD PTR [r15+0x4100]",vec_load,zmm
+0.04,2097,vbroadcastss,"zmm31,DWORD PTR [r14+0x10]",broadcast,zmm
+0.07,209e,vfmadd231ps,"zmm0,zmm14,zmm31",fma,zmm
+0.04,20a4,vfmadd231ps,"zmm1,zmm15,zmm31",fma,zmm
+0.0,20aa,vbroadcastss,"zmm31,DWORD PTR [r14+0x50]",broadcast,zmm
+0.0,20b1,vfmadd231ps,"zmm2,zmm14,zmm31",fma,zmm
+0.0,20b7,vfmadd231ps,"zmm3,zmm15,zmm31",fma,zmm
+0.0,20bd,vbroadcastss,"zmm31,DWORD PTR [r14+0x90]",broadcast,zmm
+0.04,20c4,vfmadd231ps,"zmm4,zmm14,zmm31",fma,zmm
+0.04,20ca,vfmadd231ps,"zmm5,zmm15,zmm31",fma,zmm
+0.0,20d0,vbroadcastss,"zmm31,DWORD PTR [r14+0xd0]",broadcast,zmm
+0.0,20d7,vfmadd231ps,"zmm6,zmm14,zmm31",fma,zmm
+0.0,20dd,vfmadd231ps,"zmm7,zmm15,zmm31",fma,zmm
+0.04,20e3,vbroadcastss,"zmm31,DWORD PTR [r14+0x110]",broadcast,zmm
+0.0,20ea,vfmadd231ps,"zmm8,zmm14,zmm31",fma,zmm
+0.0,20f0,vfmadd231ps,"zmm9,zmm15,zmm31",fma,zmm
+0.0,20f6,vbroadcastss,"zmm31,DWORD PTR [r14+0x150]",broadcast,zmm
+0.0,20fd,vfmadd231ps,"zmm10,zmm14,zmm31",fma,zmm
+0.04,2103,vfmadd231ps,"zmm11,zmm15,zmm31",fma,zmm
+0.0,2109,vbroadcastss,"zmm31,DWORD PTR [r14+0x190]",broadcast,zmm
+0.0,2110,vfmadd231ps,"zmm12,zmm14,zmm31",fma,zmm
+0.0,2116,vfmadd231ps,"zmm13,zmm15,zmm31",fma,zmm
+0.0,211c,vmovups,"zmm14,ZMMWORD PTR [r15+0x140]",vec_load,zmm
+0.04,2123,vmovups,"zmm15,ZMMWORD PTR [r15+0x4140]",vec_load,zmm
+0.0,212d,vbroadcastss,"zmm31,DWORD PTR [r14+0x14]",broadcast,zmm
+0.0,2134,vfmadd231ps,"zmm0,zmm14,zmm31",fma,zmm
+0.07,213a,vfmadd231ps,"zmm1,zmm15,zmm31",fma,zmm
+0.0,2140,vbroadcastss,"zmm31,DWORD PTR [r14+0x54]",broadcast,zmm
+0.0,2147,vfmadd231ps,"zmm2,zmm14,zmm31",fma,zmm
+0.0,214d,vfmadd231ps,"zmm3,zmm15,zmm31",fma,zmm
+0.0,2153,vbroadcastss,"zmm31,DWORD PTR [r14+0x94]",broadcast,zmm
+0.0,215a,vfmadd231ps,"zmm4,zmm14,zmm31",fma,zmm
+0.07,2160,vfmadd231ps,"zmm5,zmm15,zmm31",fma,zmm
+0.0,2166,vbroadcastss,"zmm31,DWORD PTR [r14+0xd4]",broadcast,zmm
+0.0,216d,vfmadd231ps,"zmm6,zmm14,zmm31",fma,zmm
+0.0,2173,vfmadd231ps,"zmm7,zmm15,zmm31",fma,zmm
+0.0,2179,vbroadcastss,"zmm31,DWORD PTR [r14+0x114]",broadcast,zmm
+0.04,2180,vfmadd231ps,"zmm8,zmm14,zmm31",fma,zmm
+0.04,2186,vfmadd231ps,"zmm9,zmm15,zmm31",fma,zmm
+0.04,218c,vbroadcastss,"zmm31,DWORD PTR [r14+0x154]",broadcast,zmm
+0.0,2193,vfmadd231ps,"zmm10,zmm14,zmm31",fma,zmm
+0.07,2199,vfmadd231ps,"zmm11,zmm15,zmm31",fma,zmm
+0.0,219f,vbroadcastss,"zmm31,DWORD PTR [r14+0x194]",broadcast,zmm
+0.0,21a6,vfmadd231ps,"zmm12,zmm14,zmm31",fma,zmm
+0.0,21ac,vfmadd231ps,"zmm13,zmm15,zmm31",fma,zmm
+0.07,21b2,vmovups,"zmm14,ZMMWORD PTR [r15+0x180]",vec_load,zmm
+0.0,21b9,vmovups,"zmm15,ZMMWORD PTR [r15+0x4180]",vec_load,zmm
+0.0,21c3,vbroadcastss,"zmm31,DWORD PTR [r14+0x18]",broadcast,zmm
+0.04,21ca,vfmadd231ps,"zmm0,zmm14,zmm31",fma,zmm
+0.0,21d0,vfmadd231ps,"zmm1,zmm15,zmm31",fma,zmm
+0.04,21d6,vbroadcastss,"zmm31,DWORD PTR [r14+0x58]",broadcast,zmm
+0.0,21dd,vfmadd231ps,"zmm2,zmm14,zmm31",fma,zmm
+0.04,21e3,vfmadd231ps,"zmm3,zmm15,zmm31",fma,zmm
+0.04,21e9,vbroadcastss,"zmm31,DWORD PTR [r14+0x98]",broadcast,zmm
+0.0,21f0,vfmadd231ps,"zmm4,zmm14,zmm31",fma,zmm
+0.0,21f6,vfmadd231ps,"zmm5,zmm15,zmm31",fma,zmm
+0.0,21fc,vbroadcastss,"zmm31,DWORD PTR [r14+0xd8]",broadcast,zmm
+0.0,2203,vfmadd231ps,"zmm6,zmm14,zmm31",fma,zmm
+0.04,2209,vfmadd231ps,"zmm7,zmm15,zmm31",fma,zmm
+0.0,220f,vbroadcastss,"zmm31,DWORD PTR [r14+0x118]",broadcast,zmm
+0.0,2216,vfmadd231ps,"zmm8,zmm14,zmm31",fma,zmm
+0.07,221c,vfmadd231ps,"zmm9,zmm15,zmm31",fma,zmm
+0.0,2222,vbroadcastss,"zmm31,DWORD PTR [r14+0x158]",broadcast,zmm
+0.0,2229,vfmadd231ps,"zmm10,zmm14,zmm31",fma,zmm
+0.04,222f,vfmadd231ps,"zmm11,zmm15,zmm31",fma,zmm
+0.0,2235,vbroadcastss,"zmm31,DWORD PTR [r14+0x198]",broadcast,zmm
+0.0,223c,vfmadd231ps,"zmm12,zmm14,zmm31",fma,zmm
+0.0,2242,vfmadd231ps,"zmm13,zmm15,zmm31",fma,zmm
+0.0,2248,vmovups,"zmm14,ZMMWORD PTR [r15+0x1c0]",vec_load,zmm
+0.0,224f,vmovups,"zmm15,ZMMWORD PTR [r15+0x41c0]",vec_load,zmm
+0.0,2259,vbroadcastss,"zmm31,DWORD PTR [r14+0x1c]",broadcast,zmm
+0.0,2260,vfmadd231ps,"zmm0,zmm14,zmm31",fma,zmm
+0.0,2266,vfmadd231ps,"zmm1,zmm15,zmm31",fma,zmm
+0.0,226c,vbroadcastss,"zmm31,DWORD PTR [r14+0x5c]",broadcast,zmm
+0.0,2273,vfmadd231ps,"zmm2,zmm14,zmm31",fma,zmm
+0.07,2279,vfmadd231ps,"zmm3,zmm15,zmm31",fma,zmm
+0.0,227f,vbroadcastss,"zmm31,DWORD PTR [r14+0x9c]",broadcast,zmm
+0.0,2286,vfmadd231ps,"zmm4,zmm14,zmm31",fma,zmm
+0.0,228c,vfmadd231ps,"zmm5,zmm15,zmm31",fma,zmm
+0.0,2292,vbroadcastss,"zmm31,DWORD PTR [r14+0xdc]",broadcast,zmm
+0.0,2299,vfmadd231ps,"zmm6,zmm14,zmm31",fma,zmm
+0.04,229f,vfmadd231ps,"zmm7,zmm15,zmm31",fma,zmm
+0.0,22a5,vbroadcastss,"zmm31,DWORD PTR [r14+0x11c]",broadcast,zmm
+0.0,22ac,vfmadd231ps,"zmm8,zmm14,zmm31",fma,zmm
+0.04,22b2,vfmadd231ps,"zmm9,zmm15,zmm31",fma,zmm
+0.0,22b8,vbroadcastss,"zmm31,DWORD PTR [r14+0x15c]",broadcast,zmm
+0.04,22bf,vfmadd231ps,"zmm10,zmm14,zmm31",fma,zmm
+0.0,22c5,vfmadd231ps,"zmm11,zmm15,zmm31",fma,zmm
+0.11,22cb,vbroadcastss,"zmm31,DWORD PTR [r14+0x19c]",broadcast,zmm
+0.0,22d2,vfmadd231ps,"zmm12,zmm14,zmm31",fma,zmm
+0.0,22d8,vfmadd231ps,"zmm13,zmm15,zmm31",fma,zmm
+0.07,22de,vmovups,"zmm14,ZMMWORD PTR [r15+rbp*1-0x200]",vec_load,zmm
+0.04,22e6,vmovups,"zmm15,ZMMWORD PTR [r15+0x4200]",vec_load,zmm
+0.04,22f0,vbroadcastss,"zmm31,DWORD PTR [r14+0x20]",broadcast,zmm
+0.0,22f7,vfmadd231ps,"zmm0,zmm14,zmm31",fma,zmm
+0.0,22fd,vfmadd231ps,"zmm1,zmm15,zmm31",fma,zmm
+0.0,2303,vbroadcastss,"zmm31,DWORD PTR [r14+0x60]",broadcast,zmm
+0.0,230a,vfmadd231ps,"zmm2,zmm14,zmm31",fma,zmm
+0.07,2310,vfmadd231ps,"zmm3,zmm15,zmm31",fma,zmm
+0.0,2316,vbroadcastss,"zmm31,DWORD PTR [r14+0xa0]",broadcast,zmm
+0.0,231d,vfmadd231ps,"zmm4,zmm14,zmm31",fma,zmm
+0.0,2323,vfmadd231ps,"zmm5,zmm15,zmm31",fma,zmm
+0.0,2329,vbroadcastss,"zmm31,DWORD PTR [r14+0xe0]",broadcast,zmm
+0.04,2330,vfmadd231ps,"zmm6,zmm14,zmm31",fma,zmm
+0.04,2336,vfmadd231ps,"zmm7,zmm15,zmm31",fma,zmm
+0.0,233c,vbroadcastss,"zmm31,DWORD PTR [r14+0x120]",broadcast,zmm
+0.0,2343,vfmadd231ps,"zmm8,zmm14,zmm31",fma,zmm
+0.0,2349,vfmadd231ps,"zmm9,zmm15,zmm31",fma,zmm
+0.0,234f,vbroadcastss,"zmm31,DWORD PTR [r14+0x160]",broadcast,zmm
+0.0,2356,vfmadd231ps,"zmm10,zmm14,zmm31",fma,zmm
+0.04,235c,vfmadd231ps,"zmm11,zmm15,zmm31",fma,zmm
+0.0,2362,vbroadcastss,"zmm31,DWORD PTR [r14+0x1a0]",broadcast,zmm
+0.07,2369,vfmadd231ps,"zmm12,zmm14,zmm31",fma,zmm
+0.0,236f,vfmadd231ps,"zmm13,zmm15,zmm31",fma,zmm
+0.0,2375,vmovups,"zmm14,ZMMWORD PTR [r15+rbp*1-0x1c0]",vec_load,zmm
+0.0,237d,vmovups,"zmm15,ZMMWORD PTR [r15+0x4240]",vec_load,zmm
+0.0,2387,vbroadcastss,"zmm31,DWORD PTR [r14+0x24]",broadcast,zmm
+0.04,238e,vfmadd231ps,"zmm0,zmm14,zmm31",fma,zmm
+0.0,2394,vfmadd231ps,"zmm1,zmm15,zmm31",fma,zmm
+0.0,239a,vbroadcastss,"zmm31,DWORD PTR [r14+0x64]",broadcast,zmm
+0.0,23a1,vfmadd231ps,"zmm2,zmm14,zmm31",fma,zmm
+0.0,23a7,vfmadd231ps,"zmm3,zmm15,zmm31",fma,zmm
+0.0,23ad,vbroadcastss,"zmm31,DWORD PTR [r14+0xa4]",broadcast,zmm
+0.0,23b4,vfmadd231ps,"zmm4,zmm14,zmm31",fma,zmm
+0.0,23ba,vfmadd231ps,"zmm5,zmm15,zmm31",fma,zmm
+0.0,23c0,vbroadcastss,"zmm31,DWORD PTR [r14+0xe4]",broadcast,zmm
+0.04,23c7,vfmadd231ps,"zmm6,zmm14,zmm31",fma,zmm
+0.07,23cd,vfmadd231ps,"zmm7,zmm15,zmm31",fma,zmm
+0.04,23d3,vbroadcastss,"zmm31,DWORD PTR [r14+0x124]",broadcast,zmm
+0.0,23da,vfmadd231ps,"zmm8,zmm14,zmm31",fma,zmm
+0.0,23e0,vfmadd231ps,"zmm9,zmm15,zmm31",fma,zmm
+0.0,23e6,vbroadcastss,"zmm31,DWORD PTR [r14+0x164]",broadcast,zmm
+0.04,23ed,vfmadd231ps,"zmm10,zmm14,zmm31",fma,zmm
+0.07,23f3,vfmadd231ps,"zmm11,zmm15,zmm31",fma,zmm
+0.04,23f9,vbroadcastss,"zmm31,DWORD PTR [r14+0x1a4]",broadcast,zmm
+0.0,2400,vfmadd231ps,"zmm12,zmm14,zmm31",fma,zmm
+0.04,2406,vfmadd231ps,"zmm13,zmm15,zmm31",fma,zmm
+0.0,240c,vmovups,"zmm14,ZMMWORD PTR [r15+rbp*1-0x180]",vec_load,zmm
+0.0,2414,vmovups,"zmm15,ZMMWORD PTR [r15+0x4280]",vec_load,zmm
+0.0,241e,vbroadcastss,"zmm31,DWORD PTR [r14+0x28]",broadcast,zmm
+0.07,2425,vfmadd231ps,"zmm0,zmm14,zmm31",fma,zmm
+0.0,242b,vfmadd231ps,"zmm1,zmm15,zmm31",fma,zmm
+0.0,2431,vbroadcastss,"zmm31,DWORD PTR [r14+0x68]",broadcast,zmm
+0.0,2438,vfmadd231ps,"zmm2,zmm14,zmm31",fma,zmm
+0.0,243e,vfmadd231ps,"zmm3,zmm15,zmm31",fma,zmm
+0.0,2444,vbroadcastss,"zmm31,DWORD PTR [r14+0xa8]",broadcast,zmm
+0.0,244b,vfmadd231ps,"zmm4,zmm14,zmm31",fma,zmm
+0.04,2451,vfmadd231ps,"zmm5,zmm15,zmm31",fma,zmm
+0.0,2457,vbroadcastss,"zmm31,DWORD PTR [r14+0xe8]",broadcast,zmm
+0.0,245e,vfmadd231ps,"zmm6,zmm14,zmm31",fma,zmm
+0.04,2464,vfmadd231ps,"zmm7,zmm15,zmm31",fma,zmm
+0.0,246a,vbroadcastss,"zmm31,DWORD PTR [r14+0x128]",broadcast,zmm
+0.0,2471,vfmadd231ps,"zmm8,zmm14,zmm31",fma,zmm
+0.0,2477,vfmadd231ps,"zmm9,zmm15,zmm31",fma,zmm
+0.0,247d,vbroadcastss,"zmm31,DWORD PTR [r14+0x168]",broadcast,zmm
+0.04,2484,vfmadd231ps,"zmm10,zmm14,zmm31",fma,zmm
+0.04,248a,vfmadd231ps,"zmm11,zmm15,zmm31",fma,zmm
+0.0,2490,vbroadcastss,"zmm31,DWORD PTR [r14+0x1a8]",broadcast,zmm
+0.0,2497,vfmadd231ps,"zmm12,zmm14,zmm31",fma,zmm
+0.04,249d,vfmadd231ps,"zmm13,zmm15,zmm31",fma,zmm
+0.0,24a3,vmovups,"zmm14,ZMMWORD PTR [r15+rbp*1-0x140]",vec_load,zmm
+0.0,24ab,vmovups,"zmm15,ZMMWORD PTR [r15+0x42c0]",vec_load,zmm
+0.0,24b5,vbroadcastss,"zmm31,DWORD PTR [r14+0x2c]",broadcast,zmm
+0.0,24bc,vfmadd231ps,"zmm0,zmm14,zmm31",fma,zmm
+0.04,24c2,vfmadd231ps,"zmm1,zmm15,zmm31",fma,zmm
+0.0,24c8,vbroadcastss,"zmm31,DWORD PTR [r14+0x6c]",broadcast,zmm
+0.0,24cf,vfmadd231ps,"zmm2,zmm14,zmm31",fma,zmm
+0.04,24d5,vfmadd231ps,"zmm3,zmm15,zmm31",fma,zmm
+0.04,24db,vbroadcastss,"zmm31,DWORD PTR [r14+0xac]",broadcast,zmm
+0.0,24e2,vfmadd231ps,"zmm4,zmm14,zmm31",fma,zmm
+0.04,24e8,vfmadd231ps,"zmm5,zmm15,zmm31",fma,zmm
+0.07,24ee,vbroadcastss,"zmm31,DWORD PTR [r14+0xec]",broadcast,zmm
+0.0,24f5,vfmadd231ps,"zmm6,zmm14,zmm31",fma,zmm
+0.04,24fb,vfmadd231ps,"zmm7,zmm15,zmm31",fma,zmm
+0.0,2501,vbroadcastss,"zmm31,DWORD PTR [r14+0x12c]",broadcast,zmm
+0.0,2508,vfmadd231ps,"zmm8,zmm14,zmm31",fma,zmm
+0.0,250e,vfmadd231ps,"zmm9,zmm15,zmm31",fma,zmm
+0.04,2514,vbroadcastss,"zmm31,DWORD PTR [r14+0x16c]",broadcast,zmm
+0.0,251b,vfmadd231ps,"zmm10,zmm14,zmm31",fma,zmm
+0.0,2521,vfmadd231ps,"zmm11,zmm15,zmm31",fma,zmm
+0.04,2527,vbroadcastss,"zmm31,DWORD PTR [r14+0x1ac]",broadcast,zmm
+0.0,252e,vfmadd231ps,"zmm12,zmm14,zmm31",fma,zmm
+0.04,2534,vfmadd231ps,"zmm13,zmm15,zmm31",fma,zmm
+0.0,253a,vmovups,"zmm14,ZMMWORD PTR [r15+rbp*1-0x100]",vec_load,zmm
+0.0,2542,vmovups,"zmm15,ZMMWORD PTR [r15+0x4300]",vec_load,zmm
+0.0,254c,vbroadcastss,"zmm31,DWORD PTR [r14+0x30]",broadcast,zmm
+0.04,2553,vfmadd231ps,"zmm0,zmm14,zmm31",fma,zmm
+0.04,2559,vfmadd231ps,"zmm1,zmm15,zmm31",fma,zmm
+0.0,255f,vbroadcastss,"zmm31,DWORD PTR [r14+0x70]",broadcast,zmm
+0.04,2566,vfmadd231ps,"zmm2,zmm14,zmm31",fma,zmm
+0.04,256c,vfmadd231ps,"zmm3,zmm15,zmm31",fma,zmm
+0.04,2572,vbroadcastss,"zmm31,DWORD PTR [r14+0xb0]",broadcast,zmm
+0.0,2579,vfmadd231ps,"zmm4,zmm14,zmm31",fma,zmm
+0.0,257f,vfmadd231ps,"zmm5,zmm15,zmm31",fma,zmm
+0.04,2585,vbroadcastss,"zmm31,DWORD PTR [r14+0xf0]",broadcast,zmm
+0.0,258c,vfmadd231ps,"zmm6,zmm14,zmm31",fma,zmm
+0.0,2592,vfmadd231ps,"zmm7,zmm15,zmm31",fma,zmm
+0.0,2598,vbroadcastss,"zmm31,DWORD PTR [r14+0x130]",broadcast,zmm
+0.0,259f,vfmadd231ps,"zmm8,zmm14,zmm31",fma,zmm
+0.0,25a5,vfmadd231ps,"zmm9,zmm15,zmm31",fma,zmm
+0.0,25ab,vbroadcastss,"zmm31,DWORD PTR [r14+0x170]",broadcast,zmm
+0.0,25b2,vfmadd231ps,"zmm10,zmm14,zmm31",fma,zmm
+0.0,25b8,vfmadd231ps,"zmm11,zmm15,zmm31",fma,zmm
+0.0,25be,vbroadcastss,"zmm31,DWORD PTR [r14+0x1b0]",broadcast,zmm
+0.0,25c5,vfmadd231ps,"zmm12,zmm14,zmm31",fma,zmm
+0.0,25cb,vfmadd231ps,"zmm13,zmm15,zmm31",fma,zmm
+0.0,25d1,vmovups,"zmm14,ZMMWORD PTR [r15+rbp*1-0xc0]",vec_load,zmm
+0.0,25d9,vmovups,"zmm15,ZMMWORD PTR [r15+0x4340]",vec_load,zmm
+0.0,25e3,vbroadcastss,"zmm31,DWORD PTR [r14+0x34]",broadcast,zmm
+0.11,25ea,vfmadd231ps,"zmm0,zmm14,zmm31",fma,zmm
+0.0,25f0,vfmadd231ps,"zmm1,zmm15,zmm31",fma,zmm
+0.0,25f6,vbroadcastss,"zmm31,DWORD PTR [r14+0x74]",broadcast,zmm
+0.0,25fd,vfmadd231ps,"zmm2,zmm14,zmm31",fma,zmm
+0.04,2603,vfmadd231ps,"zmm3,zmm15,zmm31",fma,zmm
+0.0,2609,vbroadcastss,"zmm31,DWORD PTR [r14+0xb4]",broadcast,zmm
+0.0,2610,vfmadd231ps,"zmm4,zmm14,zmm31",fma,zmm
+0.04,2616,vfmadd231ps,"zmm5,zmm15,zmm31",fma,zmm
+0.0,261c,vbroadcastss,"zmm31,DWORD PTR [r14+0xf4]",broadcast,zmm
+0.0,2623,vfmadd231ps,"zmm6,zmm14,zmm31",fma,zmm
+0.0,2629,vfmadd231ps,"zmm7,zmm15,zmm31",fma,zmm
+0.0,262f,vbroadcastss,"zmm31,DWORD PTR [r14+0x134]",broadcast,zmm
+0.0,2636,vfmadd231ps,"zmm8,zmm14,zmm31",fma,zmm
+0.0,263c,vfmadd231ps,"zmm9,zmm15,zmm31",fma,zmm
+0.0,2642,vbroadcastss,"zmm31,DWORD PTR [r14+0x174]",broadcast,zmm
+0.0,2649,vfmadd231ps,"zmm10,zmm14,zmm31",fma,zmm
+0.0,264f,vfmadd231ps,"zmm11,zmm15,zmm31",fma,zmm
+0.0,2655,vbroadcastss,"zmm31,DWORD PTR [r14+0x1b4]",broadcast,zmm
+0.04,265c,vfmadd231ps,"zmm12,zmm14,zmm31",fma,zmm
+0.0,2662,vfmadd231ps,"zmm13,zmm15,zmm31",fma,zmm
+0.04,2668,vmovups,"zmm14,ZMMWORD PTR [r15+rbp*1-0x80]",vec_load,zmm
+0.0,2670,vmovups,"zmm15,ZMMWORD PTR [r15+0x4380]",vec_load,zmm
+0.0,267a,vbroadcastss,"zmm31,DWORD PTR [r14+0x38]",broadcast,zmm
+0.04,2681,vfmadd231ps,"zmm0,zmm14,zmm31",fma,zmm
+0.0,2687,vfmadd231ps,"zmm1,zmm15,zmm31",fma,zmm
+0.0,268d,vbroadcastss,"zmm31,DWORD PTR [r14+0x78]",broadcast,zmm
+0.0,2694,vfmadd231ps,"zmm2,zmm14,zmm31",fma,zmm
+0.0,269a,vfmadd231ps,"zmm3,zmm15,zmm31",fma,zmm
+0.0,26a0,vbroadcastss,"zmm31,DWORD PTR [r14+0xb8]",broadcast,zmm
+0.0,26a7,vfmadd231ps,"zmm4,zmm14,zmm31",fma,zmm
+0.04,26ad,vfmadd231ps,"zmm5,zmm15,zmm31",fma,zmm
+0.04,26b3,vbroadcastss,"zmm31,DWORD PTR [r14+0xf8]",broadcast,zmm
+0.0,26ba,vfmadd231ps,"zmm6,zmm14,zmm31",fma,zmm
+0.04,26c0,vfmadd231ps,"zmm7,zmm15,zmm31",fma,zmm
+0.0,26c6,vbroadcastss,"zmm31,DWORD PTR [r14+0x138]",broadcast,zmm
+0.0,26cd,vfmadd231ps,"zmm8,zmm14,zmm31",fma,zmm
+0.0,26d3,vfmadd231ps,"zmm9,zmm15,zmm31",fma,zmm
+0.0,26d9,vbroadcastss,"zmm31,DWORD PTR [r14+0x178]",broadcast,zmm
+0.0,26e0,vfmadd231ps,"zmm10,zmm14,zmm31",fma,zmm
+0.07,26e6,vfmadd231ps,"zmm11,zmm15,zmm31",fma,zmm
+0.04,26ec,vbroadcastss,"zmm31,DWORD PTR [r14+0x1b8]",broadcast,zmm
+0.0,26f3,vfmadd231ps,"zmm12,zmm14,zmm31",fma,zmm
+0.04,26f9,vfmadd231ps,"zmm13,zmm15,zmm31",fma,zmm
+0.04,26ff,vmovups,"zmm14,ZMMWORD PTR [r15+rbp*1-0x40]",vec_load,zmm
+0.0,2707,vmovups,"zmm15,ZMMWORD PTR [r15+0x43c0]",vec_load,zmm
+0.0,2711,vbroadcastss,"zmm31,DWORD PTR [r14+0x3c]",broadcast,zmm
+0.0,2718,vfmadd231ps,"zmm0,zmm14,zmm31",fma,zmm
+0.04,271e,vfmadd231ps,"zmm1,zmm15,zmm31",fma,zmm
+0.0,2724,vbroadcastss,"zmm31,DWORD PTR [r14+0x7c]",broadcast,zmm
+0.0,272b,vfmadd231ps,"zmm2,zmm14,zmm31",fma,zmm
+0.0,2731,vfmadd231ps,"zmm3,zmm15,zmm31",fma,zmm
+0.04,2737,vbroadcastss,"zmm31,DWORD PTR [r14+0xbc]",broadcast,zmm
+0.0,273e,vfmadd231ps,"zmm4,zmm14,zmm31",fma,zmm
+0.04,2744,vfmadd231ps,"zmm5,zmm15,zmm31",fma,zmm
+0.0,274a,vbroadcastss,"zmm31,DWORD PTR [r14+0xfc]",broadcast,zmm
+0.0,2751,vfmadd231ps,"zmm6,zmm14,zmm31",fma,zmm
+0.0,2757,vfmadd231ps,"zmm7,zmm15,zmm31",fma,zmm
+0.04,275d,vbroadcastss,"zmm31,DWORD PTR [r14+0x13c]",broadcast,zmm
+0.0,2764,vfmadd231ps,"zmm8,zmm14,zmm31",fma,zmm
+0.0,276a,vfmadd231ps,"zmm9,zmm15,zmm31",fma,zmm
+0.0,2770,vbroadcastss,"zmm31,DWORD PTR [r14+0x17c]",broadcast,zmm
+0.0,2777,vfmadd231ps,"zmm10,zmm14,zmm31",fma,zmm
+0.04,277d,vfmadd231ps,"zmm11,zmm15,zmm31",fma,zmm
+0.0,2783,vbroadcastss,"zmm31,DWORD PTR [r14+0x1bc]",broadcast,zmm
+0.04,278a,vfmadd231ps,"zmm12,zmm14,zmm31",fma,zmm
+0.04,2790,vfmadd231ps,"zmm13,zmm15,zmm31",fma,zmm
+0.0,2796,add,"r14,0xc400",int/addr,
+0.04,279d,add,"r15,0x400",int/addr,
+0.0,27a4,sub,"rdi,0x10",int/addr,
+0.0,27a8,jg,1e30 <jit_avx512_common_1x1_conv_kernel_t.11+0x1db0>,branch,
+0.0,27ae,vmovups,"zmm14,ZMMWORD PTR [r15]",vec_load,zmm
+0.0,27b4,vmovups,"zmm15,ZMMWORD PTR [r15+0x4000]",vec_load,zmm
+0.0,27be,vbroadcastss,"zmm31,DWORD PTR [r14]",broadcast,zmm
+0.0,27c4,vfmadd231ps,"zmm0,zmm14,zmm31",fma,zmm
+0.0,27ca,vfmadd231ps,"zmm1,zmm15,zmm31",fma,zmm
+0.0,27d0,vbroadcastss,"zmm31,DWORD PTR [r14+0x40]",broadcast,zmm
+0.0,27d7,vfmadd231ps,"zmm2,zmm14,zmm31",fma,zmm
+0.0,27dd,vfmadd231ps,"zmm3,zmm15,zmm31",fma,zmm
+0.0,27e3,vbroadcastss,"zmm31,DWORD PTR [r14+0x80]",broadcast,zmm
+0.0,27ea,vfmadd231ps,"zmm4,zmm14,zmm31",fma,zmm
+0.0,27f0,vfmadd231ps,"zmm5,zmm15,zmm31",fma,zmm
+0.0,27f6,vbroadcastss,"zmm31,DWORD PTR [r14+0xc0]",broadcast,zmm
+0.0,27fd,vfmadd231ps,"zmm6,zmm14,zmm31",fma,zmm
+0.0,2803,vfmadd231ps,"zmm7,zmm15,zmm31",fma,zmm
+0.0,2809,vbroadcastss,"zmm31,DWORD PTR [r14+0x100]",broadcast,zmm
+0.0,2810,vfmadd231ps,"zmm8,zmm14,zmm31",fma,zmm
+0.0,2816,vfmadd231ps,"zmm9,zmm15,zmm31",fma,zmm
+0.0,281c,vbroadcastss,"zmm31,DWORD PTR [r14+0x140]",broadcast,zmm
+0.0,2823,vfmadd231ps,"zmm10,zmm14,zmm31",fma,zmm
+0.0,2829,vfmadd231ps,"zmm11,zmm15,zmm31",fma,zmm
+0.0,282f,vbroadcastss,"zmm31,DWORD PTR [r14+0x180]",broadcast,zmm
+0.0,2836,vfmadd231ps,"zmm12,zmm14,zmm31",fma,zmm
+0.0,283c,vfmadd231ps,"zmm13,zmm15,zmm31",fma,zmm
+0.0,2842,vmovups,"zmm14,ZMMWORD PTR [r15+0x40]",vec_load,zmm
+0.0,2849,vmovups,"zmm15,ZMMWORD PTR [r15+0x4040]",vec_load,zmm
+0.0,2853,vbroadcastss,"zmm31,DWORD PTR [r14+0x4]",broadcast,zmm
+0.0,285a,vfmadd231ps,"zmm0,zmm14,zmm31",fma,zmm
+0.0,2860,vfmadd231ps,"zmm1,zmm15,zmm31",fma,zmm
+0.0,2866,vbroadcastss,"zmm31,DWORD PTR [r14+0x44]",broadcast,zmm
+0.0,286d,vfmadd231ps,"zmm2,zmm14,zmm31",fma,zmm
+0.0,2873,vfmadd231ps,"zmm3,zmm15,zmm31",fma,zmm
+0.0,2879,vbroadcastss,"zmm31,DWORD PTR [r14+0x84]",broadcast,zmm
+0.0,2880,vfmadd231ps,"zmm4,zmm14,zmm31",fma,zmm
+0.0,2886,vfmadd231ps,"zmm5,zmm15,zmm31",fma,zmm
+0.0,288c,vbroadcastss,"zmm31,DWORD PTR [r14+0xc4]",broadcast,zmm
+0.0,2893,vfmadd231ps,"zmm6,zmm14,zmm31",fma,zmm
+0.0,2899,vfmadd231ps,"zmm7,zmm15,zmm31",fma,zmm
+0.0,289f,vbroadcastss,"zmm31,DWORD PTR [r14+0x104]",broadcast,zmm
+0.0,28a6,vfmadd231ps,"zmm8,zmm14,zmm31",fma,zmm
+0.0,28ac,vfmadd231ps,"zmm9,zmm15,zmm31",fma,zmm
+0.0,28b2,vbroadcastss,"zmm31,DWORD PTR [r14+0x144]",broadcast,zmm
+0.0,28b9,vfmadd231ps,"zmm10,zmm14,zmm31",fma,zmm
+0.0,28bf,vfmadd231ps,"zmm11,zmm15,zmm31",fma,zmm
+0.0,28c5,vbroadcastss,"zmm31,DWORD PTR [r14+0x184]",broadcast,zmm
+0.0,28cc,vfmadd231ps,"zmm12,zmm14,zmm31",fma,zmm
+0.0,28d2,vfmadd231ps,"zmm13,zmm15,zmm31",fma,zmm
+0.0,28d8,vmovups,"zmm14,ZMMWORD PTR [r15+0x80]",vec_load,zmm
+0.0,28df,vmovups,"zmm15,ZMMWORD PTR [r15+0x4080]",vec_load,zmm
+0.0,28e9,vbroadcastss,"zmm31,DWORD PTR [r14+0x8]",broadcast,zmm
+0.0,28f0,vfmadd231ps,"zmm0,zmm14,zmm31",fma,zmm
+0.0,28f6,vfmadd231ps,"zmm1,zmm15,zmm31",fma,zmm
+0.0,28fc,vbroadcastss,"zmm31,DWORD PTR [r14+0x48]",broadcast,zmm
+0.0,2903,vfmadd231ps,"zmm2,zmm14,zmm31",fma,zmm
+0.0,2909,vfmadd231ps,"zmm3,zmm15,zmm31",fma,zmm
+0.0,290f,vbroadcastss,"zmm31,DWORD PTR [r14+0x88]",broadcast,zmm
+0.0,2916,vfmadd231ps,"zmm4,zmm14,zmm31",fma,zmm
+0.0,291c,vfmadd231ps,"zmm5,zmm15,zmm31",fma,zmm
+0.0,2922,vbroadcastss,"zmm31,DWORD PTR [r14+0xc8]",broadcast,zmm
+0.0,2929,vfmadd231ps,"zmm6,zmm14,zmm31",fma,zmm
+0.0,292f,vfmadd231ps,"zmm7,zmm15,zmm31",fma,zmm
+0.0,2935,vbroadcastss,"zmm31,DWORD PTR [r14+0x108]",broadcast,zmm
+0.04,293c,vfmadd231ps,"zmm8,zmm14,zmm31",fma,zmm
+0.0,2942,vfmadd231ps,"zmm9,zmm15,zmm31",fma,zmm
+0.0,2948,vbroadcastss,"zmm31,DWORD PTR [r14+0x148]",broadcast,zmm
+0.0,294f,vfmadd231ps,"zmm10,zmm14,zmm31",fma,zmm
+0.0,2955,vfmadd231ps,"zmm11,zmm15,zmm31",fma,zmm
+0.0,295b,vbroadcastss,"zmm31,DWORD PTR [r14+0x188]",broadcast,zmm
+0.0,2962,vfmadd231ps,"zmm12,zmm14,zmm31",fma,zmm
+0.0,2968,vfmadd231ps,"zmm13,zmm15,zmm31",fma,zmm
+0.0,296e,vmovups,"zmm14,ZMMWORD PTR [r15+0xc0]",vec_load,zmm
+0.0,2975,vmovups,"zmm15,ZMMWORD PTR [r15+0x40c0]",vec_load,zmm
+0.0,297f,vbroadcastss,"zmm31,DWORD PTR [r14+0xc]",broadcast,zmm
+0.0,2986,vfmadd231ps,"zmm0,zmm14,zmm31",fma,zmm
+0.0,298c,vfmadd231ps,"zmm1,zmm15,zmm31",fma,zmm
+0.0,2992,vbroadcastss,"zmm31,DWORD PTR [r14+0x4c]",broadcast,zmm
+0.0,2999,vfmadd231ps,"zmm2,zmm14,zmm31",fma,zmm
+0.0,299f,vfmadd231ps,"zmm3,zmm15,zmm31",fma,zmm
+0.0,29a5,vbroadcastss,"zmm31,DWORD PTR [r14+0x8c]",broadcast,zmm
+0.0,29ac,vfmadd231ps,"zmm4,zmm14,zmm31",fma,zmm
+0.0,29b2,vfmadd231ps,"zmm5,zmm15,zmm31",fma,zmm
+0.0,29b8,vbroadcastss,"zmm31,DWORD PTR [r14+0xcc]",broadcast,zmm
+0.0,29bf,vfmadd231ps,"zmm6,zmm14,zmm31",fma,zmm
+0.0,29c5,vfmadd231ps,"zmm7,zmm15,zmm31",fma,zmm
+0.0,29cb,vbroadcastss,"zmm31,DWORD PTR [r14+0x10c]",broadcast,zmm
+0.0,29d2,vfmadd231ps,"zmm8,zmm14,zmm31",fma,zmm
+0.0,29d8,vfmadd231ps,"zmm9,zmm15,zmm31",fma,zmm
+0.0,29de,vbroadcastss,"zmm31,DWORD PTR [r14+0x14c]",broadcast,zmm
+0.0,29e5,vfmadd231ps,"zmm10,zmm14,zmm31",fma,zmm
+0.0,29eb,vfmadd231ps,"zmm11,zmm15,zmm31",fma,zmm
+0.0,29f1,vbroadcastss,"zmm31,DWORD PTR [r14+0x18c]",broadcast,zmm
+0.0,29f8,vfmadd231ps,"zmm12,zmm14,zmm31",fma,zmm
+0.0,29fe,vfmadd231ps,"zmm13,zmm15,zmm31",fma,zmm
+0.0,2a04,vmovups,"zmm14,ZMMWORD PTR [r15+0x100]",vec_load,zmm
+0.0,2a0b,vmovups,"zmm15,ZMMWORD PTR [r15+0x4100]",vec_load,zmm
+0.0,2a15,vbroadcastss,"zmm31,DWORD PTR [r14+0x10]",broadcast,zmm
+0.0,2a1c,vfmadd231ps,"zmm0,zmm14,zmm31",fma,zmm
+0.04,2a22,vfmadd231ps,"zmm1,zmm15,zmm31",fma,zmm
+0.0,2a28,vbroadcastss,"zmm31,DWORD PTR [r14+0x50]",broadcast,zmm
+0.0,2a2f,vfmadd231ps,"zmm2,zmm14,zmm31",fma,zmm
+0.0,2a35,vfmadd231ps,"zmm3,zmm15,zmm31",fma,zmm
+0.0,2a3b,vbroadcastss,"zmm31,DWORD PTR [r14+0x90]",broadcast,zmm
+0.0,2a42,vfmadd231ps,"zmm4,zmm14,zmm31",fma,zmm
+0.0,2a48,vfmadd231ps,"zmm5,zmm15,zmm31",fma,zmm
+0.0,2a4e,vbroadcastss,"zmm31,DWORD PTR [r14+0xd0]",broadcast,zmm
+0.0,2a55,vfmadd231ps,"zmm6,zmm14,zmm31",fma,zmm
+0.0,2a5b,vfmadd231ps,"zmm7,zmm15,zmm31",fma,zmm
+0.0,2a61,vbroadcastss,"zmm31,DWORD PTR [r14+0x110]",broadcast,zmm
+0.0,2a68,vfmadd231ps,"zmm8,zmm14,zmm31",fma,zmm
+0.0,2a6e,vfmadd231ps,"zmm9,zmm15,zmm31",fma,zmm
+0.0,2a74,vbroadcastss,"zmm31,DWORD PTR [r14+0x150]",broadcast,zmm
+0.0,2a7b,vfmadd231ps,"zmm10,zmm14,zmm31",fma,zmm
+0.0,2a81,vfmadd231ps,"zmm11,zmm15,zmm31",fma,zmm
+0.0,2a87,vbroadcastss,"zmm31,DWORD PTR [r14+0x190]",broadcast,zmm
+0.0,2a8e,vfmadd231ps,"zmm12,zmm14,zmm31",fma,zmm
+0.0,2a94,vfmadd231ps,"zmm13,zmm15,zmm31",fma,zmm
+0.0,2a9a,vmovups,"zmm14,ZMMWORD PTR [r15+0x140]",vec_load,zmm
+0.0,2aa1,vmovups,"zmm15,ZMMWORD PTR [r15+0x4140]",vec_load,zmm
+0.0,2aab,vbroadcastss,"zmm31,DWORD PTR [r14+0x14]",broadcast,zmm
+0.0,2ab2,vfmadd231ps,"zmm0,zmm14,zmm31",fma,zmm
+0.0,2ab8,vfmadd231ps,"zmm1,zmm15,zmm31",fma,zmm
+0.0,2abe,vbroadcastss,"zmm31,DWORD PTR [r14+0x54]",broadcast,zmm
+0.0,2ac5,vfmadd231ps,"zmm2,zmm14,zmm31",fma,zmm
+0.0,2acb,vfmadd231ps,"zmm3,zmm15,zmm31",fma,zmm
+0.0,2ad1,vbroadcastss,"zmm31,DWORD PTR [r14+0x94]",broadcast,zmm
+0.0,2ad8,vfmadd231ps,"zmm4,zmm14,zmm31",fma,zmm
+0.04,2ade,vfmadd231ps,"zmm5,zmm15,zmm31",fma,zmm
+0.0,2ae4,vbroadcastss,"zmm31,DWORD PTR [r14+0xd4]",broadcast,zmm
+0.0,2aeb,vfmadd231ps,"zmm6,zmm14,zmm31",fma,zmm
+0.0,2af1,vfmadd231ps,"zmm7,zmm15,zmm31",fma,zmm
+0.0,2af7,vbroadcastss,"zmm31,DWORD PTR [r14+0x114]",broadcast,zmm
+0.0,2afe,vfmadd231ps,"zmm8,zmm14,zmm31",fma,zmm
+0.0,2b04,vfmadd231ps,"zmm9,zmm15,zmm31",fma,zmm
+0.0,2b0a,vbroadcastss,"zmm31,DWORD PTR [r14+0x154]",broadcast,zmm
+0.0,2b11,vfmadd231ps,"zmm10,zmm14,zmm31",fma,zmm
+0.0,2b17,vfmadd231ps,"zmm11,zmm15,zmm31",fma,zmm
+0.0,2b1d,vbroadcastss,"zmm31,DWORD PTR [r14+0x194]",broadcast,zmm
+0.0,2b24,vfmadd231ps,"zmm12,zmm14,zmm31",fma,zmm
+0.0,2b2a,vfmadd231ps,"zmm13,zmm15,zmm31",fma,zmm
+0.0,2b30,vmovups,"zmm14,ZMMWORD PTR [r15+0x180]",vec_load,zmm
+0.0,2b37,vmovups,"zmm15,ZMMWORD PTR [r15+0x4180]",vec_load,zmm
+0.0,2b41,vbroadcastss,"zmm31,DWORD PTR [r14+0x18]",broadcast,zmm
+0.0,2b48,vfmadd231ps,"zmm0,zmm14,zmm31",fma,zmm
+0.0,2b4e,vfmadd231ps,"zmm1,zmm15,zmm31",fma,zmm
+0.0,2b54,vbroadcastss,"zmm31,DWORD PTR [r14+0x58]",broadcast,zmm
+0.0,2b5b,vfmadd231ps,"zmm2,zmm14,zmm31",fma,zmm
+0.0,2b61,vfmadd231ps,"zmm3,zmm15,zmm31",fma,zmm
+0.0,2b67,vbroadcastss,"zmm31,DWORD PTR [r14+0x98]",broadcast,zmm
+0.0,2b6e,vfmadd231ps,"zmm4,zmm14,zmm31",fma,zmm
+0.0,2b74,vfmadd231ps,"zmm5,zmm15,zmm31",fma,zmm
+0.0,2b7a,vbroadcastss,"zmm31,DWORD PTR [r14+0xd8]",broadcast,zmm
+0.0,2b81,vfmadd231ps,"zmm6,zmm14,zmm31",fma,zmm
+0.0,2b87,vfmadd231ps,"zmm7,zmm15,zmm31",fma,zmm
+0.0,2b8d,vbroadcastss,"zmm31,DWORD PTR [r14+0x118]",broadcast,zmm
+0.0,2b94,vfmadd231ps,"zmm8,zmm14,zmm31",fma,zmm
+0.0,2b9a,vfmadd231ps,"zmm9,zmm15,zmm31",fma,zmm
+0.0,2ba0,vbroadcastss,"zmm31,DWORD PTR [r14+0x158]",broadcast,zmm
+0.0,2ba7,vfmadd231ps,"zmm10,zmm14,zmm31",fma,zmm
+0.0,2bad,vfmadd231ps,"zmm11,zmm15,zmm31",fma,zmm
+0.0,2bb3,vbroadcastss,"zmm31,DWORD PTR [r14+0x198]",broadcast,zmm
+0.0,2bba,vfmadd231ps,"zmm12,zmm14,zmm31",fma,zmm
+0.0,2bc0,vfmadd231ps,"zmm13,zmm15,zmm31",fma,zmm
+0.0,2bc6,vmovups,"zmm14,ZMMWORD PTR [r15+0x1c0]",vec_load,zmm
+0.0,2bcd,vmovups,"zmm15,ZMMWORD PTR [r15+0x41c0]",vec_load,zmm
+0.0,2bd7,vbroadcastss,"zmm31,DWORD PTR [r14+0x1c]",broadcast,zmm
+0.0,2bde,vfmadd231ps,"zmm0,zmm14,zmm31",fma,zmm
+0.04,2be4,vfmadd231ps,"zmm1,zmm15,zmm31",fma,zmm
+0.0,2bea,vbroadcastss,"zmm31,DWORD PTR [r14+0x5c]",broadcast,zmm
+0.0,2bf1,vfmadd231ps,"zmm2,zmm14,zmm31",fma,zmm
+0.0,2bf7,vfmadd231ps,"zmm3,zmm15,zmm31",fma,zmm
+0.0,2bfd,vbroadcastss,"zmm31,DWORD PTR [r14+0x9c]",broadcast,zmm
+0.0,2c04,vfmadd231ps,"zmm4,zmm14,zmm31",fma,zmm
+0.0,2c0a,vfmadd231ps,"zmm5,zmm15,zmm31",fma,zmm
+0.0,2c10,vbroadcastss,"zmm31,DWORD PTR [r14+0xdc]",broadcast,zmm
+0.0,2c17,vfmadd231ps,"zmm6,zmm14,zmm31",fma,zmm
+0.0,2c1d,vfmadd231ps,"zmm7,zmm15,zmm31",fma,zmm
+0.0,2c23,vbroadcastss,"zmm31,DWORD PTR [r14+0x11c]",broadcast,zmm
+0.0,2c2a,vfmadd231ps,"zmm8,zmm14,zmm31",fma,zmm
+0.0,2c30,vfmadd231ps,"zmm9,zmm15,zmm31",fma,zmm
+0.0,2c36,vbroadcastss,"zmm31,DWORD PTR [r14+0x15c]",broadcast,zmm
+0.0,2c3d,vfmadd231ps,"zmm10,zmm14,zmm31",fma,zmm
+0.0,2c43,vfmadd231ps,"zmm11,zmm15,zmm31",fma,zmm
+0.0,2c49,vbroadcastss,"zmm31,DWORD PTR [r14+0x19c]",broadcast,zmm
+0.0,2c50,vfmadd231ps,"zmm12,zmm14,zmm31",fma,zmm
+0.0,2c56,vfmadd231ps,"zmm13,zmm15,zmm31",fma,zmm
+0.0,2c5c,vmovups,"zmm14,ZMMWORD PTR [r15+rbp*1-0x200]",vec_load,zmm
+0.0,2c64,vmovups,"zmm15,ZMMWORD PTR [r15+0x4200]",vec_load,zmm
+0.0,2c6e,vbroadcastss,"zmm31,DWORD PTR [r14+0x20]",broadcast,zmm
+0.0,2c75,vfmadd231ps,"zmm0,zmm14,zmm31",fma,zmm
+0.0,2c7b,vfmadd231ps,"zmm1,zmm15,zmm31",fma,zmm
+0.0,2c81,vbroadcastss,"zmm31,DWORD PTR [r14+0x60]",broadcast,zmm
+0.0,2c88,vfmadd231ps,"zmm2,zmm14,zmm31",fma,zmm
+0.0,2c8e,vfmadd231ps,"zmm3,zmm15,zmm31",fma,zmm
+0.0,2c94,vbroadcastss,"zmm31,DWORD PTR [r14+0xa0]",broadcast,zmm
+0.0,2c9b,vfmadd231ps,"zmm4,zmm14,zmm31",fma,zmm
+0.0,2ca1,vfmadd231ps,"zmm5,zmm15,zmm31",fma,zmm
+0.0,2ca7,vbroadcastss,"zmm31,DWORD PTR [r14+0xe0]",broadcast,zmm
+0.0,2cae,vfmadd231ps,"zmm6,zmm14,zmm31",fma,zmm
+0.0,2cb4,vfmadd231ps,"zmm7,zmm15,zmm31",fma,zmm
+0.0,2cba,vbroadcastss,"zmm31,DWORD PTR [r14+0x120]",broadcast,zmm
+0.0,2cc1,vfmadd231ps,"zmm8,zmm14,zmm31",fma,zmm
+0.0,2cc7,vfmadd231ps,"zmm9,zmm15,zmm31",fma,zmm
+0.0,2ccd,vbroadcastss,"zmm31,DWORD PTR [r14+0x160]",broadcast,zmm
+0.0,2cd4,vfmadd231ps,"zmm10,zmm14,zmm31",fma,zmm
+0.0,2cda,vfmadd231ps,"zmm11,zmm15,zmm31",fma,zmm
+0.0,2ce0,vbroadcastss,"zmm31,DWORD PTR [r14+0x1a0]",broadcast,zmm
+0.0,2ce7,vfmadd231ps,"zmm12,zmm14,zmm31",fma,zmm
+0.0,2ced,vfmadd231ps,"zmm13,zmm15,zmm31",fma,zmm
+0.0,2cf3,vmovups,"zmm14,ZMMWORD PTR [r15+rbp*1-0x1c0]",vec_load,zmm
+0.0,2cfb,vmovups,"zmm15,ZMMWORD PTR [r15+0x4240]",vec_load,zmm
+0.0,2d05,vbroadcastss,"zmm31,DWORD PTR [r14+0x24]",broadcast,zmm
+0.0,2d0c,vfmadd231ps,"zmm0,zmm14,zmm31",fma,zmm
+0.0,2d12,vfmadd231ps,"zmm1,zmm15,zmm31",fma,zmm
+0.0,2d18,vbroadcastss,"zmm31,DWORD PTR [r14+0x64]",broadcast,zmm
+0.0,2d1f,vfmadd231ps,"zmm2,zmm14,zmm31",fma,zmm
+0.0,2d25,vfmadd231ps,"zmm3,zmm15,zmm31",fma,zmm
+0.0,2d2b,vbroadcastss,"zmm31,DWORD PTR [r14+0xa4]",broadcast,zmm
+0.0,2d32,vfmadd231ps,"zmm4,zmm14,zmm31",fma,zmm
+0.0,2d38,vfmadd231ps,"zmm5,zmm15,zmm31",fma,zmm
+0.0,2d3e,vbroadcastss,"zmm31,DWORD PTR [r14+0xe4]",broadcast,zmm
+0.0,2d45,vfmadd231ps,"zmm6,zmm14,zmm31",fma,zmm
+0.0,2d4b,vfmadd231ps,"zmm7,zmm15,zmm31",fma,zmm
+0.0,2d51,vbroadcastss,"zmm31,DWORD PTR [r14+0x124]",broadcast,zmm
+0.0,2d58,vfmadd231ps,"zmm8,zmm14,zmm31",fma,zmm
+0.0,2d5e,vfmadd231ps,"zmm9,zmm15,zmm31",fma,zmm
+0.0,2d64,vbroadcastss,"zmm31,DWORD PTR [r14+0x164]",broadcast,zmm
+0.0,2d6b,vfmadd231ps,"zmm10,zmm14,zmm31",fma,zmm
+0.0,2d71,vfmadd231ps,"zmm11,zmm15,zmm31",fma,zmm
+0.0,2d77,vbroadcastss,"zmm31,DWORD PTR [r14+0x1a4]",broadcast,zmm
+0.0,2d7e,vfmadd231ps,"zmm12,zmm14,zmm31",fma,zmm
+0.0,2d84,vfmadd231ps,"zmm13,zmm15,zmm31",fma,zmm
+0.0,2d8a,vmovups,"zmm14,ZMMWORD PTR [r15+rbp*1-0x180]",vec_load,zmm
+0.0,2d92,vmovups,"zmm15,ZMMWORD PTR [r15+0x4280]",vec_load,zmm
+0.0,2d9c,vbroadcastss,"zmm31,DWORD PTR [r14+0x28]",broadcast,zmm
+0.0,2da3,vfmadd231ps,"zmm0,zmm14,zmm31",fma,zmm
+0.0,2da9,vfmadd231ps,"zmm1,zmm15,zmm31",fma,zmm
+0.0,2daf,vbroadcastss,"zmm31,DWORD PTR [r14+0x68]",broadcast,zmm
+0.0,2db6,vfmadd231ps,"zmm2,zmm14,zmm31",fma,zmm
+0.0,2dbc,vfmadd231ps,"zmm3,zmm15,zmm31",fma,zmm
+0.0,2dc2,vbroadcastss,"zmm31,DWORD PTR [r14+0xa8]",broadcast,zmm
+0.0,2dc9,vfmadd231ps,"zmm4,zmm14,zmm31",fma,zmm
+0.0,2dcf,vfmadd231ps,"zmm5,zmm15,zmm31",fma,zmm
+0.0,2dd5,vbroadcastss,"zmm31,DWORD PTR [r14+0xe8]",broadcast,zmm
+0.0,2ddc,vfmadd231ps,"zmm6,zmm14,zmm31",fma,zmm
+0.0,2de2,vfmadd231ps,"zmm7,zmm15,zmm31",fma,zmm
+0.0,2de8,vbroadcastss,"zmm31,DWORD PTR [r14+0x128]",broadcast,zmm
+0.04,2def,vfmadd231ps,"zmm8,zmm14,zmm31",fma,zmm
+0.0,2df5,vfmadd231ps,"zmm9,zmm15,zmm31",fma,zmm
+0.0,2dfb,vbroadcastss,"zmm31,DWORD PTR [r14+0x168]",broadcast,zmm
+0.0,2e02,vfmadd231ps,"zmm10,zmm14,zmm31",fma,zmm
+0.04,2e08,vfmadd231ps,"zmm11,zmm15,zmm31",fma,zmm
+0.0,2e0e,vbroadcastss,"zmm31,DWORD PTR [r14+0x1a8]",broadcast,zmm
+0.0,2e15,vfmadd231ps,"zmm12,zmm14,zmm31",fma,zmm
+0.0,2e1b,vfmadd231ps,"zmm13,zmm15,zmm31",fma,zmm
+0.0,2e21,vmovups,"zmm14,ZMMWORD PTR [r15+rbp*1-0x140]",vec_load,zmm
+0.0,2e29,vmovups,"zmm15,ZMMWORD PTR [r15+0x42c0]",vec_load,zmm
+0.0,2e33,vbroadcastss,"zmm31,DWORD PTR [r14+0x2c]",broadcast,zmm
+0.04,2e3a,vfmadd231ps,"zmm0,zmm14,zmm31",fma,zmm
+0.0,2e40,vfmadd231ps,"zmm1,zmm15,zmm31",fma,zmm
+0.0,2e46,vbroadcastss,"zmm31,DWORD PTR [r14+0x6c]",broadcast,zmm
+0.0,2e4d,vfmadd231ps,"zmm2,zmm14,zmm31",fma,zmm
+0.0,2e53,vfmadd231ps,"zmm3,zmm15,zmm31",fma,zmm
+0.0,2e59,vbroadcastss,"zmm31,DWORD PTR [r14+0xac]",broadcast,zmm
+0.0,2e60,vfmadd231ps,"zmm4,zmm14,zmm31",fma,zmm
+0.0,2e66,vfmadd231ps,"zmm5,zmm15,zmm31",fma,zmm
+0.0,2e6c,vbroadcastss,"zmm31,DWORD PTR [r14+0xec]",broadcast,zmm
+0.0,2e73,vfmadd231ps,"zmm6,zmm14,zmm31",fma,zmm
+0.0,2e79,vfmadd231ps,"zmm7,zmm15,zmm31",fma,zmm
+0.0,2e7f,vbroadcastss,"zmm31,DWORD PTR [r14+0x12c]",broadcast,zmm
+0.0,2e86,vfmadd231ps,"zmm8,zmm14,zmm31",fma,zmm
+0.0,2e8c,vfmadd231ps,"zmm9,zmm15,zmm31",fma,zmm
+0.0,2e92,vbroadcastss,"zmm31,DWORD PTR [r14+0x16c]",broadcast,zmm
+0.0,2e99,vfmadd231ps,"zmm10,zmm14,zmm31",fma,zmm
+0.0,2e9f,vfmadd231ps,"zmm11,zmm15,zmm31",fma,zmm
+0.0,2ea5,vbroadcastss,"zmm31,DWORD PTR [r14+0x1ac]",broadcast,zmm
+0.0,2eac,vfmadd231ps,"zmm12,zmm14,zmm31",fma,zmm
+0.0,2eb2,vfmadd231ps,"zmm13,zmm15,zmm31",fma,zmm
+0.0,2eb8,vmovups,"zmm14,ZMMWORD PTR [r15+rbp*1-0x100]",vec_load,zmm
+0.0,2ec0,vmovups,"zmm15,ZMMWORD PTR [r15+0x4300]",vec_load,zmm
+0.0,2eca,vbroadcastss,"zmm31,DWORD PTR [r14+0x30]",broadcast,zmm
+0.0,2ed1,vfmadd231ps,"zmm0,zmm14,zmm31",fma,zmm
+0.0,2ed7,vfmadd231ps,"zmm1,zmm15,zmm31",fma,zmm
+0.0,2edd,vbroadcastss,"zmm31,DWORD PTR [r14+0x70]",broadcast,zmm
+0.0,2ee4,vfmadd231ps,"zmm2,zmm14,zmm31",fma,zmm
+0.0,2eea,vfmadd231ps,"zmm3,zmm15,zmm31",fma,zmm
+0.0,2ef0,vbroadcastss,"zmm31,DWORD PTR [r14+0xb0]",broadcast,zmm
+0.0,2ef7,vfmadd231ps,"zmm4,zmm14,zmm31",fma,zmm
+0.0,2efd,vfmadd231ps,"zmm5,zmm15,zmm31",fma,zmm
+0.0,2f03,vbroadcastss,"zmm31,DWORD PTR [r14+0xf0]",broadcast,zmm
+0.04,2f0a,vfmadd231ps,"zmm6,zmm14,zmm31",fma,zmm
+0.0,2f10,vfmadd231ps,"zmm7,zmm15,zmm31",fma,zmm
+0.0,2f16,vbroadcastss,"zmm31,DWORD PTR [r14+0x130]",broadcast,zmm
+0.0,2f1d,vfmadd231ps,"zmm8,zmm14,zmm31",fma,zmm
+0.0,2f23,vfmadd231ps,"zmm9,zmm15,zmm31",fma,zmm
+0.0,2f29,vbroadcastss,"zmm31,DWORD PTR [r14+0x170]",broadcast,zmm
+0.0,2f30,vfmadd231ps,"zmm10,zmm14,zmm31",fma,zmm
+0.04,2f36,vfmadd231ps,"zmm11,zmm15,zmm31",fma,zmm
+0.0,2f3c,vbroadcastss,"zmm31,DWORD PTR [r14+0x1b0]",broadcast,zmm
+0.0,2f43,vfmadd231ps,"zmm12,zmm14,zmm31",fma,zmm
+0.0,2f49,vfmadd231ps,"zmm13,zmm15,zmm31",fma,zmm
+0.0,2f4f,vmovups,"zmm14,ZMMWORD PTR [r15+rbp*1-0xc0]",vec_load,zmm
+0.0,2f57,vmovups,"zmm15,ZMMWORD PTR [r15+0x4340]",vec_load,zmm
+0.0,2f61,vbroadcastss,"zmm31,DWORD PTR [r14+0x34]",broadcast,zmm
+0.04,2f68,vfmadd231ps,"zmm0,zmm14,zmm31",fma,zmm
+0.0,2f6e,vfmadd231ps,"zmm1,zmm15,zmm31",fma,zmm
+0.0,2f74,vbroadcastss,"zmm31,DWORD PTR [r14+0x74]",broadcast,zmm
+0.0,2f7b,vfmadd231ps,"zmm2,zmm14,zmm31",fma,zmm
+0.0,2f81,vfmadd231ps,"zmm3,zmm15,zmm31",fma,zmm
+0.0,2f87,vbroadcastss,"zmm31,DWORD PTR [r14+0xb4]",broadcast,zmm
+0.0,2f8e,vfmadd231ps,"zmm4,zmm14,zmm31",fma,zmm
+0.0,2f94,vfmadd231ps,"zmm5,zmm15,zmm31",fma,zmm
+0.0,2f9a,vbroadcastss,"zmm31,DWORD PTR [r14+0xf4]",broadcast,zmm
+0.0,2fa1,vfmadd231ps,"zmm6,zmm14,zmm31",fma,zmm
+0.0,2fa7,vfmadd231ps,"zmm7,zmm15,zmm31",fma,zmm
+0.0,2fad,vbroadcastss,"zmm31,DWORD PTR [r14+0x134]",broadcast,zmm
+0.0,2fb4,vfmadd231ps,"zmm8,zmm14,zmm31",fma,zmm
+0.0,2fba,vfmadd231ps,"zmm9,zmm15,zmm31",fma,zmm
+0.0,2fc0,vbroadcastss,"zmm31,DWORD PTR [r14+0x174]",broadcast,zmm
+0.0,2fc7,vfmadd231ps,"zmm10,zmm14,zmm31",fma,zmm
+0.0,2fcd,vfmadd231ps,"zmm11,zmm15,zmm31",fma,zmm
+0.0,2fd3,vbroadcastss,"zmm31,DWORD PTR [r14+0x1b4]",broadcast,zmm
+0.0,2fda,vfmadd231ps,"zmm12,zmm14,zmm31",fma,zmm
+0.04,2fe0,vfmadd231ps,"zmm13,zmm15,zmm31",fma,zmm
+0.0,2fe6,vmovups,"zmm14,ZMMWORD PTR [r15+rbp*1-0x80]",vec_load,zmm
+0.0,2fee,vmovups,"zmm15,ZMMWORD PTR [r15+0x4380]",vec_load,zmm
+0.0,2ff8,vbroadcastss,"zmm31,DWORD PTR [r14+0x38]",broadcast,zmm
+0.0,2fff,vfmadd231ps,"zmm0,zmm14,zmm31",fma,zmm
+0.0,3005,vfmadd231ps,"zmm1,zmm15,zmm31",fma,zmm
+0.0,300b,vbroadcastss,"zmm31,DWORD PTR [r14+0x78]",broadcast,zmm
+0.0,3012,vfmadd231ps,"zmm2,zmm14,zmm31",fma,zmm
+0.0,3018,vfmadd231ps,"zmm3,zmm15,zmm31",fma,zmm
+0.0,301e,vbroadcastss,"zmm31,DWORD PTR [r14+0xb8]",broadcast,zmm
+0.0,3025,vfmadd231ps,"zmm4,zmm14,zmm31",fma,zmm
+0.0,302b,vfmadd231ps,"zmm5,zmm15,zmm31",fma,zmm
+0.0,3031,vbroadcastss,"zmm31,DWORD PTR [r14+0xf8]",broadcast,zmm
+0.0,3038,vfmadd231ps,"zmm6,zmm14,zmm31",fma,zmm
+0.0,303e,vfmadd231ps,"zmm7,zmm15,zmm31",fma,zmm
+0.0,3044,vbroadcastss,"zmm31,DWORD PTR [r14+0x138]",broadcast,zmm
+0.0,304b,vfmadd231ps,"zmm8,zmm14,zmm31",fma,zmm
+0.0,3051,vfmadd231ps,"zmm9,zmm15,zmm31",fma,zmm
+0.0,3057,vbroadcastss,"zmm31,DWORD PTR [r14+0x178]",broadcast,zmm
+0.0,305e,vfmadd231ps,"zmm10,zmm14,zmm31",fma,zmm
+0.0,3064,vfmadd231ps,"zmm11,zmm15,zmm31",fma,zmm
+0.0,306a,vbroadcastss,"zmm31,DWORD PTR [r14+0x1b8]",broadcast,zmm
+0.0,3071,vfmadd231ps,"zmm12,zmm14,zmm31",fma,zmm
+0.0,3077,vfmadd231ps,"zmm13,zmm15,zmm31",fma,zmm
+0.0,307d,vmovups,"zmm14,ZMMWORD PTR [r15+rbp*1-0x40]",vec_load,zmm
+0.0,3085,vmovups,"zmm15,ZMMWORD PTR [r15+0x43c0]",vec_load,zmm
+0.0,308f,vbroadcastss,"zmm31,DWORD PTR [r14+0x3c]",broadcast,zmm
+0.0,3096,vfmadd231ps,"zmm0,zmm14,zmm31",fma,zmm
+0.0,309c,vfmadd231ps,"zmm1,zmm15,zmm31",fma,zmm
+0.0,30a2,vbroadcastss,"zmm31,DWORD PTR [r14+0x7c]",broadcast,zmm
+0.0,30a9,vfmadd231ps,"zmm2,zmm14,zmm31",fma,zmm
+0.0,30af,vfmadd231ps,"zmm3,zmm15,zmm31",fma,zmm
+0.0,30b5,vbroadcastss,"zmm31,DWORD PTR [r14+0xbc]",broadcast,zmm
+0.0,30bc,vfmadd231ps,"zmm4,zmm14,zmm31",fma,zmm
+0.0,30c2,vfmadd231ps,"zmm5,zmm15,zmm31",fma,zmm
+0.0,30c8,vbroadcastss,"zmm31,DWORD PTR [r14+0xfc]",broadcast,zmm
+0.0,30cf,vfmadd231ps,"zmm6,zmm14,zmm31",fma,zmm
+0.0,30d5,vfmadd231ps,"zmm7,zmm15,zmm31",fma,zmm
+0.0,30db,vbroadcastss,"zmm31,DWORD PTR [r14+0x13c]",broadcast,zmm
+0.0,30e2,vfmadd231ps,"zmm8,zmm14,zmm31",fma,zmm
+0.0,30e8,vfmadd231ps,"zmm9,zmm15,zmm31",fma,zmm
+0.0,30ee,vbroadcastss,"zmm31,DWORD PTR [r14+0x17c]",broadcast,zmm
+0.0,30f5,vfmadd231ps,"zmm10,zmm14,zmm31",fma,zmm
+0.0,30fb,vfmadd231ps,"zmm11,zmm15,zmm31",fma,zmm
+0.0,3101,vbroadcastss,"zmm31,DWORD PTR [r14+0x1bc]",broadcast,zmm
+0.0,3108,vfmadd231ps,"zmm12,zmm14,zmm31",fma,zmm
+0.0,310e,vfmadd231ps,"zmm13,zmm15,zmm31",fma,zmm
+0.0,3114,test,"rax,0x100",int/addr,
+0.0,311a,jne,3196 <jit_avx512_common_1x1_conv_kernel_t.11+0x3116>,branch,
+0.0,3120,vaddps,"zmm0,zmm0,ZMMWORD PTR [rcx]",vec_arith,zmm
+0.0,3126,vaddps,"zmm1,zmm1,ZMMWORD PTR [rcx+0xc400]",vec_arith,zmm
+0.0,3130,vaddps,"zmm2,zmm2,ZMMWORD PTR [rcx+0x40]",vec_arith,zmm
+0.0,3137,vaddps,"zmm3,zmm3,ZMMWORD PTR [rcx+0xc440]",vec_arith,zmm
+0.0,3141,vaddps,"zmm4,zmm4,ZMMWORD PTR [rcx+0x80]",vec_arith,zmm
+0.0,3148,vaddps,"zmm5,zmm5,ZMMWORD PTR [rcx+0xc480]",vec_arith,zmm
+0.0,3152,vaddps,"zmm6,zmm6,ZMMWORD PTR [rcx+0xc0]",vec_arith,zmm
+0.0,3159,vaddps,"zmm7,zmm7,ZMMWORD PTR [rcx+0xc4c0]",vec_arith,zmm
+0.0,3163,vaddps,"zmm8,zmm8,ZMMWORD PTR [rcx+0x100]",vec_arith,zmm
+0.0,316a,vaddps,"zmm9,zmm9,ZMMWORD PTR [rcx+0xc500]",vec_arith,zmm
+0.0,3174,vaddps,"zmm10,zmm10,ZMMWORD PTR [rcx+0x140]",vec_arith,zmm
+0.0,317b,vaddps,"zmm11,zmm11,ZMMWORD PTR [rcx+0xc540]",vec_arith,zmm
+0.0,3185,vaddps,"zmm12,zmm12,ZMMWORD PTR [rcx+0x180]",vec_arith,zmm
+0.0,318c,vaddps,"zmm13,zmm13,ZMMWORD PTR [rcx+0xc580]",vec_arith,zmm
+0.0,3196,test,"rcx,0x3f",int/addr,
+0.0,319d,jne,321e <jit_avx512_common_1x1_conv_kernel_t.11+0x319e>,branch,
+0.0,31a3,vmovups,"ZMMWORD PTR [rcx],zmm0",vec_store,zmm
+0.0,31a9,vmovups,"ZMMWORD PTR [rcx+0xc400],zmm1",vec_store,zmm
+0.0,31b3,vmovups,"ZMMWORD PTR [rcx+0x40],zmm2",vec_store,zmm
+0.0,31ba,vmovups,"ZMMWORD PTR [rcx+0xc440],zmm3",vec_store,zmm
+0.0,31c4,vmovups,"ZMMWORD PTR [rcx+0x80],zmm4",vec_store,zmm
+0.0,31cb,vmovups,"ZMMWORD PTR [rcx+0xc480],zmm5",vec_store,zmm
+0.0,31d5,vmovups,"ZMMWORD PTR [rcx+0xc0],zmm6",vec_store,zmm
+0.0,31dc,vmovups,"ZMMWORD PTR [rcx+0xc4c0],zmm7",vec_store,zmm
+0.0,31e6,vmovups,"ZMMWORD PTR [rcx+0x100],zmm8",vec_store,zmm
+0.0,31ed,vmovups,"ZMMWORD PTR [rcx+0xc500],zmm9",vec_store,zmm
+0.0,31f7,vmovups,"ZMMWORD PTR [rcx+0x140],zmm10",vec_store,zmm
+0.0,31fe,vmovups,"ZMMWORD PTR [rcx+0xc540],zmm11",vec_store,zmm
+0.0,3208,vmovups,"ZMMWORD PTR [rcx+0x180],zmm12",vec_store,zmm
+0.0,320f,vmovups,"ZMMWORD PTR [rcx+0xc580],zmm13",vec_store,zmm
+0.0,3219,jmp,3294 <jit_avx512_common_1x1_conv_kernel_t.11+0x3214>,branch,
+0.0,321e,vmovups,"ZMMWORD PTR [rcx],zmm0",vec_store,zmm
+0.0,3224,vmovups,"ZMMWORD PTR [rcx+0xc400],zmm1",vec_store,zmm
+0.0,322e,vmovups,"ZMMWORD PTR [rcx+0x40],zmm2",vec_store,zmm
+0.0,3235,vmovups,"ZMMWORD PTR [rcx+0xc440],zmm3",vec_store,zmm
+0.0,323f,vmovups,"ZMMWORD PTR [rcx+0x80],zmm4",vec_store,zmm
+0.0,3246,vmovups,"ZMMWORD PTR [rcx+0xc480],zmm5",vec_store,zmm
+0.0,3250,vmovups,"ZMMWORD PTR [rcx+0xc0],zmm6",vec_store,zmm
+0.0,3257,vmovups,"ZMMWORD PTR [rcx+0xc4c0],zmm7",vec_store,zmm
+0.0,3261,vmovups,"ZMMWORD PTR [rcx+0x100],zmm8",vec_store,zmm
+0.0,3268,vmovups,"ZMMWORD PTR [rcx+0xc500],zmm9",vec_store,zmm
+0.0,3272,vmovups,"ZMMWORD PTR [rcx+0x140],zmm10",vec_store,zmm
+0.0,3279,vmovups,"ZMMWORD PTR [rcx+0xc540],zmm11",vec_store,zmm
+0.0,3283,vmovups,"ZMMWORD PTR [rcx+0x180],zmm12",vec_store,zmm
+0.0,328a,vmovups,"ZMMWORD PTR [rcx+0xc580],zmm13",vec_store,zmm
+0.0,3294,add,"rbx,0x1c0",int/addr,
+0.0,329b,add,"rcx,0x1c0",int/addr,
+0.0,32a2,sub,"rdx,0x7",int/addr,
+0.0,32a6,cmp,"rdx,0x7",int/addr,
+0.0,32aa,jge,1dc9 <jit_avx512_common_1x1_conv_kernel_t.11+0x1d49>,branch,
+0.0,32b0,add,"r10,0x8000",int/addr,
+0.0,32b7,add,"r12,0x80",int/addr,
+0.0,32be,add,"r9,0x18800",int/addr,
+0.0,32c5,cmp,"rsi,0x10",int/addr,
+0.0,32c9,jg,1daa <jit_avx512_common_1x1_conv_kernel_t.11+0x1d2a>,branch,
+0.0,32cf,cmp,"rsi,0x10",int/addr,
+0.0,32d3,jge,32d9 <jit_avx512_common_1x1_conv_kernel_t.11+0x3259>,branch,
+0.0,32d9,cmp,"rsi,0x0",int/addr,
+0.0,32dd,jle,3b49 <jit_avx512_common_1x1_conv_kernel_t.11+0x3ac9>,branch,
+0.0,32e3,sub,"rsi,0x10",int/addr,
+0.0,32e7,mov,"rbx,QWORD PTR [rsp+0x10]",gpr_load,
+0.0,32ec,mov,"r14,QWORD PTR [rsp+0x10]",gpr_load,
+0.0,32f1,mov,"rcx,r9",int/addr,
+0.0,32f4,mov,"rdx,QWORD PTR [rsp]",gpr_load,
+0.0,32f8,cmp,"rdx,0x7",int/addr,
+0.0,32fc,jl,3b2d <jit_avx512_common_1x1_conv_kernel_t.11+0x3aad>,branch,
+0.0,3302,mov,"r15,r10",int/addr,
+0.0,3305,mov,"r14,rbx",int/addr,
+0.0,3308,vpxord,"zmm0,zmm0,zmm0",vec_arith,zmm
+0.0,330e,vpxord,"zmm1,zmm1,zmm1",vec_arith,zmm
+0.0,3314,vpxord,"zmm2,zmm2,zmm2",vec_arith,zmm
+0.0,331a,vpxord,"zmm3,zmm3,zmm3",vec_arith,zmm
+0.0,3320,vpxord,"zmm4,zmm4,zmm4",vec_arith,zmm
+0.0,3326,vpxord,"zmm5,zmm5,zmm5",vec_arith,zmm
+0.0,332c,vpxord,"zmm6,zmm6,zmm6",vec_arith,zmm
+0.0,3332,mov,"rdi,r11",int/addr,
+0.0,3335,sub,"rdi,0x10",int/addr,
+0.0,3339,jle,36dd <jit_avx512_common_1x1_conv_kernel_t.11+0x365d>,branch,
+0.0,333f,vmovups,"zmm7,ZMMWORD PTR [r15]",vec_load,zmm
+0.0,3345,vfmadd231ps,"zmm0,zmm7,DWORD BCST [r14]",fma,zmm
+0.0,334b,vfmadd231ps,"zmm1,zmm7,DWORD BCST [r14+0x40]",fma,zmm
+0.0,3352,vfmadd231ps,"zmm2,zmm7,DWORD BCST [r14+0x80]",fma,zmm
+0.0,3359,vfmadd231ps,"zmm3,zmm7,DWORD BCST [r14+0xc0]",fma,zmm
+0.0,3360,vfmadd231ps,"zmm4,zmm7,DWORD BCST [r14+0x100]",fma,zmm
+0.0,3367,vfmadd231ps,"zmm5,zmm7,DWORD BCST [r14+0x140]",fma,zmm
+0.0,336e,vfmadd231ps,"zmm6,zmm7,DWORD BCST [r14+0x180]",fma,zmm
+0.0,3375,vmovups,"zmm7,ZMMWORD PTR [r15+0x40]",vec_load,zmm
+0.0,337c,vfmadd231ps,"zmm0,zmm7,DWORD BCST [r14+0x4]",fma,zmm
+0.0,3383,vfmadd231ps,"zmm1,zmm7,DWORD BCST [r14+0x44]",fma,zmm
+0.0,338a,vfmadd231ps,"zmm2,zmm7,DWORD BCST [r14+0x84]",fma,zmm
+0.0,3391,vfmadd231ps,"zmm3,zmm7,DWORD BCST [r14+0xc4]",fma,zmm
+0.0,3398,vfmadd231ps,"zmm4,zmm7,DWORD BCST [r14+0x104]",fma,zmm
+0.0,339f,vfmadd231ps,"zmm5,zmm7,DWORD BCST [r14+0x144]",fma,zmm
+0.0,33a6,vfmadd231ps,"zmm6,zmm7,DWORD BCST [r14+0x184]",fma,zmm
+0.0,33ad,vmovups,"zmm7,ZMMWORD PTR [r15+0x80]",vec_load,zmm
+0.0,33b4,vfmadd231ps,"zmm0,zmm7,DWORD BCST [r14+0x8]",fma,zmm
+0.0,33bb,vfmadd231ps,"zmm1,zmm7,DWORD BCST [r14+0x48]",fma,zmm
+0.0,33c2,vfmadd231ps,"zmm2,zmm7,DWORD BCST [r14+0x88]",fma,zmm
+0.0,33c9,vfmadd231ps,"zmm3,zmm7,DWORD BCST [r14+0xc8]",fma,zmm
+0.0,33d0,vfmadd231ps,"zmm4,zmm7,DWORD BCST [r14+0x108]",fma,zmm
+0.0,33d7,vfmadd231ps,"zmm5,zmm7,DWORD BCST [r14+0x148]",fma,zmm
+0.0,33de,vfmadd231ps,"zmm6,zmm7,DWORD BCST [r14+0x188]",fma,zmm
+0.0,33e5,vmovups,"zmm7,ZMMWORD PTR [r15+0xc0]",vec_load,zmm
+0.0,33ec,vfmadd231ps,"zmm0,zmm7,DWORD BCST [r14+0xc]",fma,zmm
+0.0,33f3,vfmadd231ps,"zmm1,zmm7,DWORD BCST [r14+0x4c]",fma,zmm
+0.0,33fa,vfmadd231ps,"zmm2,zmm7,DWORD BCST [r14+0x8c]",fma,zmm
+0.0,3401,vfmadd231ps,"zmm3,zmm7,DWORD BCST [r14+0xcc]",fma,zmm
+0.0,3408,vfmadd231ps,"zmm4,zmm7,DWORD BCST [r14+0x10c]",fma,zmm
+0.0,340f,vfmadd231ps,"zmm5,zmm7,DWORD BCST [r14+0x14c]",fma,zmm
+0.0,3416,vfmadd231ps,"zmm6,zmm7,DWORD BCST [r14+0x18c]",fma,zmm
+0.0,341d,vmovups,"zmm7,ZMMWORD PTR [r15+0x100]",vec_load,zmm
+0.0,3424,vfmadd231ps,"zmm0,zmm7,DWORD BCST [r14+0x10]",fma,zmm
+0.0,342b,vfmadd231ps,"zmm1,zmm7,DWORD BCST [r14+0x50]",fma,zmm
+0.0,3432,vfmadd231ps,"zmm2,zmm7,DWORD BCST [r14+0x90]",fma,zmm
+0.0,3439,vfmadd231ps,"zmm3,zmm7,DWORD BCST [r14+0xd0]",fma,zmm
+0.0,3440,vfmadd231ps,"zmm4,zmm7,DWORD BCST [r14+0x110]",fma,zmm
+0.0,3447,vfmadd231ps,"zmm5,zmm7,DWORD BCST [r14+0x150]",fma,zmm
+0.0,344e,vfmadd231ps,"zmm6,zmm7,DWORD BCST [r14+0x190]",fma,zmm
+0.0,3455,vmovups,"zmm7,ZMMWORD PTR [r15+0x140]",vec_load,zmm
+0.0,345c,vfmadd231ps,"zmm0,zmm7,DWORD BCST [r14+0x14]",fma,zmm
+0.0,3463,vfmadd231ps,"zmm1,zmm7,DWORD BCST [r14+0x54]",fma,zmm
+0.0,346a,vfmadd231ps,"zmm2,zmm7,DWORD BCST [r14+0x94]",fma,zmm
+0.0,3471,vfmadd231ps,"zmm3,zmm7,DWORD BCST [r14+0xd4]",fma,zmm
+0.0,3478,vfmadd231ps,"zmm4,zmm7,DWORD BCST [r14+0x114]",fma,zmm
+0.0,347f,vfmadd231ps,"zmm5,zmm7,DWORD BCST [r14+0x154]",fma,zmm
+0.0,3486,vfmadd231ps,"zmm6,zmm7,DWORD BCST [r14+0x194]",fma,zmm
+0.0,348d,vmovups,"zmm7,ZMMWORD PTR [r15+0x180]",vec_load,zmm
+0.0,3494,vfmadd231ps,"zmm0,zmm7,DWORD BCST [r14+0x18]",fma,zmm
+0.0,349b,vfmadd231ps,"zmm1,zmm7,DWORD BCST [r14+0x58]",fma,zmm
+0.0,34a2,vfmadd231ps,"zmm2,zmm7,DWORD BCST [r14+0x98]",fma,zmm
+0.0,34a9,vfmadd231ps,"zmm3,zmm7,DWORD BCST [r14+0xd8]",fma,zmm
+0.0,34b0,vfmadd231ps,"zmm4,zmm7,DWORD BCST [r14+0x118]",fma,zmm
+0.0,34b7,vfmadd231ps,"zmm5,zmm7,DWORD BCST [r14+0x158]",fma,zmm
+0.0,34be,vfmadd231ps,"zmm6,zmm7,DWORD BCST [r14+0x198]",fma,zmm
+0.0,34c5,vmovups,"zmm7,ZMMWORD PTR [r15+0x1c0]",vec_load,zmm
+0.0,34cc,vfmadd231ps,"zmm0,zmm7,DWORD BCST [r14+0x1c]",fma,zmm
+0.0,34d3,vfmadd231ps,"zmm1,zmm7,DWORD BCST [r14+0x5c]",fma,zmm
+0.0,34da,vfmadd231ps,"zmm2,zmm7,DWORD BCST [r14+0x9c]",fma,zmm
+0.0,34e1,vfmadd231ps,"zmm3,zmm7,DWORD BCST [r14+0xdc]",fma,zmm
+0.0,34e8,vfmadd231ps,"zmm4,zmm7,DWORD BCST [r14+0x11c]",fma,zmm
+0.0,34ef,vfmadd231ps,"zmm5,zmm7,DWORD BCST [r14+0x15c]",fma,zmm
+0.0,34f6,vfmadd231ps,"zmm6,zmm7,DWORD BCST [r14+0x19c]",fma,zmm
+0.0,34fd,vmovups,"zmm7,ZMMWORD PTR [r15+rbp*1-0x200]",vec_load,zmm
+0.0,3505,vfmadd231ps,"zmm0,zmm7,DWORD BCST [r14+0x20]",fma,zmm
+0.0,350c,vfmadd231ps,"zmm1,zmm7,DWORD BCST [r14+0x60]",fma,zmm
+0.0,3513,vfmadd231ps,"zmm2,zmm7,DWORD BCST [r14+0xa0]",fma,zmm
+0.0,351a,vfmadd231ps,"zmm3,zmm7,DWORD BCST [r14+0xe0]",fma,zmm
+0.0,3521,vfmadd231ps,"zmm4,zmm7,DWORD BCST [r14+0x120]",fma,zmm
+0.0,3528,vfmadd231ps,"zmm5,zmm7,DWORD BCST [r14+0x160]",fma,zmm
+0.0,352f,vfmadd231ps,"zmm6,zmm7,DWORD BCST [r14+0x1a0]",fma,zmm
+0.0,3536,vmovups,"zmm7,ZMMWORD PTR [r15+rbp*1-0x1c0]",vec_load,zmm
+0.0,353e,vfmadd231ps,"zmm0,zmm7,DWORD BCST [r14+0x24]",fma,zmm
+0.0,3545,vfmadd231ps,"zmm1,zmm7,DWORD BCST [r14+0x64]",fma,zmm
+0.0,354c,vfmadd231ps,"zmm2,zmm7,DWORD BCST [r14+0xa4]",fma,zmm
+0.0,3553,vfmadd231ps,"zmm3,zmm7,DWORD BCST [r14+0xe4]",fma,zmm
+0.0,355a,vfmadd231ps,"zmm4,zmm7,DWORD BCST [r14+0x124]",fma,zmm
+0.0,3561,vfmadd231ps,"zmm5,zmm7,DWORD BCST [r14+0x164]",fma,zmm
+0.0,3568,vfmadd231ps,"zmm6,zmm7,DWORD BCST [r14+0x1a4]",fma,zmm
+0.0,356f,vmovups,"zmm7,ZMMWORD PTR [r15+rbp*1-0x180]",vec_load,zmm
+0.0,3577,vfmadd231ps,"zmm0,zmm7,DWORD BCST [r14+0x28]",fma,zmm
+0.0,357e,vfmadd231ps,"zmm1,zmm7,DWORD BCST [r14+0x68]",fma,zmm
+0.0,3585,vfmadd231ps,"zmm2,zmm7,DWORD BCST [r14+0xa8]",fma,zmm
+0.0,358c,vfmadd231ps,"zmm3,zmm7,DWORD BCST [r14+0xe8]",fma,zmm
+0.0,3593,vfmadd231ps,"zmm4,zmm7,DWORD BCST [r14+0x128]",fma,zmm
+0.0,359a,vfmadd231ps,"zmm5,zmm7,DWORD BCST [r14+0x168]",fma,zmm
+0.0,35a1,vfmadd231ps,"zmm6,zmm7,DWORD BCST [r14+0x1a8]",fma,zmm
+0.0,35a8,vmovups,"zmm7,ZMMWORD PTR [r15+rbp*1-0x140]",vec_load,zmm
+0.0,35b0,vfmadd231ps,"zmm0,zmm7,DWORD BCST [r14+0x2c]",fma,zmm
+0.0,35b7,vfmadd231ps,"zmm1,zmm7,DWORD BCST [r14+0x6c]",fma,zmm
+0.0,35be,vfmadd231ps,"zmm2,zmm7,DWORD BCST [r14+0xac]",fma,zmm
+0.0,35c5,vfmadd231ps,"zmm3,zmm7,DWORD BCST [r14+0xec]",fma,zmm
+0.0,35cc,vfmadd231ps,"zmm4,zmm7,DWORD BCST [r14+0x12c]",fma,zmm
+0.0,35d3,vfmadd231ps,"zmm5,zmm7,DWORD BCST [r14+0x16c]",fma,zmm
+0.0,35da,vfmadd231ps,"zmm6,zmm7,DWORD BCST [r14+0x1ac]",fma,zmm
+0.0,35e1,vmovups,"zmm7,ZMMWORD PTR [r15+rbp*1-0x100]",vec_load,zmm
+0.0,35e9,vfmadd231ps,"zmm0,zmm7,DWORD BCST [r14+0x30]",fma,zmm
+0.0,35f0,vfmadd231ps,"zmm1,zmm7,DWORD BCST [r14+0x70]",fma,zmm
+0.0,35f7,vfmadd231ps,"zmm2,zmm7,DWORD BCST [r14+0xb0]",fma,zmm
+0.0,35fe,vfmadd231ps,"zmm3,zmm7,DWORD BCST [r14+0xf0]",fma,zmm
+0.0,3605,vfmadd231ps,"zmm4,zmm7,DWORD BCST [r14+0x130]",fma,zmm
+0.0,360c,vfmadd231ps,"zmm5,zmm7,DWORD BCST [r14+0x170]",fma,zmm
+0.0,3613,vfmadd231ps,"zmm6,zmm7,DWORD BCST [r14+0x1b0]",fma,zmm
+0.0,361a,vmovups,"zmm7,ZMMWORD PTR [r15+rbp*1-0xc0]",vec_load,zmm
+0.0,3622,vfmadd231ps,"zmm0,zmm7,DWORD BCST [r14+0x34]",fma,zmm
+0.0,3629,vfmadd231ps,"zmm1,zmm7,DWORD BCST [r14+0x74]",fma,zmm
+0.0,3630,vfmadd231ps,"zmm2,zmm7,DWORD BCST [r14+0xb4]",fma,zmm
+0.0,3637,vfmadd231ps,"zmm3,zmm7,DWORD BCST [r14+0xf4]",fma,zmm
+0.0,363e,vfmadd231ps,"zmm4,zmm7,DWORD BCST [r14+0x134]",fma,zmm
+0.0,3645,vfmadd231ps,"zmm5,zmm7,DWORD BCST [r14+0x174]",fma,zmm
+0.0,364c,vfmadd231ps,"zmm6,zmm7,DWORD BCST [r14+0x1b4]",fma,zmm
+0.0,3653,vmovups,"zmm7,ZMMWORD PTR [r15+rbp*1-0x80]",vec_load,zmm
+0.0,365b,vfmadd231ps,"zmm0,zmm7,DWORD BCST [r14+0x38]",fma,zmm
+0.0,3662,vfmadd231ps,"zmm1,zmm7,DWORD BCST [r14+0x78]",fma,zmm
+0.0,3669,vfmadd231ps,"zmm2,zmm7,DWORD BCST [r14+0xb8]",fma,zmm
+0.0,3670,vfmadd231ps,"zmm3,zmm7,DWORD BCST [r14+0xf8]",fma,zmm
+0.0,3677,vfmadd231ps,"zmm4,zmm7,DWORD BCST [r14+0x138]",fma,zmm
+0.0,367e,vfmadd231ps,"zmm5,zmm7,DWORD BCST [r14+0x178]",fma,zmm
+0.0,3685,vfmadd231ps,"zmm6,zmm7,DWORD BCST [r14+0x1b8]",fma,zmm
+0.0,368c,vmovups,"zmm7,ZMMWORD PTR [r15+rbp*1-0x40]",vec_load,zmm
+0.0,3694,vfmadd231ps,"zmm0,zmm7,DWORD BCST [r14+0x3c]",fma,zmm
+0.0,369b,vfmadd231ps,"zmm1,zmm7,DWORD BCST [r14+0x7c]",fma,zmm
+0.0,36a2,vfmadd231ps,"zmm2,zmm7,DWORD BCST [r14+0xbc]",fma,zmm
+0.0,36a9,vfmadd231ps,"zmm3,zmm7,DWORD BCST [r14+0xfc]",fma,zmm
+0.0,36b0,vfmadd231ps,"zmm4,zmm7,DWORD BCST [r14+0x13c]",fma,zmm
+0.0,36b7,vfmadd231ps,"zmm5,zmm7,DWORD BCST [r14+0x17c]",fma,zmm
+0.0,36be,vfmadd231ps,"zmm6,zmm7,DWORD BCST [r14+0x1bc]",fma,zmm
+0.0,36c5,add,"r14,0xc400",int/addr,
+0.0,36cc,add,"r15,0x400",int/addr,
+0.0,36d3,sub,"rdi,0x10",int/addr,
+0.0,36d7,jg,333f <jit_avx512_common_1x1_conv_kernel_t.11+0x32bf>,branch,
+0.0,36dd,vmovups,"zmm7,ZMMWORD PTR [r15]",vec_load,zmm
+0.0,36e3,vfmadd231ps,"zmm0,zmm7,DWORD BCST [r14]",fma,zmm
+0.0,36e9,vfmadd231ps,"zmm1,zmm7,DWORD BCST [r14+0x40]",fma,zmm
+0.0,36f0,vfmadd231ps,"zmm2,zmm7,DWORD BCST [r14+0x80]",fma,zmm
+0.0,36f7,vfmadd231ps,"zmm3,zmm7,DWORD BCST [r14+0xc0]",fma,zmm
+0.0,36fe,vfmadd231ps,"zmm4,zmm7,DWORD BCST [r14+0x100]",fma,zmm
+0.0,3705,vfmadd231ps,"zmm5,zmm7,DWORD BCST [r14+0x140]",fma,zmm
+0.0,370c,vfmadd231ps,"zmm6,zmm7,DWORD BCST [r14+0x180]",fma,zmm
+0.0,3713,vmovups,"zmm7,ZMMWORD PTR [r15+0x40]",vec_load,zmm
+0.0,371a,vfmadd231ps,"zmm0,zmm7,DWORD BCST [r14+0x4]",fma,zmm
+0.0,3721,vfmadd231ps,"zmm1,zmm7,DWORD BCST [r14+0x44]",fma,zmm
+0.0,3728,vfmadd231ps,"zmm2,zmm7,DWORD BCST [r14+0x84]",fma,zmm
+0.0,372f,vfmadd231ps,"zmm3,zmm7,DWORD BCST [r14+0xc4]",fma,zmm
+0.0,3736,vfmadd231ps,"zmm4,zmm7,DWORD BCST [r14+0x104]",fma,zmm
+0.0,373d,vfmadd231ps,"zmm5,zmm7,DWORD BCST [r14+0x144]",fma,zmm
+0.0,3744,vfmadd231ps,"zmm6,zmm7,DWORD BCST [r14+0x184]",fma,zmm
+0.0,374b,vmovups,"zmm7,ZMMWORD PTR [r15+0x80]",vec_load,zmm
+0.0,3752,vfmadd231ps,"zmm0,zmm7,DWORD BCST [r14+0x8]",fma,zmm
+0.0,3759,vfmadd231ps,"zmm1,zmm7,DWORD BCST [r14+0x48]",fma,zmm
+0.0,3760,vfmadd231ps,"zmm2,zmm7,DWORD BCST [r14+0x88]",fma,zmm
+0.0,3767,vfmadd231ps,"zmm3,zmm7,DWORD BCST [r14+0xc8]",fma,zmm
+0.0,376e,vfmadd231ps,"zmm4,zmm7,DWORD BCST [r14+0x108]",fma,zmm
+0.0,3775,vfmadd231ps,"zmm5,zmm7,DWORD BCST [r14+0x148]",fma,zmm
+0.0,377c,vfmadd231ps,"zmm6,zmm7,DWORD BCST [r14+0x188]",fma,zmm
+0.0,3783,vmovups,"zmm7,ZMMWORD PTR [r15+0xc0]",vec_load,zmm
+0.0,378a,vfmadd231ps,"zmm0,zmm7,DWORD BCST [r14+0xc]",fma,zmm
+0.0,3791,vfmadd231ps,"zmm1,zmm7,DWORD BCST [r14+0x4c]",fma,zmm
+0.0,3798,vfmadd231ps,"zmm2,zmm7,DWORD BCST [r14+0x8c]",fma,zmm
+0.0,379f,vfmadd231ps,"zmm3,zmm7,DWORD BCST [r14+0xcc]",fma,zmm
+0.0,37a6,vfmadd231ps,"zmm4,zmm7,DWORD BCST [r14+0x10c]",fma,zmm
+0.0,37ad,vfmadd231ps,"zmm5,zmm7,DWORD BCST [r14+0x14c]",fma,zmm
+0.0,37b4,vfmadd231ps,"zmm6,zmm7,DWORD BCST [r14+0x18c]",fma,zmm
+0.0,37bb,vmovups,"zmm7,ZMMWORD PTR [r15+0x100]",vec_load,zmm
+0.0,37c2,vfmadd231ps,"zmm0,zmm7,DWORD BCST [r14+0x10]",fma,zmm
+0.0,37c9,vfmadd231ps,"zmm1,zmm7,DWORD BCST [r14+0x50]",fma,zmm
+0.0,37d0,vfmadd231ps,"zmm2,zmm7,DWORD BCST [r14+0x90]",fma,zmm
+0.0,37d7,vfmadd231ps,"zmm3,zmm7,DWORD BCST [r14+0xd0]",fma,zmm
+0.0,37de,vfmadd231ps,"zmm4,zmm7,DWORD BCST [r14+0x110]",fma,zmm
+0.0,37e5,vfmadd231ps,"zmm5,zmm7,DWORD BCST [r14+0x150]",fma,zmm
+0.0,37ec,vfmadd231ps,"zmm6,zmm7,DWORD BCST [r14+0x190]",fma,zmm
+0.0,37f3,vmovups,"zmm7,ZMMWORD PTR [r15+0x140]",vec_load,zmm
+0.0,37fa,vfmadd231ps,"zmm0,zmm7,DWORD BCST [r14+0x14]",fma,zmm
+0.0,3801,vfmadd231ps,"zmm1,zmm7,DWORD BCST [r14+0x54]",fma,zmm
+0.0,3808,vfmadd231ps,"zmm2,zmm7,DWORD BCST [r14+0x94]",fma,zmm
+0.0,380f,vfmadd231ps,"zmm3,zmm7,DWORD BCST [r14+0xd4]",fma,zmm
+0.0,3816,vfmadd231ps,"zmm4,zmm7,DWORD BCST [r14+0x114]",fma,zmm
+0.0,381d,vfmadd231ps,"zmm5,zmm7,DWORD BCST [r14+0x154]",fma,zmm
+0.0,3824,vfmadd231ps,"zmm6,zmm7,DWORD BCST [r14+0x194]",fma,zmm
+0.0,382b,vmovups,"zmm7,ZMMWORD PTR [r15+0x180]",vec_load,zmm
+0.0,3832,vfmadd231ps,"zmm0,zmm7,DWORD BCST [r14+0x18]",fma,zmm
+0.0,3839,vfmadd231ps,"zmm1,zmm7,DWORD BCST [r14+0x58]",fma,zmm
+0.0,3840,vfmadd231ps,"zmm2,zmm7,DWORD BCST [r14+0x98]",fma,zmm
+0.0,3847,vfmadd231ps,"zmm3,zmm7,DWORD BCST [r14+0xd8]",fma,zmm
+0.0,384e,vfmadd231ps,"zmm4,zmm7,DWORD BCST [r14+0x118]",fma,zmm
+0.0,3855,vfmadd231ps,"zmm5,zmm7,DWORD BCST [r14+0x158]",fma,zmm
+0.0,385c,vfmadd231ps,"zmm6,zmm7,DWORD BCST [r14+0x198]",fma,zmm
+0.0,3863,vmovups,"zmm7,ZMMWORD PTR [r15+0x1c0]",vec_load,zmm
+0.0,386a,vfmadd231ps,"zmm0,zmm7,DWORD BCST [r14+0x1c]",fma,zmm
+0.0,3871,vfmadd231ps,"zmm1,zmm7,DWORD BCST [r14+0x5c]",fma,zmm
+0.0,3878,vfmadd231ps,"zmm2,zmm7,DWORD BCST [r14+0x9c]",fma,zmm
+0.0,387f,vfmadd231ps,"zmm3,zmm7,DWORD BCST [r14+0xdc]",fma,zmm
+0.0,3886,vfmadd231ps,"zmm4,zmm7,DWORD BCST [r14+0x11c]",fma,zmm
+0.0,388d,vfmadd231ps,"zmm5,zmm7,DWORD BCST [r14+0x15c]",fma,zmm
+0.0,3894,vfmadd231ps,"zmm6,zmm7,DWORD BCST [r14+0x19c]",fma,zmm
+0.0,389b,vmovups,"zmm7,ZMMWORD PTR [r15+rbp*1-0x200]",vec_load,zmm
+0.0,38a3,vfmadd231ps,"zmm0,zmm7,DWORD BCST [r14+0x20]",fma,zmm
+0.0,38aa,vfmadd231ps,"zmm1,zmm7,DWORD BCST [r14+0x60]",fma,zmm
+0.0,38b1,vfmadd231ps,"zmm2,zmm7,DWORD BCST [r14+0xa0]",fma,zmm
+0.0,38b8,vfmadd231ps,"zmm3,zmm7,DWORD BCST [r14+0xe0]",fma,zmm
+0.0,38bf,vfmadd231ps,"zmm4,zmm7,DWORD BCST [r14+0x120]",fma,zmm
+0.0,38c6,vfmadd231ps,"zmm5,zmm7,DWORD BCST [r14+0x160]",fma,zmm
+0.0,38cd,vfmadd231ps,"zmm6,zmm7,DWORD BCST [r14+0x1a0]",fma,zmm
+0.0,38d4,vmovups,"zmm7,ZMMWORD PTR [r15+rbp*1-0x1c0]",vec_load,zmm
+0.0,38dc,vfmadd231ps,"zmm0,zmm7,DWORD BCST [r14+0x24]",fma,zmm
+0.0,38e3,vfmadd231ps,"zmm1,zmm7,DWORD BCST [r14+0x64]",fma,zmm
+0.0,38ea,vfmadd231ps,"zmm2,zmm7,DWORD BCST [r14+0xa4]",fma,zmm
+0.0,38f1,vfmadd231ps,"zmm3,zmm7,DWORD BCST [r14+0xe4]",fma,zmm
+0.0,38f8,vfmadd231ps,"zmm4,zmm7,DWORD BCST [r14+0x124]",fma,zmm
+0.0,38ff,vfmadd231ps,"zmm5,zmm7,DWORD BCST [r14+0x164]",fma,zmm
+0.0,3906,vfmadd231ps,"zmm6,zmm7,DWORD BCST [r14+0x1a4]",fma,zmm
+0.0,390d,vmovups,"zmm7,ZMMWORD PTR [r15+rbp*1-0x180]",vec_load,zmm
+0.0,3915,vfmadd231ps,"zmm0,zmm7,DWORD BCST [r14+0x28]",fma,zmm
+0.0,391c,vfmadd231ps,"zmm1,zmm7,DWORD BCST [r14+0x68]",fma,zmm
+0.0,3923,vfmadd231ps,"zmm2,zmm7,DWORD BCST [r14+0xa8]",fma,zmm
+0.0,392a,vfmadd231ps,"zmm3,zmm7,DWORD BCST [r14+0xe8]",fma,zmm
+0.0,3931,vfmadd231ps,"zmm4,zmm7,DWORD BCST [r14+0x128]",fma,zmm
+0.0,3938,vfmadd231ps,"zmm5,zmm7,DWORD BCST [r14+0x168]",fma,zmm
+0.0,393f,vfmadd231ps,"zmm6,zmm7,DWORD BCST [r14+0x1a8]",fma,zmm
+0.0,3946,vmovups,"zmm7,ZMMWORD PTR [r15+rbp*1-0x140]",vec_load,zmm
+0.0,394e,vfmadd231ps,"zmm0,zmm7,DWORD BCST [r14+0x2c]",fma,zmm
+0.0,3955,vfmadd231ps,"zmm1,zmm7,DWORD BCST [r14+0x6c]",fma,zmm
+0.0,395c,vfmadd231ps,"zmm2,zmm7,DWORD BCST [r14+0xac]",fma,zmm
+0.0,3963,vfmadd231ps,"zmm3,zmm7,DWORD BCST [r14+0xec]",fma,zmm
+0.0,396a,vfmadd231ps,"zmm4,zmm7,DWORD BCST [r14+0x12c]",fma,zmm
+0.0,3971,vfmadd231ps,"zmm5,zmm7,DWORD BCST [r14+0x16c]",fma,zmm
+0.0,3978,vfmadd231ps,"zmm6,zmm7,DWORD BCST [r14+0x1ac]",fma,zmm
+0.0,397f,vmovups,"zmm7,ZMMWORD PTR [r15+rbp*1-0x100]",vec_load,zmm
+0.0,3987,vfmadd231ps,"zmm0,zmm7,DWORD BCST [r14+0x30]",fma,zmm
+0.0,398e,vfmadd231ps,"zmm1,zmm7,DWORD BCST [r14+0x70]",fma,zmm
+0.0,3995,vfmadd231ps,"zmm2,zmm7,DWORD BCST [r14+0xb0]",fma,zmm
+0.0,399c,vfmadd231ps,"zmm3,zmm7,DWORD BCST [r14+0xf0]",fma,zmm
+0.0,39a3,vfmadd231ps,"zmm4,zmm7,DWORD BCST [r14+0x130]",fma,zmm
+0.0,39aa,vfmadd231ps,"zmm5,zmm7,DWORD BCST [r14+0x170]",fma,zmm
+0.0,39b1,vfmadd231ps,"zmm6,zmm7,DWORD BCST [r14+0x1b0]",fma,zmm
+0.0,39b8,vmovups,"zmm7,ZMMWORD PTR [r15+rbp*1-0xc0]",vec_load,zmm
+0.0,39c0,vfmadd231ps,"zmm0,zmm7,DWORD BCST [r14+0x34]",fma,zmm
+0.0,39c7,vfmadd231ps,"zmm1,zmm7,DWORD BCST [r14+0x74]",fma,zmm
+0.0,39ce,vfmadd231ps,"zmm2,zmm7,DWORD BCST [r14+0xb4]",fma,zmm
+0.0,39d5,vfmadd231ps,"zmm3,zmm7,DWORD BCST [r14+0xf4]",fma,zmm
+0.0,39dc,vfmadd231ps,"zmm4,zmm7,DWORD BCST [r14+0x134]",fma,zmm
+0.0,39e3,vfmadd231ps,"zmm5,zmm7,DWORD BCST [r14+0x174]",fma,zmm
+0.0,39ea,vfmadd231ps,"zmm6,zmm7,DWORD BCST [r14+0x1b4]",fma,zmm
+0.0,39f1,vmovups,"zmm7,ZMMWORD PTR [r15+rbp*1-0x80]",vec_load,zmm
+0.0,39f9,vfmadd231ps,"zmm0,zmm7,DWORD BCST [r14+0x38]",fma,zmm
+0.0,3a00,vfmadd231ps,"zmm1,zmm7,DWORD BCST [r14+0x78]",fma,zmm
+0.0,3a07,vfmadd231ps,"zmm2,zmm7,DWORD BCST [r14+0xb8]",fma,zmm
+0.0,3a0e,vfmadd231ps,"zmm3,zmm7,DWORD BCST [r14+0xf8]",fma,zmm
+0.0,3a15,vfmadd231ps,"zmm4,zmm7,DWORD BCST [r14+0x138]",fma,zmm
+0.0,3a1c,vfmadd231ps,"zmm5,zmm7,DWORD BCST [r14+0x178]",fma,zmm
+0.0,3a23,vfmadd231ps,"zmm6,zmm7,DWORD BCST [r14+0x1b8]",fma,zmm
+0.0,3a2a,vmovups,"zmm7,ZMMWORD PTR [r15+rbp*1-0x40]",vec_load,zmm
+0.0,3a32,vfmadd231ps,"zmm0,zmm7,DWORD BCST [r14+0x3c]",fma,zmm
+0.0,3a39,vfmadd231ps,"zmm1,zmm7,DWORD BCST [r14+0x7c]",fma,zmm
+0.0,3a40,vfmadd231ps,"zmm2,zmm7,DWORD BCST [r14+0xbc]",fma,zmm
+0.0,3a47,vfmadd231ps,"zmm3,zmm7,DWORD BCST [r14+0xfc]",fma,zmm
+0.0,3a4e,vfmadd231ps,"zmm4,zmm7,DWORD BCST [r14+0x13c]",fma,zmm
+0.0,3a55,vfmadd231ps,"zmm5,zmm7,DWORD BCST [r14+0x17c]",fma,zmm
+0.0,3a5c,vfmadd231ps,"zmm6,zmm7,DWORD BCST [r14+0x1bc]",fma,zmm
+0.0,3a63,test,"rax,0x100",int/addr,
+0.0,3a69,jne,3a9f <jit_avx512_common_1x1_conv_kernel_t.11+0x3a1f>,branch,
+0.0,3a6f,vaddps,"zmm0,zmm0,ZMMWORD PTR [rcx]",vec_arith,zmm
+0.0,3a75,vaddps,"zmm1,zmm1,ZMMWORD PTR [rcx+0x40]",vec_arith,zmm
+0.0,3a7c,vaddps,"zmm2,zmm2,ZMMWORD PTR [rcx+0x80]",vec_arith,zmm
+0.0,3a83,vaddps,"zmm3,zmm3,ZMMWORD PTR [rcx+0xc0]",vec_arith,zmm
+0.0,3a8a,vaddps,"zmm4,zmm4,ZMMWORD PTR [rcx+0x100]",vec_arith,zmm
+0.0,3a91,vaddps,"zmm5,zmm5,ZMMWORD PTR [rcx+0x140]",vec_arith,zmm
+0.0,3a98,vaddps,"zmm6,zmm6,ZMMWORD PTR [rcx+0x180]",vec_arith,zmm
+0.0,3a9f,test,"rcx,0x3f",int/addr,
+0.0,3aa6,jne,3ae1 <jit_avx512_common_1x1_conv_kernel_t.11+0x3a61>,branch,
+0.0,3aac,vmovups,"ZMMWORD PTR [rcx],zmm0",vec_store,zmm
+0.0,3ab2,vmovups,"ZMMWORD PTR [rcx+0x40],zmm1",vec_store,zmm
+0.0,3ab9,vmovups,"ZMMWORD PTR [rcx+0x80],zmm2",vec_store,zmm
+0.0,3ac0,vmovups,"ZMMWORD PTR [rcx+0xc0],zmm3",vec_store,zmm
+0.0,3ac7,vmovups,"ZMMWORD PTR [rcx+0x100],zmm4",vec_store,zmm
+0.0,3ace,vmovups,"ZMMWORD PTR [rcx+0x140],zmm5",vec_store,zmm
+0.0,3ad5,vmovups,"ZMMWORD PTR [rcx+0x180],zmm6",vec_store,zmm
+0.0,3adc,jmp,3b11 <jit_avx512_common_1x1_conv_kernel_t.11+0x3a91>,branch,
+0.0,3ae1,vmovups,"ZMMWORD PTR [rcx],zmm0",vec_store,zmm
+0.0,3ae7,vmovups,"ZMMWORD PTR [rcx+0x40],zmm1",vec_store,zmm
+0.0,3aee,vmovups,"ZMMWORD PTR [rcx+0x80],zmm2",vec_store,zmm
+0.0,3af5,vmovups,"ZMMWORD PTR [rcx+0xc0],zmm3",vec_store,zmm
+0.0,3afc,vmovups,"ZMMWORD PTR [rcx+0x100],zmm4",vec_store,zmm
+0.0,3b03,vmovups,"ZMMWORD PTR [rcx+0x140],zmm5",vec_store,zmm
+0.0,3b0a,vmovups,"ZMMWORD PTR [rcx+0x180],zmm6",vec_store,zmm
+0.0,3b11,add,"rbx,0x1c0",int/addr,
+0.0,3b18,add,"rcx,0x1c0",int/addr,
+0.0,3b1f,sub,"rdx,0x7",int/addr,
+0.0,3b23,cmp,"rdx,0x7",int/addr,
+0.0,3b27,jge,3302 <jit_avx512_common_1x1_conv_kernel_t.11+0x3282>,branch,
+0.0,3b2d,add,"r10,0x4000",int/addr,
+0.0,3b34,add,"r12,0x40",int/addr,
+0.0,3b38,add,"r9,0xc400",int/addr,
+0.0,3b3f,cmp,"rsi,0x0",int/addr,
+0.0,3b43,jg,32d9 <jit_avx512_common_1x1_conv_kernel_t.11+0x3259>,branch,
+0.0,3b49,add,"rsp,0x20",int/addr,
+0.0,3b4d,pop,r15,other,
+0.0,3b4f,pop,r14,other,
+0.0,3b51,pop,r13,other,
+0.0,3b53,pop,r12,other,
+0.0,3b55,pop,rbx,other,
+0.0,3b56,pop,rbp,other,
+0.0,3b57,vzeroupper,,other,
+0.0,3b5a,ret,,branch,

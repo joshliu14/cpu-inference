@@ -1,0 +1,27 @@
+# symbol: mkl_blas_avx512_sgemm_copyan
+# dso: libtorch_cpu.so
+# share of operator samples: 1.14%
+ Percent |	Source code & Disassembly of libtorch_cpu.so for cycles:P (48 samples, percent: local period)
+-------------------------------------------------------------------------------------------------------------
+         :
+         :
+         :
+         : 3       Disassembly of section .text:
+         :
+         : 5       000000000b06a040 <mkl_blas_avx512_sgemm_copyan>:
+    0.00 :   b06a040:        endbr64
+    0.00 :   b06a044:        push   rax
+    0.00 :   b06a045:        mov    r8,rdx
+  100.00 :   b06a048:        vpermilps xmm0,XMMWORD PTR [rdi+0x8],0x4e
+    0.00 :   b06a04f:        vmovups XMMWORD PTR [rsi+0x8],xmm0
+    0.00 :   b06a054:        mov    rdx,QWORD PTR [rdi]
+    0.00 :   b06a057:        lea    rcx,[rdi+0x18]
+    0.00 :   b06a05b:        mov    r9,QWORD PTR [rsi]
+    0.00 :   b06a05e:        lea    rdi,[rsi+0x8]
+    0.00 :   b06a062:        lea    rax,[rsi+0x10]
+    0.00 :   b06a066:        add    rsi,0x18
+    0.00 :   b06a06a:        mov    QWORD PTR [rsp],rsi
+    0.00 :   b06a06e:        mov    rsi,rax
+    0.00 :   b06a071:        call   1047d80 <mkl_blas_avx512_sgemm_scopy_down48_ea@plt>
+    0.00 :   b06a076:        pop    rax
+    0.00 :   b06a077:        ret
