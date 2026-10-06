@@ -98,10 +98,14 @@ int main() {
     };
     Counters ctr;
     print_header();
+    const char* only = getenv("ONLY_VARIANT");   // e.g. fp32_avx512_fma
+    const long only_k = env_long("ONLY_K", 0);
     for (auto& v : vs) {
+        if (only && std::string(only) != v.name) continue;
         for (int ki = 0; ki < 8; ki++) {
             if (!v.fn[ki]) continue;
             int K = K_VALUES[ki];
+            if (only_k && only_k != K) continue;
             uint64_t iters = target_ops / (8 * K);
             uint64_t ops = iters * 8 * K;
             v.fn[ki](iters / 10);  // warm-up (also lets AVX-512 power license settle)

@@ -1,0 +1,8 @@
+# started on Tue Oct  6 00:25:44 2026
+
+139620883620,,topdown.slots_p,11135931660,100.00,,
+7080058226,,topdown.bad_spec_slots,11135931660,100.00,,
+94637253618,,topdown.backend_bound_slots,11135931660,100.00,,
+70627399344,,topdown.memory_bound_slots,11135931660,100.00,,
+22762282901,,uops_retired.slots,11135931660,100.00,,
+15391289681,,idq_bubbles.core,11135931660,100.00,,

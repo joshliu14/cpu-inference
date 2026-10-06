@@ -53,7 +53,8 @@ int main(int argc, char** argv) {
     const bool thp = env_long("THP", 0) != 0;
     const int reps = (int)env_long("REPS", 5);
     const size_t min_bytes = (size_t)env_long("MIN_KB", 4) << 10;
-    const size_t max_bytes = (size_t)env_long("MAX_MB", 1024) << 20;
+    const size_t max_bytes = getenv("MAX_KB") ? (size_t)env_long("MAX_KB", 0) << 10
+                                              : (size_t)env_long("MAX_MB", 1024) << 20;
     const uint64_t max_steps = (uint64_t)env_long("MAX_STEPS", 8000000);
     std::mt19937_64 rng(42);
     Counters ctr;

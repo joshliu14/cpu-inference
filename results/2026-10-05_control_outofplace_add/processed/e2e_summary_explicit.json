@@ -1,0 +1,96 @@
+{
+  "config": {
+    "cpu": 6,
+    "iters": 300,
+    "warmup": 30,
+    "weights": "random",
+    "impl": "explicit",
+    "no_counters": false,
+    "tag": "explicit",
+    "out": "/users/joshliu/cpu-inference/results/2026-10-05_resnet_baseline"
+  },
+  "environment": {
+    "time": "2026-10-05T23:55:44+0000",
+    "host": "node0.infer.nexdp-pg0.utah.cloudlab.us",
+    "affinity": [
+      6
+    ],
+    "requested_cpu": 6,
+    "torch": "2.14.1+cpu",
+    "torchvision": "0.29.1+cpu",
+    "torch_num_threads": 1,
+    "torch_num_interop_threads": 1,
+    "cpu_capability": "AVX512",
+    "mkldnn_enabled": true,
+    "env": {
+      "OMP_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "ONEDNN_VERBOSE": null,
+      "DNNL_VERBOSE": null,
+      "MKL_VERBOSE": null,
+      "ONEDNN_JIT_PROFILE": null
+    },
+    "process_threads": 1,
+    "loadavg": "0.56 0.89 1.57 1/957 521346",
+    "git_commit": "af7c4cf"
+  },
+  "phases": {
+    "import_s": 2.363165369955823,
+    "process_start_to_import_end_s": 2.368703057989478,
+    "create_s": 0.17306859290692955,
+    "weights_s": 0.3038230569800362,
+    "input_s": 0.001057337038218975,
+    "warmup_s": 3.0288990759290755,
+    "timed_s": 29.9608852120582
+  },
+  "latency_ms": {
+    "n": 300,
+    "median": 99.773461,
+    "mean": 99.78864546999999,
+    "stddev": 0.10270705375298161,
+    "min": 99.585698,
+    "max": 100.167279,
+    "p5": 99.645489,
+    "p95": 99.966782,
+    "cv": 0.001029245895354487
+  },
+  "first_warmup_iteration_ms": 130.95302,
+  "cycles": {
+    "n": 300,
+    "median": 208993533.0,
+    "mean": 209027439.42666668,
+    "stddev": 206278.1933766803,
+    "min": 208573402,
+    "max": 209826947,
+    "p5": 208762083,
+    "p95": 209419464,
+    "cv": 0.000986847439467626
+  },
+  "instructions": {
+    "n": 300,
+    "median": 475170042.5,
+    "mean": 475170492.97333336,
+    "stddev": 20779.428624302058,
+    "min": 475109270,
+    "max": 475230432,
+    "p5": 475138564,
+    "p95": 475207668,
+    "cv": 4.373046923489882e-05
+  },
+  "ipc_median": 2.2736112246114333,
+  "freq_ghz_median": 2.0946639118393104,
+  "page_faults_per_inference": {
+    "n": 300,
+    "median": 0.0,
+    "mean": 0.0,
+    "stddev": 0.0,
+    "min": 0,
+    "max": 0,
+    "p5": 0,
+    "p95": 0,
+    "cv": 0.0
+  },
+  "context_switches_total": 150,
+  "cpu_migrations_total": 0,
+  "any_multiplexing": false
+}

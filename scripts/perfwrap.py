@@ -46,6 +46,26 @@ def event_spec(keys, supported):
 
 
 def run_pass(name, keys, cmd, cpu, repeat, out_dir, supported):
+    """One logical pass; split into verified schedulable sub-runs if needed."""
+    from cpuinf.perfcounters import plan_groups
+    rev = {v: k for k, v in supported.items()}
+    names = [supported[k] for k in keys if k in supported]
+    runs = plan_groups(names, anchor=())
+    if len(runs) == 1:
+        return run_one(name, keys, cmd, cpu, repeat, out_dir, supported)
+    vals, info, rc = {}, {}, 0
+    for i, r in enumerate(runs):
+        v, inf, c = run_one(f"{name}.{i}", [rev[n] for n in r], cmd, cpu, repeat, out_dir, supported)
+        vals.update(v)
+        info.update(inf)
+        rc = rc or c
+    for k in keys:
+        if k not in supported:
+            info[k] = "UNAVAILABLE"
+    return vals, info, rc
+
+
+def run_one(name, keys, cmd, cpu, repeat, out_dir, supported):
     spec, missing = event_spec(keys, supported)
     csv = out_dir / f"perfstat_{name}.csv"
     full = ["perf", "stat", "-x,", "-o", str(csv), "-r", str(repeat), "-e", spec, "--",

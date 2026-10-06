@@ -26,6 +26,16 @@ perf built-in TMA metrics: UNAVAILABLE (Cannot find metric or group `TopdownL1')
 | td_br_mispredict | `topdown-br-mispredict` | yes | per-thread | Level-2 split of Bad Speculation: Branch Mispredict vs Machine Clears. |
 | td_fetch_lat | `topdown-fetch-lat` | yes | per-thread | Level-2 split of Frontend Bound: Fetch Latency vs Fetch Bandwidth. |
 | td_mem_bound | `topdown-mem-bound` | yes | per-thread | Level-2 split of Backend Bound: Memory Bound vs Core Bound. |
+| tdg_slots | `topdown.slots_p` | yes | per-thread | Denominator of every fraction. |
+| tdg_retiring | `uops_retired.slots` | yes | per-thread | Retiring = uops_retired.slots / slots. |
+| tdg_bad_spec | `topdown.bad_spec_slots` | yes | per-thread | Bad Speculation. |
+| tdg_fe_bound | `idq_bubbles.core` | yes | per-thread | Frontend Bound = (idq_bubbles.core - int_misc.uop_dropping) / slots. |
+| tdg_be_bound | `topdown.backend_bound_slots` | yes | per-thread | Backend Bound. |
+| tdg_mem_bound | `topdown.memory_bound_slots` | yes | per-thread | Memory Bound; Core Bound = Backend - Memory. |
+| tdg_br_mispredict | `topdown.br_mispredict_slots` | yes | per-thread | Machine Clears = Bad Spec - this. |
+| tdg_heavy_ops | `uops_retired.heavy` | yes | per-thread | Heavy Operations; Light = Retiring - Heavy. |
+| tdg_fe_0uops_cycles | `idq_bubbles.cycles_0_uops_deliv.core` | yes | per-thread | Fetch Latency = (6 x this - int_misc.uop_dropping) / slots. |
+| tdg_uop_dropping | `int_misc.uop_dropping` | yes | per-thread | Uops dropped by the frontend (correction term in TMA formulas). |
 | fp_scalar_single | `fp_arith_inst_retired.scalar_single` | yes | per-thread | 1 FLOP each. |
 | fp_128_single | `fp_arith_inst_retired.128b_packed_single` | yes | per-thread | 4 FLOPs each. |
 | fp_256_single | `fp_arith_inst_retired.256b_packed_single` | yes | per-thread | 8 FLOPs each. |

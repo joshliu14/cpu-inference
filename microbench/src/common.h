@@ -70,6 +70,88 @@ struct Counters {
     }
 };
 
+// Optional extra events for validation runs, passed by a driver in
+//   PERF_EXTRA="name,type,config,config1,cpu;name,..."
+// cpu = -1: per-thread core event (all such events form one group);
+// cpu >= 0: socket-wide uncore event on that CPU (pid = -1), summed by name.
+// Values are appended to each CSV row as "name=value|name=value".
+#include <map>
+#include <vector>
+struct ExtraCounters {
+    std::vector<std::string> names;
+    std::vector<int> fds;
+    std::vector<bool> uncore;
+    int leader = -1;
+    std::map<std::string, uint64_t> last;
+
+    ExtraCounters() {
+        const char* spec = getenv("PERF_EXTRA");
+        if (!spec || !*spec) return;
+        std::string s(spec);
+        size_t pos = 0;
+        while (pos < s.size()) {
+            size_t end = s.find(';', pos);
+            if (end == std::string::npos) end = s.size();
+            std::string item = s.substr(pos, end - pos);
+            pos = end + 1;
+            char name[256];
+            unsigned type;
+            unsigned long long cfg, cfg1;
+            int cpu;
+            if (sscanf(item.c_str(), "%255[^,],%u,%llx,%llx,%d", name, &type, &cfg, &cfg1, &cpu) != 5) continue;
+            perf_event_attr a;
+            memset(&a, 0, sizeof(a));
+            a.type = type;
+            a.size = sizeof(a);
+            a.config = cfg;
+            a.config1 = cfg1;
+            a.disabled = 1;
+            int fd;
+            if (cpu < 0) {
+                a.exclude_hv = 1;
+                fd = (int)syscall(SYS_perf_event_open, &a, 0, -1, leader, 0);
+                if (fd >= 0 && leader < 0) leader = fd;
+            } else {
+                fd = (int)syscall(SYS_perf_event_open, &a, -1, cpu, -1, 0);
+            }
+            if (fd < 0) {
+                fprintf(stderr, "PERF_EXTRA: cannot open %s\n", name);
+                continue;
+            }
+            names.push_back(name);
+            fds.push_back(fd);
+            uncore.push_back(cpu >= 0);
+        }
+    }
+    void start() {
+        for (size_t i = 0; i < fds.size(); i++) {
+            if (uncore[i] || fds[i] == leader) {
+                ioctl(fds[i], PERF_EVENT_IOC_RESET, uncore[i] ? 0 : PERF_IOC_FLAG_GROUP);
+                ioctl(fds[i], PERF_EVENT_IOC_ENABLE, uncore[i] ? 0 : PERF_IOC_FLAG_GROUP);
+            }
+        }
+    }
+    void stop() {
+        for (size_t i = 0; i < fds.size(); i++)
+            if (uncore[i] || fds[i] == leader)
+                ioctl(fds[i], PERF_EVENT_IOC_DISABLE, uncore[i] ? 0 : PERF_IOC_FLAG_GROUP);
+        last.clear();
+        for (size_t i = 0; i < fds.size(); i++) {
+            uint64_t v = 0;
+            if (read(fds[i], &v, sizeof(v)) == (ssize_t)sizeof(v)) last[names[i]] += v;
+        }
+    }
+    std::string str() const {
+        std::string o;
+        for (auto& kv : last) o += (o.empty() ? "" : "|") + kv.first + "=" + std::to_string(kv.second);
+        return o;
+    }
+};
+static ExtraCounters& extra() {
+    static ExtraCounters e;
+    return e;
+}
+
 struct Measurement {
     double ns;
     uint64_t cycles, ref_cycles, instructions;
@@ -79,25 +161,27 @@ struct Measurement {
 template <class F>
 static inline Measurement measure(Counters& c, F&& fn) {
     Measurement m;
+    extra().start();
     c.start();
     double t0 = now_ns();
     fn();
     double t1 = now_ns();
     c.stop(m.cycles, m.ref_cycles, m.instructions);
+    extra().stop();
     m.ns = t1 - t0;
     return m;
 }
 
 static inline void print_header() {
-    printf("bench,variant,ws_bytes,param,rep,iters,ns,cycles,ref_cycles,instructions,work,work_unit\n");
+    printf("bench,variant,ws_bytes,param,rep,iters,ns,cycles,ref_cycles,instructions,work,work_unit,extra\n");
 }
 
 static inline void print_row(const char* bench, const std::string& variant, uint64_t ws, long param,
                              int rep, uint64_t iters, const Measurement& m, double work,
                              const char* unit) {
-    printf("%s,%s,%lu,%ld,%d,%lu,%.0f,%lu,%lu,%lu,%.6g,%s\n", bench, variant.c_str(),
+    printf("%s,%s,%lu,%ld,%d,%lu,%.0f,%lu,%lu,%lu,%.6g,%s,%s\n", bench, variant.c_str(),
            (unsigned long)ws, param, rep, (unsigned long)iters, m.ns, (unsigned long)m.cycles,
-           (unsigned long)m.ref_cycles, (unsigned long)m.instructions, work, unit);
+           (unsigned long)m.ref_cycles, (unsigned long)m.instructions, work, unit, extra().str().c_str());
     fflush(stdout);
 }
 

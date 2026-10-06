@@ -1,0 +1,136 @@
+{
+  "command": [
+    ".venv/bin/python",
+    "experiments/infer_loop.py",
+    "--seconds",
+    "8",
+    "--layer",
+    "layer1.0.conv2"
+  ],
+  "cpu": 6,
+  "repeat": 1,
+  "counts_mean": {
+    "slots": 140292541488.0,
+    "td_retiring": 59612527396.0,
+    "td_bad_spec": 15730059066.0,
+    "td_fe_bound": 42436426367.0,
+    "td_be_bound": 30259175615.0,
+    "td_heavy_ops": 13754170734.0,
+    "td_br_mispredict": 15148934792.0,
+    "td_fetch_lat": 17090573747.0,
+    "td_mem_bound": 19845456109.0,
+    "tdg_slots": 138683995116.0,
+    "tdg_bad_spec": 7364975619.0,
+    "tdg_be_bound": 30707984286.0,
+    "tdg_mem_bound": 11794932324.0,
+    "tdg_retiring": 66289888840.0,
+    "tdg_fe_bound": 34580268940.0,
+    "tdg_br_mispredict": 7014219215.0,
+    "tdg_heavy_ops": 21851130911.0,
+    "tdg_fe_0uops_cycles": 1354488033.0,
+    "tdg_uop_dropping": 106678603.0
+  },
+  "derived": {
+    "ipc": null,
+    "cpi": null,
+    "freq_ghz": null,
+    "branch_miss_rate": null,
+    "llc_miss_ratio": null,
+    "llc_mpki": null,
+    "tma_retiring": 0.4779923507723648,
+    "tma_bad_spec": 0.053106168544104056,
+    "tma_frontend_bound": 0.24857655930783593,
+    "tma_backend_bound": 0.22142413953617934,
+    "tma_heavy_ops": 0.15756058146957025,
+    "tma_light_ops": 0.32043176930279454,
+    "tma_branch_mispredicts": 0.05057699130410159,
+    "tma_machine_clears": 0.0025291772400024633,
+    "tma_fetch_latency": 0.05783111157341257,
+    "tma_fetch_bandwidth": 0.19074544773442334,
+    "tma_memory_bound": 0.08504897997879508,
+    "tma_core_bound": 0.13637515955738427,
+    "tma_l1_sum": 1.001099218160484
+  },
+  "per_pass_info": {
+    "topdown": {
+      "slots": {
+        "stddev_pct": "11184074182",
+        "pct_running": ""
+      },
+      "td_retiring": {
+        "stddev_pct": "11184074182",
+        "pct_running": ""
+      },
+      "td_bad_spec": {
+        "stddev_pct": "11184074182",
+        "pct_running": ""
+      },
+      "td_fe_bound": {
+        "stddev_pct": "11184074182",
+        "pct_running": ""
+      },
+      "td_be_bound": {
+        "stddev_pct": "11184074182",
+        "pct_running": ""
+      },
+      "td_heavy_ops": {
+        "stddev_pct": "11184074182",
+        "pct_running": ""
+      },
+      "td_br_mispredict": {
+        "stddev_pct": "11184074182",
+        "pct_running": ""
+      },
+      "td_fetch_lat": {
+        "stddev_pct": "11184074182",
+        "pct_running": ""
+      },
+      "td_mem_bound": {
+        "stddev_pct": "11184074182",
+        "pct_running": ""
+      }
+    },
+    "tdgp": {
+      "tdg_slots": {
+        "stddev_pct": "11057164990",
+        "pct_running": ""
+      },
+      "tdg_bad_spec": {
+        "stddev_pct": "11057164990",
+        "pct_running": ""
+      },
+      "tdg_be_bound": {
+        "stddev_pct": "11057164990",
+        "pct_running": ""
+      },
+      "tdg_mem_bound": {
+        "stddev_pct": "11057164990",
+        "pct_running": ""
+      },
+      "tdg_retiring": {
+        "stddev_pct": "11057164990",
+        "pct_running": ""
+      },
+      "tdg_fe_bound": {
+        "stddev_pct": "11057164990",
+        "pct_running": ""
+      },
+      "tdg_br_mispredict": {
+        "stddev_pct": "11238959485",
+        "pct_running": ""
+      },
+      "tdg_heavy_ops": {
+        "stddev_pct": "11238959485",
+        "pct_running": ""
+      },
+      "tdg_fe_0uops_cycles": {
+        "stddev_pct": "11238959485",
+        "pct_running": ""
+      },
+      "tdg_uop_dropping": {
+        "stddev_pct": "11238959485",
+        "pct_running": ""
+      }
+    }
+  }
+}

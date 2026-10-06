@@ -1,0 +1,58 @@
+{
+  "config": {
+    "cpu": 6,
+    "iters": 300,
+    "warmup": 30,
+    "weights": "random",
+    "impl": "explicit",
+    "no_counters": true,
+    "tag": "no_counters",
+    "out": "/users/joshliu/cpu-inference/results/2026-10-05_resnet_baseline"
+  },
+  "environment": {
+    "time": "2026-10-05T23:57:34+0000",
+    "host": "node0.infer.nexdp-pg0.utah.cloudlab.us",
+    "affinity": [
+      6
+    ],
+    "requested_cpu": 6,
+    "torch": "2.14.1+cpu",
+    "torchvision": "0.29.1+cpu",
+    "torch_num_threads": 1,
+    "torch_num_interop_threads": 1,
+    "cpu_capability": "AVX512",
+    "mkldnn_enabled": true,
+    "env": {
+      "OMP_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "ONEDNN_VERBOSE": null,
+      "DNNL_VERBOSE": null,
+      "MKL_VERBOSE": null,
+      "ONEDNN_JIT_PROFILE": null
+    },
+    "process_threads": 1,
+    "loadavg": "0.95 0.94 1.50 1/965 521449",
+    "git_commit": "af7c4cf"
+  },
+  "phases": {
+    "import_s": 2.3617398199858144,
+    "process_start_to_import_end_s": 2.3675189029891044,
+    "create_s": 0.17368148593232036,
+    "weights_s": 0.3037662919377908,
+    "input_s": 0.0010494039161130786,
+    "warmup_s": 3.018019345938228,
+    "timed_s": 29.879893273930065
+  },
+  "latency_ms": {
+    "n": 300,
+    "median": 99.52411599999999,
+    "mean": 99.59026948333333,
+    "stddev": 0.22725833975745313,
+    "min": 99.346627,
+    "max": 101.074603,
+    "p5": 99.391911,
+    "p95": 100.020516,
+    "cv": 0.0022819331741590013
+  },
+  "first_warmup_iteration_ms": 128.310144
+}

@@ -89,6 +89,37 @@ CATALOG = [
        "Backend-bound slots attributed to the memory subsystem.",
        "Level-2 split of Backend Bound: Memory Bound vs Core Bound."),
 
+    # ------------------------------------- top-down from general-purpose events
+    # The kernel's topdown-* events above are derived from the PERF_METRICS
+    # register, which holds 8-bit fractions accumulated since the hardware was
+    # last reset. Differencing two reads around a short region therefore gives
+    # (delta slots) x (cumulative average fraction) -- OBSERVED: every ResNet
+    # operator showed the same split. They are valid for whole-process
+    # counting (perf stat) only. For per-region top-down we use these plain
+    # counting events, combined with Intel's TMA formulas (cpuinf/metrics.py).
+    Ev("tdg_slots", ("topdown.slots_p",), "topdown_gp", THREAD,
+       "Issue slots, counted on a general-purpose counter.", "Denominator of every fraction."),
+    Ev("tdg_retiring", ("uops_retired.slots",), "topdown_gp", THREAD,
+       "Retirement slots used by retired uops.", "Retiring = uops_retired.slots / slots."),
+    Ev("tdg_bad_spec", ("topdown.bad_spec_slots",), "topdown_gp", THREAD,
+       "Slots wasted by speculation (mispredicts + machine clears).", "Bad Speculation."),
+    Ev("tdg_fe_bound", ("idq_bubbles.core", "idq_uops_not_delivered.core"), "topdown_gp", THREAD,
+       "Uops not delivered by the frontend while the backend was not stalled.",
+       "Frontend Bound = (idq_bubbles.core - int_misc.uop_dropping) / slots."),
+    Ev("tdg_be_bound", ("topdown.backend_bound_slots",), "topdown_gp", THREAD,
+       "Slots where the backend could not accept uops.", "Backend Bound."),
+    Ev("tdg_mem_bound", ("topdown.memory_bound_slots",), "topdown_gp", THREAD,
+       "Backend-bound slots attributed to the memory subsystem.", "Memory Bound; Core Bound = Backend - Memory."),
+    Ev("tdg_br_mispredict", ("topdown.br_mispredict_slots",), "topdown_gp", THREAD,
+       "Bad-speculation slots caused by branch mispredicts.", "Machine Clears = Bad Spec - this."),
+    Ev("tdg_heavy_ops", ("uops_retired.heavy",), "topdown_gp", THREAD,
+       "Retired uops of heavy (multi-uop / microcoded) instructions.", "Heavy Operations; Light = Retiring - Heavy."),
+    Ev("tdg_fe_0uops_cycles", ("idq_bubbles.cycles_0_uops_deliv.core",), "topdown_gp", THREAD,
+       "Cycles in which the frontend delivered no uop while the backend could take one.",
+       "Fetch Latency = (6 x this - int_misc.uop_dropping) / slots."),
+    Ev("tdg_uop_dropping", ("int_misc.uop_dropping",), "topdown_gp", THREAD,
+       "Uops dropped by the frontend (correction term in TMA formulas).", ""),
+
     # ------------------------------------------------------ floating point
     Ev("fp_scalar_single", ("fp_arith_inst_retired.scalar_single",), "flops", THREAD,
        "Retired scalar FP32 arithmetic instructions (FMA counts twice).", "1 FLOP each."),
@@ -216,8 +247,13 @@ PASSES = {
     "core": ["cycles", "instructions", "ref_cycles", "branches", "branch_misses",
              "cache_references", "cache_misses"],
     "sw": ["task_clock", "page_faults", "context_switches", "cpu_migrations"],
+    # perf-metrics top-down: valid for whole-process counting (perf stat) only
     "topdown": ["slots", "td_retiring", "td_bad_spec", "td_fe_bound", "td_be_bound",
                 "td_heavy_ops", "td_br_mispredict", "td_fetch_lat", "td_mem_bound"],
+    # general-purpose top-down: valid for any region (used per operator)
+    "tdgp": ["tdg_slots", "tdg_retiring", "tdg_bad_spec", "tdg_fe_bound", "tdg_be_bound",
+             "tdg_mem_bound", "tdg_br_mispredict", "tdg_heavy_ops", "tdg_fe_0uops_cycles",
+             "tdg_uop_dropping"],
     "flops": ["cycles", "instructions", "fp_scalar_single", "fp_128_single", "fp_256_single",
               "fp_512_single", "fp_scalar_double", "fp_512_double", "amx_busy"],
     "loads": ["cycles", "loads", "stores", "load_l1_hit", "load_l1_miss", "load_fb_hit",

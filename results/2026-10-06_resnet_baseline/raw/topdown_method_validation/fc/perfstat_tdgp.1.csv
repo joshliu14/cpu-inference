@@ -1,0 +1,6 @@
+# started on Tue Oct  6 00:25:56 2026
+
+6741702297,,topdown.br_mispredict_slots,11134743309,100.00,,
+3620444422,,uops_retired.heavy,11134743309,100.00,,
+1388674227,,idq_bubbles.cycles_0_uops_deliv.core,11134743309,100.00,,
+102472234,,int_misc.uop_dropping,11134743309,100.00,,

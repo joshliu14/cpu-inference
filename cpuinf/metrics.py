@@ -47,6 +47,33 @@ def derive(c: dict, freq_hz: float | None = None) -> dict:
             d["tma_memory_bound"] = _div(g("td_mem_bound"), s)
             d["tma_core_bound"] = _div(max(be - g("td_mem_bound"), 0), s)
 
+    # Top-down from general-purpose events (valid per region). Formulas follow
+    # Intel's TMA method for this core (6 slots per cycle).
+    s = g("tdg_slots")
+    if s:
+        drop = g("tdg_uop_dropping") or 0
+        ret, bad, be = g("tdg_retiring"), g("tdg_bad_spec"), g("tdg_be_bound")
+        fe = (g("tdg_fe_bound") - drop) if g("tdg_fe_bound") is not None else None
+        d["tma_retiring"] = _div(ret, s)
+        d["tma_bad_spec"] = _div(bad, s)
+        d["tma_frontend_bound"] = _div(fe, s)
+        d["tma_backend_bound"] = _div(be, s)
+        if None not in (ret, bad, fe, be):
+            d["tma_l1_sum"] = (ret + bad + fe + be) / s   # sanity check, should be ~1
+        if g("tdg_heavy_ops") is not None and ret is not None:
+            d["tma_heavy_ops"] = _div(g("tdg_heavy_ops"), s)
+            d["tma_light_ops"] = _div(max(ret - g("tdg_heavy_ops"), 0), s)
+        if g("tdg_br_mispredict") is not None and bad is not None:
+            d["tma_branch_mispredicts"] = _div(g("tdg_br_mispredict"), s)
+            d["tma_machine_clears"] = _div(max(bad - g("tdg_br_mispredict"), 0), s)
+        if g("tdg_fe_0uops_cycles") is not None and fe is not None:
+            fl = max(6 * g("tdg_fe_0uops_cycles") - drop, 0)
+            d["tma_fetch_latency"] = _div(fl, s)
+            d["tma_fetch_bandwidth"] = _div(max(fe - fl, 0), s)
+        if g("tdg_mem_bound") is not None and be is not None:
+            d["tma_memory_bound"] = _div(g("tdg_mem_bound"), s)
+            d["tma_core_bound"] = _div(max(be - g("tdg_mem_bound"), 0), s)
+
     # Retired floating-point work. FP_ARITH counts FMA instructions twice, so
     # multiplying by the vector width gives FLOPs directly.
     fp_keys = {"fp_scalar_single": 1, "fp_128_single": 4, "fp_256_single": 8, "fp_512_single": 16,

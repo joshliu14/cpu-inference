@@ -1,0 +1,1497 @@
+{
+  "config": {
+    "cpu": 6,
+    "out": "/users/joshliu/cpu-inference/results/2026-10-06_resnet_baseline",
+    "modes": "inmodel,standalone_hot,standalone_cold",
+    "passes": "time,blocktime,core,sw,topdown,flops,loads,traffic,stalls,ports,frontend,dram",
+    "standalone_passes": "time,core,topdown,flops,loads,traffic,stalls",
+    "iters": 30,
+    "warmup": 10,
+    "hot_min_ms": 30.0,
+    "reps": 7,
+    "layers": ""
+  },
+  "environment": {
+    "time": "2026-10-06T00:03:42+0000",
+    "host": "node0.infer.nexdp-pg0.utah.cloudlab.us",
+    "affinity": [
+      6
+    ],
+    "requested_cpu": 6,
+    "torch": "2.14.1+cpu",
+    "torchvision": "0.29.1+cpu",
+    "torch_num_threads": 1,
+    "torch_num_interop_threads": 1,
+    "cpu_capability": "AVX512",
+    "mkldnn_enabled": true,
+    "env": {
+      "OMP_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "ONEDNN_VERBOSE": null,
+      "DNNL_VERBOSE": null,
+      "MKL_VERBOSE": null,
+      "ONEDNN_JIT_PROFILE": null
+    },
+    "process_threads": 1,
+    "loadavg": "1.11 0.83 1.23 1/1056 522279",
+    "git_commit": "af7c4cf"
+  },
+  "passes": {
+    "inmodel_time": {
+      "events": {},
+      "unavailable": [],
+      "floor": {},
+      "dram_background": {},
+      "forward_total_ns": [
+        100209557,
+        101204368,
+        101349211,
+        101102431,
+        100588471,
+        100134685,
+        100038672,
+        100043165,
+        100042478,
+        100274576,
+        99980719,
+        99990679,
+        99966786,
+        100049295,
+        100189599,
+        100034398,
+        100212662,
+        100060379,
+        100117466,
+        100216781,
+        100063041,
+        100035465,
+        99862342,
+        100049731,
+        100698264,
+        101283824,
+        101493999,
+        100703814,
+        100115963,
+        100476219
+      ],
+      "any_multiplexing": false
+    },
+    "inmodel_blocktime": {
+      "events": {},
+      "unavailable": [],
+      "floor": {},
+      "dram_background": {},
+      "forward_total_ns": [
+        99617785,
+        99050948,
+        99025051,
+        98990111,
+        98983202,
+        98940077,
+        99180221,
+        99329190,
+        99090149,
+        98881375,
+        98910172,
+        99458489,
+        99320872,
+        99193907,
+        98989677,
+        98998562,
+        100055248,
+        99293917,
+        99301594,
+        98898173,
+        99069119,
+        99296115,
+        99006761,
+        98881578,
+        98918230,
+        98849462,
+        99170471,
+        99070101,
+        99216779,
+        98979532
+      ],
+      "any_multiplexing": false
+    },
+    "inmodel_core": {
+      "events": {
+        "cycles": "cycles",
+        "instructions": "instructions",
+        "ref_cycles": "ref-cycles",
+        "branches": "branches",
+        "branch_misses": "branch-misses",
+        "cache_references": "cache-references",
+        "cache_misses": "cache-misses"
+      },
+      "unavailable": [],
+      "floor": {
+        "cycles": 9011.5,
+        "instructions": 18288.0,
+        "ref-cycles": 7476.0,
+        "branches": 3247.0,
+        "branch-misses": 5.0,
+        "cache-references": 0.0,
+        "cache-misses": 0.0
+      },
+      "dram_background": {},
+      "forward_total_ns": [
+        106630194,
+        107679888,
+        106870921,
+        106675281,
+        106784328,
+        106671223,
+        106668000,
+        107639701,
+        106937324,
+        106626279,
+        106752396,
+        106685311,
+        106610163,
+        106638202,
+        106638180,
+        106443728,
+        106547251,
+        106647272,
+        106846884,
+        106572931,
+        106375525,
+        106719884,
+        106735125,
+        106886724,
+        106663491,
+        106576525,
+        107676173,
+        107074347,
+        106422428,
+        107431475
+      ],
+      "any_multiplexing": false
+    },
+    "inmodel_sw": {
+      "events": {
+        "cycles": "cycles",
+        "task_clock": "task-clock",
+        "page_faults": "page-faults",
+        "context_switches": "context-switches",
+        "cpu_migrations": "cpu-migrations"
+      },
+      "unavailable": [],
+      "floor": {
+        "cycles": 8433.0,
+        "task-clock": 7251.0,
+        "page-faults": 0.0,
+        "context-switches": 0.0,
+        "cpu-migrations": 0.0
+      },
+      "dram_background": {},
+      "forward_total_ns": [
+        104799965,
+        104972526,
+        105000227,
+        105094659,
+        105194527,
+        105099090,
+        105129273,
+        105407809,
+        105483147,
+        104911409,
+        105519428,
+        105096126,
+        105037509,
+        105107810,
+        105099700,
+        105180910,
+        105161936,
+        105201166,
+        106509241,
+        105449208,
+        105211355,
+        105182601,
+        105189310,
+        105107705,
+        105523950,
+        105631823,
+        105183011,
+        106127022,
+        105506390,
+        105115965
+      ],
+      "any_multiplexing": false
+    },
+    "inmodel_topdown": {
+      "events": {
+        "slots": "slots",
+        "td_retiring": "topdown-retiring",
+        "td_bad_spec": "topdown-bad-spec",
+        "td_fe_bound": "topdown-fe-bound",
+        "td_be_bound": "topdown-be-bound",
+        "td_heavy_ops": "topdown-heavy-ops",
+        "td_br_mispredict": "topdown-br-mispredict",
+        "td_fetch_lat": "topdown-fetch-lat",
+        "td_mem_bound": "topdown-mem-bound"
+      },
+      "unavailable": [],
+      "floor": {
+        "slots": 63621.0,
+        "topdown-retiring": 23436.0,
+        "topdown-bad-spec": 4032.0,
+        "topdown-fe-bound": 21778.5,
+        "topdown-be-bound": 5709.0,
+        "topdown-heavy-ops": 2036.5,
+        "topdown-br-mispredict": 2344.0,
+        "topdown-fetch-lat": 6196.0,
+        "topdown-mem-bound": 873.0
+      },
+      "dram_background": {},
+      "forward_total_ns": [
+        108069586,
+        107792521,
+        107757586,
+        107875603,
+        107669303,
+        107590289,
+        108481208,
+        108189362,
+        108984678,
+        108701889,
+        108509424,
+        108270695,
+        109230936,
+        109289727,
+        108050379,
+        108045558,
+        108007497,
+        107764825,
+        107540979,
+        108160997,
+        109354461,
+        108417365,
+        108533573,
+        108318879,
+        107873238,
+        107808465,
+        107890557,
+        108095232,
+        108125347,
+        108704101
+      ],
+      "any_multiplexing": false,
+      "INVALID_per_region": "perf-metrics topdown-* events difference to (delta slots x cumulative average fraction) for short regions; every operator showed the same split. Superseded by the tdgp pass (general-purpose top-down events). Kept as evidence; not used by analysis."
+    },
+    "inmodel_flops": {
+      "events": {
+        "cycles": "cycles",
+        "instructions": "instructions",
+        "fp_scalar_single": "fp_arith_inst_retired.scalar_single",
+        "fp_128_single": "fp_arith_inst_retired.128b_packed_single",
+        "fp_256_single": "fp_arith_inst_retired.256b_packed_single",
+        "fp_512_single": "fp_arith_inst_retired.512b_packed_single",
+        "fp_scalar_double": "fp_arith_inst_retired.scalar_double",
+        "fp_512_double": "fp_arith_inst_retired.512b_packed_double",
+        "amx_busy": "exe.amx_busy"
+      },
+      "unavailable": [],
+      "floor": {
+        "cycles": 10617.5,
+        "instructions": 20400.0,
+        "fp_arith_inst_retired.scalar_single": 0.0,
+        "fp_arith_inst_retired.128b_packed_single": 0.0,
+        "fp_arith_inst_retired.256b_packed_single": 0.0,
+        "fp_arith_inst_retired.512b_packed_single": 0.0,
+        "fp_arith_inst_retired.scalar_double": 0.0,
+        "fp_arith_inst_retired.512b_packed_double": 0.0,
+        "exe.amx_busy": 0.0
+      },
+      "dram_background": {},
+      "forward_total_ns": [
+        109166353,
+        109054955,
+        108944326,
+        108885034,
+        109436783,
+        109456323,
+        108873273,
+        109136704,
+        108634353,
+        109116581,
+        108731728,
+        108846808,
+        108809934,
+        108701966,
+        109644031,
+        109879651,
+        108979822,
+        109111857,
+        108825330,
+        108949570,
+        108755705,
+        108590835,
+        108567561,
+        109287080,
+        108789638,
+        108718503,
+        109059598,
+        108704575,
+        108987813,
+        108776640
+      ],
+      "any_multiplexing": false
+    },
+    "inmodel_loads.0": {
+      "events": {
+        "cycles": "cycles",
+        "loads": "mem_inst_retired.all_loads",
+        "stores": "mem_inst_retired.all_stores",
+        "load_l1_hit": "mem_load_retired.l1_hit",
+        "load_l1_miss": "mem_load_retired.l1_miss"
+      },
+      "unavailable": [],
+      "floor": {
+        "cycles": 7377.0,
+        "mem_inst_retired.all_loads": 4530.0,
+        "mem_inst_retired.all_stores": 2414.0,
+        "mem_load_retired.l1_hit": 3908.0,
+        "mem_load_retired.l1_miss": 25.0
+      },
+      "dram_background": {},
+      "forward_total_ns": [
+        105068308,
+        105097846,
+        105105555,
+        105300589,
+        105070777,
+        105209088,
+        104916658,
+        105954370,
+        105498429,
+        105301388,
+        106316654,
+        106192071,
+        105443539,
+        105052293,
+        105107217,
+        104985392,
+        104922645,
+        104842970,
+        105210032,
+        105452964,
+        105218984,
+        104989905,
+        105745460,
+        105559225,
+        105093181,
+        104826323,
+        104848326,
+        105548116,
+        105158143,
+        105020941
+      ],
+      "any_multiplexing": false
+    },
+    "inmodel_loads.1": {
+      "events": {
+        "cycles": "cycles",
+        "load_fb_hit": "mem_load_retired.fb_hit",
+        "load_l2_hit": "mem_load_retired.l2_hit",
+        "load_l3_hit": "mem_load_retired.l3_hit",
+        "load_l3_miss": "mem_load_retired.l3_miss"
+      },
+      "unavailable": [],
+      "floor": {
+        "cycles": 7453.0,
+        "mem_load_retired.fb_hit": 25.0,
+        "mem_load_retired.l2_hit": 24.0,
+        "mem_load_retired.l3_hit": 0.0,
+        "mem_load_retired.l3_miss": 0.0
+      },
+      "dram_background": {},
+      "forward_total_ns": [
+        105080225,
+        105327362,
+        105352044,
+        105482295,
+        106202592,
+        105422253,
+        105148709,
+        105435570,
+        105036918,
+        104869003,
+        104949629,
+        105074290,
+        105095115,
+        105627948,
+        105102268,
+        105258601,
+        105224707,
+        104866763,
+        105804905,
+        105311596,
+        105148976,
+        104910358,
+        105182110,
+        105508496,
+        104971320,
+        104966062,
+        104785688,
+        104886961,
+        105069019,
+        105181572
+      ],
+      "any_multiplexing": false
+    },
+    "inmodel_traffic.0": {
+      "events": {
+        "cycles": "cycles",
+        "l1d_replacement": "l1d.replacement",
+        "l2_lines_in": "l2_lines_in.all",
+        "l2_lines_out_nonsilent": "l2_lines_out.non_silent",
+        "l2_hwpf": "l2_rqsts.all_hwpf"
+      },
+      "unavailable": [],
+      "floor": {
+        "cycles": 7346.5,
+        "l1d.replacement": 18.0,
+        "l2_lines_in.all": 1.0,
+        "l2_lines_out.non_silent": 0.0,
+        "l2_rqsts.all_hwpf": 3.5
+      },
+      "dram_background": {},
+      "forward_total_ns": [
+        105116901,
+        104990574,
+        104884693,
+        104983635,
+        104960270,
+        104976541,
+        105002303,
+        104893226,
+        105290741,
+        104989594,
+        104862037,
+        105017998,
+        105018131,
+        104809412,
+        104936313,
+        104922363,
+        105175329,
+        105129718,
+        105253703,
+        105051592,
+        104892135,
+        105151310,
+        104917853,
+        104915310,
+        105047820,
+        104748703,
+        104907470,
+        105654887,
+        105138972,
+        105026373
+      ],
+      "any_multiplexing": false
+    },
+    "inmodel_traffic.1": {
+      "events": {
+        "cycles": "cycles",
+        "offcore_demand_rd": "offcore_requests.demand_data_rd",
+        "ocr_dram_rd": "ocr.demand_data_rd.dram",
+        "ocr_reads_dram": "ocr.reads_to_core.dram"
+      },
+      "unavailable": [],
+      "floor": {
+        "cycles": 6634.0,
+        "offcore_requests.demand_data_rd": 0.0,
+        "ocr.demand_data_rd.dram": 0.0,
+        "ocr.reads_to_core.dram": 0.0
+      },
+      "dram_background": {},
+      "forward_total_ns": [
+        104490250,
+        104240531,
+        104113138,
+        104372759,
+        104423775,
+        104262388,
+        104282376,
+        104221025,
+        104175282,
+        104127687,
+        104272904,
+        104350816,
+        104199724,
+        104591359,
+        104234337,
+        104234172,
+        104205741,
+        104376264,
+        103984135,
+        104289850,
+        104273170,
+        104134430,
+        104199016,
+        105898609,
+        104505604,
+        104372182,
+        104237205,
+        104168918,
+        104231764,
+        104252394
+      ],
+      "any_multiplexing": false
+    },
+    "inmodel_stalls.0": {
+      "events": {
+        "cycles": "cycles",
+        "stalls_total": "cycle_activity.stalls_total",
+        "stalls_l1d_miss": "memory_activity.stalls_l1d_miss",
+        "stalls_l2_miss": "memory_activity.stalls_l2_miss",
+        "stalls_l3_miss": "memory_activity.stalls_l3_miss",
+        "bound_on_loads": "exe_activity.bound_on_loads",
+        "bound_on_stores": "exe_activity.bound_on_stores",
+        "l1d_pend_miss_pending": "l1d_pend_miss.pending"
+      },
+      "unavailable": [],
+      "floor": {
+        "cycles": 9782.0,
+        "cycle_activity.stalls_total": 2645.0,
+        "memory_activity.stalls_l1d_miss": 30.0,
+        "memory_activity.stalls_l2_miss": 0.0,
+        "memory_activity.stalls_l3_miss": 0.0,
+        "exe_activity.bound_on_loads": 527.0,
+        "exe_activity.bound_on_stores": 0.0,
+        "l1d_pend_miss.pending": 274.5
+      },
+      "dram_background": {},
+      "forward_total_ns": [
+        107949221,
+        107970652,
+        107942149,
+        107881602,
+        107762072,
+        107770422,
+        107777323,
+        108063717,
+        108369671,
+        108002092,
+        107771948,
+        108138222,
+        108756504,
+        108187202,
+        107912035,
+        107866637,
+        107932455,
+        107972542,
+        107989761,
+        107846428,
+        107690075,
+        107668877,
+        107950182,
+        107707355,
+        107739901,
+        107720604,
+        108084834,
+        108344087,
+        108138585,
+        108127169
+      ],
+      "any_multiplexing": false
+    },
+    "inmodel_stalls.1": {
+      "events": {
+        "cycles": "cycles",
+        "l1d_pend_miss_cycles": "l1d_pend_miss.pending_cycles"
+      },
+      "unavailable": [],
+      "floor": {
+        "cycles": 4912.0,
+        "l1d_pend_miss.pending_cycles": 56.0
+      },
+      "dram_background": {},
+      "forward_total_ns": [
+        102921727,
+        102845562,
+        102885358,
+        103254997,
+        102878178,
+        103075558,
+        102806867,
+        103027152,
+        103007714,
+        102914021,
+        102879315,
+        102893142,
+        102910931,
+        103244564,
+        102993115,
+        103217930,
+        102720106,
+        103141581,
+        103143567,
+        103109660,
+        102961087,
+        102870498,
+        104013285,
+        103445939,
+        102921195,
+        103044839,
+        102873498,
+        102997685,
+        102918674,
+        102891829
+      ],
+      "any_multiplexing": false
+    },
+    "inmodel_ports.0": {
+      "events": {
+        "cycles": "cycles",
+        "port0": "uops_dispatched.port_0",
+        "port1": "uops_dispatched.port_1",
+        "port5": "uops_dispatched.port_5_11",
+        "port6": "uops_dispatched.port_6",
+        "port_load": "uops_dispatched.port_2_3_10",
+        "port_sta": "uops_dispatched.port_7_8",
+        "port_std": "uops_dispatched.port_4_9"
+      },
+      "unavailable": [],
+      "floor": {
+        "cycles": 9744.5,
+        "uops_dispatched.port_0": 1755.0,
+        "uops_dispatched.port_1": 1201.0,
+        "uops_dispatched.port_5_11": 1983.0,
+        "uops_dispatched.port_6": 2784.0,
+        "uops_dispatched.port_2_3_10": 4503.0,
+        "uops_dispatched.port_7_8": 2323.0,
+        "uops_dispatched.port_4_9": 2212.0
+      },
+      "dram_background": {},
+      "forward_total_ns": [
+        107913127,
+        107803855,
+        107706034,
+        107861225,
+        107884844,
+        107979298,
+        107788359,
+        107907571,
+        108078157,
+        107847938,
+        107938618,
+        108009912,
+        107706541,
+        107705299,
+        107925432,
+        107945101,
+        107838305,
+        108325239,
+        107949090,
+        107854435,
+        107817549,
+        107758949,
+        107844834,
+        107992099,
+        107918113,
+        107730892,
+        108235091,
+        108009387,
+        108458233,
+        108675010
+      ],
+      "any_multiplexing": false
+    },
+    "inmodel_ports.1": {
+      "events": {
+        "cycles": "cycles",
+        "uops_executed": "uops_executed.thread"
+      },
+      "unavailable": [],
+      "floor": {
+        "cycles": 4915.0,
+        "uops_executed.thread": 12562.0
+      },
+      "dram_background": {},
+      "forward_total_ns": [
+        103030297,
+        102777017,
+        102929731,
+        102906846,
+        103160554,
+        102969090,
+        103425769,
+        103252728,
+        102799516,
+        103180307,
+        103020551,
+        102795709,
+        102948597,
+        102986068,
+        102742919,
+        102985930,
+        103113482,
+        102965255,
+        103575078,
+        103148724,
+        102916698,
+        102906985,
+        103256335,
+        102976712,
+        102764336,
+        102799314,
+        102750426,
+        102824234,
+        103183243,
+        102874004
+      ],
+      "any_multiplexing": false
+    },
+    "inmodel_frontend.0": {
+      "events": {
+        "cycles": "cycles",
+        "uops_issued": "uops_issued.any",
+        "dsb_uops": "idq.dsb_uops",
+        "mite_uops": "idq.mite_uops",
+        "ms_uops": "idq.ms_uops",
+        "lsd_uops": "lsd.uops",
+        "icache_stalls": "icache_data.stalls"
+      },
+      "unavailable": [],
+      "floor": {
+        "cycles": 8963.5,
+        "uops_issued.any": 21219.0,
+        "idq.dsb_uops": 4116.5,
+        "idq.mite_uops": 12384.5,
+        "idq.ms_uops": 1363.0,
+        "lsd.uops": 0.0,
+        "icache_data.stalls": 147.5
+      },
+      "dram_background": {},
+      "forward_total_ns": [
+        106654974,
+        106549155,
+        106619428,
+        106574805,
+        106711716,
+        106746781,
+        106632822,
+        106963519,
+        107095593,
+        106873635,
+        106986919,
+        106859313,
+        106903385,
+        106693213,
+        106982481,
+        106855125,
+        106741496,
+        107297569,
+        106715913,
+        106712677,
+        107531023,
+        107052233,
+        106865605,
+        106980786,
+        106703446,
+        106685088,
+        106897192,
+        106653125,
+        106726176,
+        108054397
+      ],
+      "any_multiplexing": false
+    },
+    "inmodel_frontend.1": {
+      "events": {
+        "cycles": "cycles",
+        "dtlb_load_walks": "dtlb_load_misses.walk_completed",
+        "fb_full": "l1d_pend_miss.fb_full"
+      },
+      "unavailable": [],
+      "floor": {
+        "cycles": 5727.5,
+        "dtlb_load_misses.walk_completed": 0.0,
+        "l1d_pend_miss.fb_full": 0.0
+      },
+      "dram_background": {},
+      "forward_total_ns": [
+        104035994,
+        103695470,
+        103490712,
+        104135633,
+        103770984,
+        103512433,
+        103609933,
+        104571891,
+        103649556,
+        103529970,
+        103410345,
+        103476997,
+        103798262,
+        103712803,
+        103465169,
+        103509133,
+        103494525,
+        103488353,
+        103358945,
+        104296044,
+        103580335,
+        103433716,
+        103472931,
+        104460081,
+        103961283,
+        103636680,
+        103415565,
+        103368500,
+        103320047,
+        103407242
+      ],
+      "any_multiplexing": false
+    },
+    "inmodel_dram": {
+      "events": {},
+      "unavailable": [],
+      "floor": {},
+      "dram_background": {
+        "read_Bps": 148281481.24449146,
+        "write_Bps": 70966379.96967483,
+        "bytes_per_cas": 64.0
+      },
+      "forward_total_ns": [
+        108171167,
+        107844723,
+        107459193,
+        107479584,
+        107681697,
+        107554567,
+        107520730,
+        107730905,
+        107284920,
+        107538454,
+        107488139,
+        107586553,
+        107445709,
+        107534230,
+        107672605,
+        107496141,
+        107774623,
+        107655192,
+        107607581,
+        107366641,
+        107532286,
+        107398551,
+        107589713,
+        107849867,
+        107659089,
+        107454810,
+        109030710,
+        108043591,
+        107871799,
+        107864437
+      ],
+      "any_multiplexing": false
+    },
+    "standalone_hot_time": {
+      "events": {},
+      "unavailable": [],
+      "floor": {},
+      "any_multiplexing": false
+    },
+    "standalone_hot_core": {
+      "events": {
+        "cycles": "cycles",
+        "instructions": "instructions",
+        "ref_cycles": "ref-cycles",
+        "branches": "branches",
+        "branch_misses": "branch-misses",
+        "cache_references": "cache-references",
+        "cache_misses": "cache-misses"
+      },
+      "unavailable": [],
+      "floor": {
+        "cycles": 8970.5,
+        "instructions": 18288.0,
+        "ref-cycles": 7392.0,
+        "branches": 3247.0,
+        "branch-misses": 5.0,
+        "cache-references": 0.0,
+        "cache-misses": 0.0
+      },
+      "any_multiplexing": false
+    },
+    "standalone_hot_topdown": {
+      "events": {
+        "slots": "slots",
+        "td_retiring": "topdown-retiring",
+        "td_bad_spec": "topdown-bad-spec",
+        "td_fe_bound": "topdown-fe-bound",
+        "td_be_bound": "topdown-be-bound",
+        "td_heavy_ops": "topdown-heavy-ops",
+        "td_br_mispredict": "topdown-br-mispredict",
+        "td_fetch_lat": "topdown-fetch-lat",
+        "td_mem_bound": "topdown-mem-bound"
+      },
+      "unavailable": [],
+      "floor": {
+        "slots": 63672.0,
+        "topdown-retiring": 24496.5,
+        "topdown-bad-spec": 3611.0,
+        "topdown-fe-bound": 21512.0,
+        "topdown-be-bound": 5427.0,
+        "topdown-heavy-ops": 2034.0,
+        "topdown-br-mispredict": 2205.0,
+        "topdown-fetch-lat": 5959.5,
+        "topdown-mem-bound": 805.0
+      },
+      "any_multiplexing": false,
+      "INVALID_per_region": "perf-metrics topdown-* events difference to (delta slots x cumulative average fraction) for short regions; every operator showed the same split. Superseded by the tdgp pass (general-purpose top-down events). Kept as evidence; not used by analysis."
+    },
+    "standalone_hot_flops": {
+      "events": {
+        "cycles": "cycles",
+        "instructions": "instructions",
+        "fp_scalar_single": "fp_arith_inst_retired.scalar_single",
+        "fp_128_single": "fp_arith_inst_retired.128b_packed_single",
+        "fp_256_single": "fp_arith_inst_retired.256b_packed_single",
+        "fp_512_single": "fp_arith_inst_retired.512b_packed_single",
+        "fp_scalar_double": "fp_arith_inst_retired.scalar_double",
+        "fp_512_double": "fp_arith_inst_retired.512b_packed_double",
+        "amx_busy": "exe.amx_busy"
+      },
+      "unavailable": [],
+      "floor": {
+        "cycles": 10618.5,
+        "instructions": 20400.0,
+        "fp_arith_inst_retired.scalar_single": 0.0,
+        "fp_arith_inst_retired.128b_packed_single": 0.0,
+        "fp_arith_inst_retired.256b_packed_single": 0.0,
+        "fp_arith_inst_retired.512b_packed_single": 0.0,
+        "fp_arith_inst_retired.scalar_double": 0.0,
+        "fp_arith_inst_retired.512b_packed_double": 0.0,
+        "exe.amx_busy": 0.0
+      },
+      "any_multiplexing": false
+    },
+    "standalone_hot_loads.0": {
+      "events": {
+        "cycles": "cycles",
+        "loads": "mem_inst_retired.all_loads",
+        "stores": "mem_inst_retired.all_stores",
+        "load_l1_hit": "mem_load_retired.l1_hit",
+        "load_l1_miss": "mem_load_retired.l1_miss"
+      },
+      "unavailable": [],
+      "floor": {
+        "cycles": 7330.5,
+        "mem_inst_retired.all_loads": 4518.0,
+        "mem_inst_retired.all_stores": 2404.0,
+        "mem_load_retired.l1_hit": 3902.0,
+        "mem_load_retired.l1_miss": 22.0
+      },
+      "any_multiplexing": false
+    },
+    "standalone_hot_loads.1": {
+      "events": {
+        "cycles": "cycles",
+        "load_fb_hit": "mem_load_retired.fb_hit",
+        "load_l2_hit": "mem_load_retired.l2_hit",
+        "load_l3_hit": "mem_load_retired.l3_hit",
+        "load_l3_miss": "mem_load_retired.l3_miss"
+      },
+      "unavailable": [],
+      "floor": {
+        "cycles": 7400.5,
+        "mem_load_retired.fb_hit": 25.0,
+        "mem_load_retired.l2_hit": 20.0,
+        "mem_load_retired.l3_hit": 0.0,
+        "mem_load_retired.l3_miss": 0.0
+      },
+      "any_multiplexing": false
+    },
+    "standalone_hot_traffic.0": {
+      "events": {
+        "cycles": "cycles",
+        "l1d_replacement": "l1d.replacement",
+        "l2_lines_in": "l2_lines_in.all",
+        "l2_lines_out_nonsilent": "l2_lines_out.non_silent",
+        "l2_hwpf": "l2_rqsts.all_hwpf"
+      },
+      "unavailable": [],
+      "floor": {
+        "cycles": 7386.5,
+        "l1d.replacement": 33.0,
+        "l2_lines_in.all": 1.0,
+        "l2_lines_out.non_silent": 0.0,
+        "l2_rqsts.all_hwpf": 6.0
+      },
+      "any_multiplexing": false
+    },
+    "standalone_hot_traffic.1": {
+      "events": {
+        "cycles": "cycles",
+        "offcore_demand_rd": "offcore_requests.demand_data_rd",
+        "ocr_dram_rd": "ocr.demand_data_rd.dram",
+        "ocr_reads_dram": "ocr.reads_to_core.dram"
+      },
+      "unavailable": [],
+      "floor": {
+        "cycles": 6589.5,
+        "offcore_requests.demand_data_rd": 0.0,
+        "ocr.demand_data_rd.dram": 0.0,
+        "ocr.reads_to_core.dram": 0.0
+      },
+      "any_multiplexing": false
+    },
+    "standalone_hot_stalls.0": {
+      "events": {
+        "cycles": "cycles",
+        "stalls_total": "cycle_activity.stalls_total",
+        "stalls_l1d_miss": "memory_activity.stalls_l1d_miss",
+        "stalls_l2_miss": "memory_activity.stalls_l2_miss",
+        "stalls_l3_miss": "memory_activity.stalls_l3_miss",
+        "bound_on_loads": "exe_activity.bound_on_loads",
+        "bound_on_stores": "exe_activity.bound_on_stores",
+        "l1d_pend_miss_pending": "l1d_pend_miss.pending"
+      },
+      "unavailable": [],
+      "floor": {
+        "cycles": 9711.0,
+        "cycle_activity.stalls_total": 2586.0,
+        "memory_activity.stalls_l1d_miss": 14.0,
+        "memory_activity.stalls_l2_miss": 0.0,
+        "memory_activity.stalls_l3_miss": 0.0,
+        "exe_activity.bound_on_loads": 502.0,
+        "exe_activity.bound_on_stores": 0.0,
+        "l1d_pend_miss.pending": 142.0
+      },
+      "any_multiplexing": false
+    },
+    "standalone_hot_stalls.1": {
+      "events": {
+        "cycles": "cycles",
+        "l1d_pend_miss_cycles": "l1d_pend_miss.pending_cycles"
+      },
+      "unavailable": [],
+      "floor": {
+        "cycles": 4883.0,
+        "l1d_pend_miss.pending_cycles": 70.0
+      },
+      "any_multiplexing": false
+    },
+    "standalone_cold_time": {
+      "events": {},
+      "unavailable": [],
+      "floor": {},
+      "any_multiplexing": false
+    },
+    "standalone_cold_core": {
+      "events": {
+        "cycles": "cycles",
+        "instructions": "instructions",
+        "ref_cycles": "ref-cycles",
+        "branches": "branches",
+        "branch_misses": "branch-misses",
+        "cache_references": "cache-references",
+        "cache_misses": "cache-misses"
+      },
+      "unavailable": [],
+      "floor": {
+        "cycles": 8954.0,
+        "instructions": 18288.0,
+        "ref-cycles": 7392.0,
+        "branches": 3247.0,
+        "branch-misses": 5.0,
+        "cache-references": 0.0,
+        "cache-misses": 0.0
+      },
+      "any_multiplexing": false
+    },
+    "standalone_cold_topdown": {
+      "events": {
+        "slots": "slots",
+        "td_retiring": "topdown-retiring",
+        "td_bad_spec": "topdown-bad-spec",
+        "td_fe_bound": "topdown-fe-bound",
+        "td_be_bound": "topdown-be-bound",
+        "td_heavy_ops": "topdown-heavy-ops",
+        "td_br_mispredict": "topdown-br-mispredict",
+        "td_fetch_lat": "topdown-fetch-lat",
+        "td_mem_bound": "topdown-mem-bound"
+      },
+      "unavailable": [],
+      "floor": {
+        "slots": 63510.0,
+        "topdown-retiring": 23737.5,
+        "topdown-bad-spec": 3603.0,
+        "topdown-fe-bound": 21453.0,
+        "topdown-be-bound": 5583.0,
+        "topdown-heavy-ops": 2183.5,
+        "topdown-br-mispredict": 2197.0,
+        "topdown-fetch-lat": 6048.5,
+        "topdown-mem-bound": 798.0
+      },
+      "any_multiplexing": false,
+      "INVALID_per_region": "perf-metrics topdown-* events difference to (delta slots x cumulative average fraction) for short regions; every operator showed the same split. Superseded by the tdgp pass (general-purpose top-down events). Kept as evidence; not used by analysis."
+    },
+    "standalone_cold_flops": {
+      "events": {
+        "cycles": "cycles",
+        "instructions": "instructions",
+        "fp_scalar_single": "fp_arith_inst_retired.scalar_single",
+        "fp_128_single": "fp_arith_inst_retired.128b_packed_single",
+        "fp_256_single": "fp_arith_inst_retired.256b_packed_single",
+        "fp_512_single": "fp_arith_inst_retired.512b_packed_single",
+        "fp_scalar_double": "fp_arith_inst_retired.scalar_double",
+        "fp_512_double": "fp_arith_inst_retired.512b_packed_double",
+        "amx_busy": "exe.amx_busy"
+      },
+      "unavailable": [],
+      "floor": {
+        "cycles": 10551.0,
+        "instructions": 20400.0,
+        "fp_arith_inst_retired.scalar_single": 0.0,
+        "fp_arith_inst_retired.128b_packed_single": 0.0,
+        "fp_arith_inst_retired.256b_packed_single": 0.0,
+        "fp_arith_inst_retired.512b_packed_single": 0.0,
+        "fp_arith_inst_retired.scalar_double": 0.0,
+        "fp_arith_inst_retired.512b_packed_double": 0.0,
+        "exe.amx_busy": 0.0
+      },
+      "any_multiplexing": false
+    },
+    "standalone_cold_loads.0": {
+      "events": {
+        "cycles": "cycles",
+        "loads": "mem_inst_retired.all_loads",
+        "stores": "mem_inst_retired.all_stores",
+        "load_l1_hit": "mem_load_retired.l1_hit",
+        "load_l1_miss": "mem_load_retired.l1_miss"
+      },
+      "unavailable": [],
+      "floor": {
+        "cycles": 7371.5,
+        "mem_inst_retired.all_loads": 4518.0,
+        "mem_inst_retired.all_stores": 2404.0,
+        "mem_load_retired.l1_hit": 3904.0,
+        "mem_load_retired.l1_miss": 20.0
+      },
+      "any_multiplexing": false
+    },
+    "standalone_cold_loads.1": {
+      "events": {
+        "cycles": "cycles",
+        "load_fb_hit": "mem_load_retired.fb_hit",
+        "load_l2_hit": "mem_load_retired.l2_hit",
+        "load_l3_hit": "mem_load_retired.l3_hit",
+        "load_l3_miss": "mem_load_retired.l3_miss"
+      },
+      "unavailable": [],
+      "floor": {
+        "cycles": 7372.5,
+        "mem_load_retired.fb_hit": 20.5,
+        "mem_load_retired.l2_hit": 20.0,
+        "mem_load_retired.l3_hit": 0.0,
+        "mem_load_retired.l3_miss": 0.0
+      },
+      "any_multiplexing": false
+    },
+    "standalone_cold_traffic.0": {
+      "events": {
+        "cycles": "cycles",
+        "l1d_replacement": "l1d.replacement",
+        "l2_lines_in": "l2_lines_in.all",
+        "l2_lines_out_nonsilent": "l2_lines_out.non_silent",
+        "l2_hwpf": "l2_rqsts.all_hwpf"
+      },
+      "unavailable": [],
+      "floor": {
+        "cycles": 7352.5,
+        "l1d.replacement": 32.0,
+        "l2_lines_in.all": 1.0,
+        "l2_lines_out.non_silent": 0.0,
+        "l2_rqsts.all_hwpf": 5.0
+      },
+      "any_multiplexing": false
+    },
+    "standalone_cold_traffic.1": {
+      "events": {
+        "cycles": "cycles",
+        "offcore_demand_rd": "offcore_requests.demand_data_rd",
+        "ocr_dram_rd": "ocr.demand_data_rd.dram",
+        "ocr_reads_dram": "ocr.reads_to_core.dram"
+      },
+      "unavailable": [],
+      "floor": {
+        "cycles": 6640.5,
+        "offcore_requests.demand_data_rd": 0.0,
+        "ocr.demand_data_rd.dram": 0.0,
+        "ocr.reads_to_core.dram": 0.0
+      },
+      "any_multiplexing": false
+    },
+    "standalone_cold_stalls.0": {
+      "events": {
+        "cycles": "cycles",
+        "stalls_total": "cycle_activity.stalls_total",
+        "stalls_l1d_miss": "memory_activity.stalls_l1d_miss",
+        "stalls_l2_miss": "memory_activity.stalls_l2_miss",
+        "stalls_l3_miss": "memory_activity.stalls_l3_miss",
+        "bound_on_loads": "exe_activity.bound_on_loads",
+        "bound_on_stores": "exe_activity.bound_on_stores",
+        "l1d_pend_miss_pending": "l1d_pend_miss.pending"
+      },
+      "unavailable": [],
+      "floor": {
+        "cycles": 9776.0,
+        "cycle_activity.stalls_total": 2642.0,
+        "memory_activity.stalls_l1d_miss": 19.0,
+        "memory_activity.stalls_l2_miss": 0.0,
+        "memory_activity.stalls_l3_miss": 0.0,
+        "exe_activity.bound_on_loads": 514.0,
+        "exe_activity.bound_on_stores": 0.0,
+        "l1d_pend_miss.pending": 185.0
+      },
+      "any_multiplexing": false
+    },
+    "standalone_cold_stalls.1": {
+      "events": {
+        "cycles": "cycles",
+        "l1d_pend_miss_cycles": "l1d_pend_miss.pending_cycles"
+      },
+      "unavailable": [],
+      "floor": {
+        "cycles": 4859.0,
+        "l1d_pend_miss.pending_cycles": 59.0
+      },
+      "any_multiplexing": false
+    },
+    "inmodel_tdgp.0": {
+      "events": {
+        "cycles": "cycles",
+        "tdg_slots": "topdown.slots_p",
+        "tdg_retiring": "uops_retired.slots",
+        "tdg_bad_spec": "topdown.bad_spec_slots",
+        "tdg_fe_bound": "idq_bubbles.core",
+        "tdg_be_bound": "topdown.backend_bound_slots",
+        "tdg_mem_bound": "topdown.memory_bound_slots"
+      },
+      "unavailable": [],
+      "floor": {
+        "cycles": 9006.0,
+        "topdown.slots_p": 49290.0,
+        "uops_retired.slots": 18533.0,
+        "topdown.bad_spec_slots": 1434.0,
+        "idq_bubbles.core": 13973.0,
+        "topdown.backend_bound_slots": 2955.0,
+        "topdown.memory_bound_slots": 348.0
+      },
+      "dram_background": {},
+      "forward_total_ns": [
+        112534785,
+        115057780,
+        112334136,
+        111900709,
+        111699791,
+        114540458,
+        112231244,
+        111924762,
+        115366781,
+        111841185,
+        115595956,
+        119350557,
+        118835328,
+        115181292,
+        118993210,
+        115567121,
+        119139942,
+        115447006,
+        115420830,
+        118992500,
+        115037413,
+        112245386,
+        111871258,
+        115688360,
+        111946964,
+        111850085,
+        114774942,
+        111887279,
+        111756051,
+        115210433
+      ],
+      "any_multiplexing": false
+    },
+    "inmodel_tdgp.1": {
+      "events": {
+        "cycles": "cycles",
+        "tdg_br_mispredict": "topdown.br_mispredict_slots",
+        "tdg_heavy_ops": "uops_retired.heavy",
+        "tdg_fe_0uops_cycles": "idq_bubbles.cycles_0_uops_deliv.core",
+        "tdg_uop_dropping": "int_misc.uop_dropping"
+      },
+      "unavailable": [],
+      "floor": {
+        "cycles": 7380.0,
+        "topdown.br_mispredict_slots": 1069.5,
+        "uops_retired.heavy": 2028.0,
+        "idq_bubbles.cycles_0_uops_deliv.core": 673.5,
+        "int_misc.uop_dropping": 15.0
+      },
+      "dram_background": {},
+      "forward_total_ns": [
+        109130202,
+        113617474,
+        109610726,
+        109274534,
+        109882149,
+        113017687,
+        110732065,
+        109787881,
+        109087371,
+        110486933,
+        109790560,
+        113772130,
+        110217418,
+        109763995,
+        109111829,
+        109837216,
+        109663289,
+        109622212,
+        109860136,
+        105327375,
+        109089497,
+        112555443,
+        117493834,
+        113628467,
+        117402865,
+        112971894,
+        117226404,
+        112782318,
+        113998750,
+        109675462
+      ],
+      "any_multiplexing": false
+    },
+    "standalone_hot_tdgp.0": {
+      "events": {
+        "cycles": "cycles",
+        "tdg_slots": "topdown.slots_p",
+        "tdg_retiring": "uops_retired.slots",
+        "tdg_bad_spec": "topdown.bad_spec_slots",
+        "tdg_fe_bound": "idq_bubbles.core",
+        "tdg_be_bound": "topdown.backend_bound_slots",
+        "tdg_mem_bound": "topdown.memory_bound_slots"
+      },
+      "unavailable": [],
+      "floor": {
+        "cycles": 9030.0,
+        "topdown.slots_p": 49422.0,
+        "uops_retired.slots": 18536.5,
+        "topdown.bad_spec_slots": 1421.0,
+        "idq_bubbles.core": 14033.5,
+        "topdown.backend_bound_slots": 2922.0,
+        "topdown.memory_bound_slots": 360.0
+      },
+      "any_multiplexing": false
+    },
+    "standalone_hot_tdgp.1": {
+      "events": {
+        "cycles": "cycles",
+        "tdg_br_mispredict": "topdown.br_mispredict_slots",
+        "tdg_heavy_ops": "uops_retired.heavy",
+        "tdg_fe_0uops_cycles": "idq_bubbles.cycles_0_uops_deliv.core",
+        "tdg_uop_dropping": "int_misc.uop_dropping"
+      },
+      "unavailable": [],
+      "floor": {
+        "cycles": 7355.0,
+        "topdown.br_mispredict_slots": 1008.0,
+        "uops_retired.heavy": 2024.0,
+        "idq_bubbles.cycles_0_uops_deliv.core": 664.5,
+        "int_misc.uop_dropping": 15.0
+      },
+      "any_multiplexing": false
+    },
+    "standalone_cold_tdgp.0": {
+      "events": {
+        "cycles": "cycles",
+        "tdg_slots": "topdown.slots_p",
+        "tdg_retiring": "uops_retired.slots",
+        "tdg_bad_spec": "topdown.bad_spec_slots",
+        "tdg_fe_bound": "idq_bubbles.core",
+        "tdg_be_bound": "topdown.backend_bound_slots",
+        "tdg_mem_bound": "topdown.memory_bound_slots"
+      },
+      "unavailable": [],
+      "floor": {
+        "cycles": 9028.5,
+        "topdown.slots_p": 49440.0,
+        "uops_retired.slots": 18575.0,
+        "topdown.bad_spec_slots": 1458.5,
+        "idq_bubbles.core": 13940.5,
+        "topdown.backend_bound_slots": 3045.0,
+        "topdown.memory_bound_slots": 444.0
+      },
+      "any_multiplexing": false
+    },
+    "standalone_cold_tdgp.1": {
+      "events": {
+        "cycles": "cycles",
+        "tdg_br_mispredict": "topdown.br_mispredict_slots",
+        "tdg_heavy_ops": "uops_retired.heavy",
+        "tdg_fe_0uops_cycles": "idq_bubbles.cycles_0_uops_deliv.core",
+        "tdg_uop_dropping": "int_misc.uop_dropping"
+      },
+      "unavailable": [],
+      "floor": {
+        "cycles": 7483.0,
+        "topdown.br_mispredict_slots": 1167.5,
+        "uops_retired.heavy": 2033.0,
+        "idq_bubbles.cycles_0_uops_deliv.core": 732.0,
+        "int_misc.uop_dropping": 17.0
+      },
+      "any_multiplexing": false
+    }
+  },
+  "appended_runs": [
+    {
+      "config": {
+        "cpu": 6,
+        "out": "results/2026-10-06_resnet_baseline",
+        "modes": "inmodel,standalone_hot,standalone_cold",
+        "passes": "tdgp",
+        "standalone_passes": "tdgp",
+        "append": true,
+        "iters": 30,
+        "warmup": 10,
+        "hot_min_ms": 30.0,
+        "reps": 7,
+        "layers": ""
+      },
+      "environment": {
+        "time": "2026-10-06T00:26:36+0000",
+        "host": "node0.infer.nexdp-pg0.utah.cloudlab.us",
+        "affinity": [
+          6
+        ],
+        "requested_cpu": 6,
+        "torch": "2.14.1+cpu",
+        "torchvision": "0.29.1+cpu",
+        "torch_num_threads": 1,
+        "torch_num_interop_threads": 1,
+        "cpu_capability": "AVX512",
+        "mkldnn_enabled": true,
+        "env": {
+          "OMP_NUM_THREADS": "1",
+          "MKL_NUM_THREADS": "1",
+          "ONEDNN_VERBOSE": null,
+          "DNNL_VERBOSE": null,
+          "MKL_VERBOSE": null,
+          "ONEDNN_JIT_PROFILE": null
+        },
+        "process_threads": 1,
+        "loadavg": "26.19 23.36 13.24 29/1130 528547",
+        "git_commit": "af7c4cf"
+      }
+    }
+  ]
+}

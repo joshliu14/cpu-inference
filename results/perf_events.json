@@ -29,6 +29,18 @@
       "td_fetch_lat",
       "td_mem_bound"
     ],
+    "tdgp": [
+      "tdg_slots",
+      "tdg_retiring",
+      "tdg_bad_spec",
+      "tdg_fe_bound",
+      "tdg_be_bound",
+      "tdg_mem_bound",
+      "tdg_br_mispredict",
+      "tdg_heavy_ops",
+      "tdg_fe_0uops_cycles",
+      "tdg_uop_dropping"
+    ],
     "flops": [
       "cycles",
       "instructions",
@@ -106,9 +118,9 @@
           "encoding": "type=0 config=0x0 config1=0x0",
           "source": "generic hardware event",
           "perf_stat_ok": true,
-          "perf_stat_value": "541484653",
+          "perf_stat_value": "532634856",
           "inprocess_ok": true,
-          "inprocess_value": "28055456"
+          "inprocess_value": "27825111"
         }
       ],
       "source": "generic hardware event",
@@ -128,9 +140,9 @@
           "encoding": "type=0 config=0x1 config1=0x0",
           "source": "generic hardware event",
           "perf_stat_ok": true,
-          "perf_stat_value": "3183987013",
+          "perf_stat_value": "3722686537",
           "inprocess_ok": true,
-          "inprocess_value": "156346857"
+          "inprocess_value": "156349989"
         }
       ],
       "source": "generic hardware event",
@@ -150,9 +162,9 @@
           "encoding": "type=0 config=0x9 config1=0x0",
           "source": "generic hardware event",
           "perf_stat_ok": true,
-          "perf_stat_value": "532859712",
+          "perf_stat_value": "566504904",
           "inprocess_ok": true,
-          "inprocess_value": "25674096"
+          "inprocess_value": "26087040"
         }
       ],
       "source": "generic hardware event",
@@ -172,9 +184,9 @@
           "encoding": "type=0 config=0x4 config1=0x0",
           "source": "generic hardware event",
           "perf_stat_ok": true,
-          "perf_stat_value": "600414722",
+          "perf_stat_value": "572464533",
           "inprocess_ok": true,
-          "inprocess_value": "27550212"
+          "inprocess_value": "27552249"
         }
       ],
       "source": "generic hardware event",
@@ -194,9 +206,9 @@
           "encoding": "type=0 config=0x5 config1=0x0",
           "source": "generic hardware event",
           "perf_stat_ok": true,
-          "perf_stat_value": "496741",
+          "perf_stat_value": "503265",
           "inprocess_ok": true,
-          "inprocess_value": "540"
+          "inprocess_value": "575"
         }
       ],
       "source": "generic hardware event",
@@ -216,9 +228,9 @@
           "encoding": "type=0 config=0x2 config1=0x0",
           "source": "generic hardware event",
           "perf_stat_ok": true,
-          "perf_stat_value": "343724",
+          "perf_stat_value": "448429",
           "inprocess_ok": true,
-          "inprocess_value": "1825"
+          "inprocess_value": "2821"
         }
       ],
       "source": "generic hardware event",
@@ -238,9 +250,9 @@
           "encoding": "type=0 config=0x3 config1=0x0",
           "source": "generic hardware event",
           "perf_stat_ok": true,
-          "perf_stat_value": "40233",
+          "perf_stat_value": "244760",
           "inprocess_ok": true,
-          "inprocess_value": "92"
+          "inprocess_value": "2620"
         }
       ],
       "source": "generic hardware event",
@@ -260,9 +272,9 @@
           "encoding": "type=1 config=0x3 config1=0x0",
           "source": "generic software event",
           "perf_stat_ok": true,
-          "perf_stat_value": "2",
+          "perf_stat_value": "41",
           "inprocess_ok": true,
-          "inprocess_value": "0"
+          "inprocess_value": "3"
         }
       ],
       "source": "generic software event",
@@ -304,7 +316,7 @@
           "encoding": "type=1 config=0x2 config1=0x0",
           "source": "generic software event",
           "perf_stat_ok": true,
-          "perf_stat_value": "1090",
+          "perf_stat_value": "1088",
           "inprocess_ok": true,
           "inprocess_value": "0"
         }
@@ -326,9 +338,9 @@
           "encoding": "type=1 config=0x1 config1=0x0",
           "source": "generic software event",
           "perf_stat_ok": true,
-          "perf_stat_value": "268.58",
+          "perf_stat_value": "254.38",
           "inprocess_ok": true,
-          "inprocess_value": "12379235"
+          "inprocess_value": "12246417"
         }
       ],
       "source": "generic software event",
@@ -348,9 +360,9 @@
           "encoding": "type=4 config=0x400 config1=0x0",
           "source": "kernel sysfs cpu/events",
           "perf_stat_ok": true,
-          "perf_stat_value": "3186414228",
+          "perf_stat_value": "3376916688",
           "inprocess_ok": true,
-          "inprocess_value": "155546292"
+          "inprocess_value": "154292310"
         }
       ],
       "source": "kernel sysfs cpu/events",
@@ -370,9 +382,9 @@
           "encoding": "type=4 config=0x8000 config1=0x0",
           "source": "kernel sysfs cpu/events",
           "perf_stat_ok": true,
-          "perf_stat_value": "2940996730",
+          "perf_stat_value": "3231677552",
           "inprocess_ok": true,
-          "inprocess_value": "140935873"
+          "inprocess_value": "141557092"
         }
       ],
       "source": "kernel sysfs cpu/events",
@@ -392,7 +404,7 @@
           "encoding": "type=4 config=0x8100 config1=0x0",
           "source": "kernel sysfs cpu/events",
           "perf_stat_ok": true,
-          "perf_stat_value": "101671978",
+          "perf_stat_value": "137730034",
           "inprocess_ok": true,
           "inprocess_value": "0"
         }
@@ -414,9 +426,9 @@
           "encoding": "type=4 config=0x8200 config1=0x0",
           "source": "kernel sysfs cpu/events",
           "perf_stat_ok": true,
-          "perf_stat_value": "111781782",
+          "perf_stat_value": "123132452",
           "inprocess_ok": true,
-          "inprocess_value": "12673213"
+          "inprocess_value": "8855032"
         }
       ],
       "source": "kernel sysfs cpu/events",
@@ -436,9 +448,9 @@
           "encoding": "type=4 config=0x8300 config1=0x0",
           "source": "kernel sysfs cpu/events",
           "perf_stat_ok": true,
-          "perf_stat_value": "157720591",
+          "perf_stat_value": "121306545",
           "inprocess_ok": true,
-          "inprocess_value": "606528"
+          "inprocess_value": "1174887"
         }
       ],
       "source": "kernel sysfs cpu/events",
@@ -458,9 +470,9 @@
           "encoding": "type=4 config=0x8400 config1=0x0",
           "source": "kernel sysfs cpu/events",
           "perf_stat_ok": true,
-          "perf_stat_value": "102800483",
+          "perf_stat_value": "99880555",
           "inprocess_ok": true,
-          "inprocess_value": "4285877"
+          "inprocess_value": "4183771"
         }
       ],
       "source": "kernel sysfs cpu/events",
@@ -480,7 +492,7 @@
           "encoding": "type=4 config=0x8500 config1=0x0",
           "source": "kernel sysfs cpu/events",
           "perf_stat_ok": true,
-          "perf_stat_value": "72243495",
+          "perf_stat_value": "113347698",
           "inprocess_ok": true,
           "inprocess_value": "0"
         }
@@ -502,9 +514,9 @@
           "encoding": "type=4 config=0x8600 config1=0x0",
           "source": "kernel sysfs cpu/events",
           "perf_stat_ok": true,
-          "perf_stat_value": "62251345",
+          "perf_stat_value": "107260656",
           "inprocess_ok": true,
-          "inprocess_value": "3035465"
+          "inprocess_value": "2381210"
         }
       ],
       "source": "kernel sysfs cpu/events",
@@ -524,7 +536,7 @@
           "encoding": "type=4 config=0x8700 config1=0x0",
           "source": "kernel sysfs cpu/events",
           "perf_stat_ok": true,
-          "perf_stat_value": "12877976",
+          "perf_stat_value": "54825848",
           "inprocess_ok": true,
           "inprocess_value": "0"
         }
@@ -535,6 +547,226 @@
       "scope": "per-thread (core PMU, counts only the measured thread on its core)",
       "description": "Backend-bound slots attributed to the memory subsystem.",
       "interpretation": "Level-2 split of Backend Bound: Memory Bound vs Core Bound."
+    },
+    {
+      "key": "tdg_slots",
+      "event": "topdown.slots_p",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "topdown.slots_p",
+          "encoding": "type=4 config=0x1a4 config1=0x0",
+          "source": "perf JSON event table",
+          "perf_stat_ok": true,
+          "perf_stat_value": "3576722862",
+          "inprocess_ok": true,
+          "inprocess_value": "155361432"
+        }
+      ],
+      "source": "perf JSON event table",
+      "encoding": "type=4 config=0x1a4 config1=0x0",
+      "category": "topdown_gp",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Issue slots, counted on a general-purpose counter.",
+      "interpretation": "Denominator of every fraction."
+    },
+    {
+      "key": "tdg_retiring",
+      "event": "uops_retired.slots",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "uops_retired.slots",
+          "encoding": "type=4 config=0x2c2 config1=0x0",
+          "source": "perf JSON event table",
+          "perf_stat_ok": true,
+          "perf_stat_value": "3056086098",
+          "inprocess_ok": true,
+          "inprocess_value": "141066225"
+        }
+      ],
+      "source": "perf JSON event table",
+      "encoding": "type=4 config=0x2c2 config1=0x0",
+      "category": "topdown_gp",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Retirement slots used by retired uops.",
+      "interpretation": "Retiring = uops_retired.slots / slots."
+    },
+    {
+      "key": "tdg_bad_spec",
+      "event": "topdown.bad_spec_slots",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "topdown.bad_spec_slots",
+          "encoding": "type=4 config=0x4a4 config1=0x0",
+          "source": "perf JSON event table",
+          "perf_stat_ok": true,
+          "perf_stat_value": "117835085",
+          "inprocess_ok": true,
+          "inprocess_value": "137438"
+        }
+      ],
+      "source": "perf JSON event table",
+      "encoding": "type=4 config=0x4a4 config1=0x0",
+      "category": "topdown_gp",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Slots wasted by speculation (mispredicts + machine clears).",
+      "interpretation": "Bad Speculation."
+    },
+    {
+      "key": "tdg_fe_bound",
+      "event": "idq_bubbles.core",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "idq_bubbles.core",
+          "encoding": "type=4 config=0x19c config1=0x0",
+          "source": "perf JSON event table",
+          "perf_stat_ok": true,
+          "perf_stat_value": "118161710",
+          "inprocess_ok": true,
+          "inprocess_value": "10958925"
+        }
+      ],
+      "source": "perf JSON event table",
+      "encoding": "type=4 config=0x19c config1=0x0",
+      "category": "topdown_gp",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Uops not delivered by the frontend while the backend was not stalled.",
+      "interpretation": "Frontend Bound = (idq_bubbles.core - int_misc.uop_dropping) / slots."
+    },
+    {
+      "key": "tdg_be_bound",
+      "event": "topdown.backend_bound_slots",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "topdown.backend_bound_slots",
+          "encoding": "type=4 config=0x2a4 config1=0x0",
+          "source": "perf JSON event table",
+          "perf_stat_ok": true,
+          "perf_stat_value": "98732772",
+          "inprocess_ok": true,
+          "inprocess_value": "624642"
+        }
+      ],
+      "source": "perf JSON event table",
+      "encoding": "type=4 config=0x2a4 config1=0x0",
+      "category": "topdown_gp",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Slots where the backend could not accept uops.",
+      "interpretation": "Backend Bound."
+    },
+    {
+      "key": "tdg_mem_bound",
+      "event": "topdown.memory_bound_slots",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "topdown.memory_bound_slots",
+          "encoding": "type=4 config=0x10a4 config1=0x0",
+          "source": "perf JSON event table",
+          "perf_stat_ok": true,
+          "perf_stat_value": "32195976",
+          "inprocess_ok": true,
+          "inprocess_value": "235128"
+        }
+      ],
+      "source": "perf JSON event table",
+      "encoding": "type=4 config=0x10a4 config1=0x0",
+      "category": "topdown_gp",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Backend-bound slots attributed to the memory subsystem.",
+      "interpretation": "Memory Bound; Core Bound = Backend - Memory."
+    },
+    {
+      "key": "tdg_br_mispredict",
+      "event": "topdown.br_mispredict_slots",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "topdown.br_mispredict_slots",
+          "encoding": "type=4 config=0x8a4 config1=0x0",
+          "source": "perf JSON event table",
+          "perf_stat_ok": true,
+          "perf_stat_value": "61932328",
+          "inprocess_ok": true,
+          "inprocess_value": "68847"
+        }
+      ],
+      "source": "perf JSON event table",
+      "encoding": "type=4 config=0x8a4 config1=0x0",
+      "category": "topdown_gp",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Bad-speculation slots caused by branch mispredicts.",
+      "interpretation": "Machine Clears = Bad Spec - this."
+    },
+    {
+      "key": "tdg_heavy_ops",
+      "event": "uops_retired.heavy",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "uops_retired.heavy",
+          "encoding": "type=4 config=0x1c2 config1=0x0",
+          "source": "perf JSON event table",
+          "perf_stat_ok": true,
+          "perf_stat_value": "116209108",
+          "inprocess_ok": true,
+          "inprocess_value": "4326254"
+        }
+      ],
+      "source": "perf JSON event table",
+      "encoding": "type=4 config=0x1c2 config1=0x0",
+      "category": "topdown_gp",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Retired uops of heavy (multi-uop / microcoded) instructions.",
+      "interpretation": "Heavy Operations; Light = Retiring - Heavy."
+    },
+    {
+      "key": "tdg_fe_0uops_cycles",
+      "event": "idq_bubbles.cycles_0_uops_deliv.core",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "idq_bubbles.cycles_0_uops_deliv.core",
+          "encoding": "type=4 config=0x600019c config1=0x0",
+          "source": "perf JSON event table",
+          "perf_stat_ok": true,
+          "perf_stat_value": "10248590",
+          "inprocess_ok": true,
+          "inprocess_value": "662301"
+        }
+      ],
+      "source": "perf JSON event table",
+      "encoding": "type=4 config=0x600019c config1=0x0",
+      "category": "topdown_gp",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Cycles in which the frontend delivered no uop while the backend could take one.",
+      "interpretation": "Fetch Latency = (6 x this - int_misc.uop_dropping) / slots."
+    },
+    {
+      "key": "tdg_uop_dropping",
+      "event": "int_misc.uop_dropping",
+      "supported": true,
+      "candidates_tried": [
+        {
+          "name": "int_misc.uop_dropping",
+          "encoding": "type=4 config=0x10ad config1=0x0",
+          "source": "perf JSON event table",
+          "perf_stat_ok": true,
+          "perf_stat_value": "1412757",
+          "inprocess_ok": true,
+          "inprocess_value": "1251"
+        }
+      ],
+      "source": "perf JSON event table",
+      "encoding": "type=4 config=0x10ad config1=0x0",
+      "category": "topdown_gp",
+      "scope": "per-thread (core PMU, counts only the measured thread on its core)",
+      "description": "Uops dropped by the frontend (correction term in TMA formulas).",
+      "interpretation": ""
     },
     {
       "key": "fp_scalar_single",
@@ -700,9 +932,9 @@
           "encoding": "type=4 config=0x81d0 config1=0x0",
           "source": "perf JSON event table",
           "perf_stat_ok": true,
-          "perf_stat_value": "915393954",
+          "perf_stat_value": "929403288",
           "inprocess_ok": true,
-          "inprocess_value": "41624878"
+          "inprocess_value": "41621141"
         }
       ],
       "source": "perf JSON event table",
@@ -722,9 +954,9 @@
           "encoding": "type=4 config=0x82d0 config1=0x0",
           "source": "perf JSON event table",
           "perf_stat_ok": true,
-          "perf_stat_value": "475045419",
+          "perf_stat_value": "475009308",
           "inprocess_ok": true,
-          "inprocess_value": "26218309"
+          "inprocess_value": "26216675"
         }
       ],
       "source": "perf JSON event table",
@@ -744,9 +976,9 @@
           "encoding": "type=4 config=0x1d1 config1=0x0",
           "source": "perf JSON event table",
           "perf_stat_ok": true,
-          "perf_stat_value": "952419177",
+          "perf_stat_value": "874331512",
           "inprocess_ok": true,
-          "inprocess_value": "41625326"
+          "inprocess_value": "41620860"
         }
       ],
       "source": "perf JSON event table",
@@ -766,9 +998,9 @@
           "encoding": "type=4 config=0x8d1 config1=0x0",
           "source": "perf JSON event table",
           "perf_stat_ok": true,
-          "perf_stat_value": "543595",
+          "perf_stat_value": "541528",
           "inprocess_ok": true,
-          "inprocess_value": "926"
+          "inprocess_value": "831"
         }
       ],
       "source": "perf JSON event table",
@@ -788,9 +1020,9 @@
           "encoding": "type=4 config=0x40d1 config1=0x0",
           "source": "perf JSON event table",
           "perf_stat_ok": true,
-          "perf_stat_value": "467741",
+          "perf_stat_value": "473224",
           "inprocess_ok": true,
-          "inprocess_value": "1111"
+          "inprocess_value": "755"
         }
       ],
       "source": "perf JSON event table",
@@ -810,9 +1042,9 @@
           "encoding": "type=4 config=0x2d1 config1=0x0",
           "source": "perf JSON event table",
           "perf_stat_ok": true,
-          "perf_stat_value": "508110",
+          "perf_stat_value": "497636",
           "inprocess_ok": true,
-          "inprocess_value": "498"
+          "inprocess_value": "266"
         }
       ],
       "source": "perf JSON event table",
@@ -832,9 +1064,9 @@
           "encoding": "type=4 config=0x10d1 config1=0x0",
           "source": "perf JSON event table",
           "perf_stat_ok": true,
-          "perf_stat_value": "37370",
+          "perf_stat_value": "42486",
           "inprocess_ok": true,
-          "inprocess_value": "430"
+          "inprocess_value": "149"
         }
       ],
       "source": "perf JSON event table",
@@ -854,9 +1086,9 @@
           "encoding": "type=4 config=0x4d1 config1=0x0",
           "source": "perf JSON event table",
           "perf_stat_ok": true,
-          "perf_stat_value": "26549",
+          "perf_stat_value": "27777",
           "inprocess_ok": true,
-          "inprocess_value": "71"
+          "inprocess_value": "148"
         }
       ],
       "source": "perf JSON event table",
@@ -876,9 +1108,9 @@
           "encoding": "type=4 config=0x20d1 config1=0x0",
           "source": "perf JSON event table",
           "perf_stat_ok": true,
-          "perf_stat_value": "8917",
+          "perf_stat_value": "17102",
           "inprocess_ok": true,
-          "inprocess_value": "96"
+          "inprocess_value": "121"
         }
       ],
       "source": "perf JSON event table",
@@ -898,9 +1130,9 @@
           "encoding": "type=4 config=0x151 config1=0x0",
           "source": "perf JSON event table",
           "perf_stat_ok": true,
-          "perf_stat_value": "1126849",
+          "perf_stat_value": "1129061",
           "inprocess_ok": true,
-          "inprocess_value": "1599"
+          "inprocess_value": "853"
         }
       ],
       "source": "perf JSON event table",
@@ -920,9 +1152,9 @@
           "encoding": "type=4 config=0x1f25 config1=0x0",
           "source": "perf JSON event table",
           "perf_stat_ok": true,
-          "perf_stat_value": "347170",
+          "perf_stat_value": "398668",
           "inprocess_ok": true,
-          "inprocess_value": "2140"
+          "inprocess_value": "1563"
         }
       ],
       "source": "perf JSON event table",
@@ -942,9 +1174,9 @@
           "encoding": "type=4 config=0x226 config1=0x0",
           "source": "perf JSON event table",
           "perf_stat_ok": true,
-          "perf_stat_value": "295800",
+          "perf_stat_value": "336571",
           "inprocess_ok": true,
-          "inprocess_value": "1418"
+          "inprocess_value": "1021"
         }
       ],
       "source": "perf JSON event table",
@@ -964,9 +1196,9 @@
           "encoding": "type=4 config=0x3f24 config1=0x0",
           "source": "perf JSON event table",
           "perf_stat_ok": true,
-          "perf_stat_value": "350138",
+          "perf_stat_value": "385274",
           "inprocess_ok": true,
-          "inprocess_value": "2573"
+          "inprocess_value": "1311"
         }
       ],
       "source": "perf JSON event table",
@@ -986,9 +1218,9 @@
           "encoding": "type=4 config=0xf024 config1=0x0",
           "source": "perf JSON event table",
           "perf_stat_ok": true,
-          "perf_stat_value": "639466",
+          "perf_stat_value": "667570",
           "inprocess_ok": true,
-          "inprocess_value": "529"
+          "inprocess_value": "591"
         }
       ],
       "source": "perf JSON event table",
@@ -1008,9 +1240,9 @@
           "encoding": "type=4 config=0x121 config1=0x0",
           "source": "perf JSON event table",
           "perf_stat_ok": true,
-          "perf_stat_value": "62798",
+          "perf_stat_value": "77520",
           "inprocess_ok": true,
-          "inprocess_value": "554"
+          "inprocess_value": "500"
         }
       ],
       "source": "perf JSON event table",
@@ -1030,9 +1262,9 @@
           "encoding": "type=4 config=0x12a config1=0x73c000001",
           "source": "perf JSON event table",
           "perf_stat_ok": true,
-          "perf_stat_value": "15055",
+          "perf_stat_value": "41689",
           "inprocess_ok": true,
-          "inprocess_value": "97"
+          "inprocess_value": "186"
         }
       ],
       "source": "perf JSON event table",
@@ -1052,9 +1284,9 @@
           "encoding": "type=4 config=0x12a config1=0x73c004477",
           "source": "perf JSON event table",
           "perf_stat_ok": true,
-          "perf_stat_value": "41425",
+          "perf_stat_value": "201212",
           "inprocess_ok": true,
-          "inprocess_value": "147"
+          "inprocess_value": "1275"
         }
       ],
       "source": "perf JSON event table",
@@ -1074,9 +1306,9 @@
           "encoding": "type=4 config=0xe12 config1=0x0",
           "source": "perf JSON event table",
           "perf_stat_ok": true,
-          "perf_stat_value": "6024",
+          "perf_stat_value": "8287",
           "inprocess_ok": true,
-          "inprocess_value": "110"
+          "inprocess_value": "84"
         }
       ],
       "source": "perf JSON event table",
@@ -1096,9 +1328,9 @@
           "encoding": "type=4 config=0x40004a3 config1=0x0",
           "source": "perf JSON event table",
           "perf_stat_ok": true,
-          "perf_stat_value": "21508891",
+          "perf_stat_value": "22549177",
           "inprocess_ok": true,
-          "inprocess_value": "263391"
+          "inprocess_value": "298693"
         }
       ],
       "source": "perf JSON event table",
@@ -1118,9 +1350,9 @@
           "encoding": "type=4 config=0x3000347 config1=0x0",
           "source": "perf JSON event table",
           "perf_stat_ok": true,
-          "perf_stat_value": "2695410",
+          "perf_stat_value": "4183682",
           "inprocess_ok": true,
-          "inprocess_value": "12560"
+          "inprocess_value": "51895"
         }
       ],
       "source": "perf JSON event table",
@@ -1140,9 +1372,9 @@
           "encoding": "type=4 config=0x5000547 config1=0x0",
           "source": "perf JSON event table",
           "perf_stat_ok": true,
-          "perf_stat_value": "1322192",
+          "perf_stat_value": "2887035",
           "inprocess_ok": true,
-          "inprocess_value": "18782"
+          "inprocess_value": "28538"
         }
       ],
       "source": "perf JSON event table",
@@ -1162,9 +1394,9 @@
           "encoding": "type=4 config=0x9000947 config1=0x0",
           "source": "perf JSON event table",
           "perf_stat_ok": true,
-          "perf_stat_value": "882862",
+          "perf_stat_value": "2342154",
           "inprocess_ok": true,
-          "inprocess_value": "17880"
+          "inprocess_value": "14432"
         }
       ],
       "source": "perf JSON event table",
@@ -1184,9 +1416,9 @@
           "encoding": "type=4 config=0x50021a6 config1=0x0",
           "source": "perf JSON event table",
           "perf_stat_ok": true,
-          "perf_stat_value": "9928680",
+          "perf_stat_value": "10480478",
           "inprocess_ok": true,
-          "inprocess_value": "207171"
+          "inprocess_value": "274792"
         }
       ],
       "source": "perf JSON event table",
@@ -1206,9 +1438,9 @@
           "encoding": "type=4 config=0x20040a6 config1=0x0",
           "source": "perf JSON event table",
           "perf_stat_ok": true,
-          "perf_stat_value": "288523",
+          "perf_stat_value": "379703",
           "inprocess_ok": true,
-          "inprocess_value": "1032"
+          "inprocess_value": "38"
         }
       ],
       "source": "perf JSON event table",
@@ -1228,9 +1460,9 @@
           "encoding": "type=4 config=0x1000148 config1=0x0",
           "source": "perf JSON event table",
           "perf_stat_ok": true,
-          "perf_stat_value": "6577970",
+          "perf_stat_value": "8073467",
           "inprocess_ok": true,
-          "inprocess_value": "47241"
+          "inprocess_value": "35115"
         }
       ],
       "source": "perf JSON event table",
@@ -1250,9 +1482,9 @@
           "encoding": "type=4 config=0x148 config1=0x0",
           "source": "perf JSON event table",
           "perf_stat_ok": true,
-          "perf_stat_value": "11080627",
+          "perf_stat_value": "15016874",
           "inprocess_ok": true,
-          "inprocess_value": "51807"
+          "inprocess_value": "84746"
         }
       ],
       "source": "perf JSON event table",
@@ -1272,9 +1504,9 @@
           "encoding": "type=4 config=0x248 config1=0x0",
           "source": "perf JSON event table",
           "perf_stat_ok": true,
-          "perf_stat_value": "289551",
+          "perf_stat_value": "454139",
           "inprocess_ok": true,
-          "inprocess_value": "135"
+          "inprocess_value": "549"
         }
       ],
       "source": "perf JSON event table",
@@ -1294,9 +1526,9 @@
           "encoding": "type=4 config=0x1b2 config1=0x0",
           "source": "perf JSON event table",
           "perf_stat_ok": true,
-          "perf_stat_value": "339942488",
+          "perf_stat_value": "310526573",
           "inprocess_ok": true,
-          "inprocess_value": "13610053"
+          "inprocess_value": "13585008"
         }
       ],
       "source": "perf JSON event table",
@@ -1316,9 +1548,9 @@
           "encoding": "type=4 config=0x2b2 config1=0x0",
           "source": "perf JSON event table",
           "perf_stat_ok": true,
-          "perf_stat_value": "126160187",
+          "perf_stat_value": "146130684",
           "inprocess_ok": true,
-          "inprocess_value": "5996719"
+          "inprocess_value": "5985268"
         }
       ],
       "source": "perf JSON event table",
@@ -1338,9 +1570,9 @@
           "encoding": "type=4 config=0x20b2 config1=0x0",
           "source": "perf JSON event table",
           "perf_stat_ok": true,
-          "perf_stat_value": "281405855",
+          "perf_stat_value": "299028428",
           "inprocess_ok": true,
-          "inprocess_value": "13012025"
+          "inprocess_value": "13128798"
         }
       ],
       "source": "perf JSON event table",
@@ -1360,9 +1592,9 @@
           "encoding": "type=4 config=0x40b2 config1=0x0",
           "source": "perf JSON event table",
           "perf_stat_ok": true,
-          "perf_stat_value": "370857612",
+          "perf_stat_value": "364654890",
           "inprocess_ok": true,
-          "inprocess_value": "15602094"
+          "inprocess_value": "15723754"
         }
       ],
       "source": "perf JSON event table",
@@ -1382,9 +1614,9 @@
           "encoding": "type=4 config=0x4b2 config1=0x0",
           "source": "perf JSON event table",
           "perf_stat_ok": true,
-          "perf_stat_value": "936946927",
+          "perf_stat_value": "901950652",
           "inprocess_ok": true,
-          "inprocess_value": "41768182"
+          "inprocess_value": "41740819"
         }
       ],
       "source": "perf JSON event table",
@@ -1404,9 +1636,9 @@
           "encoding": "type=4 config=0x80b2 config1=0x0",
           "source": "perf JSON event table",
           "perf_stat_ok": true,
-          "perf_stat_value": "496223253",
+          "perf_stat_value": "487704398",
           "inprocess_ok": true,
-          "inprocess_value": "26280650"
+          "inprocess_value": "26238969"
         }
       ],
       "source": "perf JSON event table",
@@ -1426,9 +1658,9 @@
           "encoding": "type=4 config=0x10b2 config1=0x0",
           "source": "perf JSON event table",
           "perf_stat_ok": true,
-          "perf_stat_value": "501218292",
+          "perf_stat_value": "503815476",
           "inprocess_ok": true,
-          "inprocess_value": "26360334"
+          "inprocess_value": "26305012"
         }
       ],
       "source": "perf JSON event table",
@@ -1448,9 +1680,9 @@
           "encoding": "type=4 config=0x1b1 config1=0x0",
           "source": "perf JSON event table",
           "perf_stat_ok": true,
-          "perf_stat_value": "3197588075",
+          "perf_stat_value": "2943580950",
           "inprocess_ok": true,
-          "inprocess_value": "142054172"
+          "inprocess_value": "141990589"
         }
       ],
       "source": "perf JSON event table",
@@ -1470,9 +1702,9 @@
           "encoding": "type=4 config=0x1ae config1=0x0",
           "source": "perf JSON event table",
           "perf_stat_ok": true,
-          "perf_stat_value": "3474569177",
+          "perf_stat_value": "3097749818",
           "inprocess_ok": true,
-          "inprocess_value": "141195755"
+          "inprocess_value": "141111911"
         }
       ],
       "source": "perf JSON event table",
@@ -1492,9 +1724,9 @@
           "encoding": "type=4 config=0x2a6 config1=0x0",
           "source": "perf JSON event table",
           "perf_stat_ok": true,
-          "perf_stat_value": "11034734",
+          "perf_stat_value": "11137045",
           "inprocess_ok": true,
-          "inprocess_value": "539988"
+          "inprocess_value": "514243"
         }
       ],
       "source": "perf JSON event table",
@@ -1514,9 +1746,9 @@
           "encoding": "type=4 config=0x4a6 config1=0x0",
           "source": "perf JSON event table",
           "perf_stat_ok": true,
-          "perf_stat_value": "24596093",
+          "perf_stat_value": "28134326",
           "inprocess_ok": true,
-          "inprocess_value": "1383714"
+          "inprocess_value": "1321973"
         }
       ],
       "source": "perf JSON event table",
@@ -1536,9 +1768,9 @@
           "encoding": "type=4 config=0x879 config1=0x0",
           "source": "perf JSON event table",
           "perf_stat_ok": true,
-          "perf_stat_value": "3108272680",
+          "perf_stat_value": "3103472265",
           "inprocess_ok": true,
-          "inprocess_value": "141224286"
+          "inprocess_value": "141349403"
         }
       ],
       "source": "perf JSON event table",
@@ -1558,9 +1790,9 @@
           "encoding": "type=4 config=0x479 config1=0x0",
           "source": "perf JSON event table",
           "perf_stat_ok": true,
-          "perf_stat_value": "34828784",
+          "perf_stat_value": "35049021",
           "inprocess_ok": true,
-          "inprocess_value": "692685"
+          "inprocess_value": "130147"
         }
       ],
       "source": "perf JSON event table",
@@ -1580,9 +1812,9 @@
           "encoding": "type=4 config=0x2079 config1=0x0",
           "source": "perf JSON event table",
           "perf_stat_ok": true,
-          "perf_stat_value": "2688366",
+          "perf_stat_value": "2712260",
           "inprocess_ok": true,
-          "inprocess_value": "17923"
+          "inprocess_value": "17855"
         }
       ],
       "source": "perf JSON event table",
@@ -1624,9 +1856,9 @@
           "encoding": "type=4 config=0x480 config1=0x0",
           "source": "perf JSON event table",
           "perf_stat_ok": true,
-          "perf_stat_value": "2050076",
+          "perf_stat_value": "2283102",
           "inprocess_ok": true,
-          "inprocess_value": "10902"
+          "inprocess_value": "35392"
         }
       ],
       "source": "perf JSON event table",
@@ -1645,9 +1877,9 @@
           "name": "uncore_imc/cas_count_read/",
           "source": "kernel sysfs uncore PMU events",
           "perf_stat_ok": true,
-          "perf_stat_value": "61.12",
+          "perf_stat_value": "10935.13",
           "inprocess_ok": true,
-          "inprocess_value": "8 instances, raw=4480"
+          "inprocess_value": "8 instances, raw=5034"
         }
       ],
       "source": "kernel sysfs uncore PMU events",
@@ -1666,9 +1898,9 @@
           "name": "uncore_imc/cas_count_write/",
           "source": "kernel sysfs uncore PMU events",
           "perf_stat_ok": true,
-          "perf_stat_value": "15.22",
+          "perf_stat_value": "3440.98",
           "inprocess_ok": true,
-          "inprocess_value": "8 instances, raw=1186"
+          "inprocess_value": "8 instances, raw=2119"
         }
       ],
       "source": "kernel sysfs uncore PMU events",

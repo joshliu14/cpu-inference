@@ -211,6 +211,17 @@ class CounterGroup:
         self.encodings = [resolve(n) for n in names]
         self.fds: list[int] = []
         leader = -1
+        try:
+            self._open_all(exclude_kernel, pid, cpu)
+        except OSError:
+            # Never leak a half-built group: prctl(PR_TASK_PERF_EVENTS_ENABLE)
+            # would later re-enable it and it would steal counters.
+            self.close()
+            raise
+        self._read_size = 8 * (3 + len(self.names))
+
+    def _open_all(self, exclude_kernel, pid, cpu):
+        leader = -1
         for i, enc in enumerate(self.encodings):
             attr = PerfEventAttr()
             attr.type = enc.type
@@ -227,9 +238,8 @@ class CounterGroup:
             fd = _perf_event_open(attr, pid, cpu, leader)
             if i == 0:
                 leader = fd
+                self.leader = fd
             self.fds.append(fd)
-        self.leader = leader
-        self._read_size = 8 * (3 + len(self.names))
 
     def reset(self):
         _libc.ioctl(self.leader, PERF_EVENT_IOC_RESET, PERF_IOC_FLAG_GROUP)
@@ -278,8 +288,13 @@ class CounterSession:
     """
 
     def __init__(self, names: list[str], exclude_kernel: bool = False):
-        self.groups = [CounterGroup(g, exclude_kernel=exclude_kernel)
-                       for g in split_into_groups(names)]
+        self.groups = []
+        try:
+            for g in split_into_groups(names):
+                self.groups.append(CounterGroup(g, exclude_kernel=exclude_kernel))
+        except OSError:
+            self.close()
+            raise
         # Arm every group, then gate them all off. prctl only affects events
         # that already exist, so the order matters.
         for g in self.groups:
@@ -315,6 +330,43 @@ class CounterSession:
 
     def __exit__(self, *exc):
         self.close()
+
+
+def schedulable(names: list[str]) -> bool:
+    """True if these events open as one session and count without multiplexing."""
+    try:
+        with CounterSession(names) as s:
+            s.start()
+            sum(i * i for i in range(20000))
+            r = s.stop()
+        return not r["_multiplexed"]
+    except OSError:
+        return False
+
+
+def plan_groups(names: list[str], anchor: tuple = ("cycles",)) -> list[list[str]]:
+    """Split an event list into the fewest sequential runs that each fit on the
+    PMU without multiplexing (greedy, verified by actually opening them).
+
+    Needed because some events may only use a subset of the counters (e.g.
+    MEM_LOAD_RETIRED.* only on general-purpose counters 0-3 on this PMU), so
+    "8 general-purpose counters" does not mean any 8 events fit together.
+    Every run includes the anchor events (cycles) so each can be normalised.
+    """
+    if any(n == "slots" or n.startswith("topdown-") for n in names):
+        return [list(names)]
+    rest = [n for n in names if n not in anchor]
+    runs, cur = [], []
+    for n in rest:
+        if schedulable(list(anchor) + cur + [n]):
+            cur.append(n)
+        else:
+            if cur:
+                runs.append(list(anchor) + cur)
+            cur = [n]
+    if cur or not runs:
+        runs.append(list(anchor) + cur)
+    return runs
 
 
 class UncoreCounters:
