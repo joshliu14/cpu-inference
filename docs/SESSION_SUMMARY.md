@@ -106,7 +106,36 @@ Core bound 0.33, Frontend 0.10, Memory 0.10, Bad spec 0.04.
   locally), quiet gate, optimization + dispatch harnesses.
 * No background jobs are running. No system settings were changed.
 
+## Update 2026-10-06 ~16:00 UTC (second session)
+
+Done since the hand-off above (commits 7088916, c836940, ae97d8d, a1e7fd6):
+dispatch overhead (`results/2026-10-06_dispatch_overhead/`), ISA probe
+(`results/2026-10-06_isa_probe/`), single-core optimizations
+(`results/2026-10-06_optimizations/`), multi-core scaling at the user's
+request with the unmodified baseline always included
+(`results/2026-10-06_multicore/`), instruction-profile fixes (perf mem
+parsing, plot grouping), `docs/RESULTS.md` sections 1-23, research log
+E3-E10. Headline: inductor 70.4 ms on one core (1.43x, 87% of FMA peak);
+7.6 ms on 26 cores (threads); 352 inferences/s with 26 independent copies.
+
 ## Next steps, in order
+
+1. `scripts/run_followups.sh` was started at ~15:56 and waits for a quiet
+   machine (other user's agent-driven job resumed). It runs
+   `experiments/python_overhead.py` (eager vs jit_trace vs GC off) and
+   `experiments/multicore_breakdown.py` (per-op time at 1/4/16/26 threads).
+   Output `results/<date>_followups/`. Then fill RESULTS.md section 23.3 and
+   the Python check in section 22, add research-log E11, commit + push.
+2. Optional: re-run the instruction profile without `-X perf` to measure the
+   interpreter's sample share in a normal run.
+3. Keep `scripts/load_logger.sh` output (`results/machine_load_2026-10-06.log`)
+   as the contamination record; stop the logger when done
+   (`pkill -f load_logger.sh`).
+
+The original next steps below are complete.
+
+## Original next steps (2026-10-06 00:50, all done)
+
 
 1. **Dispatch overhead** (not yet run):
    `scripts/wait_quiet.sh && scripts/run_dispatch_overhead.sh`
