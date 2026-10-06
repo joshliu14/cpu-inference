@@ -72,8 +72,10 @@ rm -f "$ctl" "$ack"
 perf mem report -i "$BIG/mem.data" --stdio --sort mem -q >"$OUT/raw/mem_by_level.txt" 2>/dev/null
 perf mem report -i "$BIG/mem.data" --stdio --sort mem,dso,sym -q --percent-limit 0.5 \
     >"$OUT/raw/mem_by_symbol_level.txt" 2>/dev/null
-perf report -i "$BIG/mem.data" --stdio --sort mem,dso -F overhead,sample,weight,mem,dso -q 2>/dev/null \
-    >"$OUT/raw/mem_weight_by_level.txt" || true
+# Per-sample dump (period, data source, latency) for the analysis; the
+# aux group leader carries no data source and is dropped.
+perf script -i "$BIG/mem.data" -F event,period,weight,data_src 2>/dev/null | grep "ldlat" \
+    >"$OUT/raw/mem_samples.txt" || true
 
 "$PY" "$REPO_ROOT/analysis/analyze_instructions.py" "$OUT" || echo "analysis failed; raw data intact"
 echo "done: $OUT"

@@ -28,6 +28,10 @@
       "xmm": 12,
       "ymm": 36
     },
+    "vector_widths_weighted": {
+      "xmm": 14.479999999999999,
+      "ymm": 34.24
+    },
     "n_instructions": 341
   },
   "conv1": {
@@ -55,6 +59,9 @@
     },
     "vector_widths_static": {
       "zmm": 2061
+    },
+    "vector_widths_weighted": {
+      "zmm": 98.64
     },
     "n_instructions": 2131
   },
@@ -96,6 +103,11 @@
       "ymm": 2,
       "zmm": 369
     },
+    "vector_widths_weighted": {
+      "xmm": 0.2,
+      "ymm": 0.0,
+      "zmm": 93.69000000000001
+    },
     "n_instructions": 2206
   },
   "layer1.0.add": {
@@ -132,6 +144,10 @@
     "vector_widths_static": {
       "xmm": 263,
       "ymm": 34
+    },
+    "vector_widths_weighted": {
+      "xmm": 0.0,
+      "ymm": 91.96
     },
     "n_instructions": 968
   },
@@ -172,6 +188,10 @@
       "xmm": 152,
       "ymm": 100
     },
+    "vector_widths_weighted": {
+      "xmm": 0.0,
+      "ymm": 26.180000000000003
+    },
     "n_instructions": 2812
   },
   "layer1.0.conv1": {
@@ -209,6 +229,10 @@
       "xmm": 4,
       "zmm": 22992
     },
+    "vector_widths_weighted": {
+      "xmm": 0.0,
+      "zmm": 85.79
+    },
     "n_instructions": 42029
   },
   "layer1.0.conv2": {
@@ -236,6 +260,9 @@
     },
     "vector_widths_static": {
       "zmm": 2920
+    },
+    "vector_widths_weighted": {
+      "zmm": 103.28
     },
     "n_instructions": 2972
   },
@@ -273,6 +300,11 @@
       "ymm": 30,
       "zmm": 2514
     },
+    "vector_widths_weighted": {
+      "xmm": 0.0,
+      "ymm": 0.0,
+      "zmm": 94.3
+    },
     "n_instructions": 6373
   },
   "layer1.0.relu1": {
@@ -308,6 +340,10 @@
       "xmm": 83,
       "ymm": 13
     },
+    "vector_widths_weighted": {
+      "xmm": 0.0,
+      "ymm": 50.519999999999996
+    },
     "n_instructions": 497
   },
   "layer2.0.downsample.0": {
@@ -340,6 +376,9 @@
     "vector_widths_static": {
       "zmm": 1704
     },
+    "vector_widths_weighted": {
+      "zmm": 99.84
+    },
     "n_instructions": 2290
   },
   "layer4.0.conv2": {
@@ -367,6 +406,9 @@
     },
     "vector_widths_static": {
       "zmm": 389
+    },
+    "vector_widths_weighted": {
+      "zmm": 98.24
     },
     "n_instructions": 422
   },
@@ -404,6 +446,10 @@
     "vector_widths_static": {
       "xmm": 23,
       "ymm": 7
+    },
+    "vector_widths_weighted": {
+      "xmm": 6.2,
+      "ymm": 0.0
     },
     "n_instructions": 836
   }

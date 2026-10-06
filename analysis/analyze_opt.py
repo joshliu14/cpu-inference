@@ -21,13 +21,15 @@ def main(out_dir):
     s = json.loads((out / "processed" / "opt_summary.json").read_text())["variants"]
     base = s["baseline"]["latency_ms"]["median"]
     rows = []
+    s = {k: v for k, v in s.items() if "error" not in v}
     for name, v in s.items():
         L = v["latency_ms"]
         rows.append({"variant": name, "median_ms": L["median"], "p5_ms": L["p5"], "p95_ms": L["p95"],
                      "stddev_ms": L["stddev"], "speedup_vs_baseline": base / L["median"],
                      "saved_ms": base - L["median"], "ipc": v["ipc"],
                      "instructions_M": v["instructions_median"] / 1e6, "cycles_M": v["cycles_median"] / 1e6,
-                     "max_abs_diff": v["max_abs_diff_vs_baseline"]})
+                     "max_abs_diff": v["max_abs_diff_vs_baseline"],
+                     "build_s": v.get("build_and_warmup_s", float("nan"))})
     tab = pd.DataFrame(rows)
     tab.round(4).to_csv(out / "processed" / "opt_comparison.csv", index=False)
 
@@ -35,7 +37,7 @@ def main(out_dir):
     bd = {}
     for name, v in s.items():
         d = v["per_op_type_ms"]
-        if "error" in d:
+        if "error" in d or not d:
             continue
         g = {}
         for k, ms in d.items():
@@ -70,7 +72,8 @@ def main(out_dir):
 
     md = ["# Optimization experiments", "", "Baseline = canonical explicit model. Speedup = baseline median / "
           "variant median (same process, same CPU, interleaved order). max_abs_diff = largest output "
-          "difference vs baseline (numerical equivalence check).", "", tab.round(3).to_markdown(index=False),
+          "difference vs baseline (numerical equivalence check).", "",
+          tab.round(3).assign(max_abs_diff=tab.max_abs_diff.map(lambda v: f"{v:.1e}")).to_markdown(index=False),
           "", "## Per-operator-type time (ms, in-model hooks)", "", bdf.round(2).to_markdown(), ""]
 
     th = sorted(out.glob("processed/e2e_summary_threads_*.json"), key=lambda p: int(p.stem.split("_")[-1]))

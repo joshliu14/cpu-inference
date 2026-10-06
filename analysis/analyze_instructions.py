@@ -90,6 +90,30 @@ def parse_shares(path: Path, key_fields: int):
     return out
 
 
+def parse_mem_samples(path: Path):
+    """perf script -F event,period,weight,data_src lines -> per-level table."""
+    if not path.exists():
+        return None
+    pat = re.compile(r"\s*(\d+)\s+\S+:\s+\S+\s+\|OP (\S+)\|LVL ([^|]+)\|.*\|BLK\s+(.*?)\s+(\d+)\s*$")
+    agg = collections.defaultdict(lambda: [0, 0, 0])
+    for line in path.read_text(errors="replace").splitlines():
+        m = pat.match(line)
+        if m:
+            period, level, lat = int(m.group(1)), m.group(3).strip(), int(m.group(5))
+            a = agg[level]
+            a[0] += 1
+            a[1] += period
+            a[2] += period * lat
+    if not agg:
+        return None
+    tp = sum(a[1] for a in agg.values())
+    tw = sum(a[2] for a in agg.values())
+    rows = [{"data source": k, "samples": a[0], "share of loads %": 100 * a[1] / tp,
+             "mean latency (cycles)": a[2] / a[1], "share of latency %": 100 * a[2] / tw}
+            for k, a in agg.items()]
+    return pd.DataFrame(rows).sort_values("share of loads %", ascending=False)
+
+
 def main(out_dir):
     out = Path(out_dir)
     proc, plots = out / "processed", out / "plots"
@@ -120,8 +144,11 @@ def main(out_dir):
         w = df.groupby("class")["pct"].sum()
         s = df.groupby("class").size() / len(df) * 100
         wid = df[df["class"].isin(["fma", "vec_arith", "vec_load", "vec_store"])].groupby("width").size()
+        vec = df[df["class"].isin(["fma", "vec_arith", "vec_load", "vec_store", "broadcast", "shuffle/permute"])]
+        widw = vec.groupby("width")["pct"].sum()
         mixes[layer] = {"symbol": symname, "symbol_share": share, "weighted": w.to_dict(), "static": s.to_dict(),
-                        "vector_widths_static": wid.to_dict(), "n_instructions": len(df)}
+                        "vector_widths_static": wid.to_dict(), "vector_widths_weighted": widw.to_dict(),
+                        "n_instructions": len(df)}
         top = df.sort_values("pct", ascending=False).head(12)
         L += [f"## Operator `{layer}`", "", f"Hottest symbol ({share} of this operator's samples): `{symname[:160]}`", "",
               f"Static size {len(df)} instructions; vector instructions by width (static): "
@@ -136,45 +163,60 @@ def main(out_dir):
     (proc / "instruction_mix.json").write_text(json.dumps(mixes, indent=2) + "\n")
 
     if mixes:
-        layers = list(mixes)
-        fig, ax = plt.subplots(figsize=(10, 0.55 * len(layers) + 1.8))
-        show = ["fma", "vec_load", "broadcast", "vec_store", "vec_arith", "shuffle/permute", "scalar_fp",
-                "int/addr", "branch"]
+        # Order: convolutions/GEMMs first, then the memory/elementwise ops.
+        order = ["conv1", "layer1.0.conv1", "layer1.0.conv2", "layer1.0.conv3", "layer2.0.downsample.0",
+                 "layer4.0.conv2", "fc", "layer1.0.bn1", "layer1.0.relu1", "layer1.0.add", "avgpool", "maxpool"]
+        layers = [l for l in order if l in mixes] + [l for l in mixes if l not in order]
+        fig, ax = plt.subplots(figsize=(10.5, 0.55 * len(layers) + 2.0))
+        # Fewer, semantic groups so every group gets a distinct colour.
+        groups = [("vector FMA", ["fma"], ps.CAT[0]),
+                  ("other vector math", ["vec_arith", "shuffle/permute", "compare/mask"], ps.CAT[4]),
+                  ("vector load / broadcast", ["vec_load", "broadcast"], ps.CAT[1]),
+                  ("vector store", ["vec_store"], ps.CAT[3]),
+                  ("scalar FP", ["scalar_fp"], ps.CAT[6]),
+                  ("integer load/store (GPR)", ["gpr_load", "gpr_store"], ps.CAT[7]),
+                  ("integer / address math", ["int/addr"], ps.CAT[2]),
+                  ("branch", ["branch"], ps.NEUTRAL),
+                  ("prefetch / other", ["prefetch", "other"], "#d9d8d3")]
         import numpy as np
         left = np.zeros(len(layers))
         y = np.arange(len(layers))[::-1]
-        for i, c in enumerate(show):
-            vals = np.array([mixes[l]["weighted"].get(c, 0) for l in layers])
-            color = ps.CAT[i] if i < 8 else ps.NEUTRAL
-            ax.barh(y, vals, left=left, color=color, label=c, height=0.62, edgecolor=ps.SURFACE, linewidth=1)
+        for label, cls, color in groups:
+            vals = np.array([sum(mixes[l]["weighted"].get(c, 0) for c in cls) for l in layers])
+            ax.barh(y, vals, left=left, color=color, label=label, height=0.62, edgecolor=ps.SURFACE, linewidth=1)
             left += vals
-        other = 100 - left
-        ax.barh(y, other.clip(min=0), left=left, color="#d9d8d3", label="other", height=0.62,
-                edgecolor=ps.SURFACE, linewidth=1)
+        # Vector register width carrying most of the hot symbol's vector-instruction samples.
+        for yi, l in zip(y, layers):
+            wid = {k: v for k, v in mixes[l]["vector_widths_weighted"].items() if k}
+            tag = max(wid, key=wid.get) if wid else "scalar"
+            tag = {"zmm": "zmm (AVX-512)", "ymm": "ymm (AVX2)", "xmm": "xmm/scalar"}.get(tag, tag)
+            ax.text(101.5, yi, tag, va="center", fontsize=8.5, color=ps.TEXT2 if hasattr(ps, "TEXT2") else "#555")
         ax.set_yticks(y)
         ax.set_yticklabels(layers)
         ax.set_xlim(0, 100)
         ax.set_xlabel("% of cycle samples in the operator's hottest symbol")
         ps.titled(ax, "Which instructions the cycles land on, per operator",
-                  "perf annotate (cycles:P) of each standalone operator's hottest symbol")
+                  "perf annotate (cycles:P) of each standalone operator's hottest symbol; right: register width "
+                  "of the vector instructions the samples land on")
         ax.legend(ncol=5, loc="upper center", bbox_to_anchor=(0.5, -0.12))
         fig.savefig(plots / "instruction_mix_by_operator.png")
         plt.close(fig)
 
-    # perf mem
-    mem = parse_shares(out / "raw" / "mem_by_level.txt", 1)
-    if mem:
+    # perf mem. The recording has two events: cpu/mem-loads-aux/ (group
+    # leader, no data source: perf reports it as a separate 100% 'N/A' block)
+    # and cpu/mem-loads,ldlat=30/. Samples are frequency-based (variable
+    # period), so shares are period-weighted: estimated share of eligible loads.
+    mem = parse_mem_samples(out / "raw" / "mem_samples.txt")
+    if mem is not None:
         L += ["## perf mem: sampled loads by data source (full inference)", "",
-              "Load sampling (PEBS load-latency, latency threshold set by perf mem). Shares are of sampled "
-              "loads; 'LFB' = line fill buffer (miss already in flight).", "", "| % samples | data source |",
-              "|---|---|"]
-        L += [f"| {p:.2f} | {d} |" for p, d in mem[:15]]
-        L.append("")
-    w = parse_shares(out / "raw" / "mem_weight_by_level.txt", 2)
-    if w:
-        L += ["### Load samples with weight (latency) by level and library", "", "```"]
-        L += [f"{p:6.2f}%  {d}" for p, d in w[:25]]
-        L += ["```", ""]
+              "PEBS load-latency sampling (`cpu/mem-loads,ldlat=30/`), parsed per sample from "
+              "`raw/mem_samples.txt` (`perf script`). 'share of loads' is period-weighted (estimated share "
+              "of eligible loads), 'share of latency' weights each load by its sampled latency. "
+              "The ldlat filter makes this a sample of SLOW loads: the counters (mem_load_retired) show "
+              ">95% of all loads hit L1; L1 hits still appear here (with ~5-9 cycle latency) because the "
+              "PMU does not apply the threshold to every sample. 'LFB/MAB hit' = the line was already "
+              "being fetched (miss in flight, often a prefetch that has not arrived).", "",
+              mem.round(1).to_markdown(index=False), ""]
     (proc / "INSTRUCTIONS.md").write_text("\n".join(L) + "\n")
     print("\n".join(L[:80]))
 

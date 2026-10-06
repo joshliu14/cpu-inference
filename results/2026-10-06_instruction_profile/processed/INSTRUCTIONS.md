@@ -498,15 +498,14 @@ Hottest instructions:
 
 ## perf mem: sampled loads by data source (full inference)
 
-Load sampling (PEBS load-latency, latency threshold set by perf mem). Shares are of sampled loads; 'LFB' = line fill buffer (miss already in flight).
+PEBS load-latency sampling (`cpu/mem-loads,ldlat=30/`), parsed per sample from `raw/mem_samples.txt` (`perf script`). 'share of loads' is period-weighted (estimated share of eligible loads), 'share of latency' weights each load by its sampled latency. The ldlat filter makes this a sample of SLOW loads: the counters (mem_load_retired) show >95% of all loads hit L1; L1 hits still appear here (with ~5-9 cycle latency) because the PMU does not apply the threshold to every sample. 'LFB/MAB hit' = the line was already being fetched (miss in flight, often a prefetch that has not arrived).
 
-| % samples | data source |
-|---|---|
-| 100.00 | 2639  N/A |
-| 35.88 | 2028  LFB/MAB hit |
-| 24.85 | 1728  L3 hit |
-| 23.72 | 2030  L2 hit |
-| 11.89 | 256  RAM hit |
-| 3.43 | 1998  L1 hit |
-| 0.22 | 2  Uncached hit |
+| data source   |   samples |   share of loads % |   mean latency (cycles) |   share of latency % |
+|:--------------|----------:|-------------------:|------------------------:|---------------------:|
+| LFB/MAB hit   |      2028 |               30.3 |                    98.5 |                 43   |
+| L1 hit        |      1998 |               26.6 |                     9.3 |                  3.6 |
+| L2 hit        |      2030 |               25.8 |                    71.4 |                 26.6 |
+| L3 hit        |      1728 |               14.5 |                    74.8 |                 15.6 |
+| RAM hit       |       256 |                2.9 |                   267.7 |                 11.1 |
+| Uncached hit  |         2 |                0   |                   562.3 |                  0.1 |
 
