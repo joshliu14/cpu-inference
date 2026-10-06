@@ -1,0 +1,10 @@
+op,layers,unit,core_peak_ns_per_calc,avg_ns_per_calc,fastest_ns_per_calc,fastest_layer,slowest_ns_per_calc,slowest_layer,avg_x_core_peak,fastest_x_core_peak,slowest_x_core_peak,slowest_layer_dominant_part,total_ms
+conv1x1,36,MAC,0.01492,0.01927,0.01547,layer2.0.conv1,0.02818,layer4.0.downsample.0,1.29129,1.0367,1.88889,compute kernel (61%),40.83327
+conv3x3,16,MAC,0.01492,0.01935,0.01651,layer2.3.conv2,0.02956,layer4.0.conv2,1.2972,1.10679,1.98092,compute kernel (65%),35.79952
+conv7x7,1,MAC,0.01492,0.01837,0.01837,conv1,0.01837,conv1,1.231,1.231,1.231,compute kernel (81%),2.16752
+fc,1,MAC,0.01492,0.24255,0.24255,fc,0.24255,fc,16.25644,16.25644,16.25644,compute kernel (95%),0.49674
+batchnorm,53,element,0.01492,0.43984,0.33857,layer1.1.bn2,1.17893,layer4.0.bn2,29.47973,22.69251,79.01653,framework / ATen-native loop (100%),4.88836
+relu,49,element,0.01491,0.18824,0.14551,layer3.4.relu3,0.32617,layer4.1.relu2,12.62119,9.75655,21.86964,framework / ATen-native loop (100%),1.80871
+add,16,element,0.01492,0.36733,0.29558,layer4.1.add,0.39179,layer2.0.add,24.62158,19.8125,26.26165,framework / ATen-native loop (100%),2.0274
+maxpool,1,comparison,0.01491,5.69651,5.69651,maxpool,5.69651,maxpool,381.94739,381.94739,381.94739,framework / ATen-native loop (100%),10.16767
+avgpool,1,element,0.01492,0.76882,0.76882,avgpool,0.76882,avgpool,51.53375,51.53375,51.53375,framework / ATen-native loop (100%),0.07715

@@ -1,0 +1,26 @@
+BUSY  2026-10-06T16:41:09+00:00 load1=12.80 dram_GBps=20.66 (limits: load<=4 dram<=2)
+BUSY  2026-10-06T16:42:11+00:00 load1=15.51 dram_GBps=15.57 (limits: load<=4 dram<=2)
+BUSY  2026-10-06T16:43:13+00:00 load1=15.90 dram_GBps=17.23 (limits: load<=4 dram<=2)
+BUSY  2026-10-06T16:44:15+00:00 load1=11.17 dram_GBps=20.15 (limits: load<=4 dram<=2)
+BUSY  2026-10-06T16:45:18+00:00 load1=15.67 dram_GBps=20.39 (limits: load<=4 dram<=2)
+BUSY  2026-10-06T16:46:20+00:00 load1=16.62 dram_GBps=20.61 (limits: load<=4 dram<=2)
+BUSY  2026-10-06T16:47:22+00:00 load1=14.37 dram_GBps=21.07 (limits: load<=4 dram<=2)
+BUSY  2026-10-06T16:48:24+00:00 load1=15.83 dram_GBps=18.69 (limits: load<=4 dram<=2)
+BUSY  2026-10-06T16:49:26+00:00 load1=16.93 dram_GBps=19.59 (limits: load<=4 dram<=2)
+BUSY  2026-10-06T16:50:28+00:00 load1=22.54 dram_GBps=15.80 (limits: load<=4 dram<=2)
+BUSY  2026-10-06T16:51:30+00:00 load1=21.45 dram_GBps=17.94 (limits: load<=4 dram<=2)
+BUSY  2026-10-06T16:52:32+00:00 load1=18.02 dram_GBps=10.12 (limits: load<=4 dram<=2)
+BUSY  2026-10-06T16:53:34+00:00 load1=15.92 dram_GBps=3.15 (limits: load<=4 dram<=2)
+BUSY  2026-10-06T16:54:36+00:00 load1=11.64 dram_GBps=1.44 (limits: load<=4 dram<=2)
+BUSY  2026-10-06T16:55:38+00:00 load1=10.10 dram_GBps=0.57 (limits: load<=4 dram<=2)
+BUSY  2026-10-06T16:56:40+00:00 load1=18.98 dram_GBps=3.01 (limits: load<=4 dram<=2)
+BUSY  2026-10-06T16:57:42+00:00 load1=20.40 dram_GBps=2.88 (limits: load<=4 dram<=2)
+BUSY  2026-10-06T16:58:44+00:00 load1=18.78 dram_GBps=9.68 (limits: load<=4 dram<=2)
+BUSY  2026-10-06T16:59:46+00:00 load1=17.50 dram_GBps=0.15 (limits: load<=4 dram<=2)
+BUSY  2026-10-06T17:00:48+00:00 load1=6.06 dram_GBps=0.16 (limits: load<=4 dram<=2)
+QUIET 2026-10-06T17:01:50+00:00 load1=2.22 dram_GBps=0.16 (limits: load<=4 dram<=2)
+e2e 99.54 ms, sum of ops 98.27 ms, 174 operators
+step,max_other_cpu_pct
+core,7
+operators,6
+done: /users/joshliu/cpu-inference/results/2026-10-06_per_calc

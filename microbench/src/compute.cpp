@@ -67,6 +67,10 @@ FP_KERNEL(fp32_avx2_fma, __m256, _mm256_set1_ps, "vfmadd231ps %1, %2, %0")
 FP_KERNEL(fp32_avx512_fma, __m512, _mm512_set1_ps, "vfmadd231ps %1, %2, %0")
 FP_KERNEL(fp32_avx512_add, __m512, _mm512_set1_ps, "vaddps %2, %0, %0")
 FP_KERNEL(fp32_avx512_mul, __m512, _mm512_set1_ps, "vmulps %1, %0, %0")
+// max: the operation behind ReLU (max(x, 0)) and max-pooling.
+FP_KERNEL(fp32_scalar_max, __m128, set1_ss, "vmaxss %2, %0, %0")
+FP_KERNEL(fp32_avx2_max, __m256, _mm256_set1_ps, "vmaxps %2, %0, %0")
+FP_KERNEL(fp32_avx512_max, __m512, _mm512_set1_ps, "vmaxps %2, %0, %0")
 
 struct Variant {
     const char* name;
@@ -95,6 +99,9 @@ int main() {
         {"fp32_avx512_add", 16, 1, KS(fp32_avx512_add)},
         {"fp32_avx512_mul", 16, 1, KS(fp32_avx512_mul)},
         {"fp32_avx512_fma", 16, 2, KS(fp32_avx512_fma)},
+        {"fp32_scalar_max", 1, 1, KS(fp32_scalar_max)},
+        {"fp32_avx2_max", 8, 1, KS(fp32_avx2_max)},
+        {"fp32_avx512_max", 16, 1, KS(fp32_avx512_max)},
     };
     Counters ctr;
     print_header();
