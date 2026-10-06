@@ -1,0 +1,7 @@
+vtune: Warning: Cross-socket bandwidth collection requires the sampling driver to be enabled on the system. Install the sampling driver on the system and disable "Collect stacks" knob. See the Sampling Drivers help topic for more details. Note that cross-socket bandwidth collection is not possible if you are profiling inside a virtualized environment.
+vtune: Warning: Access to /proc/kallsyms file is limited. Consider changing /proc/sys/kernel/kptr_restrict to 0 to enable resolution of OS kernel and kernel module symbols.
+vtune: Warning: To profile kernel modules during the session, make sure they are available in the /lib/modules/kernel_version/ location.
+vtune: Warning: The Data Linear Address facility is not supported on this platform in driverless mode. Attribution on metrics to memory objects or cachelines will not be available. Please consider loading VTune driver. Updating Linux kernel to newer version may also help.
+vtune: Peak bandwidth measurement started.
+vtune: Peak bandwidth measurement finished.
+vtune: Collection started. To stop the collection, either press CTRL-C or enter from another console window: vtune -r /users/joshliu/cpu-inference/results/2026-10-06_vtune/raw_large/memory_28t -command stop.

@@ -1,0 +1,11 @@
+Module,CPU Time,Memory Bound(%),Memory Bound:L1 Bound(%),Memory Bound:L2 Bound(%),Memory Bound:L3 Bound(%),Memory Bound:DRAM Bound(%),Memory Bound:Store Bound(%),Loads,Stores,LLC Miss Count,LLC Miss Count:Local Memory Access Count,LLC Miss Count:Remote Memory Access Count,LLC Miss Count:Remote Cache Access Count,Average Latency (cycles),"Total Memory Traffic, GB","Total Memory Traffic, GB:Write Memory Traffic, GB",Module Path
+libtorch_cpu.so,3.405000,10.4,6.3,0.3,2.9,1.7,1.1,7438520628,2994795342,33175064,30612420,0,0,8.268182,,1.632597,/users/joshliu/cpu-inference/.venv/lib/python3.12/site-packages/torch/lib/libtorch_cpu.so
+[Dynamic code],2.270000,12.8,2.4,1.0,1.5,2.1,4.3,6168155994,1632597120,33175064,35714490,0,0,7.272973,,0.326519,[Dynamic code]
+python3.12,1.665000,25.9,12.2,8.5,5.6,3.8,0.9,530594064,586714590,2551928,0,0,0,4.722222,,0.0,/usr/bin/python3.12
+[Outside any module],0.300000,36.4,17.6,3.5,14.1,0.0,0.0,91833588,168361578,2551928,5102070,0,0,5.000000,,0.653039,[Unknown]
+libc.so.6,0.135000,0.0,0.0,5.5,5.5,0.0,0.0,56120526,153055980,0,0,0,0,4.375000,,0.0,/usr/lib/x86_64-linux-gnu/libc.so.6
+libtorch_python.so,0.065000,0.0,0.0,11.3,33.9,0.0,0.0,45916794,56120526,0,0,0,0,5.000000,,0.0,/users/joshliu/cpu-inference/.venv/lib/python3.12/site-packages/torch/lib/libtorch_python.so
+ld-linux-x86-64.so.2,0.020000,0.0,0.0,0.0,0.0,0.0,0.0,5101866,0,0,0,0,0,5.000000,,0.0,/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+libittnotify_collector.so,0.020000,25.0,62.5,0.0,20.8,0.0,0.0,15305598,56120526,0,0,0,0,5.333333,,0.0,/opt/intel/oneapi/vtune/2026.4/lib64/runtime/libittnotify_collector.so
+libstdc++.so.6.0.33,0.015000,0.0,0.0,0.0,0.0,0.0,0.0,15305598,5101866,0,0,0,0,0.0,,0.0,/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33
+libc10.so,0.005000,0.0,0.0,0.0,30.4,0.0,0.0,25509330,25509330,0,0,0,0,0.0,,0.0,/users/joshliu/cpu-inference/.venv/lib/python3.12/site-packages/torch/lib/libc10.so

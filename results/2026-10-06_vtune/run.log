@@ -1,0 +1,8 @@
+18:32:12 uarch_1t: rc=0 other<=2682% baseline threads=1 batch=1 iters=1200 median 104.06 ms (ITT labels on)
+18:32:12 uarch_1t: CONTAMINATED or failed (attempt 1), retrying
+18:35:34 uarch_1t: rc=0 other<=28% baseline threads=1 batch=1 iters=1200 median 103.72 ms (ITT labels on)
+18:36:51 uarch_1t: clean (attempt 2), 659M
+18:38:37 memory_1t: rc=0 other<=5% baseline threads=1 batch=1 iters=600 median 102.62 ms (ITT labels on)
+18:38:48 memory_1t: clean (attempt 1), 370M
+18:46:51 uarch_28t: rc=0 other<=16% baseline threads=28 batch=1 iters=4000 median 21.85 ms (ITT labels on)
+18:48:50 uarch_28t: clean (attempt 1), 6.9G

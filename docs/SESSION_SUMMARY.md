@@ -33,6 +33,19 @@ Done (all FP32, batch 1 unless stated; RESULTS.md sections 1-24):
 * Findings document for the user (Claude Docs): "ResNet-50 CPU Bottleneck
   Findings", https://claude.ai/code/artifact/52b8bc6a-52a1-4158-8f15-e973d8320db6
 
+Added ~18:50 UTC:
+* `docs/BOTTLENECKS.md`: master file of every compute and memory bottleneck
+  (location, size, mechanism, evidence, source), all results to date.
+* VTune: `scripts/run_vtune.sh`, `experiments/vtune_run.py` (ITT labels per
+  operator), `analysis/analyze_vtune.py`; results `results/2026-10-06_vtune/`
+  (RESULTS.md section 25, BOTTLENECKS.md section 11). Done: one core (uarch +
+  memory), 28 threads (uarch). Stopped before memory_28t and the 28-copy runs:
+  uarch_28t was 6.9 GB and the shared disk hit 95% (raw perf data of uarch_28t
+  deleted after export; its sqlite-db kept). To finish: lower the data rate
+  (e.g. `-knob sampling-interval=20`, shorter runs), re-run
+  `scripts/run_vtune.sh results/2026-10-06_vtune` (skips finished
+  collections), then `analysis/analyze_vtune.py`.
+
 Open, in order of value:
 1. BF16 / AMX and INT8 (priority 15-16): would move the bottleneck (AMX raises
    compute peak several-fold, convs may become memory-bound). Needs accuracy

@@ -301,3 +301,30 @@ Measurement CPU: 6. The machine is shared with other users.
   latency. Neither is limited by DRAM bandwidth.
 * **Harness fixes:** inter-op runs no longer bind threads; throughput =
   batch / mean batch latency (window counts were quantized for large batches).
+
+## 2026-10-06 -- E13: Intel VTune Profiler; master bottleneck file
+
+* **Commands:** `scripts/run_vtune.sh results/2026-10-06_vtune` (gated; the
+  first one-core attempt was discarded when other users reached 2,682% CPU),
+  `analysis/analyze_vtune.py results/2026-10-06_vtune`.
+* **Results:** `results/2026-10-06_vtune/processed/` (VTune CSV reports,
+  `VTUNE.md`, `tma_by_operator_1t.csv`, `memory_by_operator_1t.csv`,
+  `crosscheck_tma_level1.csv`); raw VTune results in `raw_large/` (not
+  committed). Master write-up: `docs/BOTTLENECKS.md`.
+* **Method notes (OBSERVED):** driverless collection (account not in the
+  `vtune` group): no multi-run, TMA events multiplexed; call-stack collection
+  lost ~70% of samples in a test, so stacks are off; software sampling needs
+  `ptrace_scope=0` (not changed). A 30-inference test gave level-1 sums of
+  110%; runs were lengthened to 1,200 / 600 inferences on one core.
+* **Key metrics (OBSERVED):** whole-inference TMA level 1 within ~4 points of
+  the exact perf measurement; super queue full 48% (add) / 22% (BN); fill
+  buffers full 81% (add); oneDNN conv DSB coverage 44% vs MKL 90%; load
+  latency add 70 / fc 190 / convs 6-7 cycles; oneDNN weight DRAM reads in the
+  re-layout step (102 K of 221 K LLC misses).
+* **Interpretation (INFERRED):** one core's streaming bandwidth is capped by
+  its miss queues at L1 and L2; the oneDNN front-end cost is code size.
+* **28 threads (uarch):** OpenMP runtime 70% PAUSE spin; oneDNN conv kernels
+  44% contested accesses, 28% memory-bound; MKL 0.1%. ITT labels cost 10.7% of
+  clockticks at 28 threads (median 15.4 -> 21.9 ms). Queue stopped at 18:50
+  (disk 95% after the 6.9 GB uarch_28t result); memory_28t and 28-copy runs
+  not collected.

@@ -30,7 +30,7 @@ directory (section 21), `DSP` = the dispatch-overhead directory (section 22).
    peak), 100% 512-bit FMA, >95% of loads hit L1. They are limited by FMA
    throughput, not by memory. OBSERVED, `BASE/processed/layer_table.csv`.
 3. **The other 20% is where the waste is.** A single max-pool takes **10.2 ms
-   (10.3%) for 0.03% of the FLOPs**. It runs a scalar, branchy loop with 214
+   (10.3%) for 0.02% of the FLOPs**. It runs a scalar, branchy loop with 214
    instructions and 1.9 branch mispredictions per output. BatchNorm, ReLU and
    add take another 8.8 ms, and run 256-bit (AVX2) code on an AVX-512
    machine. oneDNN re-lays-out convolution weights on every call (~8 ms).
@@ -162,7 +162,7 @@ OBSERVED, in-model forward hooks, `BASE/processed/REPORT.md` (Level 1),
 |---|---|---|---|---|---|---|
 | conv 1x1 | 36 | 41.05 | 41.6 | 51.6 | 49.3 | 2.85 |
 | conv 3x3 | 16 | 35.89 | 36.4 | 45.0 | 49.1 | 1.92 |
-| **max-pool** | **1** | **10.22** | **10.3** | **0.03** | **0.075** | 1.99 |
+| **max-pool** | **1** | **10.22** | **10.3** | **0.02** | **0.075** | 1.99 |
 | batchnorm | 53 | 4.93 | 5.0 | 0.3 | 2.1 | 2.05 |
 | conv 7x7 | 1 | 2.17 | 2.2 | 2.9 | 51.7 | 1.90 |
 | add (residual) | 16 | 2.05 | 2.1 | 0.1 | 1.3 | 0.92 |
@@ -415,7 +415,9 @@ Every answer above cites its file. The supporting method checks:
   core-side `ocr.*.dram` counts are used as a cross-check.
 * **TMA level-3 metrics** (e.g. ports-utilization breakdowns, DRAM vs L3
   bound split): perf 6.8 has no metric formulas for this CPU model. Levels
-  1-2 were built from raw events.
+  1-2 were built from raw events. VTune (section 25) supplies the deeper
+  levels, but only multiplexed: the account is not in the `vtune` group, so
+  VTune cannot run its exact multi-run mode.
 * **Kernel symbols** (`kptr_restrict=1`): irrelevant here, since all hot
   code is user-space.
 * **AMX**: not exercised (FP32 model); `amx_busy` is 0.
@@ -1006,6 +1008,42 @@ and L2 fills. Other users' CPU <= 9% throughout.
 
 ---
 
+## 25. Intel VTune Profiler (one core, 28 threads; `VT` = `results/2026-10-06_vtune/`)
+
+`scripts/run_vtune.sh` (uarch-exploration, memory-access) on
+`experiments/vtune_run.py`, which labels each PyTorch operator as an ITT
+task; analysis `analysis/analyze_vtune.py` -> `VT/processed/VTUNE.md`.
+Driverless collection, so TMA events are multiplexed in one run; rows whose
+level-1 fractions are far from 100% (ReLU, oneDNN re-layout, fc) are not
+used. Full table: `docs/BOTTLENECKS.md` section 11.
+
+* **Cross-check:** for the whole inference, VTune and the exact perf
+  measurement agree on TMA level 1 within ~4 points (retiring 43.2 vs 43.1,
+  front-end 10.6 vs 10.1); max-pool matches to 3 points; MKL convs to 4.
+* **New: the L2's super queue is also full** for streaming element-wise ops
+  (add 48%, BN 22% of clockticks), in addition to the L1 fill buffers (add
+  81%): one core's miss-handling queues, at both levels, cap its L3/DRAM
+  bandwidth.
+* **New: oneDNN conv kernels are partly front-end-bound from code size:** 44%
+  of their uops come from the decoded-uop cache, vs 90% for MKL's kernels
+  (front-end bound 12.7% vs 1.6%). INFERRED: heavily unrolled JIT loops.
+* **New: per-operator load latency** (PEBS): convs 6-7 cycles, BN 9, ReLU
+  42, add 70, fc 190.
+* **New: for oneDNN convs, the DRAM reads of weights happen inside the
+  re-layout step** (102 K of 221 K sampled LLC misses per inference, vs 8.5 K
+  in the oneDNN conv kernels). INFERRED: the kernel then reads the converted
+  copy from cache.
+* Confirmations: port 0 busy 78-87% in the convs; vector capacity 100% in
+  convs vs 47-50% in BN/add; 41% of max-pool's slots lost to branch
+  mispredictions.
+* **28 threads (uarch only; ITT labels perturb this run, +42% latency):**
+  the OpenMP runtime's cycles are 70% PAUSE spin-waiting; the oneDNN conv
+  kernels spend 44% of clockticks on contested accesses (HitM) and are 28%
+  memory-bound (4% on one core), which locates the cross-core transfers of
+  24.8 inside the conv kernels; MKL GEMM falls to 0.1% of cycles.
+  Memory-access at 28 threads and the 28-copy runs were not collected (disk:
+  6.9 GB per run).
+
 ## Appendix: reproducing every number
 
 | result | command | output |
@@ -1025,5 +1063,6 @@ and L2 fills. Other users' CPU <= 9% throughout.
 | multi-core study with counters | `taskset -c 27 .venv/bin/python scripts/mc_study.py --out DIR` | `results/2026-10-06_mc_study/` |
 | inter-op re-run (with/without binding) | `scripts/run_interop_rerun.sh DIR` | `results/2026-10-06_mc_study/interop_rerun/` |
 | cross-core cache traffic | `experiments/xcore_traffic.py --out DIR --configs baseline:1:1,baseline:28:1,...` | `results/2026-10-06_mc_study/xcore/` |
+| VTune | `scripts/run_vtune.sh DIR`, then `analysis/analyze_vtune.py DIR` | `results/2026-10-06_vtune/` |
 
 Prefix each measurement with `scripts/wait_quiet.sh` on a shared machine.

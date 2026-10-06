@@ -1,0 +1,4 @@
+configuration,DRAM GB/s average,DRAM GB/s observed max,average load latency (cycles),Memory Bound %,DRAM Bound %
+one core,0.793921,17.3,7.630674,12.2,1.9
+28 threads,,,,,
+28 copies,,,,,

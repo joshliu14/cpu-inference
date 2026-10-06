@@ -1,0 +1,91 @@
+vtune: Warning: Cross-socket bandwidth collection requires the sampling driver to be enabled on the system. Install the sampling driver on the system and disable "Collect stacks" knob. See the Sampling Drivers help topic for more details. Note that cross-socket bandwidth collection is not possible if you are profiling inside a virtualized environment.
+vtune: Warning: Access to /proc/kallsyms file is limited. Consider changing /proc/sys/kernel/kptr_restrict to 0 to enable resolution of OS kernel and kernel module symbols.
+vtune: Warning: To profile kernel modules during the session, make sure they are available in the /lib/modules/kernel_version/ location.
+vtune: Warning: The Data Linear Address facility is not supported on this platform in driverless mode. Attribution on metrics to memory objects or cachelines will not be available. Please consider loading VTune driver. Updating Linux kernel to newer version may also help.
+vtune: Peak bandwidth measurement started.
+vtune: Peak bandwidth measurement finished.
+vtune: Collection started. To stop the collection, either press CTRL-C or enter from another console window: vtune -r /users/joshliu/cpu-inference/results/2026-10-06_vtune/raw_large/memory_1t -command stop.
+baseline threads=1 batch=1 iters=600 median 102.62 ms (ITT labels on)
+vtune: Collection stopped.
+vtune: Using result path `/users/joshliu/cpu-inference/results/2026-10-06_vtune/raw_large/memory_1t'
+vtune: Executing actions  0 %                                                  vtune: Executing actions  0 % Finalizing results                               vtune: Executing actions  0 % Finalizing the result                            vtune: Executing actions  0 % Clearing the database                            vtune: Executing actions  7 % Clearing the database                            vtune: Executing actions  7 % Loading raw data to the database                 vtune: Executing actions  7 % Loading 'systemcollector-1851815-node0.infer.nexdvtune: Executing actions 12 % Loading 'systemcollector-1851815-node0.infer.nexdvtune: Executing actions 12 % Loading 'system-wide.perf' file                  vtune: Executing actions 12 % Loading 'system-wide.stat.perf' file             vtune: Executing actions 12 % Loading 'userapicollector-1851835-8c713061.trace'vtune: Executing actions 12 % Updating precomputed scalar metrics              vtune: Executing actions 14 % Updating precomputed scalar metrics              vtune: Executing actions 14 % Processing profile metrics and debug information vtune: Executing actions 19 % Processing profile metrics and debug information vtune: Executing actions 19 % Setting data model parameters                    vtune: Executing actions 19 % Resolving module symbols                         vtune: Executing actions 19 % Resolving information for `libc.so.6'            
+vtune: Warning: Cannot locate debugging information for file `/usr/lib/x86_64-linux-gnu/libc.so.6'.
+vtune: Executing actions 19 % Resolving information for `ld-linux-x86-64.so.2' 
+vtune: Warning: Cannot locate debugging information for file `/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2'.
+vtune: Executing actions 19 % Resolving information for `[vdso]'               vtune: Executing actions 20 % Resolving information for `[vdso]'               vtune: Executing actions 20 % Resolving information for `libstdc++.so.6.0.33'  
+vtune: Warning: Cannot locate debugging information for file `/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33'.
+vtune: Executing actions 20 % Resolving information for `python3.12'           
+vtune: Warning: Cannot locate debugging information for file `/usr/bin/python3.12'.
+vtune: Executing actions 20 % Resolving information for `libz.so.1.3'          
+vtune: Warning: Cannot locate debugging information for file `/usr/lib/x86_64-linux-gnu/libz.so.1.3'.
+vtune: Executing actions 20 % Resolving information for `libgomp.so.1'         
+vtune: Warning: Cannot locate debugging information for file `/users/joshliu/cpu-inference/.venv/lib/python3.12/site-packages/torch/lib/libgomp.so.1'.
+vtune: Executing actions 21 % Resolving information for `libgomp.so.1'         vtune: Executing actions 21 % Resolving information for `libtorch_python.so'   
+vtune: Warning: Cannot locate debugging information for file `/users/joshliu/cpu-inference/.venv/lib/python3.12/site-packages/torch/lib/libtorch_python.so'.
+vtune: Executing actions 21 % Resolving information for `libtorch_cpu.so'      
+vtune: Warning: Cannot locate debugging information for file `/users/joshliu/cpu-inference/.venv/lib/python3.12/site-packages/torch/lib/libtorch_cpu.so'.
+vtune: Executing actions 21 % Resolving information for `libc10.so'            
+vtune: Warning: Cannot locate debugging information for file `/users/joshliu/cpu-inference/.venv/lib/python3.12/site-packages/torch/lib/libc10.so'.
+vtune: Executing actions 21 % Resolving information for `libcrypto.so.3'       
+vtune: Warning: Cannot locate debugging information for file `/usr/lib/x86_64-linux-gnu/libcrypto.so.3'.
+vtune: Executing actions 22 % Resolving information for `libcrypto.so.3'       vtune: Executing actions 22 % Resolving information for `libittnotify_collector
+vtune: Warning: Cannot locate debugging information for file `/opt/intel/oneapi/vtune/2026.4/lib64/runtime/libittnotify_collector.so'.
+vtune: Executing actions 22 % Resolving information for `[Dynamic code]'       vtune: Executing actions 22 % Resolving information for dangling locations     vtune: Executing actions 22 % Resolving bottom user stack information          vtune: Executing actions 23 % Resolving bottom user stack information          vtune: Executing actions 23 % Resolving thread name information                vtune: Executing actions 24 % Resolving thread name information                vtune: Executing actions 24 % Resolving call target names for dynamic code     vtune: Executing actions 25 % Resolving call target names for dynamic code     vtune: Executing actions 25 % Resolving interrupt name information             vtune: Executing actions 26 % Resolving interrupt name information             vtune: Executing actions 26 % Processing profile metrics and debug information vtune: Executing actions 27 % Processing profile metrics and debug information vtune: Executing actions 28 % Processing profile metrics and debug information vtune: Executing actions 29 % Processing profile metrics and debug information vtune: Executing actions 30 % Processing profile metrics and debug information vtune: Executing actions 31 % Processing profile metrics and debug information vtune: Executing actions 32 % Processing profile metrics and debug information vtune: Executing actions 33 % Processing profile metrics and debug information vtune: Executing actions 34 % Processing profile metrics and debug information vtune: Executing actions 35 % Processing profile metrics and debug information vtune: Executing actions 35 % Preparing output tree                            vtune: Executing actions 35 % Parsing columns in input tree                    vtune: Executing actions 35 % Creating top-level columns                       vtune: Executing actions 36 % Creating top-level columns                       vtune: Executing actions 36 % Creating top-level rows                          vtune: Executing actions 37 % Creating top-level rows                          vtune: Executing actions 37 % Setting data model parameters                    vtune: Executing actions 37 % Precomputing frequently used data                vtune: Executing actions 37 % Precomputing frequently used data                vtune: Executing actions 38 % Precomputing frequently used data                vtune: Executing actions 39 % Precomputing frequently used data                vtune: Executing actions 40 % Precomputing frequently used data                vtune: Executing actions 41 % Precomputing frequently used data                vtune: Executing actions 42 % Precomputing frequently used data                vtune: Executing actions 43 % Precomputing frequently used data                vtune: Executing actions 43 % Updating precomputed scalar metrics              vtune: Executing actions 44 % Updating precomputed scalar metrics              vtune: Executing actions 44 % Discarding redundant overtime data               vtune: Executing actions 46 % Discarding redundant overtime data               vtune: Executing actions 46 % Saving the result                                vtune: Executing actions 48 % Saving the result                                vtune: Executing actions 50 % Saving the result                                vtune: Executing actions 50 % Generating a report                              vtune: Executing actions 50 % Setting data model parameters                    vtune: Executing actions 75 % Setting data model parameters                    vtune: Executing actions 75 % Generating a report                              Elapsed Time: 66.190s
+    CPU Time: 7.900s
+    Memory Bound: 12.2% of Pipeline Slots
+        L1 Bound: 5.2% of Clockticks
+        L2 Bound: 1.1% of Clockticks
+        L3 Bound: 2.9% of Clockticks
+        DRAM Bound: 1.9% of Clockticks
+            DRAM Bandwidth Bound: 0.0% of Elapsed Time
+        Store Bound: 2.3% of Clockticks
+        NUMA: % of Remote Accesses: 0.0%
+    Loads: 14,392,363,986
+    Stores: 5,678,376,858
+    LLC Miss Count: 71,453,984
+        Local Memory Access Count: 71,428,980
+        Remote Memory Access Count: 0
+        Remote Cache Access Count: 0
+    Total Memory Traffic, GB
+        Write Memory Traffic, GB: 2.612
+    Average Latency (cycles): 8
+    Total Thread Count: 4
+    Paused Time: 0s
+
+Bandwidth Utilization
+Bandwidth Domain  Platform Maximum  Observed Maximum  Average  % of Elapsed Time with High BW Utilization(%)
+----------------  ----------------  ----------------  -------  ---------------------------------------------
+DRAM, GB/sec      238                         17.300    0.794                                           0.0%
+
+Top Tasks
+Task Type                 Task Time  Task Count  Average Task Time
+------------------------  ---------  ----------  -----------------
+inference                   61.714s         600             0.103s
+aten::conv2d                48.750s      31,800             0.002s
+aten::convolution           48.696s      31,800             0.002s
+aten::_convolution          48.641s      31,800             0.002s
+aten::mkldnn_convolution    28.032s      12,000             0.002s
+[Others]                    93.832s     703,580             0.000s
+Collection and Platform Info
+    Application Command Line: env "OMP_NUM_THREADS=1" "MKL_NUM_THREADS=1" "taskset" "-c" "6" ".venv/bin/python" "experiments/vtune_run.py" "--threads" "1" "--iters" "600" 
+    Operating System: 6.8.0-138-generic DISTRIB_ID=Ubuntu DISTRIB_RELEASE=24.04 DISTRIB_CODENAME=noble DISTRIB_DESCRIPTION="Ubuntu 24.04.4 LTS"
+    Computer Name: node0.infer.nexdp-pg0.utah.cloudlab.us
+    Result Size: 369.2 MB 
+    Collection start time: 18:37:00 06/10/2026 UTC
+    Collection stop time: 18:38:06 06/10/2026 UTC
+    Collector Type: Driverless Perf system-wide sampling
+    CPU
+        Name: Intel(R) Xeon(R) Processor code named Emeraldrapids
+        Frequency: 2.100 GHz
+        Logical CPU Count: 28
+        Max DRAM Single-Package Bandwidth: 238.000 GB/s
+        LLC size: 55.1 MB 
+        Cache Allocation Technology
+            Level 2 capability: available
+            Level 3 capability: available
+
+If you want to skip descriptions of detected performance issues in the report,
+enter: vtune -report summary -report-knob show-issues=false -r <my_result_dir>.
+Alternatively, you may view the report in the csv format: vtune -report
+<report_name> -format=csv.
+vtune: Executing actions 100 % Generating a report                             vtune: Executing actions 100 % done                                            
