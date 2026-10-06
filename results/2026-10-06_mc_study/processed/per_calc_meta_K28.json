@@ -1,0 +1,33 @@
+{
+ "environment": {
+  "time": "2026-10-06T17:05:16+0000",
+  "host": "node0.infer.nexdp-pg0.utah.cloudlab.us",
+  "affinity": [
+   0
+  ],
+  "requested_cpu": null,
+  "torch": "2.14.1+cpu",
+  "torchvision": "0.29.1+cpu",
+  "torch_num_threads": 28,
+  "torch_num_interop_threads": 1,
+  "cpu_capability": "AVX512",
+  "mkldnn_enabled": true,
+  "env": {
+   "OMP_NUM_THREADS": "28",
+   "MKL_NUM_THREADS": "28",
+   "ONEDNN_VERBOSE": null,
+   "DNNL_VERBOSE": null,
+   "MKL_VERBOSE": null,
+   "ONEDNN_JIT_PROFILE": null
+  },
+  "process_threads": 55,
+  "loadavg": "6.25 7.78 12.85 28/1333 1687435",
+  "git_commit": "fc45fcc"
+ },
+ "threads": 28,
+ "cpus": "0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27",
+ "e2e_ms_median": 16.295765,
+ "iters": 30,
+ "verbose_iters": 5,
+ "sum_of_ops_ms": 15.064303
+}

@@ -1,0 +1,24 @@
+CPU1,8381179770,,cycles,4002019721,100.00,,
+CPU2,8382520698,,cycles,4002009818,100.00,,
+CPU3,8381162068,,cycles,4001997573,100.00,,
+CPU4,8382313573,,cycles,4001985701,100.00,,
+CPU1,18793442977,,instructions,4002016592,100.00,2.24,insn per cycle
+CPU2,18810528807,,instructions,4002007420,100.00,2.24,insn per cycle
+CPU3,18810075509,,instructions,4001994947,100.00,2.24,insn per cycle
+CPU4,18807614546,,instructions,4001984245,100.00,2.24,insn per cycle
+CPU1,34757271057,,offcore_requests_outstanding.data_rd [cpu],4002015780,100.00,,
+CPU2,34698320078,,offcore_requests_outstanding.data_rd [cpu],4002005818,100.00,,
+CPU3,34947015934,,offcore_requests_outstanding.data_rd [cpu],4001994046,100.00,,
+CPU4,34526439165,,offcore_requests_outstanding.data_rd [cpu],4001982477,100.00,,
+CPU1,211383988,,offcore_requests.data_rd [cpu],4002014355,100.00,,
+CPU2,211570928,,offcore_requests.data_rd [cpu],4002004233,100.00,,
+CPU3,210313763,,offcore_requests.data_rd [cpu],4001992415,100.00,,
+CPU4,211077901,,offcore_requests.data_rd [cpu],4001980709,100.00,,
+CPU1,7177608,,fp_arith_inst_retired.scalar_single [cpu],4002012286,100.00,,
+CPU2,7186824,,fp_arith_inst_retired.scalar_single [cpu],4002001931,100.00,,
+CPU3,7186824,,fp_arith_inst_retired.scalar_single [cpu],4001990561,100.00,,
+CPU4,7186824,,fp_arith_inst_retired.scalar_single [cpu],4001978610,100.00,,
+CPU1,1261921321,,cycle_activity.stalls_total [cpu],4002009963,100.00,,
+CPU2,1255175232,,cycle_activity.stalls_total [cpu],4001999373,100.00,,
+CPU3,1256964914,,cycle_activity.stalls_total [cpu],4001987902,100.00,,
+CPU4,1259570238,,cycle_activity.stalls_total [cpu],4001976057,100.00,,

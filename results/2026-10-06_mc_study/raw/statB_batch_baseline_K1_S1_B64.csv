@@ -1,0 +1,6 @@
+CPU1,42508241744,,cycles,20300066024,100.00,,
+CPU1,83907938224,,instructions,20300065649,100.00,1.97,insn per cycle
+CPU1,129955817610,,offcore_requests_outstanding.data_rd [cpu],20300064531,100.00,,
+CPU1,712920359,,offcore_requests.data_rd [cpu],20300063240,100.00,,
+CPU1,2940160,,fp_arith_inst_retired.scalar_single [cpu],20300062018,100.00,,
+CPU1,11203817779,,cycle_activity.stalls_total [cpu],20300060100,100.00,,

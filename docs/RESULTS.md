@@ -47,14 +47,18 @@ directory (section 21), `DSP` = the dispatch-overhead directory (section 22).
    max-pool alone saves 8.4 ms (instructions per output 214 -> 24). The
    ~28 ms of inefficiency identified in the baseline matches the 30 ms the
    compiler saves. OBSERVED, section 21, `results/2026-10-06_optimizations/`.
-6. **More cores: copies for throughput, threads for latency.** 26
-   independent single-threaded copies give **221 inferences/s (baseline) and
-   352/s (inductor)**. One threaded copy on all 26 cores reaches only 65 and
-   131/s, but cuts the latency of a single image to **15.3 ms (baseline) and
-   7.6 ms (inductor)**. Thread scaling stops at ~16 cores. Baseline copies
-   slow each other down by 19% as DRAM traffic per inference triples;
-   inductor copies only 5%, because fusion avoids writing intermediate
-   tensors. OBSERVED, section 23, `results/2026-10-06_multicore/`.
+6. **Why more cores don't give N times more speed (section 24, measured
+   with counters on 1-28 cores).** One inference on 28 threads is only 6.4x
+   faster (23% efficient): 61% of busy cycles are threads spinning in the
+   OpenMP runtime while serial work runs (layout conversions, framework
+   code, small BN/ReLU/add ops). Conv math itself scales 17x. PyTorch also
+   switches the 1x1 convs from MKL to oneDNN once more than one thread is
+   used. Memory bandwidth is not the limit there (3.6% of the measured
+   244 GB/s ceiling). 28 independent copies scale 22.9x (baseline) and 26.3x
+   (inductor): their loss is on the memory side. Copies compete for the
+   shared L3, so DRAM traffic per image grows 4.3x, DRAM reaches 56% of the
+   ceiling, and L2-miss latency doubles (67 -> 132 ns). Operator-level
+   inter-op parallelism is capped at 1.10x by ResNet's dependencies.
 
 ---
 
@@ -756,6 +760,204 @@ throughout, `raw/contention.csv`):
 * fold_bn+channels_last at 26 threads (10.47 ms): no BN, max-pool 0.06 ms,
   convs scale 8.6x (1x1) and 10.8x (3x3); ReLU+add still ~0.9 ms.
 
+## 24. Multi-core study with hardware counters (single core vs intra-op vs inter-op vs combinations)
+
+`MCS` = `results/2026-10-06_mc_study/` (`scripts/mc_study.py`, analysis
+`analysis/analyze_mc_study.py`, tables `MCS/processed/MC_STUDY.md` and
+`mc_configs.csv`). For every configuration: S worker processes on disjoint
+core sets of K cores (`experiments/mc_run.py`), one common window with two
+`perf stat -a -C <cores>` counter passes (checked: 100% counting, no
+multiplexing), socket DRAM traffic (uncore IMC), and a `perf record` profile
+classified by library. Other users' CPU was sampled before and during every
+window: **all 53 configurations ran clean** (one was contaminated and re-run
+automatically). The unmodified baseline is in every comparison; `inductor`
+(torch.compile) is the optimized reference. FLOPs per image measured by the
+FP counters stay at 8.0-8.2 G in every configuration (sanity check).
+
+**Topology / SMT (OBSERVED):** 1 socket, 28 physical cores, 1 NUMA node,
+SMT disabled (`/sys/devices/system/cpu/smt/control = off`, CPUs 28-55
+offline). An SMT comparison would need a system-wide change on a shared
+machine, so it was not done (priority 21).
+
+### 24.1 The memory system's ceiling (OBSERVED, `MCS/raw/membw_ceiling.json`)
+
+n concurrent AVX-512 read streams of 1 GiB each:
+
+| cores streaming | 1 | 2 | 4 | 8 | 16 | 28 |
+|---|---|---|---|---|---|---|
+| DRAM GB/s | 18.1 | 37.5 | 74.5 | 140.9 | 235.2 | **244.2** |
+
+Linear to 8 cores, saturating at ~16. 244 GB/s = 80% of the 307 GB/s
+theoretical (CALCULATED). One core gets only 7% of the socket.
+
+### 24.2 Intra-op scaling: one inference on N cores (OBSERVED, `MCS/processed/MC_STUDY.md`)
+
+Baseline (eager, FP32, batch 1), inter-op = 1:
+
+| Cores | Intra-op | Inter-op | Latency ms | Throughput img/s | Speedup T1/TN | Efficiency | IPC | Memory BW GB/s | LLC misses / image | CPU util (unhalted / useful work) | OpenMP spin share | L2-miss latency | Bottleneck (INFERRED) |
+|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
+| 1 | 1 | 1 | 98.8 | 10.1 | 1.00 | 100% | 2.30 | 1.4 | 1.46 M | 100% / 97% | 0% | 67 ns | compute (FMA) in convs; max-pool/BN/re-layout overhead |
+| 2 | 2 | 1 | 56.3 | 17.8 | 1.76 | 88% | 2.00 | 2.3 | 1.40 M | 100% / 90% | 6% | 72 ns | backend switch + serial re-layout/framework |
+| 4 | 4 | 1 | 32.4 | 30.9 | 3.05 | 76% | 1.76 | 4.6 | 1.56 M | 100% / 77% | 19% | 86 ns | serial work around convs |
+| 8 | 8 | 1 | 20.5 | 48.8 | 4.83 | 60% | 1.42 | 6.5 | 1.43 M | 100% / 66% | 32% | 97 ns | synchronisation: threads wait at barriers |
+| 16 | 16 | 1 | 15.4 | 64.5 | 6.40 | 40% | 0.87 | 8.4 | 1.40 M | 100% / 54% | 45% | 110 ns | synchronisation / too little parallel work |
+| 28 | 28 | 1 | 15.4 | 59.6 | 6.41 | 23% | 0.55 | 8.0 | 1.55 M | 97% / 37% | **61%** | 110 ns | synchronisation / too little parallel work |
+
+inductor: 70.1, 37.4, 20.2, 11.8, 7.8, **7.6 ms** (9.25x, 33% efficient at 28
+cores); OpenMP spin 0 -> 51%; IPC 2.96 -> 1.02.
+
+WHERE / WHAT / HOW / WHY of each transition:
+
+* **1 -> 2 cores (WHAT: the code changes).** HOW: MKL calls per inference
+  fall from 34 to 1 and oneDNN convolutions rise from 20 to 53 (verbose
+  census, `MCS/raw/verbose_per_op_K*.txt`); the MKL share of samples drops
+  from 34% to 0 (`MCS/plots/mc_migration_baseline.png`). WHY: PyTorch's
+  convolution dispatch routes 1x1 convs to oneDNN instead of MKL whenever
+  more than one thread is used (OBSERVED behaviour; rule INFERRED). Every
+  conv now converts its weights (94 MB per inference) and activations on
+  every call.
+* **2 -> 8 cores (WHAT: compute scales, the work around it does not).**
+  HOW (per-layer library timers, `MCS/processed/split_by_threads.csv`):
+  conv kernels 68.5 -> 8.7 ms (7.8x on 8 cores), but activation re-layout
+  2.1 -> 2.0 ms (no speedup), framework around convs 2.7 -> 4.1 ms (gets
+  slower), BN+ReLU+add 8.9 -> 2.8 ms (3.2x). WHY: these parts run serially
+  on the main thread or in tiny parallel regions; while they run, the other
+  threads spin (OpenMP spin share 6% -> 32%).
+* **8 -> 16 -> 28 cores (WHAT: adding cores adds only waiting).** HOW:
+  latency 20.5 -> 15.4 -> 15.4 ms; the OpenMP runtime takes 32% -> 45% -> 61%
+  of busy cycles; IPC falls 1.42 -> 0.55 (spin loops); useful-work
+  utilisation 66% -> 37%; per-core work imbalance (max/mean of work samples)
+  1.11 -> 1.33; FLOP rate per busy cycle 36% -> 13% of peak. Conv kernels
+  still speed up (12.9x at 16, 17.3x at 28) but the non-scaling parts are
+  now 74% of the time. WHY: Amdahl. Of the 15.1 ms at 28 threads, conv math
+  is 4.0 ms; re-layout 3.8 ms, framework 3.8 ms, small elementwise ops
+  3.0 ms barely parallelise.
+* **It is not memory bandwidth.** DRAM traffic peaks at 8.4 GB/s (3.6% of the
+  244 GB/s ceiling) and DRAM bytes per image stay at ~130 MB; LLC misses per
+  image are flat (1.4-1.6 M); cycles stalled on L3 misses fall from 2.5% to
+  1.1%.
+* **Memory latency does rise: 67 -> 110 ns per L2 miss (Little's law on
+  offcore occupancy) at 16-28 cores, although DRAM bandwidth stays tiny.**
+  HOW: L2 fills per image double (543 -> 1172 MB) while DRAM bytes per image
+  stay flat. INFERRED: with intra-op threading, each core reads activations
+  written by other cores in the previous operator, so data moves core-to-core
+  across the mesh (slower than a local L3 hit); this is on-chip data
+  movement, not DRAM.
+
+### 24.3 Inter-op parallelism inside one inference (OBSERVED, `MCS/interop_rerun/raw/`)
+
+| setting | eager | traced, 4 downsample branches forked |
+|---|---|---|
+| intra 1, inter 1 | 98.8 ms | 98.2 ms |
+| intra 1, inter 2 (unbound threads) | 98.7 | **88.7 ms (1.11x)** |
+| intra 1, inter 4 (unbound) | 98.6 | 88.7 |
+| intra 2, inter 2 (unbound) | 56.2 | **50.0 (1.12x)** |
+| intra 4, inter 2 (unbound) | 32.1 | 32.0 |
+| intra 2, inter 2, `OMP_PROC_BIND=close` | 56.4 | **109.7 (worse)** |
+
+* Eager PyTorch executes operators one after another: inter-op threads
+  change nothing (98.8 vs 98.6 ms).
+* ResNet's dependencies limit useful overlap: only the 4 downsample branches
+  (8.9 ms of work) can run beside the main path, so the bound is 1.10x
+  (CALCULATED from per-branch hook times in the same process). The traced,
+  forked model reaches it (1.11-1.12x; the extra percent is the removed
+  Python layer). More inter-op threads (4) add nothing: there is never more
+  than one branch to overlap.
+* **Thread binding breaks it.** With `OMP_PROC_BIND=close`, every thread,
+  including PyTorch's inter-op pool, inherits the main thread's binding
+  (`thread_cpus` in the JSON: all threads allowed only on core 1, or 1-2):
+  the forked branch competes for the same cores, and intra 2 / inter 2
+  becomes 2x slower (109.7 ms). The first inter-op run of the study
+  (`MCS/raw/interop_*.json`) had this binding and is superseded by the
+  re-run.
+
+### 24.4 Inter-op across independent requests: N streams (OBSERVED)
+
+N single-threaded copies, one per core (baseline / inductor):
+
+| streams (cores) | 1 | 4 | 8 | 16 | 28 |
+|---|---|---|---|---|---|
+| baseline img/s | 10.1 | 39.7 | 77.0 | 146.9 | **230.9** (22.9x, 82%) |
+| baseline per-stream latency ms | 98.8 | 101.2 | 103.7 | 108.8 | 120.4 (+22%) |
+| baseline DRAM GB/s (% of ceiling) | 1.4 (8%) | 11.9 (16%) | 31.6 (22%) | 77.6 (33%) | **135.8 (56%)** |
+| baseline DRAM MB / image | 137 | 299 | 410 | 529 | 588 |
+| baseline LLC misses / image | 1.46 M | 3.34 M | 4.42 M | 5.61 M | 6.30 M |
+| baseline L2-miss latency | 67 ns | 78 | 85 | 99 | **132 ns** |
+| baseline cycles stalled on L3 miss | 2.5% | 5.2% | 7.2% | 10.5% | 15.4% |
+| inductor img/s | 14.2 | 56.2 | 111.4 | 221.7 | **373.1** (26.3x, 94%) |
+| inductor DRAM MB / image | 106 | 130 | 154 | 165 | 178 |
+| inductor L2-miss latency | 66 ns | 78 | 82 | 85 | 96 ns |
+
+* **Here memory is the bottleneck, and it migrates with core count.** At
+  1-4 streams each copy runs as if alone (compute-bound convs). From 8
+  streams on, the copies compete for the shared 52.5 MiB L3: each copy's
+  share shrinks to ~2 MiB, LLC misses per image grow 4.3x, and activations
+  that stayed on chip now go to DRAM (DRAM bytes per image 4.3x). At 28
+  streams DRAM traffic reaches 136 GB/s, 56% of the ceiling; L2-miss latency
+  doubles (67 -> 132 ns) as the memory controllers queue requests (loaded
+  latency), and stalls on L3 misses rise to 15% of cycles. Result: each copy
+  is 22% slower. INFERRED from these counters.
+* **inductor copies interfere much less** (+6% per copy, 178 MB DRAM per
+  image, 96 ns): fusion keeps BN/ReLU/add intermediates inside the conv
+  kernels, so there is less data to spill.
+
+### 24.5 How to divide the cores between intra-op and streams (OBSERVED, `MCS/plots/mc_matrix.png`)
+
+28 cores (latency ms / throughput img/s):
+
+| intra-op x streams | 1 x 28 | 2 x 14 | 4 x 7 | 7 x 4 | 14 x 2 | 28 x 1 |
+|---|---|---|---|---|---|---|
+| baseline | 120 / **231** | 64.5 / 215 | 34.3 / 201 | 24.1 / 162 | 17.5 / 109 | **15.4** / 60 |
+| inductor | 74.5 / **373** | 39.2 / 354 | 21.3 / 323 | 14.2 / 274 | 9.7 / 196 | **7.6** / 120 |
+
+* Throughput always prefers more streams; latency always prefers more
+  intra-op threads. The trade is not symmetric: going from 1x28 to 4x7 costs
+  only 13% (baseline) / 13% (inductor) of throughput but cuts latency 3.5x.
+  Past ~8 threads per stream, OpenMP spin exceeds 30% and throughput falls
+  fast.
+* Rule of thumb from these measurements: for throughput, 1-2 threads per
+  stream; for latency, at most ~8-14 threads per inference (beyond 16 adds
+  nothing); a balanced point is 4 threads x 7 streams (inductor: 21 ms,
+  323 img/s).
+
+### 24.6 Batch size x cores (OBSERVED; baseline, one process, intra-op = cores)
+
+| | B=1 | B=4 | B=16 | B=64 |
+|---|---|---|---|---|
+| 1 core: img/s (batch latency) | 10.1 (99 ms) | 10.1 (0.40 s) | 8.4 (2.0 s) | 5.8 (10.2 s) |
+| 8 cores | 48.8 (20 ms) | 55.6 (72 ms) | 44.0 (0.37 s) | 34.2 (2.0 s) |
+| 28 cores | 59.6 (15 ms) | **104.5** (34 ms) | 65.7 (0.24 s) | 43.7 (1.5 s) |
+| 1 core: DRAM MB / image | 137 | 151 | 461 | 769 |
+| 1 core: FLOP rate (% of peak per busy cycle) | 62% | 61% | 47% | 38% |
+
+* Small batches help multi-core (28 cores: B=4 gives 1.75x the throughput of
+  B=1: more work per parallel region, OpenMP spin 61% -> 46%).
+* Large batches hurt on this CPU in eager mode: per-image throughput falls
+  at every core count for B >= 16. HOW: DRAM bytes per image grow 5.6x at
+  B=64 on one core and the FLOP rate falls to 38% of peak. INFERRED: a
+  B=64 activation tensor is up to 205 MB, so eager layer-by-layer execution
+  streams every activation through DRAM; and the weights saved (read once per
+  batch) are far smaller than the activation traffic added.
+* So the model has enough parallel work per image only up to ~4-8 cores at
+  batch 1; latency-oriented serving should use few threads per request,
+  throughput-oriented serving should use streams (24.4) rather than large
+  batches.
+
+### 24.7 Why isn't it N times faster? (summary)
+
+| configuration | loss of efficiency at 28 cores | cause (evidence) |
+|---|---|---|
+| one inference, 28 threads | 77% lost (6.4x) | **synchronisation / insufficient parallel work + serial overhead** (61% of busy cycles spinning in OpenMP; re-layout, framework and small ops do not scale; IPC 0.55) -- not bandwidth (3.6% of ceiling) |
+| 28 independent copies | 18% lost (22.9x) | **shared L3 capacity + loaded DRAM latency** (LLC misses/image 4.3x, DRAM 56% of ceiling, L2-miss latency 2x) |
+| 28 inductor copies | 6% lost (26.3x) | same mechanism, much smaller because fusion avoids intermediates |
+| operator-level inter-op | capped at 1.10x | **dependencies** (only 4 branches can overlap) |
+
+Bottleneck migration (baseline, one inference): compute-bound convs at 1
+core -> backend switch + serial re-layout/framework at 2-4 cores ->
+synchronisation (threads idle-spinning) from 8 cores on. For independent
+streams it migrates the other way, toward memory: compute at 1-4 copies ->
+shared-L3/DRAM contention at 16-28 copies.
+
 ---
 
 ## Appendix: reproducing every number
@@ -773,5 +975,8 @@ throughout, `raw/contention.csv`):
 | ISA probe | `scripts/run_isa_probe.sh` | `results/2026-10-06_isa_probe/` |
 | multi-core | `scripts/run_multicore.sh` | `MC/` |
 | follow-ups (Python overhead, per-op thread scaling) | `scripts/run_followups.sh` | `results/<date>_followups/` |
+| per-calculation cost (core vs operator) | `scripts/run_per_calc.sh` | `results/2026-10-06_per_calc/` |
+| multi-core study with counters | `taskset -c 27 .venv/bin/python scripts/mc_study.py --out DIR` | `results/2026-10-06_mc_study/` |
+| inter-op re-run (with/without binding) | `scripts/run_interop_rerun.sh DIR` | `results/2026-10-06_mc_study/interop_rerun/` |
 
 Prefix each measurement with `scripts/wait_quiet.sh` on a shared machine.

@@ -1,0 +1,48 @@
+CPU1,8359798439,,cycles,4003023448,100.00,,
+CPU2,7766353535,,cycles,4003021784,100.00,,
+CPU3,7758521056,,cycles,4003016154,100.00,,
+CPU4,7766722723,,cycles,4003011342,100.00,,
+CPU5,7765154082,,cycles,4003003413,100.00,,
+CPU6,7767743036,,cycles,4002996758,100.00,,
+CPU7,7766405838,,cycles,4002990733,100.00,,
+CPU8,7767044354,,cycles,4002985605,100.00,,
+CPU1,17710528141,,instructions,4003022006,100.00,2.12,insn per cycle
+CPU2,10252595571,,instructions,4003020445,100.00,1.32,insn per cycle
+CPU3,10248004030,,instructions,4003014703,100.00,1.32,insn per cycle
+CPU4,10251133397,,instructions,4003009296,100.00,1.32,insn per cycle
+CPU5,10248784763,,instructions,4003001450,100.00,1.32,insn per cycle
+CPU6,10250259111,,instructions,4002994803,100.00,1.32,insn per cycle
+CPU7,10253217600,,instructions,4002989078,100.00,1.32,insn per cycle
+CPU8,10250122424,,instructions,4002984271,100.00,1.32,insn per cycle
+CPU1,21453171694,,offcore_requests_outstanding.data_rd [cpu],4003021533,100.00,,
+CPU2,18378960987,,offcore_requests_outstanding.data_rd [cpu],4003018909,100.00,,
+CPU3,18302736757,,offcore_requests_outstanding.data_rd [cpu],4003013416,100.00,,
+CPU4,18280870649,,offcore_requests_outstanding.data_rd [cpu],4003007560,100.00,,
+CPU5,18374688168,,offcore_requests_outstanding.data_rd [cpu],4003000112,100.00,,
+CPU6,18317694442,,offcore_requests_outstanding.data_rd [cpu],4002993250,100.00,,
+CPU7,18322257638,,offcore_requests_outstanding.data_rd [cpu],4002987323,100.00,,
+CPU8,18451307608,,offcore_requests_outstanding.data_rd [cpu],4002982924,100.00,,
+CPU1,111189121,,offcore_requests.data_rd [cpu],4003020002,100.00,,
+CPU2,88620897,,offcore_requests.data_rd [cpu],4003017246,100.00,,
+CPU3,88491713,,offcore_requests.data_rd [cpu],4003011802,100.00,,
+CPU4,88547114,,offcore_requests.data_rd [cpu],4003005857,100.00,,
+CPU5,88466832,,offcore_requests.data_rd [cpu],4002998360,100.00,,
+CPU6,88479848,,offcore_requests.data_rd [cpu],4002991639,100.00,,
+CPU7,88295086,,offcore_requests.data_rd [cpu],4002985862,100.00,,
+CPU8,88524831,,offcore_requests.data_rd [cpu],4002981058,100.00,,
+CPU1,651010,,fp_arith_inst_retired.scalar_single [cpu],4003018182,100.00,,
+CPU2,327680,,fp_arith_inst_retired.scalar_single [cpu],4003015126,100.00,,
+CPU3,327680,,fp_arith_inst_retired.scalar_single [cpu],4003009587,100.00,,
+CPU4,327680,,fp_arith_inst_retired.scalar_single [cpu],4003003626,100.00,,
+CPU5,327680,,fp_arith_inst_retired.scalar_single [cpu],4002996205,100.00,,
+CPU6,327680,,fp_arith_inst_retired.scalar_single [cpu],4002989252,100.00,,
+CPU7,327680,,fp_arith_inst_retired.scalar_single [cpu],4002983472,100.00,,
+CPU8,327680,,fp_arith_inst_retired.scalar_single [cpu],4002978583,100.00,,
+CPU1,2630195979,,cycle_activity.stalls_total [cpu],4003015859,100.00,,
+CPU2,3701436439,,cycle_activity.stalls_total [cpu],4003012509,100.00,,
+CPU3,3691635079,,cycle_activity.stalls_total [cpu],4003007102,100.00,,
+CPU4,3701221746,,cycle_activity.stalls_total [cpu],4003001202,100.00,,
+CPU5,3696671079,,cycle_activity.stalls_total [cpu],4002993828,100.00,,
+CPU6,3730977022,,cycle_activity.stalls_total [cpu],4002986963,100.00,,
+CPU7,3700723437,,cycle_activity.stalls_total [cpu],4002981085,100.00,,
+CPU8,3699911557,,cycle_activity.stalls_total [cpu],4002976109,100.00,,

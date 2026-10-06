@@ -1,0 +1,84 @@
+17:03:43 membw ceiling:  1 read streams -> DRAM read 18.0 GB/s, write 0.1 GB/s
+17:03:53 membw ceiling:  2 read streams -> DRAM read 37.5 GB/s, write 0.1 GB/s
+17:04:03 membw ceiling:  4 read streams -> DRAM read 74.4 GB/s, write 0.1 GB/s
+17:04:14 membw ceiling:  8 read streams -> DRAM read 140.9 GB/s, write 0.1 GB/s
+17:04:24 membw ceiling: 16 read streams -> DRAM read 235.1 GB/s, write 0.1 GB/s
+17:04:34 membw ceiling: 28 read streams -> DRAM read 244.1 GB/s, write 0.1 GB/s
+17:04:43 split K=1: other users <= 5% (clean)
+17:04:51 split K=2: other users <= 4% (clean)
+17:04:58 split K=4: other users <= 1% (clean)
+17:05:04 split K=8: other users <= 3% (clean)
+17:05:10 split K=16: other users <= 3% (clean)
+17:05:16 split K=28: other users <= 7% (clean)
+17:05:26 interop_eager_K1_I1: other users <= 5%
+17:05:37 interop_fork_eager_K1_I1: other users <= 3%
+17:05:47 interop_fork_traced_K1_I1: other users <= 5%
+17:05:58 interop_eager_K1_I2: other users <= 4%
+17:06:08 interop_fork_eager_K1_I2: other users <= 3%
+17:06:19 interop_fork_traced_K1_I2: other users <= 4%
+17:06:29 interop_eager_K1_I4: other users <= 2%
+17:06:39 interop_fork_eager_K1_I4: other users <= 3%
+17:06:50 interop_fork_traced_K1_I4: other users <= 5%
+17:06:58 interop_eager_K2_I1: other users <= 3%
+17:07:05 interop_fork_eager_K2_I1: other users <= 3%
+17:07:14 interop_fork_traced_K2_I1: other users <= 2%
+17:07:22 interop_eager_K2_I2: other users <= 2%
+17:07:29 interop_fork_eager_K2_I2: other users <= 5%
+17:07:40 interop_fork_traced_K2_I2: other users <= 4%
+17:07:46 interop_eager_K4_I1: other users <= 3%
+17:07:52 interop_fork_eager_K4_I1: other users <= 1%
+17:07:59 interop_fork_traced_K4_I1: other users <= 3%
+17:08:06 interop_eager_K4_I2: other users <= 3%
+17:08:12 interop_fork_eager_K4_I2: other users <= 2%
+17:08:19 interop_fork_traced_K4_I2: other users <= 7%
+17:08:44 intra_baseline_K1_S1_B1: K=1 S=1 B=1 cores=1 warm 98.8 ms  other<= 6%  clean (attempt 1)
+17:09:09 intra_baseline_K2_S1_B1: K=2 S=1 B=1 cores=2 warm 56.3 ms  other<= 5%  clean (attempt 1)
+17:09:35 intra_baseline_K4_S1_B1: K=4 S=1 B=1 cores=4 warm 32.4 ms  other<= 4%  clean (attempt 1)
+17:10:00 intra_baseline_K8_S1_B1: K=8 S=1 B=1 cores=8 warm 20.7 ms  other<= 5%  clean (attempt 1)
+17:10:25 intra_baseline_K16_S1_B1: K=16 S=1 B=1 cores=16 warm 15.5 ms  other<= 4%  clean (attempt 1)
+17:10:50 intra_baseline_K28_S1_B1: K=28 S=1 B=1 cores=28 warm 15.3 ms  other<= 5%  clean (attempt 1)
+17:11:25 intra_inductor_K1_S1_B1: K=1 S=1 B=1 cores=1 warm 71.1 ms  other<= 2%  clean (attempt 1)
+17:11:59 intra_inductor_K2_S1_B1: K=2 S=1 B=1 cores=2 warm 38.0 ms  other<= 5%  clean (attempt 1)
+17:12:34 intra_inductor_K4_S1_B1: K=4 S=1 B=1 cores=4 warm 20.6 ms  other<= 4%  clean (attempt 1)
+17:13:08 intra_inductor_K8_S1_B1: K=8 S=1 B=1 cores=8 warm 12.1 ms  other<= 3%  clean (attempt 1)
+17:13:42 intra_inductor_K16_S1_B1: K=16 S=1 B=1 cores=16 warm 8.1 ms  other<= 30%  clean (attempt 1)
+17:14:19 intra_inductor_K28_S1_B1: K=28 S=1 B=1 cores=28 warm 8.6 ms  other<= 5%  clean (attempt 1)
+17:14:46 matrix_baseline_K1_S4_B1: K=1 S=4 B=1 cores=4 warm 101.2 ms  other<= 14%  clean (attempt 1)
+17:15:12 matrix_baseline_K2_S2_B1: K=2 S=2 B=1 cores=4 warm 56.8 ms  other<= 5%  clean (attempt 1)
+17:15:39 matrix_baseline_K1_S8_B1: K=1 S=8 B=1 cores=8 warm 103.8 ms  other<= 9%  clean (attempt 1)
+17:16:06 matrix_baseline_K2_S4_B1: K=2 S=4 B=1 cores=8 warm 58.0 ms  other<= 5%  clean (attempt 1)
+17:16:31 matrix_baseline_K4_S2_B1: K=4 S=2 B=1 cores=8 warm 32.5 ms  other<= 4%  clean (attempt 1)
+17:16:59 matrix_baseline_K1_S16_B1: K=1 S=16 B=1 cores=16 warm 109.0 ms  other<= 8%  clean (attempt 1)
+17:17:26 matrix_baseline_K2_S8_B1: K=2 S=8 B=1 cores=16 warm 59.9 ms  other<= 6%  clean (attempt 1)
+17:17:52 matrix_baseline_K4_S4_B1: K=4 S=4 B=1 cores=16 warm 33.0 ms  other<= 5%  clean (attempt 1)
+17:18:17 matrix_baseline_K8_S2_B1: K=8 S=2 B=1 cores=16 warm 21.3 ms  other<= 4%  clean (attempt 1)
+17:18:46 matrix_baseline_K1_S28_B1: K=1 S=28 B=1 cores=28 warm 121.0 ms  other<= 5%  clean (attempt 1)
+17:19:13 matrix_baseline_K2_S14_B1: K=2 S=14 B=1 cores=28 warm 65.0 ms  other<= 7%  clean (attempt 1)
+17:19:39 matrix_baseline_K4_S7_B1: K=4 S=7 B=1 cores=28 warm 34.6 ms  other<= 5%  clean (attempt 1)
+17:20:05 matrix_baseline_K7_S4_B1: K=7 S=4 B=1 cores=28 warm 24.3 ms  other<= 7%  clean (attempt 1)
+17:20:30 matrix_baseline_K14_S2_B1: K=14 S=2 B=1 cores=28 warm 17.7 ms  other<= 2%  clean (attempt 1)
+17:21:06 matrix_inductor_K1_S4_B1: K=1 S=4 B=1 cores=4 warm 71.2 ms  other<= 3%  clean (attempt 1)
+17:21:41 matrix_inductor_K2_S2_B1: K=2 S=2 B=1 cores=4 warm 37.8 ms  other<= 5%  clean (attempt 1)
+17:22:16 matrix_inductor_K1_S8_B1: K=1 S=8 B=1 cores=8 warm 71.8 ms  other<= 3%  clean (attempt 1)
+17:22:51 matrix_inductor_K2_S4_B1: K=2 S=4 B=1 cores=8 warm 38.0 ms  other<= 4%  clean (attempt 1)
+17:23:26 matrix_inductor_K4_S2_B1: K=4 S=2 B=1 cores=8 warm 20.9 ms  other<= 3%  clean (attempt 1)
+17:24:02 matrix_inductor_K1_S16_B1: K=1 S=16 B=1 cores=16 warm 71.8 ms  other<= 7%  clean (attempt 1)
+17:24:38 matrix_inductor_K2_S8_B1: K=2 S=8 B=1 cores=16 warm 38.3 ms  other<= 6%  clean (attempt 1)
+17:25:15 matrix_inductor_K4_S4_B1: K=4 S=4 B=1 cores=16 warm 82.4 ms  other<= 2500%  CONTAMINATED (attempt 1)
+17:25:48 matrix_inductor_K4_S4_B1: K=4 S=4 B=1 cores=16 warm 20.8 ms  other<= 7%  clean (attempt 2)
+17:26:22 matrix_inductor_K8_S2_B1: K=8 S=2 B=1 cores=16 warm 12.1 ms  other<= 3%  clean (attempt 1)
+17:27:00 matrix_inductor_K1_S28_B1: K=1 S=28 B=1 cores=28 warm 72.0 ms  other<= 6%  clean (attempt 1)
+17:27:37 matrix_inductor_K2_S14_B1: K=2 S=14 B=1 cores=28 warm 38.5 ms  other<= 8%  clean (attempt 1)
+17:28:13 matrix_inductor_K4_S7_B1: K=4 S=7 B=1 cores=28 warm 20.9 ms  other<= 5%  clean (attempt 1)
+17:28:49 matrix_inductor_K7_S4_B1: K=7 S=4 B=1 cores=28 warm 14.7 ms  other<= 5%  clean (attempt 1)
+17:29:26 matrix_inductor_K14_S2_B1: K=14 S=2 B=1 cores=28 warm 9.9 ms  other<= 5%  clean (attempt 1)
+17:29:53 batch_baseline_K1_S1_B4: K=1 S=1 B=4 cores=1 warm 400.2 ms  other<= 5%  clean (attempt 1)
+17:30:19 batch_baseline_K8_S1_B4: K=8 S=1 B=4 cores=8 warm 71.0 ms  other<= 6%  clean (attempt 1)
+17:30:45 batch_baseline_K28_S1_B4: K=28 S=1 B=4 cores=28 warm 35.3 ms  other<= 3%  clean (attempt 1)
+17:31:18 batch_baseline_K1_S1_B16: K=1 S=1 B=16 cores=1 warm 2037.9 ms  other<= 4%  clean (attempt 1)
+17:31:45 batch_baseline_K8_S1_B16: K=8 S=1 B=16 cores=8 warm 361.9 ms  other<= 5%  clean (attempt 1)
+17:32:12 batch_baseline_K28_S1_B16: K=28 S=1 B=16 cores=28 warm 228.8 ms  other<= 6%  clean (attempt 1)
+17:34:02 batch_baseline_K1_S1_B64: K=1 S=1 B=64 cores=1 warm 10149.3 ms  other<= 5%  clean (attempt 1)
+17:34:33 batch_baseline_K8_S1_B64: K=8 S=1 B=64 cores=8 warm 1969.9 ms  other<= 4%  clean (attempt 1)
+17:35:03 batch_baseline_K28_S1_B64: K=28 S=1 B=64 cores=28 warm 1436.9 ms  other<= 5%  clean (attempt 1)
+17:35:06 MC STUDY DONE

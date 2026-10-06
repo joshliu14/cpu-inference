@@ -1,0 +1,1 @@
+{"mode": "eager", "intra": 1, "inter": 2, "affinity": [1], "torch_threads": 1, "interop_threads": 2, "latency_ms": 98.838598, "latency_p5": 98.613026, "latency_p95": 99.035249, "max_abs_diff": 0.0, "traced_graph_contains_fork": null, "eager_total_ms": 98.889447, "downsample_branches_ms": 8.960648500000001, "dependency_bound_speedup": 1.099641590341052}

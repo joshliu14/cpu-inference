@@ -1,0 +1,1 @@
+{"1": {"oneDNN JIT kernel": 1090, "ATen native kernels": 220, "libc / allocator": 54, "oneDNN host code": 57, "OpenMP runtime (spin/barrier)": 17, "OS kernel": 1, "MKL GEMM": 6, "Python interpreter": 58}, "2": {"oneDNN JIT kernel": 1086, "ATen native kernels": 209, "OpenMP runtime (spin/barrier)": 178, "MKL GEMM": 6, "oneDNN host code": 23, "Python interpreter": 1}}

@@ -1,0 +1,8 @@
+CPU1,12571485613,,cycles,6003027512,100.00,,
+CPU1,28860329433,,instructions,6003025329,100.00,2.30,insn per cycle
+CPU1,12606302436,,ref-cycles,6003024187,100.00,,
+CPU1,88564516,,longest_lat_cache.miss [cpu],6003023081,100.00,,
+CPU1,513206709,,l2_lines_in.all [cpu],6003021554,100.00,,
+CPU1,30932795041,,fp_arith_inst_retired.512b_packed_single [cpu],6003019301,100.00,,
+CPU1,329257152,,fp_arith_inst_retired.256b_packed_single [cpu],6003016479,100.00,,
+CPU1,313764611,,memory_activity.stalls_l3_miss [cpu],6003012459,100.00,,

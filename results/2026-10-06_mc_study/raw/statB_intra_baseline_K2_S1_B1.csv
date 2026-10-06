@@ -1,0 +1,12 @@
+CPU1,8378887795,,cycles,4004018303,100.00,,
+CPU2,8386820654,,cycles,4004006922,100.00,,
+CPU1,17532333712,,instructions,4004014998,100.00,2.09,insn per cycle
+CPU2,16038513768,,instructions,4004005785,100.00,1.91,insn per cycle
+CPU1,32014275396,,offcore_requests_outstanding.data_rd [cpu],4004013446,100.00,,
+CPU2,30696045617,,offcore_requests_outstanding.data_rd [cpu],4004004794,100.00,,
+CPU1,217512913,,offcore_requests.data_rd [cpu],4004011827,100.00,,
+CPU2,194988123,,offcore_requests.data_rd [cpu],4004003279,100.00,,
+CPU1,12175584,,fp_arith_inst_retired.scalar_single [cpu],4004009992,100.00,,
+CPU2,845280,,fp_arith_inst_retired.scalar_single [cpu],4004001361,100.00,,
+CPU1,1466981066,,cycle_activity.stalls_total [cpu],4004007685,100.00,,
+CPU2,1990744255,,cycle_activity.stalls_total [cpu],4003998759,100.00,,

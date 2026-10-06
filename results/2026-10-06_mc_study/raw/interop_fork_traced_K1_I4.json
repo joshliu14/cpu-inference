@@ -1,0 +1,18 @@
+{
+ "mode": "fork_traced",
+ "intra": 1,
+ "inter": 4,
+ "affinity": [
+  1
+ ],
+ "torch_threads": 1,
+ "interop_threads": 4,
+ "latency_ms": 98.71261,
+ "latency_p5": 98.450876,
+ "latency_p95": 99.491109,
+ "max_abs_diff": 0.0,
+ "traced_graph_contains_fork": true,
+ "eager_total_ms": 99.434416,
+ "downsample_branches_ms": 9.0090222,
+ "dependency_bound_speedup": 1.0996293388550331
+}

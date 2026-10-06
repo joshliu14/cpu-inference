@@ -1,0 +1,1 @@
+{"1": {"oneDNN JIT kernel": 1390, "oneDNN host code": 43, "MKL GEMM": 11, "Python interpreter": 29, "ATen native kernels": 4, "libc / allocator": 21, "inductor generated code": 5}}

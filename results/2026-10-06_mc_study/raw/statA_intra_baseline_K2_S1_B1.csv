@@ -1,0 +1,16 @@
+CPU1,12562518100,,cycles,6003025935,100.00,,
+CPU2,12573977759,,cycles,6003000566,100.00,,
+CPU1,26302989669,,instructions,6003023326,100.00,2.09,insn per cycle
+CPU2,24064517213,,instructions,6002997477,100.00,1.91,insn per cycle
+CPU1,12606295716,,ref-cycles,6003021839,100.00,,
+CPU2,12606245400,,ref-cycles,6002996233,100.00,,
+CPU1,76331654,,longest_lat_cache.miss [cpu],6003019958,100.00,,
+CPU2,73490312,,longest_lat_cache.miss [cpu],6002995073,100.00,,
+CPU1,561747256,,l2_lines_in.all [cpu],6003018123,100.00,,
+CPU2,490621507,,l2_lines_in.all [cpu],6002993178,100.00,,
+CPU1,26382297290,,fp_arith_inst_retired.512b_packed_single [cpu],6003015701,100.00,,
+CPU2,26381733194,,fp_arith_inst_retired.512b_packed_single [cpu],6002990676,100.00,,
+CPU1,290314946,,fp_arith_inst_retired.256b_packed_single [cpu],6003012865,100.00,,
+CPU2,288642358,,fp_arith_inst_retired.256b_packed_single [cpu],6002987651,100.00,,
+CPU1,325199690,,memory_activity.stalls_l3_miss [cpu],6003009129,100.00,,
+CPU2,271214338,,memory_activity.stalls_l3_miss [cpu],6002984353,100.00,,

@@ -1,0 +1,5 @@
+/users/joshliu/cpu-inference/.venv/lib/python3.12/site-packages/torch/jit/_async.py:104: FutureWarning: `torch.jit.fork` is deprecated. Please use `torch.compile` instead.
+  warnings.warn(
+/users/joshliu/cpu-inference/.venv/lib/python3.12/site-packages/torch/jit/_async.py:124: FutureWarning: `torch.jit.wait` is deprecated. Please use `torch.compile` instead.
+  warnings.warn(
+{"mode": "fork_eager", "intra": 4, "inter": 2, "affinity": [1], "torch_threads": 4, "interop_threads": 2, "latency_ms": 32.276133, "latency_p5": 32.17021, "latency_p95": 32.463542, "max_abs_diff": 0.0, "traced_graph_contains_fork": null, "eager_total_ms": 32.145955, "downsample_branches_ms": 2.9156041, "dependency_bound_speedup": 1.0997457782828053}
