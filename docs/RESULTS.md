@@ -47,6 +47,14 @@ directory (section 21), `DSP` = the dispatch-overhead directory (section 22).
    max-pool alone saves 8.4 ms (instructions per output 214 -> 24). The
    ~28 ms of inefficiency identified in the baseline matches the 30 ms the
    compiler saves. OBSERVED, section 21, `results/2026-10-06_optimizations/`.
+6. **More cores: copies for throughput, threads for latency.** 26
+   independent single-threaded copies give **221 inferences/s (baseline) and
+   352/s (inductor)**. One threaded copy on all 26 cores reaches only 65 and
+   131/s, but cuts the latency of a single image to **15.3 ms (baseline) and
+   7.6 ms (inductor)**. Thread scaling stops at ~16 cores. Baseline copies
+   slow each other down by 19% as DRAM traffic per inference triples;
+   inductor copies only 5%, because fusion avoids writing intermediate
+   tensors. OBSERVED, section 23, `results/2026-10-06_multicore/`.
 
 ---
 
@@ -436,7 +444,8 @@ Measured first (section 21). Ranked by what the measurements support:
 | Prepacked (cached) conv weights in eager mode | ~8 ms expected: removes the 56 MB of per-call weight reorders | 21.3, 21.4 | needs oneDNN weight caching (e.g. inductor, IPEX); not available through plain eager PyTorch here |
 | Remaining 9 ms to the FMA floor (inductor 70.4 vs 61.3 ms) | at most 13% | 21.5 | better conv blocking for small layer4 maps (7x7), which run at 36 FLOP/cycle in eager |
 | Lower precision: BF16 with AMX, or INT8 with VNNI/AMX (the CPU supports both) | not measured; changes numerics | `results/2026-10-05_system/` (amx_bf16, amx_int8, avx512_vnni flags) | accuracy validation needed; out of scope of the FP32 brief |
-| Multi-core | see section 23 | 23 | |
+| Multi-core: N independent copies (throughput) | **measured 352 inferences/s** with 26 inductor copies (24.7x) | 23.2 | 74 ms latency per image |
+| Multi-core: threads (latency) | **measured 7.6 ms** per image (inductor, 16-26 cores) | 23.1 | scaling stops at ~16 cores |
 
 Not worth pursuing on this model: reducing Python/dispatch overhead (1.3% of
 time, section 22), and DRAM-bandwidth tuning on one core. Only fc (0.5 ms) is
@@ -635,6 +644,77 @@ flag adds a trampoline to every Python call, so the 4.0% of samples in
 `experiments/python_overhead.py` measures it directly (eager vs a TorchScript
 trace of the same ops, and GC on/off).
 
+## 23. Multi-core (measured; separate from the single-core baseline)
+
+`MC` = `results/2026-10-06_multicore/` (`scripts/run_multicore.sh`). The
+unmodified baseline is always included, next to the fastest eager variant
+(fold_bn+channels_last) and the fastest overall (inductor). Before and during
+every configuration, the launcher samples other users' CPU from core 27 (not
+used by any configuration); a configuration is re-run if other users exceed
+one core. **36/36 configurations ran clean** (`MC/raw/contention_summary.csv`).
+A first attempt overlapped another user's job and is kept as a noise example
+(`results/2026-10-06_multicore_CONTENDED/NOTE.md`): there, contention
+*inverted* thread scaling (8 threads slower than 2).
+
+Two ways to use N cores (CPUs 1..N):
+
+* **threads**: one inference at a time, split across N intra-op OpenMP
+  threads (`OMP_PROC_BIND=close`). Measures the latency of one image.
+* **instances**: N independent single-threaded copies, one per core, measured
+  over the same 20 s window. Measures total throughput and interference.
+
+### 23.1 Latency: one inference on N cores (OBSERVED, `MC/processed/thread_scaling.csv`, `MC/plots/thread_scaling.png`)
+
+| cores | 1 | 2 | 4 | 8 | 16 | 26 |
+|---|---|---|---|---|---|---|
+| baseline (ms) | 98.9 | 56.4 | 32.0 | 20.5 | 15.6 | **15.3** |
+| fold_bn+channels_last (ms) | 85.1 | 47.3 | 26.3 | 15.3 | 10.6 | **9.9** |
+| inductor (ms) | 70.1 | 37.4 | 20.2 | 11.8 | 7.8 | **7.6** |
+| baseline parallel efficiency | 100% | 88% | 77% | 60% | 40% | 25% |
+| inductor parallel efficiency | 100% | 94% | 87% | 74% | 56% | 35% |
+
+* All variants stop improving between 16 and 26 cores. The fastest single
+  image is **7.6 ms (inductor, 26 cores) = 13x faster than the single-core
+  baseline**.
+* It is not memory bandwidth: socket DRAM reads stay at 90-140 MB per
+  inference and peak at 16 GB/s, 5% of the theoretical 307 GB/s. The
+  weights still stream from DRAM every inference, even with 26 cores' L2
+  (52 MiB) plus L3 (52.5 MiB).
+* Which operators stop scaling: see 23.3 (follow-up breakdown).
+
+### 23.2 Throughput: N independent copies (OBSERVED, `MC/processed/instance_scaling.csv`, `MC/plots/throughput_scaling.png`, `MC/plots/instances_memory.png`)
+
+| copies (= cores) | 1 | 2 | 4 | 8 | 16 | 26 |
+|---|---|---|---|---|---|---|
+| baseline: inferences/s | 10.2 | 20.1 | 39.6 | 77.2 | 148 | **221** |
+| baseline: per-copy latency (ms) | 98.8 | 99.6 | 101.2 | 103.6 | 108.3 | 117.9 |
+| baseline: DRAM read / write per inference (MB) | 137 / 11 | 174 / 29 | 233 / 70 | 301 / 114 | 371 / 150 | 408 / 171 |
+| fold_bn+channels_last: inferences/s | 11.8 | 23.1 | 45.8 | 89.8 | 172 | **261** |
+| inductor: inferences/s | 14.3 | 28.3 | 56.4 | 112 | 221 | **352** |
+| inductor: per-copy latency (ms) | 70.1 | 70.7 | 71.0 | 71.6 | 72.3 | 74.0 |
+| inductor: DRAM read / write per inference (MB) | 106 / 4 | 121 / 4 | 128 / 7 | 139 / 15 | 144 / 19 | 151 / 24 |
+
+* **For throughput, independent copies beat threading by 3.4x** (baseline
+  at 26 cores: 221 vs 65.5 inferences/s; inductor: 352 vs 131). The cost is
+  latency: each image takes 74-118 ms instead of 7.6-15 ms.
+* With 26 copies, **each baseline copy is 19% slower than alone, and DRAM
+  traffic per inference triples** (reads 137 -> 408 MB, writes 11 -> 171
+  MB). INFERRED: each copy's share of the 52.5 MiB shared L3 shrinks to
+  ~2 MiB, so intermediate activation tensors (BN, ReLU and add outputs up to
+  3.2 MB) no longer stay on chip and are written to and re-read from DRAM.
+* **Inductor copies slow down by only 5.4%**, with 24 MB of DRAM writes per
+  inference instead of 171. Its fused convolutions never write the
+  BN/ReLU/add intermediates (section 21.5), so there is far less data to
+  spill. INFERRED from the write traffic. Scaling efficiency is 95% (24.7x
+  on 26 cores).
+* Total DRAM bandwidth at 26 baseline copies is 128 GB/s (90 read + 38
+  write), 42% of the theoretical peak. Not saturated, but growing fastest for
+  the eager variants.
+
+### 23.3 What limits thread scaling (follow-up)
+
+PENDING (`scripts/run_followups.sh`: per-operator time at 1/4/16/26 threads).
+
 ---
 
 ## Appendix: reproducing every number
@@ -649,5 +729,8 @@ trace of the same ops, and GC on/off).
 | instruction profile | `scripts/run_instruction_profile.sh` | `INS/` |
 | dispatch overhead | `scripts/run_dispatch_overhead.sh` | `DSP/` |
 | optimizations | `scripts/run_optimizations.sh` | `OPT/` |
+| ISA probe | `scripts/run_isa_probe.sh` | `results/2026-10-06_isa_probe/` |
+| multi-core | `scripts/run_multicore.sh` | `MC/` |
+| follow-ups (Python overhead, per-op thread scaling) | `scripts/run_followups.sh` | `results/<date>_followups/` |
 
 Prefix each measurement with `scripts/wait_quiet.sh` on a shared machine.

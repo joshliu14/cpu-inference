@@ -170,3 +170,95 @@ Measurement CPU: 6. The machine is shared with other users.
 * Method change (from E4 on): every measurement waits for
   `scripts/wait_quiet.sh` (load <= 4, socket DRAM <= 2 GB/s) because the
   machine is shared.
+
+## 2026-10-06 -- E7: ISA probe (why ATen elementwise kernels are AVX2)
+
+* **Commit:** c836940. **Command:** `scripts/run_isa_probe.sh` (instruction
+  counts are load-independent; run on CPU 20 while the machine was busy)
+* **Hypothesis:** ReLU/add/BN run AVX2 code because no AVX512 build of those
+  kernels exists, not because of the runtime capability.
+* **Results:** `results/2026-10-06_isa_probe/`
+* **Key observations (OBSERVED):** with capability unset (AVX512) or forced
+  `avx512`, relu_/add_/batchnorm/avgpool retire only 256-bit FP instructions
+  (relu_: exactly elements/8); forced `default` makes them scalar; exp is
+  512-bit under every setting. `libtorch_cpu.so` has AVX2 and DEFAULT, but no
+  AVX512, instantiations of add_kernel, clamp_min_scalar, mul_kernel,
+  vectorized_inner_sum.
+* **Interpretation (INFERRED):** kernels without an AVX512 build fall back
+  to AVX2 on AVX-512 CPUs; no runtime switch changes this.
+
+## 2026-10-06 -- E8: dispatch overhead
+
+* **Commit:** ae97d8d. **Command:** `scripts/run_dispatch_overhead.sh` (quiet)
+* **Hypothesis:** fixed per-call software cost is a few µs per operator and
+  a small share of a 98 ms inference.
+* **Methodology:** cycles/instructions/ns per call for 1..4 M-element inputs;
+  smallest-call cost as the direct overhead measurement; linear fits over
+  L2-resident sizes as a cross-check.
+* **Results:** `results/2026-10-06_dispatch_overhead/processed/DISPATCH.md`
+* **Key metrics (OBSERVED):** empty Python call 38 ns; nn.Identity 1.0 µs;
+  torch.relu (1 element) 1.28 µs; nn.ReLU module 2.94 µs; BatchNorm2d 9.7 µs
+  (66 K instructions); conv1x1 (MKL) 8.0 µs; conv3x3 (oneDNN) 17.6 µs.
+  CALCULATED: ~1.3 ms fixed cost per inference (1.3%).
+* **Problem found:** the linear fit gives a negative intercept for the NCHW
+  max-pool (per-element cost varies with size); flagged as invalid, and the
+  smallest-call table added.
+
+## 2026-10-06 -- E9: single-core optimizations
+
+* **Commit:** ae97d8d. **Command:** `scripts/run_optimizations.sh` (quiet;
+  other users' CPU 3% throughout, `results/machine_load_2026-10-06.log`)
+* **Hypotheses (from E3-E6):** NCHW max-pool is instruction/branch bound
+  (~10 ms recoverable); BN folding saves ~4.9 ms; per-call reorders cost
+  ~8.8 ms; a compiler that fuses and prepacks removes most of the non-conv
+  time.
+* **Methodology:** 9 variants from the same weights (`cpuinf/variants.py`),
+  output checked against baseline, timed in rotating blocks of 10 until 100
+  each; per-op hooks; max-pool counters per output; oneDNN verbose and
+  torch.profiler census per variant.
+* **Results:** `results/2026-10-06_optimizations/processed/OPTIMIZATIONS.md`
+* **Key metrics (OBSERVED):** baseline 100.5, fold_bn 98.5, mkldnn_layout
+  93.8, maxpool_chlast 92.1, channels_last 89.7, fold_bn+channels_last 86.4,
+  jit_freeze 84.2, inductor 70.4 ms (1.43x; 87% of FMA peak).
+* **Interpretation:** max-pool hypothesis confirmed (214 -> 24
+  instructions/output, mispredicts -> 0). BN folding only -2 ms: the MKL 1x1
+  path copies the bias into the output (aten::copy_ 2 -> 35). Weight
+  reorders (56 MB eager, 94 MB with all-oneDNN convs) are the expensive
+  reorders; only inductor (prepacked weights, post-op fusion) removes them.
+  Conv math time is unchanged across variants; the gains come from work
+  around the convs.
+* **Limitation:** the in-run baseline (100.5 ms) is 2% slower than the
+  canonical 98.57 ms (same instructions, more cycles) because nine models are
+  resident and interleaved; speedups are relative to the in-run baseline.
+
+## 2026-10-06 -- E10: multi-core scaling (threads and independent instances)
+
+* **Command:** `scripts/run_multicore.sh results/2026-10-06_optimizations`
+  (user request: run multi-core after single-core, keep the unmodified
+  baseline as reference). Variants: baseline, fold_bn+channels_last,
+  inductor. Cores 1, 2, 4, 8, 16, 26 (CPUs 1..N).
+* **Hypotheses:** (a) intra-op threading of batch-1 inference scales
+  sub-linearly (small layers, per-op synchronisation); (b) independent copies
+  scale nearly linearly until shared L3/DRAM interfere.
+* **Methodology:** threads: one process, OMP threads bound to CPUs 1..N,
+  60 timed inferences, socket IMC CAS around the loop. Instances: N pinned
+  single-thread processes, common start, 20 s window, IMC CAS over the window.
+  Other users' CPU sampled before/during each configuration from CPU 27;
+  configurations re-run if other users exceed one core.
+* **Results:** `results/2026-10-06_multicore/processed/MULTICORE.md`
+* **Key metrics (OBSERVED; 36/36 configurations clean):** threads at 26
+  cores: baseline 15.3 ms (6.5x, 25% efficiency), fold_bn+channels_last 9.9
+  ms, inductor 7.6 ms (13x vs baseline on 1 core); scaling flattens after 16
+  cores. Instances at 26 cores: baseline 221 inf/s (+19% per-copy latency;
+  DRAM per inference 137 -> 408 MB read, 11 -> 171 MB write), inductor 352
+  inf/s (+5.4%; 24 MB write per inference).
+* **Interpretation (INFERRED):** copies interfere through the shared L3:
+  activations spill to DRAM when each copy's L3 share shrinks to ~2 MiB;
+  fused (inductor) graphs write far fewer intermediates and barely
+  interfere. Thread scaling is not bandwidth-limited (<= 16 GB/s).
+* **Problem found and fixed:** the first attempt started 10 s before another
+  user's job restarted (the 1-minute load average lags); contention inverted
+  thread scaling. Kept as `results/2026-10-06_multicore_CONTENDED/`; the
+  launcher now checks instantaneous other-user CPU per configuration.
+  The other user's job is itself agent-driven and backed off when it saw
+  this run (their log: "joshliu multicore.py running; resume when quiet").

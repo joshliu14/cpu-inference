@@ -107,7 +107,7 @@ def main(out_dir):
         for v in variants:
             d = tt[tt.variant == v]
             ax.plot(d.cores, d.median_ms, marker="o", color=color[v], label=v)
-            for r in d.itertuples():
+            for r in d[d.cores >= 4].itertuples():
                 ax.annotate(f"{r.median_ms:.1f}", (r.cores, r.median_ms), xytext=(3, 4), textcoords="offset points",
                             fontsize=7.5, color=ps.TEXT2)
         if base1:
@@ -140,7 +140,7 @@ def main(out_dir):
             d = ti[ti.variant == v] if len(ti) else pd.DataFrame()
             if len(d):
                 ax.plot(d.cores, d.throughput_inf_per_s, marker="o", color=color[v], label=f"{v}: N instances")
-                for r in d.itertuples():
+                for r in d[d.cores >= 8].itertuples():
                     ax.annotate(f"{r.throughput_inf_per_s:.0f}", (r.cores, r.throughput_inf_per_s), xytext=(3, 4),
                                 textcoords="offset points", fontsize=7.5, color=ps.TEXT2)
             d = tt[tt.variant == v] if len(tt) else pd.DataFrame()
@@ -153,6 +153,26 @@ def main(out_dir):
                   "solid = N single-thread instances, dotted = one instance with N threads")
         ax.legend(loc="upper left", fontsize=8)
         fig.savefig(out / "plots" / "throughput_scaling.png")
+        plt.close(fig)
+    if len(ti):
+        # Why copies slow down: per-copy latency next to DRAM traffic per inference.
+        fig, axes = plt.subplots(1, 2, figsize=(12, 4.4))
+        for v in variants:
+            d = ti[ti.variant == v]
+            if not len(d):
+                continue
+            axes[0].plot(d.cores, d.slowdown_vs_1_instance * 100 - 100, marker="o", color=color[v], label=v)
+            mb = (d.dram_read_GBps + d.dram_write_GBps) * 1000 / d.throughput_inf_per_s
+            axes[1].plot(d.cores, mb, marker="o", color=color[v], label=v)
+        axes[0].set_xlabel("independent single-thread copies (one per core)")
+        axes[0].set_ylabel("slowdown of each copy vs running alone (%)")
+        ps.titled(axes[0], "Each copy slows down as copies are added", "median latency per copy")
+        axes[1].set_xlabel("independent single-thread copies (one per core)")
+        axes[1].set_ylabel("DRAM read + write per inference (MB)")
+        ps.titled(axes[1], "...while DRAM traffic per inference grows",
+                  "socket IMC traffic / inferences in the window")
+        axes[0].legend(loc="upper left")
+        fig.savefig(out / "plots" / "instances_memory.png")
         plt.close(fig)
     (out / "processed" / "MULTICORE.md").write_text("\n".join(md))
     print("\n".join(md))
